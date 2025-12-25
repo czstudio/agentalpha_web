@@ -1,0 +1,661 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  /* Light theme: clean tech white with subtle cyan/purple accents */
+  --background: oklch(0.98 0.01 250);
+  --foreground: oklch(0.16 0.02 260);
+  --card: oklch(0.97 0.01 250);
+  --card-foreground: oklch(0.16 0.02 260);
+  --popover: oklch(0.99 0.005 240);
+  --popover-foreground: oklch(0.16 0.02 260);
+  --primary: oklch(0.65 0.16 210);
+  --primary-foreground: oklch(0.98 0.01 250);
+  --secondary: oklch(0.9 0.03 240);
+  --secondary-foreground: oklch(0.18 0.02 260);
+  --muted: oklch(0.9 0.02 240);
+  --muted-foreground: oklch(0.45 0.03 260);
+  --accent: oklch(0.62 0.18 285);
+  --accent-foreground: oklch(0.98 0.01 250);
+  --destructive: oklch(0.6 0.24 25);
+  --destructive-foreground: oklch(0.98 0.01 250);
+  --border: oklch(0.9 0.02 240);
+  --input: oklch(0.9 0.02 240);
+  --ring: oklch(0.62 0.18 285);
+  --chart-1: oklch(0.65 0.16 210);
+  --chart-2: oklch(0.62 0.18 285);
+  --chart-3: oklch(0.72 0.12 150);
+  --chart-4: oklch(0.6 0.12 200);
+  --chart-5: oklch(0.7 0.12 320);
+  --radius: 1rem;
+  --sidebar: oklch(0.97 0.01 250);
+  --sidebar-foreground: oklch(0.18 0.02 260);
+  --sidebar-primary: oklch(0.65 0.16 210);
+  --sidebar-primary-foreground: oklch(0.98 0.01 250);
+  --sidebar-accent: oklch(0.9 0.02 240);
+  --sidebar-accent-foreground: oklch(0.18 0.02 260);
+  --sidebar-border: oklch(0.9 0.02 240);
+  --sidebar-ring: oklch(0.62 0.18 285);
+}
+
+.dark {
+  /* Premium dark theme with cyan/purple tech aesthetic */
+  --background: oklch(0.08 0.01 280);
+  --foreground: oklch(0.98 0.005 280);
+  --card: oklch(0.12 0.015 280);
+  --card-foreground: oklch(0.98 0.005 280);
+  --popover: oklch(0.1 0.015 280);
+  --popover-foreground: oklch(0.98 0.005 280);
+  --primary: oklch(0.75 0.18 195);
+  --primary-foreground: oklch(0.08 0.01 280);
+  --secondary: oklch(0.18 0.02 280);
+  --secondary-foreground: oklch(0.98 0.005 280);
+  --muted: oklch(0.15 0.015 280);
+  --muted-foreground: oklch(0.6 0.01 280);
+  --accent: oklch(0.7 0.2 285);
+  --accent-foreground: oklch(0.08 0.01 280);
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: oklch(0.99 0 0);
+  --border: oklch(0.2 0.02 280);
+  --input: oklch(0.15 0.02 280);
+  --ring: oklch(0.75 0.18 195);
+  --chart-1: oklch(0.75 0.18 195);
+  --chart-2: oklch(0.7 0.2 285);
+  --chart-3: oklch(0.65 0.15 320);
+  --chart-4: oklch(0.6 0.12 210);
+  --chart-5: oklch(0.8 0.15 170);
+  --radius: 1rem;
+  --sidebar: oklch(0.1 0.015 280);
+  --sidebar-foreground: oklch(0.98 0.005 280);
+  --sidebar-primary: oklch(0.75 0.18 195);
+  --sidebar-primary-foreground: oklch(0.08 0.01 280);
+  --sidebar-accent: oklch(0.15 0.02 280);
+  --sidebar-accent-foreground: oklch(0.98 0.005 280);
+  --sidebar-border: oklch(0.2 0.02 280);
+  --sidebar-ring: oklch(0.75 0.18 195);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground antialiased;
+  }
+}
+
+/* Layout & sections */
+.section-shell {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.25rem;
+}
+
+.panel {
+  background: linear-gradient(145deg, var(--card) 0%, color-mix(in oklab, var(--card) 80%, var(--accent) 20%));
+  border: 1px solid color-mix(in oklab, var(--border) 70%, var(--accent) 30%);
+  border-radius: 1.25rem;
+  box-shadow: 0 20px 70px color-mix(in oklab, var(--primary) 10%, transparent),
+    inset 0 1px 0 color-mix(in oklab, var(--foreground) 10%, transparent);
+  backdrop-filter: blur(16px) saturate(140%);
+}
+
+.glass-card {
+  background: linear-gradient(135deg, color-mix(in oklab, var(--card) 70%, transparent) 0%, var(--card) 100%);
+  backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid color-mix(in oklab, var(--border) 70%, var(--accent) 30%);
+  box-shadow: 0 8px 32px 0 oklch(0 0 0 / 0.2), inset 0 1px 0 0 oklch(1 0 0 / 0.04);
+}
+
+.glass-card:hover {
+  border-color: color-mix(in oklab, var(--primary) 80%, var(--accent) 20%);
+  box-shadow: 0 8px 32px 0 oklch(0 0 0 / 0.25), 0 0 40px 0 color-mix(in oklab, var(--primary) 15%, transparent),
+    inset 0 1px 0 0 oklch(1 0 0 / 0.05);
+}
+
+.premium-gradient {
+  background: radial-gradient(circle at 18% 20%, color-mix(in oklab, var(--primary) 45%, transparent) 0%, transparent 42%),
+    radial-gradient(circle at 84% 30%, color-mix(in oklab, var(--accent) 35%, transparent) 0%, transparent 38%),
+    radial-gradient(circle at 50% 75%, color-mix(in oklab, var(--foreground) 12%, transparent) 0%, transparent 52%),
+    var(--background);
+  background-size: 200% 200%;
+  animation: gradientShift 18s ease infinite;
+}
+
+.grid-pattern {
+  background-image: linear-gradient(color-mix(in oklab, var(--primary) 10%, transparent) 1px, transparent 1px),
+    linear-gradient(90deg, color-mix(in oklab, var(--primary) 10%, transparent) 1px, transparent 1px);
+  background-size: 60px 60px;
+  mask-image: radial-gradient(circle at 50% 50%, rgba(0, 0, 0, 0.8), transparent 65%);
+}
+
+@keyframes gradientShift {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+.neon-border {
+  position: relative;
+  border: 1px solid color-mix(in oklab, var(--border) 70%, var(--accent) 30%);
+}
+
+.neon-border::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(135deg, var(--primary), var(--accent));
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.neon-border:hover::before {
+  opacity: 1;
+}
+
+.glow-text {
+  text-shadow: 0 0 22px color-mix(in oklab, var(--primary) 40%, transparent),
+    0 0 44px color-mix(in oklab, var(--accent) 30%, transparent);
+}
+
+.shimmer {
+  position: relative;
+  overflow: hidden;
+}
+
+.shimmer::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, color-mix(in oklab, var(--foreground) 15%, transparent), transparent);
+  animation: shimmer 3s infinite;
+}
+
+@keyframes shimmer {
+  to {
+    left: 100%;
+  }
+}
+
+.floating {
+  animation: floating 6s ease-in-out infinite;
+}
+
+@keyframes floating {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-18px);
+  }
+}
+
+.premium-text-gradient {
+  background: linear-gradient(135deg, color-mix(in oklab, var(--foreground) 80%, var(--primary) 20%), var(--primary), var(--accent));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.tag-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.35rem 0.75rem;
+  border-radius: 999px;
+  background: color-mix(in oklab, var(--primary) 12%, transparent);
+  color: color-mix(in oklab, var(--foreground) 85%, var(--primary) 15%);
+  border: 1px solid color-mix(in oklab, var(--border) 70%, var(--primary) 30%);
+}
+
+.grid-overlay {
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(color-mix(in oklab, var(--primary) 7%, transparent) 1px, transparent 1px),
+    linear-gradient(90deg, color-mix(in oklab, var(--primary) 7%, transparent) 1px, transparent 1px);
+  background-size: 70px 70px;
+  mask-image: radial-gradient(circle at 50% 50%, rgba(0, 0, 0, 0.9), transparent 70%);
+  pointer-events: none;
+}
+
+.soft-glow {
+  box-shadow: 0 10px 50px color-mix(in oklab, var(--primary) 15%, transparent);
+}
+
+/* ===================================
+   高级背景效果 - 日间/夜间模式
+   =================================== */
+
+/* 日间模式：灰白渐变 + 流动形态 */
+body {
+  position: relative;
+  overflow-x: hidden;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -2;
+  pointer-events: none;
+
+  /* 日间模式背景 */
+  background:
+    radial-gradient(circle at 20% 30%, oklch(0.96 0.02 240) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, oklch(0.95 0.03 260) 0%, transparent 50%),
+    radial-gradient(circle at 40% 70%, oklch(0.97 0.015 250) 0%, transparent 50%),
+    radial-gradient(circle at 90% 80%, oklch(0.94 0.025 230) 0%, transparent 50%),
+    linear-gradient(135deg, oklch(0.98 0.01 250) 0%, oklch(0.96 0.02 240) 50%, oklch(0.97 0.015 260) 100%);
+
+  background-size: 150% 150%;
+  animation: flowingGradient 20s ease infinite;
+}
+
+/* 流动渐变动画 */
+@keyframes flowingGradient {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  25% {
+    background-position: 50% 20%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  75% {
+    background-position: 50% 80%;
+  }
+}
+
+/* 日间模式：流动形态层 */
+body::after {
+  content: "";
+  position: fixed;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  z-index: -1;
+  pointer-events: none;
+
+  /* 日间模式形态 */
+  background:
+    radial-gradient(circle at 30% 40%, oklch(0.92 0.04 220 / 0.3) 0%, transparent 40%),
+    radial-gradient(circle at 70% 60%, oklch(0.93 0.035 270 / 0.25) 0%, transparent 45%),
+    radial-gradient(circle at 50% 80%, oklch(0.95 0.025 250 / 0.2) 0%, transparent 35%);
+
+  filter: blur(80px);
+  animation: morphing 25s ease-in-out infinite;
+}
+
+/* 流动形态动画 */
+@keyframes morphing {
+  0%, 100% {
+    transform: translate(0%, 0%) scale(1);
+  }
+  33% {
+    transform: translate(10%, -8%) scale(1.1) rotate(15deg);
+  }
+  66% {
+    transform: translate(-8%, 10%) scale(0.95) rotate(-10deg);
+  }
+}
+
+/* 夜间模式：Linear 设计风格 */
+.dark body::before {
+  background:
+    radial-gradient(circle at 25% 25%, oklch(0.15 0.06 280) 0%, transparent 40%),
+    radial-gradient(circle at 75% 30%, oklch(0.12 0.05 200) 0%, transparent 45%),
+    radial-gradient(circle at 50% 80%, oklch(0.1 0.04 285) 0%, transparent 50%),
+    radial-gradient(circle at 85% 75%, oklch(0.14 0.055 195) 0%, transparent 40%),
+    linear-gradient(165deg, oklch(0.08 0.01 280) 0%, oklch(0.09 0.02 270) 40%, oklch(0.07 0.015 290) 100%);
+
+  background-size: 150% 150%;
+  animation: flowingGradientDark 18s ease infinite;
+}
+
+@keyframes flowingGradientDark {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+/* 夜间模式：动态流光层 */
+.dark body::after {
+  background:
+    radial-gradient(circle at 20% 30%, oklch(0.35 0.15 195 / 0.15) 0%, transparent 30%),
+    radial-gradient(circle at 80% 40%, oklch(0.32 0.18 285 / 0.12) 0%, transparent 35%),
+    radial-gradient(circle at 60% 70%, oklch(0.3 0.12 210 / 0.1) 0%, transparent 30%);
+
+  filter: blur(100px);
+  animation: streamingLight 30s ease-in-out infinite;
+}
+
+/* 动态流光动画 */
+@keyframes streamingLight {
+  0%, 100% {
+    transform: translate(0%, 0%) scale(1);
+    opacity: 0.6;
+  }
+  25% {
+    transform: translate(15%, -10%) scale(1.15) rotate(20deg);
+    opacity: 0.8;
+  }
+  50% {
+    transform: translate(-10%, 15%) scale(0.9) rotate(-15deg);
+    opacity: 0.7;
+  }
+  75% {
+    transform: translate(12%, 8%) scale(1.05) rotate(10deg);
+    opacity: 0.75;
+  }
+}
+
+/* 微噪点纹理 */
+.noise-texture {
+  position: relative;
+}
+
+.noise-texture::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.05'/%3E%3C/svg%3E");
+  opacity: 0.4;
+  pointer-events: none;
+  mix-blend-mode: overlay;
+}
+
+.dark .noise-texture::before {
+  opacity: 0.15;
+}
+
+/* 极细描边效果 */
+.linear-border {
+  position: relative;
+  border: 1px solid transparent;
+}
+
+.linear-border::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  padding: 0.5px;
+  border-radius: inherit;
+  background: linear-gradient(135deg,
+    oklch(1 0 0 / 0.1) 0%,
+    oklch(0.8 0.1 200 / 0.05) 50%,
+    oklch(1 0 0 / 0.08) 100%
+  );
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+.dark .linear-border::before {
+  background: linear-gradient(135deg,
+    oklch(1 0 0 / 0.08) 0%,
+    oklch(0.7 0.15 195 / 0.12) 30%,
+    oklch(0.65 0.18 285 / 0.1) 70%,
+    oklch(1 0 0 / 0.06) 100%
+  );
+}
+
+/* 外发光效果（夜间模式增强） */
+.linear-glow {
+  box-shadow:
+    0 0 1px oklch(1 0 0 / 0.1),
+    0 2px 8px oklch(0 0 0 / 0.05);
+  transition: box-shadow 0.3s ease;
+}
+
+.dark .linear-glow {
+  box-shadow:
+    0 0 1px oklch(0.7 0.15 195 / 0.3),
+    0 0 20px oklch(0.6 0.18 195 / 0.08),
+    0 4px 12px oklch(0 0 0 / 0.4),
+    inset 0 1px 0 oklch(1 0 0 / 0.03);
+}
+
+.linear-glow:hover {
+  box-shadow:
+    0 0 1px oklch(1 0 0 / 0.15),
+    0 4px 12px oklch(0 0 0 / 0.08);
+}
+
+.dark .linear-glow:hover {
+  box-shadow:
+    0 0 1px oklch(0.75 0.18 195 / 0.5),
+    0 0 30px oklch(0.65 0.2 195 / 0.15),
+    0 0 60px oklch(0.6 0.18 285 / 0.08),
+    0 8px 20px oklch(0 0 0 / 0.5),
+    inset 0 1px 0 oklch(1 0 0 / 0.05);
+}
+
+/* 流畅微动效 */
+.subtle-float {
+  animation: subtleFloat 4s ease-in-out infinite;
+}
+
+@keyframes subtleFloat {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+.subtle-pulse {
+  animation: subtlePulse 3s ease-in-out infinite;
+}
+
+@keyframes subtlePulse {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.95;
+    transform: scale(1.02);
+  }
+}
+
+/* 渐变模糊叠加 */
+.gradient-blur {
+  position: relative;
+  backdrop-filter: blur(12px) saturate(120%);
+}
+
+.dark .gradient-blur {
+  backdrop-filter: blur(16px) saturate(140%);
+}
+
+.gradient-blur::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg,
+    oklch(1 0 0 / 0.03) 0%,
+    transparent 50%,
+    oklch(0 0 0 / 0.02) 100%
+  );
+  pointer-events: none;
+  border-radius: inherit;
+}
+
+.dark .gradient-blur::after {
+  background: linear-gradient(135deg,
+    oklch(1 0 0 / 0.02) 0%,
+    transparent 40%,
+    oklch(0.6 0.15 195 / 0.03) 100%
+  );
+}
+
+/* 增强型玻璃卡片 */
+.glass-card-premium {
+  position: relative;
+  background: linear-gradient(135deg,
+    color-mix(in oklab, var(--card) 60%, transparent) 0%,
+    color-mix(in oklab, var(--card) 80%, transparent) 100%
+  );
+  backdrop-filter: blur(20px) saturate(180%);
+  border: 0.5px solid color-mix(in oklab, var(--border) 60%, var(--primary) 40%);
+  box-shadow:
+    0 0 1px oklch(1 0 0 / 0.1),
+    0 8px 32px oklch(0 0 0 / 0.12),
+    inset 0 1px 0 oklch(1 0 0 / 0.05);
+}
+
+.dark .glass-card-premium {
+  background: linear-gradient(135deg,
+    oklch(0.12 0.02 280 / 0.5) 0%,
+    oklch(0.1 0.015 280 / 0.7) 100%
+  );
+  border: 0.5px solid oklch(0.25 0.04 280 / 0.4);
+  box-shadow:
+    0 0 1px oklch(0.7 0.15 195 / 0.2),
+    0 0 20px oklch(0.6 0.18 195 / 0.06),
+    0 8px 32px oklch(0 0 0 / 0.4),
+    inset 0 1px 0 oklch(1 0 0 / 0.03),
+    inset 0 -1px 0 oklch(0.7 0.15 195 / 0.05);
+}
+
+.glass-card-premium:hover {
+  border-color: color-mix(in oklab, var(--primary) 70%, var(--accent) 30%);
+  box-shadow:
+    0 0 1px oklch(1 0 0 / 0.15),
+    0 12px 48px oklch(0 0 0 / 0.15),
+    0 0 40px color-mix(in oklab, var(--primary) 12%, transparent),
+    inset 0 1px 0 oklch(1 0 0 / 0.08);
+}
+
+.dark .glass-card-premium:hover {
+  border-color: oklch(0.35 0.08 280 / 0.6);
+  box-shadow:
+    0 0 1px oklch(0.75 0.18 195 / 0.4),
+    0 0 30px oklch(0.65 0.2 195 / 0.12),
+    0 0 60px oklch(0.6 0.18 285 / 0.08),
+    0 12px 48px oklch(0 0 0 / 0.5),
+    inset 0 1px 0 oklch(1 0 0 / 0.06),
+    inset 0 -1px 0 oklch(0.7 0.18 195 / 0.08);
+}
+
+/* 🔥 滚动动画 - 用于合作院校展示 */
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-scroll {
+  animation: scroll 30s linear infinite;
+}
+
+.animate-scroll:hover {
+  animation-play-state: paused;
+}
+
+/* Linear glow hover 效果 */
+.linear-glow-hover {
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.linear-glow-hover::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(135deg,
+    var(--primary),
+    var(--accent),
+    var(--primary)
+  );
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.linear-glow-hover:hover::before {
+  opacity: 0.6;
+}
+
+.dark .linear-glow-hover:hover::before {
+  opacity: 0.8;
+}
+
+/* 延迟动画 */
+.delay-1000 {
+  animation-delay: 1s;
+}
+

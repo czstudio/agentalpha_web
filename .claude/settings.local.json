@@ -1,0 +1,32 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(pnpm add:*)",
+      "Bash(pnpm db:push:*)",
+      "Bash(pnpm db:seed:*)",
+      "Bash(pnpm prisma db push:*)",
+      "Bash(pnpm prisma db seed:*)",
+      "Bash(npx tsx:*)",
+      "Bash(npx prisma db execute:*)",
+      "Bash(npx prisma generate:*)",
+      "Bash(pnpm run build:*)",
+      "Bash(npx prisma db seed:*)",
+      "Bash(curl:*)",
+      "Bash(taskkill:*)",
+      "WebFetch(domain:qingkeai.online)",
+      "mcp__Playwright__browser_navigate",
+      "mcp__Playwright__browser_install",
+      "Bash(python3:*)",
+      "Bash(node -e:*)",
+      "Bash(del qingke_temp.json)",
+      "Bash(pnpm run dev)",
+      "Bash(cat:*)",
+      "Bash(powershell -Command:*)",
+      "Bash(git init:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(dir /s /b nul)",
+      "Bash(findstr:*)"
+    ]
+  }
+}

@@ -1,0 +1,251 @@
+// Prisma Schema for AgentAlpha CMS
+// SQLite database for easy deployment
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+// ===================================
+// 系统配置表
+// ===================================
+model Config {
+  id          String   @id @default(cuid())
+  key         String   @unique // 配置键名
+  value       String   // JSON 字符串存储复杂配置
+  description String?  // 配置说明
+  type        String   @default("text") // text, json, number, boolean
+  updatedAt   DateTime @updatedAt
+  createdAt   DateTime @default(now())
+
+  @@map("configs")
+}
+
+// ===================================
+// 网站内容配置 - 前端所有文本内容
+// ===================================
+model SiteContent {
+  id          String   @id @default(cuid())
+  section     String   // hero, vision, advanced, resources, training, contact, universities, stats
+  key         String   // 内容键名，如: title, subtitle, description
+  value       String   // 内容值，支持文本和 JSON
+  type        String   @default("text") // text, json, array
+  order       Int      @default(0)
+  description String?  // 字段说明
+  updatedAt   DateTime @updatedAt
+  createdAt   DateTime @default(now())
+
+  @@unique([section, key]) // 确保每个区块的键名唯一
+  @@map("site_contents")
+}
+
+// ===================================
+// 社区成员
+// ===================================
+model CommunityMember {
+  id         String   @id @default(cuid())
+  name       String
+  role       String
+  background String   @default("")
+  avatar     String?
+  order      Int      @default(0) // 显示顺序
+  isVisible  Boolean  @default(true)
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+
+  @@map("community_members")
+}
+
+// ===================================
+// 导师信息
+// ===================================
+model Mentor {
+  id        String   @id @default(cuid())
+  name      String
+  title     String
+  company   String
+  expertise String   // JSON 数组: ["10+ Agent论文", "RL专家"]
+  skills    String   // JSON 对象: {"engineering": 95, "theory": 85}
+  avatar    String
+  order     Int      @default(0)
+  isVisible Boolean  @default(true)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("mentors")
+}
+
+// ===================================
+// 项目列表
+// ===================================
+model Project {
+  id          String   @id @default(cuid())
+  title       String
+  description String
+  difficulty  Int      @default(3) // 1-5
+  tags        String   // JSON 数组: ["LangChain", "Agent"]
+  link        String?
+  order       Int      @default(0)
+  isVisible   Boolean  @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@map("projects")
+}
+
+// ===================================
+// 论文列表
+// ===================================
+model Paper {
+  id         String   @id @default(cuid())
+  title      String
+  category   String   // Agent, RL, Multimodal, Diffusion, LLM
+  authors    String
+  venue      String
+  conference String   @default("") // 会议名称（用于前端显示）
+  year       Int
+  tags       String   @default("") // 标签（逗号分隔）
+  link       String?  // 论文链接
+  order      Int      @default(0)
+  isVisible  Boolean  @default(true)
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+
+  @@map("papers")
+}
+
+// ===================================
+// 快速链接（新人必逛）
+// ===================================
+model QuickLink {
+  id          String   @id @default(cuid())
+  title       String
+  description String
+  href        String   // 链接地址
+  order       Int      @default(0)
+  isVisible   Boolean  @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@map("quick_links")
+}
+
+// ===================================
+// 合作伙伴（高校 + 社区）
+// ===================================
+model Partner {
+  id          String   @id @default(cuid())
+  name        String
+  logo        String
+  type        String   // university, community
+  url         String?
+  description String   @default("") // 描述信息
+  order       Int      @default(0)
+  isVisible   Boolean  @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@map("partners")
+}
+
+// ===================================
+// 社区动态/新闻
+// ===================================
+model News {
+  id        String   @id @default(cuid())
+  title     String
+  date      String   // 或使用 DateTime
+  category  String   // 技术分享, 社区活动, 成员动态, 合作公告
+  link      String?
+  order     Int      @default(0)
+  isVisible Boolean  @default(true)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("news")
+}
+
+// ===================================
+// 资源合集
+// ===================================
+model Resource {
+  id          String   @id @default(cuid())
+  title       String
+  description String
+  icon        String   // Lucide icon 名称
+  link        String?  // 链接地址
+  order       Int      @default(0)
+  isVisible   Boolean  @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@map("resources")
+}
+
+// ===================================
+// 学习路径节点
+// ===================================
+model RoadmapNode {
+  id          String   @id @default(cuid())
+  title       String
+  description String
+  link        String?
+  level       Int      @default(1) // 1-5
+  order       Int      @default(0)
+  isVisible   Boolean  @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@map("roadmap_nodes")
+}
+
+// ===================================
+// 社交媒体平台
+// ===================================
+model SocialPlatform {
+  id          String   @id @default(cuid())
+  name        String
+  icon        String   // Lucide icon 名称
+  qrCode      String   // 图片路径
+  description String
+  order       Int      @default(0)
+  isVisible   Boolean  @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@map("social_platforms")
+}
+
+// ===================================
+// 管理员用户
+// ===================================
+model Admin {
+  id           String    @id @default(cuid())
+  username     String    @unique
+  passwordHash String    // bcrypt 加密
+  email        String?
+  lastLogin    DateTime?
+  createdAt    DateTime  @default(now())
+  updatedAt    DateTime  @updatedAt
+
+  @@map("admins")
+}
+
+// ===================================
+// 操作日志（审计）
+// ===================================
+model AuditLog {
+  id         String   @id @default(cuid())
+  adminId    String
+  action     String   // CREATE, UPDATE, DELETE
+  resource   String   // CommunityMember, Project, etc.
+  resourceId String
+  changes    String   // JSON 字符串记录变更
+  createdAt  DateTime @default(now())
+
+  @@map("audit_logs")
+}
