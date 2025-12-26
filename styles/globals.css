@@ -120,6 +120,56 @@
     @apply border-border outline-ring/50;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground antialiased;
+  }
+
+  /* 性能优化 - 硬件加速 */
+  .glass-card,
+  .panel,
+  img,
+  video {
+    @apply transform-gpu;
+  }
+
+  /* 平滑滚动 */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* 改善文字渲染 */
+  body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  /* 优化动画性能 */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+
+  /* 改善暗色模式下的对比度 */
+  .dark {
+    color-scheme: dark;
+  }
+
+  /* 优化图片加载 */
+  img {
+    @apply transition-opacity duration-300;
+  }
+
+  img[loading="lazy"] {
+    @apply opacity-0;
+  }
+
+  img[loading="lazy"].loaded,
+  img:not([loading="lazy"]) {
+    @apply opacity-100;
   }
 }
