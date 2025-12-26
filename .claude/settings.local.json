@@ -26,7 +26,11 @@
       "Bash(git add:*)",
       "Bash(git commit:*)",
       "Bash(dir /s /b nul)",
-      "Bash(findstr:*)"
+      "Bash(findstr:*)",
+      "Bash(git config:*)",
+      "Bash(gh:*)",
+      "Bash(pnpm install:*)",
+      "Bash(git remote add:*)"
     ]
   }
 }
