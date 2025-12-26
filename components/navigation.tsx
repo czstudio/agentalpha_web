@@ -67,7 +67,7 @@ export function Navigation() {
             <SiteLogo />
           </Link>
 
-          <div className="hidden lg:flex items-center gap-1">
+          <div className="hidden lg:flex items-center gap-1 flex-nowrap">
             {navItems.map((item) =>
               item.dropdown ? (
                 <div
@@ -76,9 +76,9 @@ export function Navigation() {
                   onMouseEnter={() => setOpenDropdown(true)}
                   onMouseLeave={() => setOpenDropdown(false)}
                 >
-                  <button className="px-4 py-2 text-sm font-medium text-foreground/75 hover:text-foreground transition-all duration-200 hover:bg-primary/10 rounded-lg relative group flex items-center gap-1">
+                  <button className="px-4 py-2 text-sm font-medium text-foreground/75 hover:text-foreground transition-all duration-200 hover:bg-primary/10 rounded-lg relative group flex items-center gap-1 whitespace-nowrap">
                     {item.label}
-                    <ChevronDown className="w-3 h-3" />
+                    <ChevronDown className="w-3 h-3 flex-shrink-0" />
                     <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-primary group-hover:w-3/4 transition-all duration-300" />
                   </button>
                   <AnimatePresence>
@@ -120,7 +120,7 @@ export function Navigation() {
                 <Link
                   key={item.href}
                   href={item.href}
-                  className="px-4 py-2 text-sm font-medium text-foreground/75 hover:text-foreground transition-all duration-200 hover:bg-primary/10 rounded-lg relative group"
+                  className="px-4 py-2 text-sm font-medium text-foreground/75 hover:text-foreground transition-all duration-200 hover:bg-primary/10 rounded-lg relative group whitespace-nowrap"
                 >
                   {item.label}
                   <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-primary group-hover:w-3/4 transition-all duration-300" />

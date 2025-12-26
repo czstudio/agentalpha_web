@@ -30,7 +30,11 @@
       "Bash(git config:*)",
       "Bash(gh:*)",
       "Bash(pnpm install:*)",
-      "Bash(git remote add:*)"
+      "Bash(git remote add:*)",
+      "Bash(git push:*)",
+      "Bash(vercel --version:*)",
+      "Bash(npm install:*)",
+      "Bash(vercel:*)"
     ]
   }
 }
