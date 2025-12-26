@@ -264,6 +264,20 @@ export default async function Home() {
   const data = await getData()
   const c = data.content || {} // 简化内容访问
 
+  // 辅助函数：确保值是数组
+  const ensureArray = (value: any, defaultValue: any[] = []) => {
+    if (Array.isArray(value)) return value
+    if (typeof value === 'string') {
+      try {
+        const parsed = JSON.parse(value)
+        return Array.isArray(parsed) ? parsed : defaultValue
+      } catch {
+        return defaultValue
+      }
+    }
+    return defaultValue
+  }
+
   // 构建统计数据（从配置加载）
   const stats = c.stats ? [
     { label: c.stats.stat1_label || "社群成员", value: c.stats.stat1_value || "5,000+", note: c.stats.stat1_note || "覆盖高校 / 大厂 / 创业者" },
@@ -345,7 +359,7 @@ export default async function Home() {
             <h2 className="text-3xl md:text-4xl font-bold mb-6">{c.vision?.title || "Agent 时代的共赢社区"}</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div className="space-y-4">
-                {(c.vision?.vision_points || [
+                {ensureArray(c.vision?.vision_points, [
                   "真正的 AGI 还有十年，Agent 是必经之路，抓住浪潮才能不缺席。",
                   "通过深度实践、知识共享与项目协作，拆解技术壁垒，转化为个人优势与实际价值。",
                   "赋能每一人，决胜 Agent 十年。"
@@ -359,7 +373,7 @@ export default async function Home() {
               <div className="glass-card rounded-2xl p-6 space-y-3">
                 <h3 className="text-xl font-semibold">{c.vision?.offerings_title || "我们提供"}</h3>
                 <ul className="space-y-2 text-foreground/70 text-sm leading-relaxed">
-                  {(c.vision?.offerings || [
+                  {ensureArray(c.vision?.offerings, [
                     "系统化学习路径与实践手册",
                     "技术导师与行业专家一对一指导",
                     "论文笔记、前沿 talk、案例共创",
@@ -386,7 +400,7 @@ export default async function Home() {
           </div>
           <h2 className="text-3xl md:text-4xl font-bold">{c.advanced?.title || "深度共创 · 论文/项目/求职全链路"}</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            {(c.advanced?.offerings || [
+            {ensureArray(c.advanced?.offerings, [
               {
                 title: "如果你想入门大模型 Agent",
                 bullets: ["学习路径与开源仓库推荐", "入门课 + 实战项目", "志同道合的交流社区"],
@@ -589,7 +603,7 @@ export default async function Home() {
           </div>
           <div className="panel p-8 md:p-10 rounded-3xl space-y-8">
             <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-              {(c.training?.modules || [
+              {ensureArray(c.training?.modules, [
                 { title: "基础掌握", desc: "LLM/多模态基石，代码能力强化与工程规范", icon: "BookOpen" },
                 { title: "Agent 架构", desc: "规划/记忆/工具调用与评测，真实业务案例拆解", icon: "Brain" },
                 { title: "项目共创", desc: "实战项目组队，导师答疑与代码评审", icon: "Cpu" },
@@ -639,7 +653,7 @@ export default async function Home() {
                 {c.contact?.description || "共建社区 / 宣传合作 / AI 产品 / 培训辅导，或需要论文、项目、求职支持，扫码关注公众号了解更多。"}
               </p>
               <div className="flex flex-wrap gap-3 text-sm text-foreground/80">
-                {(c.contact?.tags || ["共建社区", "宣传工作", "AI 产品", "培训辅导"]).map((tag: string) => (
+                {ensureArray(c.contact?.tags, ["共建社区", "宣传工作", "AI 产品", "培训辅导"]).map((tag: string) => (
                   <span key={tag} className="tag-pill">{tag}</span>
                 ))}
               </div>
