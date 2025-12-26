@@ -430,6 +430,7 @@ export default async function Home() {
         </div>
       </section>
 
+      {/* 资源合集 - 仅在有数据时显示 */}
       {data.resources && data.resources.length > 0 && (
         <section id="resources" className="relative py-16 premium-gradient overflow-hidden">
           <div className="section-shell relative z-10 space-y-10">
@@ -457,9 +458,15 @@ export default async function Home() {
                 )
               })}
             </div>
+          </div>
+          <div className="grid-overlay" />
+        </section>
+      )}
 
-          {/* 动态 Talk & 论文展示 - 滚动播放效果 */}
-          <div id="talks" className="panel p-8 md:p-10 rounded-2xl space-y-6">
+      {/* Talk & 圆桌会 - 独立section，始终显示 */}
+      <section id="talks" className="relative py-16 premium-gradient overflow-hidden">
+        <div className="section-shell relative z-10 space-y-10">
+          <div className="panel p-8 md:p-10 rounded-2xl space-y-6">
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-3">
                 <FileText className="w-5 h-5 text-accent" />
@@ -593,7 +600,6 @@ export default async function Home() {
         </div>
         <div className="grid-overlay" />
       </section>
-      )}
 
       <section id="join" className="relative py-16 premium-gradient overflow-hidden">
         <div className="section-shell relative z-10 space-y-10">
