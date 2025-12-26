@@ -35,7 +35,8 @@
       "Bash(vercel --version:*)",
       "Bash(npm install:*)",
       "Bash(vercel:*)",
-      "Bash(bash)"
+      "Bash(bash)",
+      "Bash(pnpm prisma generate:*)"
     ]
   }
 }

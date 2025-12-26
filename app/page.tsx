@@ -416,15 +416,15 @@ export default async function Home() {
         </div>
       </section>
 
-      <section id="resources" className="relative py-16 premium-gradient overflow-hidden">
-        <div className="section-shell relative z-10 space-y-10">
-          <div className="flex items-center gap-3">
-            <BookOpen className="w-5 h-5 text-primary" />
-            <p className="tag-pill">{c.resources?.tag || "资源合集"}</p>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            {data.resources && data.resources.length > 0 ? (
-              data.resources.map((item: any) => {
+      {data.resources && data.resources.length > 0 && (
+        <section id="resources" className="relative py-16 premium-gradient overflow-hidden">
+          <div className="section-shell relative z-10 space-y-10">
+            <div className="flex items-center gap-3">
+              <BookOpen className="w-5 h-5 text-primary" />
+              <p className="tag-pill">{c.resources?.tag || "资源合集"}</p>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+              {data.resources.map((item: any) => {
                 const IconComponent = iconMap[item.icon] || BookOpen
                 return (
                   <a
@@ -441,15 +441,8 @@ export default async function Home() {
                     <p className="text-foreground/70 leading-relaxed text-sm">{item.description}</p>
                   </a>
                 )
-              })
-            ) : (
-              <div className="col-span-full text-center py-12 text-foreground/60">
-                <BookOpen className="w-16 h-16 mx-auto mb-4 opacity-30" />
-                <p>暂无资源</p>
-                <p className="text-sm mt-2">请在后台管理系统中添加</p>
-              </div>
-            )}
-          </div>
+              })}
+            </div>
 
           {/* 动态 Talk & 论文展示 - 滚动播放效果 */}
           <div id="talks" className="panel p-8 md:p-10 rounded-2xl space-y-6">
@@ -586,6 +579,7 @@ export default async function Home() {
         </div>
         <div className="grid-overlay" />
       </section>
+      )}
 
       <section id="join" className="relative py-16 premium-gradient overflow-hidden">
         <div className="section-shell relative z-10 space-y-10">

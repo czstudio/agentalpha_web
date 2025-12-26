@@ -16,7 +16,7 @@ const navItems = [
   { label: "新人必逛", href: "#onboard" },
   { label: "高阶玩法", href: "#advanced" },
   { label: "Talk & 圆桌会", href: "#talks" },
-  { label: "资源合集", href: "#resources" },
+  { label: "资源合集", href: "#resources", conditional: true }, // 根据资源数据动态显示
   { label: "兄弟社区", href: "#", dropdown: true },
 ]
 
@@ -28,7 +28,11 @@ type Partner = {
 }
 
 type PublicData = {
-  communities: Partner[]
+  success: boolean
+  data: {
+    communities: Partner[]
+    resources?: any[]
+  }
 }
 
 export function Navigation() {
@@ -38,7 +42,16 @@ export function Navigation() {
   const { resolvedTheme, setTheme } = useTheme()
   const { data } = useSWR<PublicData>(mounted ? "/api/public/data" : null, fetcher)
 
-  const communities = (data?.communities || []).slice(0, 3)
+  const communities = (data?.data?.communities || []).slice(0, 3)
+  const hasResources = (data?.data?.resources || []).length > 0 // 检查是否有资源
+
+  // 根据资源数据过滤导航项
+  const filteredNavItems = navItems.filter(item => {
+    if (item.conditional) {
+      return hasResources
+    }
+    return true
+  })
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 24)
@@ -68,7 +81,7 @@ export function Navigation() {
           </Link>
 
           <div className="hidden lg:flex items-center gap-1 flex-nowrap">
-            {navItems.map((item) =>
+            {filteredNavItems.map((item) =>
               item.dropdown ? (
                 <div
                   key={item.href}
