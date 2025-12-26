@@ -94,27 +94,40 @@ export async function GET() {
       }
     })
 
-    return NextResponse.json({
-      success: true,
-      data: {
-        members,
-        mentors,
-        projects,
-        papers,
-        universities,
-        communities,
-        news,
-        socialPlatforms,
-        quickLinks,
-        resources,
-        content,
-      },
-    })
+    return new NextResponse(
+      JSON.stringify({
+        success: true,
+        data: {
+          members,
+          mentors,
+          projects,
+          papers,
+          universities,
+          communities,
+          news,
+          socialPlatforms,
+          quickLinks,
+          resources,
+          content,
+        },
+      }),
+      {
+        status: 200,
+        headers: {
+          'Content-Type': 'application/json; charset=utf-8',
+        },
+      }
+    )
   } catch (error) {
     console.error('Failed to load public data:', error)
-    return NextResponse.json(
-      { success: false, error: 'Failed to load public data' },
-      { status: 500 },
+    return new NextResponse(
+      JSON.stringify({ success: false, error: 'Failed to load public data' }),
+      {
+        status: 500,
+        headers: {
+          'Content-Type': 'application/json; charset=utf-8',
+        },
+      }
     )
   }
 }

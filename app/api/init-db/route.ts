@@ -30,9 +30,14 @@ export async function GET(request: Request) {
     const expectedSecret = process.env.INIT_DB_SECRET || 'init-agentalpha-2024'
 
     if (secret !== expectedSecret) {
-      return NextResponse.json(
-        { error: 'Unauthorized - Invalid secret' },
-        { status: 401 }
+      return new NextResponse(
+        JSON.stringify({ error: 'Unauthorized - Invalid secret' }),
+        {
+          status: 401,
+          headers: {
+            'Content-Type': 'application/json; charset=utf-8',
+          },
+        }
       )
     }
 
@@ -359,33 +364,46 @@ export async function GET(request: Request) {
 
     console.log('✨ 数据库种子数据填充完成！')
 
-    return NextResponse.json({
-      success: true,
-      message: '数据库初始化成功！',
-      data: {
-        admin: 1,
-        partners: allPartners.length,
-        members: communityMembers.length,
-        mentors: mentors.length,
-        roadmapNodes: roadmapNodes.length,
-        projects: projects.length,
-        papers: papers.length,
-        quickLinks: quickLinks.length,
-        news: communityNews.length,
-        socialPlatforms: socialPlatforms.length,
-        siteContents: siteContents.length,
+    return new NextResponse(
+      JSON.stringify({
+        success: true,
+        message: '数据库初始化成功！',
+        data: {
+          admin: 1,
+          partners: allPartners.length,
+          members: communityMembers.length,
+          mentors: mentors.length,
+          roadmapNodes: roadmapNodes.length,
+          projects: projects.length,
+          papers: papers.length,
+          quickLinks: quickLinks.length,
+          news: communityNews.length,
+          socialPlatforms: socialPlatforms.length,
+          siteContents: siteContents.length,
+        }
+      }),
+      {
+        status: 200,
+        headers: {
+          'Content-Type': 'application/json; charset=utf-8',
+        },
       }
-    })
+    )
 
   } catch (error: any) {
     console.error('❌ 数据库初始化失败:', error)
-    return NextResponse.json(
-      {
+    return new NextResponse(
+      JSON.stringify({
         error: '数据库初始化失败',
         details: error.message,
         stack: error.stack
-      },
-      { status: 500 }
+      }),
+      {
+        status: 500,
+        headers: {
+          'Content-Type': 'application/json; charset=utf-8',
+        },
+      }
     )
   } finally {
     await prisma.$disconnect()

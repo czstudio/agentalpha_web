@@ -36,7 +36,8 @@
       "Bash(npm install:*)",
       "Bash(vercel:*)",
       "Bash(bash)",
-      "Bash(pnpm prisma generate:*)"
+      "Bash(pnpm prisma generate:*)",
+      "WebFetch(domain:agent-alpha-community-website.vercel.app)"
     ]
   }
 }
