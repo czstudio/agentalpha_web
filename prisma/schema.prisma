@@ -1,14 +1,14 @@
 // Prisma Schema for AgentAlpha CMS
-// PostgreSQL database for Vercel deployment
+// Using Prisma Postgres (with Accelerate) for Vercel deployment
 
 generator client {
   provider = "prisma-client-js"
 }
 
 datasource db {
-  provider = "postgresql"
-  url      = env("POSTGRES_PRISMA_URL") // uses connection pooling
-  directUrl = env("POSTGRES_URL_NON_POOLING") // uses a direct connection
+  provider  = "postgresql"
+  url       = env("PRISMA_DATABASE_URL") // Prisma Accelerate connection
+  directUrl = env("POSTGRES_URL") // Direct connection for migrations
 }
 
 // ===================================
