@@ -294,13 +294,13 @@ export default async function Home() {
     <main className="min-h-screen bg-background text-foreground">
       <Navigation />
 
-      <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden premium-gradient">
-        <div className="absolute inset-0 grid-pattern opacity-40" />
-        {/* 背景装饰 - 调整位置避免与导航栏冲突 */}
-        <div className="absolute -left-40 top-32 md:top-10 h-64 w-64 rounded-full blur-3xl bg-primary/20" />
-        <div className="absolute -right-32 bottom-10 h-72 w-72 rounded-full blur-3xl bg-accent/20" />
+      <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden premium-gradient pt-16 md:pt-20">
+        <div className="absolute inset-0 grid-pattern opacity-30" />
+        {/* 背景装饰 - 移动端隐藏避免干扰 */}
+        <div className="hidden md:block absolute -left-40 top-40 h-64 w-64 rounded-full blur-3xl bg-primary/15" />
+        <div className="hidden md:block absolute -right-32 bottom-10 h-72 w-72 rounded-full blur-3xl bg-accent/15" />
 
-        <div className="relative z-10 section-shell py-32 md:py-28">
+        <div className="relative z-10 section-shell py-12 md:py-20">
           <div className="max-w-5xl mx-auto text-center space-y-6 md:space-y-8 animate-in fade-in slide-in-from-bottom-4 duration-700">
             <div className="inline-flex items-center gap-3 px-3 py-1.5 md:px-4 md:py-2 rounded-full glass-card neon-border">
               <Sparkles className="w-3 h-3 md:w-4 md:h-4 text-primary" />

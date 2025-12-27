@@ -29,11 +29,8 @@ type Partner = {
 }
 
 type PublicData = {
-  success: boolean
-  data: {
-    communities: Partner[]
-    resources?: any[]
-  }
+  communities: Partner[]
+  resources?: any[]
 }
 
 export function Navigation() {
@@ -44,8 +41,8 @@ export function Navigation() {
   const { resolvedTheme, setTheme } = useTheme()
   const { data } = useSWR<PublicData>(mounted ? "/api/public/data" : null, fetcher)
 
-  const communities = (data?.data?.communities || []).slice(0, 6) // 显示前6个
-  const hasResources = (data?.data?.resources || []).length > 0
+  const communities = (data?.communities || []).slice(0, 6) // 显示前6个
+  const hasResources = (data?.resources || []).length > 0
 
   // 根据资源数据过滤导航项
   const filteredNavItems = navItems.filter(item => {
@@ -77,13 +74,14 @@ export function Navigation() {
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.35, ease: "easeOut" }}
         className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-300 ${
-          scrolled ? "glass-card backdrop-blur-2xl shadow-lg" : "bg-transparent"
+          scrolled
+            ? "bg-background/95 backdrop-blur-2xl shadow-lg border-b border-white/10"
+            : "bg-background/80 backdrop-blur-xl"
         }`}
-        style={{ willChange: scrolled ? 'auto' : 'transform' }}
       >
         <div className="section-shell">
-          <div className="flex h-20 items-center justify-between gap-4">
-            <Link href="#home" className="flex items-center gap-3 group">
+          <div className="flex h-16 md:h-20 items-center justify-between gap-2 md:gap-4">
+            <Link href="#home" className="flex items-center gap-2 md:gap-3 group flex-shrink-0">
               <SiteLogo />
             </Link>
 
@@ -211,15 +209,15 @@ export function Navigation() {
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
               transition={{ type: "spring", damping: 25, stiffness: 200 }}
-              className="fixed top-0 right-0 bottom-0 w-80 max-w-[90vw] glass-card border-l border-white/10 shadow-2xl z-[95] lg:hidden overflow-y-auto"
+              className="fixed top-0 right-0 bottom-0 w-72 sm:w-80 max-w-[85vw] bg-background border-l border-white/10 shadow-2xl z-[95] lg:hidden overflow-y-auto"
             >
               {/* 头部 */}
-              <div className="flex items-center justify-between p-6 border-b border-white/10">
-                <h2 className="text-xl font-bold premium-text-gradient">菜单</h2>
+              <div className="flex items-center justify-between p-4 sm:p-6 border-b border-white/10 bg-background/50">
+                <h2 className="text-lg sm:text-xl font-bold premium-text-gradient">菜单</h2>
                 <Button
                   variant="ghost"
                   size="icon"
-                  className="h-11 w-11"
+                  className="h-10 w-10"
                   onClick={closeMobileMenu}
                 >
                   <X className="w-5 h-5" />
@@ -227,7 +225,7 @@ export function Navigation() {
               </div>
 
               {/* 导航链接 */}
-              <div className="p-4 space-y-2">
+              <div className="p-3 sm:p-4 space-y-1">
                 {filteredNavItems.map((item) =>
                   item.dropdown ? (
                     // 移动端展开兄弟社区列表
@@ -276,15 +274,15 @@ export function Navigation() {
               </div>
 
               {/* 底部按钮 */}
-              <div className="p-6 border-t border-white/10 space-y-3">
+              <div className="p-4 sm:p-6 border-t border-white/10 space-y-3 bg-background/50">
                 <Button
                   asChild
                   size="lg"
-                  className="w-full shimmer bg-gradient-to-r from-primary to-accent border-0"
+                  className="w-full bg-gradient-to-r from-primary to-accent border-0 text-white font-semibold"
                   onClick={closeMobileMenu}
                 >
                   <Link href="#join">
-                    <span className="font-semibold">加入训练营</span>
+                    <span>加入训练营</span>
                     <ArrowRight className="ml-2 h-4 w-4" />
                   </Link>
                 </Button>
@@ -292,7 +290,7 @@ export function Navigation() {
                   asChild
                   size="lg"
                   variant="outline"
-                  className="w-full glass-card border-primary/30"
+                  className="w-full border-primary/30 bg-background/50"
                   onClick={closeMobileMenu}
                 >
                   <Link href="#contact">联系我们</Link>
