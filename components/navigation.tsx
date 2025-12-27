@@ -76,7 +76,7 @@ export function Navigation() {
         initial={{ y: -100, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.35, ease: "easeOut" }}
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-300 ${
           scrolled ? "glass-card backdrop-blur-2xl shadow-lg" : "bg-transparent"
         }`}
         style={{ willChange: scrolled ? 'auto' : 'transform' }}
@@ -209,7 +209,7 @@ export function Navigation() {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.2 }}
-              className="fixed inset-0 bg-black/60 backdrop-blur-sm z-40 lg:hidden"
+              className="fixed inset-0 bg-black/60 backdrop-blur-sm z-[90] lg:hidden"
               onClick={closeMobileMenu}
             />
 
@@ -219,7 +219,7 @@ export function Navigation() {
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
               transition={{ type: "spring", damping: 25, stiffness: 200 }}
-              className="fixed top-0 right-0 bottom-0 w-80 max-w-[85vw] glass-card border-l border-white/10 shadow-2xl z-50 lg:hidden overflow-y-auto"
+              className="fixed top-0 right-0 bottom-0 w-80 max-w-[85vw] glass-card border-l border-white/10 shadow-2xl z-[95] lg:hidden overflow-y-auto"
             >
               {/* 头部 */}
               <div className="flex items-center justify-between p-6 border-b border-white/10">

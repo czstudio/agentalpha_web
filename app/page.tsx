@@ -296,53 +296,54 @@ export default async function Home() {
 
       <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden premium-gradient">
         <div className="absolute inset-0 grid-pattern opacity-40" />
-        <div className="absolute -left-40 top-10 h-64 w-64 rounded-full blur-3xl bg-primary/20" />
+        {/* 背景装饰 - 调整位置避免与导航栏冲突 */}
+        <div className="absolute -left-40 top-32 md:top-10 h-64 w-64 rounded-full blur-3xl bg-primary/20" />
         <div className="absolute -right-32 bottom-10 h-72 w-72 rounded-full blur-3xl bg-accent/20" />
 
-        <div className="relative z-10 section-shell py-28">
-          <div className="max-w-5xl mx-auto text-center space-y-8 animate-in fade-in slide-in-from-bottom-4 duration-700">
-            <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full glass-card neon-border">
-              <Sparkles className="w-4 h-4 text-primary" />
-              <span className="text-sm font-medium text-foreground/80">{c.hero?.badge_text || "赋能每一人 · 决胜 Agent 十年"}</span>
+        <div className="relative z-10 section-shell py-32 md:py-28">
+          <div className="max-w-5xl mx-auto text-center space-y-6 md:space-y-8 animate-in fade-in slide-in-from-bottom-4 duration-700">
+            <div className="inline-flex items-center gap-3 px-3 py-1.5 md:px-4 md:py-2 rounded-full glass-card neon-border">
+              <Sparkles className="w-3 h-3 md:w-4 md:h-4 text-primary" />
+              <span className="text-xs md:text-sm font-medium text-foreground/80">{c.hero?.badge_text || "赋能每一人 · 决胜 Agent 十年"}</span>
             </div>
 
-            <h1 className="text-5xl md:text-6xl font-black leading-tight text-balance">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black leading-tight text-balance px-4 md:px-0">
               <span className="premium-text-gradient">{c.hero?.title_highlight || "AgentAlpha"}</span>
               <br />
               <span className="text-foreground">{c.hero?.title_normal || "链接顶尖研究者、工程师与创业者"}</span>
             </h1>
 
-            <p className="text-lg md:text-xl text-foreground/70 leading-relaxed max-w-3xl mx-auto">
+            <p className="text-base md:text-lg lg:text-xl text-foreground/70 leading-relaxed max-w-3xl mx-auto px-4 md:px-0">
               {c.hero?.subtitle || "Agent 是通往 AGI 的必经之路。我们用深度实践、知识共享与项目协作，帮助你把握浪潮、积累作品、取得实绩。"}
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+            <div className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center items-center px-4 md:px-0">
               <Button
                 asChild
                 size="lg"
-                className="group relative overflow-hidden bg-gradient-to-r from-primary via-primary to-accent hover:shadow-2xl hover:shadow-primary/40 transition-all duration-300 text-lg px-10 py-7 border-0 shimmer"
+                className="w-full sm:w-auto group relative overflow-hidden bg-gradient-to-r from-primary via-primary to-accent hover:shadow-2xl hover:shadow-primary/40 transition-all duration-300 text-base md:text-lg px-8 md:px-10 py-6 md:py-7 border-0 shimmer"
               >
                 <a href={c.hero?.cta_primary_link || "#join"}>
                   <span className="relative z-10 font-bold">{c.hero?.cta_primary_text || "加入训练营"}</span>
-                  <ArrowRight className="relative z-10 ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+                  <ArrowRight className="relative z-10 ml-2 h-4 md:h-5 w-4 md:w-5 group-hover:translate-x-1 transition-transform" />
                 </a>
               </Button>
               <Button
                 asChild
                 size="lg"
                 variant="outline"
-                className="text-lg px-10 py-7 glass-card hover:bg-primary/10 border-primary/30 neon-border font-semibold bg-transparent"
+                className="w-full sm:w-auto text-base md:text-lg px-8 md:px-10 py-6 md:py-7 glass-card hover:bg-primary/10 border-primary/30 neon-border font-semibold bg-transparent"
               >
                 <a href={c.hero?.cta_secondary_link || "#contact"}>{c.hero?.cta_secondary_text || "商务/合作"}</a>
               </Button>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 pt-6">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-3 md:gap-4 pt-4 md:pt-6 px-4 md:px-0">
               {stats.map((item) => (
-                <div key={item.label} className="glass-card rounded-2xl p-4 text-left">
-                  <div className="text-sm text-foreground/60">{item.label}</div>
-                  <div className="text-3xl font-bold mt-2 mb-1 premium-text-gradient">{item.value}</div>
-                  <div className="text-sm text-foreground/60">{item.note}</div>
+                <div key={item.label} className="glass-card rounded-xl md:rounded-2xl p-3 md:p-4 text-left">
+                  <div className="text-xs md:text-sm text-foreground/60">{item.label}</div>
+                  <div className="text-2xl md:text-3xl font-bold mt-1 md:mt-2 mb-1 premium-text-gradient">{item.value}</div>
+                  <div className="text-xs md:text-sm text-foreground/60">{item.note}</div>
                 </div>
               ))}
             </div>
