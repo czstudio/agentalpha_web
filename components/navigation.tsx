@@ -17,7 +17,7 @@ const navItems = [
   { label: "高阶玩法", href: "#advanced" },
   { label: "Talk & 圆桌会", href: "#talks" },
   { label: "资源合集", href: "#resources", conditional: true },
-  { label: "兄弟社区", href: "#communities" }, // 改为直接链接到section
+  { label: "兄弟社区", href: "#communities", dropdown: true }, // 恢复下拉菜单
   { label: "合作院校", href: "#universities" },
 ]
 
@@ -39,10 +39,12 @@ type PublicData = {
 export function Navigation() {
   const [scrolled, setScrolled] = useState(false)
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const [openDropdown, setOpenDropdown] = useState(false)
   const [mounted, setMounted] = useState(false)
   const { resolvedTheme, setTheme } = useTheme()
   const { data } = useSWR<PublicData>(mounted ? "/api/public/data" : null, fetcher)
 
+  const communities = (data?.data?.communities || []).slice(0, 6) // 显示前6个
   const hasResources = (data?.data?.resources || []).length > 0
 
   // 根据资源数据过滤导航项
@@ -87,16 +89,75 @@ export function Navigation() {
 
             {/* 桌面端导航 */}
             <div className="hidden lg:flex items-center gap-1 flex-nowrap">
-              {filteredNavItems.map((item) => (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  className="px-4 py-2 text-sm font-medium text-foreground/75 hover:text-foreground transition-all duration-200 hover:bg-primary/10 rounded-lg relative group whitespace-nowrap"
-                >
-                  {item.label}
-                  <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-primary group-hover:w-3/4 transition-all duration-300" />
-                </Link>
-              ))}
+              {filteredNavItems.map((item) =>
+                item.dropdown ? (
+                  <div
+                    key={item.href}
+                    className="relative"
+                    onMouseEnter={() => setOpenDropdown(true)}
+                    onMouseLeave={() => setOpenDropdown(false)}
+                  >
+                    <button className="px-4 py-2 text-sm font-medium text-foreground/75 hover:text-foreground transition-all duration-200 hover:bg-primary/10 rounded-lg relative group flex items-center gap-1 whitespace-nowrap">
+                      {item.label}
+                      <ChevronDown className="w-3 h-3 flex-shrink-0" />
+                      <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-primary group-hover:w-3/4 transition-all duration-300" />
+                    </button>
+                    <AnimatePresence>
+                      {openDropdown && (
+                        <motion.div
+                          initial={{ opacity: 0, y: 8 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          exit={{ opacity: 0, y: 8 }}
+                          transition={{ duration: 0.2 }}
+                          className="absolute top-full right-0 mt-2 w-80 glass-card rounded-xl border border-white/10 shadow-2xl overflow-hidden"
+                        >
+                          <div className="p-3 space-y-2">
+                            {communities.length > 0 ? (
+                              <>
+                                {communities.map((community) => (
+                                  <a
+                                    key={community.id}
+                                    href={community.website || community.url || "#"}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="flex items-center justify-between gap-3 p-3 rounded-lg hover:bg-primary/10 transition-all group"
+                                  >
+                                    <span className="text-sm font-semibold text-foreground group-hover:text-primary transition-colors truncate">
+                                      {community.name}
+                                    </span>
+                                    <ExternalLink className="w-3 h-3 text-foreground/50 flex-shrink-0" />
+                                  </a>
+                                ))}
+                                {/* 查看更多链接 */}
+                                <Link
+                                  href="#communities"
+                                  className="flex items-center justify-center gap-2 p-3 mt-2 rounded-lg bg-primary/5 hover:bg-primary/10 transition-all group border-t border-white/10"
+                                >
+                                  <span className="text-sm font-medium text-primary">查看所有社区</span>
+                                  <ArrowRight className="w-3 h-3 text-primary group-hover:translate-x-1 transition-transform" />
+                                </Link>
+                              </>
+                            ) : (
+                              <div className="px-3 py-2 text-sm text-foreground/60">
+                                暂无兄弟社区（可在后台"合作伙伴"中添加）
+                              </div>
+                            )}
+                          </div>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  </div>
+                ) : (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    className="px-4 py-2 text-sm font-medium text-foreground/75 hover:text-foreground transition-all duration-200 hover:bg-primary/10 rounded-lg relative group whitespace-nowrap"
+                  >
+                    {item.label}
+                    <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-primary group-hover:w-3/4 transition-all duration-300" />
+                  </Link>
+                ),
+              )}
             </div>
 
             <div className="flex items-center gap-2">
@@ -175,19 +236,59 @@ export function Navigation() {
 
               {/* 导航链接 */}
               <div className="p-4 space-y-2">
-                {filteredNavItems.map((item) => (
-                  <Link
-                    key={item.href}
-                    href={item.href}
-                    onClick={closeMobileMenu}
-                    className="flex items-center justify-between px-4 py-3 rounded-lg hover:bg-primary/10 transition-all group"
-                  >
-                    <span className="text-base font-medium text-foreground group-hover:text-primary transition-colors">
-                      {item.label}
-                    </span>
-                    <ArrowRight className="w-4 h-4 text-foreground/50 group-hover:text-primary group-hover:translate-x-1 transition-all" />
-                  </Link>
-                ))}
+                {filteredNavItems.map((item) =>
+                  item.dropdown ? (
+                    // 移动端展开兄弟社区列表
+                    <div key={item.href} className="space-y-1">
+                      <div className="px-4 py-2 text-sm font-semibold text-foreground/60">
+                        {item.label}
+                      </div>
+                      {communities.length > 0 ? (
+                        <>
+                          {communities.map((community) => (
+                            <a
+                              key={community.id}
+                              href={community.website || community.url || "#"}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              onClick={closeMobileMenu}
+                              className="flex items-center justify-between pl-8 pr-4 py-2 rounded-lg hover:bg-primary/10 transition-all group"
+                            >
+                              <span className="text-sm text-foreground group-hover:text-primary transition-colors truncate">
+                                {community.name}
+                              </span>
+                              <ExternalLink className="w-3 h-3 text-foreground/50 flex-shrink-0" />
+                            </a>
+                          ))}
+                          <Link
+                            href="#communities"
+                            onClick={closeMobileMenu}
+                            className="flex items-center justify-between pl-8 pr-4 py-2 rounded-lg hover:bg-primary/10 transition-all group"
+                          >
+                            <span className="text-sm text-primary font-medium">查看所有社区</span>
+                            <ArrowRight className="w-3 h-3 text-primary" />
+                          </Link>
+                        </>
+                      ) : (
+                        <div className="pl-8 pr-4 py-2 text-sm text-foreground/50">
+                          暂无社区
+                        </div>
+                      )}
+                    </div>
+                  ) : (
+                    <Link
+                      key={item.href}
+                      href={item.href}
+                      onClick={closeMobileMenu}
+                      className="flex items-center justify-between px-4 py-3 rounded-lg hover:bg-primary/10 transition-all group"
+                    >
+                      <span className="text-base font-medium text-foreground group-hover:text-primary transition-colors">
+                        {item.label}
+                      </span>
+                      <ArrowRight className="w-4 h-4 text-foreground/50 group-hover:text-primary group-hover:translate-x-1 transition-all" />
+                    </Link>
+                  ),
+                )}
               </div>
 
               {/* 底部按钮 */}
