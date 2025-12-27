@@ -1,6 +1,6 @@
 "use client"
 
-import { useEffect, useState } from "react"
+import { useEffect, useState, useRef, useCallback } from "react"
 import Link from "next/link"
 import { useTheme } from "next-themes"
 import useSWR from "swr"
@@ -9,6 +9,7 @@ import { ChevronDown, SunMedium, Moon, ArrowRight, ExternalLink, Menu, X } from 
 import { Button } from "@/components/ui/button"
 
 import { SiteLogo } from "@/components/site-logo"
+import { Fireworks } from "@/components/fireworks"
 import { fetcher } from "@/lib/fetcher"
 
 const navItems = [
@@ -38,8 +39,40 @@ export function Navigation() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [openDropdown, setOpenDropdown] = useState(false)
   const [mounted, setMounted] = useState(false)
+  const [showFireworks, setShowFireworks] = useState(false)
   const { resolvedTheme, setTheme } = useTheme()
   const { data } = useSWR<PublicData>(mounted ? "/api/public/data" : null, fetcher)
+
+  // 彩蛋：快速点击Logo触发烟花
+  const clickCountRef = useRef(0)
+  const clickTimerRef = useRef<NodeJS.Timeout | null>(null)
+
+  const handleLogoClick = useCallback((e: React.MouseEvent) => {
+    e.preventDefault()
+    clickCountRef.current += 1
+
+    if (clickTimerRef.current) {
+      clearTimeout(clickTimerRef.current)
+    }
+
+    // 1秒内点击5次触发彩蛋
+    if (clickCountRef.current >= 5) {
+      clickCountRef.current = 0
+      setShowFireworks(true)
+    } else {
+      clickTimerRef.current = setTimeout(() => {
+        // 如果只点击了一次，正常跳转
+        if (clickCountRef.current === 1) {
+          window.location.href = "#home"
+        }
+        clickCountRef.current = 0
+      }, 500)
+    }
+  }, [])
+
+  const handleFireworksComplete = useCallback(() => {
+    setShowFireworks(false)
+  }, [])
 
   const communities = (data?.communities || []).slice(0, 6) // 显示前6个
   const hasResources = (data?.resources || []).length > 0
@@ -69,6 +102,9 @@ export function Navigation() {
 
   return (
     <>
+      {/* 烟花彩蛋 */}
+      <Fireworks show={showFireworks} onComplete={handleFireworksComplete} />
+
       <motion.nav
         initial={{ y: -100, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
@@ -81,9 +117,13 @@ export function Navigation() {
       >
         <div className="section-shell">
           <div className="flex h-16 md:h-20 items-center justify-between gap-2 md:gap-4">
-            <Link href="#home" className="flex items-center gap-2 md:gap-3 group flex-shrink-0">
+            <a
+              href="#home"
+              onClick={handleLogoClick}
+              className="flex items-center gap-2 md:gap-3 group flex-shrink-0 cursor-pointer select-none"
+            >
               <SiteLogo />
-            </Link>
+            </a>
 
             {/* 桌面端导航 */}
             <div className="hidden lg:flex items-center gap-1 flex-nowrap">
