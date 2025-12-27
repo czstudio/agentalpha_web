@@ -307,7 +307,7 @@ export default async function Home() {
               <span className="text-xs md:text-sm font-medium text-foreground/80">{c.hero?.badge_text || "赋能每一人 · 决胜 Agent 十年"}</span>
             </div>
 
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black leading-tight text-balance px-4 md:px-0">
+            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-black leading-tight text-balance px-4 md:px-0">
               <span className="premium-text-gradient">{c.hero?.title_highlight || "AgentAlpha"}</span>
               <br />
               <span className="text-foreground">{c.hero?.title_normal || "链接顶尖研究者、工程师与创业者"}</span>
@@ -340,7 +340,7 @@ export default async function Home() {
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-3 md:gap-4 pt-4 md:pt-6 px-4 md:px-0">
               {stats.map((item) => (
-                <div key={item.label} className="glass-card rounded-xl md:rounded-2xl p-3 md:p-4 text-left">
+                <div key={item.label} className="glass-card rounded-xl md:rounded-2xl p-4 md:p-5 text-left">
                   <div className="text-xs md:text-sm text-foreground/60">{item.label}</div>
                   <div className="text-2xl md:text-3xl font-bold mt-1 md:mt-2 mb-1 premium-text-gradient">{item.value}</div>
                   <div className="text-xs md:text-sm text-foreground/60">{item.note}</div>
@@ -351,14 +351,14 @@ export default async function Home() {
         </div>
       </section>
 
-      <section id="vision" className="relative py-16 premium-gradient overflow-hidden">{" "}
+      <section id="vision" className="relative py-10 md:py-16 premium-gradient overflow-hidden">{" "}
         <div className="section-shell relative z-10">
-          <div className="panel p-8 md:p-10">
+          <div className="panel p-5 sm:p-6 md:p-8 lg:p-10">
             <div className="flex items-center gap-3 mb-4">
               <ShieldCheck className="w-5 h-5 text-primary" />
               <p className="tag-pill">{c.vision?.tag || "愿景与目标"}</p>
             </div>
-            <h2 className="text-3xl md:text-4xl font-bold mb-6">{c.vision?.title || "Agent 时代的共赢社区"}</h2>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-6">{c.vision?.title || "Agent 时代的共赢社区"}</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div className="space-y-4">
                 {ensureArray(c.vision?.vision_points, [
@@ -394,14 +394,14 @@ export default async function Home() {
         <div className="grid-overlay" />
       </section>
 
-      <section id="advanced" className="relative py-16">
+      <section id="advanced" className="relative py-10 md:py-16">
         <div className="section-shell space-y-8">
           <div className="flex items-center gap-3 mb-2">
             <Rocket className="w-5 h-5 text-accent" />
             <p className="tag-pill">{c.advanced?.tag || "高阶玩法"}</p>
           </div>
-          <h2 className="text-3xl md:text-4xl font-bold">{c.advanced?.title || "深度共创 · 论文/项目/求职全链路"}</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold">{c.advanced?.title || "深度共创 · 论文/项目/求职全链路"}</h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
             {ensureArray(c.advanced?.offerings, [
               {
                 title: "如果你想入门大模型 Agent",
@@ -434,13 +434,13 @@ export default async function Home() {
 
       {/* 资源合集 - 仅在有数据时显示 */}
       {data.resources && data.resources.length > 0 && (
-        <section id="resources" className="relative py-16 premium-gradient overflow-hidden">
+        <section id="resources" className="relative py-10 md:py-16 premium-gradient overflow-hidden">
           <div className="section-shell relative z-10 space-y-10">
             <div className="flex items-center gap-3">
               <BookOpen className="w-5 h-5 text-primary" />
               <p className="tag-pill">{c.resources?.tag || "资源合集"}</p>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
               {data.resources.map((item: any) => {
                 const IconComponent = iconMap[item.icon] || BookOpen
                 return (
@@ -466,9 +466,9 @@ export default async function Home() {
       )}
 
       {/* Talk & 圆桌会 - 独立section，始终显示 */}
-      <section id="talks" className="relative py-16 premium-gradient overflow-hidden">
+      <section id="talks" className="relative py-10 md:py-16 premium-gradient overflow-hidden">
         <div className="section-shell relative z-10 space-y-10">
-          <div className="panel p-8 md:p-10 rounded-2xl space-y-6">
+          <div className="panel p-5 sm:p-6 md:p-8 lg:p-10 rounded-2xl space-y-6">
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-3">
                 <FileText className="w-5 h-5 text-accent" />
@@ -491,7 +491,7 @@ export default async function Home() {
                   <span className="text-xs px-2 py-1 rounded-full bg-green-500/20 text-green-400 font-medium">来自青稞社区</span>
                   <span className="text-xs text-foreground/50">实时同步最新内容</span>
                 </div>
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
                   {data.qingkeTalks.slice(0, 3).map((talk: any) => (
                     <a
                       key={talk.id}
@@ -555,7 +555,7 @@ export default async function Home() {
                         href={video.link}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="group relative flex-shrink-0 w-80 glass-card rounded-2xl overflow-hidden hover:-translate-y-1 hover:shadow-xl transition-all duration-300"
+                        className="group relative flex-shrink-0 w-72 sm:w-80 md:w-96 glass-card rounded-2xl overflow-hidden hover:-translate-y-1 hover:shadow-xl transition-all duration-300"
                       >
                         {/* 封面图片 */}
                         <div className="relative h-44 overflow-hidden">
@@ -603,14 +603,14 @@ export default async function Home() {
         <div className="grid-overlay" />
       </section>
 
-      <section id="join" className="relative py-16 premium-gradient overflow-hidden">
+      <section id="join" className="relative py-10 md:py-16 premium-gradient overflow-hidden">
         <div className="section-shell relative z-10 space-y-10">
           <div className="flex items-center gap-3">
             <MessageSquare className="w-5 h-5 text-primary" />
             <p className="tag-pill">{c.training?.badge || "训练营 & 加入方式"}</p>
           </div>
-          <div className="panel p-8 md:p-10 rounded-3xl space-y-8">
-            <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+          <div className="panel p-5 sm:p-6 md:p-8 lg:p-10 rounded-3xl space-y-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
               {ensureArray(c.training?.modules, [
                 { title: "基础掌握", desc: "LLM/多模态基石，代码能力强化与工程规范", icon: "BookOpen" },
                 { title: "Agent 架构", desc: "规划/记忆/工具调用与评测，真实业务案例拆解", icon: "Brain" },
@@ -648,9 +648,9 @@ export default async function Home() {
         <div className="grid-overlay" />
       </section>
 
-      <section id="contact" className="relative py-16">
+      <section id="contact" className="relative py-10 md:py-16">
         <div className="section-shell">
-          <div className="panel p-8 md:p-10 rounded-3xl flex flex-col md:flex-row gap-8 items-start justify-between">
+          <div className="panel p-5 sm:p-6 md:p-8 lg:p-10 rounded-3xl flex flex-col md:flex-row gap-8 items-start justify-between">
             <div className="space-y-4 max-w-2xl">
               <div className="flex items-center gap-3">
                 <CalendarCheck className="w-5 h-5 text-primary" />
@@ -672,7 +672,7 @@ export default async function Home() {
                   <img
                     src={data.socialPlatforms[0].qrCode}
                     alt={data.socialPlatforms[0].name}
-                    className="w-56 h-56 object-cover rounded-xl mx-auto soft-glow hover:scale-125 hover:shadow-3xl transition-all duration-500 cursor-pointer"
+                    className="w-48 h-48 sm:w-56 sm:h-56 object-cover rounded-xl mx-auto soft-glow hover:scale-125 hover:shadow-3xl transition-all duration-500 cursor-pointer"
                     loading="lazy"
                   />
                   <div className="text-foreground/70 text-sm font-medium">{data.socialPlatforms[0].name}</div>
@@ -708,7 +708,7 @@ export default async function Home() {
       </section>
 
       {/* 🔥 新增：炫酷的合作院校展示区域 */}
-      <section id="universities" className="relative py-20 overflow-hidden">
+      <section id="universities" className="relative py-12 md:py-20 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-primary/5 via-accent/5 to-background" />
         <div className="absolute inset-0">
           <div className="absolute top-0 left-1/4 w-96 h-96 bg-primary/10 rounded-full blur-3xl animate-pulse" />
@@ -740,9 +740,9 @@ export default async function Home() {
                     href={university.website}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex-shrink-0 w-40 h-40 glass-card rounded-xl p-6 flex flex-col items-center justify-center gap-2 hover:scale-110 transition-all group"
+                    className="flex-shrink-0 w-32 h-32 sm:w-40 sm:h-40 glass-card rounded-xl p-4 sm:p-6 flex flex-col items-center justify-center gap-2 hover:scale-110 transition-all group"
                   >
-                    <div className="w-24 h-24 rounded-xl bg-white/90 dark:bg-white/80 p-3 flex items-center justify-center border border-black/5 dark:border-white/10 shadow-sm">
+                    <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-xl bg-white/90 dark:bg-white/80 p-2 sm:p-3 flex items-center justify-center border border-black/5 dark:border-white/10 shadow-sm">
                       <img
                         src={university.logo}
                         alt={university.name}

@@ -157,7 +157,7 @@ export function Navigation() {
               <Button
                 variant="ghost"
                 size="icon"
-                className="h-10 w-10"
+                className="h-11 w-11"
                 onClick={toggleTheme}
                 aria-label="切换主题"
                 disabled={!mounted}
@@ -169,7 +169,7 @@ export function Navigation() {
               <Button
                 variant="ghost"
                 size="icon"
-                className="h-10 w-10 lg:hidden"
+                className="h-11 w-11 lg:hidden"
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
                 aria-label="打开菜单"
               >
@@ -211,7 +211,7 @@ export function Navigation() {
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
               transition={{ type: "spring", damping: 25, stiffness: 200 }}
-              className="fixed top-0 right-0 bottom-0 w-80 max-w-[85vw] glass-card border-l border-white/10 shadow-2xl z-[95] lg:hidden overflow-y-auto"
+              className="fixed top-0 right-0 bottom-0 w-80 max-w-[90vw] glass-card border-l border-white/10 shadow-2xl z-[95] lg:hidden overflow-y-auto"
             >
               {/* 头部 */}
               <div className="flex items-center justify-between p-6 border-b border-white/10">
@@ -219,7 +219,7 @@ export function Navigation() {
                 <Button
                   variant="ghost"
                   size="icon"
-                  className="h-10 w-10"
+                  className="h-11 w-11"
                   onClick={closeMobileMenu}
                 >
                   <X className="w-5 h-5" />
