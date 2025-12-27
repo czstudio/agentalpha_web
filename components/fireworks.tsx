@@ -249,7 +249,7 @@ export function Fireworks({ show, onComplete }: { show: boolean; onComplete: () 
                     transition={{ delay: 0.5 }}
                     className="text-xl sm:text-2xl md:text-3xl text-white/80 font-medium"
                   >
-                    2025
+                    2026
                   </motion.p>
                 </motion.div>
 
