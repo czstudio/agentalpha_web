@@ -19,6 +19,7 @@ import {
   Map,
   Lightbulb,
   Target,
+  ExternalLink,
 } from "lucide-react"
 import { prisma } from "@/lib/prisma"
 import { unstable_noStore as noStore } from "next/cache"
