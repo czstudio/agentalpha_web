@@ -139,7 +139,7 @@ export default function AdminLoginPage() {
 
           {/* 提示信息 */}
           <div className="pt-4 border-t border-border/50 text-center text-xs text-foreground/50">
-            <p>默认账户：admin / Admin@123456</p>
+            <p>默认账户：admin / Admin@xxx</p>
             <p className="mt-1">首次登录后请修改密码</p>
           </div>
         </div>
