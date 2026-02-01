@@ -762,3 +762,154 @@ body::after {
     repeating-linear-gradient(-45deg, transparent, transparent 35px, rgba(212, 175, 55, 0.03) 35px, rgba(212, 175, 55, 0.03) 36px);
   mask-image: radial-gradient(circle at 50% 50%, rgba(0, 0, 0, 0.8), transparent 65%);
 }
+
+/* ===================================
+   Premium Art Deco Enhancements
+   =================================== */
+
+/* Art Deco decorative border */
+.art-deco-border {
+  position: relative;
+  border: 2px solid transparent;
+  background: linear-gradient(var(--background), var(--background)) padding-box,
+              linear-gradient(135deg, #D4AF37 0%, #FFD700 25%, #D4AF37 50%, #B8860B 75%, #D4AF37 100%) border-box;
+}
+
+/* Art Deco corner accents */
+.art-deco-corner {
+  position: relative;
+}
+
+.art-deco-corner::before,
+.art-deco-corner::after {
+  content: '';
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #D4AF37;
+}
+
+.art-deco-corner::before {
+  top: -2px;
+  left: -2px;
+  border-right: none;
+  border-bottom: none;
+}
+
+.art-deco-corner::after {
+  bottom: -2px;
+  right: -2px;
+  border-left: none;
+  border-top: none;
+}
+
+/* Enhanced shimmer effect for premium feel */
+@keyframes shimmer-enhanced {
+  0% {
+    background-position: -200% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
+
+.shimmer-enhanced {
+  background: linear-gradient(
+    90deg,
+    #D4AF37 0%,
+    #FFD700 25%,
+    #FFFFFF 50%,
+    #FFD700 75%,
+    #D4AF37 100%
+  );
+  background-size: 200% auto;
+  animation: shimmer-enhanced 3s linear infinite;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Luxury glow effect */
+.luxury-glow {
+  box-shadow:
+    0 0 20px rgba(212, 175, 55, 0.3),
+    0 0 40px rgba(212, 175, 55, 0.2),
+    0 0 60px rgba(212, 175, 55, 0.1),
+    inset 0 0 20px rgba(212, 175, 55, 0.1);
+  transition: box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.luxury-glow:hover {
+  box-shadow:
+    0 0 30px rgba(212, 175, 55, 0.5),
+    0 0 60px rgba(212, 175, 55, 0.3),
+    0 0 90px rgba(212, 175, 55, 0.2),
+    inset 0 0 30px rgba(212, 175, 55, 0.15);
+}
+
+/* Art Deco geometric pattern overlay */
+.geometric-pattern {
+  background-image:
+    repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(212, 175, 55, 0.03) 10px, rgba(212, 175, 55, 0.03) 20px),
+    repeating-linear-gradient(-45deg, transparent, transparent 10px, rgba(212, 175, 55, 0.03) 10px, rgba(212, 175, 55, 0.03) 20px);
+}
+
+/* Premium card hover effect with enhanced transform */
+.premium-card-hover {
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.premium-card-hover:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow:
+    0 20px 40px rgba(212, 175, 55, 0.2),
+    0 0 0 1px rgba(212, 175, 55, 0.3),
+    inset 0 0 20px rgba(212, 175, 55, 0.05);
+}
+
+/* Elegant fade-in animation for content */
+@keyframes elegant-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.elegant-fade-in {
+  animation: elegant-fade-in 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  opacity: 0;
+}
+
+/* Staggered animation delays for sequential reveals */
+.stagger-1 { animation-delay: 0.1s; }
+.stagger-2 { animation-delay: 0.2s; }
+.stagger-3 { animation-delay: 0.3s; }
+.stagger-4 { animation-delay: 0.4s; }
+.stagger-5 { animation-delay: 0.5s; }
+.stagger-6 { animation-delay: 0.6s; }
+
+/* Image optimization - prevent layout shift and improve performance */
+img {
+  content-visibility: auto;
+}
+
+/* Reduce motion for accessibility */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .elegant-fade-in {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+}

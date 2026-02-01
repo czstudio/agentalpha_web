@@ -26,6 +26,7 @@ import {
   Github,
   FileBadge,
 } from "lucide-react"
+import { memo } from "react"
 
 const iconMap: Record<string, any> = {
   Compass,
@@ -48,6 +49,37 @@ const trainingIconMap: Record<string, any> = {
 interface HomeContentProps {
   data: any
 }
+
+// Memoized stat card component for better re-render performance
+const StatCard = memo(({ label, value, note, index }: { label: string; value: string; note: string; index: number }) => (
+  <div className={`glass-card rounded-2xl p-5 md:p-6 text-left hover:scale-105 transition-transform duration-300 elegant-fade-in stagger-${index + 1}`}>
+    <div className="text-xs md:text-sm text-foreground/60 mb-2 uppercase tracking-wider">{label}</div>
+    <div className="text-2xl md:text-3xl font-bold mt-2 mb-2 premium-text-gradient">{value}</div>
+    <div className="text-xs md:text-sm text-foreground/60 mt-2">{note}</div>
+  </div>
+))
+StatCard.displayName = "StatCard"
+
+// Memoized resource card component
+const ResourceCard = memo(({ item, IconComponent }: { item: any; IconComponent: any }) => (
+  <a
+    href={item.link || '#'}
+    target={item.link ? '_blank' : '_self'}
+    rel={item.link ? 'noopener noreferrer' : ''}
+    className="group relative glass-card rounded-2xl p-6 hover:-translate-y-1 transition-all duration-300 block premium-card-hover"
+  >
+    <div className="flex items-start gap-4">
+      <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0 luxury-glow">
+        <IconComponent className="w-6 h-6 text-primary group-hover:scale-110 transition-transform duration-300" />
+      </div>
+      <div className="flex-1">
+        <h4 className="text-base md:text-lg font-semibold mb-2 group-hover:text-primary transition-colors">{item.title}</h4>
+        <p className="text-foreground/60 text-sm leading-relaxed">{item.description}</p>
+      </div>
+    </div>
+  </a>
+))
+ResourceCard.displayName = "ResourceCard"
 
 export function HomeContent({ data }: HomeContentProps) {
   const { t, locale } = useLanguage()
@@ -82,7 +114,7 @@ export function HomeContent({ data }: HomeContentProps) {
 
         <div className="relative z-10 section-shell py-16 md:py-28 lg:py-32">
           <div className="max-w-5xl mx-auto text-center space-y-8 md:space-y-10 lg:space-y-12 animate-in fade-in slide-in-from-bottom-4 duration-700">
-            <div className="inline-flex items-center gap-3 px-4 py-2 md:px-5 md:py-2.5 rounded-full glass-card neon-border">
+            <div className="inline-flex items-center gap-3 px-4 py-2 md:px-5 md:py-2.5 rounded-full glass-card neon-border luxury-glow">
               <Sparkles className="w-4 h-4 md:w-4 md:h-4 text-primary" />
               <span className="text-sm md:text-base font-medium text-foreground/80">{t.hero.badge}</span>
             </div>
@@ -119,12 +151,8 @@ export function HomeContent({ data }: HomeContentProps) {
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 pt-8 md:pt-12 px-4 md:px-0">
-              {stats.map((item) => (
-                <div key={item.label} className="glass-card rounded-2xl p-5 md:p-6 text-left hover:scale-105 transition-transform duration-300">
-                  <div className="text-xs md:text-sm text-foreground/60 mb-2 uppercase tracking-wider">{item.label}</div>
-                  <div className="text-2xl md:text-3xl font-bold mt-2 mb-2 premium-text-gradient">{item.value}</div>
-                  <div className="text-xs md:text-sm text-foreground/60 mt-2">{item.note}</div>
-                </div>
+              {stats.map((item, idx) => (
+                <StatCard key={item.label} label={item.label} value={item.value} note={item.note} index={idx} />
               ))}
             </div>
           </div>
@@ -221,25 +249,7 @@ export function HomeContent({ data }: HomeContentProps) {
                 <div className="grid grid-cols-1 gap-6">
                   {data.resources.map((item: any) => {
                     const IconComponent = iconMap[item.icon] || BookOpen
-                    return (
-                      <a
-                        key={item.id}
-                        href={item.link || '#'}
-                        target={item.link ? '_blank' : '_self'}
-                        rel={item.link ? 'noopener noreferrer' : ''}
-                        className="group relative glass-card rounded-2xl p-6 hover:-translate-y-1 transition-all duration-300 block"
-                      >
-                        <div className="flex items-start gap-4">
-                          <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0">
-                            <IconComponent className="w-6 h-6 text-primary group-hover:scale-110 transition-transform duration-300" />
-                          </div>
-                          <div className="flex-1">
-                            <h4 className="text-base md:text-lg font-semibold mb-2 group-hover:text-primary transition-colors">{item.title}</h4>
-                            <p className="text-foreground/60 text-sm leading-relaxed">{item.description}</p>
-                          </div>
-                        </div>
-                      </a>
-                    )
+                    return <ResourceCard key={item.id} item={item} IconComponent={IconComponent} />
                   })}
                 </div>
               </div>
@@ -365,6 +375,7 @@ export function HomeContent({ data }: HomeContentProps) {
                           alt={talk.title}
                           className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                           loading="lazy"
+                          decoding="async"
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
                         <div className="absolute bottom-3 left-3 flex flex-wrap gap-1.5">
@@ -420,6 +431,7 @@ export function HomeContent({ data }: HomeContentProps) {
                             alt={video.title}
                             className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                             loading="lazy"
+                            decoding="async"
                           />
                           <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
                           <div className="absolute top-3 left-3">
@@ -525,8 +537,9 @@ export function HomeContent({ data }: HomeContentProps) {
                   <img
                     src={data.socialPlatforms[0].qrCode}
                     alt={data.socialPlatforms[0].name}
-                    className="w-56 h-56 sm:w-64 sm:h-64 object-cover rounded-2xl mx-auto soft-glow hover:scale-110 hover:shadow-3xl transition-all duration-500 cursor-pointer"
+                    className="w-56 h-56 sm:w-64 sm:h-64 object-cover rounded-2xl mx-auto luxury-glow hover:scale-110 transition-all duration-500 cursor-pointer"
                     loading="lazy"
+                    decoding="async"
                   />
                   <div className="text-foreground/70 text-base font-medium">{data.socialPlatforms[0].name}</div>
                 </div>
@@ -542,6 +555,7 @@ export function HomeContent({ data }: HomeContentProps) {
                     alt={platform.name}
                     className="w-28 h-28 object-cover rounded-xl border border-primary/30 hover:scale-110 transition-transform duration-500 cursor-pointer"
                     loading="lazy"
+                    decoding="async"
                   />
                   <div className="text-base">
                     <div className="font-semibold text-lg">{platform.name}</div>
@@ -600,6 +614,8 @@ export function HomeContent({ data }: HomeContentProps) {
                         src={university.logo}
                         alt={university.name}
                         className="w-full h-full object-contain group-hover:scale-110 transition-transform"
+                        loading="lazy"
+                        decoding="async"
                       />
                     </div>
                     <span className="text-sm text-foreground/60 text-center font-medium">{university.name}</span>

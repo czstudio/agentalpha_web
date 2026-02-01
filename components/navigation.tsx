@@ -9,7 +9,13 @@ import { ChevronDown, SunMedium, Moon, ArrowRight, ExternalLink, Menu, X } from 
 import { Button } from "@/components/ui/button"
 
 import { SiteLogo } from "@/components/site-logo"
-import { Fireworks } from "@/components/fireworks"
+import dynamic from "next/dynamic"
+
+// Dynamic import for Fireworks to reduce initial bundle size
+const Fireworks = dynamic(() => import("@/components/fireworks").then(mod => ({ default: mod.Fireworks })), {
+  ssr: false,
+  loading: () => null
+})
 import { LanguageSwitcher } from "@/components/language-switcher"
 import { useLanguage } from "@/contexts/language-context"
 import { fetcher } from "@/lib/fetcher"
