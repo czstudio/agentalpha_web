@@ -515,8 +515,8 @@ export function HomeContent({ data }: HomeContentProps) {
       {/* Contact Section */}
       <section id="contact" className="relative py-24 md:py-40 lg:py-48">
         <div className="section-shell">
-          <div className="panel p-10 sm:p-12 md:p-16 lg:p-20 rounded-3xl flex flex-col md:flex-row gap-16 items-start justify-between">
-            <div className="space-y-6 max-w-2xl">
+          <div className="panel p-10 sm:p-12 md:p-16 lg:p-20 rounded-3xl flex flex-col lg:flex-row gap-12 lg:gap-16 items-start justify-between">
+            <div className="space-y-6 flex-1 max-w-2xl">
               <div className="flex items-center gap-3">
                 <CalendarCheck className="w-6 h-6 text-primary" />
                 <p className="tag-pill">{t.contact.tag}</p>
@@ -532,12 +532,12 @@ export function HomeContent({ data }: HomeContentProps) {
               </div>
             </div>
             {data.socialPlatforms && data.socialPlatforms.length > 0 && (
-              <div className="w-full md:w-96 h-96 glass-card rounded-3xl flex items-center justify-center border-dashed border-2 border-primary/40 text-foreground/50 text-base text-center px-6">
-                <div className="space-y-4 text-center">
+              <div className="w-full sm:w-96 lg:w-[400px] flex-shrink-0 glass-card rounded-3xl p-8 flex items-center justify-center border-dashed border-2 border-primary/40">
+                <div className="space-y-4 text-center w-full">
                   <img
                     src={data.socialPlatforms[0].qrCode}
                     alt={data.socialPlatforms[0].name}
-                    className="w-56 h-56 sm:w-64 sm:h-64 object-cover rounded-2xl mx-auto luxury-glow hover:scale-110 transition-all duration-500 cursor-pointer"
+                    className="w-64 h-64 object-cover rounded-2xl mx-auto luxury-glow hover:scale-105 transition-all duration-500 cursor-pointer"
                     loading="lazy"
                     decoding="async"
                   />
