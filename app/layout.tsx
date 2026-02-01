@@ -3,15 +3,16 @@ import type { Metadata } from "next"
 import { Geist } from "next/font/google"
 import { Analytics } from "@vercel/analytics/next"
 import { ThemeProvider } from "@/components/theme-provider"
+import { LanguageProvider } from "@/contexts/language-context"
 import "./globals.css"
 
 const geist = Geist({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "AgentAlpha - 赋能每一人，决胜 Agent 十年",
+  title: "AgentAlpha - Empower Everyone, Win the Agent Decade",
   description:
-    "AgentAlpha 社区：连接顶尖研究者、工程师与创业者，提供系统化学习路径、导师指导、项目共创与职业发展支持。",
-  keywords: "AI, Agent, 大模型, 生成式AI, 深度学习, 社区, 训练营",
+    "AgentAlpha Community: Connecting top researchers, engineers and entrepreneurs, providing systematic learning paths, mentor guidance, project co-creation and career development support.",
+  keywords: "AI, Agent, LLM, Generative AI, Deep Learning, Community, Training",
   generator: "v0.app",
   icons: {
     icon: [
@@ -38,11 +39,13 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="zh-CN" suppressHydrationWarning>
+    <html lang="en" suppressHydrationWarning>
       <body className={`${geist.className} font-sans antialiased`} suppressHydrationWarning>
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false}>
-          {children}
-          <Analytics />
+          <LanguageProvider>
+            {children}
+            <Analytics />
+          </LanguageProvider>
         </ThemeProvider>
       </body>
     </html>

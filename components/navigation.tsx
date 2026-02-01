@@ -10,17 +10,9 @@ import { Button } from "@/components/ui/button"
 
 import { SiteLogo } from "@/components/site-logo"
 import { Fireworks } from "@/components/fireworks"
+import { LanguageSwitcher } from "@/components/language-switcher"
+import { useLanguage } from "@/contexts/language-context"
 import { fetcher } from "@/lib/fetcher"
-
-const navItems = [
-  { label: "首页", href: "#home" },
-  { label: "新人必逛", href: "#onboard" },
-  { label: "高阶玩法", href: "#advanced" },
-  { label: "Talk & 圆桌会", href: "#talks" },
-  { label: "资源合集", href: "#resources", conditional: true },
-  { label: "兄弟社区", href: "#communities", dropdown: true }, // 恢复下拉菜单
-  { label: "合作院校", href: "#universities" },
-]
 
 type Partner = {
   id: string
@@ -41,7 +33,18 @@ export function Navigation() {
   const [mounted, setMounted] = useState(false)
   const [showFireworks, setShowFireworks] = useState(false)
   const { resolvedTheme, setTheme } = useTheme()
+  const { t } = useLanguage()
   const { data } = useSWR<PublicData>(mounted ? "/api/public/data" : null, fetcher)
+
+  const navItems = [
+    { label: t.nav.home, href: "#home" },
+    { label: t.nav.vision, href: "#vision" },
+    { label: t.nav.advanced, href: "#advanced" },
+    { label: t.nav.talks, href: "#talks" },
+    { label: t.nav.resources, href: "#resources", conditional: true },
+    { label: "Communities", href: "#communities", dropdown: true },
+    { label: t.nav.universities, href: "#universities" },
+  ]
 
   // 彩蛋：快速点击Logo触发烟花
   const clickCountRef = useRef(0)
@@ -191,6 +194,9 @@ export function Navigation() {
             </div>
 
             <div className="flex items-center gap-2">
+              {/* 语言切换 */}
+              <LanguageSwitcher />
+
               {/* 主题切换 */}
               <Button
                 variant="ghost"
@@ -226,7 +232,7 @@ export function Navigation() {
                 className="hidden md:inline-flex relative overflow-hidden bg-gradient-to-r from-primary via-primary to-accent hover:shadow-lg hover:shadow-primary/40 transition-all duration-300 border-0 shimmer"
               >
                 <Link href="#join">
-                  <span className="relative z-10 font-semibold">加入训练营</span>
+                  <span className="relative z-10 font-semibold">{t.nav.joinTraining}</span>
                   <ArrowRight className="relative z-10 ml-2 h-4 w-4" />
                 </Link>
               </Button>

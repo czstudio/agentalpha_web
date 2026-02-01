@@ -1,0 +1,156 @@
+{
+  "nav": {
+    "home": "首页",
+    "vision": "愿景",
+    "advanced": "高阶",
+    "resources": "资源",
+    "talks": "Talk",
+    "join": "加入",
+    "contact": "联系",
+    "universities": "院校",
+    "joinTraining": "加入训练营"
+  },
+  "hero": {
+    "badge": "赋能每一人 · 决胜 Agent 十年",
+    "title_highlight": "AgentAlpha",
+    "title_normal": "链接顶尖研究者、工程师与创业者",
+    "subtitle": "Agent 是通往 AGI 的必经之路。我们用深度实践、知识共享与项目协作，帮助你把握浪潮、积累作品、取得实绩。",
+    "cta_primary": "加入训练营",
+    "cta_secondary": "商务/合作"
+  },
+  "stats": {
+    "stat1_label": "社群成员",
+    "stat1_value": "5,000+",
+    "stat1_note": "覆盖高校 / 大厂 / 创业者",
+    "stat2_label": "技术 Talk",
+    "stat2_value": "300+",
+    "stat2_note": "深度分享与论文精读",
+    "stat3_label": "项目共创",
+    "stat3_value": "150+",
+    "stat3_note": "Agent 与多模态落地案例"
+  },
+  "vision": {
+    "tag": "愿景与目标",
+    "title": "Agent 时代的共赢社区",
+    "vision_points": [
+      "真正的 AGI 还有十年，Agent 是必经之路，抓住浪潮才能不缺席。",
+      "通过深度实践、知识共享与项目协作，拆解技术壁垒，转化为个人优势与实际价值。",
+      "赋能每一人，决胜 Agent 十年。"
+    ],
+    "offerings_title": "我们提供",
+    "offerings": [
+      "系统化学习路径与实践手册",
+      "技术导师与行业专家一对一指导",
+      "论文笔记、前沿 talk、案例共创",
+      "作品集打磨、简历与面试辅导、内推"
+    ],
+    "bottom_note": "我们通过「学习—实战—输出—共创」的飞轮，帮助成员将洞察转化为实绩。"
+  },
+  "advanced": {
+    "tag": "高阶玩法",
+    "title": "深度共创 · 论文/项目/求职全链路",
+    "offerings": [
+      {
+        "title": "如果你想入门大模型 Agent",
+        "bullets": [
+          "学习路径与开源仓库推荐",
+          "入门课 + 实战项目",
+          "志同道合的交流社区"
+        ]
+      },
+      {
+        "title": "如果你想进一步合作 / 论文 / 求职",
+        "bullets": [
+          "论文合作与实验共建",
+          "产业落地项目合作",
+          "大厂工作内推与面试辅导"
+        ]
+      },
+      {
+        "title": "如果你希望寻求合作",
+        "bullets": [
+          "共建社区品牌",
+          "联合宣传与活动",
+          "AI 产品与培训辅导"
+        ]
+      }
+    ]
+  },
+  "resources": {
+    "tag": "资源合集",
+    "title": "学习与探索",
+    "subtitle": "精心整理的学习资源，助你快速掌握 Agent 核心技术",
+    "advanced_path": "进阶之路",
+    "community_projects": "社区项目 / 论文",
+    "featured_release": "重磅发布",
+    "idea2story_desc": "从 idea 自动生成顶会级别论文叙事的 Agent 框架。基于上万篇顶会论文及其 Review 数据训练，让 AI 学会 \"Scientific Storytelling\"。",
+    "idea2story_feature1_title": "万级论文数据",
+    "idea2story_feature1_desc": "收集并清洗上万篇顶会论文及 Review 数据",
+    "idea2story_feature2_title": "自动叙事构建",
+    "idea2story_feature2_desc": "学习顶会套路，自动生成完整学术叙事",
+    "idea2story_contributors": "AgentAlpha 社区 BATman 们的重磅开源成果",
+    "view_paper": "查看论文",
+    "star_github": "Star on GitHub"
+  },
+  "talks": {
+    "tag": "Talk & 圆桌会 · 论文精读",
+    "more_talks": "更多青稞Talk",
+    "from_qingke": "来自青稞社区",
+    "realtime_sync": "实时同步最新内容",
+    "videos_live": "视频 & 直播",
+    "live": "直播",
+    "video": "视频"
+  },
+  "training": {
+    "badge": "训练营 & 加入方式",
+    "title": "加入我们",
+    "modules": [
+      {
+        "title": "基础掌握",
+        "desc": "LLM/多模态基石，代码能力强化与工程规范",
+        "icon": "BookOpen"
+      },
+      {
+        "title": "Agent 架构",
+        "desc": "规划/记忆/工具调用与评测，真实业务案例拆解",
+        "icon": "Brain"
+      },
+      {
+        "title": "项目共创",
+        "desc": "实战项目组队，导师答疑与代码评审",
+        "icon": "Cpu"
+      },
+      {
+        "title": "职业跃迁",
+        "desc": "作品集打磨、面试工作坊、导师推荐与内推",
+        "icon": "Rocket"
+      }
+    ],
+    "headline": "深度实践 + 导师答疑 + 项目共创",
+    "description": "作品集打磨、代码评审、周会复盘、内推推荐。每期控制人数，保证互动质量。",
+    "cta_primary": "立即报名",
+    "cta_secondary": "咨询顾问"
+  },
+  "contact": {
+    "tag": "合作 & 咨询",
+    "title": "公众号 AgentAlpha",
+    "description": "共建社区 / 宣传合作 / AI 产品 / 培训辅导，或需要论文、项目、求职支持，扫码关注公众号了解更多。",
+    "tags": ["共建社区", "宣传工作", "AI 产品", "培训辅导"],
+    "no_contact": "暂无联系方式",
+    "add_contact_hint": "请在后台管理系统中添加社交平台"
+  },
+  "universities": {
+    "tag": "合作院校",
+    "title": "顶尖学府携手共建",
+    "description": "与国内外顶尖高校建立深度合作，汇聚学术资源，推动 AI 研究与产业落地",
+    "no_universities": "暂无合作院校信息",
+    "add_universities_hint": "请在后台管理系统中添加"
+  },
+  "footer": {
+    "description": "链接顶尖研究者、工程师与创业者，赋能每一人决胜 Agent 十年。",
+    "quick_links": "快速链接",
+    "contact_us": "联系我们",
+    "follow_us": "关注我们",
+    "copyright": "© 2025 AgentAlpha 社区。保留所有权利。"
+  }
+}

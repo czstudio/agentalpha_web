@@ -1,0 +1,156 @@
+{
+  "nav": {
+    "home": "Home",
+    "vision": "Vision",
+    "advanced": "Advanced",
+    "resources": "Resources",
+    "talks": "Talks",
+    "join": "Join Us",
+    "contact": "Contact",
+    "universities": "Universities",
+    "joinTraining": "Join Training"
+  },
+  "hero": {
+    "badge": "Empower Everyone · Win the Agent Decade",
+    "title_highlight": "AgentAlpha",
+    "title_normal": "Connecting Top Researchers, Engineers & Entrepreneurs",
+    "subtitle": "Agent is the essential path to AGI. Through deep practice, knowledge sharing, and project collaboration, we help you seize the wave, build your portfolio, and achieve real results.",
+    "cta_primary": "Join Training",
+    "cta_secondary": "Business/Partnership"
+  },
+  "stats": {
+    "stat1_label": "Community Members",
+    "stat1_value": "5,000+",
+    "stat1_note": "Covering Universities / Big Tech / Startups",
+    "stat2_label": "Tech Talks",
+    "stat2_value": "300+",
+    "stat2_note": "Deep Sharing & Paper Reading",
+    "stat3_label": "Project Co-creation",
+    "stat3_value": "150+",
+    "stat3_note": "Agent & Multimodal Landing Cases"
+  },
+  "vision": {
+    "tag": "Vision & Goals",
+    "title": "Win-Win Community in the Agent Era",
+    "vision_points": [
+      "True AGI is still a decade away. Agent is the essential path. Seize the wave to stay relevant.",
+      "Through deep practice, knowledge sharing, and project collaboration, break down technical barriers and transform them into personal advantages and real value.",
+      "Empower everyone, win the Agent decade."
+    ],
+    "offerings_title": "What We Offer",
+    "offerings": [
+      "Systematic learning paths and practice manuals",
+      "One-on-one guidance from technical mentors and industry experts",
+      "Paper notes, cutting-edge talks, case co-creation",
+      "Portfolio polishing, resume & interview coaching, referrals"
+    ],
+    "bottom_note": "Through the 'Learn—Practice—Output—Co-create' flywheel, we help members transform insights into achievements."
+  },
+  "advanced": {
+    "tag": "Advanced Play",
+    "title": "Deep Co-creation · Papers/Projects/Career Full Chain",
+    "offerings": [
+      {
+        "title": "If you want to get started with LLM Agents",
+        "bullets": [
+          "Learning paths and open-source repo recommendations",
+          "Intro courses + hands-on projects",
+          "Like-minded exchange community"
+        ]
+      },
+      {
+        "title": "If you want further collaboration / papers / career",
+        "bullets": [
+          "Paper collaboration and experiment co-building",
+          "Industry landing project cooperation",
+          "Big tech job referrals and interview coaching"
+        ]
+      },
+      {
+        "title": "If you seek partnerships",
+        "bullets": [
+          "Co-build community brand",
+          "Joint promotion and events",
+          "AI product and training guidance"
+        ]
+      }
+    ]
+  },
+  "resources": {
+    "tag": "Resource Collection",
+    "title": "Learning & Exploration",
+    "subtitle": "Carefully curated learning resources to help you quickly master Agent core technologies",
+    "advanced_path": "Advanced Path",
+    "community_projects": "Community Projects / Papers",
+    "featured_release": "Featured Release",
+    "idea2story_desc": "An Agent framework that automatically generates top-tier conference-level paper narratives from ideas. Trained on tens of thousands of top conference papers and their review data, teaching AI to master \"Scientific Storytelling\".",
+    "idea2story_feature1_title": "10K+ Paper Dataset",
+    "idea2story_feature1_desc": "Collected and cleaned tens of thousands of top conference papers and review data",
+    "idea2story_feature2_title": "Automatic Narrative Construction",
+    "idea2story_feature2_desc": "Learn top conference patterns, automatically generate complete academic narratives",
+    "idea2story_contributors": "AgentAlpha Community BATman's major open-source achievement",
+    "view_paper": "View Paper",
+    "star_github": "Star on GitHub"
+  },
+  "talks": {
+    "tag": "Talks & Roundtables · Paper Reading",
+    "more_talks": "More Qingke Talks",
+    "from_qingke": "From Qingke Community",
+    "realtime_sync": "Real-time sync of latest content",
+    "videos_live": "Video & Live",
+    "live": "Live",
+    "video": "Video"
+  },
+  "training": {
+    "badge": "Training Camp & How to Join",
+    "title": "Join Us",
+    "modules": [
+      {
+        "title": "Foundation Mastery",
+        "desc": "LLM/Multimodal fundamentals, code skills enhancement and engineering standards",
+        "icon": "BookOpen"
+      },
+      {
+        "title": "Agent Architecture",
+        "desc": "Planning/Memory/Tool calling and evaluation, real business case breakdown",
+        "icon": "Brain"
+      },
+      {
+        "title": "Project Co-creation",
+        "desc": "Hands-on project teaming, mentor Q&A and code review",
+        "icon": "Cpu"
+      },
+      {
+        "title": "Career Leap",
+        "desc": "Portfolio polishing, interview workshops, mentor recommendations and referrals",
+        "icon": "Rocket"
+      }
+    ],
+    "headline": "Deep Practice + Mentor Q&A + Project Co-creation",
+    "description": "Portfolio polishing, code review, weekly retrospectives, referral recommendations. Limited spots per cohort to ensure interaction quality.",
+    "cta_primary": "Sign Up Now",
+    "cta_secondary": "Consult Advisor"
+  },
+  "contact": {
+    "tag": "Partnership & Consultation",
+    "title": "WeChat Official Account: AgentAlpha",
+    "description": "Co-build community / Promotion partnerships / AI products / Training guidance, or need paper, project, career support, scan QR code to follow official account for more info.",
+    "tags": ["Co-build Community", "Promotion Work", "AI Products", "Training Guidance"],
+    "no_contact": "No contact info yet",
+    "add_contact_hint": "Please add social platforms in admin system"
+  },
+  "universities": {
+    "tag": "Partner Universities",
+    "title": "Top Universities Join Forces",
+    "description": "Establish deep partnerships with top domestic and international universities, gather academic resources, and promote AI research and industry landing",
+    "no_universities": "No partner university info yet",
+    "add_universities_hint": "Please add in admin system"
+  },
+  "footer": {
+    "description": "Connecting top researchers, engineers and entrepreneurs, empowering everyone to win the Agent decade.",
+    "quick_links": "Quick Links",
+    "contact_us": "Contact Us",
+    "follow_us": "Follow Us",
+    "copyright": "© 2025 AgentAlpha Community. All rights reserved."
+  }
+}
