@@ -7,8 +7,16 @@
     "talks": "Talks",
     "join": "Join Us",
     "contact": "Contact",
+    "communities": "Communities",
     "universities": "Universities",
-    "joinTraining": "Join Training"
+    "joinTraining": "Join Training",
+    "noCommunities": "No partner communities yet (can be added in admin panel)",
+    "menu": "Menu",
+    "noCommunitiesShort": "No communities yet",
+    "contactUs": "Contact Us",
+    "toggleTheme": "Toggle theme",
+    "toggleMenu": "Toggle menu",
+    "toggleLanguage": "Switch Language"
   },
   "hero": {
     "badge": "Empower Everyone · Win the Agent Decade",

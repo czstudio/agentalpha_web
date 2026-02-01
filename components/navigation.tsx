@@ -42,7 +42,7 @@ export function Navigation() {
     { label: t.nav.advanced, href: "#advanced" },
     { label: t.nav.talks, href: "#talks" },
     { label: t.nav.resources, href: "#resources", conditional: true },
-    { label: "Communities", href: "#communities", dropdown: true },
+    { label: t.nav.communities, href: "#communities", dropdown: true },
     { label: t.nav.universities, href: "#universities" },
   ]
 
@@ -172,7 +172,7 @@ export function Navigation() {
                               </>
                             ) : (
                               <div className="px-3 py-2 text-sm text-foreground/60">
-                                暂无兄弟社区（可在后台"合作伙伴"中添加）
+                                {t.nav.noCommunities}
                               </div>
                             )}
                           </div>
@@ -203,7 +203,7 @@ export function Navigation() {
                 size="icon"
                 className="h-11 w-11"
                 onClick={toggleTheme}
-                aria-label="切换主题"
+                aria-label={t.nav.toggleTheme}
                 disabled={!mounted}
               >
                 {!mounted ? (
@@ -221,7 +221,7 @@ export function Navigation() {
                 size="icon"
                 className="h-11 w-11 lg:hidden"
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                aria-label="打开菜单"
+                aria-label={t.nav.toggleMenu}
               >
                 {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
               </Button>
@@ -265,7 +265,7 @@ export function Navigation() {
             >
               {/* 头部 */}
               <div className="flex items-center justify-between p-4 sm:p-6 border-b border-white/10 bg-background/50">
-                <h2 className="text-lg sm:text-xl font-bold premium-text-gradient">菜单</h2>
+                <h2 className="text-lg sm:text-xl font-bold premium-text-gradient">{t.nav.menu}</h2>
                 <Button
                   variant="ghost"
                   size="icon"
@@ -305,7 +305,7 @@ export function Navigation() {
                         </>
                       ) : (
                         <div className="pl-8 pr-4 py-2 text-sm text-foreground/50">
-                          暂无社区
+                          {t.nav.noCommunitiesShort}
                         </div>
                       )}
                     </div>
@@ -334,7 +334,7 @@ export function Navigation() {
                   onClick={closeMobileMenu}
                 >
                   <Link href="#join">
-                    <span>加入训练营</span>
+                    <span>{t.nav.joinTraining}</span>
                     <ArrowRight className="ml-2 h-4 w-4" />
                   </Link>
                 </Button>
@@ -345,7 +345,7 @@ export function Navigation() {
                   className="w-full border-primary/30 bg-background/50"
                   onClick={closeMobileMenu}
                 >
-                  <Link href="#contact">联系我们</Link>
+                  <Link href="#contact">{t.nav.contactUs}</Link>
                 </Button>
               </div>
             </motion.div>
