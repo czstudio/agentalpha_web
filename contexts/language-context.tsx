@@ -20,10 +20,10 @@ const translations = {
 }
 
 export function LanguageProvider({ children }: { children: ReactNode }) {
-  const [locale, setLocaleState] = useState<Locale>('en')
+  const [locale, setLocaleState] = useState<Locale>('zh')
 
   useEffect(() => {
-    // Load saved language preference or default to English
+    // Load a saved preference; first-time visitors see the Chinese knowledge portal.
     const savedLocale = localStorage.getItem('locale') as Locale
     if (savedLocale && (savedLocale === 'en' || savedLocale === 'zh')) {
       setLocaleState(savedLocale)
