@@ -1,6 +1,6 @@
 "use client"
 
-import { useEffect, useState, useRef, useCallback } from "react"
+import { useEffect, useState, useRef, useCallback, useSyncExternalStore } from "react"
 import Link from "next/link"
 import { useTheme } from "next-themes"
 import useSWR from "swr"
@@ -29,27 +29,30 @@ type Partner = {
 
 type PublicData = {
   communities: Partner[]
-  resources?: any[]
+  resources?: unknown[]
 }
+
+const subscribeToHydration = () => () => undefined
 
 export function Navigation() {
   const [scrolled, setScrolled] = useState(false)
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [openDropdown, setOpenDropdown] = useState(false)
-  const [mounted, setMounted] = useState(false)
+  const mounted = useSyncExternalStore(subscribeToHydration, () => true, () => false)
   const [showFireworks, setShowFireworks] = useState(false)
   const { resolvedTheme, setTheme } = useTheme()
   const { t } = useLanguage()
   const { data } = useSWR<PublicData>(mounted ? "/api/public/data" : null, fetcher)
 
   const navItems = [
-    { label: t.nav.home, href: "#home" },
-    { label: t.nav.vision, href: "#vision" },
-    { label: t.nav.advanced, href: "#advanced" },
-    { label: t.nav.talks, href: "#talks" },
-    { label: t.nav.resources, href: "#resources", conditional: true },
-    { label: t.nav.communities, href: "#communities", dropdown: true },
-    { label: t.nav.universities, href: "#universities" },
+    { label: t.nav.home, href: "/#home" },
+    { label: t.nav.communityIntro, href: "/community", featured: true },
+    { label: t.nav.vision, href: "/#vision" },
+    { label: t.nav.advanced, href: "/#advanced" },
+    { label: t.nav.talks, href: "/#talks" },
+    { label: t.nav.resources, href: "/#resources", conditional: true },
+    { label: t.nav.communities, href: "/#communities", dropdown: true },
+    { label: t.nav.universities, href: "/#universities" },
   ]
 
   // 彩蛋：快速点击Logo触发烟花
@@ -72,7 +75,7 @@ export function Navigation() {
       clickTimerRef.current = setTimeout(() => {
         // 如果只点击了一次，正常跳转
         if (clickCountRef.current === 1) {
-          window.location.href = "#home"
+          window.location.href = "/#home"
         }
         clickCountRef.current = 0
       }, 500)
@@ -100,10 +103,6 @@ export function Navigation() {
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
 
-  useEffect(() => {
-    setMounted(true)
-  }, [])
-
   const toggleTheme = () => setTheme(resolvedTheme === "dark" ? "light" : "dark")
 
   // 关闭移动菜单
@@ -126,13 +125,13 @@ export function Navigation() {
       >
         <div className="section-shell">
           <div className="flex h-16 md:h-20 items-center justify-between gap-2 md:gap-4">
-            <a
-              href="#home"
+            <Link
+              href="/"
               onClick={handleLogoClick}
               className="flex items-center gap-2 md:gap-3 group flex-shrink-0 cursor-pointer select-none"
             >
               <SiteLogo />
-            </a>
+            </Link>
 
             {/* 桌面端导航 */}
             <div className="hidden lg:flex items-center gap-1 flex-nowrap">
@@ -190,7 +189,11 @@ export function Navigation() {
                   <Link
                     key={item.href}
                     href={item.href}
-                    className="px-4 py-2 text-sm font-medium text-foreground/75 hover:text-foreground transition-all duration-200 hover:bg-primary/10 rounded-lg relative group whitespace-nowrap"
+                    className={`px-4 py-2 text-sm font-medium transition-all duration-200 rounded-lg relative group whitespace-nowrap ${
+                      item.featured
+                        ? "bg-primary text-primary-foreground hover:brightness-110"
+                        : "text-foreground/75 hover:text-foreground hover:bg-primary/10"
+                    }`}
                   >
                     {item.label}
                     <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-primary group-hover:w-3/4 transition-all duration-300" />
@@ -237,7 +240,7 @@ export function Navigation() {
                 asChild
                 className="hidden md:inline-flex relative overflow-hidden bg-gradient-to-r from-primary via-primary to-accent hover:shadow-lg hover:shadow-primary/40 transition-all duration-300 border-0 shimmer"
               >
-                <Link href="#join">
+                <Link href="/#join">
                   <span className="relative z-10 font-semibold">{t.nav.joinTraining}</span>
                   <ArrowRight className="relative z-10 ml-2 h-4 w-4" />
                 </Link>
@@ -339,7 +342,7 @@ export function Navigation() {
                   className="w-full bg-gradient-to-r from-primary to-accent border-0 text-white font-semibold"
                   onClick={closeMobileMenu}
                 >
-                  <Link href="#join">
+                  <Link href="/#join">
                     <span>{t.nav.joinTraining}</span>
                     <ArrowRight className="ml-2 h-4 w-4" />
                   </Link>
@@ -351,7 +354,7 @@ export function Navigation() {
                   className="w-full border-primary/30 bg-background/50"
                   onClick={closeMobileMenu}
                 >
-                  <Link href="#contact">{t.nav.contactUs}</Link>
+                  <Link href="/#contact">{t.nav.contactUs}</Link>
                 </Button>
               </div>
             </motion.div>

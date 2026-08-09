@@ -1,0 +1,4449 @@
+{
+  "schemaVersion": 1,
+  "source": {
+    "provider": "Feishu",
+    "token": "QtYQddrAFoLIb9xFe7PckJnmn1b",
+    "url": "https://agentalpha.feishu.cn/docx/QtYQddrAFoLIb9xFe7PckJnmn1b"
+  },
+  "sourceRevision": 853,
+  "contentHash": "8f7fd16ada295a89caaa4158888e37307f304376d859d67f36b390ce75b1940b",
+  "syncedAt": "2026-08-09T12:41:41.545314+00:00",
+  "title": "AgentAlpha社区 —— 立志打造AI界黄埔军校",
+  "description": "AgentAlpha 是以技术落地、人才培养与商业共创为核心的大模型 Agent 实战社区。",
+  "stats": {
+    "characters": 14422,
+    "images": 59,
+    "uniqueImages": 59,
+    "headings": 19
+  },
+  "headings": [
+    {
+      "level": 1,
+      "id": "1-agentalpha-是什么",
+      "text": "1. AgentAlpha 是什么"
+    },
+    {
+      "level": 1,
+      "id": "2-代表项目与成员成果",
+      "text": "2. 代表项目与成员成果"
+    },
+    {
+      "level": 2,
+      "id": "1-依托顶会级开源项目-idea2paper-ai-科研智能体",
+      "text": "1. 依托顶会级开源项目：Idea2Paper（AI 科研智能体）"
+    },
+    {
+      "level": 2,
+      "id": "2-最具影响力的-ai-小说项目-inkos-ai-小说智能体",
+      "text": "2. 最具影响力的 AI 小说项目 ：InkOS（AI 小说智能体）"
+    },
+    {
+      "level": 2,
+      "id": "3-依托学员标杆商用项目-潜艇-ai-tiktok-跨境电商-ai-引擎",
+      "text": "3. 依托学员标杆商用项目：潜艇 AI（TikTok 跨境电商 AI 引擎）"
+    },
+    {
+      "level": 2,
+      "id": "4-企业定制电商项目sell-ai",
+      "text": "4. 企业定制电商项目sell ai"
+    },
+    {
+      "level": 2,
+      "id": "5",
+      "text": "5. 火花数据 API：把专业数据与主流模型接入 AI Agent"
+    },
+    {
+      "level": 2,
+      "id": "6-依托-ai-agent-实战训练营-体系化人才培养",
+      "text": "6. 依托 AI Agent 实战训练营（体系化人才培养）"
+    },
+    {
+      "level": 1,
+      "id": "3-课程体系",
+      "text": "3. 课程体系"
+    },
+    {
+      "level": 1,
+      "id": "4-导师与社区成员",
+      "text": "4. 导师与社区成员"
+    },
+    {
+      "level": 2,
+      "id": "1-产业界核心成员",
+      "text": "1. 产业界核心成员"
+    },
+    {
+      "level": 2,
+      "id": "2-学术界核心成员-含核心导师团队",
+      "text": "2. 学术界核心成员（含核心导师团队）"
+    },
+    {
+      "level": 1,
+      "id": "5-我们的方法",
+      "text": "5. 我们的方法"
+    },
+    {
+      "level": 1,
+      "id": "6-三类成长方向",
+      "text": "6. 三类成长方向"
+    },
+    {
+      "level": 1,
+      "id": "7-真实结果与学员案例",
+      "text": "7. 真实结果与学员案例"
+    },
+    {
+      "level": 2,
+      "id": "大厂-offer-与录用结果",
+      "text": "大厂 Offer 与录用结果"
+    },
+    {
+      "level": 2,
+      "id": "论文录用与升学结果",
+      "text": "论文录用与升学结果"
+    },
+    {
+      "level": 2,
+      "id": "8-参与方式",
+      "text": "8. 参与方式"
+    },
+    {
+      "level": 1,
+      "id": "如果你想进一步了解",
+      "text": "如果你想进一步了解"
+    }
+  ],
+  "nodes": [
+    {
+      "type": "element",
+      "tag": "p",
+      "children": []
+    },
+    {
+      "type": "image",
+      "src": "/images/community/a65934d7bb7b8b8479d2eb14fcefeac8513b7ea58305cbaed39495c414b7d165.webp",
+      "alt": "图片展示了AgentAlpha的标志。标志由左侧的蓝色几何图形和右侧的黑色猫头图案组成，中间是“AgentAlpha”字样，其中“Agent”部分为蓝色，“Alpha”部分为紫色。该图片位于介绍AgentAlpha的文档中，与上下文紧密相关，直观呈现了AgentAlpha的品牌标识，帮助读者更好地认识和记忆该社区。",
+      "width": 768,
+      "height": 292
+    },
+    {
+      "type": "element",
+      "tag": "p",
+      "children": [
+        {
+          "type": "element",
+          "tag": "strong",
+          "children": [
+            {
+              "type": "element",
+              "tag": "em",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "AI 界的黄埔军校&国内顶尖大模型 Agent 实战社区"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "element",
+      "tag": "hr",
+      "children": []
+    },
+    {
+      "type": "element",
+      "tag": "h1",
+      "children": [
+        {
+          "type": "element",
+          "tag": "strong",
+          "children": [
+            {
+              "type": "text",
+              "text": "1. AgentAlpha 是什么"
+            }
+          ]
+        }
+      ],
+      "id": "1-agentalpha-是什么"
+    },
+    {
+      "type": "element",
+      "tag": "p",
+      "children": []
+    },
+    {
+      "type": "element",
+      "tag": "aside",
+      "children": [
+        {
+          "type": "element",
+          "tag": "p",
+          "children": [
+            {
+              "type": "element",
+              "tag": "strong",
+              "children": [
+                {
+                  "type": "element",
+                  "tag": "span",
+                  "children": [
+                    {
+                      "type": "text",
+                      "text": "AgentAlpha"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "text": " —— 立志打造"
+            },
+            {
+              "type": "element",
+              "tag": "strong",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "AI 界的黄埔军校"
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "text": "，国内最具实战价值的大模型 Agent 高端实战社区。我们坚决区别于行业内 “空谈理论、跟风热点、以卖课为核心” 的社群，以「"
+            },
+            {
+              "type": "element",
+              "tag": "strong",
+              "children": [
+                {
+                  "type": "element",
+                  "tag": "span",
+                  "children": [
+                    {
+                      "type": "text",
+                      "text": "技术落地、人才培养、商业共创"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "text": "」为核心。"
+            }
+          ]
+        }
+      ],
+      "kind": "callout",
+      "emoji": "🏕️"
+    },
+    {
+      "type": "element",
+      "tag": "aside",
+      "children": [
+        {
+          "type": "element",
+          "tag": "p",
+          "children": [
+            {
+              "type": "text",
+              "text": "我们不做玩具级 Demo 教学，"
+            },
+            {
+              "type": "element",
+              "tag": "span",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "一切以实战做出有影响力的项目为主"
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "text": "，核心使命："
+            },
+            {
+              "type": "element",
+              "tag": "strong",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "以实战为核心，培养能解决真实问题、能落地、能产出的顶尖 AI 人才，打造 AI 领域的人才摇篮与实战生态"
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ]
+        }
+      ],
+      "kind": "callout",
+      "emoji": "🐵"
+    },
+    {
+      "type": "element",
+      "tag": "p",
+      "children": [
+        {
+          "type": "text",
+          "text": "目前已孵化出5个高影响力开源项目和盈利产品~~（欢迎了解）"
+        }
+      ]
+    },
+    {
+      "type": "element",
+      "tag": "div",
+      "children": [
+        {
+          "type": "element",
+          "tag": "section",
+          "children": [
+            {
+              "type": "element",
+              "tag": "p",
+              "children": []
+            },
+            {
+              "type": "image",
+              "src": "/images/community/b05602c4f327e058d71a1d36d913b960f8d56972855b16f49230ba36a4d695bc.webp",
+              "alt": "这是一篇介绍AI写作工具Idea2Paper的文章截图，发布者为“柳叶舟舟”，发布时间为2026年2月5日07:00，地点显示为陕西，阅读量144人。截图中显眼位置展示了工具名称“Idea2Paper”，还配有对应创意logo，左侧的logo融合了书本与神灯元素。文章解答了“Idea2Paper是什么？”的疑问，指出该工具可跳出AI直接写论文的单一路径，能清晰拆分从灵感到成文的全流程，先通过核心引擎IdeaStory梳理研究灵感，再完成后续的设计、实验验证等写作工作。",
+              "width": 807,
+              "height": 961
+            }
+          ],
+          "kind": "column",
+          "ratio": 0.5
+        },
+        {
+          "type": "element",
+          "tag": "section",
+          "children": [
+            {
+              "type": "element",
+              "tag": "p",
+              "children": []
+            },
+            {
+              "type": "image",
+              "src": "/images/community/d1c3717cd504e80759bab9e4f8d57b1d4da56219eeb229afb1978c136a2b025a.webp",
+              "alt": "图片为一篇名为“48小时500万字！全新开源AI小说生产系统InkOS发布，网络小说要变天了？”的新闻报道截图。报道提到AI能在48小时内生成500万字的长篇小说，引发关注。图片中详细介绍了InkOS，称其为工业级AI长篇小说自动化生产线，核心理念是“用‘确定性的工程约束’驯服‘概率性的AI生成’”，并展示了其多智能体全自动流水线、33维深度验证与零成本验证等技术特点。",
+              "width": 719,
+              "height": 964
+            }
+          ],
+          "kind": "column",
+          "ratio": 0.5
+        }
+      ],
+      "kind": "grid"
+    },
+    {
+      "type": "element",
+      "tag": "h1",
+      "children": [
+        {
+          "type": "text",
+          "text": "2. 代表项目与成员成果"
+        }
+      ],
+      "id": "2-代表项目与成员成果"
+    },
+    {
+      "type": "element",
+      "tag": "aside",
+      "children": [
+        {
+          "type": "element",
+          "tag": "p",
+          "children": [
+            {
+              "type": "text",
+              "text": "我们坚持「真带、真教、真落地」，以"
+            },
+            {
+              "type": "element",
+              "tag": "strong",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "自研四大学术核心成果"
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "text": "为载体，把技术研发、项目实战、人才培养融为一体，让每一位成员在真实项目中成长、在真实成果中突破，全方位实现"
+            },
+            {
+              "type": "element",
+              "tag": "strong",
+              "children": [
+                {
+                  "type": "element",
+                  "tag": "span",
+                  "children": [
+                    {
+                      "type": "text",
+                      "text": "学术、职场、创业、开源领域"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "text": "的高质量发展。"
+            }
+          ]
+        }
+      ],
+      "kind": "callout",
+      "emoji": "👍"
+    },
+    {
+      "type": "element",
+      "tag": "h2",
+      "children": [
+        {
+          "type": "element",
+          "tag": "strong",
+          "children": [
+            {
+              "type": "text",
+              "text": "1. "
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "text": "依托顶会级开源项目：Idea2Paper（AI 科研智能体）"
+        }
+      ],
+      "id": "1-依托顶会级开源项目-idea2paper-ai-科研智能体"
+    },
+    {
+      "type": "element",
+      "tag": "aside",
+      "children": [
+        {
+          "type": "element",
+          "tag": "p",
+          "children": [
+            {
+              "type": "text",
+              "text": "自研科研Agent 项目Idea2Paper，聚焦从 idea 到 paper的全链路auto research，同时共搭建10万+各领域高质量顶会论文构建向量知识库，当前已在 GitHub 获得约"
+            },
+            {
+              "type": "element",
+              "tag": "strong",
+              "children": [
+                {
+                  "type": "element",
+                  "tag": "span",
+                  "children": [
+                    {
+                      "type": "text",
+                      "text": " "
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "element",
+              "tag": "strong",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "1.4k stars、"
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "text": "Hugging Face Daily Paper 日榜第 1 名（超越阿里、美团、千问等大厂成果），目前已有1000+内测用户，200+付费用户，Agent自动迭代出1.8k+高质量论文。基于社区验证与产品潜力，项目已获得早期资本关注，正在推进"
+            },
+            {
+              "type": "element",
+              "tag": "strong",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "300 万人民币"
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "text": "左右规模的天使轮合作。"
+            }
+          ]
+        }
+      ],
+      "kind": "callout",
+      "emoji": "🍞"
+    },
+    {
+      "type": "image",
+      "src": "/images/community/261ae9249aac988c0abe47788f4ef1108e3777029cebae639e6f2e09d7041ed8.webp",
+      "alt": "图片展示的是Idea2Paper项目的GitHub页面。页面上方有导航栏，可进行代码、Issues、Pull requests等操作。左侧是项目代码仓库，显示了多个分支和标签，如main分支下有多个commit记录，包括feat、add等类型的操作，时间跨度为4 - 6个月不等。右侧是项目介绍，包含Readme、MIT license、Activity等信息，还显示了1.4k stars、8 watching、114 forks等数据。该图片直观呈现了Idea2Paper项目的代码结构及GitHub页面布局。",
+      "width": 1599,
+      "height": 915
+    },
+    {
+      "type": "element",
+      "tag": "p",
+      "children": []
+    },
+    {
+      "type": "element",
+      "tag": "p",
+      "children": [
+        {
+          "type": "text",
+          "text": "以 "
+        },
+        {
+          "type": "element",
+          "tag": "strong",
+          "children": [
+            {
+              "type": "text",
+              "text": "Idea2Paper"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "text": " 为实践平台，帮助高校师生、科研人员实现"
+        },
+        {
+          "type": "element",
+          "tag": "strong",
+          "children": [
+            {
+              "type": "text",
+              "text": "从想法到论文、从写作到录用"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "text": "的全流程突破。项目融合大模型技术、学术叙事逻辑、顶会评审标准，内置多智能体评审机制，可自动生成论文框架、优化叙事逻辑、检查创新性与合规性，真正解决 “想法好、写不出、投不中” 的科研痛点。在项目带动下，大批成员实现："
+        }
+      ]
+    },
+    {
+      "type": "element",
+      "tag": "ul",
+      "children": [
+        {
+          "type": "element",
+          "tag": "li",
+          "children": [
+            {
+              "type": "text",
+              "text": "论文质量显著提升，多篇成功被国际顶会录用；"
+            }
+          ]
+        },
+        {
+          "type": "element",
+          "tag": "li",
+          "children": [
+            {
+              "type": "text",
+              "text": "申博、升学、评奖竞争力大幅增强；"
+            }
+          ]
+        },
+        {
+          "type": "element",
+          "tag": "li",
+          "children": [
+            {
+              "type": "text",
+              "text": "完成高质量科研项目，获得学术认可与简历强背书。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "element",
+      "tag": "blockquote",
+      "children": [
+        {
+          "type": "element",
+          "tag": "p",
+          "children": [
+            {
+              "type": "element",
+              "tag": "strong",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "链接："
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "element",
+          "tag": "p",
+          "children": [
+            {
+              "type": "text",
+              "text": "• GitHub 地址：https://github.com/AgentAlphaAGI/Idea2Paper"
+            }
+          ]
+        },
+        {
+          "type": "element",
+          "tag": "p",
+          "children": [
+            {
+              "type": "text",
+              "text": "• 论文地址：https://arxiv.org/abs/2601.20833，"
+            }
+          ]
+        },
+        {
+          "type": "element",
+          "tag": "p",
+          "children": [
+            {
+              "type": "text",
+              "text": "Hugging Face 项目页: https://huggingface.co/papers/2603.27065"
+            }
+          ]
+        },
+        {
+          "type": "element",
+          "tag": "p",
+          "children": [
+            {
+              "type": "element",
+              "tag": "strong",
+              "children": [
+                {
+                  "type": "element",
+                  "tag": "span",
+                  "children": [
+                    {
+                      "type": "text",
+                      "text": "• 官网地址：paperbuild.cn"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "image",
+          "src": "/images/community/a6896adc9f62c64443296a920cb38fa3ce8abc4a47931b2e1ae385f10bae390a.webp",
+          "alt": "图片展示的是Idea2Paper官网首页。上方有导航栏，包括Home、Features、Paper、GitHub等选项。中间大标题为“From Abstract Idea to Research Narrative”，下方副标题为“Don't start with a blank page. Transform your raw intuition into a logically sound research story and structural blueprint.”下方有一个搜索框，提示“e.g., Use Large Language Models to”，右侧有一个“Build Narrative Architecture”按钮。该图片与文档中介绍Idea2Paper自动生成论文的内容相关，直观呈现了其官网界面。",
+          "width": 1294,
+          "height": 767
+        },
+        {
+          "type": "element",
+          "tag": "p",
+          "children": []
+        }
+      ]
+    },
+    {
+      "type": "element",
+      "tag": "p",
+      "children": [
+        {
+          "type": "element",
+          "tag": "strong",
+          "children": [
+            {
+              "type": "element",
+              "tag": "span",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "自动生成的论文如下："
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "element",
+      "tag": "div",
+      "children": [
+        {
+          "type": "element",
+          "tag": "section",
+          "children": [
+            {
+              "type": "image",
+              "src": "/images/community/3820db83dd1d48a231696263ac96a83c8b3325e5789921f21de8d735386294e7.webp",
+              "alt": "图片展示的是论文《Delayed Batch Reveal Mitigates First-Proposal Bias in LLM Agentic Marketplaces》的PDF页面，为文档中介绍AgentAlpha社区代表项目相关内容的图片。页面显示论文第1/10页，作者为匿名，介绍了语言模型驱动的代理在生物医学知识驱动的市场决策中的应用，提出了一种延迟批量揭示协议以减轻LLM代理市场中首次提案偏见，还涉及生物医学预测建模和评估等内容。该图片与上下文介绍的论文地址、Hugging Face项目页等信息相呼应。",
+              "width": 1256,
+              "height": 2808
+            }
+          ],
+          "kind": "column",
+          "ratio": 0.25
+        },
+        {
+          "type": "element",
+          "tag": "section",
+          "children": [
+            {
+              "type": "image",
+              "src": "/images/community/f5689f4767403574836bdfc2ce165efef989891f798efc9296da5eb367661511.webp",
+              "alt": "图片展示的是论文《Sequential Information Exposure versus Exercised Batch Proposal》中关于Exercised Batch Reveal Protocol部分内容。图中包含流程图、公式等，阐述了该协议如何将先前的提议与当前的提议分开，以减少先前提议对当前提议的依赖。协议中涉及的变量如K、L、M等，以及公式（A）、（B）、（C）、（D）等，用于说明协议的计算过程。该图片与文档中介绍的论文内容紧密相关，直观呈现了论文中关键协议的运作机制。",
+              "width": 1256,
+              "height": 2808
+            }
+          ],
+          "kind": "column",
+          "ratio": 0.25
+        },
+        {
+          "type": "element",
+          "tag": "section",
+          "children": [
+            {
+              "type": "image",
+              "src": "/images/community/004be79eacbb3beb3ff5fd46e3c20d165eafdd88b8b269b974de939722dd5daf.webp",
+              "alt": "图片展示的是论文《Decomposing Symbolic Trading from Mathematical Reasoning in Financial XBRL》的第2页。页面上方有“final (5).pdf”字样，右上角有“2/10”标识。内容涉及结构化财务报告中的数学推理，介绍了结构化财务报告的结构化表达、结构化财务报告的数学推理、结构化财务报告的数学推理评估等内容，还展示了评估框架、评估指标等。该图片与文档中介绍论文内容相契合，直观呈现了论文部分内容。",
+              "width": 1256,
+              "height": 2808
+            }
+          ],
+          "kind": "column",
+          "ratio": 0.25
+        },
+        {
+          "type": "element",
+          "tag": "section",
+          "children": [
+            {
+              "type": "image",
+              "src": "/images/community/ef26cb409843fbb7a4505b4b6e3aae9df62f3ea8fe540d94609523e240c48aa9.webp",
+              "alt": "图片展示的是论文《Hazard-Signature Taintlines for Paraphrase-Resilient Memory Erasure in LLM》的一页内容。上方有“final (6).pdf”字样，显示为第1/10页。主要内容包括大语言模型逐渐依赖持久性记忆系统，以及Hazard-Signature Taintlines（HST）等概念，还涉及相关工作、模型架构等内容。图片下方有“Figure 7. Paraphrase-rejection attack that bypasses ID-based”及图示，展示了攻击示例。该图片与文档中介绍论文内容相契合，直观呈现了论文部分内容。",
+              "width": 1256,
+              "height": 2808
+            }
+          ],
+          "kind": "column",
+          "ratio": 0.25
+        }
+      ],
+      "kind": "grid"
+    },
+    {
+      "type": "element",
+      "tag": "p",
+      "children": [
+        {
+          "type": "element",
+          "tag": "a",
+          "children": [
+            {
+              "type": "text",
+              "text": "查看项目历程"
+            }
+          ],
+          "kind": "button",
+          "href": "https://agentalpha.feishu.cn/docx/ZioOdMl6ZoYNnXxMX0Pc0NPnncj"
+        }
+      ]
+    },
+    {
+      "type": "element",
+      "tag": "p",
+      "children": []
+    },
+    {
+      "type": "element",
+      "tag": "hr",
+      "children": []
+    },
+    {
+      "type": "element",
+      "tag": "p",
+      "children": []
+    },
+    {
+      "type": "element",
+      "tag": "h2",
+      "children": [
+        {
+          "type": "element",
+          "tag": "strong",
+          "children": [
+            {
+              "type": "text",
+              "text": "2. "
+            }
+          ]
+        },
+        {
+          "type": "element",
+          "tag": "strong",
+          "children": [
+            {
+              "type": "text",
+              "text": "最具影响力的 AI 小说项目"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "text": "：InkOS（AI 小说智能体）"
+        }
+      ],
+      "id": "2-最具影响力的-ai-小说项目-inkos-ai-小说智能体"
+    },
+    {
+      "type": "element",
+      "tag": "aside",
+      "children": [
+        {
+          "type": "element",
+          "tag": "p",
+          "children": [
+            {
+              "type": "text",
+              "text": "项目聚焦从创意构思到完整成稿的全链路自动化小说生产，通过 10 个协作 Agent（雷达、规划师、建筑师、写手、观察者、反射器、归一化器、连续性审计员、修订者等）构建工程化写作管线，自动完成世界观搭建、角色矩阵、情节编排、伏笔追踪、33 维度连续性审计与闭环修订，并内置反 AIGC 检测与文风仿写能力。自开源以来，InkOS 在 GitHub 已获得 7800+ Stars、1500+ Forks，npm 下载量超 3.6 万次，并入选 kimi "
+            },
+            {
+              "type": "element",
+              "tag": "span",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "首批"
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "text": "开源合作伙伴！！"
+            }
+          ]
+        }
+      ],
+      "kind": "callout",
+      "emoji": "🍞"
+    },
+    {
+      "type": "element",
+      "tag": "p",
+      "children": [
+        {
+          "type": "text",
+          "text": "微信社群自然增长至 3,000+ 人；生其中 150+ 部成功签约番茄、七猫等主流平台，签约率超 20%，累计产出文字突破 10 亿字。基于社区验证与商业可行性，项目已获得早期资本关注，头部作者月收入超 3 万元，部分单月高达 5 万元，团队正在探索 AI 漫画等多媒介 IP 孵化方向。创作效率指数级提升，纯小白日增量可达 10 万字，极端案例两天完成 8 万字、十小时输出 10 万字；"
+        }
+      ]
+    },
+    {
+      "type": "element",
+      "tag": "p",
+      "children": [
+        {
+          "type": "text",
+          "text": "签约成功率显著提高，150+ 部作品成功签约主流平台，头部作者月收入达 3 万甚至 5 万元，兼职作者也能稳定获得 5,000+ 元额外收入；创作成本极致压缩，每章模型调用成本仅约 0.2 元（"
+        },
+        {
+          "type": "element",
+          "tag": "span",
+          "children": [
+            {
+              "type": "text",
+              "text": "https://kkaiapi.com/auth?aff_code=agentalpha"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "text": "，可结合api站点使用）"
+        }
+      ]
+    },
+    {
+      "type": "element",
+      "tag": "p",
+      "children": [
+        {
+          "type": "text",
+          "text": "• GitHub 地址：https://github.com/Narcooo/inkos"
+        }
+      ]
+    },
+    {
+      "type": "image",
+      "src": "/images/community/8591fdac6475f756a4d6b55ad89e76a7750b7a5ac016580bbbece1a827129018.webp",
+      "alt": "这张图片展示的是GitHub平台上的InkOS项目页面，该项目是AgentAlpha社区的最具影响力AI小说项目，名称为inkos，属于面向故事创作的AI Agent系统。页面呈现了该项目的代码仓库核心信息，包含“master”等分支选项、16个分支、34个标签、1415次提交记录，以及github、assets、packages等多个项目文件目录。右侧“About”板块标注了该项目的应用场景，包括小说创作、互动影游、AI生成内容等方向，还显示仓库拥有7.8k星标、1.5k复刻，遵循AGPL 3.0开源许可，与文档中提到的该项目的GitHub地址及功能定位完全对应。",
+      "width": 1655,
+      "height": 939
+    },
+    {
+      "type": "image",
+      "src": "/images/community/3d8c75fa74390973468c97f51bee4ef14ace52666436bca97b1ed0ceda785cfc.webp",
+      "alt": "图片展示了InkOS的相关信息。上方有其标志及名称“InkOS”，下方文字介绍其为面向长短篇小说、剧本创作、互动影游与IP内容的创作智能体系统。还显示了npm版本、许可证、星星数、下载量等信息，以及GitHub地址。底部说明InkOS是面向故事创作的AI Agent系统，支持多种交互形式，可从同一工作台开始创作，还推荐搭配“火花数据API”等。图片与上下文紧密相关，是对InkOS项目的详细介绍。",
+      "width": 976,
+      "height": 803
+    },
+    {
+      "type": "element",
+      "tag": "aside",
+      "children": [
+        {
+          "type": "element",
+          "tag": "p",
+          "children": [
+            {
+              "type": "text",
+              "text": "目前InkOS 不断升级，从一个面向故事创作的 AI Agent 系统不断升级：InkOS 1.6.0 把开放世界继续推进到互动影游、剧本和分镜工作台，同时引入可插拔 Skill 系统~~"
+            }
+          ]
+        }
+      ],
+      "kind": "callout",
+      "emoji": "🏆"
+    },
+    {
+      "type": "element",
+      "tag": "table",
+      "children": [
+        {
+          "type": "element",
+          "tag": "colgroup",
+          "children": [
+            {
+              "type": "element",
+              "tag": "col",
+              "children": []
+            },
+            {
+              "type": "element",
+              "tag": "col",
+              "children": []
+            }
+          ]
+        },
+        {
+          "type": "element",
+          "tag": "thead",
+          "children": [
+            {
+              "type": "element",
+              "tag": "tr",
+              "children": [
+                {
+                  "type": "element",
+                  "tag": "th",
+                  "children": [
+                    {
+                      "type": "element",
+                      "tag": "p",
+                      "children": [
+                        {
+                          "type": "text",
+                          "text": "作品类"
+                        }
+                      ]
+                    }
+                  ],
+                  "colSpan": 2
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "element",
+          "tag": "tbody",
+          "children": [
+            {
+              "type": "element",
+              "tag": "tr",
+              "children": [
+                {
+                  "type": "element",
+                  "tag": "td",
+                  "children": [
+                    {
+                      "type": "element",
+                      "tag": "p",
+                      "children": []
+                    },
+                    {
+                      "type": "image",
+                      "src": "/images/community/c3db019f520e392f2c6d0e02aa287e3146a0bff2fe4c101fd6371928bf217b1f.webp",
+                      "alt": "图片展示的是InkOS（AI小说智能体）在读人数数据。上方显示“在读人数”，下方以大号数字“40,115”呈现具体数值，再下方用橙色文字标注“比前日 14.25%”，并配有向上的箭头图标。该图片与文档中介绍InkOS项目的内容相关，直观呈现了其在读人数情况，体现了其在用户群体中的受欢迎程度。",
+                      "width": 555,
+                      "height": 332
+                    }
+                  ]
+                },
+                {
+                  "type": "element",
+                  "tag": "td",
+                  "children": [
+                    {
+                      "type": "image",
+                      "src": "/images/community/0ef52b4a6cf7825484fa423c7434676a26d9f1c23a82d3e543a34d2f2ed9db54.webp",
+                      "alt": "图片展示的是InkOS（AI小说智能体）在番茄小说平台的评分及阅读情况。上方显示“番茄数据”及刷新时间为04-24 12:02。下方绿色背景区域，左侧有模糊处理的头像，中间显示“暂无评分 | 2.0万人在读”，底部标注“连载中 · 男频 - 传统玄幻新书 - 第24名”。该图片与文档中中介绍InkOS项目的内容相关，直观呈现了其在平台上的数据表现。",
+                      "width": 1260,
+                      "height": 921
+                    },
+                    {
+                      "type": "element",
+                      "tag": "p",
+                      "children": []
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "element",
+      "tag": "table",
+      "children": [
+        {
+          "type": "element",
+          "tag": "colgroup",
+          "children": [
+            {
+              "type": "element",
+              "tag": "col",
+              "children": []
+            },
+            {
+              "type": "element",
+              "tag": "col",
+              "children": []
+            }
+          ]
+        },
+        {
+          "type": "element",
+          "tag": "thead",
+          "children": [
+            {
+              "type": "element",
+              "tag": "tr",
+              "children": [
+                {
+                  "type": "element",
+                  "tag": "th",
+                  "children": [
+                    {
+                      "type": "element",
+                      "tag": "p",
+                      "children": [
+                        {
+                          "type": "text",
+                          "text": "用户类"
+                        }
+                      ]
+                    }
+                  ],
+                  "colSpan": 2
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "element",
+          "tag": "tbody",
+          "children": [
+            {
+              "type": "element",
+              "tag": "tr",
+              "children": [
+                {
+                  "type": "element",
+                  "tag": "td",
+                  "children": [
+                    {
+                      "type": "element",
+                      "tag": "div",
+                      "children": [
+                        {
+                          "type": "element",
+                          "tag": "section",
+                          "children": [
+                            {
+                              "type": "image",
+                              "src": "/images/community/1589fbacdd35292599397c095337b4cbfb22d5d5cbca7189646e0d8b25851596.webp",
+                              "alt": "这是一张聊天对话框截图，内容围绕AI小说项目InkOS展开。左侧是带有熊猫头像的用户发言，先是感慨“AI写的，感觉好难低质”，之后又调整评价表示“起码inkos出的，比我自己写要好”；中间显示有“程式加载中”的状态提示，搭配相关加载图标。该截图对应文档里InkOS（AI小说智能体）项目的相关内容，体现了用户对该AI小说智能体产出内容的相关看法。",
+                              "width": 1320,
+                              "height": 421
+                            },
+                            {
+                              "type": "image",
+                              "src": "/images/community/a6baa402447c83d506814b0ffbf495a672d8a84d105e87795b99971e803c298a.webp",
+                              "alt": "图片展示了一条聊天记录，时间为5月17日下午10:30。聊天双方为“X小都”，其发送消息称“我用Inkos，调教好从6章开始，就没AI味了”。其中“Inkos”以绿色高亮显示。该图片位于介绍InkOS（AI小说智能体）的章节中，用以说明InkOS在调教后能产出类似人类创作的高质量小说，体现了其在AI小说创作方面的影响力。",
+                              "width": 1320,
+                              "height": 416
+                            }
+                          ],
+                          "kind": "column",
+                          "ratio": 0.525538
+                        },
+                        {
+                          "type": "element",
+                          "tag": "section",
+                          "children": [
+                            {
+                              "type": "image",
+                              "src": "/images/community/331a8e1d0893ab0998a22dfefdd29d188e9db5de727cddc247d0b39267e6641f.webp",
+                              "alt": "图片展示的是一个聊天界面，刘嘻嘻与迎着阳光的对话。刘嘻嘻提到用InkOS是为了发布到平台赚钱，且自己写不完整，昨天用了InkOS后道心破碎。迎着阳光回复“道心破碎啥”，刘嘻嘻再次感叹“程序员都被AI干废了”。该图片与文档中介绍InkOS（AI小说智能体）的上下文相关，直观呈现了用户对InkOS的使用感受及由此引发的感慨。",
+                              "width": 1320,
+                              "height": 1091
+                            }
+                          ],
+                          "kind": "column",
+                          "ratio": 0.474462
+                        }
+                      ],
+                      "kind": "grid"
+                    }
+                  ]
+                },
+                {
+                  "type": "element",
+                  "tag": "td",
+                  "children": [
+                    {
+                      "type": "element",
+                      "tag": "div",
+                      "children": [
+                        {
+                          "type": "element",
+                          "tag": "section",
+                          "children": [
+                            {
+                              "type": "image",
+                              "src": "/images/community/b667f1fbe9cb2a09e8289993ad020f262507e1bb16161327ca0974c5ed50f6d1.webp",
+                              "alt": "图片展示了一条聊天记录，用户@alphaseek评论称“inkos的产品架构不错，bug改改就好了”。其中“inkos”被绿色框突出显示。该图片位于介绍InkOS（AI小说智能体）的章节中，是对InkOS项目影响力的补充说明，体现了社区成员对该项目的认可，认为其产品架构有优势，只需改进bug即可。",
+                              "width": 1320,
+                              "height": 307
+                            }
+                          ],
+                          "kind": "column",
+                          "ratio": 0.799781
+                        },
+                        {
+                          "type": "element",
+                          "tag": "section",
+                          "children": [
+                            {
+                              "type": "image",
+                              "src": "/images/community/8ac5eec24c7188f3952a88521f8d1fc6fd48fb586296ea853ee071451d704ada.webp",
+                              "alt": "图片展示的是一个聊天界面，时间显示为4月17日上午8:30和9:11。界面中有几位用户，包括“大宝”和“Aaron.ou”。大宝询问流量情况及签约平台，Aaron.ou回复称其作品审核通过并签约了。该图片与文档中“成功案例”部分内容相关，通过聊天记录呈现了签约作品的交流情况，直观展示了签约作品的审核通过及签约进展。",
+                              "width": 1320,
+                              "height": 1283
+                            }
+                          ],
+                          "kind": "column",
+                          "ratio": 0.200219
+                        }
+                      ],
+                      "kind": "grid"
+                    },
+                    {
+                      "type": "element",
+                      "tag": "div",
+                      "children": [
+                        {
+                          "type": "element",
+                          "tag": "section",
+                          "children": [
+                            {
+                              "type": "image",
+                              "src": "/images/community/84568781a768217e94654afacfd29fc65e4bfefb14596c8f5d320dc52e6b13a1.webp",
+                              "alt": "图片展示的是一个聊天界面，时间显示为5月20日下午6:16。上方用户“很晚才睡”询问“群里有用inkos稳定盈利日收入超过1块钱的吗”，下方用户“非洲人”回复“一块还是有的”，并进一步说明自己正“vibe coding做一个软件，传一个抖音视频链接，直接提取脚本文案，生成数字人口播，再自动发出去”。该图片与文档中介绍InkOS（AI小说智能体）的最具影响力的AI小说项目内容相关，体现了用户对该项目盈利情况的关注及对相关应用的讨论。",
+                              "width": 1320,
+                              "height": 1012
+                            }
+                          ],
+                          "kind": "column",
+                          "ratio": 0.557668
+                        },
+                        {
+                          "type": "element",
+                          "tag": "section",
+                          "children": [
+                            {
+                              "type": "image",
+                              "src": "/images/community/8ac5eec24c7188f3952a88521f8d1fc6fd48fb586296ea853ee071451d704ada.webp",
+                              "alt": "图片展示的是一个聊天界面，时间显示为4月17日上午8:30和9:11。界面中有几位用户，包括“大宝”和“Aaron.ou”。大宝询问流量情况及签约平台，Aaron.ou回复称其作品审核通过并签约了。该图片与文档中介绍InkOS（AI小说智能体）的签约情况相关，直观呈现了签约进展的聊天记录，体现了AI小说智能体在签约方面的成果。",
+                              "width": 1320,
+                              "height": 1283
+                            }
+                          ],
+                          "kind": "column",
+                          "ratio": 0.442332
+                        }
+                      ],
+                      "kind": "grid"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "element",
+      "tag": "h3",
+      "children": [
+        {
+          "type": "text",
+          "text": "成功案例"
+        }
+      ],
+      "id": "成功案例"
+    },
+    {
+      "type": "element",
+      "tag": "table",
+      "children": [
+        {
+          "type": "element",
+          "tag": "colgroup",
+          "children": [
+            {
+              "type": "element",
+              "tag": "col",
+              "children": []
+            },
+            {
+              "type": "element",
+              "tag": "col",
+              "children": []
+            }
+          ]
+        },
+        {
+          "type": "element",
+          "tag": "tbody",
+          "children": [
+            {
+              "type": "element",
+              "tag": "tr",
+              "children": [
+                {
+                  "type": "element",
+                  "tag": "td",
+                  "children": [
+                    {
+                      "type": "element",
+                      "tag": "p",
+                      "children": [
+                        {
+                          "type": "element",
+                          "tag": "strong",
+                          "children": [
+                            {
+                              "type": "text",
+                              "text": "指标"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "element",
+                  "tag": "td",
+                  "children": [
+                    {
+                      "type": "element",
+                      "tag": "p",
+                      "children": [
+                        {
+                          "type": "element",
+                          "tag": "strong",
+                          "children": [
+                            {
+                              "type": "text",
+                              "text": "数据/范围"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "element",
+              "tag": "tr",
+              "children": [
+                {
+                  "type": "element",
+                  "tag": "td",
+                  "children": [
+                    {
+                      "type": "element",
+                      "tag": "p",
+                      "children": [
+                        {
+                          "type": "text",
+                          "text": "已签约作品数"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "element",
+                  "tag": "td",
+                  "children": [
+                    {
+                      "type": "element",
+                      "tag": "p",
+                      "children": [
+                        {
+                          "type": "element",
+                          "tag": "strong",
+                          "children": [
+                            {
+                              "type": "text",
+                              "text": "150部以上"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "element",
+              "tag": "tr",
+              "children": [
+                {
+                  "type": "element",
+                  "tag": "td",
+                  "children": [
+                    {
+                      "type": "element",
+                      "tag": "p",
+                      "children": [
+                        {
+                          "type": "text",
+                          "text": "社群人数"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "element",
+                  "tag": "td",
+                  "children": [
+                    {
+                      "type": "element",
+                      "tag": "p",
+                      "children": [
+                        {
+                          "type": "element",
+                          "tag": "strong",
+                          "children": [
+                            {
+                              "type": "text",
+                              "text": "5000人"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "element",
+              "tag": "tr",
+              "children": [
+                {
+                  "type": "element",
+                  "tag": "td",
+                  "children": [
+                    {
+                      "type": "element",
+                      "tag": "p",
+                      "children": [
+                        {
+                          "type": "text",
+                          "text": "头部作品月收入"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "element",
+                  "tag": "td",
+                  "children": [
+                    {
+                      "type": "element",
+                      "tag": "p",
+                      "children": [
+                        {
+                          "type": "element",
+                          "tag": "strong",
+                          "children": [
+                            {
+                              "type": "text",
+                              "text": "超 3 万元"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "element",
+              "tag": "tr",
+              "children": [
+                {
+                  "type": "element",
+                  "tag": "td",
+                  "children": [
+                    {
+                      "type": "element",
+                      "tag": "p",
+                      "children": [
+                        {
+                          "type": "text",
+                          "text": "累计产出文字数量"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "element",
+                  "tag": "td",
+                  "children": [
+                    {
+                      "type": "element",
+                      "tag": "p",
+                      "children": [
+                        {
+                          "type": "element",
+                          "tag": "strong",
+                          "children": [
+                            {
+                              "type": "text",
+                              "text": "10,000,000,000字上"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "element",
+              "tag": "tr",
+              "children": [
+                {
+                  "type": "element",
+                  "tag": "td",
+                  "children": [
+                    {
+                      "type": "element",
+                      "tag": "p",
+                      "children": [
+                        {
+                          "type": "text",
+                          "text": "上线平台"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "element",
+                  "tag": "td",
+                  "children": [
+                    {
+                      "type": "element",
+                      "tag": "p",
+                      "children": [
+                        {
+                          "type": "element",
+                          "tag": "strong",
+                          "children": [
+                            {
+                              "type": "text",
+                              "text": "番茄、七猫"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "element",
+      "tag": "h2",
+      "children": [
+        {
+          "type": "element",
+          "tag": "strong",
+          "children": [
+            {
+              "type": "text",
+              "text": "3. "
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "text": "依托学员标杆商用项目：潜艇 AI（TikTok 跨境电商 AI 引擎）"
+        }
+      ],
+      "id": "3-依托学员标杆商用项目-潜艇-ai-tiktok-跨境电商-ai-引擎"
+    },
+    {
+      "type": "element",
+      "tag": "aside",
+      "children": [
+        {
+          "type": "element",
+          "tag": "p",
+          "children": [
+            {
+              "type": "text",
+              "text": "以社区成员真实创业项目 "
+            },
+            {
+              "type": "element",
+              "tag": "strong",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "潜艇 AI"
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "text": " 为实战载体，从 0 到 1 全程带教、全程指导、全程落地，真正实现"
+            },
+            {
+              "type": "element",
+              "tag": "strong",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "把 AI 技术变成商业价值"
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "text": "。项目聚焦 TikTok 跨境电商卖家痛点，提供一键成片、智能脚本、素材生成、合规优化等全流程能力，"
+            },
+            {
+              "type": "element",
+              "tag": "strong",
+              "children": [
+                {
+                  "type": "element",
+                  "tag": "span",
+                  "children": [
+                    {
+                      "type": "text",
+                      "text": "3 人团队 20 天快速上线，30 天用户破万，累计帮助卖家创造营收超 300 ～350万元"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "text": "。通过这个真实商用项目，成员不仅掌握"
+            },
+            {
+              "type": "element",
+              "tag": "strong",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "工程落地、产品设计、技术实现、运营变现"
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "text": "全流程能力，更真正体会 “AI 如何为产业赋能、如何为商业创造价值”，大批学员由此具备独立做项目、独立创业、独立接企业需求的实战能力。"
+            }
+          ]
+        }
+      ],
+      "kind": "callout",
+      "emoji": "🥛"
+    },
+    {
+      "type": "element",
+      "tag": "p",
+      "children": [
+        {
+          "type": "element",
+          "tag": "strong",
+          "children": [
+            {
+              "type": "text",
+              "text": "核心功能与工作细节："
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "element",
+      "tag": "ul",
+      "children": [
+        {
+          "type": "element",
+          "tag": "li",
+          "children": [
+            {
+              "type": "element",
+              "tag": "strong",
+              "children": [
+                {
+                  "type": "element",
+                  "tag": "em",
+                  "children": [
+                    {
+                      "type": "text",
+                      "text": "一键成片功能"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "text": "：支持 1688、淘宝、亚马逊等平台商品链接解析，结合对标爆款视频，全自动输出 4 条高原创、高转化带货短视频"
+            }
+          ]
+        },
+        {
+          "type": "element",
+          "tag": "li",
+          "children": [
+            {
+              "type": "element",
+              "tag": "strong",
+              "children": [
+                {
+                  "type": "element",
+                  "tag": "em",
+                  "children": [
+                    {
+                      "type": "text",
+                      "text": "核心技术链路"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "text": "：商品链接解析 → 多视角图片提取 → Nano Banana 2 技术生成九宫格参考图（解决 AI 幻觉、货不对版） → Gemini 大模型拆解爆款脚本 → 逆向生成 Sora-2 精细化 Prompt → 生成合规短视频"
+            }
+          ]
+        },
+        {
+          "type": "element",
+          "tag": "li",
+          "children": [
+            {
+              "type": "element",
+              "tag": "strong",
+              "children": [
+                {
+                  "type": "element",
+                  "tag": "em",
+                  "children": [
+                    {
+                      "type": "text",
+                      "text": "AI 产品库"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "text": "：自动沉淀商品九宫格参考图、高阶 Prompt，用户一次创建，可无限复用、裂变衍生新视频，实现素材资产沉淀"
+            }
+          ]
+        },
+        {
+          "type": "element",
+          "tag": "li",
+          "children": [
+            {
+              "type": "element",
+              "tag": "strong",
+              "children": [
+                {
+                  "type": "element",
+                  "tag": "em",
+                  "children": [
+                    {
+                      "type": "text",
+                      "text": "全节点自定义引擎"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "text": "：将生图、脚本拆解、Prompt 编写、视频生成等环节解耦，满足高阶卖家的个性化创作需求"
+            }
+          ]
+        },
+        {
+          "type": "element",
+          "tag": "li",
+          "children": [
+            {
+              "type": "element",
+              "tag": "strong",
+              "children": [
+                {
+                  "type": "element",
+                  "tag": "em",
+                  "children": [
+                    {
+                      "type": "text",
+                      "text": "痛点解决"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "text": "：彻底解决 TikTok 卖家“模型门槛高、国内访问受限、素材同质化限流、AI 货不对版、脚本匮乏”五大核心痛点"
+            }
+          ]
+        },
+        {
+          "type": "element",
+          "tag": "li",
+          "children": [
+            {
+              "type": "element",
+              "tag": "strong",
+              "children": [
+                {
+                  "type": "element",
+                  "tag": "em",
+                  "children": [
+                    {
+                      "type": "text",
+                      "text": "运营支持"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "text": "：社区为项目提供技术迭代、用户反馈收集、商业化变现指导，助力项目快速起量，导师全程跟进优化，保障项目落地效果"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "element",
+      "tag": "blockquote",
+      "children": [
+        {
+          "type": "element",
+          "tag": "p",
+          "children": [
+            {
+              "type": "element",
+              "tag": "strong",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "可核验链接："
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "text": "潜艇AI官网：qiantingai.com"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "image",
+      "src": "/images/community/a86c5bc423e77641a64eb942d5e93d05db84de93453fd546abb6af5704d40db4.webp",
+      "alt": "图片展示了潜艇AI官网页面。上方标题为“一站式带货视频解决方案”，并有“立即购买”“教程”“进入工作台”等按钮。中间部分有“立即注册”“开始创建”按钮，以及“Rover AI Studio”按钮。下方展示了2.5w、120w、4.5w、200w等数据，配有不同平台图标。右侧手机屏幕上显示商品图片及“LATTE”“VONALA DUOFOY”等文字。该图片与文档中介绍潜艇AI的商业变现相关内容相呼应，直观呈现了其官网界面及功能。",
+      "width": 1908,
+      "height": 982
+    },
+    {
+      "type": "element",
+      "tag": "h2",
+      "children": [
+        {
+          "type": "text",
+          "text": "4. 企业定制电商项目sell ai"
+        }
+      ],
+      "id": "4-企业定制电商项目sell-ai"
+    },
+    {
+      "type": "image",
+      "src": "/images/community/177f7c203c24bc5d0bc5a7edeed5f3b7d0158c7463a8fb59aebf30c88f629b60.webp",
+      "alt": "图片展示的是SellAI Pro平台界面。左侧为导航栏，有“实战舱”“我的团队”等选项。右侧上方显示“实战舱”，有“实战舱”“今日商机”“项目任务”“项目动态”“快手上手”等板块。其中“今日商机”板块展示了多个商机信息，如Luminance 3 Pro等，还显示了商机数量、商机金额等数据。下方“项目任务”板块提示“还有没有中国的商机，先选一个可做的试试”。该图片与文档中介绍依托AI Agent实战训练营的内容相关，直观呈现了平台实战训练场景。",
+      "width": 1280,
+      "height": 797
+    },
+    {
+      "type": "element",
+      "tag": "p",
+      "children": [
+        {
+          "type": "element",
+          "tag": "a",
+          "href": "https://agentalpha.feishu.cn/docx/WjaqdGrXOoDhiUx3zCqc9M8bn5f",
+          "children": [
+            {
+              "type": "text",
+              "text": "SellAI Pro｜跨境电商 AI 运营中枢"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "element",
+      "tag": "p",
+      "children": [
+        {
+          "type": "text",
+          "text": "网址：https://sellaipro.fly.dev/"
+        }
+      ]
+    },
+    {
+      "type": "image",
+      "src": "/images/community/9f7b0f404b35317a0ad476c5bbcecf0b5649e21798980a6119c30da2bf1074ab.webp",
+      "alt": "图片展示了SellAI Pro平台界面。左侧以大字突出“高端跨境卖家AI运营中枢”，并介绍其从选品、竞品攻击、Listing转化到1688货源和利润风控，将跨境增长变成可调、可预测、可迭代的经营系统。下方有免费注册按钮及查看Pro套餐选项。右侧是平台的“今日的运营判断”板块，显示机会、ASIN池、毛利、风险等数据，还列出市场研究、竞争攻击、Listing冲刺、采购门等板块内容。该图与文档中介绍SellAI Pro平台的内容相契合，直观呈现其功能界面。",
+      "width": 1763,
+      "height": 821
+    },
+    {
+      "type": "image",
+      "src": "/images/community/d1ccd803fdf892f57981eb6b10d5ea6e9677975e9afee6d75c1371880ce8047d.webp",
+      "alt": "这张图片对应文档中企业定制电商项目sell ai的相关内容，展示了该项目核心功能的具体模块，顶部设有“先判断战场，再调度数字员工”的核心表述，强调其核心价值是为卖家解决每日运营问题，生成可判断验证的经营动作。下方依次是选品判断、竞品雷达、Listing转化、货源与利润、AI经营对话、风险门禁六大功能模块，每个模块配有对应图标与简短说明，清晰呈现项目覆盖的电商运营关键环节，与文档中sell ai项目的介绍内容相呼应。",
+      "width": 1719,
+      "height": 656
+    },
+    {
+      "type": "image",
+      "src": "/images/community/598ecb5bb63a65200da24440570bd3e7d83669143099b323135cc6c8980f156c.webp",
+      "alt": "图片展示了AgentAlpha AI Agent的10大核心功能矩阵，涵盖从机会发现到运营复盘的全流程。每个模块可独立使用，也能被Goal自动调用，且每个模块都以经营动作收尾。功能包括AI选品研究、竞品拆解、VOC评论洞察、Listing优化、1688货源策略、Margin、FBA利润测算、合理风控、Goal执行中心、多Agent协作、Goal目标系统等，还标注了对应的功能模块。该图与上下文介绍的AI Agent功能体系相契合，直观呈现了其核心功能。",
+      "width": 1702,
+      "height": 734
+    },
+    {
+      "type": "element",
+      "tag": "h2",
+      "children": [
+        {
+          "type": "text",
+          "text": "5. "
+        },
+        {
+          "type": "element",
+          "tag": "a",
+          "href": "https://agentalpha.feishu.cn/docx/AQDYdqzUpor4N9xTJIGcJ3C1nac",
+          "children": [
+            {
+              "type": "text",
+              "text": "火花数据 API：把专业数据与主流模型接入 AI Agent"
+            }
+          ]
+        }
+      ],
+      "id": "5"
+    },
+    {
+      "type": "image",
+      "src": "/images/community/eabbae2e871d006318c6f108b91d98783e59bfb0722fe6ccb2f0f3155934bc9f.webp",
+      "alt": "图片展示的是火花数据API的页面。上方有导航栏，包括首页、模型、应用市场、数据、文档等选项。中间大标题为“给Agent的专业数据API和模型调用服务”，并介绍其功能。下方有“关注/注册，马上开始”按钮，以及“模型中转站在这里！”的提示。页面中部有多个标签栏，如高考真题精选、高考一对一问、高考真题等。底部展示了“交通肇事罪的认定标准”相关内容，还标注了可使用场景、材料类型等信息。",
+      "width": 1485,
+      "height": 905
+    },
+    {
+      "type": "image",
+      "src": "/images/community/c529f079a579d0385770cca284cdb715887031e45334d0b7921f6b121808af1f.webp",
+      "alt": "这张图片展示的是火花数据API相关内容，页面顶部有“火花数据API”字样，其下分为“火花商业数据API”和“火花创作数据API”两大板块。火花商业数据API板块列出4类专业数据库，分别是研报数据库（17.3万）、投研事件数据库（31.8万）、政策法规数据库（2.88万）、法律案例数据库（488），每类数据库旁设有“分享溯源”按钮及查询定制Agent的相关选项。火花创作数据API板块列出3类素材资源，包括X/Twitter社交搜索（3种）、小说与同文素材库（6类）、剧本素材库（逐场景）、短视频创作素材库（全链路），该板块同样配有对应查询定制Agent的选项，整体呈现了火花数据API提供的专业数据资源情况。",
+      "width": 1517,
+      "height": 885
+    },
+    {
+      "type": "element",
+      "tag": "h2",
+      "children": [
+        {
+          "type": "element",
+          "tag": "strong",
+          "children": [
+            {
+              "type": "text",
+              "text": "6. "
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "text": "依托 AI Agent 实战训练营（体系化人才培养）"
+        }
+      ],
+      "id": "6-依托-ai-agent-实战训练营-体系化人才培养"
+    },
+    {
+      "type": "element",
+      "tag": "aside",
+      "children": [
+        {
+          "type": "element",
+          "tag": "p",
+          "children": [
+            {
+              "type": "element",
+              "tag": "strong",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "AgentAlpha 的训练营理念是：产学研结合、实战为王、项目驱动、长期主义"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "kind": "callout",
+      "emoji": "🍞"
+    },
+    {
+      "type": "element",
+      "tag": "aside",
+      "children": [
+        {
+          "type": "element",
+          "tag": "p",
+          "children": [
+            {
+              "type": "text",
+              "text": "我们打造"
+            },
+            {
+              "type": "element",
+              "tag": "strong",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "AI 黄埔军校式体系化人才培养体系"
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "text": "，不搞零散教学、不搞纯理论灌输，全程以"
+            },
+            {
+              "type": "element",
+              "tag": "strong",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "项目驱动、导师带教、实战落地"
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "text": "为核心，把技术、项目、成果、成长全部打通。训练营围绕 "
+            },
+            {
+              "type": "element",
+              "tag": "strong",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "大模型 Agent + 科研智能体 + 商用项目落地"
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "text": " 三位一体展开，从基础能力到工程能力，从工具使用到系统设计，从个人作战到团队协作，形成完整成长闭环。通过这套体系，我们真正实现："
+            }
+          ]
+        }
+      ],
+      "kind": "callout",
+      "emoji": "📍"
+    },
+    {
+      "type": "element",
+      "tag": "ul",
+      "children": [
+        {
+          "type": "element",
+          "tag": "li",
+          "children": [
+            {
+              "type": "text",
+              "text": "让零基础学员快速上手，做出可展示、可落地、可商用的项目成果；"
+            }
+          ]
+        },
+        {
+          "type": "element",
+          "tag": "li",
+          "children": [
+            {
+              "type": "text",
+              "text": "让高校学员发论文、申博、升学更有竞争力；"
+            }
+          ]
+        },
+        {
+          "type": "element",
+          "tag": "li",
+          "children": [
+            {
+              "type": "text",
+              "text": "让职场学员进大厂、跳槽、晋升更有硬实力；"
+            }
+          ]
+        },
+        {
+          "type": "element",
+          "tag": "li",
+          "children": [
+            {
+              "type": "text",
+              "text": "让创业者做项目、做产品、做变现更有方向感。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "element",
+      "tag": "blockquote",
+      "children": [
+        {
+          "type": "element",
+          "tag": "h3",
+          "children": [
+            {
+              "type": "element",
+              "tag": "span",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "训练营地址："
+                }
+              ]
+            },
+            {
+              "type": "element",
+              "tag": "span",
+              "children": [
+                {
+                  "type": "element",
+                  "tag": "a",
+                  "href": "https://agentalpha.feishu.cn/wiki/TjZJwXw70ijEX6kkyKicgortnpb",
+                  "children": [
+                    {
+                      "type": "text",
+                      "text": "大模型 Agent 训练营"
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "id": "训练营地址"
+        }
+      ]
+    },
+    {
+      "type": "element",
+      "tag": "hr",
+      "children": []
+    },
+    {
+      "type": "element",
+      "tag": "h1",
+      "children": [
+        {
+          "type": "text",
+          "text": "3. 课程体系"
+        }
+      ],
+      "id": "3-课程体系"
+    },
+    {
+      "type": "element",
+      "tag": "aside",
+      "children": [
+        {
+          "type": "element",
+          "tag": "p",
+          "children": [
+            {
+              "type": "text",
+              "text": "系统化分层学习体系，包含三大核心板块：课程体系 + 实战训练营 + 项目定制"
+            }
+          ]
+        }
+      ],
+      "kind": "callout",
+      "emoji": "🏝️"
+    },
+    {
+      "type": "element",
+      "tag": "aside",
+      "children": [
+        {
+          "type": "element",
+          "tag": "p",
+          "children": [
+            {
+              "type": "text",
+              "text": "基础课："
+            }
+          ]
+        },
+        {
+          "type": "element",
+          "tag": "p",
+          "children": [
+            {
+              "type": "element",
+              "tag": "a",
+              "href": "https://agentalpha.feishu.cn/wiki/VtFawIdrAiLd80kmkF1c57onnIg",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "Agent基础版辅导-v2"
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "text": " （从python到agent入门）"
+            }
+          ]
+        }
+      ],
+      "kind": "callout",
+      "emoji": "💡"
+    },
+    {
+      "type": "element",
+      "tag": "aside",
+      "children": [
+        {
+          "type": "element",
+          "tag": "p",
+          "children": [
+            {
+              "type": "text",
+              "text": "大模型专项课（三层深度分级）"
+            }
+          ]
+        }
+      ],
+      "kind": "callout",
+      "emoji": "🥖"
+    },
+    {
+      "type": "element",
+      "tag": "aside",
+      "children": [
+        {
+          "type": "element",
+          "tag": "ol",
+          "children": [
+            {
+              "type": "element",
+              "tag": "li",
+              "children": [
+                {
+                  "type": "element",
+                  "tag": "span",
+                  "children": [
+                    {
+                      "type": "text",
+                      "text": "入门级："
+                    }
+                  ]
+                },
+                {
+                  "type": "element",
+                  "tag": "span",
+                  "children": [
+                    {
+                      "type": "element",
+                      "tag": "a",
+                      "href": "https://agentalpha.feishu.cn/docx/VjP3djEdCoJgjtxTLAPcmm1Lntc",
+                      "children": [
+                        {
+                          "type": "text",
+                          "text": "跟着我们，两个月就搞定LLM~"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "element",
+              "tag": "li",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "论文级："
+                },
+                {
+                  "type": "element",
+                  "tag": "a",
+                  "children": [
+                    {
+                      "type": "text",
+                      "text": "多模态大模型小班课"
+                    }
+                  ],
+                  "href": "https://30vy6.xetlk.com/s/2KYyGI"
+                }
+              ]
+            },
+            {
+              "type": "element",
+              "tag": "li",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "offer级: "
+                },
+                {
+                  "type": "element",
+                  "tag": "a",
+                  "href": "https://agentalpha.feishu.cn/docx/DFPPdFYbmoTF9nxsCwqcadpgnph",
+                  "children": [
+                    {
+                      "type": "text",
+                      "text": "Unified Model 多模态统一模型"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "kind": "callout",
+      "emoji": "🎼"
+    },
+    {
+      "type": "image",
+      "src": "/images/community/0bb877cde720858a6985aacea6aa176aaf781e0d876cade40e82c211b79afe45.webp",
+      "alt": "图片是AgentAlpha大模型基础课程大纲图。图中以流程线形式呈现，从基础知识到应用，共分10个阶段。每个阶段有对应内容，如基础知识包含语言模型、BERT/GPT/TS、Transformer等；数据工程有ICPT、Self-Instruction等；分布式训练框架有ZeRO、DeepSpeed等；微调有PEFT、LuRA等；推理与部署优化有Flash Attention等；评测与分析有LLaMA-Factory等；应用有Agent、LangChain等。图还展示了AgentAlpha现有路线及并入AgentAlpha的路线。",
+      "width": 1492,
+      "height": 1054
+    },
+    {
+      "type": "element",
+      "tag": "p",
+      "children": []
+    },
+    {
+      "type": "element",
+      "tag": "aside",
+      "children": [
+        {
+          "type": "element",
+          "tag": "p",
+          "children": [
+            {
+              "type": "text",
+              "text": "Agent系列课（10个阶段）"
+            }
+          ]
+        },
+        {
+          "type": "element",
+          "tag": "p",
+          "children": [
+            {
+              "type": "text",
+              "text": "RAG、Memory、Single Agent、Multi Agent、Deep-Research、Coding Agent、自进化 Agent、Agentic RL 等"
+            }
+          ]
+        }
+      ],
+      "kind": "callout",
+      "emoji": "✍️"
+    },
+    {
+      "type": "image",
+      "src": "/images/community/3989294ab90b5e898abbd753ca282b345c89e7d492cd7fcb51b5215b3cbcb456.webp",
+      "alt": "图片展示了智能体系统开发实战课程（简缩版）的内容框架。课程分为5个阶段，分别为Agent 1.0 - 基于Search的智能体开发（入门级）、Agent 2.0 - 基于Expert的智能体开发（论文级）、Agent 3.0 - 多智能体系统（论文级）、Code Agents入门（论文级）、DeepSearch开发（论文级）。每个阶段下有具体课程内容，如Agent 1.0阶段有基于Search的智能体开发、基于Search的智能体开发实战等课程，还标注了课程负责人及学习时长等信息。该图与文档中介绍的课程体系内容紧密相关，直观呈现了课程结构。",
+      "width": 3083,
+      "height": 1769
+    },
+    {
+      "type": "element",
+      "tag": "p",
+      "children": [
+        {
+          "type": "element",
+          "tag": "span",
+          "children": [
+            {
+              "type": "element",
+              "tag": "a",
+              "href": "https://agentalpha.feishu.cn/wiki/TjZJwXw70ijEX6kkyKicgortnpb",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "大模型 Agent 训练营"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "element",
+      "tag": "p",
+      "children": []
+    },
+    {
+      "type": "element",
+      "tag": "p",
+      "children": []
+    },
+    {
+      "type": "element",
+      "tag": "h1",
+      "children": [
+        {
+          "type": "element",
+          "tag": "strong",
+          "children": [
+            {
+              "type": "text",
+              "text": "4. 导师与社区成员"
+            }
+          ]
+        }
+      ],
+      "id": "4-导师与社区成员"
+    },
+    {
+      "type": "element",
+      "tag": "h2",
+      "children": [
+        {
+          "type": "element",
+          "tag": "strong",
+          "children": [
+            {
+              "type": "text",
+              "text": "1. 产业界核心成员"
+            }
+          ]
+        }
+      ],
+      "id": "1-产业界核心成员"
+    },
+    {
+      "type": "element",
+      "tag": "aside",
+      "children": [
+        {
+          "type": "element",
+          "tag": "p",
+          "children": [
+            {
+              "type": "text",
+              "text": "😎原大厂AI大模型算法负责人，有10多篇Agent、RL方向顶会论文和SOTA开源项目，90后年轻高潜，多段大厂跳槽成功涨薪80%经历，有语音多模态、NLP、大模型Agent方向丰富业界经验"
+            }
+          ]
+        },
+        {
+          "type": "element",
+          "tag": "p",
+          "children": [
+            {
+              "type": "text",
+              "text": "😊MIT博士，985青年教授，担任腾讯、oppo等知名大厂AI lab产学研项目合作的资深研究科学家，多次斩获CVPR、ECCV等顶会Workshop challenge的全球冠军，12篇顶会，具备极强的学术届和工业界综合背景"
+            }
+          ]
+        },
+        {
+          "type": "element",
+          "tag": "p",
+          "children": [
+            {
+              "type": "text",
+              "text": "😊香港科技大学计算机系博士后。研究聚焦高效 LLM/VLM 训练与推理、联邦学习与分布式系统、以及基于外部工具的智能体应用，代表性成果发表于/入选 NeurIPS (含 Spotlight)、ICML 、COLM、ACL、与 ICLR 2025（含 Blogpost），共发表论文80余篇，引用量上千。并获 NeurIPS 2024 Top Reviewer、FL@FM-NeurIPS’24 最佳学生论文奖等荣誉。当前他致力于以结构化训练范式与高效缓存/压缩等技术，推动可落地的 LLM/VLM 智能体。"
+            }
+          ]
+        },
+        {
+          "type": "element",
+          "tag": "p",
+          "children": [
+            {
+              "type": "text",
+              "text": "😁25 年面试超 80 场 国内 LLM 大厂通过率 100% 拿到多个大厂顶尖人才计划 offer 的中科院 phd"
+            }
+          ]
+        },
+        {
+          "type": "element",
+          "tag": "p",
+          "children": [
+            {
+              "type": "text",
+              "text": "社群还有 字节seed、Meta、Google、Apple、阿里p7..... （欢迎您的加入！）"
+            }
+          ]
+        }
+      ],
+      "kind": "callout",
+      "emoji": "📚"
+    },
+    {
+      "type": "element",
+      "tag": "h2",
+      "children": [
+        {
+          "type": "element",
+          "tag": "strong",
+          "children": [
+            {
+              "type": "text",
+              "text": "2. 学术界核心成员（含核心导师团队）"
+            }
+          ]
+        }
+      ],
+      "id": "2-学术界核心成员-含核心导师团队"
+    },
+    {
+      "type": "element",
+      "tag": "aside",
+      "children": [
+        {
+          "type": "element",
+          "tag": "p",
+          "children": [
+            {
+              "type": "text",
+              "text": "• MIT 博士（大模型与多智能体方向）"
+            }
+          ]
+        },
+        {
+          "type": "element",
+          "tag": "p",
+          "children": [
+            {
+              "type": "text",
+              "text": "• 北大 / 港科博士后（具身智能方向）"
+            }
+          ]
+        },
+        {
+          "type": "element",
+          "tag": "p",
+          "children": [
+            {
+              "type": "text",
+              "text": "• 中科院研究员（AI 工程化落地方向）"
+            }
+          ]
+        },
+        {
+          "type": "element",
+          "tag": "p",
+          "children": [
+            {
+              "type": "text",
+              "text": "• 国内顶尖高校 AI lab讲师、博后"
+            }
+          ]
+        },
+        {
+          "type": "element",
+          "tag": "p",
+          "children": [
+            {
+              "type": "text",
+              "text": "• 顶会顶刊一作20多篇"
+            }
+          ]
+        }
+      ],
+      "kind": "callout",
+      "emoji": "✏️"
+    },
+    {
+      "type": "element",
+      "tag": "p",
+      "children": []
+    },
+    {
+      "type": "element",
+      "tag": "aside",
+      "children": [
+        {
+          "type": "element",
+          "tag": "p",
+          "children": [
+            {
+              "type": "element",
+              "tag": "strong",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "AgentAlpha 的训练营理念是：产学研结合、实战为王、项目驱动、长期主义"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "kind": "callout",
+      "emoji": "📌"
+    },
+    {
+      "type": "element",
+      "tag": "div",
+      "children": [
+        {
+          "type": "element",
+          "tag": "section",
+          "children": [
+            {
+              "type": "element",
+              "tag": "aside",
+              "children": [
+                {
+                  "type": "element",
+                  "tag": "p",
+                  "children": [
+                    {
+                      "type": "element",
+                      "tag": "strong",
+                      "children": [
+                        {
+                          "type": "text",
+                          "text": "学术研究"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "element",
+                  "tag": "p",
+                  "children": [
+                    {
+                      "type": "text",
+                      "text": "把 Agent 用到文献检索、论文生成、学术评审、科研工具和研究表达里。"
+                    }
+                  ]
+                }
+              ],
+              "kind": "callout",
+              "emoji": "🔬"
+            }
+          ],
+          "kind": "column",
+          "ratio": 0.333333
+        },
+        {
+          "type": "element",
+          "tag": "section",
+          "children": [
+            {
+              "type": "element",
+              "tag": "aside",
+              "children": [
+                {
+                  "type": "element",
+                  "tag": "p",
+                  "children": [
+                    {
+                      "type": "element",
+                      "tag": "strong",
+                      "children": [
+                        {
+                          "type": "text",
+                          "text": "工程实现"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "element",
+                  "tag": "p",
+                  "children": [
+                    {
+                      "type": "text",
+                      "text": "从 Demo 走向系统：架构、代码、工具调用、记忆、评估、异常处理都要经得起检查。"
+                    }
+                  ]
+                }
+              ],
+              "kind": "callout",
+              "emoji": "💡"
+            }
+          ],
+          "kind": "column",
+          "ratio": 0.333333
+        },
+        {
+          "type": "element",
+          "tag": "section",
+          "children": [
+            {
+              "type": "element",
+              "tag": "aside",
+              "children": [
+                {
+                  "type": "element",
+                  "tag": "p",
+                  "children": [
+                    {
+                      "type": "element",
+                      "tag": "strong",
+                      "children": [
+                        {
+                          "type": "text",
+                          "text": "产业落地"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "element",
+                  "tag": "p",
+                  "children": [
+                    {
+                      "type": "text",
+                      "text": "让 Agent 进入业务流程，关注真实用户、成本、交付、增长和可持续迭代。"
+                    }
+                  ]
+                }
+              ],
+              "kind": "callout",
+              "emoji": "🏭"
+            }
+          ],
+          "kind": "column",
+          "ratio": 0.333333
+        }
+      ],
+      "kind": "grid"
+    },
+    {
+      "type": "element",
+      "tag": "aside",
+      "children": [
+        {
+          "type": "element",
+          "tag": "p",
+          "children": [
+            {
+              "type": "element",
+              "tag": "strong",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "我们不把学习、科研、工程和商业拆开讲。"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "element",
+          "tag": "p",
+          "children": [
+            {
+              "type": "text",
+              "text": "真正有价值的 Agent 项目，往往同时包含研究问题、工程难点和真实场景。AgentAlpha 想做的是把这三件事放在同一个训练场里。"
+            }
+          ]
+        }
+      ],
+      "kind": "callout",
+      "emoji": "💡"
+    },
+    {
+      "type": "element",
+      "tag": "hr",
+      "children": []
+    },
+    {
+      "type": "element",
+      "tag": "h1",
+      "children": [
+        {
+          "type": "text",
+          "text": "5. 我们的方法"
+        }
+      ],
+      "id": "5-我们的方法"
+    },
+    {
+      "type": "element",
+      "tag": "table",
+      "children": [
+        {
+          "type": "element",
+          "tag": "colgroup",
+          "children": [
+            {
+              "type": "element",
+              "tag": "col",
+              "children": []
+            },
+            {
+              "type": "element",
+              "tag": "col",
+              "children": []
+            },
+            {
+              "type": "element",
+              "tag": "col",
+              "children": []
+            }
+          ]
+        },
+        {
+          "type": "element",
+          "tag": "thead",
+          "children": [
+            {
+              "type": "element",
+              "tag": "tr",
+              "children": [
+                {
+                  "type": "element",
+                  "tag": "th",
+                  "children": [
+                    {
+                      "type": "element",
+                      "tag": "p",
+                      "children": [
+                        {
+                          "type": "text",
+                          "text": "价值观"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "element",
+                  "tag": "th",
+                  "children": [
+                    {
+                      "type": "element",
+                      "tag": "p",
+                      "children": [
+                        {
+                          "type": "text",
+                          "text": "我们反对什么"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "element",
+                  "tag": "th",
+                  "children": [
+                    {
+                      "type": "element",
+                      "tag": "p",
+                      "children": [
+                        {
+                          "type": "text",
+                          "text": "我们坚持什么"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "element",
+          "tag": "tbody",
+          "children": [
+            {
+              "type": "element",
+              "tag": "tr",
+              "children": [
+                {
+                  "type": "element",
+                  "tag": "td",
+                  "children": [
+                    {
+                      "type": "element",
+                      "tag": "p",
+                      "children": [
+                        {
+                          "type": "element",
+                          "tag": "strong",
+                          "children": [
+                            {
+                              "type": "text",
+                              "text": "实战为王"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "element",
+                  "tag": "td",
+                  "children": [
+                    {
+                      "type": "element",
+                      "tag": "p",
+                      "children": [
+                        {
+                          "type": "text",
+                          "text": "只看课、只跑示例、只记概念。"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "element",
+                  "tag": "td",
+                  "children": [
+                    {
+                      "type": "element",
+                      "tag": "p",
+                      "children": [
+                        {
+                          "type": "text",
+                          "text": "围绕真实项目拆需求、写代码、做评估、复盘结果。"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "element",
+              "tag": "tr",
+              "children": [
+                {
+                  "type": "element",
+                  "tag": "td",
+                  "children": [
+                    {
+                      "type": "element",
+                      "tag": "p",
+                      "children": [
+                        {
+                          "type": "element",
+                          "tag": "strong",
+                          "children": [
+                            {
+                              "type": "text",
+                              "text": "产学研结合"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "element",
+                  "tag": "td",
+                  "children": [
+                    {
+                      "type": "element",
+                      "tag": "p",
+                      "children": [
+                        {
+                          "type": "text",
+                          "text": "科研只讲论文，工程只讲框架，产业只讲变现。"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "element",
+                  "tag": "td",
+                  "children": [
+                    {
+                      "type": "element",
+                      "tag": "p",
+                      "children": [
+                        {
+                          "type": "text",
+                          "text": "把论文思路、工程系统和业务场景放到同一个项目里训练。"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "element",
+              "tag": "tr",
+              "children": [
+                {
+                  "type": "element",
+                  "tag": "td",
+                  "children": [
+                    {
+                      "type": "element",
+                      "tag": "p",
+                      "children": [
+                        {
+                          "type": "element",
+                          "tag": "strong",
+                          "children": [
+                            {
+                              "type": "text",
+                              "text": "项目驱动"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "element",
+                  "tag": "td",
+                  "children": [
+                    {
+                      "type": "element",
+                      "tag": "p",
+                      "children": [
+                        {
+                          "type": "text",
+                          "text": "学习结束后没有作品，简历和申请材料仍然空。"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "element",
+                  "tag": "td",
+                  "children": [
+                    {
+                      "type": "element",
+                      "tag": "p",
+                      "children": [
+                        {
+                          "type": "text",
+                          "text": "每个阶段都留下可检查、可展示、可讲解的项目产出。"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "element",
+              "tag": "tr",
+              "children": [
+                {
+                  "type": "element",
+                  "tag": "td",
+                  "children": [
+                    {
+                      "type": "element",
+                      "tag": "p",
+                      "children": [
+                        {
+                          "type": "element",
+                          "tag": "strong",
+                          "children": [
+                            {
+                              "type": "text",
+                              "text": "长期主义"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "element",
+                  "tag": "td",
+                  "children": [
+                    {
+                      "type": "element",
+                      "tag": "p",
+                      "children": [
+                        {
+                          "type": "text",
+                          "text": "用焦虑和速成承诺制造冲动。"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "element",
+                  "tag": "td",
+                  "children": [
+                    {
+                      "type": "element",
+                      "tag": "p",
+                      "children": [
+                        {
+                          "type": "text",
+                          "text": "承认能力成长需要周期，用扎实训练代替短期幻觉。"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "element",
+      "tag": "hr",
+      "children": []
+    },
+    {
+      "type": "element",
+      "tag": "h1",
+      "children": [
+        {
+          "type": "text",
+          "text": "6. 三类成长方向"
+        }
+      ],
+      "id": "6-三类成长方向"
+    },
+    {
+      "type": "element",
+      "tag": "aside",
+      "children": [
+        {
+          "type": "element",
+          "tag": "p",
+          "children": [
+            {
+              "type": "text",
+              "text": "不同人的目标不一样，但训练底层是相通的：围绕真实 Agent 项目，形成可展示、可解释、可迁移的能力。"
+            }
+          ]
+        }
+      ],
+      "kind": "callout",
+      "emoji": "💡"
+    },
+    {
+      "type": "element",
+      "tag": "table",
+      "children": [
+        {
+          "type": "element",
+          "tag": "colgroup",
+          "children": [
+            {
+              "type": "element",
+              "tag": "col",
+              "children": []
+            },
+            {
+              "type": "element",
+              "tag": "col",
+              "children": []
+            },
+            {
+              "type": "element",
+              "tag": "col",
+              "children": []
+            },
+            {
+              "type": "element",
+              "tag": "col",
+              "children": []
+            }
+          ]
+        },
+        {
+          "type": "element",
+          "tag": "thead",
+          "children": [
+            {
+              "type": "element",
+              "tag": "tr",
+              "children": [
+                {
+                  "type": "element",
+                  "tag": "th",
+                  "children": [
+                    {
+                      "type": "element",
+                      "tag": "p",
+                      "children": [
+                        {
+                          "type": "text",
+                          "text": "方向"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "element",
+                  "tag": "th",
+                  "children": [
+                    {
+                      "type": "element",
+                      "tag": "p",
+                      "children": [
+                        {
+                          "type": "text",
+                          "text": "适合的人"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "element",
+                  "tag": "th",
+                  "children": [
+                    {
+                      "type": "element",
+                      "tag": "p",
+                      "children": [
+                        {
+                          "type": "text",
+                          "text": "核心训练"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "element",
+                  "tag": "th",
+                  "children": [
+                    {
+                      "type": "element",
+                      "tag": "p",
+                      "children": [
+                        {
+                          "type": "text",
+                          "text": "最终留下什么"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "element",
+          "tag": "tbody",
+          "children": [
+            {
+              "type": "element",
+              "tag": "tr",
+              "children": [
+                {
+                  "type": "element",
+                  "tag": "td",
+                  "children": [
+                    {
+                      "type": "element",
+                      "tag": "p",
+                      "children": [
+                        {
+                          "type": "element",
+                          "tag": "strong",
+                          "children": [
+                            {
+                              "type": "text",
+                              "text": "职场实战"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "element",
+                  "tag": "td",
+                  "children": [
+                    {
+                      "type": "element",
+                      "tag": "p",
+                      "children": [
+                        {
+                          "type": "text",
+                          "text": "学生、转岗者、想进入大模型 / Agent 岗的人。"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "element",
+                  "tag": "td",
+                  "children": [
+                    {
+                      "type": "element",
+                      "tag": "p",
+                      "children": [
+                        {
+                          "type": "text",
+                          "text": "复杂系统拆解、代码实现、工程规范、项目表达、面试追问。"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "element",
+                  "tag": "td",
+                  "children": [
+                    {
+                      "type": "element",
+                      "tag": "p",
+                      "children": [
+                        {
+                          "type": "text",
+                          "text": "多个能写进简历、能演示、能讲清楚的 Agent 项目。"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "element",
+              "tag": "tr",
+              "children": [
+                {
+                  "type": "element",
+                  "tag": "td",
+                  "children": [
+                    {
+                      "type": "element",
+                      "tag": "p",
+                      "children": [
+                        {
+                          "type": "element",
+                          "tag": "strong",
+                          "children": [
+                            {
+                              "type": "text",
+                              "text": "学术科研"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "element",
+                  "tag": "td",
+                  "children": [
+                    {
+                      "type": "element",
+                      "tag": "p",
+                      "children": [
+                        {
+                          "type": "text",
+                          "text": "研究生、博士、申博者、想把 AI 用到科研流程的人。"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "element",
+                  "tag": "td",
+                  "children": [
+                    {
+                      "type": "element",
+                      "tag": "p",
+                      "children": [
+                        {
+                          "type": "text",
+                          "text": "文献检索、科研 Agent、自动科研系统、论文/Proposal 写作。"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "element",
+                  "tag": "td",
+                  "children": [
+                    {
+                      "type": "element",
+                      "tag": "p",
+                      "children": [
+                        {
+                          "type": "text",
+                          "text": "面向科研场景的 Agent 项目，论文和申博深造的科研履历和内推机会。"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "element",
+                      "tag": "p",
+                      "children": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "element",
+              "tag": "tr",
+              "children": [
+                {
+                  "type": "element",
+                  "tag": "td",
+                  "children": [
+                    {
+                      "type": "element",
+                      "tag": "p",
+                      "children": [
+                        {
+                          "type": "element",
+                          "tag": "strong",
+                          "children": [
+                            {
+                              "type": "text",
+                              "text": "产业落地"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "element",
+                  "tag": "td",
+                  "children": [
+                    {
+                      "type": "element",
+                      "tag": "p",
+                      "children": [
+                        {
+                          "type": "text",
+                          "text": "OPC创业者、产品经理、电商从业者、企业团队。"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "element",
+                  "tag": "td",
+                  "children": [
+                    {
+                      "type": "element",
+                      "tag": "p",
+                      "children": [
+                        {
+                          "type": "text",
+                          "text": "MVP 设计、可落地工作流、用户反馈、产品迭代。"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "element",
+                      "tag": "p",
+                      "children": []
+                    }
+                  ]
+                },
+                {
+                  "type": "element",
+                  "tag": "td",
+                  "children": [
+                    {
+                      "type": "element",
+                      "tag": "p",
+                      "children": [
+                        {
+                          "type": "text",
+                          "text": "能有真正用户反馈和实现盈利的 Agent产品。"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "element",
+      "tag": "hr",
+      "children": []
+    },
+    {
+      "type": "element",
+      "tag": "p",
+      "children": []
+    },
+    {
+      "type": "element",
+      "tag": "h1",
+      "children": [
+        {
+          "type": "text",
+          "text": "7. 真实结果与学员案例"
+        }
+      ],
+      "id": "7-真实结果与学员案例"
+    },
+    {
+      "type": "element",
+      "tag": "h2",
+      "children": [
+        {
+          "type": "text",
+          "text": "大厂 Offer 与录用结果"
+        }
+      ],
+      "id": "大厂-offer-与录用结果"
+    },
+    {
+      "type": "element",
+      "tag": "div",
+      "children": [
+        {
+          "type": "element",
+          "tag": "section",
+          "children": [
+            {
+              "type": "image",
+              "src": "/images/community/e9d85da1837dfc3794f30c410f68dbc34cfc6d90cf74caf9a637bd43bfb703eb.webp",
+              "alt": "AgentAlpha 社区原文图片",
+              "width": 790,
+              "height": 725
+            }
+          ],
+          "kind": "column",
+          "ratio": 0.5
+        },
+        {
+          "type": "element",
+          "tag": "section",
+          "children": [
+            {
+              "type": "image",
+              "src": "/images/community/58e998f85a2be314a9ddd47661b9650b77a442fc429f89fc6623b17c679b952c.webp",
+              "alt": "AgentAlpha 社区原文图片",
+              "width": 884,
+              "height": 1184
+            }
+          ],
+          "kind": "column",
+          "ratio": 0.5
+        }
+      ],
+      "kind": "grid"
+    },
+    {
+      "type": "element",
+      "tag": "div",
+      "children": [
+        {
+          "type": "element",
+          "tag": "section",
+          "children": [
+            {
+              "type": "image",
+              "src": "/images/community/e0ea818a1f52f9c59b9d264f6b6459d57d5a72ad9bdcaded59ef1fd629ca7263.webp",
+              "alt": "AgentAlpha 社区原文图片",
+              "width": 1832,
+              "height": 1128
+            }
+          ],
+          "kind": "column",
+          "ratio": 0.5
+        },
+        {
+          "type": "element",
+          "tag": "section",
+          "children": [
+            {
+              "type": "image",
+              "src": "/images/community/94df8a5f8da22bcb01cb67a15d44cdc88b1152553602b67a8c53f7a4cd7f34f0.webp",
+              "alt": "AgentAlpha 社区原文图片",
+              "width": 1952,
+              "height": 984
+            }
+          ],
+          "kind": "column",
+          "ratio": 0.5
+        }
+      ],
+      "kind": "grid"
+    },
+    {
+      "type": "image",
+      "src": "/images/community/23bf49b7d8e930f2cd69ff589a9a6d24eb314ca7214473db698c2c819adc7ca4.webp",
+      "alt": "AgentAlpha 社区原文图片",
+      "width": 1200,
+      "height": 706
+    },
+    {
+      "type": "image",
+      "src": "/images/community/2c0069b3ffc74fda4bcfe561af42e888d23befa25f0f10ed88ee2faec1989ad8.webp",
+      "alt": "AgentAlpha 社区原文图片",
+      "width": 1279,
+      "height": 1706
+    },
+    {
+      "type": "element",
+      "tag": "h4",
+      "children": [
+        {
+          "type": "text",
+          "text": "部分案例和学生反馈"
+        }
+      ],
+      "id": "部分案例和学生反馈"
+    },
+    {
+      "type": "element",
+      "tag": "p",
+      "children": [
+        {
+          "type": "text",
+          "text": "双非老弟，去年社区学习内推了三个实习，然后补了 5 个有含金量的项目（github 1300 星），也参与了顶会论文，拿到 3 个中厂offer，最后选了杭州一家初创 64k，感慨rag项目是最有帮助的，项目追问了 30 分钟，面经都没考"
+        }
+      ]
+    },
+    {
+      "type": "image",
+      "src": "/images/community/feb76a9ed92c74f2e69021ae0d080047e1acefd92d515c38b5da701aada1c502.webp",
+      "alt": "图片展示了一段聊天记录，标题为“参与实战项目 三投三中”。聊天中提到“爽啊 下一步赶紧把功能弄到网站上去”，并有“陈哥！！！”“三家都发 offer了😂😂”“选择困难症犯了”等对话。还显示“深圳那家初创 agent开了 47k×13”，并有“芜湖！起飞”“都是哪”“另外的呢”等回复。该图片与上下文紧密相关，通过展示学员在参与实战项目后的求职结果，直观呈现了学员在社区学习后获得的offer情况，增强了真实案例的说服力。",
+      "width": 1256,
+      "height": 2795
+    },
+    {
+      "type": "element",
+      "tag": "p",
+      "children": [
+        {
+          "type": "text",
+          "text": "985 学弟去年在社区学习，主推memory模块，多模态memory发了篇顶会，然后方向对口，拿到了qwen memory offer，还有百度文心基模和微信的，最后选了qwen，毕竟好跳槽😂"
+        }
+      ]
+    },
+    {
+      "type": "image",
+      "src": "/images/community/c8c5d87d3d52d01523f138570bea7346500d67a18a6b5332f578050d716817d1.webp",
+      "alt": "图片展示了一段聊天记录，内容围绕qwen offer展开。聊天中，一位用户询问“哥，idea2paper还缺人吗”，并提到公司事情少了一些。另一位用户回复“有时间了”，并称之前看对方忙得飞起，qwen不养闲人。接着，该用户提到自己之前是陈哥同门，在社区大帮内推引荐，现在不用当牛马了，感谢agentAlpha。最后，用户感叹社区大佬多，卧虎藏龙。此图与上下文关于学员案例和学生反馈的内容相关，体现了学员对社区帮助的感谢。",
+      "width": 1256,
+      "height": 2723
+    },
+    {
+      "type": "element",
+      "tag": "p",
+      "children": [
+        {
+          "type": "text",
+          "text": "双非本，211 硕，多对一陪跑，拿到多家大厂实习，选择美团，参与了自进化agent方向的顶会nips合作，二作。"
+        }
+      ]
+    },
+    {
+      "type": "image",
+      "src": "/images/community/b0ac9bb5caf4545d8eaf5933df83ea46292e8de17637f8542e1cbe71508c6ac1.webp",
+      "alt": "这是一张微信聊天界面截图，展示了AgentAlpha社区学员与老师的交流内容。聊天围绕美团实习、参与顶会nips的经历展开，学员提到参与的一篇nips论文顺利发表，感慨上课跟着发顶会的体验很好，还提及课程中学到的code agent模块能立即用上，对此次论文rebuttal的机会感到激动，最后还关心询问了对方的实习情况。对话中还附带了论文相关的截图，整体体现了学员在参与AgentAlpha社区课程后，成功获得学术成果的正向反馈。",
+      "width": 1256,
+      "height": 2807
+    },
+    {
+      "type": "element",
+      "tag": "p",
+      "children": [
+        {
+          "type": "text",
+          "text": "大厂跳槽老弟，靠课程的agent memory项目拿下年终大礼包，述职被大领导（+2）看上"
+        }
+      ]
+    },
+    {
+      "type": "image",
+      "src": "/images/community/5201cc1f6c5dd079e3994e9d607b6e95c3c534dcad3c036d6248a8b428b268d8.webp",
+      "alt": "这是一张微信聊天界面截图，对应的是AgentAlpha社区中关于学员真实结果的交流内容。界面内的聊天记录显示，有学员提到自己做memory系统后，述职得到了大领导（+2）的认可，顺利拿到年终福利，还说明年要更努力工作，随后还感慨这是幸福的烦恼，并对课程老师表示认可。该截图直观呈现了前文提及的“大厂跳槽老弟靠课程的agent memory项目拿下年终大礼包”的具体交流细节，是相关学员成功案例的真实佐证。",
+      "width": 1256,
+      "height": 2492
+    },
+    {
+      "type": "element",
+      "tag": "p",
+      "children": [
+        {
+          "type": "text",
+          "text": "进步最快学弟，学了两个月，除了DeepSeek，seed，其他大厂offer全拿了一遍"
+        }
+      ]
+    },
+    {
+      "type": "image",
+      "src": "/images/community/da06ca4d335dc60fb68172c30f5da53a7269828da1fd2e271aa3d87b1d56d630.webp",
+      "alt": "图片展示了一段聊天记录。4月22日23:53，用户Bruce询问“你平时有时间吗？最近刚开始有时间，基本上拿完offer准备选了”，并提到“头部除了seed没约上，DeepSeek三面挂之外，其他基本上都拿了一遍了”。4月23日07:54，用户回复“还正想找您帮我选offer”。4月23日08:39，另一用户回复“你是真滴猛啊”。该图片与文档中大厂跳槽老弟靠课程项目拿下年终大礼包、进步最快学弟学两个月拿遍大厂offer等内容相关，体现了学员在学习后取得的成果。",
+      "width": 1256,
+      "height": 2561
+    },
+    {
+      "type": "element",
+      "tag": "p",
+      "children": [
+        {
+          "type": "text",
+          "text": "最强逆袭，专科大龄后端程序员（已工作8年，之前年薪二十万差不多，后参与idea2Paper项目后转行agent开发，靠项目拿下56w offer，现公司准备上市）"
+        }
+      ]
+    },
+    {
+      "type": "element",
+      "tag": "div",
+      "children": [
+        {
+          "type": "element",
+          "tag": "section",
+          "children": [
+            {
+              "type": "element",
+              "tag": "p",
+              "children": []
+            },
+            {
+              "type": "image",
+              "src": "/images/community/846dc7dc0b5ea92d68af5dd6cc9f8bfe3af7a030575ccc005d62b60df90dab43.webp",
+              "alt": "这张图片是AgentAlpha社区内的社群聊天详情界面，展示了社区内关于“idea2Paper项目”的学员正向反馈：用户aistudio分享，作为idea2Paper项目组的主力老表，自身因该项目经历成功跳槽升任组长，对此十分开心；另有其他用户回复称其“牛的”，还补充说明其是因为参与idea2Paper项目才得以升任组长，该记录显示时间为2026年3月23日12:16，对应的内容是文档中专科大龄后端程序员参与idea2Paper项目成功转行并拿下高薪offer案例的相关佐证，体现了课程项目对学员职业发展的帮助。",
+              "width": 1256,
+              "height": 1057
+            }
+          ],
+          "kind": "column",
+          "ratio": 0.5
+        },
+        {
+          "type": "element",
+          "tag": "section",
+          "children": [
+            {
+              "type": "element",
+              "tag": "p",
+              "children": []
+            },
+            {
+              "type": "image",
+              "src": "/images/community/fda52a24d77a06b557d210a24dc1125477d1319df9d456b36886b0939fb79c6e.webp",
+              "alt": "图片展示的是一个名为“idea2paper技术组 01(10)”的群聊界面。群内成员讨论了网站相关事宜，提到“松哥可以带着你主搞网站”“你们和松哥可以开个会，定一下要...”等。7月14日21:38，有成员表示“最近公司产品准备上市，忙飞了，抱歉让大家久等了”，并附上网址链接。群内还出现了“666 起飞了，松哥∠(`ω*)”的回复。该图片与上下文提到的学员参与idea2Paper项目后转行agent开发，拿下56w offer等内容相关，展示了项目团队的沟通情况。",
+              "width": 1231,
+              "height": 2103
+            }
+          ],
+          "kind": "column",
+          "ratio": 0.5
+        }
+      ],
+      "kind": "grid"
+    },
+    {
+      "type": "element",
+      "tag": "p",
+      "children": []
+    },
+    {
+      "type": "element",
+      "tag": "h2",
+      "children": [
+        {
+          "type": "text",
+          "text": "论文录用与升学结果"
+        }
+      ],
+      "id": "论文录用与升学结果"
+    },
+    {
+      "type": "element",
+      "tag": "div",
+      "children": [
+        {
+          "type": "element",
+          "tag": "section",
+          "children": [
+            {
+              "type": "image",
+              "src": "/images/community/801045667ca5e442b53dd6b52748c42e89c0e7a5a669dd7f414cab95a66c3a70.webp",
+              "alt": "AgentAlpha 社区原文图片",
+              "width": 1179,
+              "height": 438
+            }
+          ],
+          "kind": "column",
+          "ratio": 0.5
+        },
+        {
+          "type": "element",
+          "tag": "section",
+          "children": [
+            {
+              "type": "image",
+              "src": "/images/community/a5edbdf83cf1dd7614d7dc2db17b0e9001bab51381ebf84b9689fb517d26782d.webp",
+              "alt": "AgentAlpha 社区原文图片",
+              "width": 370,
+              "height": 148
+            }
+          ],
+          "kind": "column",
+          "ratio": 0.5
+        }
+      ],
+      "kind": "grid"
+    },
+    {
+      "type": "element",
+      "tag": "div",
+      "children": [
+        {
+          "type": "element",
+          "tag": "section",
+          "children": [
+            {
+              "type": "image",
+              "src": "/images/community/b986e1f884e33e4703773c0316f5654d1424f3f5e47e5910e02d1d7c33595aa4.webp",
+              "alt": "AgentAlpha 社区原文图片",
+              "width": 1276,
+              "height": 2300
+            }
+          ],
+          "kind": "column",
+          "ratio": 0.5
+        },
+        {
+          "type": "element",
+          "tag": "section",
+          "children": [
+            {
+              "type": "image",
+              "src": "/images/community/f304002e67800307f2336f9b685152cf7a08eb404f1680f6bd2bb6422951309b.webp",
+              "alt": "AgentAlpha 社区原文图片",
+              "width": 2500,
+              "height": 4096
+            }
+          ],
+          "kind": "column",
+          "ratio": 0.5
+        }
+      ],
+      "kind": "grid"
+    },
+    {
+      "type": "element",
+      "tag": "div",
+      "children": [
+        {
+          "type": "element",
+          "tag": "section",
+          "children": [
+            {
+              "type": "image",
+              "src": "/images/community/81d1b2d54f836a078f5283b45e551100c7be632d4cec7c5b703e67babe409128.webp",
+              "alt": "AgentAlpha 社区原文图片",
+              "width": 880,
+              "height": 1676
+            }
+          ],
+          "kind": "column",
+          "ratio": 0.5
+        },
+        {
+          "type": "element",
+          "tag": "section",
+          "children": [
+            {
+              "type": "image",
+              "src": "/images/community/912336828c0e2a0b35401cc580839c6304a0cd9ca6405a409de6fa5eefb5eedf.webp",
+              "alt": "AgentAlpha 社区原文图片",
+              "width": 876,
+              "height": 292
+            },
+            {
+              "type": "image",
+              "src": "/images/community/62b94d316a2047967450edfdc2958a8ec8164989368ed97a423892416b9327be.webp",
+              "alt": "AgentAlpha 社区原文图片",
+              "width": 840,
+              "height": 836
+            },
+            {
+              "type": "image",
+              "src": "/images/community/dcdb0a17fc8b5770f3cf6c9731612481f1049404d50b547c73007208d5638532.webp",
+              "alt": "AgentAlpha 社区原文图片",
+              "width": 893,
+              "height": 589
+            }
+          ],
+          "kind": "column",
+          "ratio": 0.5
+        }
+      ],
+      "kind": "grid"
+    },
+    {
+      "type": "element",
+      "tag": "div",
+      "children": [
+        {
+          "type": "element",
+          "tag": "section",
+          "children": [
+            {
+              "type": "image",
+              "src": "/images/community/a01001e866101e2f946fc504ef220ac0e69b06ccca1d9b59a14044bdc3677600.webp",
+              "alt": "AgentAlpha 社区原文图片",
+              "width": 850,
+              "height": 735
+            }
+          ],
+          "kind": "column",
+          "ratio": 0.5
+        },
+        {
+          "type": "element",
+          "tag": "section",
+          "children": [
+            {
+              "type": "image",
+              "src": "/images/community/8a8068e162cb4558eeca7d345ea0943edd05da801174c9de24535d64fdef3f6c.webp",
+              "alt": "AgentAlpha 社区原文图片",
+              "width": 509,
+              "height": 729
+            }
+          ],
+          "kind": "column",
+          "ratio": 0.5
+        }
+      ],
+      "kind": "grid"
+    },
+    {
+      "type": "element",
+      "tag": "div",
+      "children": [
+        {
+          "type": "element",
+          "tag": "section",
+          "children": [
+            {
+              "type": "image",
+              "src": "/images/community/6d00b6387e25a085e0bf32ba37180361dd74012d48f5a213f0a4872f0970054b.webp",
+              "alt": "AgentAlpha 社区原文图片",
+              "width": 1228,
+              "height": 496
+            },
+            {
+              "type": "image",
+              "src": "/images/community/c6da8e05fbb9c5ff7d11adef33227cdfa6b85a2ea767dc3310ca2df35bf6221f.webp",
+              "alt": "AgentAlpha 社区原文图片",
+              "width": 1080,
+              "height": 2055
+            },
+            {
+              "type": "element",
+              "tag": "p",
+              "children": []
+            }
+          ],
+          "kind": "column",
+          "ratio": 0.5
+        },
+        {
+          "type": "element",
+          "tag": "section",
+          "children": [
+            {
+              "type": "image",
+              "src": "/images/community/5ca0dcc392e41fa82bf829aeb6e12e1c8f9790ec4e474df657918b7a431bf9f1.webp",
+              "alt": "AgentAlpha 社区原文图片",
+              "width": 609,
+              "height": 785
+            }
+          ],
+          "kind": "column",
+          "ratio": 0.5
+        }
+      ],
+      "kind": "grid"
+    },
+    {
+      "type": "element",
+      "tag": "div",
+      "children": [
+        {
+          "type": "element",
+          "tag": "section",
+          "children": [
+            {
+              "type": "image",
+              "src": "/images/community/c2237e110938629c466d35c729022e07e8dfd71b649926e2bfade59e3e06bf28.webp",
+              "alt": "AgentAlpha 社区原文图片",
+              "width": 1229,
+              "height": 966
+            }
+          ],
+          "kind": "column",
+          "ratio": 0.5
+        },
+        {
+          "type": "element",
+          "tag": "section",
+          "children": [
+            {
+              "type": "image",
+              "src": "/images/community/0703655fe0264b71f881613355c686b4f0642b4a7d066120e525c722ec6139c1.webp",
+              "alt": "AgentAlpha 社区原文图片",
+              "width": 1080,
+              "height": 1516
+            }
+          ],
+          "kind": "column",
+          "ratio": 0.5
+        }
+      ],
+      "kind": "grid"
+    },
+    {
+      "type": "image",
+      "src": "/images/community/fbd79f2af38d9c7d80e448b3a0a067a90e8ecefcf1b7ed7d8daefc7e5e1db348.webp",
+      "alt": "AgentAlpha 社区原文图片",
+      "width": 1139,
+      "height": 1301
+    },
+    {
+      "type": "element",
+      "tag": "h4",
+      "children": [],
+      "id": "section"
+    },
+    {
+      "type": "element",
+      "tag": "p",
+      "children": []
+    },
+    {
+      "type": "element",
+      "tag": "h2",
+      "children": [
+        {
+          "type": "text",
+          "text": "8. 参与方式"
+        }
+      ],
+      "id": "8-参与方式"
+    },
+    {
+      "type": "element",
+      "tag": "aside",
+      "children": [
+        {
+          "type": "element",
+          "tag": "p",
+          "children": [
+            {
+              "type": "text",
+              "text": "不同人需要的不是同一种服务，而是不同深度的参与方式。你可以先看资料，也可以进入项目实战，或者围绕明确目标做更深的陪跑。"
+            }
+          ]
+        }
+      ],
+      "kind": "callout",
+      "emoji": "📎"
+    },
+    {
+      "type": "element",
+      "tag": "table",
+      "children": [
+        {
+          "type": "element",
+          "tag": "colgroup",
+          "children": [
+            {
+              "type": "element",
+              "tag": "col",
+              "children": []
+            },
+            {
+              "type": "element",
+              "tag": "col",
+              "children": []
+            },
+            {
+              "type": "element",
+              "tag": "col",
+              "children": []
+            }
+          ]
+        },
+        {
+          "type": "element",
+          "tag": "thead",
+          "children": [
+            {
+              "type": "element",
+              "tag": "tr",
+              "children": [
+                {
+                  "type": "element",
+                  "tag": "th",
+                  "children": [
+                    {
+                      "type": "element",
+                      "tag": "p",
+                      "children": [
+                        {
+                          "type": "text",
+                          "text": "参与深度"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "element",
+                  "tag": "th",
+                  "children": [
+                    {
+                      "type": "element",
+                      "tag": "p",
+                      "children": [
+                        {
+                          "type": "text",
+                          "text": "适合谁"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "element",
+                  "tag": "th",
+                  "children": [
+                    {
+                      "type": "element",
+                      "tag": "p",
+                      "children": [
+                        {
+                          "type": "text",
+                          "text": "支持方式"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "element",
+          "tag": "tbody",
+          "children": [
+            {
+              "type": "element",
+              "tag": "tr",
+              "children": [
+                {
+                  "type": "element",
+                  "tag": "td",
+                  "children": [
+                    {
+                      "type": "element",
+                      "tag": "p",
+                      "children": [
+                        {
+                          "type": "element",
+                          "tag": "strong",
+                          "children": [
+                            {
+                              "type": "text",
+                              "text": "资料研习"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "element",
+                  "tag": "td",
+                  "children": [
+                    {
+                      "type": "element",
+                      "tag": "p",
+                      "children": [
+                        {
+                          "type": "text",
+                          "text": "还在判断方向，想先理解 Agent 项目和学习路线。"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "element",
+                  "tag": "td",
+                  "children": [
+                    {
+                      "type": "element",
+                      "tag": "p",
+                      "children": [
+                        {
+                          "type": "text",
+                          "text": "资料、项目文档"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "element",
+              "tag": "tr",
+              "children": [
+                {
+                  "type": "element",
+                  "tag": "td",
+                  "children": [
+                    {
+                      "type": "element",
+                      "tag": "p",
+                      "children": [
+                        {
+                          "type": "element",
+                          "tag": "strong",
+                          "children": [
+                            {
+                              "type": "text",
+                              "text": "项目实战"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "element",
+                  "tag": "td",
+                  "children": [
+                    {
+                      "type": "element",
+                      "tag": "p",
+                      "children": [
+                        {
+                          "type": "text",
+                          "text": "明确想做出一个完整 Agent 项目的人。"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "element",
+                  "tag": "td",
+                  "children": [
+                    {
+                      "type": "element",
+                      "tag": "p",
+                      "children": [
+                        {
+                          "type": "text",
+                          "text": "周任务、作业、代码 Review、阶段验收、项目说明。"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "element",
+              "tag": "tr",
+              "children": [
+                {
+                  "type": "element",
+                  "tag": "td",
+                  "children": [
+                    {
+                      "type": "element",
+                      "tag": "p",
+                      "children": [
+                        {
+                          "type": "element",
+                          "tag": "strong",
+                          "children": [
+                            {
+                              "type": "text",
+                              "text": "深度陪跑"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "element",
+                  "tag": "td",
+                  "children": [
+                    {
+                      "type": "element",
+                      "tag": "p",
+                      "children": [
+                        {
+                          "type": "text",
+                          "text": "有求职、申博、比赛、创业或企业落地目标的人。"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "element",
+                  "tag": "td",
+                  "children": [
+                    {
+                      "type": "element",
+                      "tag": "p",
+                      "children": [
+                        {
+                          "type": "text",
+                          "text": "项目打磨、简历/申请材料、讲解稿、模拟面试、高频追问拆解。"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "element",
+      "tag": "hr",
+      "children": []
+    },
+    {
+      "type": "element",
+      "tag": "h1",
+      "children": [
+        {
+          "type": "text",
+          "text": " 如果你想进一步了解"
+        }
+      ],
+      "id": "如果你想进一步了解"
+    },
+    {
+      "type": "element",
+      "tag": "aside",
+      "children": [
+        {
+          "type": "element",
+          "tag": "p",
+          "children": [
+            {
+              "type": "element",
+              "tag": "strong",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "可以先发 4 个信息，我们判断你适合哪种参与深度。"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "element",
+          "tag": "ul",
+          "children": [
+            {
+              "type": "element",
+              "tag": "li",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "你的背景：学生 / 在职 / 科研 / 创业 / 企业"
+                }
+              ]
+            },
+            {
+              "type": "element",
+              "tag": "li",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "你的目标：求职、升学、项目、变现、企业落地"
+                }
+              ]
+            },
+            {
+              "type": "element",
+              "tag": "li",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "你的基础：编程、论文、产品、运营分别到什么程度"
+                }
+              ]
+            },
+            {
+              "type": "element",
+              "tag": "li",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "你的时间和预算：能投入多久，想做到什么结果"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "kind": "callout",
+      "emoji": "📮"
+    },
+    {
+      "type": "image",
+      "src": "/images/community/75916aeece6deb5bcb3c2da9d4cb0cfeccf44520ac40090299e4579e7240539d.webp",
+      "alt": "图片展示了一个二维码，中间有一个微信图标。下方文字提示“扫一扫上面的二维码图案，加我为朋友。”该图片位于文档中“如果你想进一步了解**可以先发4个信息，我们判断你适合哪种参与深度。”这一段落之后，是文档的结尾部分，用于引导用户扫码添加好友，可能是为了后续获取更多信息或参与相关活动。",
+      "width": 939,
+      "height": 1056
+    },
+    {
+      "type": "element",
+      "tag": "p",
+      "children": []
+    }
+  ],
+  "plainText": "图片展示了AgentAlpha的标志。标志由左侧的蓝色几何图形和右侧的黑色猫头图案组成，中间是“AgentAlpha”字样，其中“Agent”部分为蓝色，“Alpha”部分为紫色。该图片位于介绍AgentAlpha的文档中，与上下文紧密相关，直观呈现了AgentAlpha的品牌标识，帮助读者更好地认识和记忆该社区。 AI 界的黄埔军校&国内顶尖大模型 Agent 实战社区 1. AgentAlpha 是什么 AgentAlpha —— 立志打造 AI 界的黄埔军校 ，国内最具实战价值的大模型 Agent 高端实战社区。我们坚决区别于行业内 “空谈理论、跟风热点、以卖课为核心” 的社群，以「 技术落地、人才培养、商业共创 」为核心。 我们不做玩具级 Demo 教学， 一切以实战做出有影响力的项目为主 ，核心使命： 以实战为核心，培养能解决真实问题、能落地、能产出的顶尖 AI 人才，打造 AI 领域的人才摇篮与实战生态 。 目前已孵化出5个高影响力开源项目和盈利产品~~（欢迎了解） 这是一篇介绍AI写作工具Idea2Paper的文章截图，发布者为“柳叶舟舟”，发布时间为2026年2月5日07:00，地点显示为陕西，阅读量144人。截图中显眼位置展示了工具名称“Idea2Paper”，还配有对应创意logo，左侧的logo融合了书本与神灯元素。文章解答了“Idea2Paper是什么？”的疑问，指出该工具可跳出AI直接写论文的单一路径，能清晰拆分从灵感到成文的全流程，先通过核心引擎IdeaStory梳理研究灵感，再完成后续的设计、实验验证等写作工作。 图片为一篇名为“48小时500万字！全新开源AI小说生产系统InkOS发布，网络小说要变天了？”的新闻报道截图。报道提到AI能在48小时内生成500万字的长篇小说，引发关注。图片中详细介绍了InkOS，称其为工业级AI长篇小说自动化生产线，核心理念是“用‘确定性的工程约束’驯服‘概率性的AI生成’”，并展示了其多智能体全自动流水线、33维深度验证与零成本验证等技术特点。 2. 代表项目与成员成果 我们坚持「真带、真教、真落地」，以 自研四大学术核心成果 为载体，把技术研发、项目实战、人才培养融为一体，让每一位成员在真实项目中成长、在真实成果中突破，全方位实现 学术、职场、创业、开源领域 的高质量发展。 1. 依托顶会级开源项目：Idea2Paper（AI 科研智能体） 自研科研Agent 项目Idea2Paper，聚焦从 idea 到 paper的全链路auto research，同时共搭建10万+各领域高质量顶会论文构建向量知识库，当前已在 GitHub 获得约 1.4k stars、 Hugging Face Daily Paper 日榜第 1 名（超越阿里、美团、千问等大厂成果），目前已有1000+内测用户，200+付费用户，Agent自动迭代出1.8k+高质量论文。基于社区验证与产品潜力，项目已获得早期资本关注，正在推进 300 万人民币 左右规模的天使轮合作。 图片展示的是Idea2Paper项目的GitHub页面。页面上方有导航栏，可进行代码、Issues、Pull requests等操作。左侧是项目代码仓库，显示了多个分支和标签，如main分支下有多个commit记录，包括feat、add等类型的操作，时间跨度为4 - 6个月不等。右侧是项目介绍，包含Readme、MIT license、Activity等信息，还显示了1.4k stars、8 watching、114 forks等数据。该图片直观呈现了Idea2Paper项目的代码结构及GitHub页面布局。 以 Idea2Paper 为实践平台，帮助高校师生、科研人员实现 从想法到论文、从写作到录用 的全流程突破。项目融合大模型技术、学术叙事逻辑、顶会评审标准，内置多智能体评审机制，可自动生成论文框架、优化叙事逻辑、检查创新性与合规性，真正解决 “想法好、写不出、投不中” 的科研痛点。在项目带动下，大批成员实现： 论文质量显著提升，多篇成功被国际顶会录用； 申博、升学、评奖竞争力大幅增强； 完成高质量科研项目，获得学术认可与简历强背书。 链接： • GitHub 地址：https://github.com/AgentAlphaAGI/Idea2Paper • 论文地址：https://arxiv.org/abs/2601.20833， Hugging Face 项目页: https://huggingface.co/papers/2603.27065 • 官网地址：paperbuild.cn 图片展示的是Idea2Paper官网首页。上方有导航栏，包括Home、Features、Paper、GitHub等选项。中间大标题为“From Abstract Idea to Research Narrative”，下方副标题为“Don't start with a blank page. Transform your raw intuition into a logically sound research story and structural blueprint.”下方有一个搜索框，提示“e.g., Use Large Language Models to”，右侧有一个“Build Narrative Architecture”按钮。该图片与文档中介绍Idea2Paper自动生成论文的内容相关，直观呈现了其官网界面。 自动生成的论文如下： 图片展示的是论文《Delayed Batch Reveal Mitigates First-Proposal Bias in LLM Agentic Marketplaces》的PDF页面，为文档中介绍AgentAlpha社区代表项目相关内容的图片。页面显示论文第1/10页，作者为匿名，介绍了语言模型驱动的代理在生物医学知识驱动的市场决策中的应用，提出了一种延迟批量揭示协议以减轻LLM代理市场中首次提案偏见，还涉及生物医学预测建模和评估等内容。该图片与上下文介绍的论文地址、Hugging Face项目页等信息相呼应。 图片展示的是论文《Sequential Information Exposure versus Exercised Batch Proposal》中关于Exercised Batch Reveal Protocol部分内容。图中包含流程图、公式等，阐述了该协议如何将先前的提议与当前的提议分开，以减少先前提议对当前提议的依赖。协议中涉及的变量如K、L、M等，以及公式（A）、（B）、（C）、（D）等，用于说明协议的计算过程。该图片与文档中介绍的论文内容紧密相关，直观呈现了论文中关键协议的运作机制。 图片展示的是论文《Decomposing Symbolic Trading from Mathematical Reasoning in Financial XBRL》的第2页。页面上方有“final (5).pdf”字样，右上角有“2/10”标识。内容涉及结构化财务报告中的数学推理，介绍了结构化财务报告的结构化表达、结构化财务报告的数学推理、结构化财务报告的数学推理评估等内容，还展示了评估框架、评估指标等。该图片与文档中介绍论文内容相契合，直观呈现了论文部分内容。 图片展示的是论文《Hazard-Signature Taintlines for Paraphrase-Resilient Memory Erasure in LLM》的一页内容。上方有“final (6).pdf”字样，显示为第1/10页。主要内容包括大语言模型逐渐依赖持久性记忆系统，以及Hazard-Signature Taintlines（HST）等概念，还涉及相关工作、模型架构等内容。图片下方有“Figure 7. Paraphrase-rejection attack that bypasses ID-based”及图示，展示了攻击示例。该图片与文档中介绍论文内容相契合，直观呈现了论文部分内容。 查看项目历程 2. 最具影响力的 AI 小说项目 ：InkOS（AI 小说智能体） 项目聚焦从创意构思到完整成稿的全链路自动化小说生产，通过 10 个协作 Agent（雷达、规划师、建筑师、写手、观察者、反射器、归一化器、连续性审计员、修订者等）构建工程化写作管线，自动完成世界观搭建、角色矩阵、情节编排、伏笔追踪、33 维度连续性审计与闭环修订，并内置反 AIGC 检测与文风仿写能力。自开源以来，InkOS 在 GitHub 已获得 7800+ Stars、1500+ Forks，npm 下载量超 3.6 万次，并入选 kimi 首批 开源合作伙伴！！ 微信社群自然增长至 3,000+ 人；生其中 150+ 部成功签约番茄、七猫等主流平台，签约率超 20%，累计产出文字突破 10 亿字。基于社区验证与商业可行性，项目已获得早期资本关注，头部作者月收入超 3 万元，部分单月高达 5 万元，团队正在探索 AI 漫画等多媒介 IP 孵化方向。创作效率指数级提升，纯小白日增量可达 10 万字，极端案例两天完成 8 万字、十小时输出 10 万字； 签约成功率显著提高，150+ 部作品成功签约主流平台，头部作者月收入达 3 万甚至 5 万元，兼职作者也能稳定获得 5,000+ 元额外收入；创作成本极致压缩，每章模型调用成本仅约 0.2 元（ https://kkaiapi.com/auth?aff_code=agentalpha ，可结合api站点使用） • GitHub 地址：https://github.com/Narcooo/inkos 这张图片展示的是GitHub平台上的InkOS项目页面，该项目是AgentAlpha社区的最具影响力AI小说项目，名称为inkos，属于面向故事创作的AI Agent系统。页面呈现了该项目的代码仓库核心信息，包含“master”等分支选项、16个分支、34个标签、1415次提交记录，以及github、assets、packages等多个项目文件目录。右侧“About”板块标注了该项目的应用场景，包括小说创作、互动影游、AI生成内容等方向，还显示仓库拥有7.8k星标、1.5k复刻，遵循AGPL 3.0开源许可，与文档中提到的该项目的GitHub地址及功能定位完全对应。 图片展示了InkOS的相关信息。上方有其标志及名称“InkOS”，下方文字介绍其为面向长短篇小说、剧本创作、互动影游与IP内容的创作智能体系统。还显示了npm版本、许可证、星星数、下载量等信息，以及GitHub地址。底部说明InkOS是面向故事创作的AI Agent系统，支持多种交互形式，可从同一工作台开始创作，还推荐搭配“火花数据API”等。图片与上下文紧密相关，是对InkOS项目的详细介绍。 目前InkOS 不断升级，从一个面向故事创作的 AI Agent 系统不断升级：InkOS 1.6.0 把开放世界继续推进到互动影游、剧本和分镜工作台，同时引入可插拔 Skill 系统~~ 作品类 图片展示的是InkOS（AI小说智能体）在读人数数据。上方显示“在读人数”，下方以大号数字“40,115”呈现具体数值，再下方用橙色文字标注“比前日 14.25%”，并配有向上的箭头图标。该图片与文档中介绍InkOS项目的内容相关，直观呈现了其在读人数情况，体现了其在用户群体中的受欢迎程度。 图片展示的是InkOS（AI小说智能体）在番茄小说平台的评分及阅读情况。上方显示“番茄数据”及刷新时间为04-24 12:02。下方绿色背景区域，左侧有模糊处理的头像，中间显示“暂无评分 | 2.0万人在读”，底部标注“连载中 · 男频 - 传统玄幻新书 - 第24名”。该图片与文档中中介绍InkOS项目的内容相关，直观呈现了其在平台上的数据表现。 用户类 这是一张聊天对话框截图，内容围绕AI小说项目InkOS展开。左侧是带有熊猫头像的用户发言，先是感慨“AI写的，感觉好难低质”，之后又调整评价表示“起码inkos出的，比我自己写要好”；中间显示有“程式加载中”的状态提示，搭配相关加载图标。该截图对应文档里InkOS（AI小说智能体）项目的相关内容，体现了用户对该AI小说智能体产出内容的相关看法。 图片展示了一条聊天记录，时间为5月17日下午10:30。聊天双方为“X小都”，其发送消息称“我用Inkos，调教好从6章开始，就没AI味了”。其中“Inkos”以绿色高亮显示。该图片位于介绍InkOS（AI小说智能体）的章节中，用以说明InkOS在调教后能产出类似人类创作的高质量小说，体现了其在AI小说创作方面的影响力。 图片展示的是一个聊天界面，刘嘻嘻与迎着阳光的对话。刘嘻嘻提到用InkOS是为了发布到平台赚钱，且自己写不完整，昨天用了InkOS后道心破碎。迎着阳光回复“道心破碎啥”，刘嘻嘻再次感叹“程序员都被AI干废了”。该图片与文档中介绍InkOS（AI小说智能体）的上下文相关，直观呈现了用户对InkOS的使用感受及由此引发的感慨。 图片展示了一条聊天记录，用户@alphaseek评论称“inkos的产品架构不错，bug改改就好了”。其中“inkos”被绿色框突出显示。该图片位于介绍InkOS（AI小说智能体）的章节中，是对InkOS项目影响力的补充说明，体现了社区成员对该项目的认可，认为其产品架构有优势，只需改进bug即可。 图片展示的是一个聊天界面，时间显示为4月17日上午8:30和9:11。界面中有几位用户，包括“大宝”和“Aaron.ou”。大宝询问流量情况及签约平台，Aaron.ou回复称其作品审核通过并签约了。该图片与文档中“成功案例”部分内容相关，通过聊天记录呈现了签约作品的交流情况，直观展示了签约作品的审核通过及签约进展。 图片展示的是一个聊天界面，时间显示为5月20日下午6:16。上方用户“很晚才睡”询问“群里有用inkos稳定盈利日收入超过1块钱的吗”，下方用户“非洲人”回复“一块还是有的”，并进一步说明自己正“vibe coding做一个软件，传一个抖音视频链接，直接提取脚本文案，生成数字人口播，再自动发出去”。该图片与文档中介绍InkOS（AI小说智能体）的最具影响力的AI小说项目内容相关，体现了用户对该项目盈利情况的关注及对相关应用的讨论。 图片展示的是一个聊天界面，时间显示为4月17日上午8:30和9:11。界面中有几位用户，包括“大宝”和“Aaron.ou”。大宝询问流量情况及签约平台，Aaron.ou回复称其作品审核通过并签约了。该图片与文档中介绍InkOS（AI小说智能体）的签约情况相关，直观呈现了签约进展的聊天记录，体现了AI小说智能体在签约方面的成果。 成功案例 指标 数据/范围 已签约作品数 150部以上 社群人数 5000人 头部作品月收入 超 3 万元 累计产出文字数量 10,000,000,000字上 上线平台 番茄、七猫 3. 依托学员标杆商用项目：潜艇 AI（TikTok 跨境电商 AI 引擎） 以社区成员真实创业项目 潜艇 AI 为实战载体，从 0 到 1 全程带教、全程指导、全程落地，真正实现 把 AI 技术变成商业价值 。项目聚焦 TikTok 跨境电商卖家痛点，提供一键成片、智能脚本、素材生成、合规优化等全流程能力， 3 人团队 20 天快速上线，30 天用户破万，累计帮助卖家创造营收超 300 ～350万元 。通过这个真实商用项目，成员不仅掌握 工程落地、产品设计、技术实现、运营变现 全流程能力，更真正体会 “AI 如何为产业赋能、如何为商业创造价值”，大批学员由此具备独立做项目、独立创业、独立接企业需求的实战能力。 核心功能与工作细节： 一键成片功能 ：支持 1688、淘宝、亚马逊等平台商品链接解析，结合对标爆款视频，全自动输出 4 条高原创、高转化带货短视频 核心技术链路 ：商品链接解析 → 多视角图片提取 → Nano Banana 2 技术生成九宫格参考图（解决 AI 幻觉、货不对版） → Gemini 大模型拆解爆款脚本 → 逆向生成 Sora-2 精细化 Prompt → 生成合规短视频 AI 产品库 ：自动沉淀商品九宫格参考图、高阶 Prompt，用户一次创建，可无限复用、裂变衍生新视频，实现素材资产沉淀 全节点自定义引擎 ：将生图、脚本拆解、Prompt 编写、视频生成等环节解耦，满足高阶卖家的个性化创作需求 痛点解决 ：彻底解决 TikTok 卖家“模型门槛高、国内访问受限、素材同质化限流、AI 货不对版、脚本匮乏”五大核心痛点 运营支持 ：社区为项目提供技术迭代、用户反馈收集、商业化变现指导，助力项目快速起量，导师全程跟进优化，保障项目落地效果 可核验链接： 潜艇AI官网：qiantingai.com 图片展示了潜艇AI官网页面。上方标题为“一站式带货视频解决方案”，并有“立即购买”“教程”“进入工作台”等按钮。中间部分有“立即注册”“开始创建”按钮，以及“Rover AI Studio”按钮。下方展示了2.5w、120w、4.5w、200w等数据，配有不同平台图标。右侧手机屏幕上显示商品图片及“LATTE”“VONALA DUOFOY”等文字。该图片与文档中介绍潜艇AI的商业变现相关内容相呼应，直观呈现了其官网界面及功能。 4. 企业定制电商项目sell ai 图片展示的是SellAI Pro平台界面。左侧为导航栏，有“实战舱”“我的团队”等选项。右侧上方显示“实战舱”，有“实战舱”“今日商机”“项目任务”“项目动态”“快手上手”等板块。其中“今日商机”板块展示了多个商机信息，如Luminance 3 Pro等，还显示了商机数量、商机金额等数据。下方“项目任务”板块提示“还有没有中国的商机，先选一个可做的试试”。该图片与文档中介绍依托AI Agent实战训练营的内容相关，直观呈现了平台实战训练场景。 SellAI Pro｜跨境电商 AI 运营中枢 网址：https://sellaipro.fly.dev/ 图片展示了SellAI Pro平台界面。左侧以大字突出“高端跨境卖家AI运营中枢”，并介绍其从选品、竞品攻击、Listing转化到1688货源和利润风控，将跨境增长变成可调、可预测、可迭代的经营系统。下方有免费注册按钮及查看Pro套餐选项。右侧是平台的“今日的运营判断”板块，显示机会、ASIN池、毛利、风险等数据，还列出市场研究、竞争攻击、Listing冲刺、采购门等板块内容。该图与文档中介绍SellAI Pro平台的内容相契合，直观呈现其功能界面。 这张图片对应文档中企业定制电商项目sell ai的相关内容，展示了该项目核心功能的具体模块，顶部设有“先判断战场，再调度数字员工”的核心表述，强调其核心价值是为卖家解决每日运营问题，生成可判断验证的经营动作。下方依次是选品判断、竞品雷达、Listing转化、货源与利润、AI经营对话、风险门禁六大功能模块，每个模块配有对应图标与简短说明，清晰呈现项目覆盖的电商运营关键环节，与文档中sell ai项目的介绍内容相呼应。 图片展示了AgentAlpha AI Agent的10大核心功能矩阵，涵盖从机会发现到运营复盘的全流程。每个模块可独立使用，也能被Goal自动调用，且每个模块都以经营动作收尾。功能包括AI选品研究、竞品拆解、VOC评论洞察、Listing优化、1688货源策略、Margin、FBA利润测算、合理风控、Goal执行中心、多Agent协作、Goal目标系统等，还标注了对应的功能模块。该图与上下文介绍的AI Agent功能体系相契合，直观呈现了其核心功能。 5. 火花数据 API：把专业数据与主流模型接入 AI Agent 图片展示的是火花数据API的页面。上方有导航栏，包括首页、模型、应用市场、数据、文档等选项。中间大标题为“给Agent的专业数据API和模型调用服务”，并介绍其功能。下方有“关注/注册，马上开始”按钮，以及“模型中转站在这里！”的提示。页面中部有多个标签栏，如高考真题精选、高考一对一问、高考真题等。底部展示了“交通肇事罪的认定标准”相关内容，还标注了可使用场景、材料类型等信息。 这张图片展示的是火花数据API相关内容，页面顶部有“火花数据API”字样，其下分为“火花商业数据API”和“火花创作数据API”两大板块。火花商业数据API板块列出4类专业数据库，分别是研报数据库（17.3万）、投研事件数据库（31.8万）、政策法规数据库（2.88万）、法律案例数据库（488），每类数据库旁设有“分享溯源”按钮及查询定制Agent的相关选项。火花创作数据API板块列出3类素材资源，包括X/Twitter社交搜索（3种）、小说与同文素材库（6类）、剧本素材库（逐场景）、短视频创作素材库（全链路），该板块同样配有对应查询定制Agent的选项，整体呈现了火花数据API提供的专业数据资源情况。 6. 依托 AI Agent 实战训练营（体系化人才培养） AgentAlpha 的训练营理念是：产学研结合、实战为王、项目驱动、长期主义 我们打造 AI 黄埔军校式体系化人才培养体系 ，不搞零散教学、不搞纯理论灌输，全程以 项目驱动、导师带教、实战落地 为核心，把技术、项目、成果、成长全部打通。训练营围绕 大模型 Agent + 科研智能体 + 商用项目落地 三位一体展开，从基础能力到工程能力，从工具使用到系统设计，从个人作战到团队协作，形成完整成长闭环。通过这套体系，我们真正实现： 让零基础学员快速上手，做出可展示、可落地、可商用的项目成果； 让高校学员发论文、申博、升学更有竞争力； 让职场学员进大厂、跳槽、晋升更有硬实力； 让创业者做项目、做产品、做变现更有方向感。 训练营地址： 大模型 Agent 训练营 3. 课程体系 系统化分层学习体系，包含三大核心板块：课程体系 + 实战训练营 + 项目定制 基础课： Agent基础版辅导-v2 （从python到agent入门） 大模型专项课（三层深度分级） 入门级： 跟着我们，两个月就搞定LLM~ 论文级： 多模态大模型小班课 offer级: Unified Model 多模态统一模型 图片是AgentAlpha大模型基础课程大纲图。图中以流程线形式呈现，从基础知识到应用，共分10个阶段。每个阶段有对应内容，如基础知识包含语言模型、BERT/GPT/TS、Transformer等；数据工程有ICPT、Self-Instruction等；分布式训练框架有ZeRO、DeepSpeed等；微调有PEFT、LuRA等；推理与部署优化有Flash Attention等；评测与分析有LLaMA-Factory等；应用有Agent、LangChain等。图还展示了AgentAlpha现有路线及并入AgentAlpha的路线。 Agent系列课（10个阶段） RAG、Memory、Single Agent、Multi Agent、Deep-Research、Coding Agent、自进化 Agent、Agentic RL 等 图片展示了智能体系统开发实战课程（简缩版）的内容框架。课程分为5个阶段，分别为Agent 1.0 - 基于Search的智能体开发（入门级）、Agent 2.0 - 基于Expert的智能体开发（论文级）、Agent 3.0 - 多智能体系统（论文级）、Code Agents入门（论文级）、DeepSearch开发（论文级）。每个阶段下有具体课程内容，如Agent 1.0阶段有基于Search的智能体开发、基于Search的智能体开发实战等课程，还标注了课程负责人及学习时长等信息。该图与文档中介绍的课程体系内容紧密相关，直观呈现了课程结构。 大模型 Agent 训练营 4. 导师与社区成员 1. 产业界核心成员 😎原大厂AI大模型算法负责人，有10多篇Agent、RL方向顶会论文和SOTA开源项目，90后年轻高潜，多段大厂跳槽成功涨薪80%经历，有语音多模态、NLP、大模型Agent方向丰富业界经验 😊MIT博士，985青年教授，担任腾讯、oppo等知名大厂AI lab产学研项目合作的资深研究科学家，多次斩获CVPR、ECCV等顶会Workshop challenge的全球冠军，12篇顶会，具备极强的学术届和工业界综合背景 😊香港科技大学计算机系博士后。研究聚焦高效 LLM/VLM 训练与推理、联邦学习与分布式系统、以及基于外部工具的智能体应用，代表性成果发表于/入选 NeurIPS (含 Spotlight)、ICML 、COLM、ACL、与 ICLR 2025（含 Blogpost），共发表论文80余篇，引用量上千。并获 NeurIPS 2024 Top Reviewer、FL@FM-NeurIPS’24 最佳学生论文奖等荣誉。当前他致力于以结构化训练范式与高效缓存/压缩等技术，推动可落地的 LLM/VLM 智能体。 😁25 年面试超 80 场 国内 LLM 大厂通过率 100% 拿到多个大厂顶尖人才计划 offer 的中科院 phd 社群还有 字节seed、Meta、Google、Apple、阿里p7..... （欢迎您的加入！） 2. 学术界核心成员（含核心导师团队） • MIT 博士（大模型与多智能体方向） • 北大 / 港科博士后（具身智能方向） • 中科院研究员（AI 工程化落地方向） • 国内顶尖高校 AI lab讲师、博后 • 顶会顶刊一作20多篇 AgentAlpha 的训练营理念是：产学研结合、实战为王、项目驱动、长期主义 学术研究 把 Agent 用到文献检索、论文生成、学术评审、科研工具和研究表达里。 工程实现 从 Demo 走向系统：架构、代码、工具调用、记忆、评估、异常处理都要经得起检查。 产业落地 让 Agent 进入业务流程，关注真实用户、成本、交付、增长和可持续迭代。 我们不把学习、科研、工程和商业拆开讲。 真正有价值的 Agent 项目，往往同时包含研究问题、工程难点和真实场景。AgentAlpha 想做的是把这三件事放在同一个训练场里。 5. 我们的方法 价值观 我们反对什么 我们坚持什么 实战为王 只看课、只跑示例、只记概念。 围绕真实项目拆需求、写代码、做评估、复盘结果。 产学研结合 科研只讲论文，工程只讲框架，产业只讲变现。 把论文思路、工程系统和业务场景放到同一个项目里训练。 项目驱动 学习结束后没有作品，简历和申请材料仍然空。 每个阶段都留下可检查、可展示、可讲解的项目产出。 长期主义 用焦虑和速成承诺制造冲动。 承认能力成长需要周期，用扎实训练代替短期幻觉。 6. 三类成长方向 不同人的目标不一样，但训练底层是相通的：围绕真实 Agent 项目，形成可展示、可解释、可迁移的能力。 方向 适合的人 核心训练 最终留下什么 职场实战 学生、转岗者、想进入大模型 / Agent 岗的人。 复杂系统拆解、代码实现、工程规范、项目表达、面试追问。 多个能写进简历、能演示、能讲清楚的 Agent 项目。 学术科研 研究生、博士、申博者、想把 AI 用到科研流程的人。 文献检索、科研 Agent、自动科研系统、论文/Proposal 写作。 面向科研场景的 Agent 项目，论文和申博深造的科研履历和内推机会。 产业落地 OPC创业者、产品经理、电商从业者、企业团队。 MVP 设计、可落地工作流、用户反馈、产品迭代。 能有真正用户反馈和实现盈利的 Agent产品。 7. 真实结果与学员案例 大厂 Offer 与录用结果 AgentAlpha 社区原文图片 AgentAlpha 社区原文图片 AgentAlpha 社区原文图片 AgentAlpha 社区原文图片 AgentAlpha 社区原文图片 AgentAlpha 社区原文图片 部分案例和学生反馈 双非老弟，去年社区学习内推了三个实习，然后补了 5 个有含金量的项目（github 1300 星），也参与了顶会论文，拿到 3 个中厂offer，最后选了杭州一家初创 64k，感慨rag项目是最有帮助的，项目追问了 30 分钟，面经都没考 图片展示了一段聊天记录，标题为“参与实战项目 三投三中”。聊天中提到“爽啊 下一步赶紧把功能弄到网站上去”，并有“陈哥！！！”“三家都发 offer了😂😂”“选择困难症犯了”等对话。还显示“深圳那家初创 agent开了 47k×13”，并有“芜湖！起飞”“都是哪”“另外的呢”等回复。该图片与上下文紧密相关，通过展示学员在参与实战项目后的求职结果，直观呈现了学员在社区学习后获得的offer情况，增强了真实案例的说服力。 985 学弟去年在社区学习，主推memory模块，多模态memory发了篇顶会，然后方向对口，拿到了qwen memory offer，还有百度文心基模和微信的，最后选了qwen，毕竟好跳槽😂 图片展示了一段聊天记录，内容围绕qwen offer展开。聊天中，一位用户询问“哥，idea2paper还缺人吗”，并提到公司事情少了一些。另一位用户回复“有时间了”，并称之前看对方忙得飞起，qwen不养闲人。接着，该用户提到自己之前是陈哥同门，在社区大帮内推引荐，现在不用当牛马了，感谢agentAlpha。最后，用户感叹社区大佬多，卧虎藏龙。此图与上下文关于学员案例和学生反馈的内容相关，体现了学员对社区帮助的感谢。 双非本，211 硕，多对一陪跑，拿到多家大厂实习，选择美团，参与了自进化agent方向的顶会nips合作，二作。 这是一张微信聊天界面截图，展示了AgentAlpha社区学员与老师的交流内容。聊天围绕美团实习、参与顶会nips的经历展开，学员提到参与的一篇nips论文顺利发表，感慨上课跟着发顶会的体验很好，还提及课程中学到的code agent模块能立即用上，对此次论文rebuttal的机会感到激动，最后还关心询问了对方的实习情况。对话中还附带了论文相关的截图，整体体现了学员在参与AgentAlpha社区课程后，成功获得学术成果的正向反馈。 大厂跳槽老弟，靠课程的agent memory项目拿下年终大礼包，述职被大领导（+2）看上 这是一张微信聊天界面截图，对应的是AgentAlpha社区中关于学员真实结果的交流内容。界面内的聊天记录显示，有学员提到自己做memory系统后，述职得到了大领导（+2）的认可，顺利拿到年终福利，还说明年要更努力工作，随后还感慨这是幸福的烦恼，并对课程老师表示认可。该截图直观呈现了前文提及的“大厂跳槽老弟靠课程的agent memory项目拿下年终大礼包”的具体交流细节，是相关学员成功案例的真实佐证。 进步最快学弟，学了两个月，除了DeepSeek，seed，其他大厂offer全拿了一遍 图片展示了一段聊天记录。4月22日23:53，用户Bruce询问“你平时有时间吗？最近刚开始有时间，基本上拿完offer准备选了”，并提到“头部除了seed没约上，DeepSeek三面挂之外，其他基本上都拿了一遍了”。4月23日07:54，用户回复“还正想找您帮我选offer”。4月23日08:39，另一用户回复“你是真滴猛啊”。该图片与文档中大厂跳槽老弟靠课程项目拿下年终大礼包、进步最快学弟学两个月拿遍大厂offer等内容相关，体现了学员在学习后取得的成果。 最强逆袭，专科大龄后端程序员（已工作8年，之前年薪二十万差不多，后参与idea2Paper项目后转行agent开发，靠项目拿下56w offer，现公司准备上市） 这张图片是AgentAlpha社区内的社群聊天详情界面，展示了社区内关于“idea2Paper项目”的学员正向反馈：用户aistudio分享，作为idea2Paper项目组的主力老表，自身因该项目经历成功跳槽升任组长，对此十分开心；另有其他用户回复称其“牛的”，还补充说明其是因为参与idea2Paper项目才得以升任组长，该记录显示时间为2026年3月23日12:16，对应的内容是文档中专科大龄后端程序员参与idea2Paper项目成功转行并拿下高薪offer案例的相关佐证，体现了课程项目对学员职业发展的帮助。 图片展示的是一个名为“idea2paper技术组 01(10)”的群聊界面。群内成员讨论了网站相关事宜，提到“松哥可以带着你主搞网站”“你们和松哥可以开个会，定一下要...”等。7月14日21:38，有成员表示“最近公司产品准备上市，忙飞了，抱歉让大家久等了”，并附上网址链接。群内还出现了“666 起飞了，松哥∠(`ω*)”的回复。该图片与上下文提到的学员参与idea2Paper项目后转行agent开发，拿下56w offer等内容相关，展示了项目团队的沟通情况。 论文录用与升学结果 AgentAlpha 社区原文图片 AgentAlpha 社区原文图片 AgentAlpha 社区原文图片 AgentAlpha 社区原文图片 AgentAlpha 社区原文图片 AgentAlpha 社区原文图片 AgentAlpha 社区原文图片 AgentAlpha 社区原文图片 AgentAlpha 社区原文图片 AgentAlpha 社区原文图片 AgentAlpha 社区原文图片 AgentAlpha 社区原文图片 AgentAlpha 社区原文图片 AgentAlpha 社区原文图片 AgentAlpha 社区原文图片 AgentAlpha 社区原文图片 8. 参与方式 不同人需要的不是同一种服务，而是不同深度的参与方式。你可以先看资料，也可以进入项目实战，或者围绕明确目标做更深的陪跑。 参与深度 适合谁 支持方式 资料研习 还在判断方向，想先理解 Agent 项目和学习路线。 资料、项目文档 项目实战 明确想做出一个完整 Agent 项目的人。 周任务、作业、代码 Review、阶段验收、项目说明。 深度陪跑 有求职、申博、比赛、创业或企业落地目标的人。 项目打磨、简历/申请材料、讲解稿、模拟面试、高频追问拆解。 如果你想进一步了解 可以先发 4 个信息，我们判断你适合哪种参与深度。 你的背景：学生 / 在职 / 科研 / 创业 / 企业 你的目标：求职、升学、项目、变现、企业落地 你的基础：编程、论文、产品、运营分别到什么程度 你的时间和预算：能投入多久，想做到什么结果 图片展示了一个二维码，中间有一个微信图标。下方文字提示“扫一扫上面的二维码图案，加我为朋友。”该图片位于文档中“如果你想进一步了解**可以先发4个信息，我们判断你适合哪种参与深度。”这一段落之后，是文档的结尾部分，用于引导用户扫码添加好友，可能是为了后续获取更多信息或参与相关活动。"
+}

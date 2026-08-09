@@ -60,7 +60,7 @@ export function Hero() {
               asChild
               className="text-lg px-10 py-7 glass-card hover:bg-primary/10 border-primary/30 neon-border font-semibold bg-transparent"
             >
-              <a href="#about">社区介绍</a>
+              <a href="/community">社区介绍</a>
             </Button>
           </div>
         </motion.div>

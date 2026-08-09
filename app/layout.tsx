@@ -13,19 +13,18 @@ const siteUrl = "https://agentalpha.top"
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "AgentAlpha｜大模型 Agent、Claude Code 与 Codex 学习门户",
+    default: "AgentAlpha｜大模型 Agent 实战社区",
     template: "%s｜AgentAlpha",
   },
   description:
-    "AgentAlpha 是面向 AI 工程师与研究者的中文知识门户，系统整理大模型 Agent、Claude Code、Codex 教程、工程实践、项目案例与社区资源。",
+    "AgentAlpha 是以技术落地、人才培养与商业共创为核心的大模型 Agent 实战社区。",
   keywords: [
     "Agent 教程",
     "大模型 Agent",
     "AI Agent",
-    "Claude Code 教程",
-    "Codex 教程",
     "大模型开发",
     "AI 工程实践",
+    "AI 社区",
     "AgentAlpha",
   ],
   authors: [{ name: "AgentAlpha", url: siteUrl }],
@@ -41,22 +40,21 @@ export const metadata: Metadata = {
     alternateLocale: "en_US",
     url: "/",
     siteName: "AgentAlpha",
-    title: "AgentAlpha｜大模型 Agent、Claude Code 与 Codex 学习门户",
-    description:
-      "系统学习大模型 Agent、Claude Code、Codex 与 AI 工程实践。",
+    title: "AgentAlpha｜大模型 Agent 实战社区",
+    description: "技术落地、人才培养、商业共创，围绕真实 Agent 项目共同成长。",
     images: [
       {
         url: "/ai-agent-network-visualization-with-nodes-and-conn.jpg",
         width: 1024,
         height: 1024,
-        alt: "AgentAlpha 大模型 Agent 中文知识门户",
+        alt: "AgentAlpha 大模型 Agent 实战社区",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "AgentAlpha｜大模型 Agent 学习门户",
-    description: "Claude Code、Codex、Agent 教程与 AI 工程实践。",
+    title: "AgentAlpha｜大模型 Agent 实战社区",
+    description: "技术落地、人才培养、商业共创。",
     images: ["/ai-agent-network-visualization-with-nodes-and-conn.jpg"],
   },
   robots: {
@@ -110,7 +108,7 @@ export default function RootLayout({
         url: siteUrl,
         name: "AgentAlpha",
         description:
-          "面向 AI 工程师与研究者的大模型 Agent 中文知识门户。",
+          "以技术落地、人才培养与商业共创为核心的大模型 Agent 实战社区。",
         inLanguage: ["zh-CN", "en"],
         publisher: { "@id": `${siteUrl}/#organization` },
       },

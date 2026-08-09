@@ -3,9 +3,12 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "prebuild": "python3 scripts/sync_community_doc.py --verify",
     "build": "next build",
     "dev": "next dev",
     "lint": "eslint .",
+    "community:sync": "python3 scripts/sync_community_doc.py",
+    "community:verify": "python3 scripts/sync_community_doc.py --verify",
     "start": "next start",
     "postinstall": "prisma generate",
     "db:push": "prisma db push",
