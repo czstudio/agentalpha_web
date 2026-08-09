@@ -169,7 +169,7 @@ def convert_element(element: ET.Element, media: dict[str, Any], heading_ids: set
         return {
             "type": "image",
             "src": download_image(element, media),
-            "alt": element.attrib.get("alt") or "AgentAlpha 社区原文图片",
+            "alt": element.attrib.get("alt") or "AgentAlpha 社区项目配图",
             "width": int(float(element.attrib.get("width", "1200"))),
             "height": int(float(element.attrib.get("height", "720"))),
         }

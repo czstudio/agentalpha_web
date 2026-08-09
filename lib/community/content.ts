@@ -14,10 +14,8 @@ export function communityMarkdown() {
     "",
     communityDocument.description,
     "",
-    `> 内容源：AgentAlpha 飞书社区介绍，revision ${communityDocument.sourceRevision}`,
-    "",
     ...sections,
     "",
-    communityDocument.plainText,
+    communityDocument.plainText.replaceAll(/AgentAlpha 社区原.{1}图片/g, "项目成果配图"),
   ].join("\n")
 }
