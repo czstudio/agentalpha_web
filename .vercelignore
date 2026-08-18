@@ -1,0 +1,23 @@
+# Local-only review artifacts and the unpublished Claude Code portal.
+.local/
+.impeccable.md
+reports/
+
+components/learn/
+content/learn/
+lib/learn/
+public/images/learn/
+
+scripts/finalize_editorial_metadata.py
+scripts/learn_content.py
+scripts/preapproval_audit.py
+scripts/prepare_claude_code_drafts.py
+scripts/test_learn_content.py
+scripts/test_preapproval_audit.py
+
+# Never upload local credentials or editor metadata.
+.env
+.env.*
+!.env.example
+.DS_Store
+*.pem

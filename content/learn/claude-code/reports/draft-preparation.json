@@ -1,0 +1,237 @@
+{
+  "schemaVersion": 1,
+  "sourceRevision": 196,
+  "chapters": [
+    {
+      "slug": "01-foundations",
+      "sourceTitle": "🟢 卷一 · 第一章：Claude Code 是什么？—— 从 Harness 哲学到 51 万行 TypeScript 的工程解剖",
+      "characters": 6040,
+      "keptBlocks": 0,
+      "keptCharacters": 0,
+      "removedRiskBlocks": 94,
+      "images": 5,
+      "riskHits": []
+    },
+    {
+      "slug": "02-agentic-loop",
+      "sourceTitle": "🟢 卷一 · 第二章：核心循环 —— 从 ReAct 论文的 5 行伪代码到 src/query.ts 的 1730 行工业实现",
+      "characters": 6586,
+      "keptBlocks": 0,
+      "keptCharacters": 0,
+      "removedRiskBlocks": 86,
+      "images": 5,
+      "riskHits": []
+    },
+    {
+      "slug": "03-tools",
+      "sourceTitle": "🔧 卷一 · 第三章（深度加强版）：工具系统 —— 从声明式契约到 Fail-Closed 铁幕",
+      "characters": 6525,
+      "keptBlocks": 0,
+      "keptCharacters": 0,
+      "removedRiskBlocks": 99,
+      "images": 5,
+      "riskHits": []
+    },
+    {
+      "slug": "04-context",
+      "sourceTitle": "🧠 卷一 · 第四章（深度加强版）：上下文与记忆 —— 当 200K Tokens 遇上精打细算的工程师",
+      "characters": 6496,
+      "keptBlocks": 0,
+      "keptCharacters": 0,
+      "removedRiskBlocks": 100,
+      "images": 5,
+      "riskHits": []
+    },
+    {
+      "slug": "05-experiments",
+      "sourceTitle": "🧪 卷一 · 第五章（深度加强版）：实战 Lab —— 撕开 Agent 的黑箱，亲手摸到每一根神经",
+      "characters": 6491,
+      "keptBlocks": 0,
+      "keptCharacters": 0,
+      "removedRiskBlocks": 93,
+      "images": 5,
+      "riskHits": []
+    },
+    {
+      "slug": "06-harness",
+      "sourceTitle": "🔥 卷二 · 第六章：Harness 架构深度拆解 —— 七层架构、46K 行心脏与异步生成器模式",
+      "characters": 6581,
+      "keptBlocks": 0,
+      "keptCharacters": 0,
+      "removedRiskBlocks": 82,
+      "images": 5,
+      "riskHits": []
+    },
+    {
+      "slug": "07-prompt-system",
+      "sourceTitle": "🔥 卷二 · 第七章：分层 Prompt 注入机制 —— 7 静 13 动、缓存边界与 Prompt 缓存经济学",
+      "characters": 6713,
+      "keptBlocks": 0,
+      "keptCharacters": 0,
+      "removedRiskBlocks": 85,
+      "images": 5,
+      "riskHits": []
+    },
+    {
+      "slug": "08-tool-governance",
+      "sourceTitle": "🔥 卷二 · 第八章：工具系统治理流水线 —— 14 步 Fail-Closed、AST 解析器与并发调度",
+      "characters": 6485,
+      "keptBlocks": 0,
+      "keptCharacters": 0,
+      "removedRiskBlocks": 76,
+      "images": 5,
+      "riskHits": []
+    },
+    {
+      "slug": "09-permissions",
+      "sourceTitle": "🔥 卷二 · 第九章：权限系统的七层纵深防御 —— YOLO 分类器、语义分类与自动恢复",
+      "characters": 6684,
+      "keptBlocks": 0,
+      "keptCharacters": 0,
+      "removedRiskBlocks": 81,
+      "images": 5,
+      "riskHits": []
+    },
+    {
+      "slug": "10-compaction",
+      "sourceTitle": "卷二 · 第十章：上下文压缩五级流水线 —— 当 200K Tokens 撞上无限对话（深度加强版）",
+      "characters": 6421,
+      "keptBlocks": 0,
+      "keptCharacters": 0,
+      "removedRiskBlocks": 156,
+      "images": 5,
+      "riskHits": []
+    },
+    {
+      "slug": "11-advanced-context",
+      "sourceTitle": "🔬 第十一章：进阶上下文管理 —— 从「一团浆糊」到「精密钟表」",
+      "characters": 6674,
+      "keptBlocks": 0,
+      "keptCharacters": 0,
+      "removedRiskBlocks": 102,
+      "images": 5,
+      "riskHits": []
+    },
+    {
+      "slug": "12-source-reading",
+      "sourceTitle": "🗺️ 第十二章：Claude Code 源码阅读指南 —— 从「迷路小白」到「源码考古学家」",
+      "characters": 6539,
+      "keptBlocks": 0,
+      "keptCharacters": 0,
+      "removedRiskBlocks": 97,
+      "images": 5,
+      "riskHits": []
+    },
+    {
+      "slug": "13-custom-agents",
+      "sourceTitle": "🛠️ 第十三章：自定义 Agent 开发实战 —— 从「用工具」到「造工具」",
+      "characters": 6666,
+      "keptBlocks": 0,
+      "keptCharacters": 0,
+      "removedRiskBlocks": 95,
+      "images": 5,
+      "riskHits": []
+    },
+    {
+      "slug": "14-debugging-optimization",
+      "sourceTitle": "⚡ 第十四章：调试与性能优化 —— 让 Agent 从「拖拉机」变「跑车」",
+      "characters": 6462,
+      "keptBlocks": 0,
+      "keptCharacters": 0,
+      "removedRiskBlocks": 104,
+      "images": 5,
+      "riskHits": []
+    },
+    {
+      "slug": "cross-system-comparison",
+      "sourceTitle": "🏟️ 跨系统深度对比 —— Claude Code、Codex CLI、Manus、Cursor 的架构分野",
+      "characters": 6837,
+      "keptBlocks": 0,
+      "keptCharacters": 0,
+      "removedRiskBlocks": 67,
+      "images": 5,
+      "riskHits": []
+    },
+    {
+      "slug": "mcp-subagent-security",
+      "sourceTitle": "🛡️ MCP、子 Agent 与 Agent 安全 —— 当 Agent 走出实验室",
+      "characters": 6678,
+      "keptBlocks": 0,
+      "keptCharacters": 0,
+      "removedRiskBlocks": 369,
+      "images": 5,
+      "riskHits": []
+    },
+    {
+      "slug": "15-system-design-interview",
+      "sourceTitle": "🟣 卷四 · 第十五章：Agent 系统设计面试 —— ReAct 变体、工具调度与上下文压缩",
+      "characters": 6441,
+      "keptBlocks": 0,
+      "keptCharacters": 0,
+      "removedRiskBlocks": 62,
+      "images": 5,
+      "riskHits": []
+    },
+    {
+      "slug": "16-security-interview",
+      "sourceTitle": "🟣 卷四 · 第十六章：安全与权限面试 —— 七层纵深防御、沙箱与供应链安全",
+      "characters": 6519,
+      "keptBlocks": 0,
+      "keptCharacters": 0,
+      "removedRiskBlocks": 60,
+      "images": 5,
+      "riskHits": []
+    },
+    {
+      "slug": "17-performance-interview",
+      "sourceTitle": "🟣 卷四 · 第十七章：性能优化面试 —— 延迟、内存、Token 与并发",
+      "characters": 6404,
+      "keptBlocks": 0,
+      "keptCharacters": 0,
+      "removedRiskBlocks": 58,
+      "images": 5,
+      "riskHits": []
+    },
+    {
+      "slug": "appendix-a-stack",
+      "sourceTitle": "📎 附录 A：完整技术栈速查表 —— 51 个核心文件的解剖学报告",
+      "characters": 6403,
+      "keptBlocks": 0,
+      "keptCharacters": 0,
+      "removedRiskBlocks": 51,
+      "images": 5,
+      "riskHits": []
+    },
+    {
+      "slug": "appendix-b-prompts",
+      "sourceTitle": "📎 附录 B：Prompt 模板库 —— 从「咒语背诵」到「元编程」的七重境界",
+      "characters": 6462,
+      "keptBlocks": 0,
+      "keptCharacters": 0,
+      "removedRiskBlocks": 48,
+      "images": 5,
+      "riskHits": []
+    },
+    {
+      "slug": "appendix-c-tools",
+      "sourceTitle": "📎 附录 C：工具分类速查 —— 42 把手术刀的解剖学手册",
+      "characters": 6387,
+      "keptBlocks": 0,
+      "keptCharacters": 0,
+      "removedRiskBlocks": 44,
+      "images": 5,
+      "riskHits": []
+    },
+    {
+      "slug": "appendix-d-resources",
+      "sourceTitle": "📎 附录 D：资源与扩展阅读 —— 50+ 高质量来源的认知地图",
+      "characters": 7579,
+      "keptBlocks": 0,
+      "keptCharacters": 0,
+      "removedRiskBlocks": 35,
+      "images": 5,
+      "riskHits": []
+    }
+  ],
+  "failures": []
+}

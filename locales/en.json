@@ -1,7 +1,9 @@
 {
   "nav": {
     "home": "Home",
+    "community": "Community",
     "communityIntro": "About AgentAlpha",
+    "notes": "Notes",
     "vision": "Vision",
     "advanced": "Advanced",
     "resources": "Resources",

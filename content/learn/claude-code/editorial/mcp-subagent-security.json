@@ -1,0 +1,115 @@
+{
+  "schemaVersion": 1,
+  "status": "editorial-rejected",
+  "slug": "mcp-subagent-security",
+  "title": "专题：MCP、Subagent 与安全",
+  "reader": "把外部系统和多 Agent 接入生产环境的架构师",
+  "centerQuestion": "MCP 与 Subagent 叠加后，信任边界如何扩张？",
+  "keyConcepts": [
+    "MCP 主体",
+    "能力暴露",
+    "委派",
+    "凭证",
+    "审计"
+  ],
+  "misconceptions": [
+    "协议标准化等于安全",
+    "子 Agent 自动继承正确的最小权限"
+  ],
+  "caseStudy": "带外部数据源与执行工具的威胁建模",
+  "difficulty": "高级",
+  "readingMinutes": 19,
+  "tags": [
+    "MCP 主体",
+    "能力暴露",
+    "委派",
+    "凭证"
+  ],
+  "imagePlan": [
+    {
+      "slot": 1,
+      "purpose": "失败场景",
+      "visual": "带外部数据源与执行工具的威胁建模的错误路径与可观察信号",
+      "preferredSource": "自制解释图"
+    },
+    {
+      "slot": 2,
+      "purpose": "核心直觉",
+      "visual": "MCP 主体与能力暴露的关系图",
+      "preferredSource": "自制解释图"
+    },
+    {
+      "slot": 3,
+      "purpose": "运行机制",
+      "visual": "关键状态、输入输出与控制边界",
+      "preferredSource": "官方文档原图优先；否则自制并标注"
+    },
+    {
+      "slot": 4,
+      "purpose": "方案比较",
+      "visual": "替代方案在可靠性、成本与适用边界上的对比",
+      "preferredSource": "自制对比图"
+    },
+    {
+      "slot": 5,
+      "purpose": "工程落地",
+      "visual": "调试、评测与验收闭环",
+      "preferredSource": "真实界面或自制流程图"
+    }
+  ],
+  "sources": [
+    {
+      "label": "Model Context Protocol specification 2025-06-18",
+      "url": "https://modelcontextprotocol.io/specification/2025-06-18",
+      "sourceId": "mcp-spec"
+    },
+    {
+      "label": "Connect Claude Code to tools via MCP",
+      "url": "https://code.claude.com/docs/en/mcp.md",
+      "sourceId": "anthropic-mcp"
+    },
+    {
+      "label": "Create custom subagents",
+      "url": "https://code.claude.com/docs/en/sub-agents.md",
+      "sourceId": "anthropic-subagents"
+    },
+    {
+      "label": "Secure deployment",
+      "url": "https://code.claude.com/docs/en/agent-sdk/secure-deployment.md",
+      "sourceId": "anthropic-sdk-security"
+    }
+  ],
+  "images": {
+    "YufpblMOZowAgnx3yDxcCvZhn4g": {
+      "alt": "MCP 分层：主机、客户端、服务端与外部系统形成新的信任边界",
+      "caption": "MCP 分层：主机、客户端、服务端与外部系统形成新的信任边界",
+      "sourceLabel": "AgentAlpha 自制解释图"
+    },
+    "IX4sbiEEsoIax2xucfPcgvsYn1c": {
+      "alt": "Subagent 隔离：并行分析需要清晰职责、上下文和写入边界",
+      "caption": "Subagent 隔离：并行分析需要清晰职责、上下文和写入边界",
+      "sourceLabel": "AgentAlpha 自制解释图"
+    },
+    "O0gcbWZO3oJTQpx7SoJcDWKMnvb": {
+      "alt": "权限分层：应用规则、人工确认与系统沙箱各守一道边界",
+      "caption": "权限分层：应用规则、人工确认与系统沙箱各守一道边界",
+      "sourceLabel": "AgentAlpha 自制解释图"
+    },
+    "ARNGbHywgowJ44xZR9BcmwLqnab": {
+      "alt": "工具治理流水线：参数、权限、执行、结果与审计逐步收紧风险",
+      "caption": "工具治理流水线：参数、权限、执行、结果与审计逐步收紧风险",
+      "sourceLabel": "AgentAlpha 自制解释图"
+    },
+    "Hvcgbwwpmo1qF4xG4qtcQ933n0d": {
+      "alt": "Trace 像飞行记录器：把每次决策、工具调用和失败信号串起来",
+      "caption": "Trace 像飞行记录器：把每次决策、工具调用和失败信号串起来",
+      "sourceLabel": "AgentAlpha 自制解释图"
+    }
+  },
+  "legacyCopyRemoved": true,
+  "legacyAutomaticScoreInvalidated": true,
+  "humanReview": {
+    "approved": false,
+    "note": "旧稿未通过学生可读性实读，必须在金样章批准后重新编写。"
+  }
+}

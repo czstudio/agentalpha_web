@@ -1,0 +1,82 @@
+{
+  "schemaVersion": 1,
+  "inputStatus": "prepared_blocked_by_gold_approval",
+  "scope": "输入包与差距整理；不含学生正文",
+  "slug": "appendix-c-tools",
+  "order": 22,
+  "volumeId": "appendices",
+  "title": "附录 C：工具分类",
+  "manifest": {
+    "path": "../manifest.json",
+    "sourceWikiToken": "FaljwjhYYijFw2kQ6MrcioKensh",
+    "sourceRevision": 4,
+    "contentHash": "3ff658ad66727b6724b198d5d409a4268dc2a387699fffcd529129ba4d47df63",
+    "status": "inventory"
+  },
+  "editorial": {
+    "path": "../editorial/appendix-c-tools.json",
+    "reader": "设计 Agent 工具集的平台工程师",
+    "centerQuestion": "如何按读、写、执行、外部副作用与恢复性分类工具？",
+    "keyConcepts": [
+      "只读",
+      "可逆写入",
+      "不可逆副作用",
+      "幂等",
+      "审批"
+    ],
+    "misconceptions": [
+      "按工具名称判断风险",
+      "所有写操作风险相同"
+    ],
+    "caseStudy": "为常见开发工具建立风险与验证矩阵"
+  },
+  "draft": {
+    "path": "../drafts/appendix-c-tools.xml",
+    "format": "notion-xml",
+    "bytes": 22305,
+    "sha256": "5412cc0eefbbf2c3ca217d745574d5eff36caf4cbbd3700e884ffa122b38ca93"
+  },
+  "research": {
+    "path": "../research/fact-pack.json",
+    "checkedAt": "2026-08-08",
+    "sourceIds": [
+      "anthropic-permissions",
+      "anthropic-hooks",
+      "anthropic-sandbox"
+    ],
+    "assertionIds": [
+      "permission-order",
+      "sandbox-complement"
+    ],
+    "verificationRule": "发布前重新核验版本、模型、价格、上下文窗口、默认权限和命令参数。"
+  },
+  "rewriteBrief": {
+    "preserve": [
+      "仅保留 manifest 的章节身份与 source token/revision/hash 追溯信息",
+      "保留待核对的中心问题、读者、关键概念、误区与案例设定；均须待 gold revision 确认"
+    ],
+    "pendingDesign": [
+      "围绕学生疑问“如何按读、写、执行、外部副作用与恢复性分类工具？”设计一条能完成案例任务“为常见开发工具建立风险与验证矩阵”的学习路径。",
+      "为只读、可逆写入、不可逆副作用分别设计可观察现象、最小示例与边界反例。",
+      "确定学生需要提交或复现的证据、检查步骤和完成判据，避免以口号或功能清单代替理解。",
+      "根据 gold revision 重新核验版本化事实、来源粒度、案例环境与术语。"
+    ],
+    "acceptance": [
+      "先取得 gold approval 再进入正文重写",
+      "学生能用自己的话回答中心问题并完成案例任务",
+      "每个关键概念有证据、边界和可复核判据",
+      "不把旧 status、quality、summary 或模板化结构当作完成证明"
+    ]
+  },
+  "legacyRejectedInput": {
+    "invalidated": true,
+    "reason": "未取得 gold approval；旧 editorial verified/quality/summary 仅作遗留痕迹，不得作为有效重写输入。",
+    "status": "verified",
+    "quality": {
+      "overall": 87,
+      "accuracy": 23,
+      "depth": 16
+    },
+    "summary": "从为常见开发工具建立风险与验证矩阵出发，拆解只读、可逆写入与审批，给出可回放实验、失败树和工程验收方法。"
+  }
+}

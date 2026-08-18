@@ -1,0 +1,81 @@
+{
+  "schemaVersion": 1,
+  "inputStatus": "prepared_blocked_by_gold_approval",
+  "scope": "输入包与差距整理；不含学生正文",
+  "slug": "03-tools",
+  "order": 3,
+  "volumeId": "volume-1",
+  "title": "第 3 章：工具调用与执行模型",
+  "manifest": {
+    "path": "../manifest.json",
+    "sourceWikiToken": "N1DgwOKWxihC8skml04cM8xEnHe",
+    "sourceRevision": 4,
+    "contentHash": "24591854adba1fb91e42dd51993eecbfb024526e8990d111de78362574f9fb5f",
+    "status": "inventory"
+  },
+  "editorial": {
+    "path": "../editorial/03-tools.json",
+    "reader": "需要设计或审查工具调用的工程师",
+    "centerQuestion": "模型如何选择工具，工具契约如何决定可靠性？",
+    "keyConcepts": [
+      "工具模式",
+      "参数验证",
+      "执行结果",
+      "错误语义",
+      "幂等性"
+    ],
+    "misconceptions": [
+      "工具越多越好",
+      "return code 0 等于任务成功"
+    ],
+    "caseStudy": "把模糊 shell 能力改造成窄接口工具"
+  },
+  "draft": {
+    "path": "../drafts/03-tools.xml",
+    "format": "notion-xml",
+    "bytes": 22647,
+    "sha256": "70578a2311cec4cc77d11d198da7f18820bec251ae0e0ff82808a1f807923f1d"
+  },
+  "research": {
+    "path": "../research/fact-pack.json",
+    "checkedAt": "2026-08-08",
+    "sourceIds": [
+      "anthropic-how-it-works",
+      "anthropic-cli",
+      "anthropic-hooks"
+    ],
+    "assertionIds": [
+      "loop-core"
+    ],
+    "verificationRule": "发布前重新核验版本、模型、价格、上下文窗口、默认权限和命令参数。"
+  },
+  "rewriteBrief": {
+    "preserve": [
+      "仅保留 manifest 的章节身份与 source token/revision/hash 追溯信息",
+      "保留待核对的中心问题、读者、关键概念、误区与案例设定；均须待 gold revision 确认"
+    ],
+    "pendingDesign": [
+      "围绕学生疑问“模型如何选择工具，工具契约如何决定可靠性？”设计一条能完成案例任务“把模糊 shell 能力改造成窄接口工具”的学习路径。",
+      "为工具模式、参数验证、执行结果分别设计可观察现象、最小示例与边界反例。",
+      "确定学生需要提交或复现的证据、检查步骤和完成判据，避免以口号或功能清单代替理解。",
+      "根据 gold revision 重新核验版本化事实、来源粒度、案例环境与术语。"
+    ],
+    "acceptance": [
+      "先取得 gold approval 再进入正文重写",
+      "学生能用自己的话回答中心问题并完成案例任务",
+      "每个关键概念有证据、边界和可复核判据",
+      "不把旧 status、quality、summary 或模板化结构当作完成证明"
+    ]
+  },
+  "legacyRejectedInput": {
+    "invalidated": true,
+    "reason": "未取得 gold approval；旧 editorial verified/quality/summary 仅作遗留痕迹，不得作为有效重写输入。",
+    "status": "verified",
+    "quality": {
+      "overall": 87,
+      "accuracy": 23,
+      "depth": 16
+    },
+    "summary": "从把模糊 shell 能力改造成窄接口工具出发，拆解工具模式、参数验证与幂等性，给出可回放实验、失败树和工程验收方法。"
+  }
+}

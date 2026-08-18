@@ -1,0 +1,110 @@
+{
+  "schemaVersion": 1,
+  "status": "editorial-rejected",
+  "slug": "10-compaction",
+  "title": "第 10 章：上下文压缩与记忆",
+  "reader": "处理长会话和高成本任务的工程师",
+  "centerQuestion": "压缩如何保留决策与证据，同时避免摘要失真？",
+  "keyConcepts": [
+    "压缩",
+    "摘要损失",
+    "检查点",
+    "持久记忆",
+    "缓存"
+  ],
+  "misconceptions": [
+    "摘要等于原始记录",
+    "压缩只影响成本不影响正确性"
+  ],
+  "caseStudy": "长任务在压缩前后保存可恢复检查点",
+  "difficulty": "进阶",
+  "readingMinutes": 18,
+  "tags": [
+    "压缩",
+    "摘要损失",
+    "检查点",
+    "持久记忆"
+  ],
+  "imagePlan": [
+    {
+      "slot": 1,
+      "purpose": "失败场景",
+      "visual": "长任务在压缩前后保存可恢复检查点的错误路径与可观察信号",
+      "preferredSource": "自制解释图"
+    },
+    {
+      "slot": 2,
+      "purpose": "核心直觉",
+      "visual": "压缩与摘要损失的关系图",
+      "preferredSource": "自制解释图"
+    },
+    {
+      "slot": 3,
+      "purpose": "运行机制",
+      "visual": "关键状态、输入输出与控制边界",
+      "preferredSource": "官方文档原图优先；否则自制并标注"
+    },
+    {
+      "slot": 4,
+      "purpose": "方案比较",
+      "visual": "替代方案在可靠性、成本与适用边界上的对比",
+      "preferredSource": "自制对比图"
+    },
+    {
+      "slot": 5,
+      "purpose": "工程落地",
+      "visual": "调试、评测与验收闭环",
+      "preferredSource": "真实界面或自制流程图"
+    }
+  ],
+  "sources": [
+    {
+      "label": "Manage context windows",
+      "url": "https://code.claude.com/docs/en/context-window.md",
+      "sourceId": "anthropic-context"
+    },
+    {
+      "label": "Manage Claude's memory",
+      "url": "https://code.claude.com/docs/en/memory.md",
+      "sourceId": "anthropic-memory"
+    },
+    {
+      "label": "Prompt caching",
+      "url": "https://code.claude.com/docs/en/prompt-caching.md",
+      "sourceId": "anthropic-prompt-cache"
+    }
+  ],
+  "images": {
+    "VhYmb1UlSoMOZnxF4YJcRt0vnNe": {
+      "alt": "上下文压缩：保留目标、决策、证据和未完成状态",
+      "caption": "上下文压缩：保留目标、决策、证据和未完成状态",
+      "sourceLabel": "AgentAlpha 自制解释图"
+    },
+    "UrDKbKNzSoyrjuxCmFlcIZVdn3c": {
+      "alt": "压缩与缓存：减少重复输入，同时保留继续任务所需工作记忆",
+      "caption": "压缩与缓存：减少重复输入，同时保留继续任务所需工作记忆",
+      "sourceLabel": "AgentAlpha 自制解释图"
+    },
+    "NWGZbgvRyo0v6axJs30cFHhpnpb": {
+      "alt": "上下文金字塔：稳定规则、任务资料与即时观察分层管理",
+      "caption": "上下文金字塔：稳定规则、任务资料与即时观察分层管理",
+      "sourceLabel": "AgentAlpha 自制解释图"
+    },
+    "WKNGb60J5oK0K3x4HLhcB1K7nh5": {
+      "alt": "上下文加载：只在当前决策需要时引入相关信息",
+      "caption": "上下文加载：只在当前决策需要时引入相关信息",
+      "sourceLabel": "AgentAlpha 自制解释图"
+    },
+    "SDIjbiXYOopaYVxKgbqcqixQn7e": {
+      "alt": "成本异常：重复上下文、无效工具调用和失控重试会放大消耗",
+      "caption": "成本异常：重复上下文、无效工具调用和失控重试会放大消耗",
+      "sourceLabel": "AgentAlpha 自制解释图"
+    }
+  },
+  "legacyCopyRemoved": true,
+  "legacyAutomaticScoreInvalidated": true,
+  "humanReview": {
+    "approved": false,
+    "note": "旧稿未通过学生可读性实读，必须在金样章批准后重新编写。"
+  }
+}

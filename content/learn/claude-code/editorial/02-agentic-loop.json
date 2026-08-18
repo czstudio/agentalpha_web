@@ -1,0 +1,110 @@
+{
+  "schemaVersion": 1,
+  "status": "editorial-rejected",
+  "slug": "02-agentic-loop",
+  "title": "第 2 章：Agentic Loop 入门",
+  "reader": "希望理解 Agent 为什么会连续行动的开发者",
+  "centerQuestion": "一次自然语言请求如何变成可观察、可中断的执行循环？",
+  "keyConcepts": [
+    "观察",
+    "推理",
+    "行动",
+    "工具结果",
+    "停止条件"
+  ],
+  "misconceptions": [
+    "把循环理解成单次补全",
+    "把思考文本当作可靠执行状态"
+  ],
+  "caseStudy": "追踪一次测试失败到修复完成的循环",
+  "difficulty": "入门",
+  "readingMinutes": 19,
+  "tags": [
+    "观察",
+    "推理",
+    "行动",
+    "工具结果"
+  ],
+  "imagePlan": [
+    {
+      "slot": 1,
+      "purpose": "失败场景",
+      "visual": "追踪一次测试失败到修复完成的循环的错误路径与可观察信号",
+      "preferredSource": "自制解释图"
+    },
+    {
+      "slot": 2,
+      "purpose": "核心直觉",
+      "visual": "观察与推理的关系图",
+      "preferredSource": "自制解释图"
+    },
+    {
+      "slot": 3,
+      "purpose": "运行机制",
+      "visual": "关键状态、输入输出与控制边界",
+      "preferredSource": "官方文档原图优先；否则自制并标注"
+    },
+    {
+      "slot": 4,
+      "purpose": "方案比较",
+      "visual": "替代方案在可靠性、成本与适用边界上的对比",
+      "preferredSource": "自制对比图"
+    },
+    {
+      "slot": 5,
+      "purpose": "工程落地",
+      "visual": "调试、评测与验收闭环",
+      "preferredSource": "真实界面或自制流程图"
+    }
+  ],
+  "sources": [
+    {
+      "label": "How Claude Code works",
+      "url": "https://code.claude.com/docs/en/how-claude-code-works.md",
+      "sourceId": "anthropic-how-it-works"
+    },
+    {
+      "label": "Agent loop",
+      "url": "https://code.claude.com/docs/en/agent-sdk/agent-loop.md",
+      "sourceId": "anthropic-agent-loop"
+    },
+    {
+      "label": "ReAct: Synergizing Reasoning and Acting in Language Models",
+      "url": "https://arxiv.org/abs/2210.03629",
+      "sourceId": "react-paper"
+    }
+  ],
+  "images": {
+    "WZaJbdpdHolz13xJnC1c8I2Ynny": {
+      "alt": "Agentic Loop：观察、判断、行动与工具结果构成闭环",
+      "caption": "Agentic Loop：观察、判断、行动与工具结果构成闭环",
+      "sourceLabel": "AgentAlpha 自制解释图"
+    },
+    "KZIQbxPtUoqw1qxkDlNcWLtgn3g": {
+      "alt": "最小 Agent 时序：请求、模型判断、工具执行、结果回填与停止",
+      "caption": "最小 Agent 时序：请求、模型判断、工具执行、结果回填与停止",
+      "sourceLabel": "AgentAlpha 自制解释图"
+    },
+    "J68mbA6IvoIkCFxGbG1cslPcn64": {
+      "alt": "从基础 ReAct 到工程 Agent：循环外逐步增加控制与恢复机制",
+      "caption": "从基础 ReAct 到工程 Agent：循环外逐步增加控制与恢复机制",
+      "sourceLabel": "AgentAlpha 自制解释图"
+    },
+    "QVBbbF57roGx1cx2Db0cj1eynSu": {
+      "alt": "Trace 像飞行记录器：把每次决策、工具调用和失败信号串起来",
+      "caption": "Trace 像飞行记录器：把每次决策、工具调用和失败信号串起来",
+      "sourceLabel": "AgentAlpha 自制解释图"
+    },
+    "QFqJb6pQfoYwQoxhGiHcvlMgnEg": {
+      "alt": "评测闭环：任务样本必须连接执行轨迹、判据与回归结果",
+      "caption": "评测闭环：任务样本必须连接执行轨迹、判据与回归结果",
+      "sourceLabel": "AgentAlpha 自制解释图"
+    }
+  },
+  "legacyCopyRemoved": true,
+  "legacyAutomaticScoreInvalidated": true,
+  "humanReview": {
+    "approved": false,
+    "note": "旧稿未通过学生可读性实读，必须在金样章批准后重新编写。"
+  }
+}

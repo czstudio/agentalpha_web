@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 520" role="img" aria-labelledby="title desc">
+  <title id="title">ReAct 与 Agentic RL 的关系</title><desc id="desc">模型根据观察选择动作，环境返回结果，Agentic RL 优化动作选择。</desc>
+  <rect width="1200" height="520" rx="28" fill="#f8fbff"/><text x="70" y="72" font-size="34" font-family="sans-serif" font-weight="700" fill="#10233f">同一条 Agent 循环，两个不同问题</text>
+  <g font-family="sans-serif" text-anchor="middle"><rect x="80" y="160" width="210" height="110" rx="18" fill="#d8ecff"/><text x="185" y="207" font-size="24" fill="#10233f">模型</text><text x="185" y="242" font-size="18" fill="#45627f">选择下一步动作</text>
+  <rect x="495" y="160" width="210" height="110" rx="18" fill="#dff6e8"/><text x="600" y="207" font-size="24" fill="#10233f">环境</text><text x="600" y="242" font-size="18" fill="#45627f">返回观察与结果</text>
+  <rect x="910" y="160" width="210" height="110" rx="18" fill="#ffe8c7"/><text x="1015" y="207" font-size="24" fill="#10233f">任务验收</text><text x="1015" y="242" font-size="18" fill="#45627f">判断是否完成</text>
+  <path d="M290 215h190M705 215h190" stroke="#6b86a3" stroke-width="5" marker-end="url(#a)"/><path d="M1015 290v120H185V290" fill="none" stroke="#6b86a3" stroke-width="5" marker-end="url(#a)"/>
+  <text x="390" y="195" font-size="17" fill="#45627f">ReAct：把循环跑起来</text><text x="805" y="195" font-size="17" fill="#45627f">RL：优化每次选择</text><text x="600" y="450" font-size="20" fill="#10233f">奖励、成本、约束和失败原因，决定哪些动作值得保留</text></g>
+  <defs><marker id="a" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0 0l9 3-9 3z" fill="#6b86a3"/></marker></defs>
+</svg>

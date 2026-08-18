@@ -1,0 +1,83 @@
+{
+  "schemaVersion": 1,
+  "inputStatus": "prepared_blocked_by_gold_approval",
+  "scope": "输入包与差距整理；不含学生正文",
+  "slug": "08-tool-governance",
+  "order": 8,
+  "volumeId": "volume-2",
+  "title": "第 8 章：工具治理",
+  "manifest": {
+    "path": "../manifest.json",
+    "sourceWikiToken": "NNlEwIWSqicTwYk5CY4cxoAzn3e",
+    "sourceRevision": 4,
+    "contentHash": "14368cd23ce8ea84088139109f7f08dfd49a66b3db5d0a65fc8db947caa197e8",
+    "status": "inventory"
+  },
+  "editorial": {
+    "path": "../editorial/08-tool-governance.json",
+    "reader": "为团队开放 Agent 工具的安全与平台工程师",
+    "centerQuestion": "如何决定哪些工具可用、何时审批、如何留痕？",
+    "keyConcepts": [
+      "最小权限",
+      "工具白名单",
+      "参数约束",
+      "审计",
+      "副作用分级"
+    ],
+    "misconceptions": [
+      "只做工具名称白名单就够了",
+      "只要有人工确认就没有风险"
+    ],
+    "caseStudy": "按只读、可逆写入、外部发布分级治理"
+  },
+  "draft": {
+    "path": "../drafts/08-tool-governance.xml",
+    "format": "notion-xml",
+    "bytes": 22630,
+    "sha256": "ba939e1e68265a823a81a27a304c3edd0640b281d81b9cb2cb4610064aba8476"
+  },
+  "research": {
+    "path": "../research/fact-pack.json",
+    "checkedAt": "2026-08-08",
+    "sourceIds": [
+      "anthropic-permissions",
+      "anthropic-hooks",
+      "anthropic-sdk-security"
+    ],
+    "assertionIds": [
+      "permission-order",
+      "sandbox-complement",
+      "mcp-boundary"
+    ],
+    "verificationRule": "发布前重新核验版本、模型、价格、上下文窗口、默认权限和命令参数。"
+  },
+  "rewriteBrief": {
+    "preserve": [
+      "仅保留 manifest 的章节身份与 source token/revision/hash 追溯信息",
+      "保留待核对的中心问题、读者、关键概念、误区与案例设定；均须待 gold revision 确认"
+    ],
+    "pendingDesign": [
+      "围绕学生疑问“如何决定哪些工具可用、何时审批、如何留痕？”设计一条能完成案例任务“按只读、可逆写入、外部发布分级治理”的学习路径。",
+      "为最小权限、工具白名单、参数约束分别设计可观察现象、最小示例与边界反例。",
+      "确定学生需要提交或复现的证据、检查步骤和完成判据，避免以口号或功能清单代替理解。",
+      "根据 gold revision 重新核验版本化事实、来源粒度、案例环境与术语。"
+    ],
+    "acceptance": [
+      "先取得 gold approval 再进入正文重写",
+      "学生能用自己的话回答中心问题并完成案例任务",
+      "每个关键概念有证据、边界和可复核判据",
+      "不把旧 status、quality、summary 或模板化结构当作完成证明"
+    ]
+  },
+  "legacyRejectedInput": {
+    "invalidated": true,
+    "reason": "未取得 gold approval；旧 editorial verified/quality/summary 仅作遗留痕迹，不得作为有效重写输入。",
+    "status": "verified",
+    "quality": {
+      "overall": 87,
+      "accuracy": 23,
+      "depth": 16
+    },
+    "summary": "从按只读、可逆写入、外部发布分级治理出发，拆解最小权限、工具白名单与副作用分级，给出可回放实验、失败树和工程验收方法。"
+  }
+}

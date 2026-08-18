@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "state": "awaiting-student-approval",
+  "chapter": {
+    "slug": "01-foundations",
+    "title": "第 1 章：Claude Code 到底在做什么？从一句需求到一次代码修改",
+    "wikiToken": "I7IawfLwHi92QQkTFeRcSKVlnNf",
+    "wikiUrl": "https://agentalpha.feishu.cn/wiki/I7IawfLwHi92QQkTFeRcSKVlnNf",
+    "sourceRevision": 21,
+    "contentHash": "b7f4516b33a807bf65a75cd15e0f4cc3406061e37d7384fa2ce9ad7d06c67582",
+    "status": "rewritten"
+  },
+  "liveReadback": {
+    "characters": 5996,
+    "h1": 1,
+    "h2": 9,
+    "h3": 3,
+    "images": 5,
+    "allImageCaptionsPresent": true,
+    "studentCopyLint": "clean"
+  },
+  "approval": {
+    "approved": false,
+    "approvedRevision": null,
+    "note": "必须由用户以学生身份读完后明确批准；自动检查不能替代人工试读。"
+  },
+  "releaseGate": {
+    "remainingChaptersFrozen": true,
+    "websiteExportAllowed": false,
+    "publicNavigationAllowed": false,
+    "vercelDeployAllowed": false
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "schemaVersion": 1,
+  "state": "rejected",
+  "rejectedAt": "2026-08-08T00:00:00-07:00",
+  "reason": "用户实读后判定 23 篇现有稿件不是面向学生的教程：结构机械、解释抽象，并残留大量指导 AI 和编辑验收的后台话术。此前自动填写的 87/23/16 分全部作废。",
+  "instruction": "停止网站导出和批量飞书写回。先完成第 1 章学生金样章；只有用户明确批准语言、深度、讲解结构和图解后，才允许逐章继续。",
+  "invalidatedChapterCount": 23,
+  "approvalLockCreated": false,
+  "websiteSnapshotExported": false,
+  "navigationEnabled": false,
+  "vercelPreviewCreated": false
+}

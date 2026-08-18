@@ -1,0 +1,144 @@
+{
+  "schemaVersion": 1,
+  "root": "HJNuwSwIJigbN9ki5TRctuOyn9g",
+  "directory": "PA52wEHLkiV6hOkPDuNcAjtknpe",
+  "operations": [
+    {
+      "slug": "01-foundations",
+      "action": "created",
+      "nodeToken": "I7IawfLwHi92QQkTFeRcSKVlnNf",
+      "revision": 1
+    },
+    {
+      "slug": "02-agentic-loop",
+      "action": "verified",
+      "nodeToken": "ZBXPwaYuviOi8ikwPW6cclwEnQg"
+    },
+    {
+      "slug": "03-tools",
+      "action": "created",
+      "nodeToken": "N1DgwOKWxihC8skml04cM8xEnHe",
+      "revision": 1
+    },
+    {
+      "slug": "04-context",
+      "action": "created",
+      "nodeToken": "SJaDwh8Mgizjt4kbImZcQi3Wn3b",
+      "revision": 1
+    },
+    {
+      "slug": "05-experiments",
+      "action": "created",
+      "nodeToken": "KlxRwvwQSiKRMakP6oRckaounyb",
+      "revision": 1
+    },
+    {
+      "slug": "06-harness",
+      "action": "created",
+      "nodeToken": "DYXwwLIPviPImtkcN0DcdsAHnXc",
+      "revision": 1
+    },
+    {
+      "slug": "07-prompt-system",
+      "action": "created",
+      "nodeToken": "HGk4wIcZ3inB2Yk6iZ5cP4RHnlg",
+      "revision": 1
+    },
+    {
+      "slug": "08-tool-governance",
+      "action": "created",
+      "nodeToken": "NNlEwIWSqicTwYk5CY4cxoAzn3e",
+      "revision": 1
+    },
+    {
+      "slug": "09-permissions",
+      "action": "created",
+      "nodeToken": "Brk9wLtUKiqHMykHLj8cYFifnQe",
+      "revision": 1
+    },
+    {
+      "slug": "10-compaction",
+      "action": "created",
+      "nodeToken": "YCpuwFo97i2qinkrXcVcJ0Qantd",
+      "revision": 1
+    },
+    {
+      "slug": "11-advanced-context",
+      "action": "created",
+      "nodeToken": "VuqQwxJXwiDCk7kvzBUcljDBnve",
+      "revision": 1
+    },
+    {
+      "slug": "12-source-reading",
+      "action": "created",
+      "nodeToken": "HUHzwy0A4iUhkYkwwrIchKlBnuh",
+      "revision": 1
+    },
+    {
+      "slug": "13-custom-agents",
+      "action": "created",
+      "nodeToken": "QD1zwOZpAihmOxkHkxycrRBsntb",
+      "revision": 1
+    },
+    {
+      "slug": "14-debugging-optimization",
+      "action": "created",
+      "nodeToken": "Re2nwdGwOigXhOkxvSIc4283nFd",
+      "revision": 1
+    },
+    {
+      "slug": "cross-system-comparison",
+      "action": "created",
+      "nodeToken": "C5aiwa9aFip9NLk1hGocLL1Nngr",
+      "revision": 1
+    },
+    {
+      "slug": "mcp-subagent-security",
+      "action": "created",
+      "nodeToken": "IvWvwEc7BiSoT2kelk5cyo2wn0b",
+      "revision": 1
+    },
+    {
+      "slug": "15-system-design-interview",
+      "action": "created",
+      "nodeToken": "GtUSwKUb8iDkV7k0pemchVAvnwb",
+      "revision": 1
+    },
+    {
+      "slug": "16-security-interview",
+      "action": "created",
+      "nodeToken": "KgnnwAglIij4BNkvt6ycGFhUnJK",
+      "revision": 1
+    },
+    {
+      "slug": "17-performance-interview",
+      "action": "created",
+      "nodeToken": "MjhMwNQ1aiVNM0kfvgFcamSPnKd",
+      "revision": 1
+    },
+    {
+      "slug": "appendix-a-stack",
+      "action": "created",
+      "nodeToken": "Xlg0w7iHKi4EJukBMYfcmBYenRD",
+      "revision": 1
+    },
+    {
+      "slug": "appendix-b-prompts",
+      "action": "created",
+      "nodeToken": "LqcCwENZSiSSBykNGGEcwmiunse",
+      "revision": 1
+    },
+    {
+      "slug": "appendix-c-tools",
+      "action": "created",
+      "nodeToken": "FaljwjhYYijFw2kQ6MrcioKensh",
+      "revision": 1
+    },
+    {
+      "slug": "appendix-d-resources",
+      "action": "created",
+      "nodeToken": "Rp5Lwh7zhiqNZekpj0PcuK83nTb",
+      "revision": 1
+    }
+  ]
+}

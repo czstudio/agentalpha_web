@@ -1,0 +1,46 @@
+<title>Claude Code 从入门到高手</title>
+<h1>Claude Code 从入门到高手</h1>
+<p>这是一套面向真实工程的 Claude Code 学习路线。它不只告诉你命令怎么用，还会解释 Agentic Loop、上下文、工具、权限、MCP、Subagent、调试与评测为什么这样工作，以及在系统设计和面试中怎样讲清楚。</p>
+<callout emoji="🧭" background-color="light-blue" border-color="blue">
+  <p><b>第一次来怎么学：</b>零基础从卷一开始；已经在项目里使用 Claude Code，可从工具治理与权限进入；准备面试，先补运行机制，再学习卷四。</p>
+</callout>
+<h2>先建立一个心智模型</h2>
+<p>把 Claude Code 看成一个在约束下循环工作的工程代理：理解目标，观察项目，选择工具，执行动作，读取结果，再决定下一步。模型能力决定它能想到什么；上下文、工具和权限决定它实际能看见什么、做成什么，以及哪些动作必须停下来确认。</p>
+<grid>
+  <column width-ratio="0.5">
+    <h3>你将学会</h3>
+    <ul>
+      <li>判断适合交给 Agent 的任务边界</li>
+      <li>设计上下文、工具与权限</li>
+      <li>使用 MCP 和 Subagent 组织复杂工作</li>
+      <li>用证据调试并评测结果</li>
+    </ul>
+  </column>
+  <column width-ratio="0.5">
+    <h3>你不会得到</h3>
+    <ul>
+      <li>只罗列命令的速查表</li>
+      <li>无法复现的“神奇提示词”</li>
+      <li>没有来源的内部实现断言</li>
+      <li>脱离安全边界的自动化建议</li>
+    </ul>
+  </column>
+</grid>
+<h2>三条学习路线</h2>
+<table>
+  <thead><tr><th>读者</th><th>建议顺序</th><th>学习结果</th></tr></thead>
+  <tbody>
+    <tr><td>第一次使用</td><td>卷一 → 卷二 → 专题</td><td>能在真实仓库中安全完成常见任务</td></tr>
+    <tr><td>有工程经验</td><td>卷二 → 卷三 → 专题</td><td>能设计、调试并治理 Agent 工作流</td></tr>
+    <tr><td>准备面试</td><td>卷一机制 → 卷三 → 卷四</td><td>能从原理、权衡和故障场景回答问题</td></tr>
+  </tbody>
+</table>
+<h2>进入完整目录</h2>
+<p>完整目录包含 23 篇正式章节、专题与附录。所有页面都经过 revision 锁定后才会同步到 agentalpha.top。</p>
+<p><a href="https://agentalpha.feishu.cn/wiki/PA52wEHLkiV6hOkPDuNcAjtknpe">打开《Claude Code 深度教程｜完整目录》</a></p>
+<sub-page-list></sub-page-list>
+<h2>权威入口</h2>
+<ul>
+  <li><a href="https://code.claude.com/docs/en">Claude Code 官方文档</a></li>
+  <li><a href="https://github.com/anthropics/claude-code">Anthropic 官方 Claude Code 仓库</a></li>
+</ul>

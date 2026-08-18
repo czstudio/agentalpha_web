@@ -1,0 +1,82 @@
+{
+  "schemaVersion": 1,
+  "inputStatus": "prepared_blocked_by_gold_approval",
+  "scope": "输入包与差距整理；不含学生正文",
+  "slug": "07-prompt-system",
+  "order": 7,
+  "volumeId": "volume-2",
+  "title": "第 7 章：系统提示词与指令层级",
+  "manifest": {
+    "path": "../manifest.json",
+    "sourceWikiToken": "HGk4wIcZ3inB2Yk6iZ5cP4RHnlg",
+    "sourceRevision": 4,
+    "contentHash": "303f948a2a14517c9e12c59057a3fef6e781299a2ef0586eea1d97b08f7e740f",
+    "status": "inventory"
+  },
+  "editorial": {
+    "path": "../editorial/07-prompt-system.json",
+    "reader": "维护团队级指令和项目规则的开发者",
+    "centerQuestion": "不同层级指令怎样组合，冲突时如何获得可预测行为？",
+    "keyConcepts": [
+      "指令层级",
+      "项目记忆",
+      "任务约束",
+      "冲突处理",
+      "最小必要上下文"
+    ],
+    "misconceptions": [
+      "一个超长 Prompt 能解决所有问题",
+      "重复规则一定提高遵循率"
+    ],
+    "caseStudy": "将散乱约束重构为全局、项目、任务三级"
+  },
+  "draft": {
+    "path": "../drafts/07-prompt-system.xml",
+    "format": "notion-xml",
+    "bytes": 23251,
+    "sha256": "048cb45a53fa23fcad3384842d20c009c58cd7c23b749d9144e8c9eb55479622"
+  },
+  "research": {
+    "path": "../research/fact-pack.json",
+    "checkedAt": "2026-08-08",
+    "sourceIds": [
+      "anthropic-memory",
+      "anthropic-how-it-works",
+      "anthropic-debug"
+    ],
+    "assertionIds": [
+      "loop-core",
+      "observability"
+    ],
+    "verificationRule": "发布前重新核验版本、模型、价格、上下文窗口、默认权限和命令参数。"
+  },
+  "rewriteBrief": {
+    "preserve": [
+      "仅保留 manifest 的章节身份与 source token/revision/hash 追溯信息",
+      "保留待核对的中心问题、读者、关键概念、误区与案例设定；均须待 gold revision 确认"
+    ],
+    "pendingDesign": [
+      "围绕学生疑问“不同层级指令怎样组合，冲突时如何获得可预测行为？”设计一条能完成案例任务“将散乱约束重构为全局、项目、任务三级”的学习路径。",
+      "为指令层级、项目记忆、任务约束分别设计可观察现象、最小示例与边界反例。",
+      "确定学生需要提交或复现的证据、检查步骤和完成判据，避免以口号或功能清单代替理解。",
+      "根据 gold revision 重新核验版本化事实、来源粒度、案例环境与术语。"
+    ],
+    "acceptance": [
+      "先取得 gold approval 再进入正文重写",
+      "学生能用自己的话回答中心问题并完成案例任务",
+      "每个关键概念有证据、边界和可复核判据",
+      "不把旧 status、quality、summary 或模板化结构当作完成证明"
+    ]
+  },
+  "legacyRejectedInput": {
+    "invalidated": true,
+    "reason": "未取得 gold approval；旧 editorial verified/quality/summary 仅作遗留痕迹，不得作为有效重写输入。",
+    "status": "verified",
+    "quality": {
+      "overall": 87,
+      "accuracy": 23,
+      "depth": 16
+    },
+    "summary": "从将散乱约束重构为全局、项目、任务三级出发，拆解指令层级、项目记忆与最小必要上下文，给出可回放实验、失败树和工程验收方法。"
+  }
+}

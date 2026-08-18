@@ -1,0 +1,110 @@
+{
+  "schemaVersion": 1,
+  "status": "editorial-rejected",
+  "slug": "12-source-reading",
+  "title": "第 12 章：源码阅读方法",
+  "reader": "希望读懂真实 Agent 实现的工程师",
+  "centerQuestion": "如何从入口、状态、工具与副作用反向建立源码心智模型？",
+  "keyConcepts": [
+    "入口追踪",
+    "调用图",
+    "状态流",
+    "副作用",
+    "实验验证"
+  ],
+  "misconceptions": [
+    "只按文件顺序阅读",
+    "从压缩产物推断未公开实现细节"
+  ],
+  "caseStudy": "用公开仓库和运行实验验证一条调用链",
+  "difficulty": "进阶",
+  "readingMinutes": 19,
+  "tags": [
+    "入口追踪",
+    "调用图",
+    "状态流",
+    "副作用"
+  ],
+  "imagePlan": [
+    {
+      "slot": 1,
+      "purpose": "失败场景",
+      "visual": "用公开仓库和运行实验验证一条调用链的错误路径与可观察信号",
+      "preferredSource": "自制解释图"
+    },
+    {
+      "slot": 2,
+      "purpose": "核心直觉",
+      "visual": "入口追踪与调用图的关系图",
+      "preferredSource": "自制解释图"
+    },
+    {
+      "slot": 3,
+      "purpose": "运行机制",
+      "visual": "关键状态、输入输出与控制边界",
+      "preferredSource": "官方文档原图优先；否则自制并标注"
+    },
+    {
+      "slot": 4,
+      "purpose": "方案比较",
+      "visual": "替代方案在可靠性、成本与适用边界上的对比",
+      "preferredSource": "自制对比图"
+    },
+    {
+      "slot": 5,
+      "purpose": "工程落地",
+      "visual": "调试、评测与验收闭环",
+      "preferredSource": "真实界面或自制流程图"
+    }
+  ],
+  "sources": [
+    {
+      "label": "anthropics/claude-code",
+      "url": "https://github.com/anthropics/claude-code",
+      "sourceId": "anthropic-repo"
+    },
+    {
+      "label": "CLI reference",
+      "url": "https://code.claude.com/docs/en/cli-reference.md",
+      "sourceId": "anthropic-cli"
+    },
+    {
+      "label": "How Claude Code works",
+      "url": "https://code.claude.com/docs/en/how-claude-code-works.md",
+      "sourceId": "anthropic-how-it-works"
+    }
+  ],
+  "images": {
+    "NkMybytrioHu1WxfllicaTiCnDe": {
+      "alt": "源码阅读路线：从入口追踪状态、工具、副作用和验证点",
+      "caption": "源码阅读路线：从入口追踪状态、工具、副作用和验证点",
+      "sourceLabel": "AgentAlpha 自制解释图"
+    },
+    "SqCjbR07Qo5q1Hx47DtccJITnjf": {
+      "alt": "Claude Code 系统结构：目标、模型、工具与环境之间的控制关系",
+      "caption": "Claude Code 系统结构：目标、模型、工具与环境之间的控制关系",
+      "sourceLabel": "AgentAlpha 自制解释图"
+    },
+    "W7sWbqxrOoMH17xEJEacQHFYnqd": {
+      "alt": "最小 Agent 时序：请求、模型判断、工具执行、结果回填与停止",
+      "caption": "最小 Agent 时序：请求、模型判断、工具执行、结果回填与停止",
+      "sourceLabel": "AgentAlpha 自制解释图"
+    },
+    "VlBib1JVsobZrqxLUwKcVFy5n8f": {
+      "alt": "工具分类：读取、修改、执行和外部副作用对应不同风险",
+      "caption": "工具分类：读取、修改、执行和外部副作用对应不同风险",
+      "sourceLabel": "AgentAlpha 自制解释图"
+    },
+    "O6ssbLvfSoZbQzxJUELcAE1mnrF": {
+      "alt": "Trace 像飞行记录器：把每次决策、工具调用和失败信号串起来",
+      "caption": "Trace 像飞行记录器：把每次决策、工具调用和失败信号串起来",
+      "sourceLabel": "AgentAlpha 自制解释图"
+    }
+  },
+  "legacyCopyRemoved": true,
+  "legacyAutomaticScoreInvalidated": true,
+  "humanReview": {
+    "approved": false,
+    "note": "旧稿未通过学生可读性实读，必须在金样章批准后重新编写。"
+  }
+}

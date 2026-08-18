@@ -1,0 +1,141 @@
+{
+  "notes": [
+    {
+      "slug": "rag-evaluation-practice",
+      "title": "RAG 怎么评测才不自欺？把“答得像”拆成四层证据",
+      "excerpt": "RAG 的评测不能只看最终答案。把数据、召回、引用和生成分层，才能知道系统到底在哪一环掉链子。",
+      "series": "RAG",
+      "seriesNo": "03",
+      "number": "13",
+      "minutes": 14
+    },
+    {
+      "slug": "rag-rerank-and-hybrid",
+      "title": "混合检索和重排，到底是在补 RAG 的哪两个漏洞？",
+      "excerpt": "向量检索负责把可能相关的证据找进候选集，重排负责把真正能回答问题的片段放到前面；两者不是二选一。",
+      "series": "RAG",
+      "seriesNo": "03",
+      "number": "12",
+      "minutes": 12
+    },
+    {
+      "slug": "rag-chunking-strategy",
+      "title": "RAG 分块怎么定？先别争 256 还是 512",
+      "excerpt": "分块的目标不是把文本切得整齐，而是让一个检索结果既能被准确找到，又能独立支撑一个回答。",
+      "series": "RAG",
+      "seriesNo": "03",
+      "number": "11",
+      "minutes": 13
+    },
+    {
+      "slug": "rag-embedding-basics",
+      "title": "Embedding 到底把什么变成了向量？别把语义相似当成答案",
+      "excerpt": "Embedding 负责把文本放进可比较的语义空间，但它不理解权限、时间和业务优先级。RAG 的第一步，是知道它能做什么，也知道它做不到什么。",
+      "series": "RAG",
+      "seriesNo": "03",
+      "number": "10",
+      "minutes": 12
+    },
+    {
+      "slug": "rag-retrieval-pipeline",
+      "title": "RAG 为什么不是“向量库 + 提示词”？一条检索链路到底经过什么",
+      "excerpt": "RAG 的难点不在于把文档塞进向量库，而在于让正确证据被找到、被排到前面、被模型真正使用，并且能被评测证明。",
+      "series": "RAG",
+      "seriesNo": "03",
+      "number": "09",
+      "minutes": 14
+    },
+    {
+      "slug": "agentic-rl-react",
+      "title": "面试官追问：Agent 已经会 ReAct，为什么还要做 Agentic RL？",
+      "excerpt": "会调工具只说明流程能跑。Agentic RL 真正要学的是，在不断变化的环境里，什么时候搜索、什么时候执行、什么时候停止，以及失败后该把责任分给哪一步。",
+      "series": "Agentic RL",
+      "seriesNo": "01",
+      "number": "01",
+      "minutes": 10
+    },
+    {
+      "slug": "agentic-rl-credit-assignment",
+      "title": "面试官追问：Agent 做错了，二十步里到底哪一步该背锅？",
+      "excerpt": "Agentic RL 最难的不是把奖励写成一个数字，而是把最终成败分配给真正改变结果的动作。",
+      "series": "Agentic RL",
+      "seriesNo": "01",
+      "number": "02",
+      "minutes": 10
+    },
+    {
+      "slug": "agentic-rl-grpo-rollout",
+      "title": "面试官追问：GRPO 不是调用一个函数，Agent rollout 为什么总把系统拖垮？",
+      "excerpt": "GRPO 的公式并不神秘，难的是把一组可比较、可复现、成本可控的 Agent 轨迹真正采出来。",
+      "series": "Agentic RL",
+      "seriesNo": "01",
+      "number": "03",
+      "minutes": 9
+    },
+    {
+      "slug": "agentic-rl-reward-hacking",
+      "title": "面试官追问：Agent 把奖励刷满了，为什么任务还是没做成？",
+      "excerpt": "Reward hacking 不是模型突然变坏，而是验收器允许了一个更容易的目标。Agent 越会用工具，越要把奖励和真实结果拆开。",
+      "series": "Agentic RL",
+      "seriesNo": "01",
+      "number": "04",
+      "minutes": 9
+    },
+    {
+      "slug": "code-agent-repo-context",
+      "title": "面试官追问：代码 Agent 为什么总要先读仓库，再开始写代码？",
+      "excerpt": "Repo context 不是把整个项目塞进上下文，而是把任务相关的约束、入口、依赖和验证路径按优先级交给 Agent。",
+      "series": "Code Agent",
+      "seriesNo": "02",
+      "number": "05",
+      "minutes": 11
+    },
+    {
+      "slug": "code-agent-green-tests",
+      "title": "面试官追问：代码 Agent 说测试全绿，为什么我还是不敢合并？",
+      "excerpt": "绿色只说明当前测试观察到的行为没有被破坏。Code Agent 真正要交付的是可解释的证据链，而不是一行 passed。",
+      "series": "Code Agent",
+      "seriesNo": "02",
+      "number": "06",
+      "minutes": 11
+    },
+    {
+      "slug": "code-agent-sandbox-permissions",
+      "title": "面试官追问：Code Agent 为什么不能直接给它 root 权限？",
+      "excerpt": "Code Agent 的权限不是一个开关，而是一套可验证的执行边界：文件、网络、进程、身份和审批都要分别设计。",
+      "series": "Code Agent",
+      "seriesNo": "02",
+      "number": "07",
+      "minutes": 9
+    },
+    {
+      "slug": "code-agent-resume-exactly-once",
+      "title": "面试官追问：Code Agent 跑到一半挂了，怎么恢复而且不重复执行？",
+      "excerpt": "恢复不是把聊天记录接着播一遍。要靠持久化状态、操作幂等键和未知结果对账，把重复副作用关在边界内。",
+      "series": "Code Agent",
+      "seriesNo": "02",
+      "number": "08",
+      "minutes": 11
+    }
+  ],
+  "series": [
+    {
+      "no": "01",
+      "name": "Agentic RL",
+      "title": "Agent 如何从行动中学会负责",
+      "description": "从 ReAct 到长轨迹强化学习，理解奖励、归因、rollout 与评测为什么会在真实系统里失效。"
+    },
+    {
+      "no": "02",
+      "name": "Code Agent",
+      "title": "能写代码，还不等于能交付",
+      "description": "上下文、测试、权限和恢复机制，决定一个 Code Agent 是演示玩具，还是可靠的工程系统。"
+    },
+    {
+      "no": "03",
+      "name": "RAG",
+      "title": "让答案有证据，也让证据可追溯",
+      "description": "从 Embedding、分块、混合检索到重排和评测，把“能回答”推进到“答得对、讲得清、出了问题能定位”。"
+    }
+  ]
+}

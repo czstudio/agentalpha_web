@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675">
+  <rect width="1200" height="675" fill="#f4f7ff"/><text x="70" y="95" font-family="Arial, PingFang SC" font-size="36" font-weight="700" fill="#171717">一次代码任务，不是一问一答，而是一圈一圈推进</text>
+  <g font-family="Arial, PingFang SC"><rect x="85" y="245" width="220" height="145" rx="24" fill="#fff" stroke="#315efb" stroke-width="4"/><text x="135" y="305" font-size="27" font-weight="700">1. 找线索</text><text x="118" y="350" font-size="21" fill="#555">读文件、搜关键字</text>
+  <rect x="370" y="245" width="220" height="145" rx="24" fill="#fff" stroke="#ff6b35" stroke-width="4"/><text x="420" y="305" font-size="27" font-weight="700">2. 动手改</text><text x="409" y="350" font-size="21" fill="#555">编辑代码或配置</text>
+  <rect x="655" y="245" width="220" height="145" rx="24" fill="#fff" stroke="#14a673" stroke-width="4"/><text x="705" y="305" font-size="27" font-weight="700">3. 看结果</text><text x="694" y="350" font-size="21" fill="#555">测试、报错、diff</text>
+  <rect x="940" y="245" width="175" height="145" rx="24" fill="#171717"/><text x="985" y="305" font-size="27" font-weight="700" fill="#fff">完成？</text><text x="974" y="350" font-size="21" fill="#ddd">是 / 还没有</text></g>
+  <g stroke="#171717" stroke-width="6" fill="none"><path d="M310 317h48"/><path d="M595 317h48"/><path d="M880 317h48"/><path d="M1025 410c0 135-720 145-820 25"/></g><g fill="#171717"><path d="M350 302l20 15-20 15z"/><path d="M635 302l20 15-20 15z"/><path d="M920 302l20 15-20 15z"/><path d="M188 442l-8-30 30 10z"/></g>
+  <rect x="275" y="505" width="650" height="78" rx="18" fill="#fff4d8"/><text x="323" y="555" font-family="Arial, PingFang SC" font-size="24" fill="#5a4200">测试失败不是“翻车”，而是下一圈该从哪里继续的线索。</text>
+</svg>

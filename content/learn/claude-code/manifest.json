@@ -1,0 +1,295 @@
+{
+  "schemaVersion": 1,
+  "id": "claude-code",
+  "title": "Claude Code 从入门到高手",
+  "description": "从 Agentic Loop、上下文与工具治理，到 MCP、Subagent、安全、性能和系统设计面试的系统教程。",
+  "source": {
+    "rootWikiToken": "HJNuwSwIJigbN9ki5TRctuOyn9g",
+    "directoryWikiToken": "PA52wEHLkiV6hOkPDuNcAjtknpe",
+    "spaceId": "7432475661631242244"
+  },
+  "publicationState": "draft",
+  "navigationEnabled": false,
+  "updatedAt": "2026-08-09T00:00:00.000Z",
+  "volumes": [
+    {
+      "id": "volume-1",
+      "title": "卷一：基础与核心循环"
+    },
+    {
+      "id": "volume-2",
+      "title": "卷二：工程治理"
+    },
+    {
+      "id": "volume-3",
+      "title": "卷三：源码与进阶"
+    },
+    {
+      "id": "topics",
+      "title": "专题：系统协作与安全"
+    },
+    {
+      "id": "volume-4",
+      "title": "卷四：面试与系统设计"
+    },
+    {
+      "id": "appendices",
+      "title": "附录"
+    }
+  ],
+  "chapters": [
+    {
+      "order": 1,
+      "volumeId": "volume-1",
+      "slug": "01-foundations",
+      "title": "第 1 章：Claude Code 到底在做什么？从一句需求到一次代码修改",
+      "sourceWikiToken": "I7IawfLwHi92QQkTFeRcSKVlnNf",
+      "sourceRevision": 21,
+      "approvedRevision": null,
+      "contentHash": "b7f4516b33a807bf65a75cd15e0f4cc3406061e37d7384fa2ce9ad7d06c67582",
+      "status": "rewritten"
+    },
+    {
+      "order": 2,
+      "volumeId": "volume-1",
+      "slug": "02-agentic-loop",
+      "title": "第 2 章：Agentic Loop 入门",
+      "sourceWikiToken": "ZBXPwaYuviOi8ikwPW6cclwEnQg",
+      "sourceRevision": 31,
+      "approvedRevision": null,
+      "contentHash": "bfa57a3ead524bff246734ce76c496fedc7ee5cd0e02f67615402b65fd384d62",
+      "status": "inventory"
+    },
+    {
+      "order": 3,
+      "volumeId": "volume-1",
+      "slug": "03-tools",
+      "title": "第 3 章：工具调用与执行模型",
+      "sourceWikiToken": "N1DgwOKWxihC8skml04cM8xEnHe",
+      "sourceRevision": 4,
+      "approvedRevision": null,
+      "contentHash": "24591854adba1fb91e42dd51993eecbfb024526e8990d111de78362574f9fb5f",
+      "status": "inventory"
+    },
+    {
+      "order": 4,
+      "volumeId": "volume-1",
+      "slug": "04-context",
+      "title": "第 4 章：上下文工程",
+      "sourceWikiToken": "SJaDwh8Mgizjt4kbImZcQi3Wn3b",
+      "sourceRevision": 4,
+      "approvedRevision": null,
+      "contentHash": "9b6e4aebab1b25adecb4c83f3164d5919ea4d655b19d14873567b47a60549252",
+      "status": "inventory"
+    },
+    {
+      "order": 5,
+      "volumeId": "volume-1",
+      "slug": "05-experiments",
+      "title": "第 5 章：实验、验证与可复现性",
+      "sourceWikiToken": "KlxRwvwQSiKRMakP6oRckaounyb",
+      "sourceRevision": 4,
+      "approvedRevision": null,
+      "contentHash": "51ae1f45300bc231cf6f588f016eade8441da7808419220abd95058f15239ee9",
+      "status": "inventory"
+    },
+    {
+      "order": 6,
+      "volumeId": "volume-2",
+      "slug": "06-harness",
+      "title": "第 6 章：Agent Harness",
+      "sourceWikiToken": "DYXwwLIPviPImtkcN0DcdsAHnXc",
+      "sourceRevision": 4,
+      "approvedRevision": null,
+      "contentHash": "829eaaea7e7bea018c21c523685aa1137a35b10e7267d7948473a52745f755f5",
+      "status": "inventory"
+    },
+    {
+      "order": 7,
+      "volumeId": "volume-2",
+      "slug": "07-prompt-system",
+      "title": "第 7 章：系统提示词与指令层级",
+      "sourceWikiToken": "HGk4wIcZ3inB2Yk6iZ5cP4RHnlg",
+      "sourceRevision": 4,
+      "approvedRevision": null,
+      "contentHash": "303f948a2a14517c9e12c59057a3fef6e781299a2ef0586eea1d97b08f7e740f",
+      "status": "inventory"
+    },
+    {
+      "order": 8,
+      "volumeId": "volume-2",
+      "slug": "08-tool-governance",
+      "title": "第 8 章：工具治理",
+      "sourceWikiToken": "NNlEwIWSqicTwYk5CY4cxoAzn3e",
+      "sourceRevision": 4,
+      "approvedRevision": null,
+      "contentHash": "14368cd23ce8ea84088139109f7f08dfd49a66b3db5d0a65fc8db947caa197e8",
+      "status": "inventory"
+    },
+    {
+      "order": 9,
+      "volumeId": "volume-2",
+      "slug": "09-permissions",
+      "title": "第 9 章：权限与执行边界",
+      "sourceWikiToken": "Brk9wLtUKiqHMykHLj8cYFifnQe",
+      "sourceRevision": 4,
+      "approvedRevision": null,
+      "contentHash": "ba342b6bccc66699f586522a1befd88ce3683bc578516ae344b1bcd863babe19",
+      "status": "inventory"
+    },
+    {
+      "order": 10,
+      "volumeId": "volume-2",
+      "slug": "10-compaction",
+      "title": "第 10 章：上下文压缩与记忆",
+      "sourceWikiToken": "YCpuwFo97i2qinkrXcVcJ0Qantd",
+      "sourceRevision": 4,
+      "approvedRevision": null,
+      "contentHash": "cbf330c2470bada361d18d59f404321ea23bab2f47fe1b528c3005a69de034e1",
+      "status": "inventory"
+    },
+    {
+      "order": 11,
+      "volumeId": "volume-3",
+      "slug": "11-advanced-context",
+      "title": "第 11 章：进阶上下文管理",
+      "sourceWikiToken": "VuqQwxJXwiDCk7kvzBUcljDBnve",
+      "sourceRevision": 4,
+      "approvedRevision": null,
+      "contentHash": "1bd8e678cdbf4144e1e8da4bf8e862435a7e60c19adf140dff6d215dfe15b807",
+      "status": "inventory"
+    },
+    {
+      "order": 12,
+      "volumeId": "volume-3",
+      "slug": "12-source-reading",
+      "title": "第 12 章：源码阅读方法",
+      "sourceWikiToken": "HUHzwy0A4iUhkYkwwrIchKlBnuh",
+      "sourceRevision": 4,
+      "approvedRevision": null,
+      "contentHash": "aff0bd2a53af5bcee4f008f14c0c8a914e70bb069be604f9df376d956a83413e",
+      "status": "inventory"
+    },
+    {
+      "order": 13,
+      "volumeId": "volume-3",
+      "slug": "13-custom-agents",
+      "title": "第 13 章：自定义 Agent",
+      "sourceWikiToken": "QD1zwOZpAihmOxkHkxycrRBsntb",
+      "sourceRevision": 4,
+      "approvedRevision": null,
+      "contentHash": "4851b9046144d44578b2a7a52b740c5b0def518fc43e4087310b3bb95a9a0660",
+      "status": "inventory"
+    },
+    {
+      "order": 14,
+      "volumeId": "volume-3",
+      "slug": "14-debugging-optimization",
+      "title": "第 14 章：调试、评测与优化",
+      "sourceWikiToken": "Re2nwdGwOigXhOkxvSIc4283nFd",
+      "sourceRevision": 4,
+      "approvedRevision": null,
+      "contentHash": "1df5fb5a129461c4a558cd6e116c5750d44d4e97ee5b698fbdf68a2204111248",
+      "status": "inventory"
+    },
+    {
+      "order": 15,
+      "volumeId": "topics",
+      "slug": "cross-system-comparison",
+      "title": "专题：Claude Code、Codex 与其他 Agent 系统对比",
+      "sourceWikiToken": "C5aiwa9aFip9NLk1hGocLL1Nngr",
+      "sourceRevision": 4,
+      "approvedRevision": null,
+      "contentHash": "fe3d9a8f28ca997817d14a9a4e6906c9af6d7f69ef32aebfc75d2c3d0733e8ab",
+      "status": "inventory"
+    },
+    {
+      "order": 16,
+      "volumeId": "topics",
+      "slug": "mcp-subagent-security",
+      "title": "专题：MCP、Subagent 与安全",
+      "sourceWikiToken": "IvWvwEc7BiSoT2kelk5cyo2wn0b",
+      "sourceRevision": 4,
+      "approvedRevision": null,
+      "contentHash": "bb1538981dfdfecc16bfbbc7449de953de3fc783459460a6a2a904fb105f0cd0",
+      "status": "inventory"
+    },
+    {
+      "order": 17,
+      "volumeId": "volume-4",
+      "slug": "15-system-design-interview",
+      "title": "第 15 章：系统设计面试",
+      "sourceWikiToken": "GtUSwKUb8iDkV7k0pemchVAvnwb",
+      "sourceRevision": 4,
+      "approvedRevision": null,
+      "contentHash": "3b9bde85cb2d6c395c6199231e8047914c3713513192c94aabef27efb6da7095",
+      "status": "inventory"
+    },
+    {
+      "order": 18,
+      "volumeId": "volume-4",
+      "slug": "16-security-interview",
+      "title": "第 16 章：安全面试",
+      "sourceWikiToken": "KgnnwAglIij4BNkvt6ycGFhUnJK",
+      "sourceRevision": 4,
+      "approvedRevision": null,
+      "contentHash": "59b71b3e0a5f8a92bc976d67d8be29c58d7bc9fbc7f9b0bfa8923777486c72ed",
+      "status": "inventory"
+    },
+    {
+      "order": 19,
+      "volumeId": "volume-4",
+      "slug": "17-performance-interview",
+      "title": "第 17 章：性能面试",
+      "sourceWikiToken": "MjhMwNQ1aiVNM0kfvgFcamSPnKd",
+      "sourceRevision": 4,
+      "approvedRevision": null,
+      "contentHash": "ce188d5e66e6a0f795f3f4e44138708e4fbc3dd971fdce8982ecec5b06c85545",
+      "status": "inventory"
+    },
+    {
+      "order": 20,
+      "volumeId": "appendices",
+      "slug": "appendix-a-stack",
+      "title": "附录 A：技术栈",
+      "sourceWikiToken": "Xlg0w7iHKi4EJukBMYfcmBYenRD",
+      "sourceRevision": 4,
+      "approvedRevision": null,
+      "contentHash": "f8d40183008b775d06ba6d6b0b978e7099da9627ea4dc100e3187209b6b485ab",
+      "status": "inventory"
+    },
+    {
+      "order": 21,
+      "volumeId": "appendices",
+      "slug": "appendix-b-prompts",
+      "title": "附录 B：Prompt 模板",
+      "sourceWikiToken": "LqcCwENZSiSSBykNGGEcwmiunse",
+      "sourceRevision": 4,
+      "approvedRevision": null,
+      "contentHash": "f824debdb52a86bf7b562d9c0f504bb4cab027db99c04b2ee8166362f921dbc4",
+      "status": "inventory"
+    },
+    {
+      "order": 22,
+      "volumeId": "appendices",
+      "slug": "appendix-c-tools",
+      "title": "附录 C：工具分类",
+      "sourceWikiToken": "FaljwjhYYijFw2kQ6MrcioKensh",
+      "sourceRevision": 4,
+      "approvedRevision": null,
+      "contentHash": "3ff658ad66727b6724b198d5d409a4268dc2a387699fffcd529129ba4d47df63",
+      "status": "inventory"
+    },
+    {
+      "order": 23,
+      "volumeId": "appendices",
+      "slug": "appendix-d-resources",
+      "title": "附录 D：权威资源",
+      "sourceWikiToken": "Rp5Lwh7zhiqNZekpj0PcuK83nTb",
+      "sourceRevision": 4,
+      "approvedRevision": null,
+      "contentHash": "623b93dda247a29796b828a6e724c0c14560f1e8e47724cdda1614ce941d8ff0",
+      "status": "inventory"
+    }
+  ]
+}

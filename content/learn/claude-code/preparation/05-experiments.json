@@ -1,0 +1,81 @@
+{
+  "schemaVersion": 1,
+  "inputStatus": "prepared_blocked_by_gold_approval",
+  "scope": "输入包与差距整理；不含学生正文",
+  "slug": "05-experiments",
+  "order": 5,
+  "volumeId": "volume-1",
+  "title": "第 5 章：实验、验证与可复现性",
+  "manifest": {
+    "path": "../manifest.json",
+    "sourceWikiToken": "KlxRwvwQSiKRMakP6oRckaounyb",
+    "sourceRevision": 4,
+    "contentHash": "51ae1f45300bc231cf6f588f016eade8441da7808419220abd95058f15239ee9",
+    "status": "inventory"
+  },
+  "editorial": {
+    "path": "../editorial/05-experiments.json",
+    "reader": "要验证 Agent 能力而不是凭感觉评价的团队",
+    "centerQuestion": "怎样构造可复现、可比较、能定位失败的实验？",
+    "keyConcepts": [
+      "基线",
+      "固定输入",
+      "环境记录",
+      "成功判据",
+      "重复试验"
+    ],
+    "misconceptions": [
+      "一次成功即可证明能力",
+      "只比较最终答案不比较成本和过程"
+    ],
+    "caseStudy": "同一修复任务的基线与回归实验"
+  },
+  "draft": {
+    "path": "../drafts/05-experiments.xml",
+    "format": "notion-xml",
+    "bytes": 22693,
+    "sha256": "8e46759771acd9fab384a15f9b55740a402af8aa2a8695675a98883f07d55d1e"
+  },
+  "research": {
+    "path": "../research/fact-pack.json",
+    "checkedAt": "2026-08-08",
+    "sourceIds": [
+      "anthropic-quickstart",
+      "anthropic-observability",
+      "anthropic-debug"
+    ],
+    "assertionIds": [
+      "observability"
+    ],
+    "verificationRule": "发布前重新核验版本、模型、价格、上下文窗口、默认权限和命令参数。"
+  },
+  "rewriteBrief": {
+    "preserve": [
+      "仅保留 manifest 的章节身份与 source token/revision/hash 追溯信息",
+      "保留待核对的中心问题、读者、关键概念、误区与案例设定；均须待 gold revision 确认"
+    ],
+    "pendingDesign": [
+      "围绕学生疑问“怎样构造可复现、可比较、能定位失败的实验？”设计一条能完成案例任务“同一修复任务的基线与回归实验”的学习路径。",
+      "为基线、固定输入、环境记录分别设计可观察现象、最小示例与边界反例。",
+      "确定学生需要提交或复现的证据、检查步骤和完成判据，避免以口号或功能清单代替理解。",
+      "根据 gold revision 重新核验版本化事实、来源粒度、案例环境与术语。"
+    ],
+    "acceptance": [
+      "先取得 gold approval 再进入正文重写",
+      "学生能用自己的话回答中心问题并完成案例任务",
+      "每个关键概念有证据、边界和可复核判据",
+      "不把旧 status、quality、summary 或模板化结构当作完成证明"
+    ]
+  },
+  "legacyRejectedInput": {
+    "invalidated": true,
+    "reason": "未取得 gold approval；旧 editorial verified/quality/summary 仅作遗留痕迹，不得作为有效重写输入。",
+    "status": "verified",
+    "quality": {
+      "overall": 87,
+      "accuracy": 23,
+      "depth": 16
+    },
+    "summary": "从同一修复任务的基线与回归实验出发，拆解基线、固定输入与重复试验，给出可回放实验、失败树和工程验收方法。"
+  }
+}

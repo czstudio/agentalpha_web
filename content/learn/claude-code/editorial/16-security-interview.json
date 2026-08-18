@@ -1,0 +1,115 @@
+{
+  "schemaVersion": 1,
+  "status": "editorial-rejected",
+  "slug": "16-security-interview",
+  "title": "第 16 章：安全面试",
+  "reader": "准备 Agent 安全面试的候选人",
+  "centerQuestion": "如何系统回答提示注入、越权、泄密和供应链风险？",
+  "keyConcepts": [
+    "威胁模型",
+    "最小权限",
+    "沙箱",
+    "审批",
+    "审计"
+  ],
+  "misconceptions": [
+    "提示词可以充当安全边界",
+    "人工确认能覆盖所有间接注入"
+  ],
+  "caseStudy": "审查一个可读邮件且可执行 shell 的 Agent",
+  "difficulty": "高级",
+  "readingMinutes": 19,
+  "tags": [
+    "威胁模型",
+    "最小权限",
+    "沙箱",
+    "审批"
+  ],
+  "imagePlan": [
+    {
+      "slot": 1,
+      "purpose": "失败场景",
+      "visual": "审查一个可读邮件且可执行 shell 的 Agent的错误路径与可观察信号",
+      "preferredSource": "自制解释图"
+    },
+    {
+      "slot": 2,
+      "purpose": "核心直觉",
+      "visual": "威胁模型与最小权限的关系图",
+      "preferredSource": "自制解释图"
+    },
+    {
+      "slot": 3,
+      "purpose": "运行机制",
+      "visual": "关键状态、输入输出与控制边界",
+      "preferredSource": "官方文档原图优先；否则自制并标注"
+    },
+    {
+      "slot": 4,
+      "purpose": "方案比较",
+      "visual": "替代方案在可靠性、成本与适用边界上的对比",
+      "preferredSource": "自制对比图"
+    },
+    {
+      "slot": 5,
+      "purpose": "工程落地",
+      "visual": "调试、评测与验收闭环",
+      "preferredSource": "真实界面或自制流程图"
+    }
+  ],
+  "sources": [
+    {
+      "label": "Configure permissions",
+      "url": "https://code.claude.com/docs/en/permissions.md",
+      "sourceId": "anthropic-permissions"
+    },
+    {
+      "label": "Sandboxing",
+      "url": "https://code.claude.com/docs/en/sandboxing.md",
+      "sourceId": "anthropic-sandbox"
+    },
+    {
+      "label": "Secure deployment",
+      "url": "https://code.claude.com/docs/en/agent-sdk/secure-deployment.md",
+      "sourceId": "anthropic-sdk-security"
+    },
+    {
+      "label": "Model Context Protocol specification 2025-06-18",
+      "url": "https://modelcontextprotocol.io/specification/2025-06-18",
+      "sourceId": "mcp-spec"
+    }
+  ],
+  "images": {
+    "HdHgbwPzTosOrOxKZBkcFDdKnif": {
+      "alt": "安全面试地图：威胁、权限、隔离、凭证、审计与恢复",
+      "caption": "安全面试地图：威胁、权限、隔离、凭证、审计与恢复",
+      "sourceLabel": "AgentAlpha 自制解释图"
+    },
+    "WiIgbZTX0o7tbgxyVPgcDzXmnxb": {
+      "alt": "权限分层：应用规则、人工确认与系统沙箱各守一道边界",
+      "caption": "权限分层：应用规则、人工确认与系统沙箱各守一道边界",
+      "sourceLabel": "AgentAlpha 自制解释图"
+    },
+    "XS5nbeAVioQG1Axtsh7cmfyvn5s": {
+      "alt": "权限决策：拒绝、询问和允许需要明确优先级",
+      "caption": "权限决策：拒绝、询问和允许需要明确优先级",
+      "sourceLabel": "AgentAlpha 自制解释图"
+    },
+    "YSUTbiNYtol5bwxWW89cbpt8n2g": {
+      "alt": "MCP 分层：主机、客户端、服务端与外部系统形成新的信任边界",
+      "caption": "MCP 分层：主机、客户端、服务端与外部系统形成新的信任边界",
+      "sourceLabel": "AgentAlpha 自制解释图"
+    },
+    "TSuUb42K8o4uFcxj2WzcFAzCnOe": {
+      "alt": "Trace 像飞行记录器：把每次决策、工具调用和失败信号串起来",
+      "caption": "Trace 像飞行记录器：把每次决策、工具调用和失败信号串起来",
+      "sourceLabel": "AgentAlpha 自制解释图"
+    }
+  },
+  "legacyCopyRemoved": true,
+  "legacyAutomaticScoreInvalidated": true,
+  "humanReview": {
+    "approved": false,
+    "note": "旧稿未通过学生可读性实读，必须在金样章批准后重新编写。"
+  }
+}

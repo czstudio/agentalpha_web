@@ -1,0 +1,110 @@
+{
+  "schemaVersion": 1,
+  "status": "editorial-rejected",
+  "slug": "11-advanced-context",
+  "title": "第 11 章：进阶上下文管理",
+  "reader": "需要在大型仓库中稳定完成多阶段任务的专家",
+  "centerQuestion": "如何让上下文随任务阶段变化而不是持续膨胀？",
+  "keyConcepts": [
+    "分层检索",
+    "上下文路由",
+    "任务切片",
+    "证据引用",
+    "handoff"
+  ],
+  "misconceptions": [
+    "固定 Top-K 适合所有阶段",
+    "子任务隔离不需要交接契约"
+  ],
+  "caseStudy": "跨前端、API、数据库的阶段化上下文计划",
+  "difficulty": "进阶",
+  "readingMinutes": 19,
+  "tags": [
+    "分层检索",
+    "上下文路由",
+    "任务切片",
+    "证据引用"
+  ],
+  "imagePlan": [
+    {
+      "slot": 1,
+      "purpose": "失败场景",
+      "visual": "跨前端、API、数据库的阶段化上下文计划的错误路径与可观察信号",
+      "preferredSource": "自制解释图"
+    },
+    {
+      "slot": 2,
+      "purpose": "核心直觉",
+      "visual": "分层检索与上下文路由的关系图",
+      "preferredSource": "自制解释图"
+    },
+    {
+      "slot": 3,
+      "purpose": "运行机制",
+      "visual": "关键状态、输入输出与控制边界",
+      "preferredSource": "官方文档原图优先；否则自制并标注"
+    },
+    {
+      "slot": 4,
+      "purpose": "方案比较",
+      "visual": "替代方案在可靠性、成本与适用边界上的对比",
+      "preferredSource": "自制对比图"
+    },
+    {
+      "slot": 5,
+      "purpose": "工程落地",
+      "visual": "调试、评测与验收闭环",
+      "preferredSource": "真实界面或自制流程图"
+    }
+  ],
+  "sources": [
+    {
+      "label": "Manage context windows",
+      "url": "https://code.claude.com/docs/en/context-window.md",
+      "sourceId": "anthropic-context"
+    },
+    {
+      "label": "Create custom subagents",
+      "url": "https://code.claude.com/docs/en/sub-agents.md",
+      "sourceId": "anthropic-subagents"
+    },
+    {
+      "label": "Manage Claude's memory",
+      "url": "https://code.claude.com/docs/en/memory.md",
+      "sourceId": "anthropic-memory"
+    }
+  ],
+  "images": {
+    "HPZAboFLNo6HIDxSoLXcD2vCn6c": {
+      "alt": "上下文金字塔：稳定规则、任务资料与即时观察分层管理",
+      "caption": "上下文金字塔：稳定规则、任务资料与即时观察分层管理",
+      "sourceLabel": "AgentAlpha 自制解释图"
+    },
+    "Beu9bnNuFougrMxSjCrcGR7zn1g": {
+      "alt": "上下文加载：只在当前决策需要时引入相关信息",
+      "caption": "上下文加载：只在当前决策需要时引入相关信息",
+      "sourceLabel": "AgentAlpha 自制解释图"
+    },
+    "BENfbDnDfoz1UpxiVEpcypwznUg": {
+      "alt": "上下文压缩：保留目标、决策、证据和未完成状态",
+      "caption": "上下文压缩：保留目标、决策、证据和未完成状态",
+      "sourceLabel": "AgentAlpha 自制解释图"
+    },
+    "EzN3b9KApoh0XfxF8fyciSeUnLc": {
+      "alt": "Subagent 隔离：并行分析需要清晰职责、上下文和写入边界",
+      "caption": "Subagent 隔离：并行分析需要清晰职责、上下文和写入边界",
+      "sourceLabel": "AgentAlpha 自制解释图"
+    },
+    "Tatbbzr9ioDAJOxSXvRcHVAanXe": {
+      "alt": "Trace 像飞行记录器：把每次决策、工具调用和失败信号串起来",
+      "caption": "Trace 像飞行记录器：把每次决策、工具调用和失败信号串起来",
+      "sourceLabel": "AgentAlpha 自制解释图"
+    }
+  },
+  "legacyCopyRemoved": true,
+  "legacyAutomaticScoreInvalidated": true,
+  "humanReview": {
+    "approved": false,
+    "note": "旧稿未通过学生可读性实读，必须在金样章批准后重新编写。"
+  }
+}

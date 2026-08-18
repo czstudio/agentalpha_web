@@ -34,6 +34,9 @@ yarn-error.log*
 # env files (sensitive)
 .env
 .env*.local
+.local/
+__pycache__/
+*.py[cod]
 .env.production
 
 # vercel
@@ -60,3 +63,4 @@ NUL
 
 .vercel
 .env*.local
+.gstack/

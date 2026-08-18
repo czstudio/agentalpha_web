@@ -1,0 +1,110 @@
+{
+  "schemaVersion": 1,
+  "status": "editorial-rejected",
+  "slug": "07-prompt-system",
+  "title": "第 7 章：系统提示词与指令层级",
+  "reader": "维护团队级指令和项目规则的开发者",
+  "centerQuestion": "不同层级指令怎样组合，冲突时如何获得可预测行为？",
+  "keyConcepts": [
+    "指令层级",
+    "项目记忆",
+    "任务约束",
+    "冲突处理",
+    "最小必要上下文"
+  ],
+  "misconceptions": [
+    "一个超长 Prompt 能解决所有问题",
+    "重复规则一定提高遵循率"
+  ],
+  "caseStudy": "将散乱约束重构为全局、项目、任务三级",
+  "difficulty": "进阶",
+  "readingMinutes": 19,
+  "tags": [
+    "指令层级",
+    "项目记忆",
+    "任务约束",
+    "冲突处理"
+  ],
+  "imagePlan": [
+    {
+      "slot": 1,
+      "purpose": "失败场景",
+      "visual": "将散乱约束重构为全局、项目、任务三级的错误路径与可观察信号",
+      "preferredSource": "自制解释图"
+    },
+    {
+      "slot": 2,
+      "purpose": "核心直觉",
+      "visual": "指令层级与项目记忆的关系图",
+      "preferredSource": "自制解释图"
+    },
+    {
+      "slot": 3,
+      "purpose": "运行机制",
+      "visual": "关键状态、输入输出与控制边界",
+      "preferredSource": "官方文档原图优先；否则自制并标注"
+    },
+    {
+      "slot": 4,
+      "purpose": "方案比较",
+      "visual": "替代方案在可靠性、成本与适用边界上的对比",
+      "preferredSource": "自制对比图"
+    },
+    {
+      "slot": 5,
+      "purpose": "工程落地",
+      "visual": "调试、评测与验收闭环",
+      "preferredSource": "真实界面或自制流程图"
+    }
+  ],
+  "sources": [
+    {
+      "label": "Manage Claude's memory",
+      "url": "https://code.claude.com/docs/en/memory.md",
+      "sourceId": "anthropic-memory"
+    },
+    {
+      "label": "How Claude Code works",
+      "url": "https://code.claude.com/docs/en/how-claude-code-works.md",
+      "sourceId": "anthropic-how-it-works"
+    },
+    {
+      "label": "Debug your configuration",
+      "url": "https://code.claude.com/docs/en/debug-your-config.md",
+      "sourceId": "anthropic-debug"
+    }
+  ],
+  "images": {
+    "ZgwcbKdG3ocydCxcmUqcvWqPnGg": {
+      "alt": "Prompt 分层：长期规则、项目约束与当前任务各自承担不同职责",
+      "caption": "Prompt 分层：长期规则、项目约束与当前任务各自承担不同职责",
+      "sourceLabel": "AgentAlpha 自制解释图"
+    },
+    "B4NdbXPPfo7HpYxU8BHcUArln0f": {
+      "alt": "上下文金字塔：稳定规则、任务资料与即时观察分层管理",
+      "caption": "上下文金字塔：稳定规则、任务资料与即时观察分层管理",
+      "sourceLabel": "AgentAlpha 自制解释图"
+    },
+    "BGz3b8KktorKL0xauyBcHOWqn5e": {
+      "alt": "上下文加载：只在当前决策需要时引入相关信息",
+      "caption": "上下文加载：只在当前决策需要时引入相关信息",
+      "sourceLabel": "AgentAlpha 自制解释图"
+    },
+    "CDtlbQG5ioVBmJxmw37cs8l9nob": {
+      "alt": "压缩与缓存：减少重复输入，同时保留继续任务所需工作记忆",
+      "caption": "压缩与缓存：减少重复输入，同时保留继续任务所需工作记忆",
+      "sourceLabel": "AgentAlpha 自制解释图"
+    },
+    "DId2bqKtooOv7bx5dDcctz1Anqd": {
+      "alt": "权限分层：应用规则、人工确认与系统沙箱各守一道边界",
+      "caption": "权限分层：应用规则、人工确认与系统沙箱各守一道边界",
+      "sourceLabel": "AgentAlpha 自制解释图"
+    }
+  },
+  "legacyCopyRemoved": true,
+  "legacyAutomaticScoreInvalidated": true,
+  "humanReview": {
+    "approved": false,
+    "note": "旧稿未通过学生可读性实读，必须在金样章批准后重新编写。"
+  }
+}

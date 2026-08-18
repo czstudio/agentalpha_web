@@ -1,0 +1,83 @@
+{
+  "schemaVersion": 1,
+  "inputStatus": "prepared_blocked_by_gold_approval",
+  "scope": "输入包与差距整理；不含学生正文",
+  "slug": "09-permissions",
+  "order": 9,
+  "volumeId": "volume-2",
+  "title": "第 9 章：权限与执行边界",
+  "manifest": {
+    "path": "../manifest.json",
+    "sourceWikiToken": "Brk9wLtUKiqHMykHLj8cYFifnQe",
+    "sourceRevision": 4,
+    "contentHash": "ba342b6bccc66699f586522a1befd88ce3683bc578516ae344b1bcd863babe19",
+    "status": "inventory"
+  },
+  "editorial": {
+    "path": "../editorial/09-permissions.json",
+    "reader": "配置 Claude Code 权限与沙箱的开发者",
+    "centerQuestion": "应用权限、操作系统沙箱和人工批准各自防什么？",
+    "keyConcepts": [
+      "deny/ask/allow",
+      "沙箱",
+      "文件系统边界",
+      "网络边界",
+      "审批"
+    ],
+    "misconceptions": [
+      "权限规则等同于沙箱",
+      "沙箱开启后可忽略凭证泄露"
+    ],
+    "caseStudy": "为仓库修复任务配置最小文件与网络权限"
+  },
+  "draft": {
+    "path": "../drafts/09-permissions.xml",
+    "format": "notion-xml",
+    "bytes": 22620,
+    "sha256": "19d1eab66c79c05d3b16d0aef9bdb0e706f05d63d6118635e5efdf5c33f81d5f"
+  },
+  "research": {
+    "path": "../research/fact-pack.json",
+    "checkedAt": "2026-08-08",
+    "sourceIds": [
+      "anthropic-permissions",
+      "anthropic-sandbox",
+      "anthropic-sdk-security"
+    ],
+    "assertionIds": [
+      "permission-order",
+      "sandbox-complement",
+      "mcp-boundary"
+    ],
+    "verificationRule": "发布前重新核验版本、模型、价格、上下文窗口、默认权限和命令参数。"
+  },
+  "rewriteBrief": {
+    "preserve": [
+      "仅保留 manifest 的章节身份与 source token/revision/hash 追溯信息",
+      "保留待核对的中心问题、读者、关键概念、误区与案例设定；均须待 gold revision 确认"
+    ],
+    "pendingDesign": [
+      "围绕学生疑问“应用权限、操作系统沙箱和人工批准各自防什么？”设计一条能完成案例任务“为仓库修复任务配置最小文件与网络权限”的学习路径。",
+      "为deny/ask/allow、沙箱、文件系统边界分别设计可观察现象、最小示例与边界反例。",
+      "确定学生需要提交或复现的证据、检查步骤和完成判据，避免以口号或功能清单代替理解。",
+      "根据 gold revision 重新核验版本化事实、来源粒度、案例环境与术语。"
+    ],
+    "acceptance": [
+      "先取得 gold approval 再进入正文重写",
+      "学生能用自己的话回答中心问题并完成案例任务",
+      "每个关键概念有证据、边界和可复核判据",
+      "不把旧 status、quality、summary 或模板化结构当作完成证明"
+    ]
+  },
+  "legacyRejectedInput": {
+    "invalidated": true,
+    "reason": "未取得 gold approval；旧 editorial verified/quality/summary 仅作遗留痕迹，不得作为有效重写输入。",
+    "status": "verified",
+    "quality": {
+      "overall": 87,
+      "accuracy": 23,
+      "depth": 16
+    },
+    "summary": "从为仓库修复任务配置最小文件与网络权限出发，拆解deny/ask/allow、沙箱与审批，给出可回放实验、失败树和工程验收方法。"
+  }
+}

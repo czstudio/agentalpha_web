@@ -1,0 +1,81 @@
+{
+  "schemaVersion": 1,
+  "inputStatus": "prepared_blocked_by_gold_approval",
+  "scope": "输入包与差距整理；不含学生正文",
+  "slug": "12-source-reading",
+  "order": 12,
+  "volumeId": "volume-3",
+  "title": "第 12 章：源码阅读方法",
+  "manifest": {
+    "path": "../manifest.json",
+    "sourceWikiToken": "HUHzwy0A4iUhkYkwwrIchKlBnuh",
+    "sourceRevision": 4,
+    "contentHash": "aff0bd2a53af5bcee4f008f14c0c8a914e70bb069be604f9df376d956a83413e",
+    "status": "inventory"
+  },
+  "editorial": {
+    "path": "../editorial/12-source-reading.json",
+    "reader": "希望读懂真实 Agent 实现的工程师",
+    "centerQuestion": "如何从入口、状态、工具与副作用反向建立源码心智模型？",
+    "keyConcepts": [
+      "入口追踪",
+      "调用图",
+      "状态流",
+      "副作用",
+      "实验验证"
+    ],
+    "misconceptions": [
+      "只按文件顺序阅读",
+      "从压缩产物推断未公开实现细节"
+    ],
+    "caseStudy": "用公开仓库和运行实验验证一条调用链"
+  },
+  "draft": {
+    "path": "../drafts/12-source-reading.xml",
+    "format": "notion-xml",
+    "bytes": 22742,
+    "sha256": "5ad33ca7db1c0048cfb1d4ed07d5297cccc2f6bc4f491e1667f7e4dfbf26c537"
+  },
+  "research": {
+    "path": "../research/fact-pack.json",
+    "checkedAt": "2026-08-08",
+    "sourceIds": [
+      "anthropic-repo",
+      "anthropic-cli",
+      "anthropic-how-it-works"
+    ],
+    "assertionIds": [
+      "loop-core"
+    ],
+    "verificationRule": "发布前重新核验版本、模型、价格、上下文窗口、默认权限和命令参数。"
+  },
+  "rewriteBrief": {
+    "preserve": [
+      "仅保留 manifest 的章节身份与 source token/revision/hash 追溯信息",
+      "保留待核对的中心问题、读者、关键概念、误区与案例设定；均须待 gold revision 确认"
+    ],
+    "pendingDesign": [
+      "围绕学生疑问“如何从入口、状态、工具与副作用反向建立源码心智模型？”设计一条能完成案例任务“用公开仓库和运行实验验证一条调用链”的学习路径。",
+      "为入口追踪、调用图、状态流分别设计可观察现象、最小示例与边界反例。",
+      "确定学生需要提交或复现的证据、检查步骤和完成判据，避免以口号或功能清单代替理解。",
+      "根据 gold revision 重新核验版本化事实、来源粒度、案例环境与术语。"
+    ],
+    "acceptance": [
+      "先取得 gold approval 再进入正文重写",
+      "学生能用自己的话回答中心问题并完成案例任务",
+      "每个关键概念有证据、边界和可复核判据",
+      "不把旧 status、quality、summary 或模板化结构当作完成证明"
+    ]
+  },
+  "legacyRejectedInput": {
+    "invalidated": true,
+    "reason": "未取得 gold approval；旧 editorial verified/quality/summary 仅作遗留痕迹，不得作为有效重写输入。",
+    "status": "verified",
+    "quality": {
+      "overall": 87,
+      "accuracy": 23,
+      "depth": 16
+    },
+    "summary": "从用公开仓库和运行实验验证一条调用链出发，拆解入口追踪、调用图与实验验证，给出可回放实验、失败树和工程验收方法。"
+  }
+}

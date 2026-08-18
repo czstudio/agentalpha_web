@@ -1,0 +1,82 @@
+{
+  "schemaVersion": 1,
+  "inputStatus": "prepared_blocked_by_gold_approval",
+  "scope": "输入包与差距整理；不含学生正文",
+  "slug": "cross-system-comparison",
+  "order": 15,
+  "volumeId": "topics",
+  "title": "专题：Claude Code、Codex 与其他 Agent 系统对比",
+  "manifest": {
+    "path": "../manifest.json",
+    "sourceWikiToken": "C5aiwa9aFip9NLk1hGocLL1Nngr",
+    "sourceRevision": 4,
+    "contentHash": "fe3d9a8f28ca997817d14a9a4e6906c9af6d7f69ef32aebfc75d2c3d0733e8ab",
+    "status": "inventory"
+  },
+  "editorial": {
+    "path": "../editorial/cross-system-comparison.json",
+    "reader": "在 Claude Code、Codex 等系统间选型的团队",
+    "centerQuestion": "如何在同一时间点用同一维度做可复核比较？",
+    "keyConcepts": [
+      "比较时点",
+      "执行模型",
+      "权限",
+      "扩展性",
+      "可观测性"
+    ],
+    "misconceptions": [
+      "用宣传语代替实测",
+      "跨版本混用结论"
+    ],
+    "caseStudy": "同一仓库任务的能力、控制、成本证据表"
+  },
+  "draft": {
+    "path": "../drafts/cross-system-comparison.xml",
+    "format": "notion-xml",
+    "bytes": 23014,
+    "sha256": "d6e2d70d13d48dc701053cd07356dbaf8ab2f659ba600cb3f0c8c426b0c4453d"
+  },
+  "research": {
+    "path": "../research/fact-pack.json",
+    "checkedAt": "2026-08-08",
+    "sourceIds": [
+      "anthropic-repo",
+      "openai-codex",
+      "anthropic-permissions"
+    ],
+    "assertionIds": [
+      "permission-order",
+      "sandbox-complement"
+    ],
+    "verificationRule": "发布前重新核验版本、模型、价格、上下文窗口、默认权限和命令参数。"
+  },
+  "rewriteBrief": {
+    "preserve": [
+      "仅保留 manifest 的章节身份与 source token/revision/hash 追溯信息",
+      "保留待核对的中心问题、读者、关键概念、误区与案例设定；均须待 gold revision 确认"
+    ],
+    "pendingDesign": [
+      "围绕学生疑问“如何在同一时间点用同一维度做可复核比较？”设计一条能完成案例任务“同一仓库任务的能力、控制、成本证据表”的学习路径。",
+      "为比较时点、执行模型、权限分别设计可观察现象、最小示例与边界反例。",
+      "确定学生需要提交或复现的证据、检查步骤和完成判据，避免以口号或功能清单代替理解。",
+      "根据 gold revision 重新核验版本化事实、来源粒度、案例环境与术语。"
+    ],
+    "acceptance": [
+      "先取得 gold approval 再进入正文重写",
+      "学生能用自己的话回答中心问题并完成案例任务",
+      "每个关键概念有证据、边界和可复核判据",
+      "不把旧 status、quality、summary 或模板化结构当作完成证明"
+    ]
+  },
+  "legacyRejectedInput": {
+    "invalidated": true,
+    "reason": "未取得 gold approval；旧 editorial verified/quality/summary 仅作遗留痕迹，不得作为有效重写输入。",
+    "status": "verified",
+    "quality": {
+      "overall": 87,
+      "accuracy": 23,
+      "depth": 16
+    },
+    "summary": "从同一仓库任务的能力、控制、成本证据表出发，拆解比较时点、执行模型与可观测性，给出可回放实验、失败树和工程验收方法。"
+  }
+}

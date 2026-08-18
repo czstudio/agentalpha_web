@@ -1,0 +1,110 @@
+{
+  "schemaVersion": 1,
+  "status": "editorial-rejected",
+  "slug": "appendix-a-stack",
+  "title": "附录 A：技术栈",
+  "reader": "需要快速查清 Claude Code 技术组件的读者",
+  "centerQuestion": "CLI、模型、工具、配置与扩展接口如何拼成系统？",
+  "keyConcepts": [
+    "CLI",
+    "配置",
+    "工具",
+    "Hooks",
+    "MCP"
+  ],
+  "misconceptions": [
+    "把公开接口和未公开实现混在一起",
+    "把版本相关行为写成永恒事实"
+  ],
+  "caseStudy": "一张从终端到外部服务的技术栈地图",
+  "difficulty": "高级",
+  "readingMinutes": 18,
+  "tags": [
+    "CLI",
+    "配置",
+    "工具",
+    "Hooks"
+  ],
+  "imagePlan": [
+    {
+      "slot": 1,
+      "purpose": "失败场景",
+      "visual": "一张从终端到外部服务的技术栈地图的错误路径与可观察信号",
+      "preferredSource": "自制解释图"
+    },
+    {
+      "slot": 2,
+      "purpose": "核心直觉",
+      "visual": "CLI与配置的关系图",
+      "preferredSource": "自制解释图"
+    },
+    {
+      "slot": 3,
+      "purpose": "运行机制",
+      "visual": "关键状态、输入输出与控制边界",
+      "preferredSource": "官方文档原图优先；否则自制并标注"
+    },
+    {
+      "slot": 4,
+      "purpose": "方案比较",
+      "visual": "替代方案在可靠性、成本与适用边界上的对比",
+      "preferredSource": "自制对比图"
+    },
+    {
+      "slot": 5,
+      "purpose": "工程落地",
+      "visual": "调试、评测与验收闭环",
+      "preferredSource": "真实界面或自制流程图"
+    }
+  ],
+  "sources": [
+    {
+      "label": "CLI reference",
+      "url": "https://code.claude.com/docs/en/cli-reference.md",
+      "sourceId": "anthropic-cli"
+    },
+    {
+      "label": "anthropics/claude-code",
+      "url": "https://github.com/anthropics/claude-code",
+      "sourceId": "anthropic-repo"
+    },
+    {
+      "label": "Connect Claude Code to tools via MCP",
+      "url": "https://code.claude.com/docs/en/mcp.md",
+      "sourceId": "anthropic-mcp"
+    }
+  ],
+  "images": {
+    "PohvbHeu6oAmoDxOrPocBZOLn4d": {
+      "alt": "Claude Code 系统结构：目标、模型、工具与环境之间的控制关系",
+      "caption": "Claude Code 系统结构：目标、模型、工具与环境之间的控制关系",
+      "sourceLabel": "AgentAlpha 自制解释图"
+    },
+    "CdkUbaxZYobkZHxk7WXcvzO3nTb": {
+      "alt": "执行数据流：输入经过上下文、决策、工具和验证到达结果",
+      "caption": "执行数据流：输入经过上下文、决策、工具和验证到达结果",
+      "sourceLabel": "AgentAlpha 自制解释图"
+    },
+    "ILpSbz4Umo1m4Vxp6ytcz3trnkf": {
+      "alt": "工具分类：读取、修改、执行和外部副作用对应不同风险",
+      "caption": "工具分类：读取、修改、执行和外部副作用对应不同风险",
+      "sourceLabel": "AgentAlpha 自制解释图"
+    },
+    "HOIObhcwyoNwwkxks8wcdzDVnGb": {
+      "alt": "Prompt 分层：长期规则、项目约束与当前任务各自承担不同职责",
+      "caption": "Prompt 分层：长期规则、项目约束与当前任务各自承担不同职责",
+      "sourceLabel": "AgentAlpha 自制解释图"
+    },
+    "Iaelb90pCo07FVxN3kGcSBwOnWb": {
+      "alt": "MCP 分层：主机、客户端、服务端与外部系统形成新的信任边界",
+      "caption": "MCP 分层：主机、客户端、服务端与外部系统形成新的信任边界",
+      "sourceLabel": "AgentAlpha 自制解释图"
+    }
+  },
+  "legacyCopyRemoved": true,
+  "legacyAutomaticScoreInvalidated": true,
+  "humanReview": {
+    "approved": false,
+    "note": "旧稿未通过学生可读性实读，必须在金样章批准后重新编写。"
+  }
+}

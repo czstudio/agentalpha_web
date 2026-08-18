@@ -1,0 +1,82 @@
+{
+  "schemaVersion": 1,
+  "inputStatus": "prepared_blocked_by_gold_approval",
+  "scope": "输入包与差距整理；不含学生正文",
+  "slug": "appendix-d-resources",
+  "order": 23,
+  "volumeId": "appendices",
+  "title": "附录 D：权威资源",
+  "manifest": {
+    "path": "../manifest.json",
+    "sourceWikiToken": "Rp5Lwh7zhiqNZekpj0PcuK83nTb",
+    "sourceRevision": 4,
+    "contentHash": "623b93dda247a29796b828a6e724c0c14560f1e8e47724cdda1614ce941d8ff0",
+    "status": "inventory"
+  },
+  "editorial": {
+    "path": "../editorial/appendix-d-resources.json",
+    "reader": "需要持续追踪权威资料的学习者",
+    "centerQuestion": "如何识别一手来源、记录核验日期并处理版本漂移？",
+    "keyConcepts": [
+      "一手来源",
+      "版本",
+      "核验日期",
+      "引用粒度",
+      "变更记录"
+    ],
+    "misconceptions": [
+      "搜索排名高就是权威",
+      "二手摘要可以替代规范"
+    ],
+    "caseStudy": "建立可维护的 Claude Code 来源索引"
+  },
+  "draft": {
+    "path": "../drafts/appendix-d-resources.xml",
+    "format": "notion-xml",
+    "bytes": 25679,
+    "sha256": "a5d2b36089bef24b66f60ccc8f9ca5c4d8de5c6dd26d72310a9ff07040da27b4"
+  },
+  "research": {
+    "path": "../research/fact-pack.json",
+    "checkedAt": "2026-08-08",
+    "sourceIds": [
+      "anthropic-overview",
+      "anthropic-repo",
+      "mcp-spec",
+      "openai-codex"
+    ],
+    "assertionIds": [
+      "mcp-boundary"
+    ],
+    "verificationRule": "发布前重新核验版本、模型、价格、上下文窗口、默认权限和命令参数。"
+  },
+  "rewriteBrief": {
+    "preserve": [
+      "仅保留 manifest 的章节身份与 source token/revision/hash 追溯信息",
+      "保留待核对的中心问题、读者、关键概念、误区与案例设定；均须待 gold revision 确认"
+    ],
+    "pendingDesign": [
+      "围绕学生疑问“如何识别一手来源、记录核验日期并处理版本漂移？”设计一条能完成案例任务“建立可维护的 Claude Code 来源索引”的学习路径。",
+      "为一手来源、版本、核验日期分别设计可观察现象、最小示例与边界反例。",
+      "确定学生需要提交或复现的证据、检查步骤和完成判据，避免以口号或功能清单代替理解。",
+      "根据 gold revision 重新核验版本化事实、来源粒度、案例环境与术语。"
+    ],
+    "acceptance": [
+      "先取得 gold approval 再进入正文重写",
+      "学生能用自己的话回答中心问题并完成案例任务",
+      "每个关键概念有证据、边界和可复核判据",
+      "不把旧 status、quality、summary 或模板化结构当作完成证明"
+    ]
+  },
+  "legacyRejectedInput": {
+    "invalidated": true,
+    "reason": "未取得 gold approval；旧 editorial verified/quality/summary 仅作遗留痕迹，不得作为有效重写输入。",
+    "status": "verified",
+    "quality": {
+      "overall": 87,
+      "accuracy": 23,
+      "depth": 16
+    },
+    "summary": "从建立可维护的 Claude Code 来源索引出发，拆解一手来源、版本与变更记录，给出可回放实验、失败树和工程验收方法。"
+  }
+}

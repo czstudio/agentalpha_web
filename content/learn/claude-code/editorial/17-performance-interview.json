@@ -1,0 +1,110 @@
+{
+  "schemaVersion": 1,
+  "status": "editorial-rejected",
+  "slug": "17-performance-interview",
+  "title": "第 17 章：性能面试",
+  "reader": "准备 Agent 性能与成本面试的候选人",
+  "centerQuestion": "如何权衡质量、时延、令牌、工具调用和并发？",
+  "keyConcepts": [
+    "关键路径",
+    "缓存",
+    "并发",
+    "压缩",
+    "成本模型"
+  ],
+  "misconceptions": [
+    "只压缩 Prompt 就能优化全链路",
+    "并发越高完成越快"
+  ],
+  "caseStudy": "诊断一个慢且昂贵的代码审查 Agent",
+  "difficulty": "高级",
+  "readingMinutes": 18,
+  "tags": [
+    "关键路径",
+    "缓存",
+    "并发",
+    "压缩"
+  ],
+  "imagePlan": [
+    {
+      "slot": 1,
+      "purpose": "失败场景",
+      "visual": "诊断一个慢且昂贵的代码审查 Agent的错误路径与可观察信号",
+      "preferredSource": "自制解释图"
+    },
+    {
+      "slot": 2,
+      "purpose": "核心直觉",
+      "visual": "关键路径与缓存的关系图",
+      "preferredSource": "自制解释图"
+    },
+    {
+      "slot": 3,
+      "purpose": "运行机制",
+      "visual": "关键状态、输入输出与控制边界",
+      "preferredSource": "官方文档原图优先；否则自制并标注"
+    },
+    {
+      "slot": 4,
+      "purpose": "方案比较",
+      "visual": "替代方案在可靠性、成本与适用边界上的对比",
+      "preferredSource": "自制对比图"
+    },
+    {
+      "slot": 5,
+      "purpose": "工程落地",
+      "visual": "调试、评测与验收闭环",
+      "preferredSource": "真实界面或自制流程图"
+    }
+  ],
+  "sources": [
+    {
+      "label": "Manage costs effectively",
+      "url": "https://code.claude.com/docs/en/costs.md",
+      "sourceId": "anthropic-costs"
+    },
+    {
+      "label": "Prompt caching",
+      "url": "https://code.claude.com/docs/en/prompt-caching.md",
+      "sourceId": "anthropic-prompt-cache"
+    },
+    {
+      "label": "Observability",
+      "url": "https://code.claude.com/docs/en/agent-sdk/observability.md",
+      "sourceId": "anthropic-observability"
+    }
+  ],
+  "images": {
+    "N23EbtezUosqRqxUihwcbChlnfd": {
+      "alt": "性能面试地图：时延、吞吐、令牌、缓存、并发与成本",
+      "caption": "性能面试地图：时延、吞吐、令牌、缓存、并发与成本",
+      "sourceLabel": "AgentAlpha 自制解释图"
+    },
+    "LZiNbIjFloQuOrxY0I2ciKBTnuc": {
+      "alt": "性能分层：关键路径同时受到模型、工具、上下文和并发影响",
+      "caption": "性能分层：关键路径同时受到模型、工具、上下文和并发影响",
+      "sourceLabel": "AgentAlpha 自制解释图"
+    },
+    "XZRabX0Ako3mgKxEBb3c7PhonCe": {
+      "alt": "成本异常：重复上下文、无效工具调用和失控重试会放大消耗",
+      "caption": "成本异常：重复上下文、无效工具调用和失控重试会放大消耗",
+      "sourceLabel": "AgentAlpha 自制解释图"
+    },
+    "Q6KvbYP58oOBvyxEW4LctySGn2L": {
+      "alt": "压缩与缓存：减少重复输入，同时保留继续任务所需工作记忆",
+      "caption": "压缩与缓存：减少重复输入，同时保留继续任务所需工作记忆",
+      "sourceLabel": "AgentAlpha 自制解释图"
+    },
+    "E4aBbHJHZo3tpPxv7tRcEXKDn0e": {
+      "alt": "评测闭环：任务样本必须连接执行轨迹、判据与回归结果",
+      "caption": "评测闭环：任务样本必须连接执行轨迹、判据与回归结果",
+      "sourceLabel": "AgentAlpha 自制解释图"
+    }
+  },
+  "legacyCopyRemoved": true,
+  "legacyAutomaticScoreInvalidated": true,
+  "humanReview": {
+    "approved": false,
+    "note": "旧稿未通过学生可读性实读，必须在金样章批准后重新编写。"
+  }
+}

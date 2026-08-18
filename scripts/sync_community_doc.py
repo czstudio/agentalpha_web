@@ -33,8 +33,9 @@ ALLOWED_TAGS = {
     "title", "p", "img", "b", "em", "hr", "h1", "h2", "h3", "h4",
     "callout", "span", "grid", "column", "ul", "ol", "li", "blockquote",
     "button", "table", "colgroup", "col", "thead", "tbody", "tr", "th",
-    "td", "cite", "a",
+    "td", "cite", "a", "figure", "source",
 }
+BRAND_INTRO_VIDEO_NAME = "AgentAlpha-Logo-Animation.mp4"
 
 
 class SyncError(RuntimeError):
@@ -165,6 +166,18 @@ def convert_element(element: ET.Element, media: dict[str, Any], heading_ids: set
         raise SyncError(f"unsupported Feishu tag: {tag}")
     if tag == "title":
         return None
+    if tag == "figure":
+        sources = [
+            child for child in element
+            if child.tag.rsplit("}", 1)[-1] == "source"
+        ]
+        if len(sources) == 1 and sources[0].attrib.get("name") == BRAND_INTRO_VIDEO_NAME:
+            # The site renders this asset once as its silent entry animation.
+            # Omitting the matching document block avoids a second playback in the article.
+            return None
+        raise SyncError("unsupported Feishu figure; only the approved brand intro video is allowed")
+    if tag == "source":
+        raise SyncError("source must be nested in an approved Feishu figure")
     if tag == "img":
         return {
             "type": "image",

@@ -1,0 +1,40 @@
+{
+  "schemaVersion": 1,
+  "checkedAt": "2026-08-08",
+  "policy": {
+    "primarySourcesOnly": true,
+    "comparisonRule": "竞品对比必须记录同一核验日期，并按相同维度比较；未由一手来源证明的判断不得写成事实。",
+    "driftRule": "涉及版本、模型、价格、上下文窗口、默认权限和命令参数的结论，发布前必须重新核验。"
+  },
+  "sources": [
+    {"id":"anthropic-overview","title":"Claude Code overview","publisher":"Anthropic","type":"official-doc","url":"https://code.claude.com/docs/en/overview.md","topics":["foundations","workflow"]},
+    {"id":"anthropic-how-it-works","title":"How Claude Code works","publisher":"Anthropic","type":"official-doc","url":"https://code.claude.com/docs/en/how-claude-code-works.md","topics":["agentic-loop","tools","context"]},
+    {"id":"anthropic-agent-loop","title":"Agent loop","publisher":"Anthropic","type":"official-doc","url":"https://code.claude.com/docs/en/agent-sdk/agent-loop.md","topics":["agentic-loop","harness"]},
+    {"id":"anthropic-quickstart","title":"Quickstart","publisher":"Anthropic","type":"official-doc","url":"https://code.claude.com/docs/en/quickstart.md","topics":["foundations","experiments"]},
+    {"id":"anthropic-cli","title":"CLI reference","publisher":"Anthropic","type":"official-doc","url":"https://code.claude.com/docs/en/cli-reference.md","topics":["tools","stack"]},
+    {"id":"anthropic-context","title":"Manage context windows","publisher":"Anthropic","type":"official-doc","url":"https://code.claude.com/docs/en/context-window.md","topics":["context","compaction"]},
+    {"id":"anthropic-memory","title":"Manage Claude's memory","publisher":"Anthropic","type":"official-doc","url":"https://code.claude.com/docs/en/memory.md","topics":["context","memory"]},
+    {"id":"anthropic-prompt-cache","title":"Prompt caching","publisher":"Anthropic","type":"official-doc","url":"https://code.claude.com/docs/en/prompt-caching.md","topics":["performance","cost"]},
+    {"id":"anthropic-costs","title":"Manage costs effectively","publisher":"Anthropic","type":"official-doc","url":"https://code.claude.com/docs/en/costs.md","topics":["performance","cost"]},
+    {"id":"anthropic-permissions","title":"Configure permissions","publisher":"Anthropic","type":"official-doc","url":"https://code.claude.com/docs/en/permissions.md","topics":["permissions","security"]},
+    {"id":"anthropic-sandbox","title":"Sandboxing","publisher":"Anthropic","type":"official-doc","url":"https://code.claude.com/docs/en/sandboxing.md","topics":["permissions","security"]},
+    {"id":"anthropic-hooks","title":"Hooks reference","publisher":"Anthropic","type":"official-doc","url":"https://code.claude.com/docs/en/hooks.md","topics":["harness","tool-governance"]},
+    {"id":"anthropic-debug","title":"Debug your configuration","publisher":"Anthropic","type":"official-doc","url":"https://code.claude.com/docs/en/debug-your-config.md","topics":["debugging","configuration"]},
+    {"id":"anthropic-mcp","title":"Connect Claude Code to tools via MCP","publisher":"Anthropic","type":"official-doc","url":"https://code.claude.com/docs/en/mcp.md","topics":["mcp","security"]},
+    {"id":"anthropic-subagents","title":"Create custom subagents","publisher":"Anthropic","type":"official-doc","url":"https://code.claude.com/docs/en/sub-agents.md","topics":["subagents","context"]},
+    {"id":"anthropic-sdk-security","title":"Secure deployment","publisher":"Anthropic","type":"official-doc","url":"https://code.claude.com/docs/en/agent-sdk/secure-deployment.md","topics":["security","deployment"]},
+    {"id":"anthropic-observability","title":"Observability","publisher":"Anthropic","type":"official-doc","url":"https://code.claude.com/docs/en/agent-sdk/observability.md","topics":["evaluation","debugging"]},
+    {"id":"anthropic-repo","title":"anthropics/claude-code","publisher":"Anthropic","type":"official-repository","url":"https://github.com/anthropics/claude-code","topics":["source-reading","stack"]},
+    {"id":"mcp-spec","title":"Model Context Protocol specification 2025-06-18","publisher":"Model Context Protocol","type":"official-specification","url":"https://modelcontextprotocol.io/specification/2025-06-18","topics":["mcp","security"]},
+    {"id":"openai-codex","title":"openai/codex","publisher":"OpenAI","type":"official-repository","url":"https://github.com/openai/codex","topics":["comparison","tools"]},
+    {"id":"react-paper","title":"ReAct: Synergizing Reasoning and Acting in Language Models","publisher":"arXiv","type":"research-paper","url":"https://arxiv.org/abs/2210.03629","topics":["agentic-loop","reasoning"]}
+  ],
+  "assertions": [
+    {"id":"loop-core","claim":"Agent 执行可抽象为获取上下文、模型推理、选择并执行工具、把结果写回上下文、继续或停止的循环。","sourceIds":["anthropic-how-it-works","anthropic-agent-loop","react-paper"],"stability":"conceptual"},
+    {"id":"permission-order","claim":"Claude Code 的权限规则按 deny、ask、allow 的顺序求值；具体配置发布前应复核当前官方文档。","sourceIds":["anthropic-permissions"],"stability":"versioned"},
+    {"id":"sandbox-complement","claim":"应用权限控制与操作系统级沙箱是互补机制，分别约束决策授权与实际文件系统、网络访问。","sourceIds":["anthropic-permissions","anthropic-sandbox"],"stability":"conceptual"},
+    {"id":"mcp-boundary","claim":"MCP 定义客户端、服务端与消息交互边界；连接外部系统会扩大信任边界，必须同时讨论认证、权限与数据暴露。","sourceIds":["anthropic-mcp","mcp-spec","anthropic-sdk-security"],"stability":"conceptual"},
+    {"id":"subagent-context","claim":"Subagent 可隔离任务上下文并配置专用提示词与工具，但增加了编排、交接和结果验证成本。","sourceIds":["anthropic-subagents","anthropic-agent-loop"],"stability":"conceptual"},
+    {"id":"observability","claim":"调试 Agent 不能只看最终答案，还应记录工具调用、错误、时延、令牌与关键状态转换。","sourceIds":["anthropic-observability","anthropic-debug"],"stability":"conceptual"}
+  ]
+}

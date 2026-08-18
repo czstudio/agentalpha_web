@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675">
+  <rect width="1200" height="675" fill="#f7f5ef"/><rect x="56" y="54" width="1088" height="567" rx="28" fill="#fff" stroke="#1d1d1f" stroke-width="3"/>
+  <text x="100" y="120" font-family="Arial, PingFang SC" font-size="34" font-weight="700" fill="#171717">Claude Code 从当前文件夹开始认识项目</text>
+  <rect x="100" y="165" width="390" height="385" rx="20" fill="#171717"/><circle cx="130" cy="195" r="8" fill="#ff6b6b"/><circle cx="156" cy="195" r="8" fill="#ffd166"/><circle cx="182" cy="195" r="8" fill="#06d6a0"/>
+  <text x="128" y="255" font-family="Menlo, monospace" font-size="25" fill="#f5f5f5">$ cd tiny-login-app</text><text x="128" y="305" font-family="Menlo, monospace" font-size="25" fill="#f5f5f5">$ claude</text><text x="128" y="375" font-family="Arial, PingFang SC" font-size="23" fill="#a7f3d0">当前范围</text><text x="128" y="420" font-family="Menlo, monospace" font-size="22" fill="#fff">tiny-login-app/</text>
+  <path d="M520 355H640" stroke="#ff5a36" stroke-width="8" stroke-linecap="round"/><path d="M625 335l28 20-28 20" fill="none" stroke="#ff5a36" stroke-width="8"/>
+  <rect x="680" y="170" width="370" height="370" rx="20" fill="#eef4ff" stroke="#3b65f5" stroke-width="3"/><text x="720" y="225" font-family="Arial, PingFang SC" font-size="28" font-weight="700" fill="#17306e">它可以在这里</text>
+  <text x="720" y="285" font-family="Arial, PingFang SC" font-size="25" fill="#171717">① 搜索文件</text><text x="720" y="335" font-family="Arial, PingFang SC" font-size="25" fill="#171717">② 阅读代码</text><text x="720" y="385" font-family="Arial, PingFang SC" font-size="25" fill="#171717">③ 修改文件</text><text x="720" y="435" font-family="Arial, PingFang SC" font-size="25" fill="#171717">④ 运行项目命令</text><text x="720" y="495" font-family="Arial, PingFang SC" font-size="21" fill="#5f6368">高风险动作仍受权限控制</text>
+  <text x="100" y="590" font-family="Arial, PingFang SC" font-size="22" fill="#555">工作目录不是术语：它就是这次任务摆在 Claude Code 面前的“桌面”。</text>
+</svg>

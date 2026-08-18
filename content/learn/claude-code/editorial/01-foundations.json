@@ -1,0 +1,109 @@
+{
+  "schemaVersion": 1,
+  "status": "gold-draft",
+  "slug": "01-foundations",
+  "title": "第 1 章：Claude Code 到底在做什么？从一句需求到一次代码修改",
+  "reader": "第一次使用终端编码 Agent 的开发者",
+  "centerQuestion": "第一次打开 Claude Code，怎样安全地完成一个真实的小修改？",
+  "keyConcepts": [
+    "任务边界",
+    "工作目录",
+    "读写执行",
+    "人类责任"
+  ],
+  "misconceptions": [
+    "把聊天机器人等同于编码 Agent",
+    "把能执行命令等同于可以无审查执行"
+  ],
+  "caseStudy": "修复登录失败后没有显示剩余尝试次数的问题",
+  "summary": "跟着一个登录提示的小任务，学会让 Claude Code 先调查项目、再修改代码，并用 diff 和测试检查结果。",
+  "directAnswer": "Claude Code 会在当前项目里寻找线索、修改文件和运行命令；你负责说清业务目标、决定高风险动作，并检查最后的代码差异和测试结果。",
+  "difficulty": "入门",
+  "readingMinutes": 20,
+  "tags": [
+    "任务边界",
+    "工作目录",
+    "读写执行",
+    "人类责任"
+  ],
+  "imagePlan": [
+    {
+      "slot": 1,
+      "purpose": "解释工作目录",
+      "visual": "从项目文件夹启动后，Claude Code 可以接触哪些内容",
+      "preferredSource": "自制解释图"
+    },
+    {
+      "slot": 2,
+      "purpose": "示范任务描述",
+      "visual": "用现象、目标、范围和限制组成一次可执行任务",
+      "preferredSource": "自制解释图"
+    },
+    {
+      "slot": 3,
+      "purpose": "解释 Agent 循环",
+      "visual": "找线索、动手改、看结果、继续或完成",
+      "preferredSource": "根据 Anthropic 官方说明自制解释图"
+    },
+    {
+      "slot": 4,
+      "purpose": "解释权限确认",
+      "visual": "只读、项目修改和高风险外部动作的差别",
+      "preferredSource": "自制对比图"
+    },
+    {
+      "slot": 5,
+      "purpose": "解释完成检查",
+      "visual": "diff 与测试分别回答什么问题",
+      "preferredSource": "自制解释图"
+    }
+  ],
+  "humanReview": {
+    "approved": false,
+    "note": "等待用户以学生身份阅读金样章；没有自动质量分。"
+  },
+  "sources": [
+    {
+      "label": "How Claude Code works",
+      "url": "https://code.claude.com/docs/en/how-claude-code-works",
+      "sourceId": "anthropic-how-it-works"
+    },
+    {
+      "label": "Quickstart",
+      "url": "https://code.claude.com/docs/en/quickstart",
+      "sourceId": "anthropic-quickstart"
+    },
+    {
+      "label": "Configure permissions",
+      "url": "https://code.claude.com/docs/en/permissions",
+      "sourceId": "anthropic-permissions"
+    }
+  ],
+  "images": {
+    "/images/learn/claude-code/01-foundations/01-project-desk.png": {
+      "alt": "Claude Code 从当前文件夹开始认识项目",
+      "caption": "从项目目录启动后，Claude Code 才能搜索、阅读和修改这套项目里的文件。",
+      "sourceLabel": "AgentAlpha 自制解释图"
+    },
+    "/images/learn/claude-code/01-foundations/03-prompt-anatomy.png": {
+      "alt": "一个可执行任务由现象、目标、范围和限制组成",
+      "caption": "任务越具体，Claude Code 越容易知道从哪里开始，也越容易知道何时停下。",
+      "sourceLabel": "AgentAlpha 自制解释图"
+    },
+    "/images/learn/claude-code/01-foundations/02-agent-loop.png": {
+      "alt": "Claude Code 在查找、修改和验证之间循环",
+      "caption": "失败的测试会回到下一轮，帮助 Claude Code 判断还需要修改哪里。",
+      "sourceLabel": "AgentAlpha 自制解释图"
+    },
+    "/images/learn/claude-code/01-foundations/04-permission-stop.png": {
+      "alt": "不同动作需要不同程度的确认",
+      "caption": "是否需要确认，取决于动作会改变什么，而不是对话进行到第几步。",
+      "sourceLabel": "AgentAlpha 自制解释图"
+    },
+    "/images/learn/claude-code/01-foundations/05-two-checks.png": {
+      "alt": "代码差异和测试结果检查不同问题",
+      "caption": "diff 检查修改范围，测试检查运行结果；两者不能互相替代。",
+      "sourceLabel": "AgentAlpha 自制解释图"
+    }
+  }
+}

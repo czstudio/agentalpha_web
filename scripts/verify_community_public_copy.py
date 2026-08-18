@@ -6,6 +6,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 PUBLIC_SURFACES = (
     ROOT / "app/community",
+    ROOT / "app/llms.txt",
     ROOT / "components/community",
     ROOT / "lib/community/content.ts",
 )
@@ -18,6 +19,7 @@ FORBIDDEN = (
     "内容更新说明",
     "59 张",
     "r853",
+    "Source revision",
 )
 
 

@@ -1,0 +1,110 @@
+{
+  "schemaVersion": 1,
+  "status": "editorial-rejected",
+  "slug": "05-experiments",
+  "title": "第 5 章：实验、验证与可复现性",
+  "reader": "要验证 Agent 能力而不是凭感觉评价的团队",
+  "centerQuestion": "怎样构造可复现、可比较、能定位失败的实验？",
+  "keyConcepts": [
+    "基线",
+    "固定输入",
+    "环境记录",
+    "成功判据",
+    "重复试验"
+  ],
+  "misconceptions": [
+    "一次成功即可证明能力",
+    "只比较最终答案不比较成本和过程"
+  ],
+  "caseStudy": "同一修复任务的基线与回归实验",
+  "difficulty": "入门",
+  "readingMinutes": 19,
+  "tags": [
+    "基线",
+    "固定输入",
+    "环境记录",
+    "成功判据"
+  ],
+  "imagePlan": [
+    {
+      "slot": 1,
+      "purpose": "失败场景",
+      "visual": "同一修复任务的基线与回归实验的错误路径与可观察信号",
+      "preferredSource": "自制解释图"
+    },
+    {
+      "slot": 2,
+      "purpose": "核心直觉",
+      "visual": "基线与固定输入的关系图",
+      "preferredSource": "自制解释图"
+    },
+    {
+      "slot": 3,
+      "purpose": "运行机制",
+      "visual": "关键状态、输入输出与控制边界",
+      "preferredSource": "官方文档原图优先；否则自制并标注"
+    },
+    {
+      "slot": 4,
+      "purpose": "方案比较",
+      "visual": "替代方案在可靠性、成本与适用边界上的对比",
+      "preferredSource": "自制对比图"
+    },
+    {
+      "slot": 5,
+      "purpose": "工程落地",
+      "visual": "调试、评测与验收闭环",
+      "preferredSource": "真实界面或自制流程图"
+    }
+  ],
+  "sources": [
+    {
+      "label": "Quickstart",
+      "url": "https://code.claude.com/docs/en/quickstart.md",
+      "sourceId": "anthropic-quickstart"
+    },
+    {
+      "label": "Observability",
+      "url": "https://code.claude.com/docs/en/agent-sdk/observability.md",
+      "sourceId": "anthropic-observability"
+    },
+    {
+      "label": "Debug your configuration",
+      "url": "https://code.claude.com/docs/en/debug-your-config.md",
+      "sourceId": "anthropic-debug"
+    }
+  ],
+  "images": {
+    "FBRublfuqoL2jyxG3M3c9JElnub": {
+      "alt": "最小 Agent 时序：请求、模型判断、工具执行、结果回填与停止",
+      "caption": "最小 Agent 时序：请求、模型判断、工具执行、结果回填与停止",
+      "sourceLabel": "AgentAlpha 自制解释图"
+    },
+    "QVaebHtPQo7BQjxmxCUcanppnHe": {
+      "alt": "Trace 像飞行记录器：把每次决策、工具调用和失败信号串起来",
+      "caption": "Trace 像飞行记录器：把每次决策、工具调用和失败信号串起来",
+      "sourceLabel": "AgentAlpha 自制解释图"
+    },
+    "LPqBbOjymoPkDSxROX3cxPFJnkf": {
+      "alt": "评测闭环：任务样本必须连接执行轨迹、判据与回归结果",
+      "caption": "评测闭环：任务样本必须连接执行轨迹、判据与回归结果",
+      "sourceLabel": "AgentAlpha 自制解释图"
+    },
+    "CAE6bGRD5o2LxKx4AnbccpZ0nUf": {
+      "alt": "成本异常：重复上下文、无效工具调用和失控重试会放大消耗",
+      "caption": "成本异常：重复上下文、无效工具调用和失控重试会放大消耗",
+      "sourceLabel": "AgentAlpha 自制解释图"
+    },
+    "D6fBbhg7lobZQjxPaAdcHfiWnAe": {
+      "alt": "性能分层：关键路径同时受到模型、工具、上下文和并发影响",
+      "caption": "性能分层：关键路径同时受到模型、工具、上下文和并发影响",
+      "sourceLabel": "AgentAlpha 自制解释图"
+    }
+  },
+  "legacyCopyRemoved": true,
+  "legacyAutomaticScoreInvalidated": true,
+  "humanReview": {
+    "approved": false,
+    "note": "旧稿未通过学生可读性实读，必须在金样章批准后重新编写。"
+  }
+}

@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675">
+  <rect width="1200" height="675" fill="#fffaf4"/><text x="70" y="92" font-family="Arial, PingFang SC" font-size="36" font-weight="700">一个好任务，不靠“高级提示词”，靠四件具体的事</text>
+  <rect x="70" y="140" width="1060" height="385" rx="26" fill="#191919"/>
+  <text x="105" y="205" font-family="Menlo, PingFang SC" font-size="25" fill="#fff">登录连续失败 3 次后，页面没有显示剩余尝试次数。</text>
+  <rect x="98" y="235" width="480" height="55" rx="12" fill="#293f83"/><text x="120" y="271" font-family="Arial, PingFang SC" font-size="22" fill="#fff">范围：先找实现位置，不要修改代码。</text>
+  <rect x="98" y="310" width="760" height="55" rx="12" fill="#7a3420"/><text x="120" y="346" font-family="Arial, PingFang SC" font-size="22" fill="#fff">现象：输入错误密码三次，仍只显示“登录失败”。</text>
+  <rect x="98" y="385" width="650" height="55" rx="12" fill="#17634a"/><text x="120" y="421" font-family="Arial, PingFang SC" font-size="22" fill="#fff">完成：提示包含“还可尝试 2 次”，相关测试通过。</text>
+  <rect x="98" y="460" width="910" height="40" rx="10" fill="#4b3a66"/><text x="120" y="487" font-family="Arial, PingFang SC" font-size="19" fill="#fff">限制：不要改登录次数规则，不要添加新依赖。</text>
+  <g font-family="Arial, PingFang SC" font-size="22" fill="#171717"><text x="100" y="585">范围告诉它先做到哪一步</text><text x="440" y="585">现象提供寻找入口</text><text x="720" y="585">完成条件负责收尾</text></g>
+</svg>

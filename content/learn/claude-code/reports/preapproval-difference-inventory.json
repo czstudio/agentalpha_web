@@ -1,0 +1,676 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-08-09T07:29:53.104425+00:00",
+  "collection": "claude-code",
+  "scope": "preapproval-read-only",
+  "source": {
+    "manifest": "content/learn/claude-code/manifest.json",
+    "priorInventory": "content/learn/claude-code/reports/inventory.json",
+    "liveProvider": "Feishu via lark-cli read-only fetch"
+  },
+  "summary": {
+    "chapterCount": 23,
+    "liveFetchOk": true,
+    "comparisonMismatchCount": 23,
+    "confirmedRevisionDriftVsPriorInventoryCount": 1,
+    "hashOnlyMismatchCount": 22,
+    "riskCount": 6,
+    "approvalState": "rejected",
+    "publicationState": "draft",
+    "navigationEnabled": false
+  },
+  "indexes": {
+    "root": {
+      "revision": 157,
+      "hash": "e6f60e3521f9354ddb2f440b3888d56d519750b2febc5001357c2bbe4b61635d"
+    },
+    "directory": {
+      "revision": 200,
+      "hash": "1f4b51b806a26727a01184f1edb3c78ae349f03663bc4018665293d20e1151eb"
+    }
+  },
+  "chapters": [
+    {
+      "order": 1,
+      "slug": "01-foundations",
+      "wikiToken": "I7IawfLwHi92QQkTFeRcSKVlnNf",
+      "local": {
+        "manifestRevision": 21,
+        "manifestHash": "b7f4516b33a807bf65a75cd15e0f4cc3406061e37d7384fa2ce9ad7d06c67582",
+        "status": "rewritten",
+        "draftExists": true,
+        "approvalLocked": false
+      },
+      "priorInventory": {
+        "revision": 4,
+        "hash": "e1016116aca95d05f6a7551910d73bd4827bf5f8e91d9af1f126423f48ced6ef"
+      },
+      "live": {
+        "revision": 21,
+        "characters": 5996,
+        "hash": "b7f4516b33a807bf65a75cd15e0f4cc3406061e37d7384fa2ce9ad7d06c67582"
+      },
+      "differences": [
+        "live_hash_vs_inventory",
+        "live_revision_vs_inventory",
+        "live_title_changed"
+      ],
+      "state": "changed"
+    },
+    {
+      "order": 2,
+      "slug": "02-agentic-loop",
+      "wikiToken": "ZBXPwaYuviOi8ikwPW6cclwEnQg",
+      "local": {
+        "manifestRevision": 31,
+        "manifestHash": "bfa57a3ead524bff246734ce76c496fedc7ee5cd0e02f67615402b65fd384d62",
+        "status": "inventory",
+        "draftExists": true,
+        "approvalLocked": false
+      },
+      "priorInventory": {
+        "revision": 31,
+        "hash": "bfa57a3ead524bff246734ce76c496fedc7ee5cd0e02f67615402b65fd384d62"
+      },
+      "live": {
+        "revision": 31,
+        "characters": 6690,
+        "hash": "7bbe45cd2976728d00ff80ea9edfe460073334a80cb93c1968d639c24b62a4dc"
+      },
+      "differences": [
+        "live_hash_vs_inventory",
+        "live_hash_vs_manifest"
+      ],
+      "state": "changed"
+    },
+    {
+      "order": 3,
+      "slug": "03-tools",
+      "wikiToken": "N1DgwOKWxihC8skml04cM8xEnHe",
+      "local": {
+        "manifestRevision": 4,
+        "manifestHash": "24591854adba1fb91e42dd51993eecbfb024526e8990d111de78362574f9fb5f",
+        "status": "inventory",
+        "draftExists": true,
+        "approvalLocked": false
+      },
+      "priorInventory": {
+        "revision": 4,
+        "hash": "24591854adba1fb91e42dd51993eecbfb024526e8990d111de78362574f9fb5f"
+      },
+      "live": {
+        "revision": 4,
+        "characters": 6610,
+        "hash": "7ba20eb334127453c44d5cb24b5bff651c98593714ce215a5a54b86659bf9bd0"
+      },
+      "differences": [
+        "live_hash_vs_inventory",
+        "live_hash_vs_manifest"
+      ],
+      "state": "changed"
+    },
+    {
+      "order": 4,
+      "slug": "04-context",
+      "wikiToken": "SJaDwh8Mgizjt4kbImZcQi3Wn3b",
+      "local": {
+        "manifestRevision": 4,
+        "manifestHash": "9b6e4aebab1b25adecb4c83f3164d5919ea4d655b19d14873567b47a60549252",
+        "status": "inventory",
+        "draftExists": true,
+        "approvalLocked": false
+      },
+      "priorInventory": {
+        "revision": 4,
+        "hash": "9b6e4aebab1b25adecb4c83f3164d5919ea4d655b19d14873567b47a60549252"
+      },
+      "live": {
+        "revision": 4,
+        "characters": 6554,
+        "hash": "d40209d575f4af1822af6695dcd3f32e906d7b9aec852a8b4db1b8c46b48c1a7"
+      },
+      "differences": [
+        "live_hash_vs_inventory",
+        "live_hash_vs_manifest"
+      ],
+      "state": "changed"
+    },
+    {
+      "order": 5,
+      "slug": "05-experiments",
+      "wikiToken": "KlxRwvwQSiKRMakP6oRckaounyb",
+      "local": {
+        "manifestRevision": 4,
+        "manifestHash": "51ae1f45300bc231cf6f588f016eade8441da7808419220abd95058f15239ee9",
+        "status": "inventory",
+        "draftExists": true,
+        "approvalLocked": false
+      },
+      "priorInventory": {
+        "revision": 4,
+        "hash": "51ae1f45300bc231cf6f588f016eade8441da7808419220abd95058f15239ee9"
+      },
+      "live": {
+        "revision": 4,
+        "characters": 6546,
+        "hash": "68810c57cd36a098abfdd1400f48d1eba8e46c50cfff7aaf85492906a1142592"
+      },
+      "differences": [
+        "live_hash_vs_inventory",
+        "live_hash_vs_manifest"
+      ],
+      "state": "changed"
+    },
+    {
+      "order": 6,
+      "slug": "06-harness",
+      "wikiToken": "DYXwwLIPviPImtkcN0DcdsAHnXc",
+      "local": {
+        "manifestRevision": 4,
+        "manifestHash": "829eaaea7e7bea018c21c523685aa1137a35b10e7267d7948473a52745f755f5",
+        "status": "inventory",
+        "draftExists": true,
+        "approvalLocked": false
+      },
+      "priorInventory": {
+        "revision": 4,
+        "hash": "829eaaea7e7bea018c21c523685aa1137a35b10e7267d7948473a52745f755f5"
+      },
+      "live": {
+        "revision": 4,
+        "characters": 6691,
+        "hash": "9aaf7dc96b615747f8dcc639b494d7e2ac982064feb2ffb38b1a31ab62fd7b0b"
+      },
+      "differences": [
+        "live_hash_vs_inventory",
+        "live_hash_vs_manifest"
+      ],
+      "state": "changed"
+    },
+    {
+      "order": 7,
+      "slug": "07-prompt-system",
+      "wikiToken": "HGk4wIcZ3inB2Yk6iZ5cP4RHnlg",
+      "local": {
+        "manifestRevision": 4,
+        "manifestHash": "303f948a2a14517c9e12c59057a3fef6e781299a2ef0586eea1d97b08f7e740f",
+        "status": "inventory",
+        "draftExists": true,
+        "approvalLocked": false
+      },
+      "priorInventory": {
+        "revision": 4,
+        "hash": "303f948a2a14517c9e12c59057a3fef6e781299a2ef0586eea1d97b08f7e740f"
+      },
+      "live": {
+        "revision": 4,
+        "characters": 6777,
+        "hash": "500a17adb182bfcdfb0d1144fbd158b9e75d57676ca987b798d5196c2aab7fff"
+      },
+      "differences": [
+        "live_hash_vs_inventory",
+        "live_hash_vs_manifest"
+      ],
+      "state": "changed"
+    },
+    {
+      "order": 8,
+      "slug": "08-tool-governance",
+      "wikiToken": "NNlEwIWSqicTwYk5CY4cxoAzn3e",
+      "local": {
+        "manifestRevision": 4,
+        "manifestHash": "14368cd23ce8ea84088139109f7f08dfd49a66b3db5d0a65fc8db947caa197e8",
+        "status": "inventory",
+        "draftExists": true,
+        "approvalLocked": false
+      },
+      "priorInventory": {
+        "revision": 4,
+        "hash": "14368cd23ce8ea84088139109f7f08dfd49a66b3db5d0a65fc8db947caa197e8"
+      },
+      "live": {
+        "revision": 4,
+        "characters": 6539,
+        "hash": "179447efa8a9a4f3ba6e7d39c6b75db90afb4f988b09b736385c6df00d1dd748"
+      },
+      "differences": [
+        "live_hash_vs_inventory",
+        "live_hash_vs_manifest"
+      ],
+      "state": "changed"
+    },
+    {
+      "order": 9,
+      "slug": "09-permissions",
+      "wikiToken": "Brk9wLtUKiqHMykHLj8cYFifnQe",
+      "local": {
+        "manifestRevision": 4,
+        "manifestHash": "ba342b6bccc66699f586522a1befd88ce3683bc578516ae344b1bcd863babe19",
+        "status": "inventory",
+        "draftExists": true,
+        "approvalLocked": false
+      },
+      "priorInventory": {
+        "revision": 4,
+        "hash": "ba342b6bccc66699f586522a1befd88ce3683bc578516ae344b1bcd863babe19"
+      },
+      "live": {
+        "revision": 4,
+        "characters": 6738,
+        "hash": "8de16552161f4ef17fc81e5287edbd185408e4f1b522e8f75daedd7b25e04853"
+      },
+      "differences": [
+        "live_hash_vs_inventory",
+        "live_hash_vs_manifest"
+      ],
+      "state": "changed"
+    },
+    {
+      "order": 10,
+      "slug": "10-compaction",
+      "wikiToken": "YCpuwFo97i2qinkrXcVcJ0Qantd",
+      "local": {
+        "manifestRevision": 4,
+        "manifestHash": "cbf330c2470bada361d18d59f404321ea23bab2f47fe1b528c3005a69de034e1",
+        "status": "inventory",
+        "draftExists": true,
+        "approvalLocked": false
+      },
+      "priorInventory": {
+        "revision": 4,
+        "hash": "cbf330c2470bada361d18d59f404321ea23bab2f47fe1b528c3005a69de034e1"
+      },
+      "live": {
+        "revision": 4,
+        "characters": 6476,
+        "hash": "2cdede6fe3100d491ec2fdd472f2a9e866f5730e725973d5e0e678aa75f8964b"
+      },
+      "differences": [
+        "live_hash_vs_inventory",
+        "live_hash_vs_manifest"
+      ],
+      "state": "changed"
+    },
+    {
+      "order": 11,
+      "slug": "11-advanced-context",
+      "wikiToken": "VuqQwxJXwiDCk7kvzBUcljDBnve",
+      "local": {
+        "manifestRevision": 4,
+        "manifestHash": "1bd8e678cdbf4144e1e8da4bf8e862435a7e60c19adf140dff6d215dfe15b807",
+        "status": "inventory",
+        "draftExists": true,
+        "approvalLocked": false
+      },
+      "priorInventory": {
+        "revision": 4,
+        "hash": "1bd8e678cdbf4144e1e8da4bf8e862435a7e60c19adf140dff6d215dfe15b807"
+      },
+      "live": {
+        "revision": 4,
+        "characters": 6738,
+        "hash": "8544ecfce3f56d951862540992efd42b986f73dbc267e80dba440adfbed5b3ae"
+      },
+      "differences": [
+        "live_hash_vs_inventory",
+        "live_hash_vs_manifest"
+      ],
+      "state": "changed"
+    },
+    {
+      "order": 12,
+      "slug": "12-source-reading",
+      "wikiToken": "HUHzwy0A4iUhkYkwwrIchKlBnuh",
+      "local": {
+        "manifestRevision": 4,
+        "manifestHash": "aff0bd2a53af5bcee4f008f14c0c8a914e70bb069be604f9df376d956a83413e",
+        "status": "inventory",
+        "draftExists": true,
+        "approvalLocked": false
+      },
+      "priorInventory": {
+        "revision": 4,
+        "hash": "aff0bd2a53af5bcee4f008f14c0c8a914e70bb069be604f9df376d956a83413e"
+      },
+      "live": {
+        "revision": 4,
+        "characters": 6598,
+        "hash": "a825b4ac5d6013da72ad53ce5f1628a2eeb80a0ed3b4a54b7236f7d7f8758c7d"
+      },
+      "differences": [
+        "live_hash_vs_inventory",
+        "live_hash_vs_manifest"
+      ],
+      "state": "changed"
+    },
+    {
+      "order": 13,
+      "slug": "13-custom-agents",
+      "wikiToken": "QD1zwOZpAihmOxkHkxycrRBsntb",
+      "local": {
+        "manifestRevision": 4,
+        "manifestHash": "4851b9046144d44578b2a7a52b740c5b0def518fc43e4087310b3bb95a9a0660",
+        "status": "inventory",
+        "draftExists": true,
+        "approvalLocked": false
+      },
+      "priorInventory": {
+        "revision": 4,
+        "hash": "4851b9046144d44578b2a7a52b740c5b0def518fc43e4087310b3bb95a9a0660"
+      },
+      "live": {
+        "revision": 4,
+        "characters": 6761,
+        "hash": "51bcbeb17666cb21d952a6917787125acd06eea09529abad2b8db13f5c94c17b"
+      },
+      "differences": [
+        "live_hash_vs_inventory",
+        "live_hash_vs_manifest"
+      ],
+      "state": "changed"
+    },
+    {
+      "order": 14,
+      "slug": "14-debugging-optimization",
+      "wikiToken": "Re2nwdGwOigXhOkxvSIc4283nFd",
+      "local": {
+        "manifestRevision": 4,
+        "manifestHash": "1df5fb5a129461c4a558cd6e116c5750d44d4e97ee5b698fbdf68a2204111248",
+        "status": "inventory",
+        "draftExists": true,
+        "approvalLocked": false
+      },
+      "priorInventory": {
+        "revision": 4,
+        "hash": "1df5fb5a129461c4a558cd6e116c5750d44d4e97ee5b698fbdf68a2204111248"
+      },
+      "live": {
+        "revision": 4,
+        "characters": 6521,
+        "hash": "5c636ff9061e1e9955abbe59df3b087087b1d1c1bd6fbbd185c092c4426b96ad"
+      },
+      "differences": [
+        "live_hash_vs_inventory",
+        "live_hash_vs_manifest"
+      ],
+      "state": "changed"
+    },
+    {
+      "order": 15,
+      "slug": "cross-system-comparison",
+      "wikiToken": "C5aiwa9aFip9NLk1hGocLL1Nngr",
+      "local": {
+        "manifestRevision": 4,
+        "manifestHash": "fe3d9a8f28ca997817d14a9a4e6906c9af6d7f69ef32aebfc75d2c3d0733e8ab",
+        "status": "inventory",
+        "draftExists": true,
+        "approvalLocked": false
+      },
+      "priorInventory": {
+        "revision": 4,
+        "hash": "fe3d9a8f28ca997817d14a9a4e6906c9af6d7f69ef32aebfc75d2c3d0733e8ab"
+      },
+      "live": {
+        "revision": 4,
+        "characters": 6928,
+        "hash": "ea46a30c015fd9662905b0c7897b681de163bb781f6f91520e87a3d5f1d910ea"
+      },
+      "differences": [
+        "live_hash_vs_inventory",
+        "live_hash_vs_manifest"
+      ],
+      "state": "changed"
+    },
+    {
+      "order": 16,
+      "slug": "mcp-subagent-security",
+      "wikiToken": "IvWvwEc7BiSoT2kelk5cyo2wn0b",
+      "local": {
+        "manifestRevision": 4,
+        "manifestHash": "bb1538981dfdfecc16bfbbc7449de953de3fc783459460a6a2a904fb105f0cd0",
+        "status": "inventory",
+        "draftExists": true,
+        "approvalLocked": false
+      },
+      "priorInventory": {
+        "revision": 4,
+        "hash": "bb1538981dfdfecc16bfbbc7449de953de3fc783459460a6a2a904fb105f0cd0"
+      },
+      "live": {
+        "revision": 4,
+        "characters": 6789,
+        "hash": "1dfefc3d020b70f5f8d4000f3dbe33235393fe869ca5e2d4214bf70dc93c005"
+      },
+      "differences": [
+        "live_hash_vs_inventory",
+        "live_hash_vs_manifest"
+      ],
+      "state": "changed"
+    },
+    {
+      "order": 17,
+      "slug": "15-system-design-interview",
+      "wikiToken": "GtUSwKUb8iDkV7k0pemchVAvnwb",
+      "local": {
+        "manifestRevision": 4,
+        "manifestHash": "3b9bde85cb2d6c395c6199231e8047914c3713513192c94aabef27efb6da7095",
+        "status": "inventory",
+        "draftExists": true,
+        "approvalLocked": false
+      },
+      "priorInventory": {
+        "revision": 4,
+        "hash": "3b9bde85cb2d6c395c6199231e8047914c3713513192c94aabef27efb6da7095"
+      },
+      "live": {
+        "revision": 4,
+        "characters": 6510,
+        "hash": "3212a6e1c0ea76f6d68d2b8f3cf9be90939a478d8f88ab0f1d21fbf380a13e40"
+      },
+      "differences": [
+        "live_hash_vs_inventory",
+        "live_hash_vs_manifest"
+      ],
+      "state": "changed"
+    },
+    {
+      "order": 18,
+      "slug": "16-security-interview",
+      "wikiToken": "KgnnwAglIij4BNkvt6ycGFhUnJK",
+      "local": {
+        "manifestRevision": 4,
+        "manifestHash": "59b71b3e0a5f8a92bc976d67d8be29c58d7bc9fbc7f9b0bfa8923777486c72ed",
+        "status": "inventory",
+        "draftExists": true,
+        "approvalLocked": false
+      },
+      "priorInventory": {
+        "revision": 4,
+        "hash": "59b71b3e0a5f8a92bc976d67d8be29c58d7bc9fbc7f9b0bfa8923777486c72ed"
+      },
+      "live": {
+        "revision": 4,
+        "characters": 6613,
+        "hash": "7d353bf779e25c403e9257b748c54c0521c3395e3b50aa97f6704bb96ad8eac4"
+      },
+      "differences": [
+        "live_hash_vs_inventory",
+        "live_hash_vs_manifest"
+      ],
+      "state": "changed"
+    },
+    {
+      "order": 19,
+      "slug": "17-performance-interview",
+      "wikiToken": "MjhMwNQ1aiVNM0kfvgFcamSPnKd",
+      "local": {
+        "manifestRevision": 4,
+        "manifestHash": "ce188d5e66e6a0f795f3f4e44138708e4fbc3dd971fdce8982ecec5b06c85545",
+        "status": "inventory",
+        "draftExists": true,
+        "approvalLocked": false
+      },
+      "priorInventory": {
+        "revision": 4,
+        "hash": "ce188d5e66e6a0f795f3f4e44138708e4fbc3dd971fdce8982ecec5b06c85545"
+      },
+      "live": {
+        "revision": 4,
+        "characters": 6475,
+        "hash": "b866a192335ac7169bbcc922aa5302aa7eb84afe2feb7d67739d3da6808903b7"
+      },
+      "differences": [
+        "live_hash_vs_inventory",
+        "live_hash_vs_manifest"
+      ],
+      "state": "changed"
+    },
+    {
+      "order": 20,
+      "slug": "appendix-a-stack",
+      "wikiToken": "Xlg0w7iHKi4EJukBMYfcmBYenRD",
+      "local": {
+        "manifestRevision": 4,
+        "manifestHash": "f8d40183008b775d06ba6d6b0b978e7099da9627ea4dc100e3187209b6b485ab",
+        "status": "inventory",
+        "draftExists": true,
+        "approvalLocked": false
+      },
+      "priorInventory": {
+        "revision": 4,
+        "hash": "f8d40183008b775d06ba6d6b0b978e7099da9627ea4dc100e3187209b6b485ab"
+      },
+      "live": {
+        "revision": 4,
+        "characters": 6446,
+        "hash": "588a8afe57c14e9d252a1ae704ade5270e0b3998573bffb93106080d4a914adb"
+      },
+      "differences": [
+        "live_hash_vs_inventory",
+        "live_hash_vs_manifest"
+      ],
+      "state": "changed"
+    },
+    {
+      "order": 21,
+      "slug": "appendix-b-prompts",
+      "wikiToken": "LqcCwENZSiSSBykNGGEcwmiunse",
+      "local": {
+        "manifestRevision": 4,
+        "manifestHash": "f824debdb52a86bf7b562d9c0f504bb4cab027db99c04b2ee8166362f921dbc4",
+        "status": "inventory",
+        "draftExists": true,
+        "approvalLocked": false
+      },
+      "priorInventory": {
+        "revision": 4,
+        "hash": "f824debdb52a86bf7b562d9c0f504bb4cab027db99c04b2ee8166362f921dbc4"
+      },
+      "live": {
+        "revision": 4,
+        "characters": 6535,
+        "hash": "390d92cceba3299aa5db9ef6ca47a69dbdf596d3a673f915cc062b9eba8daff9"
+      },
+      "differences": [
+        "live_hash_vs_inventory",
+        "live_hash_vs_manifest"
+      ],
+      "state": "changed"
+    },
+    {
+      "order": 22,
+      "slug": "appendix-c-tools",
+      "wikiToken": "FaljwjhYYijFw2kQ6MrcioKensh",
+      "local": {
+        "manifestRevision": 4,
+        "manifestHash": "3ff658ad66727b6724b198d5d409a4268dc2a387699fffcd529129ba4d47df63",
+        "status": "inventory",
+        "draftExists": true,
+        "approvalLocked": false
+      },
+      "priorInventory": {
+        "revision": 4,
+        "hash": "3ff658ad66727b6724b198d5d409a4268dc2a387699fffcd529129ba4d47df63"
+      },
+      "live": {
+        "revision": 4,
+        "characters": 6423,
+        "hash": "3f7c7021e284f103c1f4f98efdc792080be1b965ee7020f03aea05bffdef4cbd"
+      },
+      "differences": [
+        "live_hash_vs_inventory",
+        "live_hash_vs_manifest"
+      ],
+      "state": "changed"
+    },
+    {
+      "order": 23,
+      "slug": "appendix-d-resources",
+      "wikiToken": "Rp5Lwh7zhiqNZekpj0PcuK83nTb",
+      "local": {
+        "manifestRevision": 4,
+        "manifestHash": "623b93dda247a29796b828a6e724c0c14560f1e8e47724cdda1614ce941d8ff0",
+        "status": "inventory",
+        "draftExists": true,
+        "approvalLocked": false
+      },
+      "priorInventory": {
+        "revision": 4,
+        "hash": "623b93dda247a29796b828a6e724c0c14560f1e8e47724cdda1614ce941d8ff0"
+      },
+      "live": {
+        "revision": 4,
+        "characters": 7661,
+        "hash": "a66e02ec442dba31885f88489695cc5c1019cfcc203d7766acd50ef62fb27aab"
+      },
+      "differences": [
+        "live_hash_vs_inventory",
+        "live_hash_vs_manifest"
+      ],
+      "state": "changed"
+    }
+  ],
+  "freezeRisks": [
+    {
+      "code": "EDITORIAL_REJECTION_ACTIVE",
+      "severity": "blocker",
+      "detail": "现有正文未通过学生可读性实读，自动评分不能作为发布依据。",
+      "gate": "gold-sample-approval.json with explicit user approval"
+    },
+    {
+      "code": "HUMAN_APPROVAL_REJECTED",
+      "severity": "blocker",
+      "detail": "停止网站导出和批量飞书写回。先完成第 1 章学生金样章；只有用户明确批准语言、深度、讲解结构和图解后，才允许逐章继续。"
+    },
+    {
+      "code": "APPROVAL_LOCK_EMPTY",
+      "severity": "blocker",
+      "detail": "approval-lock.json has no approved chapters"
+    },
+    {
+      "code": "PUBLICATION_NOT_PUBLISHED",
+      "severity": "blocker",
+      "detail": "draft"
+    },
+    {
+      "code": "NAVIGATION_DISABLED",
+      "severity": "blocker",
+      "detail": "manifest.navigationEnabled=false"
+    },
+    {
+      "code": "LIVE_LOCAL_DRIFT",
+      "severity": "high",
+      "detail": "23/23 chapters have comparison mismatches; only chapter 01 has confirmed revision drift versus the prior inventory, while the other 22 are hash-only mismatches at unchanged revisions and may reflect XML serialization differences"
+    }
+  ],
+  "readOnlyBoundary": [
+    "No Feishu writes",
+    "No approvals",
+    "No exports/navigation/deployment"
+  ],
+  "notes": [
+    "Differences compare live revision/hash to manifest and previous local inventory; a hash mismatch alone is not proof that student-visible content changed.",
+    "Chapter 01 has confirmed revision drift versus the prior inventory. Chapters 02-23 retain the manifest revision and are classified as hash-only mismatches pending canonical serialization analysis.",
+    "Current editorial rejection and human-approval packet invalidate prior readiness scores and freeze publication gates."
+  ]
+}

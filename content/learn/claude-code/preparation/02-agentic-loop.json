@@ -1,0 +1,82 @@
+{
+  "schemaVersion": 1,
+  "inputStatus": "prepared_blocked_by_gold_approval",
+  "scope": "输入包与差距整理；不含学生正文",
+  "slug": "02-agentic-loop",
+  "order": 2,
+  "volumeId": "volume-1",
+  "title": "第 2 章：Agentic Loop 入门",
+  "manifest": {
+    "path": "../manifest.json",
+    "sourceWikiToken": "ZBXPwaYuviOi8ikwPW6cclwEnQg",
+    "sourceRevision": 31,
+    "contentHash": "bfa57a3ead524bff246734ce76c496fedc7ee5cd0e02f67615402b65fd384d62",
+    "status": "inventory"
+  },
+  "editorial": {
+    "path": "../editorial/02-agentic-loop.json",
+    "reader": "希望理解 Agent 为什么会连续行动的开发者",
+    "centerQuestion": "一次自然语言请求如何变成可观察、可中断的执行循环？",
+    "keyConcepts": [
+      "观察",
+      "推理",
+      "行动",
+      "工具结果",
+      "停止条件"
+    ],
+    "misconceptions": [
+      "把循环理解成单次补全",
+      "把思考文本当作可靠执行状态"
+    ],
+    "caseStudy": "追踪一次测试失败到修复完成的循环"
+  },
+  "draft": {
+    "path": "../drafts/02-agentic-loop.xml",
+    "format": "notion-xml",
+    "bytes": 22472,
+    "sha256": "abe9e7e637408a40d5bd4ca7a29313ec8167141f140f3e1407dcd7123f9055b5"
+  },
+  "research": {
+    "path": "../research/fact-pack.json",
+    "checkedAt": "2026-08-08",
+    "sourceIds": [
+      "anthropic-how-it-works",
+      "anthropic-agent-loop",
+      "react-paper"
+    ],
+    "assertionIds": [
+      "loop-core",
+      "subagent-context"
+    ],
+    "verificationRule": "发布前重新核验版本、模型、价格、上下文窗口、默认权限和命令参数。"
+  },
+  "rewriteBrief": {
+    "preserve": [
+      "仅保留 manifest 的章节身份与 source token/revision/hash 追溯信息",
+      "保留待核对的中心问题、读者、关键概念、误区与案例设定；均须待 gold revision 确认"
+    ],
+    "pendingDesign": [
+      "围绕学生疑问“一次自然语言请求如何变成可观察、可中断的执行循环？”设计一条能完成案例任务“追踪一次测试失败到修复完成的循环”的学习路径。",
+      "为观察、推理、行动分别设计可观察现象、最小示例与边界反例。",
+      "确定学生需要提交或复现的证据、检查步骤和完成判据，避免以口号或功能清单代替理解。",
+      "根据 gold revision 重新核验版本化事实、来源粒度、案例环境与术语。"
+    ],
+    "acceptance": [
+      "先取得 gold approval 再进入正文重写",
+      "学生能用自己的话回答中心问题并完成案例任务",
+      "每个关键概念有证据、边界和可复核判据",
+      "不把旧 status、quality、summary 或模板化结构当作完成证明"
+    ]
+  },
+  "legacyRejectedInput": {
+    "invalidated": true,
+    "reason": "未取得 gold approval；旧 editorial verified/quality/summary 仅作遗留痕迹，不得作为有效重写输入。",
+    "status": "verified",
+    "quality": {
+      "overall": 87,
+      "accuracy": 23,
+      "depth": 16
+    },
+    "summary": "从追踪一次测试失败到修复完成的循环出发，拆解观察、推理与停止条件，给出可回放实验、失败树和工程验收方法。"
+  }
+}

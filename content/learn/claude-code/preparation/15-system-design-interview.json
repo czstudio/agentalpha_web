@@ -1,0 +1,84 @@
+{
+  "schemaVersion": 1,
+  "inputStatus": "prepared_blocked_by_gold_approval",
+  "scope": "输入包与差距整理；不含学生正文",
+  "slug": "15-system-design-interview",
+  "order": 17,
+  "volumeId": "volume-4",
+  "title": "第 15 章：系统设计面试",
+  "manifest": {
+    "path": "../manifest.json",
+    "sourceWikiToken": "GtUSwKUb8iDkV7k0pemchVAvnwb",
+    "sourceRevision": 4,
+    "contentHash": "3b9bde85cb2d6c395c6199231e8047914c3713513192c94aabef27efb6da7095",
+    "status": "inventory"
+  },
+  "editorial": {
+    "path": "../editorial/15-system-design-interview.json",
+    "reader": "准备 Agent 系统设计面试的候选人",
+    "centerQuestion": "如何把开放题拆成目标、状态、工具、控制与评测？",
+    "keyConcepts": [
+      "需求澄清",
+      "状态机",
+      "工具层",
+      "可靠性",
+      "评测"
+    ],
+    "misconceptions": [
+      "从模型选型直接开始",
+      "只画组件不讲失败恢复"
+    ],
+    "caseStudy": "设计一个可审计的代码修复 Agent"
+  },
+  "draft": {
+    "path": "../drafts/15-system-design-interview.xml",
+    "format": "notion-xml",
+    "bytes": 22421,
+    "sha256": "7516276dc8ea6008310c645430e45d2b001c431eb1872be16241b4fb78fbe85a"
+  },
+  "research": {
+    "path": "../research/fact-pack.json",
+    "checkedAt": "2026-08-08",
+    "sourceIds": [
+      "anthropic-agent-loop",
+      "anthropic-observability",
+      "anthropic-sdk-security"
+    ],
+    "assertionIds": [
+      "loop-core",
+      "mcp-boundary",
+      "subagent-context",
+      "observability"
+    ],
+    "verificationRule": "发布前重新核验版本、模型、价格、上下文窗口、默认权限和命令参数。"
+  },
+  "rewriteBrief": {
+    "preserve": [
+      "仅保留 manifest 的章节身份与 source token/revision/hash 追溯信息",
+      "保留待核对的中心问题、读者、关键概念、误区与案例设定；均须待 gold revision 确认"
+    ],
+    "pendingDesign": [
+      "围绕学生疑问“如何把开放题拆成目标、状态、工具、控制与评测？”设计一条能完成案例任务“设计一个可审计的代码修复 Agent”的学习路径。",
+      "为需求澄清、状态机、工具层分别设计可观察现象、最小示例与边界反例。",
+      "确定学生需要提交或复现的证据、检查步骤和完成判据，避免以口号或功能清单代替理解。",
+      "根据 gold revision 重新核验版本化事实、来源粒度、案例环境与术语。"
+    ],
+    "acceptance": [
+      "先取得 gold approval 再进入正文重写",
+      "学生能用自己的话回答中心问题并完成案例任务",
+      "每个关键概念有证据、边界和可复核判据",
+      "不把旧 status、quality、summary 或模板化结构当作完成证明"
+    ]
+  },
+  "legacyRejectedInput": {
+    "invalidated": true,
+    "reason": "未取得 gold approval；旧 editorial verified/quality/summary 仅作遗留痕迹，不得作为有效重写输入。",
+    "status": "verified",
+    "quality": {
+      "overall": 87,
+      "accuracy": 23,
+      "depth": 16
+    },
+    "summary": "从设计一个可审计的代码修复 Agent出发，拆解需求澄清、状态机与评测，给出可回放实验、失败树和工程验收方法。"
+  }
+}

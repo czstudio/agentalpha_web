@@ -1,0 +1,110 @@
+{
+  "schemaVersion": 1,
+  "status": "editorial-rejected",
+  "slug": "13-custom-agents",
+  "title": "第 13 章：自定义 Agent",
+  "reader": "要为团队创建专用 Agent 或 Subagent 的开发者",
+  "centerQuestion": "什么时候值得拆 Agent，职责、工具和验收如何定义？",
+  "keyConcepts": [
+    "角色边界",
+    "上下文隔离",
+    "工具最小化",
+    "交接契约",
+    "结果验收"
+  ],
+  "misconceptions": [
+    "多 Agent 必然更强",
+    "角色描述可以替代输入输出契约"
+  ],
+  "caseStudy": "将代码检索与实现拆成可验证的两个角色",
+  "difficulty": "进阶",
+  "readingMinutes": 19,
+  "tags": [
+    "角色边界",
+    "上下文隔离",
+    "工具最小化",
+    "交接契约"
+  ],
+  "imagePlan": [
+    {
+      "slot": 1,
+      "purpose": "失败场景",
+      "visual": "将代码检索与实现拆成可验证的两个角色的错误路径与可观察信号",
+      "preferredSource": "自制解释图"
+    },
+    {
+      "slot": 2,
+      "purpose": "核心直觉",
+      "visual": "角色边界与上下文隔离的关系图",
+      "preferredSource": "自制解释图"
+    },
+    {
+      "slot": 3,
+      "purpose": "运行机制",
+      "visual": "关键状态、输入输出与控制边界",
+      "preferredSource": "官方文档原图优先；否则自制并标注"
+    },
+    {
+      "slot": 4,
+      "purpose": "方案比较",
+      "visual": "替代方案在可靠性、成本与适用边界上的对比",
+      "preferredSource": "自制对比图"
+    },
+    {
+      "slot": 5,
+      "purpose": "工程落地",
+      "visual": "调试、评测与验收闭环",
+      "preferredSource": "真实界面或自制流程图"
+    }
+  ],
+  "sources": [
+    {
+      "label": "Create custom subagents",
+      "url": "https://code.claude.com/docs/en/sub-agents.md",
+      "sourceId": "anthropic-subagents"
+    },
+    {
+      "label": "Agent loop",
+      "url": "https://code.claude.com/docs/en/agent-sdk/agent-loop.md",
+      "sourceId": "anthropic-agent-loop"
+    },
+    {
+      "label": "Secure deployment",
+      "url": "https://code.claude.com/docs/en/agent-sdk/secure-deployment.md",
+      "sourceId": "anthropic-sdk-security"
+    }
+  ],
+  "images": {
+    "ZkFTbsZ4ro2gV2xmltMcDcmbn1g": {
+      "alt": "自定义 Agent 开发：职责、工具、权限、交接与验收逐层落地",
+      "caption": "自定义 Agent 开发：职责、工具、权限、交接与验收逐层落地",
+      "sourceLabel": "AgentAlpha 自制解释图"
+    },
+    "LOX1bkwEeoOJwoxRDiOc0UfmnHb": {
+      "alt": "Subagent 隔离：并行分析需要清晰职责、上下文和写入边界",
+      "caption": "Subagent 隔离：并行分析需要清晰职责、上下文和写入边界",
+      "sourceLabel": "AgentAlpha 自制解释图"
+    },
+    "Vb4Abfi2OopcSfxwRvnckrV0n1g": {
+      "alt": "工具分类：读取、修改、执行和外部副作用对应不同风险",
+      "caption": "工具分类：读取、修改、执行和外部副作用对应不同风险",
+      "sourceLabel": "AgentAlpha 自制解释图"
+    },
+    "UGvebvP6ioBBrKx8ZfRcPRrunMf": {
+      "alt": "权限分层：应用规则、人工确认与系统沙箱各守一道边界",
+      "caption": "权限分层：应用规则、人工确认与系统沙箱各守一道边界",
+      "sourceLabel": "AgentAlpha 自制解释图"
+    },
+    "Tz8WbceCUoXqD1xJmxJcCHNbncc": {
+      "alt": "Trace 像飞行记录器：把每次决策、工具调用和失败信号串起来",
+      "caption": "Trace 像飞行记录器：把每次决策、工具调用和失败信号串起来",
+      "sourceLabel": "AgentAlpha 自制解释图"
+    }
+  },
+  "legacyCopyRemoved": true,
+  "legacyAutomaticScoreInvalidated": true,
+  "humanReview": {
+    "approved": false,
+    "note": "旧稿未通过学生可读性实读，必须在金样章批准后重新编写。"
+  }
+}

@@ -1,0 +1,110 @@
+{
+  "schemaVersion": 1,
+  "status": "editorial-rejected",
+  "slug": "15-system-design-interview",
+  "title": "第 15 章：系统设计面试",
+  "reader": "准备 Agent 系统设计面试的候选人",
+  "centerQuestion": "如何把开放题拆成目标、状态、工具、控制与评测？",
+  "keyConcepts": [
+    "需求澄清",
+    "状态机",
+    "工具层",
+    "可靠性",
+    "评测"
+  ],
+  "misconceptions": [
+    "从模型选型直接开始",
+    "只画组件不讲失败恢复"
+  ],
+  "caseStudy": "设计一个可审计的代码修复 Agent",
+  "difficulty": "高级",
+  "readingMinutes": 19,
+  "tags": [
+    "需求澄清",
+    "状态机",
+    "工具层",
+    "可靠性"
+  ],
+  "imagePlan": [
+    {
+      "slot": 1,
+      "purpose": "失败场景",
+      "visual": "设计一个可审计的代码修复 Agent的错误路径与可观察信号",
+      "preferredSource": "自制解释图"
+    },
+    {
+      "slot": 2,
+      "purpose": "核心直觉",
+      "visual": "需求澄清与状态机的关系图",
+      "preferredSource": "自制解释图"
+    },
+    {
+      "slot": 3,
+      "purpose": "运行机制",
+      "visual": "关键状态、输入输出与控制边界",
+      "preferredSource": "官方文档原图优先；否则自制并标注"
+    },
+    {
+      "slot": 4,
+      "purpose": "方案比较",
+      "visual": "替代方案在可靠性、成本与适用边界上的对比",
+      "preferredSource": "自制对比图"
+    },
+    {
+      "slot": 5,
+      "purpose": "工程落地",
+      "visual": "调试、评测与验收闭环",
+      "preferredSource": "真实界面或自制流程图"
+    }
+  ],
+  "sources": [
+    {
+      "label": "Agent loop",
+      "url": "https://code.claude.com/docs/en/agent-sdk/agent-loop.md",
+      "sourceId": "anthropic-agent-loop"
+    },
+    {
+      "label": "Observability",
+      "url": "https://code.claude.com/docs/en/agent-sdk/observability.md",
+      "sourceId": "anthropic-observability"
+    },
+    {
+      "label": "Secure deployment",
+      "url": "https://code.claude.com/docs/en/agent-sdk/secure-deployment.md",
+      "sourceId": "anthropic-sdk-security"
+    }
+  ],
+  "images": {
+    "I9l4b8GqcoO24TxgJWEcjjncnjg": {
+      "alt": "系统设计面试地图：需求、状态、工具、可靠性、安全与评测",
+      "caption": "系统设计面试地图：需求、状态、工具、可靠性、安全与评测",
+      "sourceLabel": "AgentAlpha 自制解释图"
+    },
+    "BLp1bRSY3oxsiexclTOcggIungc": {
+      "alt": "Claude Code 系统结构：目标、模型、工具与环境之间的控制关系",
+      "caption": "Claude Code 系统结构：目标、模型、工具与环境之间的控制关系",
+      "sourceLabel": "AgentAlpha 自制解释图"
+    },
+    "PAawbFaL2o4IVwx4PuxceOzCnra": {
+      "alt": "最小 Agent 时序：请求、模型判断、工具执行、结果回填与停止",
+      "caption": "最小 Agent 时序：请求、模型判断、工具执行、结果回填与停止",
+      "sourceLabel": "AgentAlpha 自制解释图"
+    },
+    "K0hYbQShjohcwxxQB4nc3yjKnEh": {
+      "alt": "Trace 像飞行记录器：把每次决策、工具调用和失败信号串起来",
+      "caption": "Trace 像飞行记录器：把每次决策、工具调用和失败信号串起来",
+      "sourceLabel": "AgentAlpha 自制解释图"
+    },
+    "FuRybhgGgojD2Tx5kNXcIlRpngl": {
+      "alt": "评测闭环：任务样本必须连接执行轨迹、判据与回归结果",
+      "caption": "评测闭环：任务样本必须连接执行轨迹、判据与回归结果",
+      "sourceLabel": "AgentAlpha 自制解释图"
+    }
+  },
+  "legacyCopyRemoved": true,
+  "legacyAutomaticScoreInvalidated": true,
+  "humanReview": {
+    "approved": false,
+    "note": "旧稿未通过学生可读性实读，必须在金样章批准后重新编写。"
+  }
+}

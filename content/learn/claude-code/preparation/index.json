@@ -1,0 +1,223 @@
+{
+  "schemaVersion": 1,
+  "scope": "claude-code",
+  "purpose": "为第2章至第17章、两篇专题与四个附录整理后续重写输入与差距",
+  "generatedAt": "2026-08-09",
+  "excluded": [
+    "01-foundations"
+  ],
+  "inputs": {
+    "manifest": "../manifest.json",
+    "editorial": "../editorial",
+    "drafts": "../drafts",
+    "research": "../research/fact-pack.json"
+  },
+  "constraints": [
+    "仅输入与差距整理，不写学生正文",
+    "不执行飞书、批准、导出、导航或部署",
+    "draft/editorial/research 均以文件路径与哈希追溯"
+  ],
+  "status": "prepared_blocked_by_gold_approval",
+  "blocker": "GOLD_APPROVAL_REQUIRED: legacy editorial inputs invalidated; obtain approved gold revision before rewrite.",
+  "chapters": [
+    {
+      "order": 2,
+      "volumeId": "volume-1",
+      "slug": "02-agentic-loop",
+      "title": "第 2 章：Agentic Loop 入门",
+      "inputFile": "02-agentic-loop.json",
+      "status": "prepared_blocked_by_gold_approval",
+      "gapCount": 3
+    },
+    {
+      "order": 3,
+      "volumeId": "volume-1",
+      "slug": "03-tools",
+      "title": "第 3 章：工具调用与执行模型",
+      "inputFile": "03-tools.json",
+      "status": "prepared_blocked_by_gold_approval",
+      "gapCount": 3
+    },
+    {
+      "order": 4,
+      "volumeId": "volume-1",
+      "slug": "04-context",
+      "title": "第 4 章：上下文工程",
+      "inputFile": "04-context.json",
+      "status": "prepared_blocked_by_gold_approval",
+      "gapCount": 3
+    },
+    {
+      "order": 5,
+      "volumeId": "volume-1",
+      "slug": "05-experiments",
+      "title": "第 5 章：实验、验证与可复现性",
+      "inputFile": "05-experiments.json",
+      "status": "prepared_blocked_by_gold_approval",
+      "gapCount": 3
+    },
+    {
+      "order": 6,
+      "volumeId": "volume-2",
+      "slug": "06-harness",
+      "title": "第 6 章：Agent Harness",
+      "inputFile": "06-harness.json",
+      "status": "prepared_blocked_by_gold_approval",
+      "gapCount": 3
+    },
+    {
+      "order": 7,
+      "volumeId": "volume-2",
+      "slug": "07-prompt-system",
+      "title": "第 7 章：系统提示词与指令层级",
+      "inputFile": "07-prompt-system.json",
+      "status": "prepared_blocked_by_gold_approval",
+      "gapCount": 3
+    },
+    {
+      "order": 8,
+      "volumeId": "volume-2",
+      "slug": "08-tool-governance",
+      "title": "第 8 章：工具治理",
+      "inputFile": "08-tool-governance.json",
+      "status": "prepared_blocked_by_gold_approval",
+      "gapCount": 3
+    },
+    {
+      "order": 9,
+      "volumeId": "volume-2",
+      "slug": "09-permissions",
+      "title": "第 9 章：权限与执行边界",
+      "inputFile": "09-permissions.json",
+      "status": "prepared_blocked_by_gold_approval",
+      "gapCount": 3
+    },
+    {
+      "order": 10,
+      "volumeId": "volume-2",
+      "slug": "10-compaction",
+      "title": "第 10 章：上下文压缩与记忆",
+      "inputFile": "10-compaction.json",
+      "status": "prepared_blocked_by_gold_approval",
+      "gapCount": 3
+    },
+    {
+      "order": 11,
+      "volumeId": "volume-3",
+      "slug": "11-advanced-context",
+      "title": "第 11 章：进阶上下文管理",
+      "inputFile": "11-advanced-context.json",
+      "status": "prepared_blocked_by_gold_approval",
+      "gapCount": 3
+    },
+    {
+      "order": 12,
+      "volumeId": "volume-3",
+      "slug": "12-source-reading",
+      "title": "第 12 章：源码阅读方法",
+      "inputFile": "12-source-reading.json",
+      "status": "prepared_blocked_by_gold_approval",
+      "gapCount": 3
+    },
+    {
+      "order": 13,
+      "volumeId": "volume-3",
+      "slug": "13-custom-agents",
+      "title": "第 13 章：自定义 Agent",
+      "inputFile": "13-custom-agents.json",
+      "status": "prepared_blocked_by_gold_approval",
+      "gapCount": 3
+    },
+    {
+      "order": 14,
+      "volumeId": "volume-3",
+      "slug": "14-debugging-optimization",
+      "title": "第 14 章：调试、评测与优化",
+      "inputFile": "14-debugging-optimization.json",
+      "status": "prepared_blocked_by_gold_approval",
+      "gapCount": 3
+    },
+    {
+      "order": 15,
+      "volumeId": "topics",
+      "slug": "cross-system-comparison",
+      "title": "专题：Claude Code、Codex 与其他 Agent 系统对比",
+      "inputFile": "cross-system-comparison.json",
+      "status": "prepared_blocked_by_gold_approval",
+      "gapCount": 3
+    },
+    {
+      "order": 16,
+      "volumeId": "topics",
+      "slug": "mcp-subagent-security",
+      "title": "专题：MCP、Subagent 与安全",
+      "inputFile": "mcp-subagent-security.json",
+      "status": "prepared_blocked_by_gold_approval",
+      "gapCount": 3
+    },
+    {
+      "order": 17,
+      "volumeId": "volume-4",
+      "slug": "15-system-design-interview",
+      "title": "第 15 章：系统设计面试",
+      "inputFile": "15-system-design-interview.json",
+      "status": "prepared_blocked_by_gold_approval",
+      "gapCount": 3
+    },
+    {
+      "order": 18,
+      "volumeId": "volume-4",
+      "slug": "16-security-interview",
+      "title": "第 16 章：安全面试",
+      "inputFile": "16-security-interview.json",
+      "status": "prepared_blocked_by_gold_approval",
+      "gapCount": 3
+    },
+    {
+      "order": 19,
+      "volumeId": "volume-4",
+      "slug": "17-performance-interview",
+      "title": "第 17 章：性能面试",
+      "inputFile": "17-performance-interview.json",
+      "status": "prepared_blocked_by_gold_approval",
+      "gapCount": 3
+    },
+    {
+      "order": 20,
+      "volumeId": "appendices",
+      "slug": "appendix-a-stack",
+      "title": "附录 A：技术栈",
+      "inputFile": "appendix-a-stack.json",
+      "status": "prepared_blocked_by_gold_approval",
+      "gapCount": 3
+    },
+    {
+      "order": 21,
+      "volumeId": "appendices",
+      "slug": "appendix-b-prompts",
+      "title": "附录 B：Prompt 模板",
+      "inputFile": "appendix-b-prompts.json",
+      "status": "prepared_blocked_by_gold_approval",
+      "gapCount": 3
+    },
+    {
+      "order": 22,
+      "volumeId": "appendices",
+      "slug": "appendix-c-tools",
+      "title": "附录 C：工具分类",
+      "inputFile": "appendix-c-tools.json",
+      "status": "prepared_blocked_by_gold_approval",
+      "gapCount": 3
+    },
+    {
+      "order": 23,
+      "volumeId": "appendices",
+      "slug": "appendix-d-resources",
+      "title": "附录 D：权威资源",
+      "inputFile": "appendix-d-resources.json",
+      "status": "prepared_blocked_by_gold_approval",
+      "gapCount": 3
+    }
+  ]
+}
+
