@@ -136,6 +136,50 @@ function IntroBanner() {
   )
 }
 
+/**
+ * 课程体系章节：把平铺的 callout 重组为语义块——
+ * 含 ol 的 callout → 分级卡片组；末段为顿号列表的 callout → 阶段芯片云。
+ */
+function curriculumFlow(nodes: CommunityNode[], key: string): ReactNode {
+  return nodes.map((node, index) => {
+    if (node.type === "image" || isImageOnly(node)) return null
+    if (node.type === "element" && node.tag === "aside") {
+      const ol = node.children.find((child) => child.type === "element" && child.tag === "ol")
+      if (ol?.type === "element") {
+        return (
+          <div className="community-tiers" key={`${key}-${index}`}>
+            {ol.children.map((li, liIndex) => (
+              li.type === "element"
+                ? <div className="community-tier" key={liIndex}>{children(li.children, `${key}-tier-${liIndex}`)}</div>
+                : null
+            ))}
+          </div>
+        )
+      }
+      const paras = node.children.filter((child) => child.type === "element" && child.tag === "p")
+      const last = paras.at(-1)
+      const lastText = last?.type === "element" && last.children.length === 1 && last.children[0]?.type === "text"
+        ? last.children[0].text
+        : null
+      if (paras.length >= 2 && lastText?.includes("、")) {
+        const items = lastText.split("、").map((item) => item.trim()).filter(Boolean)
+        const openEnded = /等$/.test(items.at(-1) ?? "")
+        if (openEnded) items[items.length - 1] = items[items.length - 1].replace(/等$/, "").trim()
+        return (
+          <div className="community-stages" key={`${key}-${index}`}>
+            {paras.slice(0, -1).map((p, pIndex) => renderNode(p, `${key}-stage-head-${pIndex}`))}
+            <div className="community-stage-chips">
+              {items.map((item) => <span key={item}>{item}</span>)}
+              {openEnded ? <span className="is-more">等</span> : null}
+            </div>
+          </div>
+        )
+      }
+    }
+    return renderNode(node, `${key}-${index}`)
+  })
+}
+
 function CtaActions() {
   return (
     <div className="community-cta-actions">
@@ -167,7 +211,7 @@ export function CommunityDocumentRenderer({ nodes }: { nodes: CommunityNode[] })
               <h2>{title.replace(/^\s*\d+\.\s*/, "")}</h2>
             </header>
             <div className="community-chapter-body">
-              {flow(lead, `chapter-${chapterIndex}-lead`)}
+              {layout === "curriculum" ? curriculumFlow(lead, `chapter-${chapterIndex}-lead`) : flow(lead, `chapter-${chapterIndex}-lead`)}
               {subchapters.map((subchapter, subIndex) => {
                 const subheading = subchapter[0]
                 if (subheading.type !== "element") return null

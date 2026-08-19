@@ -176,12 +176,14 @@ export function CommunityExperience({
     })
 
     gsap.utils.toArray<HTMLElement>(".community-chapter").forEach((chapter) => {
-      gsap.from(chapter.querySelectorAll(":scope > .community-chapter-head > *, :scope > .community-chapter-body > *"), {
-        y: 34,
-        duration: 0.7,
-        stagger: 0.045,
-        ease: "power2.out",
-        scrollTrigger: { trigger: chapter, start: "top 82%", once: true },
+      const targets = chapter.querySelectorAll(":scope > .community-chapter-head > *, :scope > .community-chapter-body > *")
+      gsap.set(targets, { y: 34, opacity: 0 })
+      ScrollTrigger.create({
+        trigger: chapter,
+        start: "top 82%",
+        once: true,
+        // once 会 kill trigger 并连带回滚绑定的 tween，所以 tween 必须在 onEnter 里独立创建
+        onEnter: () => gsap.to(targets, { y: 0, opacity: 1, duration: 0.7, stagger: 0.045, ease: "power2.out", clearProps: "transform,opacity" }),
       })
     })
   }, { scope: root })

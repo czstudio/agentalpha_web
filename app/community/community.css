@@ -587,20 +587,166 @@
 }
 .layout-projects .community-subchapter-body > .community-grid > .community-column { grid-column: auto; }
 
-/* —— 03 课程体系：课程卡片列 —— */
+/* —— 03 课程体系：总览引语 → 课程行 → 分级卡组 → 阶段芯片云 → 训练营横幅 —— */
 .layout-curriculum .community-chapter-body {
   display: grid;
-  gap: 14px;
+  gap: 16px;
 }
 .layout-curriculum .community-callout {
   margin: 0;
-  padding: 20px 24px;
+  padding: 18px 22px;
   border-left: 1px solid var(--border);
   border-radius: 14px;
   transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
 }
+/* 总览（第一段）：去卡片化，作为章节引语 */
+.layout-curriculum .community-callout:first-of-type {
+  margin: 0 0 4px;
+  padding: 0;
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+}
+.layout-curriculum .community-callout:first-of-type p {
+  color: var(--muted-foreground);
+  font-size: 1.02rem;
+}
+/* 单段 callout 且非总览（如「大模型专项课」）：作为分组小标题 */
+.layout-curriculum .community-callout:has(> div > p:only-child):not(:first-of-type) {
+  margin: 16px 0 -6px;
+  padding: 0;
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+}
+.layout-curriculum .community-callout:has(> div > p:only-child):not(:first-of-type) p {
+  font-family: var(--font-display);
+  font-size: 1.08rem;
+  font-weight: 700;
+}
+/* 课程行：首段为分类标签，末段为课程链接 */
+.layout-curriculum .community-callout > div > p:first-child:not(:only-child) {
+  margin-bottom: 6px;
+  color: var(--muted-foreground);
+  font-size: .74rem;
+  font-weight: 800;
+  letter-spacing: .12em;
+}
+.layout-curriculum .community-callout a:not(.community-button) { font-weight: 700; }
 @media (hover: hover) {
   .layout-curriculum .community-callout:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-soft);
+    border-color: color-mix(in oklab, var(--primary) 45%, var(--border));
+  }
+}
+
+/* 大模型专项课：三层深度分级卡组 */
+.community-tiers {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 190px), 1fr));
+  gap: 14px;
+  counter-reset: tier;
+}
+.community-tier {
+  display: grid;
+  gap: 4px;
+  align-content: start;
+  padding: 18px 20px 20px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  color: var(--muted-foreground);
+  font-size: .85rem;
+  counter-increment: tier;
+  transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+}
+.community-tier::before {
+  content: "L" counter(tier);
+  margin-bottom: 6px;
+  color: var(--primary);
+  font-size: .68rem;
+  font-weight: 800;
+  letter-spacing: .16em;
+  font-variant-numeric: tabular-nums;
+}
+.community-tier a:not(.community-button) {
+  display: block;
+  color: var(--foreground);
+  font-size: .98rem;
+  font-weight: 700;
+  line-height: 1.55;
+  text-decoration: none;
+}
+.community-tier a::after {
+  content: "↗";
+  margin-left: 6px;
+  color: var(--primary);
+  font-size: .82em;
+  font-weight: 500;
+}
+@media (hover: hover) {
+  .community-tier:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-soft);
+    border-color: color-mix(in oklab, var(--primary) 45%, var(--border));
+  }
+}
+
+/* Agent 系列课：阶段芯片云 */
+.community-stages {
+  padding: 20px 22px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+}
+.community-stages > p {
+  margin: 0 0 14px;
+  font-weight: 700;
+}
+.community-stage-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.community-stage-chips span {
+  padding: 6px 14px;
+  background: var(--background);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  font-size: .82rem;
+  line-height: 1.4;
+}
+.community-stage-chips span.is-more {
+  color: var(--muted-foreground);
+  border-style: dashed;
+}
+
+/* 训练营入口：通栏横幅链接 */
+.layout-curriculum .community-chapter-body > p:last-child {
+  max-width: none;
+  margin: 6px 0 0;
+}
+.layout-curriculum .community-chapter-body > p:last-child a:not(.community-button) {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 18px 22px;
+  color: var(--foreground);
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+}
+.layout-curriculum .community-chapter-body > p:last-child a::after {
+  content: "↗";
+  color: var(--primary);
+}
+@media (hover: hover) {
+  .layout-curriculum .community-chapter-body > p:last-child a:hover {
     transform: translateY(-2px);
     box-shadow: var(--shadow-soft);
     border-color: color-mix(in oklab, var(--primary) 45%, var(--border));
