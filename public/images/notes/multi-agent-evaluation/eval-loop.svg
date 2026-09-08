@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 380" role="img" aria-labelledby="title desc">
+  <title id="title">多 Agent 评测闭环</title>
+  <desc id="desc">离线回放、影子流量、受限灰度和线上监控形成渐进闭环。</desc>
+  <rect width="900" height="380" rx="28" fill="#f7f8f5"/>
+  <g stroke="#91b1a8" stroke-width="4" fill="none" stroke-linecap="round">
+    <path d="M230 105h118M552 105h118M730 170v80M670 295H552M348 295H230M170 250v-80"/>
+    <path d="m336 95 18 10-18 10M660 95l18 10-18 10M718 238l12 16-18 5M564 285l-18 10 18 10M242 285l-18 10 18 10M160 178l-12-16 18-5" fill="#91b1a8"/>
+  </g>
+  <g font-family="sans-serif" text-anchor="middle">
+    <rect x="60" y="64" width="170" height="82" rx="18" fill="#dfeee8"/><text x="145" y="101" font-size="19" font-weight="700" fill="#173f3d">离线回放</text><text x="145" y="128" font-size="14" fill="#52706b">固定轨迹 · 回归</text>
+    <rect x="350" y="64" width="202" height="82" rx="18" fill="#eaf3f7"/><text x="451" y="101" font-size="19" font-weight="700" fill="#24556a">影子流量</text><text x="451" y="128" font-size="14" fill="#5a737d">真实分布 · 无副作用</text>
+    <rect x="674" y="64" width="166" height="82" rx="18" fill="#fff1d9"/><text x="757" y="101" font-size="19" font-weight="700" fill="#704c20">Canary</text><text x="757" y="128" font-size="14" fill="#856a42">小流量 · 可回滚</text>
+    <rect x="674" y="250" width="166" height="82" rx="18" fill="#fae8e1"/><text x="757" y="287" font-size="19" font-weight="700" fill="#753f32">线上监控</text><text x="757" y="314" font-size="14" fill="#845a50">指标 · 告警 · 升级</text>
+    <rect x="350" y="250" width="202" height="82" rx="18" fill="#f0eee8"/><text x="451" y="287" font-size="19" font-weight="700" fill="#4b514e">修复与新集</text><text x="451" y="314" font-size="14" fill="#68706c">失败轨迹回流</text>
+    <rect x="60" y="250" width="170" height="82" rx="18" fill="#eaf3f7"/><text x="145" y="287" font-size="19" font-weight="700" fill="#24556a">指标门禁</text><text x="145" y="314" font-size="14" fill="#5a737d">通过才晋级</text>
+  </g>
+</svg>

@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="520" viewBox="0 0 1200 520">
+  <rect width="1200" height="520" fill="#f8faf9"/>
+  <text x="70" y="70" font-family="Arial,'Noto Sans SC',sans-serif" font-size="28" font-weight="700" fill="#19372f">Graph RAG：沿路径取证，不让图替你回答</text>
+  <g stroke="#6f9b8a" stroke-width="4" fill="none"><path d="M180 280L390 185"/><path d="M390 185L610 280"/><path d="M610 280L825 175"/><path d="M610 280L825 380"/></g>
+  <g font-family="Arial,'Noto Sans SC',sans-serif" text-anchor="middle">
+    <circle cx="180" cy="280" r="67" fill="#e9f1f8" stroke="#9dbbd2" stroke-width="3"/><text x="180" y="274" font-size="19" font-weight="700" fill="#2d607e">公司</text><text x="180" y="301" font-size="15" fill="#486d83">入口实体</text>
+    <circle cx="390" cy="185" r="67" fill="#e8f3ee" stroke="#9ec8b3" stroke-width="3"/><text x="390" y="179" font-size="19" font-weight="700" fill="#285d4c">事件</text><text x="390" y="206" font-size="15" fill="#4a7062">收购 / 发布</text>
+    <circle cx="610" cy="280" r="67" fill="#f2eee2" stroke="#d3bb7d" stroke-width="3"/><text x="610" y="274" font-size="19" font-weight="700" fill="#7c622e">团队</text><text x="610" y="301" font-size="15" fill="#846e42">关系中间层</text>
+    <circle cx="825" cy="175" r="67" fill="#e8f3ee" stroke="#9ec8b3" stroke-width="3"/><text x="825" y="169" font-size="19" font-weight="700" fill="#285d4c">模型</text><text x="825" y="196" font-size="15" fill="#4a7062">答案实体</text>
+    <circle cx="825" cy="380" r="67" fill="#f8e9e6" stroke="#d6a397" stroke-width="3"/><text x="825" y="374" font-size="19" font-weight="700" fill="#985043">文档片段</text><text x="825" y="401" font-size="15" fill="#9a5c50">最终引用</text>
+  </g>
+  <text x="105" y="458" font-family="Arial,'Noto Sans SC',sans-serif" font-size="17" fill="#687970">每条边记录 type、时间、置信度和 source_refs；路径只是候选，原文才是证据。</text>
+</svg>

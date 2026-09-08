@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="390" viewBox="0 0 1080 390" role="img" aria-labelledby="title desc">
+  <title id="title">工具契约默认值漂移</title><desc id="desc">缺省字段、版本解析、风险比较、发布门禁</desc>
+  <rect width="1080" height="390" rx="26" fill="#f7f8f5"/>
+  <text x="52" y="56" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif" font-size="25" font-weight="700" fill="#173f3d">默认值也属于契约：先查漂移，再放行副作用</text>
+  <text x="52" y="84" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif" font-size="15" fill="#5b7470">缺省字段的语义变化，往往比字段删除更危险</text>
+  <g font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif">
+    <rect x="52" y="122" width="220" height="126" rx="17" fill="#eaf3f7" stroke="#b9d3df"/><text x="162" y="157" text-anchor="middle" font-size="17" font-weight="700" fill="#173f3d">缺省</text><text x="162" y="191" text-anchor="middle" font-size="13" fill="#48635f">omitted / null</text><text x="162" y="215" text-anchor="middle" font-size="13" fill="#48635f">old client</text>
+    <rect x="292" y="122" width="220" height="126" rx="17" fill="#fff1d9" stroke="#e8c891"/><text x="402" y="157" text-anchor="middle" font-size="17" font-weight="700" fill="#173f3d">解析</text><text x="402" y="191" text-anchor="middle" font-size="13" fill="#48635f">v3 default</text><text x="402" y="215" text-anchor="middle" font-size="13" fill="#48635f">v4 default</text>
+    <rect x="532" y="122" width="220" height="126" rx="17" fill="#f5d9dc" stroke="#dfb2b9"/><text x="642" y="157" text-anchor="middle" font-size="17" font-weight="700" fill="#173f3d">比较</text><text x="642" y="191" text-anchor="middle" font-size="13" fill="#48635f">side effect?</text><text x="642" y="215" text-anchor="middle" font-size="13" fill="#48635f">audit diff</text>
+    <rect x="772" y="122" width="256" height="126" rx="17" fill="#173f3d"/><text x="900" y="157" text-anchor="middle" font-size="17" font-weight="700" fill="#ffffff">门禁</text><text x="900" y="191" text-anchor="middle" font-size="13" fill="#dbe9e5">block / clarify</text><text x="900" y="215" text-anchor="middle" font-size="13" fill="#dbe9e5">sandbox replay</text>
+  </g>
+  <path d="M272 185h20M512 185h20M752 185h20" stroke="#7d9a95" stroke-width="3" stroke-linecap="round"/>
+  <rect x="52" y="294" width="976" height="44" rx="14" fill="#e8efeb"/><text x="540" y="322" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif" font-size="15" font-weight="700" fill="#365b61">没有显式 opt-in 的默认写入，一律先阻断并要求确认</text>
+</svg>

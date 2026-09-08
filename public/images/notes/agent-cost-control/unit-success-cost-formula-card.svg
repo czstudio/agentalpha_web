@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="390" viewBox="0 0 1080 390">
+  <rect width="1080" height="390" rx="28" fill="#f7f9fc"/>
+  <text x="56" y="58" font-family="Arial, sans-serif" font-size="23" font-weight="700" fill="#14233b">单位成功成本</text>
+  <text x="56" y="86" font-family="Arial, sans-serif" font-size="15" fill="#61708a">便宜的 token 不等于便宜的成功任务</text>
+  <rect x="56" y="124" width="968" height="78" rx="18" fill="#e8f0ff" stroke="#9bb8ed"/>
+  <text x="82" y="174" font-family="Georgia, serif" font-size="22" font-weight="700" fill="#1f4d9c">C_success = (model + retrieval + tool + storage + human + recovery) / validated_success</text>
+  <g font-family="Arial, sans-serif">
+    <rect x="56" y="236" width="208" height="70" rx="16" fill="#fff4df"/><text x="80" y="266" font-size="17" font-weight="700" fill="#9a6510">分子</text><text x="80" y="290" font-size="14" fill="#6f531e">模型 / 工具 / 人工</text>
+    <rect x="286" y="236" width="208" height="70" rx="16" fill="#e7f6ef"/><text x="310" y="266" font-size="17" font-weight="700" fill="#197145">恢复</text><text x="310" y="290" font-size="14" fill="#35624c">补偿 / 重跑 / 接管</text>
+    <rect x="516" y="236" width="208" height="70" rx="16" fill="#e8f0ff"/><text x="540" y="266" font-size="17" font-weight="700" fill="#1f4d9c">分母</text><text x="540" y="290" font-size="14" fill="#355071">状态验证成功</text>
+    <rect x="746" y="236" width="278" height="70" rx="16" fill="#f0eaff"/><text x="770" y="266" font-size="17" font-weight="700" fill="#6445ae">Route compare</text><text x="770" y="290" font-size="14" fill="#51436f">同评测集 / 同口径</text>
+  </g>
+  <line x1="56" y1="333" x2="1024" y2="333" stroke="#dbe2ec"/><text x="56" y="359" font-family="Arial, sans-serif" font-size="14" fill="#52627a">把每项成本写回 trace，避免用低成功率换一张漂亮的单价表</text>
+</svg>

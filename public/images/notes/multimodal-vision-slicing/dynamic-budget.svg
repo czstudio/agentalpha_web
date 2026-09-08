@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="360" viewBox="0 0 1080 360" role="img" aria-labelledby="title desc">
+  <title id="title">视觉切片动态预算</title>
+  <desc id="desc">问题风险、区域置信度、缓存和证据依赖共同决定视觉切片的分辨率与预算。</desc>
+  <rect width="1080" height="360" rx="28" fill="#f7f8f5"/>
+  <text x="54" y="58" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif" font-size="25" font-weight="700" fill="#173f3d">动态预算：把高分辨率留给高风险证据</text>
+  <g font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif">
+    <rect x="54" y="122" width="220" height="104" rx="17" fill="#eaf3f7" stroke="#b9d3df"/><text x="164" y="158" text-anchor="middle" font-size="17" font-weight="700" fill="#173f3d">问题风险</text><text x="164" y="190" text-anchor="middle" font-size="13" fill="#55706b">标题 / 金额 / 条款</text>
+    <rect x="294" y="122" width="220" height="104" rx="17" fill="#dfeee8" stroke="#afd0c3"/><text x="404" y="158" text-anchor="middle" font-size="17" font-weight="700" fill="#173f3d">目标置信度</text><text x="404" y="190" text-anchor="middle" font-size="13" fill="#55706b">像素高度 · OCR · IoU</text>
+    <rect x="534" y="122" width="220" height="104" rx="17" fill="#fff1d9" stroke="#e8c891"/><text x="644" y="158" text-anchor="middle" font-size="17" font-weight="700" fill="#173f3d">证据依赖</text><text x="644" y="190" text-anchor="middle" font-size="13" fill="#55706b">表头 · 单位 · 条款编号</text>
+    <rect x="774" y="122" width="252" height="104" rx="17" fill="#173f3d"/><text x="900" y="158" text-anchor="middle" font-size="17" font-weight="700" fill="#ffffff">路由结果</text><text x="900" y="190" text-anchor="middle" font-size="13" fill="#dbe9e5">OCR / crop / 人工</text>
+  </g>
+  <path d="M164 270 C350 318 730 318 900 270" fill="none" stroke="#89aaa5" stroke-width="2" stroke-dasharray="7 7"/>
+  <text x="540" y="310" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif" font-size="15" font-weight="700" fill="#365b61">命中缓存 ≠ 跳过权限校验</text>
+</svg>

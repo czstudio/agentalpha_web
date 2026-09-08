@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 390" role="img" aria-labelledby="title desc">
+  <title id="title">MCP 信任边界</title>
+  <desc id="desc">连接、能力、数据和副作用是四条不同的信任边界，每一条都需要独立策略。</desc>
+  <rect width="900" height="390" rx="28" fill="#f7f8f5"/>
+  <g font-family="sans-serif">
+    <rect x="70" y="48" width="760" height="66" rx="18" fill="#eaf3f7" stroke="#b9d3df"/><text x="112" y="88" font-size="20" font-weight="700" fill="#24556a">连接边界</text><text x="300" y="88" font-size="15" fill="#5a737d">谁能连上 · 认证 · 密钥 · 网络位置</text>
+    <rect x="70" y="126" width="760" height="66" rx="18" fill="#dfeee8" stroke="#afd0c3"/><text x="112" y="166" font-size="20" font-weight="700" fill="#173f3d">能力边界</text><text x="300" y="166" font-size="15" fill="#52706b">能看哪些 tools、resources 和 prompts</text>
+    <rect x="70" y="204" width="760" height="66" rx="18" fill="#fff1d9" stroke="#e8c891"/><text x="112" y="244" font-size="20" font-weight="700" fill="#704c20">数据边界</text><text x="300" y="244" font-size="15" fill="#856a42">能读取哪一个租户、哪一份敏感数据</text>
+    <rect x="70" y="282" width="760" height="66" rx="18" fill="#fae8e1" stroke="#e0b9ae"/><text x="112" y="322" font-size="20" font-weight="700" fill="#753f32">副作用边界</text><text x="300" y="322" font-size="15" fill="#8c5d51">写入、发送、删除是否需要审批与回滚</text>
+  </g>
+</svg>

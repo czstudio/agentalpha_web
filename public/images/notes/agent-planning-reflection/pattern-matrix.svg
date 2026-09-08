@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 500" role="img" aria-labelledby="title desc">
+  <title id="title">Agent planning pattern matrix</title>
+  <desc id="desc">A matrix compares workflow, ReAct, Plan and Execute, ReWOO and state machines by uncertainty and dependency.</desc>
+  <rect width="1200" height="500" rx="28" fill="#f7f8f5"/>
+  <text x="60" y="62" font-family="Arial, sans-serif" font-size="27" font-weight="700" fill="#17211d">Choose a planning pattern by uncertainty and dependency</text>
+  <text x="60" y="96" font-family="Arial, sans-serif" font-size="16" fill="#5f6d66">More freedom is not automatically more intelligence.</text>
+  <g font-family="Arial, sans-serif">
+    <line x1="190" y1="400" x2="1080" y2="400" stroke="#71827a" stroke-width="3"/>
+    <line x1="190" y1="400" x2="190" y2="145" stroke="#71827a" stroke-width="3"/>
+    <text x="840" y="444" font-size="16" fill="#5f6d66">环境不确定性 →</text>
+    <text x="70" y="165" font-size="16" fill="#5f6d66" transform="rotate(-90 70 165)">工具依赖可提前展开 →</text>
+    <circle cx="350" cy="338" r="67" fill="#d8efe7" stroke="#217d6e" stroke-width="3"/>
+    <text x="306" y="334" font-size="19" font-weight="700" fill="#176658">状态机</text>
+    <text x="300" y="360" font-size="14" fill="#23423b">边界最清楚</text>
+    <circle cx="520" cy="260" r="70" fill="#e7f2ef" stroke="#4d9d8e" stroke-width="3"/>
+    <text x="474" y="256" font-size="19" font-weight="700" fill="#246d60">ReWOO</text>
+    <text x="459" y="282" font-size="14" fill="#314d47">依赖可展开</text>
+    <circle cx="730" cy="250" r="78" fill="#f0eee3" stroke="#b8a766" stroke-width="3"/>
+    <text x="691" y="246" font-size="19" font-weight="700" fill="#7a681d">Plan-Execute</text>
+    <text x="707" y="273" font-size="14" fill="#514b31">先有全局路线</text>
+    <circle cx="930" cy="205" r="72" fill="#f4e7d9" stroke="#bc8052" stroke-width="3"/>
+    <text x="899" y="201" font-size="19" font-weight="700" fill="#8f5430">ReAct</text>
+    <text x="878" y="228" font-size="14" fill="#5a3f31">边观察边决定</text>
+  </g>
+</svg>

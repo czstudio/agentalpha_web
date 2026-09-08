@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="360" viewBox="0 0 1080 360" role="img" aria-labelledby="title desc">
+  <title id="title">技术争议决策包</title><desc id="desc">实验结果、适用切片、取舍和回滚条件组成可复查决策记录</desc>
+  <rect width="1080" height="360" rx="24" fill="#f7f8f5"/>
+  <text x="52" y="54" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif" font-size="26" font-weight="700" fill="#173f3d">争议结果如何进入决策包</text>
+  <text x="52" y="84" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif" font-size="15" fill="#5b7470">把“B 赢了”翻译成可复查、可回滚、可重新打开的记录</text>
+  <g font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif">
+    <rect x="52" y="126" width="210" height="154" rx="18" fill="#eaf3f7" stroke="#b9d3df"/><text x="78" y="158" font-size="18" font-weight="700" fill="#173f3d">结果</text><text x="78" y="190" font-size="14" fill="#48635f">主指标 / 护栏</text><text x="78" y="216" font-size="14" fill="#48635f">样本量 / 区间</text><text x="78" y="242" font-size="14" fill="#48635f">胜负不是一句话</text>
+    <rect x="288" y="126" width="210" height="154" rx="18" fill="#fff1d9" stroke="#e8c891"/><text x="314" y="158" font-size="18" font-weight="700" fill="#173f3d">解释</text><text x="314" y="190" font-size="14" fill="#48635f">按任务切片</text><text x="314" y="216" font-size="14" fill="#48635f">赢 / 输 / 未知</text><text x="314" y="242" font-size="14" fill="#48635f">写清适用边界</text>
+    <rect x="524" y="126" width="210" height="154" rx="18" fill="#dfeee8" stroke="#afd0c3"/><text x="550" y="158" font-size="18" font-weight="700" fill="#173f3d">选择</text><text x="550" y="190" font-size="14" fill="#48635f">采用 / 保留 / 放弃</text><text x="550" y="216" font-size="14" fill="#48635f">收益与代价</text><text x="550" y="242" font-size="14" fill="#48635f">先记取舍</text>
+    <rect x="760" y="126" width="268" height="154" rx="18" fill="#fae8e1" stroke="#e0b9ae"/><text x="786" y="158" font-size="18" font-weight="700" fill="#173f3d">约束</text><text x="786" y="190" font-size="14" fill="#48635f">owner / 开关 / 复查日期</text><text x="786" y="216" font-size="14" fill="#48635f">硬门槛失败即回滚</text><text x="786" y="242" font-size="14" fill="#48635f">新证据可重新打开</text>
+  </g>
+  <path d="M262 203h26M498 203h26M734 203h26" stroke="#7d9a95" stroke-width="3" stroke-linecap="round"/>
+</svg>

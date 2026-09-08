@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="390" viewBox="0 0 1080 390">
+  <rect width="1080" height="390" rx="28" fill="#f7f9fc"/>
+  <text x="56" y="62" font-family="Arial,'PingFang SC',sans-serif" font-size="24" font-weight="700" fill="#172033">DELETION LATENCY · 删除延迟预算</text>
+  <text x="56" y="94" font-family="Arial,'PingFang SC',sans-serif" font-size="16" fill="#637083">原文件删除 ≠ 系统已经忘记</text>
+  <g font-family="Arial,'PingFang SC',sans-serif">
+    <rect x="56" y="138" width="190" height="148" rx="18" fill="#e8f0ff" stroke="#b7ccf0"/><text x="78" y="174" font-size="16" font-weight="700" fill="#244a83">SOURCE</text><text x="78" y="211" font-size="15" fill="#3b4d67">acknowledged</text><text x="78" y="239" font-size="15" fill="#3b4d67">tombstone</text>
+    <rect x="286" y="138" width="190" height="148" rx="18" fill="#edf8f1" stroke="#b8ddc6"/><text x="308" y="174" font-size="16" font-weight="700" fill="#296444">INDEX</text><text x="308" y="211" font-size="15" fill="#3e5a4b">filtered</text><text x="308" y="239" font-size="15" fill="#3e5a4b">version retired</text>
+    <rect x="516" y="138" width="190" height="148" rx="18" fill="#fff4df" stroke="#e5c98d"/><text x="538" y="174" font-size="16" font-weight="700" fill="#7b571a">CACHE</text><text x="538" y="211" font-size="15" fill="#6a5734">purged</text><text x="538" y="239" font-size="15" fill="#6a5734">TTL verified</text>
+    <rect x="746" y="138" width="278" height="148" rx="18" fill="#f2ecff" stroke="#cfc0ee"/><text x="768" y="174" font-size="16" font-weight="700" fill="#5b428f">ANSWER GUARD</text><text x="768" y="211" font-size="15" fill="#5d5370">direct / synonym probes</text><text x="768" y="239" font-size="15" fill="#5d5370">block until green</text>
+  </g>
+  <path d="M254 212h24m224 0h24m224 0h24" stroke="#8a98aa" stroke-width="3"/><path d="m270 204 10 8-10 8m224-8 10 8-10 8m224-8 10 8-10 8" fill="none" stroke="#8a98aa" stroke-width="3"/>
+  <text x="56" y="344" font-family="Arial,'PingFang SC',sans-serif" font-size="16" fill="#637083">超过 15 分钟未完成：拒答、开单、继续探针，而不是继续使用旧索引</text>
+</svg>

@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="390" viewBox="0 0 1080 390">
+  <rect width="1080" height="390" rx="28" fill="#F7F4EE"/>
+  <text x="56" y="58" font-family="Arial,'Noto Sans SC',sans-serif" font-size="26" font-weight="700" fill="#193C3A">偏好盲化审计</text>
+  <text x="56" y="91" font-family="Arial,'Noto Sans SC',sans-serif" font-size="16" fill="#58706D">先隐藏身份与顺序，再用反事实确认偏好来源</text>
+  <rect x="56" y="136" width="216" height="146" rx="20" fill="#E5F0ED"/>
+  <text x="82" y="174" font-family="Arial,'Noto Sans SC',sans-serif" font-size="20" font-weight="700" fill="#1C615A">盲化</text>
+  <text x="82" y="211" font-family="Arial,'Noto Sans SC',sans-serif" font-size="15" fill="#31514E">顺序随机</text>
+  <text x="82" y="243" font-family="Arial,'Noto Sans SC',sans-serif" font-size="15" fill="#31514E">隐藏模型身份</text>
+  <path d="M292 209h58" stroke="#EF9D73" stroke-width="6" stroke-linecap="round"/><path d="m338 190 25 19-25 19" fill="none" stroke="#EF9D73" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="376" y="136" width="276" height="146" rx="20" fill="#FFF0D6"/>
+  <text x="402" y="174" font-family="Arial,'Noto Sans SC',sans-serif" font-size="20" font-weight="700" fill="#875B26">反事实</text>
+  <text x="402" y="211" font-family="Arial,'Noto Sans SC',sans-serif" font-size="15" fill="#6C5632">删引用 → 应降级</text>
+  <text x="402" y="243" font-family="Arial,'Noto Sans SC',sans-serif" font-size="15" fill="#6C5632">工具超时 → 应拒绝</text>
+  <path d="M672 209h58" stroke="#86A4D7" stroke-width="6" stroke-linecap="round"/><path d="m718 190 25 19-25 19" fill="none" stroke="#86A4D7" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="758" y="136" width="266" height="146" rx="20" fill="#DCEBE8"/>
+  <text x="784" y="174" font-family="Arial,'Noto Sans SC',sans-serif" font-size="20" font-weight="700" fill="#174F4A">发布门禁</text>
+  <text x="784" y="211" font-family="Arial,'Noto Sans SC',sans-serif" font-size="15" fill="#31514E">blind agreement ≥ 0.86</text>
+  <text x="784" y="243" font-family="Arial,'Noto Sans SC',sans-serif" font-size="15" fill="#31514E">style-only pairs ≤ 0.10</text>
+  <rect x="56" y="315" width="968" height="34" rx="17" fill="#183C3A"/>
+  <text x="540" y="338" text-anchor="middle" font-family="Arial,'Noto Sans SC',sans-serif" font-size="15" fill="#F7F4EE">事实、证据与任务结果比“更像好答案”更重要</text>
+</svg>

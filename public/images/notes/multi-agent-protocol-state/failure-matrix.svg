@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 360" role="img" aria-labelledby="title desc">
+  <title id="title">多 Agent 通信失败矩阵</title>
+  <desc id="desc">不同通信故障对应重试、去重、拒绝旧版本和返工动作。</desc>
+  <rect width="900" height="360" rx="28" fill="#f7f8f5"/>
+  <g font-family="sans-serif">
+    <text x="90" y="62" font-size="18" font-weight="700" fill="#5b6e6a">故障</text>
+    <text x="385" y="62" font-size="18" font-weight="700" fill="#5b6e6a">信号</text>
+    <text x="680" y="62" font-size="18" font-weight="700" fill="#5b6e6a">动作</text>
+    <path d="M54 82h792" stroke="#cbd3cc" stroke-width="2"/>
+    <g font-size="17">
+      <rect x="54" y="94" width="792" height="48" rx="10" fill="#eaf3f7"/>
+      <text x="90" y="125" fill="#24556a">超时</text><text x="385" y="125" fill="#5a737d">无 ACK</text><text x="680" y="125" fill="#24556a" font-weight="700">同幂等键重试</text>
+      <rect x="54" y="152" width="792" height="48" rx="10" fill="#dfeee8"/>
+      <text x="90" y="183" fill="#173f3d">重复</text><text x="385" y="183" fill="#52706b">相同 message_id</text><text x="680" y="183" fill="#173f3d" font-weight="700">返回已提交结果</text>
+      <rect x="54" y="210" width="792" height="48" rx="10" fill="#fff1d9"/>
+      <text x="90" y="241" fill="#704c20">乱序</text><text x="385" y="241" fill="#856a42">版本低于本地</text><text x="680" y="241" fill="#704c20" font-weight="700">保存历史或重新同步</text>
+      <rect x="54" y="268" width="792" height="48" rx="10" fill="#fae8e1"/>
+      <text x="90" y="299" fill="#753f32">无效</text><text x="385" y="299" fill="#845a50">schema / 业务校验失败</text><text x="680" y="299" fill="#753f32" font-weight="700">返工或人工接管</text>
+    </g>
+  </g>
+</svg>

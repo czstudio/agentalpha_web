@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 370" role="img" aria-labelledby="title desc">
+  <title id="title">DPO 偏好数据切片</title>
+  <desc id="desc">DPO 训练前把偏好对按事实、帮助性、安全和工具边界切片，避免单一风格占满数据。</desc>
+  <rect width="1200" height="370" rx="28" fill="#f7f8f5"/>
+  <text x="58" y="58" fill="#1d1d1f" font-family="Arial, sans-serif" font-size="25" font-weight="700">DPO 的数据不是一张“更好”标签</text>
+  <text x="58" y="88" fill="#6b6e70" font-family="Arial, sans-serif" font-size="16">每个偏好对都要回答：好在哪里，坏在哪里，能否迁移</text>
+  <g font-family="Arial, sans-serif">
+    <rect x="70" y="140" width="250" height="145" rx="16" fill="#e6f1ed" stroke="#9bc9bc"/><text x="195" y="178" text-anchor="middle" fill="#247a6b" font-size="17" font-weight="700">事实与推理</text><text x="195" y="211" text-anchor="middle" fill="#1d1d1f" font-size="14">结论正确 / 过程可核验</text><text x="195" y="243" text-anchor="middle" fill="#6b6e70" font-size="14">避免“更像答案”</text>
+    <rect x="350" y="140" width="250" height="145" rx="16" fill="#ffffff" stroke="#dfe4df"/><text x="475" y="178" text-anchor="middle" fill="#247a6b" font-size="17" font-weight="700">任务帮助性</text><text x="475" y="211" text-anchor="middle" fill="#1d1d1f" font-size="14">解决问题 / 给出下一步</text><text x="475" y="243" text-anchor="middle" fill="#6b6e70" font-size="14">不是单纯更长</text>
+    <rect x="630" y="140" width="250" height="145" rx="16" fill="#fff5e8" stroke="#e5c98f"/><text x="755" y="178" text-anchor="middle" fill="#9b6b21" font-size="17" font-weight="700">安全与边界</text><text x="755" y="211" text-anchor="middle" fill="#1d1d1f" font-size="14">拒答、权限、工具失败</text><text x="755" y="243" text-anchor="middle" fill="#6b6e70" font-size="14">保留 hard negative</text>
+    <rect x="910" y="140" width="220" height="145" rx="16" fill="#ffffff" stroke="#dfe4df"/><text x="1020" y="178" text-anchor="middle" fill="#247a6b" font-size="17" font-weight="700">切分验收</text><text x="1020" y="211" text-anchor="middle" fill="#1d1d1f" font-size="14">按任务 / 用户 / 版本</text><text x="1020" y="243" text-anchor="middle" fill="#6b6e70" font-size="14">防止近重复泄漏</text>
+    <path d="M332 212 H338 M612 212 H618 M892 212 H898" stroke="#247a6b" stroke-width="2"/>
+  </g>
+</svg>

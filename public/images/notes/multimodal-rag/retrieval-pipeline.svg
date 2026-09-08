@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 360" role="img" aria-labelledby="title desc">
+  <title id="title">多模态 RAG 检索链路</title>
+  <desc id="desc">文本、表格和图片分别进入索引，再经查询路由和重排组装证据包。</desc>
+  <rect width="900" height="360" rx="28" fill="#f7f8f5"/>
+  <path d="M188 112h70M188 180h70M188 248h70M430 180h90M670 180h90" stroke="#8eb8af" stroke-width="4" stroke-linecap="round"/><path d="m248 102 18 10-18 10M248 170l18 10-18 10M248 238l18 10-18 10M510 170l18 10-18 10M750 170l18 10-18 10" fill="#8eb8af"/>
+  <rect x="35" y="76" width="153" height="58" rx="14" fill="#d7e9e2"/><text x="112" y="112" text-anchor="middle" font-family="sans-serif" font-size="18" font-weight="700" fill="#173f3d">文本</text>
+  <rect x="35" y="151" width="153" height="58" rx="14" fill="#f4dca6"/><text x="112" y="187" text-anchor="middle" font-family="sans-serif" font-size="18" font-weight="700" fill="#704c20">表格</text>
+  <rect x="35" y="226" width="153" height="58" rx="14" fill="#eaf3f7"/><text x="112" y="262" text-anchor="middle" font-family="sans-serif" font-size="18" font-weight="700" fill="#24556a">图片区域</text>
+  <rect x="266" y="114" width="164" height="132" rx="20" fill="#fff" stroke="#b9cbc6"/><text x="348" y="153" text-anchor="middle" font-family="sans-serif" font-size="19" font-weight="700" fill="#173f3d">多层索引</text><text x="348" y="184" text-anchor="middle" font-family="sans-serif" font-size="15" fill="#647775">关键词 · 向量</text><text x="348" y="211" text-anchor="middle" font-family="sans-serif" font-size="15" fill="#647775">关系 · 空间</text>
+  <rect x="528" y="114" width="142" height="132" rx="20" fill="#f2eaf7" stroke="#c6aed7"/><text x="599" y="153" text-anchor="middle" font-family="sans-serif" font-size="19" font-weight="700" fill="#604774">重排过滤</text><text x="599" y="184" text-anchor="middle" font-family="sans-serif" font-size="15" fill="#765d86">版本 · ACL</text><text x="599" y="211" text-anchor="middle" font-family="sans-serif" font-size="15" fill="#765d86">父子关系</text>
+  <rect x="768" y="114" width="100" height="132" rx="20" fill="#d7e9e2"/><text x="818" y="153" text-anchor="middle" font-family="sans-serif" font-size="18" font-weight="700" fill="#173f3d">证据包</text><text x="818" y="188" text-anchor="middle" font-family="sans-serif" font-size="15" fill="#4c7068">引用</text><text x="818" y="214" text-anchor="middle" font-family="sans-serif" font-size="15" fill="#4c7068">回答</text>
+  <text x="35" y="324" font-family="sans-serif" font-size="16" fill="#647775">不同模态共享身份和来源，但不必强行塞进一个索引。</text>
+</svg>

@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="390" viewBox="0 0 1080 390">
+  <rect width="1080" height="390" rx="28" fill="#f7f9fc"/>
+  <text x="56" y="62" font-family="Arial,'PingFang SC',sans-serif" font-size="24" font-weight="700" fill="#172033">SIDE-EFFECT BUDGET · 副作用预算</text>
+  <text x="56" y="94" font-family="Arial,'PingFang SC',sans-serif" font-size="16" fill="#637083">重试次数不是可靠性指标，业务效果上限才是</text>
+  <g font-family="Arial,'PingFang SC',sans-serif">
+    <rect x="56" y="138" width="216" height="148" rx="18" fill="#e8f0ff" stroke="#b7ccf0"/><text x="78" y="174" font-size="16" font-weight="700" fill="#244a83">01 · 请求</text><text x="78" y="211" font-size="15" fill="#3b4d67">idempotency key</text><text x="78" y="239" font-size="15" fill="#3b4d67">provider receipt</text>
+    <rect x="310" y="138" width="216" height="148" rx="18" fill="#edf8f1" stroke="#b8ddc6"/><text x="332" y="174" font-size="16" font-weight="700" fill="#296444">02 · 重试</text><text x="332" y="211" font-size="15" fill="#3e5a4b">max = 2</text><text x="332" y="239" font-size="15" fill="#3e5a4b">UNKNOWN = 0</text>
+    <rect x="564" y="138" width="216" height="148" rx="18" fill="#fff4df" stroke="#e5c98d"/><text x="586" y="174" font-size="16" font-weight="700" fill="#7b571a">03 · 对账</text><text x="586" y="211" font-size="15" fill="#6a5734">final resource</text><text x="586" y="239" font-size="15" fill="#6a5734">business effect = 1</text>
+    <rect x="818" y="138" width="206" height="148" rx="18" fill="#f2ecff" stroke="#cfc0ee"/><text x="840" y="174" font-size="16" font-weight="700" fill="#5b428f">04 · 超限</text><text x="840" y="211" font-size="15" fill="#5d5370">freeze</text><text x="840" y="239" font-size="15" fill="#5d5370">human reconcile</text>
+  </g>
+  <path d="M280 212h22m224 0h22m224 0h22" stroke="#8a98aa" stroke-width="3"/><path d="m296 204 10 8-10 8m240-8 10 8-10 8m240-8 10 8-10 8" fill="none" stroke="#8a98aa" stroke-width="3"/>
+  <text x="56" y="344" font-family="Arial,'PingFang SC',sans-serif" font-size="16" fill="#637083">权限、扣款、发消息等动作：未知状态未对账前，永远不向用户报成功</text>
+</svg>

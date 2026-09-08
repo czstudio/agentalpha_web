@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="360" viewBox="0 0 1080 360" role="img" aria-labelledby="title desc">
+  <title id="title">评测版本门禁矩阵</title>
+  <desc id="desc">模型、知识库、工具与策略版本进入影子和灰度发布门禁</desc>
+  <rect width="1080" height="360" rx="24" fill="#f7f8f5"/>
+  <text x="56" y="54" font-family="Arial, sans-serif" font-size="26" font-weight="700" fill="#173f3d">Version tuple → release gate</text>
+  <text x="56" y="82" font-family="Arial, sans-serif" font-size="15" fill="#58716e">先记录依赖组合，再判断是否允许进入真实副作用链路</text>
+  <g font-family="Arial, sans-serif" font-size="16" fill="#173f3d">
+    <rect x="56" y="120" width="198" height="72" rx="14" fill="#eaf3f7" stroke="#b9d3df"/>
+    <text x="76" y="148">model · prompt</text><text x="76" y="174">policy · evaluator</text>
+    <rect x="280" y="120" width="198" height="72" rx="14" fill="#dfeee8" stroke="#afd0c3"/>
+    <text x="300" y="148">knowledge snapshot</text><text x="300" y="174">tool schema + errors</text>
+    <rect x="504" y="120" width="198" height="72" rx="14" fill="#fff1d9" stroke="#e8c891"/>
+    <text x="524" y="148">runtime + traffic</text><text x="524" y="174">slice + sample size</text>
+    <rect x="728" y="120" width="280" height="72" rx="14" fill="#fae8e1" stroke="#e0b9ae"/>
+    <text x="752" y="148">trace diff / hard-failure gate</text><text x="752" y="174">rollback condition</text>
+  </g>
+  <g stroke="#79908c" stroke-width="3" fill="none" stroke-linecap="round">
+    <path d="M254 156H280"/><path d="M478 156H504"/><path d="M702 156H728"/>
+  </g>
+  <g font-family="Arial, sans-serif" font-size="15" fill="#58716e">
+    <text x="96" y="250">offline replay</text><text x="452" y="250">shadow traffic</text><text x="805" y="250">limited canary</text>
+    <text x="56" y="304">同一版本元组在三个阶段逐步放大真实度；任何硬失败回归都能回到具体依赖。</text>
+  </g>
+  <path d="M165 220H915" stroke="#173f3d" stroke-width="2" stroke-dasharray="6 8"/>
+  <circle cx="165" cy="220" r="8" fill="#173f3d"/><circle cx="540" cy="220" r="8" fill="#173f3d"/><circle cx="915" cy="220" r="8" fill="#173f3d"/>
+</svg>

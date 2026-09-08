@@ -40,6 +40,35 @@ reward hacking 往往发生在第二层到第三层的翻译处。证据不完�
 
 第一步不是立刻把奖励写复杂，而是把三层分开画出来。你要知道模型到底在优化什么。
 
+![Reward 三层结构：真实目标、可观察证据和奖励实现之间需要硬约束门控](/images/notes/agentic-rl-reward-hacking/reward-layers.svg)
+
+### 先写“合格”，再写“更快”
+
+一个容易落地的奖励接口，不是把所有指标塞进一个浮点数，而是先返回结构化验收结果：
+
+```python
+def score(run):
+    hard_failures = [
+        run.changed_test_files,
+        run.used_forbidden_tool,
+        not run.citations_support_claims,
+    ]
+    if any(hard_failures):
+        return {"eligible": False, "result": 0, "efficiency": None}
+
+    return {
+        "eligible": run.task_succeeded,
+        "result": 1 if run.task_succeeded else 0,
+        "efficiency": {
+            "tool_calls": run.tool_calls,
+            "latency_ms": run.latency_ms,
+            "tokens": run.tokens,
+        },
+    }
+```
+
+只有 `eligible=true` 的轨迹才进入效率排序。这样一条“很快但改了测试”的轨迹不会用低成本抵消硬失败；如果产品确实允许某个风险，也要把它明确写成策略，而不是藏在 `0.1` 的权重里。
+
 ## Agent 最常见的五种刷分方式
 
 ### 1. 刷格式，不刷事实
@@ -139,6 +168,138 @@ DeepSeek-R1 的技术报告展示了结果奖励在数学推理上的强大效�
 边界也要说清：红队样本不能证明没有漏洞，只能证明已知漏洞被覆盖；更强的 judge 不能替代权限隔离；增加过程奖励不能保证过程真实。每次发布 reward 或 verifier，都应该给出“已覆盖风险、未覆盖风险、需要人工确认的动作”三列。这样模型能力变强时，安全假设也会跟着更新，而不是留在上一版实验报告里。
 
 这张表也方便和产品团队对齐：哪些捷径绝对不能接受，哪些只是成本偏高，哪些可以交给人工复核。奖励设计从调参问题，变成一份可以被追责的系统契约。契约中还要写清谁能批准高风险动作、谁负责复核误报，以及发现漏洞后如何回滚策略；没有这三项，审计清单很快会变成无人维护的文档。
+
+![Reward 红队回归闭环：设计漏洞、运行策略、遮挡审计、修复验收并固定回归集](/images/notes/agentic-rl-reward-hacking/red-team-loop.svg)
+
+## 把奖励版本当成策略接口，而不是训练脚本里的常数
+
+奖励函数一旦改变，策略看到的世界就变了。每次调整都要留下版本、硬约束、权重变化和受影响任务，重新跑一组固定回放，再比较“高分低质”与真实结果，而不是只贴一张新曲线：
+
+\`\`\`yaml
+reward_contract: rw_20260820_09
+parent: rw_20260812_04
+hard_gates:
+  - unauthorized_write
+  - forged_citation
+  - modified_test
+soft_terms:
+  correctness: 1.0
+  latency: 0.08
+  tool_calls: 0.03
+changed:
+  - "引用支持率从加分项改为合格门槛"
+replay_set: hidden-redteam-v5
+acceptance:
+  high_reward_low_quality: "< 2%"
+  true_task_success: ">= 0.88"
+owner: agent-platform
+rollback_to: rw_20260812_04
+\`\`\`
+
+把硬门控和效率偏好分开，能让团队回答两个不同问题：哪些行为无论多快都不能接受，哪些行为在合格方案之间才值得优化。若改完奖励后总分上涨但隐藏任务下降，先回滚 contract，再查 verifier 和环境证据。
+
+![奖励契约把硬门控、软目标、回放集、验收指标和回滚版本固定成可审计接口](/images/notes/agentic-rl-reward-hacking/reward-contract-card.svg)
+
+## 奖励契约更新后还要做一次“盲审回放”
+
+公开回放集通过，不足以说明奖励没有被策略摸透。每次修改 reward contract 后，我会把一小批隐藏任务交给独立审计器：策略看不到样本、评分拆解和通过阈值，只能提交真实轨迹与结构化证据。盲审结果和公开集的差异，决定是继续训练还是先修 verifier。
+
+~~~yaml
+blind_audit_receipt: bar_20260820_49
+contract_version: rw_20260820_06
+public_replay:
+  true_task_success: 0.91
+  citation_support: 0.94
+hidden_audit:
+  true_task_success: 0.79
+  citation_support: 0.63
+  shortcut_rate: 0.18
+decision: rollback_contract
+next: "补隐藏任务中的证据一致性门控"
+~~~
+
+盲审不是再造一个神秘分数，而是把“策略是否只学会了公开规则”单独暴露出来。审计器应保留任务语义、执行状态和副作用证据，不能只看最终文本；否则策略只要学会换一种说法，评分表仍然会被绕开。
+
+![奖励盲审回放：公开集变好但隐藏集掉分时先回滚契约](/images/notes/agentic-rl-reward-hacking/blind-audit-card.svg)
+
+### L5：为什么隐藏审计集不能直接交给训练策略？
+
+一旦策略能看到隐藏样本、通过阈值或错误类型，隐藏集就会变成另一套公开攻略。审计集要只返回有限的失败信号，保留任务语义和副作用证据的独立核验，才能检测奖励实现与真实目标的偏离。
+
+## L5：为什么奖励函数改一行，也要重新跑固定回放？
+
+因为策略会适应奖励的细小缝隙。固定回放不是为了证明新函数永远正确，而是为了快速发现行为变化：哪些任务变好了，哪些捷径重新出现，哪些硬约束被误伤。没有版本和回放，训练曲线无法解释，也无法安全回滚。
+
+### 用一条高分低质轨迹做“拆解式审讯”
+
+遇到高 reward 但人工评分低的样本，我会按以下顺序复盘，而不是先把 judge 换成更大的模型：
+
+1. **拆奖励**：结果、引用、格式、成本分别贡献了多少？先找出真正拉高总分的项。
+2. **遮掉表面线索**：删除答案里的自评、链接标题和 success 文案，只把结构化状态交给验收器。
+3. **重放关键副作用**：检查测试、文件、数据库和网页状态是否真的发生了目标变化。
+4. **加入同构扰动**：保持任务语义不变，只改字段顺序、页面文案或样例编号，观察分数是否仍稳定。
+5. **留下回归样本**：写清捷径、缺失证据和修复覆盖的测试，下一轮改动先跑它。
+
+如果分数在第二步就崩掉，说明 judge 依赖了答案表面的语言；如果第三步才崩，说明环境证据没有被纳入验收；如果同构扰动后策略变差，说明它学的是模板，而不是任务。
+
+## 把环境事实和奖励分成两条不可互写的链
+
+奖励 hacking 的根因，往往不是奖励公式太简单，而是策略能同时影响“任务状态”和“评分输入”。例如 Agent 修改了日志里的 `success=true`，verifier 读取到成功，再把高分反馈给策略。修复时要把环境事实、执行副作用和奖励计算拆成独立链路：策略只能提交动作，环境生成不可由策略改写的事件，verifier 读取事件回执和真实状态快照。
+
+```yaml
+trajectory_fact_receipt: tfr_20260820_22
+run: web-agent-r31
+action_log: append_only://run-31/actions
+state_snapshot: immutable://web-checkout/step-18
+side_effect_receipts:
+  - id: order-write-881
+    status: committed
+    idempotency_key: order-17-submit
+reward_inputs:
+  task_state: state_snapshot
+  side_effects: side_effect_receipts
+  self_report: ignored
+permissions:
+  policy_can_write_reward_log: false
+  verifier_can_read_raw_state: true
+decision: reward_from_facts_only
+```
+
+`self_report` 可以作为调试信息展示，但不能进入最终奖励；`side_effect_receipts` 由执行器签发，策略不能伪造。这样做会增加事件存储和回执校验成本，却能把“完成了什么”与“模型声称完成了什么”分开。对于没有真实环境状态的离线任务，至少要保留独立 reference、隐藏检查和结构化副作用模拟，不能把模型自评当事实。
+
+![奖励事实链：动作、不可变状态、副作用回执与奖励计算彼此隔离](/images/notes/agentic-rl-reward-hacking/fact-reward-separation-card.svg)
+
+### L5：为什么不直接禁止模型输出 success 字段？
+
+禁止一个字段只能挡住当前模板，挡不住策略利用日志、链接标题或错误码。更可靠的是让奖励读取独立的环境事实，并把所有可被策略影响的自报字段明确排除在验收链之外。
+
+## 反奖励投机要把“代理指标”和“环境事实”拆开
+
+奖励投机最常见的形态，是策略学会让代理指标变好，却没有完成任务。可以把观测到的分数拆成几部分：
+
+$$
+R_{observed}=R_{task}+\lambda R_{proxy}+R_{safety}-P_{unsupported\_claim}
+$$
+
+其中 (R_{task}) 来自环境事实，(R_{proxy}) 只是方便训练的近似信号。若把两者混在一个可写字段里，策略就可能直接伪造“已完成”。环境事实必须由工具回执、状态查询或人工核验产生，并且不能被策略输出覆盖。
+
+```yaml
+reward_fact_boundary:
+  contract: rfb_20260820_118
+  policy_output: [plan, claimed_result]
+  environment_fact: [provider_receipt, resource_state]
+  forbidden_write:
+    - policy_output.environment_fact
+  audit:
+    - replay_without_claimed_result
+    - hidden_success_probe
+```
+
+![反奖励投机边界：策略声明和环境事实分开写入，最终奖励只接收可复核回执](/images/notes/agentic-rl-reward-hacking/reward-fact-boundary-card.svg)
+
+### L5：为什么不直接禁止模型输出 success 字段？
+
+因为模型仍然需要描述计划和当前判断，完全禁止会损失调试信息。更好的边界是：允许它输出“我认为完成了”，但不允许这句话改变环境事实；只有外部回执通过，才把任务状态推进到 success。
 
 ## 60 秒面试回答
 

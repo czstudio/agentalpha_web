@@ -39,6 +39,25 @@ Agent 的轨迹更像一串小决定：
 
 一个实用的工程定义是：credit assignment 要估计某个动作相对“当时不做、换一种做法”对未来回报的增量。注意是增量，不是这一步之后出现了多少字。搜索结果很长，不代表搜索动作有功；一条短短的工具调用，可能恰好避免了十步错误。
 
+![Agentic RL 责任分配流程：先记录轨迹，再区分环境事件，最后才把分层信号交给训练](/images/notes/agentic-rl-credit-assignment/credit-flow.svg)
+
+### 用四个字段把“背锅”拆开
+
+一条轨迹至少要把 `state`、`action`、`observation` 和 `event` 分开保存。把它们拼成一段聊天记录，读起来很顺，训练时却无法知道哪一段是模型决定的，哪一段是网页返回的。
+
+```json
+{
+  "step": 7,
+  "state_hash": "s_91c2",
+  "action": {"tool": "search", "query": "..."},
+  "observation": {"status": 200, "doc_ids": ["d17", "d22"]},
+  "event": "TOOL_OK",
+  "next_state_hash": "s_91c3"
+}
+```
+
+`action` 才是策略需要学习的对象；`observation` 是环境给出的事实；`event` 是训练管线用来判断责任边界的证据。字段多一点，会让日志占空间，但能避免把“工具挂了”训练成“模型不该搜索”。
+
 ## 结果奖励为什么会把人逼疯
 
 结果奖励有一个优点：便宜、可复现、目标清楚。数学题最终答案对不对，代码测试过不过，检索问答的引用是否支持结论，都可以先变成回合级分数。
@@ -129,6 +148,48 @@ GRPO 一类方法不单独训练价值模型，而是用同一问题的一组 ro
 
 还有一个判断标准：同一条轨迹由两名标注者复盘，若他们对“哪一步改变了结果”长期分歧很大，说明任务本身还没有足够证据支撑细粒度奖励。此时降低奖励粒度，通常比逼着标注者猜一个 token 归因更诚实。
 
+![反事实动作分支：固定同一状态，替换一个动作，比较最终结果与成本的变化](/images/notes/agentic-rl-credit-assignment/counterfactual-branch.svg)
+
+### 反事实实验的最小实现
+
+先不做复杂的因果模型，可以用一个可重放的环境快照做差分。关键是：三个分支共享同一个 `state_hash`，并由同一版本验收器打分。
+
+```python
+def compare_action(env, state, actions, verify):
+    baseline = None
+    rows = []
+    for action in actions:
+        run = env.replay(state=state, action=action)
+        result = verify(run)
+        row = {
+            "action": action,
+            "score": result.score,
+            "evidence": result.evidence,
+            "cost": run.tool_calls + run.tokens / 1000,
+        }
+        rows.append(row)
+        baseline = baseline or row
+    return [
+        {**row, "delta": row["score"] - baseline["score"]}
+        for row in rows
+    ]
+```
+
+这个 `delta` 仍然不是严格因果效应，因为动作可能改变后续路径；但它比“成功轨迹里的每一步都奖励 1”多了一层证据。若环境无法重放，就把责任写成 `unknown`，不要为了让报表完整而编一个确定答案。
+
+### 什么时候应该降低归因粒度
+
+不是所有任务都适合追到 token。下面这张判断表更实用：
+
+| 任务特征 | 推荐粒度 | 原因 |
+| --- | --- | --- |
+| 工具参数决定成败，环境可重放 | step / action | 可以做替换实验 |
+| 代码 patch 影响多个测试 | patch / 文件 | token 归因会放大噪声 |
+| 网页状态不可稳定重放 | turn / 轨迹 | 先保留事件和人工抽样 |
+| 多 Agent 共享中间产物 | 节点 / 边 | 需要记录依赖关系 |
+
+归因越细，不代表监督越好。粒度应该和证据能力匹配；证据不够时，粗一点反而更稳定。
+
 ## 复现时要锁住哪些东西
 
 credit assignment 的实验特别容易“同名不同物”。今天的环境快照、工具版本、prompt 模板和验收脚本，只要有一个变了，昨天的优势就不能直接拿来比较。轨迹文件至少保存任务 ID、环境版本、策略版本、随机种子、每一步事件和最终 reward 分解；原始工具响应可以压缩保存，但不能只留一个“搜索成功”的摘要。
@@ -144,6 +205,104 @@ credit assignment 的实验特别容易“同名不同物”。今天的环境�
 GraphGPO 又往前走了一步。它不只把 rollout 当成几条独立长文本，而是把多次采样中重复出现的状态和转移聚合成图，再根据边离目标的距离估计相对价值。直觉上，同一个状态如果反复出现，就不该每次都从零猜哪条路径更好。
 
 这些工作没有把工程问题一笔勾销。状态怎么判定相同、工具观察如何归一化、图会不会被环境噪声污染，都会改变结果。它们真正提供的是一个方向：长轨迹的责任不一定只能沿时间顺序平均传播，也可以利用重复状态、反事实动作和结构关系寻找更小的责任单元。
+
+## credit assignment 先做一张“责任三分账”
+
+长轨迹失败时，不能把最终的 0 平均撒给每一步，也不能看到最后一步报错就认定前面的规划都错了。训练前我会把一次 rollout 拆成策略责任、环境事件和验收器事件三类，先完成归因，再决定哪些信号可以进优势估计。
+
+一张最小回执可以这样写：
+
+~~~yaml
+credit_split_receipt: csr_20260820_23
+episode_id: ep_7741
+steps: 18
+policy_fault:
+  - step: 7
+    type: invalid_tool_args
+environment_event:
+  - step: 11
+    type: tool_timeout
+verifier_event:
+  - step: 18
+    type: missing_expected_state
+attribution:
+  policy: 0.35
+  environment: 0.25
+  verifier: 0.40
+training_action:
+  policy_steps: [6, 7, 8]
+  excluded_steps: [11, 18]
+decision: replay_with_fixed_environment
+~~~
+
+策略错误可以进入训练样本，环境超时要进入鲁棒性评测，验收器错误则先修测试或状态检查。三分账不是为了给每类事件精确到小数点，而是防止把基础设施故障和模型决策混成同一种惩罚，导致策略学会回避本来应该完成的任务。
+
+![Agentic RL 责任三分账：策略错误、环境事件和验收器事件分开处理](/images/notes/agentic-rl-credit-assignment/credit-split-card.svg)
+
+### L5：为什么不能把所有失败都当成策略负反馈？
+
+因为超时、外部服务故障和错误验收器并不是策略动作造成的。把它们混进同一个负奖励，会让模型学到“少做事最安全”。我会先固定环境重放，确认责任归属，再把可学习的策略错误交给训练。
+
+## 分账之后再做一次反事实动作替换
+
+责任三分账能告诉我们“这一步属于哪类事件”，但还不能证明某个动作真的造成了结果。对可重放的状态，我会保留原动作，再替换成一个安全的候选动作，比较后续状态和最终 reward。这样得到的不是绝对真理，却比把整条轨迹的结果平均分配给每个 token 更接近可学习信号。
+
+~~~yaml
+counterfactual_credit: cfc_20260820_27
+episode_id: ep_7741
+state_step: 7
+original_action:
+  tool: billing.refund
+  args_digest: sha256:bad...
+  outcome: invalid_args
+counterfactual_action:
+  tool: billing.refund
+  args_digest: sha256:fixed...
+  outcome: accepted
+replay_constraints:
+  environment_version: sandbox-42
+  tool_response_sequence: locked
+  seed: 17
+reward:
+  original: -0.8
+  counterfactual: 0.6
+delta: 1.4
+attribution: policy_step_7_candidate
+training_action: add_pairwise_preference
+~~~
+
+替换实验要限制在无副作用沙箱或已录制的工具响应里；真正的退款、删除和发送消息不能为了估计 reward 去线上重做。若替换动作改变了后续状态，记录完整的分叉轨迹，不要只保留一个分数。对不可重放的步骤，继续沿用 `unknown`，并把它排除在高置信度训练样本之外。
+
+![反事实动作替换：固定状态和工具响应，比较原动作与候选动作的后续 reward](/images/notes/agentic-rl-credit-assignment/counterfactual-credit-card.svg)
+
+### L5：反事实动作比结果奖励更可靠吗？
+
+它只在状态、环境和验收器能稳定重放时提供更强证据，不能自动变成因果真值。我会把它作为高置信度样本的一层，并保留原始轨迹、替换约束和分叉结果；无法满足重放条件时宁可降低权重，也不伪造精确归因。
+
+## credit assignment 还要防“分叉预算不对称”
+
+反事实替换常常比原轨迹多走一步或少一次重试，若不控制预算，reward 差异里就混进了成本和机会差。比较动作时，我会锁住可用步数、工具额度、超时和随机种子；如果候选动作需要额外预算，先把它标成不可比，不直接把更长的搜索当成更好的决策。
+
+```yaml
+counterfactual_budget_match: cbm_20260820_88
+episode_id: ep_7741
+original: {steps: 8, tool_calls: 3, timeout_ms: 2400, seed: 17}
+counterfactual: {steps: 8, tool_calls: 3, timeout_ms: 2400, seed: 17}
+delta:
+  task_reward: 1.1
+  cost_penalty: 0.0
+comparability: pass
+if_budget_mismatch: exclude_from_high_confidence
+training_action: keep_pairwise_signal
+```
+
+![反事实归因预算对齐卡：原动作和替换动作锁住步数、工具额度、超时与随机种子](/images/notes/agentic-rl-credit-assignment/counterfactual-budget-match-card.svg)
+
+### L5：为什么反事实动作多拿到成功也不一定更好？
+
+它可能只是消耗了更多搜索、重试或工具额度。只有在相同预算和环境下比较，reward 差异才主要反映动作选择；预算不对称的分叉应降权或只用于诊断。
+
+![反事实轨迹的归因回放：把动作、观察和结果放回同一条证据链](/images/notes/agentic-rl-react/rollout-attribution-card.svg)
 
 ## 60 秒面试回答
 

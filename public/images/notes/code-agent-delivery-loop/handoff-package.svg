@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="360" viewBox="0 0 1080 360" role="img" aria-labelledby="title desc">
+  <title id="title">Code Agent 交接包</title>
+  <desc id="desc">任务合同、证据图、补丁清单、验证矩阵和未决风险组成可继续执行的交接包。</desc>
+  <rect width="1080" height="360" rx="28" fill="#f7f8f5"/>
+  <text x="54" y="60" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif" font-size="25" font-weight="700" fill="#173f3d">不是一句 pass，而是一份可接手的交接包</text>
+  <g font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif" font-size="15" fill="#173f3d">
+    <g><rect x="54" y="115" width="174" height="104" rx="16" fill="#eaf3f7" stroke="#b9d3df"/><text x="141" y="150" text-anchor="middle" font-size="18" font-weight="700">任务合同</text><text x="141" y="181" text-anchor="middle" font-size="13" fill="#55706b">目标 · 不变式 · 未知</text></g>
+    <g><rect x="247" y="115" width="174" height="104" rx="16" fill="#dfeee8" stroke="#afd0c3"/><text x="334" y="150" text-anchor="middle" font-size="18" font-weight="700">证据图</text><text x="334" y="181" text-anchor="middle" font-size="13" fill="#55706b">入口 · 状态 · 测试</text></g>
+    <g><rect x="440" y="115" width="174" height="104" rx="16" fill="#fff1d9" stroke="#e8c891"/><text x="527" y="150" text-anchor="middle" font-size="18" font-weight="700">补丁清单</text><text x="527" y="181" text-anchor="middle" font-size="13" fill="#55706b">文件 · 依赖 · 回滚</text></g>
+    <g><rect x="633" y="115" width="174" height="104" rx="16" fill="#fae8e1" stroke="#e0b9ae"/><text x="720" y="150" text-anchor="middle" font-size="18" font-weight="700">验证矩阵</text><text x="720" y="181" text-anchor="middle" font-size="13" fill="#55706b">命令 · 样本 · 结果</text></g>
+    <g><rect x="826" y="115" width="200" height="104" rx="16" fill="#173f3d"/><text x="926" y="150" text-anchor="middle" font-size="18" font-weight="700" fill="#fff">未决风险</text><text x="926" y="181" text-anchor="middle" font-size="13" fill="#dbe9e5">负责人 · 下一步</text></g>
+  </g>
+  <path d="M141 254 H939" stroke="#89aaa5" stroke-width="2" stroke-dasharray="7 7"/>
+  <text x="540" y="298" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif" font-size="16" font-weight="700" fill="#365b61">小补丁 → 最短反馈 → 证据摘要 → 可回滚</text>
+</svg>

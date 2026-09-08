@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 360" role="img" aria-labelledby="title desc">
+  <title id="title">视觉切片失败处理矩阵</title>
+  <desc id="desc">不同的视觉输入失败对应放大、重切、去重和人工复核动作。</desc>
+  <rect width="900" height="360" rx="28" fill="#f7f8f5"/>
+  <text x="60" y="64" font-family="sans-serif" font-size="20" font-weight="700" fill="#173f3d">输入症状</text><text x="420" y="64" font-family="sans-serif" font-size="20" font-weight="700" fill="#173f3d">处理动作</text>
+  <path d="M48 82h804" stroke="#c4d2cf" stroke-width="2"/>
+  <g font-family="sans-serif" font-size="17"><text x="60" y="120" fill="#704c20">小字不可读</text><text x="420" y="120" fill="#4c7068">放大 crop，检查目标像素高度</text><text x="60" y="168" fill="#704c20">目标在边缘</text><text x="420" y="168" fill="#4c7068">扩边并限制到页面边界</text><text x="60" y="216" fill="#704c20">两个结果重复</text><text x="420" y="216" fill="#4c7068">按 page + bbox + IoU 去重</text><text x="60" y="264" fill="#704c20">数字冲突</text><text x="420" y="264" fill="#4c7068">重读或人工复核，标记 needs_review</text></g>
+  <path d="M48 286h804" stroke="#c4d2cf" stroke-width="2"/><text x="60" y="324" font-family="sans-serif" font-size="16" fill="#647775">先判断输入链路，再判断模型能力。</text>
+</svg>

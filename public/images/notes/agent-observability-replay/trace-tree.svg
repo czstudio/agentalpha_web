@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 500" role="img" aria-labelledby="title desc">
+  <title id="title">Agent trace tree</title>
+  <desc id="desc">A task trace branches into plan, model, retrieval, tool and evaluation spans.</desc>
+  <rect width="1200" height="500" rx="28" fill="#f7f8f5"/>
+  <text x="60" y="62" font-family="Arial, sans-serif" font-size="27" font-weight="700" fill="#17211d">A useful trace keeps the decision tree</text>
+  <text x="60" y="96" font-family="Arial, sans-serif" font-size="16" fill="#5f6d66">The final answer is only the root outcome; the evidence lives in child spans.</text>
+  <g font-family="Arial, sans-serif">
+    <rect x="465" y="130" width="270" height="66" rx="18" fill="#d8efe7" stroke="#217d6e" stroke-width="3"/>
+    <text x="565" y="159" font-size="20" font-weight="700" fill="#176658">Task</text>
+    <text x="508" y="182" font-size="14" fill="#23423b">goal · tenant · status</text>
+    <path d="M600 196v52M600 248H210v44M600 248h390v44" fill="none" stroke="#6d8c82" stroke-width="3"/>
+    <rect x="90" y="292" width="240" height="76" rx="16" fill="#e7f2ef" stroke="#4d9d8e" stroke-width="3"/>
+    <text x="177" y="324" font-size="19" font-weight="700" fill="#246d60">Plan</text>
+    <text x="125" y="349" font-size="14" fill="#314d47">step · replan · stop</text>
+    <rect x="390" y="292" width="240" height="76" rx="16" fill="#f0eee3" stroke="#b8a766" stroke-width="3"/>
+    <text x="468" y="324" font-size="19" font-weight="700" fill="#7a681d">Action</text>
+    <text x="416" y="349" font-size="14" fill="#514b31">model · tool args</text>
+    <rect x="690" y="292" width="240" height="76" rx="16" fill="#f4e7d9" stroke="#bc8052" stroke-width="3"/>
+    <text x="764" y="324" font-size="19" font-weight="700" fill="#8f5430">Environment</text>
+    <text x="723" y="349" font-size="14" fill="#5a3f31">retrieval · tool result</text>
+    <rect x="990" y="292" width="120" height="76" rx="16" fill="#eeeeee" stroke="#9ba7a1" stroke-width="3"/>
+    <text x="1018" y="324" font-size="18" font-weight="700" fill="#535a56">Eval</text>
+    <text x="1007" y="349" font-size="13" fill="#535a56">evidence</text>
+    <path d="M210 368v44M510 368v44M810 368v44M1050 368v44" stroke="#9ba7a1" stroke-width="2" stroke-dasharray="6 6"/>
+    <g font-size="14" fill="#5f6d66">
+      <text x="145" y="442">为什么这样规划</text>
+      <text x="447" y="442">模型做了什么</text>
+      <text x="750" y="442">外部世界返回什么</text>
+      <text x="1000" y="442">凭什么算成功</text>
+    </g>
+  </g>
+</svg>

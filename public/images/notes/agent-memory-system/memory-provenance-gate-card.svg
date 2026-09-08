@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="390" viewBox="0 0 1080 390">
+  <rect width="1080" height="390" rx="28" fill="#f7f9fc"/>
+  <text x="56" y="58" font-family="Arial, sans-serif" font-size="23" font-weight="700" fill="#14233b">记忆写入门</text>
+  <text x="56" y="86" font-family="Arial, sans-serif" font-size="15" fill="#61708a">曾经说过 ≠ 当前可用，长期记忆需要证据与范围</text>
+  <g font-family="Arial, sans-serif">
+    <rect x="56" y="130" width="200" height="112" rx="18" fill="#e8f0ff" stroke="#9bb8ed"/><text x="80" y="165" font-size="18" font-weight="700" fill="#1f4d9c">Candidate</text><text x="80" y="195" font-size="15" fill="#355071">原始陈述</text><text x="80" y="221" font-size="13" fill="#5b6b80">不要先改写成事实</text>
+    <path d="M258 186H322" stroke="#5979bd" stroke-width="3"/><path d="m312 177 12 9-12 9" fill="none" stroke="#5979bd" stroke-width="3"/>
+    <rect x="324" y="130" width="214" height="112" rx="18" fill="#fff4df" stroke="#e4bd70"/><text x="348" y="165" font-size="18" font-weight="700" fill="#9a6510">Provenance</text><text x="348" y="195" font-size="15" fill="#6f531e">来源 / 定位</text><text x="348" y="221" font-size="13" fill="#7d6b43">scope / valid_until</text>
+    <path d="M540 186H604" stroke="#b8893e" stroke-width="3"/><path d="m594 177 12 9-12 9" fill="none" stroke="#b8893e" stroke-width="3"/>
+    <rect x="606" y="130" width="188" height="112" rx="18" fill="#e7f6ef" stroke="#98cdb1"/><text x="630" y="165" font-size="18" font-weight="700" fill="#197145">Policy gate</text><text x="630" y="195" font-size="15" fill="#35624c">权限 / 置信度</text><text x="630" y="221" font-size="13" fill="#527464">撤销条件</text>
+    <path d="M796 186H860" stroke="#4f9c72" stroke-width="3"/><path d="m850 177 12 9-12 9" fill="none" stroke="#4f9c72" stroke-width="3"/>
+    <rect x="862" y="130" width="162" height="112" rx="18" fill="#f0eaff" stroke="#b8a3e8"/><text x="886" y="165" font-size="18" font-weight="700" fill="#6445ae">Versioned</text><text x="886" y="195" font-size="15" fill="#51436f">写入 / 拒绝</text><text x="886" y="221" font-size="13" fill="#6c5d85">可撤销</text>
+  </g>
+  <line x1="56" y1="283" x2="1024" y2="283" stroke="#dbe2ec"/><text x="56" y="322" font-family="Arial, sans-serif" font-size="15" font-weight="700" fill="#263750">最小字段</text><text x="154" y="322" font-family="Arial, sans-serif" font-size="15" fill="#52627a">source_ref · scope · valid_until · confidence · revoke_if</text>
+</svg>

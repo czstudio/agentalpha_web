@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="390" viewBox="0 0 1080 390" role="img" aria-labelledby="title desc">
+  <title id="title">RAG 路由选择记录</title><desc id="desc">问题类型、候选路径、选择理由、策略约束和结果回放组成路由记录</desc>
+  <rect width="1080" height="390" rx="26" fill="#f7f8f5"/>
+  <text x="52" y="56" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif" font-size="25" font-weight="700" fill="#173f3d">RAG 路由选择记录</text>
+  <text x="52" y="84" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif" font-size="15" fill="#5b7470">不选 RAG 的理由，同样值得回放</text>
+  <g font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif">
+    <rect x="52" y="122" width="178" height="126" rx="17" fill="#eaf3f7" stroke="#b9d3df"/><text x="141" y="157" text-anchor="middle" font-size="17" font-weight="700" fill="#173f3d">问题</text><text x="141" y="191" text-anchor="middle" font-size="13" fill="#48635f">intent</text><text x="141" y="215" text-anchor="middle" font-size="13" fill="#48635f">freshness</text>
+    <rect x="250" y="122" width="178" height="126" rx="17" fill="#fff1d9" stroke="#e8c891"/><text x="339" y="157" text-anchor="middle" font-size="17" font-weight="700" fill="#173f3d">候选</text><text x="339" y="191" text-anchor="middle" font-size="13" fill="#48635f">rag / API</text><text x="339" y="215" text-anchor="middle" font-size="13" fill="#48635f">clarify</text>
+    <rect x="448" y="122" width="178" height="126" rx="17" fill="#dfeee8" stroke="#afd0c3"/><text x="537" y="157" text-anchor="middle" font-size="17" font-weight="700" fill="#173f3d">理由</text><text x="537" y="191" text-anchor="middle" font-size="13" fill="#48635f">结构化状态</text><text x="537" y="215" text-anchor="middle" font-size="13" fill="#48635f">私有与引用</text>
+    <rect x="646" y="122" width="178" height="126" rx="17" fill="#f5d9dc" stroke="#dfb2b9"/><text x="735" y="157" text-anchor="middle" font-size="17" font-weight="700" fill="#173f3d">约束</text><text x="735" y="191" text-anchor="middle" font-size="13" fill="#48635f">tenant</text><text x="735" y="215" text-anchor="middle" font-size="13" fill="#48635f">freshness_max</text>
+    <rect x="844" y="122" width="184" height="126" rx="17" fill="#173f3d"/><text x="936" y="157" text-anchor="middle" font-size="17" font-weight="700" fill="#ffffff">结果</text><text x="936" y="191" text-anchor="middle" font-size="13" fill="#dbe9e5">verified</text><text x="936" y="215" text-anchor="middle" font-size="13" fill="#dbe9e5">replay</text>
+  </g>
+  <path d="M230 185h20M428 185h20M626 185h20M824 185h20" stroke="#7d9a95" stroke-width="3" stroke-linecap="round"/>
+  <rect x="52" y="294" width="976" height="44" rx="14" fill="#e8efeb"/><text x="540" y="322" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif" font-size="15" font-weight="700" fill="#365b61">路由记录把技术选型变成可解释的产品行为</text>
+</svg>

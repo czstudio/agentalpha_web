@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="390" viewBox="0 0 1080 390" role="img" aria-labelledby="title desc">
+  <title id="title">过滤在重排之前</title>
+  <desc id="desc">租户和 ACL 先做硬过滤，新鲜度和来源可信度再进入重排。</desc>
+  <rect width="1080" height="390" rx="28" fill="#F7F4EE"/>
+  <text x="54" y="56" font-family="Arial,'Noto Sans SC',sans-serif" font-size="26" font-weight="700" fill="#193C3A">先过滤，再 rerank</text>
+  <text x="54" y="88" font-family="Arial,'Noto Sans SC',sans-serif" font-size="16" fill="#58706D">让 reranker 只看到“有资格被排序”的候选</text>
+  <g font-family="Arial,'Noto Sans SC',sans-serif" text-anchor="middle">
+    <rect x="54" y="132" width="214" height="126" rx="18" fill="#EAF3F7"/><text x="161" y="172" font-size="19" font-weight="700" fill="#275261">并行召回</text><text x="161" y="207" font-size="15" fill="#52727A">dense + BM25</text><text x="161" y="233" font-size="15" fill="#52727A">80 candidates</text>
+    <rect x="292" y="132" width="214" height="126" rx="18" fill="#F5D9DC"/><text x="399" y="172" font-size="19" font-weight="700" fill="#78454D">硬过滤</text><text x="399" y="207" font-size="15" fill="#855C63">tenant / ACL</text><text x="399" y="233" font-size="15" fill="#855C63">31 candidates</text>
+    <rect x="530" y="132" width="214" height="126" rx="18" fill="#FFF0D6"/><text x="637" y="172" font-size="19" font-weight="700" fill="#875B26">重排特征</text><text x="637" y="207" font-size="15" fill="#6C5632">freshness / trust</text><text x="637" y="233" font-size="15" fill="#6C5632">top-n</text>
+    <rect x="768" y="132" width="260" height="126" rx="18" fill="#DCEBE8"/><text x="898" y="172" font-size="19" font-weight="700" fill="#174F4A">生成前复核</text><text x="898" y="207" font-size="15" fill="#31514E">version + citation</text><text x="898" y="233" font-size="15" fill="#31514E">ACL recheck</text>
+  </g>
+  <g fill="none" stroke="#7D9A95" stroke-width="3" stroke-linecap="round"><path d="M268 195h24"/><path d="M506 195h24"/><path d="M744 195h24"/></g>
+  <rect x="54" y="296" width="974" height="43" rx="14" fill="#E8EFEB"/><text x="76" y="324" font-family="Arial,'Noto Sans SC',sans-serif" font-size="15" fill="#365B61">trace 同时记录过滤前、过滤后和重排后，才能定位候选缺失还是排序退化</text>
+</svg>

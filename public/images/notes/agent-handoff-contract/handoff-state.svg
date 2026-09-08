@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="520" viewBox="0 0 1200 520">
+  <rect width="1200" height="520" fill="#fbfaf7"/>
+  <text x="70" y="68" font-family="Arial,'Noto Sans SC',sans-serif" font-size="28" font-weight="700" fill="#24352f">Handoff 状态机</text>
+  <text x="70" y="103" font-family="Arial,'Noto Sans SC',sans-serif" font-size="17" fill="#718078">不要让自然语言“已完成”跳过提交和对账</text>
+  <g font-family="Arial,'Noto Sans SC',sans-serif" font-size="17" text-anchor="middle">
+    <rect x="70" y="190" width="132" height="58" rx="29" fill="#e8f3ee" stroke="#8fbea8" stroke-width="2"/><text x="136" y="226" fill="#245c4b">created</text>
+    <rect x="260" y="190" width="132" height="58" rx="29" fill="#e9f1f8" stroke="#a2bdd4" stroke-width="2"/><text x="326" y="226" fill="#2d617f">accepted</text>
+    <rect x="450" y="190" width="132" height="58" rx="29" fill="#f2eee2" stroke="#d3b978" stroke-width="2"/><text x="516" y="226" fill="#7f632c">running</text>
+    <rect x="640" y="190" width="132" height="58" rx="29" fill="#e5f1e6" stroke="#94be99" stroke-width="2"/><text x="706" y="226" fill="#356b3d">committed</text>
+    <rect x="640" y="350" width="132" height="58" rx="29" fill="#f8e9e6" stroke="#d9a59b" stroke-width="2"/><text x="706" y="386" fill="#9a4d40">failed</text>
+    <rect x="450" y="350" width="132" height="58" rx="29" fill="#f5eee7" stroke="#d7b08b" stroke-width="2"/><text x="516" y="386" fill="#8e603a">unknown</text>
+    <rect x="260" y="350" width="132" height="58" rx="29" fill="#f3eeee" stroke="#cdb6b6" stroke-width="2"/><text x="326" y="386" fill="#795d5d">expired</text>
+    <rect x="70" y="350" width="132" height="58" rx="29" fill="#f3eeee" stroke="#cdb6b6" stroke-width="2"/><text x="136" y="386" fill="#795d5d">rejected</text>
+  </g>
+  <g fill="none" stroke="#6f8d81" stroke-width="3">
+    <path d="M202 219H250"/><path d="m240 211 12 8-12 8" fill="#6f8d81"/>
+    <path d="M392 219H440"/><path d="m430 211 12 8-12 8" fill="#6f8d81"/>
+    <path d="M582 219H630"/><path d="m620 211 12 8-12 8" fill="#6f8d81"/>
+    <path d="M516 248V340"/><path d="m508 330 8 12 8-12" fill="#6f8d81"/>
+    <path d="M450 379H402"/><path d="m412 371-12 8 12 8" fill="#6f8d81"/>
+    <path d="M260 379H212"/><path d="m222 371-12 8 12 8" fill="#6f8d81"/>
+  </g>
+  <text x="822" y="218" font-family="Arial,'Noto Sans SC',sans-serif" font-size="17" fill="#66766f">commit 必须携带：</text>
+  <text x="822" y="251" font-family="Arial,'Noto Sans SC',sans-serif" font-size="17" fill="#66766f">结果摘要 · evidence_refs</text>
+  <text x="822" y="284" font-family="Arial,'Noto Sans SC',sans-serif" font-size="17" fill="#66766f">trace_id · 版本 · 影响范围</text>
+  <text x="822" y="334" font-family="Arial,'Noto Sans SC',sans-serif" font-size="17" fill="#996c3d">unknown 不能直接重放：</text>
+  <text x="822" y="367" font-family="Arial,'Noto Sans SC',sans-serif" font-size="17" fill="#996c3d">查询幂等状态 → 恢复 / 取消 / 对账</text>
+</svg>

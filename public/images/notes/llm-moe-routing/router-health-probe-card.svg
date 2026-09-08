@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="390" viewBox="0 0 1080 390">
+  <rect width="1080" height="390" rx="28" fill="#f7f9fc"/>
+  <text x="56" y="58" font-family="Arial, sans-serif" font-size="23" font-weight="700" fill="#14233b">Router 健康探针</text>
+  <text x="56" y="86" font-family="Arial, sans-serif" font-size="15" fill="#61708a">概率均衡、实际负载和设备通信必须同时回放</text>
+  <g font-family="Arial, sans-serif">
+    <rect x="56" y="130" width="220" height="116" rx="18" fill="#e8f0ff" stroke="#9bb8ed"/>
+    <text x="82" y="165" font-size="18" font-weight="700" fill="#1f4d9c">Router logits</text>
+    <text x="82" y="195" font-size="15" fill="#355071">entropy / Top-k</text>
+    <text x="82" y="222" font-size="13" fill="#5b6b80">概率看起来均衡吗？</text>
+    <path d="M278 188H342" stroke="#5979bd" stroke-width="3"/><path d="m332 179 12 9-12 9" fill="none" stroke="#5979bd" stroke-width="3"/>
+    <rect x="344" y="130" width="220" height="116" rx="18" fill="#fff4df" stroke="#e4bd70"/>
+    <text x="370" y="165" font-size="18" font-weight="700" fill="#9a6510">Realized load</text>
+    <text x="370" y="195" font-size="15" fill="#6f531e">token count / drop</text>
+    <text x="370" y="222" font-size="13" fill="#7d6b43">实际落点是否热点？</text>
+    <path d="M566 188H630" stroke="#b8893e" stroke-width="3"/><path d="m620 179 12 9-12 9" fill="none" stroke="#b8893e" stroke-width="3"/>
+    <rect x="632" y="130" width="188" height="116" rx="18" fill="#e7f6ef" stroke="#98cdb1"/>
+    <text x="658" y="165" font-size="18" font-weight="700" fill="#197145">Expert output</text>
+    <text x="658" y="195" font-size="15" fill="#35624c">cosine / quality</text>
+    <text x="658" y="222" font-size="13" fill="#527464">专家是否塌缩？</text>
+    <path d="M822 188H886" stroke="#4f9c72" stroke-width="3"/><path d="m876 179 12 9-12 9" fill="none" stroke="#4f9c72" stroke-width="3"/>
+    <rect x="888" y="130" width="134" height="116" rx="18" fill="#f0eaff" stroke="#b8a3e8"/>
+    <text x="910" y="165" font-size="18" font-weight="700" fill="#6445ae">Device</text>
+    <text x="910" y="195" font-size="15" fill="#51436f">P99 / queue</text>
+    <text x="910" y="222" font-size="13" fill="#6c5d85">是否拥塞？</text>
+  </g>
+  <line x1="56" y1="286" x2="1022" y2="286" stroke="#dbe2ec"/>
+  <text x="56" y="326" font-family="Arial, sans-serif" font-size="15" font-weight="700" fill="#263750">切片优先</text>
+  <text x="148" y="326" font-family="Arial, sans-serif" font-size="15" fill="#52627a">代码、工具和普通聊天分别看，不让平均值掩盖热点</text>
+</svg>

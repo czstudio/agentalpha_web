@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="390" viewBox="0 0 1080 390" role="img" aria-labelledby="title desc">
+  <title id="title">Crop 缓存坐标变换</title>
+  <desc id="desc">父图 hash、预处理版本、坐标变换和证据角色共同决定能否复用。</desc>
+  <rect width="1080" height="390" rx="28" fill="#F7F4EE"/>
+  <text x="54" y="56" font-family="Arial,'Noto Sans SC',sans-serif" font-size="26" font-weight="700" fill="#193C3A">Crop 缓存要绑定坐标变换链</text>
+  <text x="54" y="88" font-family="Arial,'Noto Sans SC',sans-serif" font-size="16" fill="#58706D">OCR 相同，不代表引用框仍落在同一块证据上</text>
+  <g font-family="Arial,'Noto Sans SC',sans-serif" text-anchor="middle">
+    <rect x="54" y="132" width="206" height="126" rx="18" fill="#EAF3F7"/><text x="157" y="172" font-size="19" font-weight="700" fill="#275261">父图</text><text x="157" y="207" font-size="15" fill="#52727A">image hash</text><text x="157" y="233" font-size="15" fill="#52727A">ACL / retention</text>
+    <rect x="278" y="132" width="206" height="126" rx="18" fill="#FFF0D6"/><text x="381" y="172" font-size="19" font-weight="700" fill="#875B26">预处理</text><text x="381" y="207" font-size="15" fill="#6C5632">deskew / redact</text><text x="381" y="233" font-size="15" fill="#6C5632">pipeline v2</text>
+    <rect x="502" y="132" width="206" height="126" rx="18" fill="#E5F0ED"/><text x="605" y="172" font-size="19" font-weight="700" fill="#1C615A">回投影</text><text x="605" y="207" font-size="15" fill="#31514E">transform hash</text><text x="605" y="233" font-size="15" fill="#31514E">roundtrip pass</text>
+    <rect x="726" y="132" width="302" height="126" rx="18" fill="#173F3D"/><text x="877" y="182" font-size="19" font-weight="700" fill="#FFFFFF">证据角色</text><text x="877" y="218" font-size="15" fill="#D8EBE5">locator ≠ citation crop</text>
+  </g>
+  <g fill="none" stroke="#7D9A95" stroke-width="3" stroke-linecap="round"><path d="M260 195h18"/><path d="M484 195h18"/><path d="M708 195h18"/></g>
+  <rect x="54" y="296" width="974" height="43" rx="14" fill="#E8EFEB"/><text x="76" y="324" font-family="Arial,'Noto Sans SC',sans-serif" font-size="15" fill="#365B61">任一 hash、坐标系或权限不匹配，直接 cache miss 并重新切片</text>
+</svg>

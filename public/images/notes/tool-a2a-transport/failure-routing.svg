@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="480" viewBox="0 0 1200 480">
+  <rect width="1200" height="480" fill="#fbfaf7"/>
+  <text x="70" y="70" font-family="Arial,'Noto Sans SC',sans-serif" font-size="28" font-weight="700" fill="#24352f">A2A 错误码要能指导恢复</text>
+  <g font-family="Arial,'Noto Sans SC',sans-serif" text-anchor="middle">
+    <rect x="90" y="180" width="190" height="72" rx="36" fill="#f8e9e6" stroke="#d5a199" stroke-width="2"/><text x="185" y="224" font-size="18" fill="#985043">invalid / unauthorized</text>
+    <rect x="365" y="180" width="190" height="72" rx="36" fill="#e9f1f8" stroke="#a6bfd5" stroke-width="2"/><text x="460" y="224" font-size="18" fill="#2d607e">unsupported</text>
+    <rect x="640" y="180" width="190" height="72" rx="36" fill="#f2eee2" stroke="#d2b97a" stroke-width="2"/><text x="735" y="224" font-size="18" fill="#7b612d">retryable</text>
+    <rect x="915" y="180" width="190" height="72" rx="36" fill="#f5eee7" stroke="#d5b08a" stroke-width="2"/><text x="1010" y="224" font-size="18" fill="#8a5d39">unknown_commit</text>
+  </g>
+  <g font-family="Arial,'Noto Sans SC',sans-serif" text-anchor="middle" font-size="16">
+    <text x="185" y="310" fill="#985043">修参数 / 拒绝</text><text x="460" y="310" fill="#2d607e">换能力 / 版本</text><text x="735" y="310" fill="#7b612d">按预算重试</text><text x="1010" y="310" fill="#8a5d39">查状态 / 对账</text>
+  </g>
+  <path d="M185 253V285M460 253V285M735 253V285M1010 253V285" stroke="#8a9a93" stroke-width="3"/>
+</svg>

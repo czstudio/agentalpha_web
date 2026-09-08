@@ -17,6 +17,43 @@ export default function NotesIndexPage() {
   const series = getSeries()
   const learn = getLearnDirectory()
   const totalMinutes = notes.reduce((sum, note) => sum + note.minutes, 0)
+  const seriesCount = (names: string[]) => series
+    .filter((item) => names.includes(item.name))
+    .reduce((total, item) => total + notes.filter((note) => note.seriesNo === item.no).length, 0)
+  const learningRails = [
+    {
+      no: "01",
+      label: "系统骨架",
+      title: "先把 Agent 画成一张能运行的图",
+      description: "从 Agentic RL、架构、Code Agent 到多智能体，理解状态、行动、交接和恢复如何组成闭环。",
+      count: seriesCount(["Agentic RL", "Agent 架构", "Code Agent", "多智能体"]),
+      href: "#series-01",
+    },
+    {
+      no: "02",
+      label: "知识与多模态",
+      title: "让答案有证据，也能看懂世界",
+      description: "从 RAG、Embedding、重排到文档版面和视频时间轴，处理知识变化、空间关系与引用边界。",
+      count: seriesCount(["RAG", "多模态"]),
+      href: "#series-03",
+    },
+    {
+      no: "03",
+      label: "工具与治理",
+      title: "把一次调用变成可审计的动作",
+      description: "契约、MCP、重试、权限和评测共同决定系统是否能在不确定的外部世界里安全运行。",
+      count: seriesCount(["工具调用", "评测"]),
+      href: "#series-09",
+    },
+    {
+      no: "04",
+      label: "模型与表达",
+      title: "从公式推到项目，再讲给面试官",
+      description: "LLM 基础与训练打底，项目深挖和通用表达负责把机制、取舍、证据压缩成可复述答案。",
+      count: seriesCount(["LLM 基础", "LLM 训练", "项目深挖", "通用与软实力", "五厂高频题"]),
+      href: "#series-04",
+    },
+  ]
 
   return (
     <>
@@ -52,13 +89,36 @@ export default function NotesIndexPage() {
           </div>
         </header>
 
-        <section className="aa-notes-index-strip"><div className="aa-notes-shell"><div><Search aria-hidden /><span>先选一个入口</span></div><a href="#series">专题目录</a><a href="#method">学习方法</a><a href="#faq">常见问题</a></div></section>
+        <section className="aa-notes-aris-map" aria-labelledby="aa-notes-aris-title">
+          <div className="aa-notes-shell">
+            <div className="aa-notes-aris-head">
+              <div>
+                <p className="aa-notes-kicker">THREE-COLUMN STUDY MAP · INSPIRED BY ARIS</p>
+                <h2 id="aa-notes-aris-title">一套题，拆成四条能互相喂养的主线。</h2>
+              </div>
+              <p>每篇文章都沿着「基础知识 → 高频追问 → 从零实现」推进，再用项目证据和 60 秒回答收口。先按主线选题，再回到专题目录，不会在名词之间迷路。</p>
+            </div>
+            <div className="aa-notes-aris-rails">
+              {learningRails.map((rail) => (
+                <a href={rail.href} className="aa-notes-aris-rail" key={rail.no}>
+                  <span className="aa-notes-aris-no">{rail.no}</span>
+                  <span className="aa-notes-aris-label">{rail.label}<b>{rail.count} 篇</b></span>
+                  <strong>{rail.title}</strong>
+                  <span className="aa-notes-aris-description">{rail.description}</span>
+                  <span className="aa-notes-aris-link">进入专题 <ArrowRight aria-hidden /></span>
+                </a>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="aa-notes-index-strip"><div className="aa-notes-shell"><div><Search aria-hidden /><span>先选一个入口</span></div><a href="#series-01">专题目录</a><a href="#method">学习方法</a><a href="#faq">常见问题</a></div></section>
 
         {series.map((s) => {
           const seriesNotes = notes.filter((note) => note.seriesNo === s.no)
           if (seriesNotes.length === 0) return null
           return (
-            <section id="series" key={s.no} className={`aa-notes-series aa-notes-series--${s.no}`}>
+            <section id={`series-${s.no}`} key={s.no} className={`aa-notes-series aa-notes-series--${s.no}`}>
               <div className="aa-notes-shell">
                 <div className="aa-notes-series-head">
                   <span className="aa-notes-series-no">{s.no}</span>
@@ -67,6 +127,7 @@ export default function NotesIndexPage() {
                     <h2>{s.title}</h2>
                     <p className="aa-notes-series-desc">{s.description}</p>
                     <div className="aa-notes-series-meta"><span><Layers3 aria-hidden /> {seriesNotes.length} 篇</span><span><BookOpen aria-hidden /> 适合面试前系统复习</span></div>
+                    {s.no === "04" && <div className="aa-notes-series-route" aria-label="LLM 基础五步阅读路径"><span>Attention</span><i>→</i><span>Transformer</span><i>→</i><span>MoE</span><i>→</i><span>KV Cache</span><i>→</i><span>推理优化</span></div>}
                   </div>
                 </div>
                 <div className="aa-notes-grid">

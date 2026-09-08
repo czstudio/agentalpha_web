@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="390" viewBox="0 0 1080 390" role="img" aria-labelledby="title desc">
+  <title id="title">多 Agent 租约 fencing</title>
+  <desc id="desc">旧 worker 的结果可追踪，但只有最新 fencing token 能提交状态。</desc>
+  <rect width="1080" height="390" rx="28" fill="#F7F8F5"/>
+  <text x="54" y="56" font-family="Arial,'Noto Sans SC',sans-serif" font-size="26" font-weight="700" fill="#173F3D">租约 + fencing：挡住旧消费者写入</text>
+  <text x="54" y="88" font-family="Arial,'Noto Sans SC',sans-serif" font-size="16" fill="#5B7470">慢结果可以回放，不能越过最新 owner</text>
+  <g font-family="Arial,'Noto Sans SC',sans-serif" text-anchor="middle">
+    <rect x="54" y="132" width="230" height="126" rx="18" fill="#F5D9DC"/><text x="169" y="172" font-size="19" font-weight="700" fill="#78454D">worker A</text><text x="169" y="207" font-size="15" fill="#855C63">token 18</text><text x="169" y="233" font-size="15" fill="#855C63">stale → reject</text>
+    <rect x="324" y="132" width="230" height="126" rx="18" fill="#FFF0D6"/><text x="439" y="172" font-size="19" font-weight="700" fill="#875B26">租约读取</text><text x="439" y="207" font-size="15" fill="#6C5632">version 19</text><text x="439" y="233" font-size="15" fill="#6C5632">owner = B</text>
+    <rect x="594" y="132" width="230" height="126" rx="18" fill="#E5F0ED"/><text x="709" y="172" font-size="19" font-weight="700" fill="#1C615A">worker B</text><text x="709" y="207" font-size="15" fill="#31514E">token 19</text><text x="709" y="233" font-size="15" fill="#31514E">commit if v18</text>
+    <rect x="864" y="132" width="164" height="126" rx="18" fill="#173F3D"/><text x="946" y="182" font-size="19" font-weight="700" fill="#FFFFFF">状态</text><text x="946" y="218" font-size="15" fill="#D8EBE5">只收最新 token</text>
+  </g>
+  <g fill="none" stroke="#7D9A95" stroke-width="3" stroke-linecap="round"><path d="M284 195h40"/><path d="M554 195h40"/><path d="M824 195h40"/></g>
+  <rect x="54" y="296" width="974" height="43" rx="14" fill="#E8EFEB"/><text x="76" y="324" font-family="Arial,'Noto Sans SC',sans-serif" font-size="15" fill="#365B61">fence token 由状态存储单调生成，旧结果留 trace，不得改写共享状态</text>
+</svg>

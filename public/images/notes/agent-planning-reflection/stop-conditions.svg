@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 500" role="img" aria-labelledby="title desc">
+  <title id="title">Agent stop conditions</title>
+  <desc id="desc">Agent tasks stop on success, failure or budget limits and then return a clear outcome.</desc>
+  <rect width="1200" height="500" rx="28" fill="#f7f8f5"/>
+  <text x="60" y="62" font-family="Arial, sans-serif" font-size="27" font-weight="700" fill="#17211d">Every loop needs three exits</text>
+  <text x="60" y="96" font-family="Arial, sans-serif" font-size="16" fill="#5f6d66">No stop condition means the system will eventually pay for an answer it cannot verify.</text>
+  <rect x="78" y="190" width="250" height="110" rx="20" fill="#d8efe7" stroke="#217d6e" stroke-width="3"/>
+  <text x="162" y="234" font-family="Arial, sans-serif" font-size="23" font-weight="700" fill="#176658">成功停止</text>
+  <text x="116" y="266" font-family="Arial, sans-serif" font-size="15" fill="#23423b">验收通过 + 约束满足</text>
+  <path d="M328 245h110" stroke="#6d8c82" stroke-width="3" marker-end="url(#arrow)"/>
+  <rect x="438" y="190" width="250" height="110" rx="20" fill="#f4e7d9" stroke="#bc8052" stroke-width="3"/>
+  <text x="518" y="234" font-family="Arial, sans-serif" font-size="23" font-weight="700" fill="#8f5430">失败停止</text>
+  <text x="480" y="266" font-family="Arial, sans-serif" font-size="15" fill="#5a3f31">根因上限 / 权限 / 矛盾</text>
+  <path d="M688 245h110" stroke="#6d8c82" stroke-width="3" marker-end="url(#arrow)"/>
+  <rect x="798" y="190" width="250" height="110" rx="20" fill="#f0eee3" stroke="#b8a766" stroke-width="3"/>
+  <text x="860" y="234" font-family="Arial, sans-serif" font-size="23" font-weight="700" fill="#7a681d">预算停止</text>
+  <text x="840" y="266" font-family="Arial, sans-serif" font-size="15" fill="#514b31">时间 / token / 工具费用</text>
+  <rect x="270" y="365" width="660" height="56" rx="16" fill="#ffffff" stroke="#d5ddd8"/>
+  <text x="318" y="400" font-family="Arial, sans-serif" font-size="16" fill="#5f6d66">出口动作：转人工 · 请求澄清 · 交付部分结果 · 输出失败 trace</text>
+  <defs><marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto"><path d="M0,0 L10,3 L0,6 z" fill="#6d8c82"/></marker></defs>
+</svg>

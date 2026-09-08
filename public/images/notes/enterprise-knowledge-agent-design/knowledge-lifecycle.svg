@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 340" role="img" aria-labelledby="title desc">
+  <title id="title">知识生命周期</title>
+  <desc id="desc">文档从发现到发布、替换和删除，所有阶段都可回滚和审计。</desc>
+  <rect width="1080" height="340" rx="28" fill="#f7f8f5"/>
+  <g font-family="sans-serif" text-anchor="middle">
+    <rect x="42" y="116" width="154" height="90" rx="17" fill="#eaf3f7" stroke="#b9d3df"/><text x="119" y="151" font-size="18" font-weight="700" fill="#24556a">发现</text><text x="119" y="180" font-size="13" fill="#5a737d">source + owner</text>
+    <rect x="232" y="116" width="154" height="90" rx="17" fill="#dfeee8" stroke="#afd0c3"/><text x="309" y="151" font-size="18" font-weight="700" fill="#173f3d">解析切分</text><text x="309" y="180" font-size="13" fill="#52706b">parser + chunks</text>
+    <rect x="422" y="116" width="154" height="90" rx="17" fill="#fff1d9" stroke="#e8c891"/><text x="499" y="151" font-size="18" font-weight="700" fill="#704c20">权限同步</text><text x="499" y="180" font-size="13" fill="#856a42">ACL + version</text>
+    <rect x="612" y="116" width="154" height="90" rx="17" fill="#fae8e1" stroke="#e0b9ae"/><text x="689" y="151" font-size="18" font-weight="700" fill="#753f32">索引校验</text><text x="689" y="180" font-size="13" fill="#8c5d51">recall + cite</text>
+    <rect x="802" y="116" width="154" height="90" rx="17" fill="#173f3d"/><text x="879" y="151" font-size="18" font-weight="700" fill="#fff">发布 / 失效</text><text x="879" y="180" font-size="13" fill="#dfeee8">switch + rollback</text>
+  </g>
+  <g fill="none" stroke="#86a59d" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M196 161h36l-9-7m9 7-9 7"/><path d="M386 161h36l-9-7m9 7-9 7"/><path d="M576 161h36l-9-7m9 7-9 7"/><path d="M766 161h36l-9-7m9 7-9 7"/></g>
+  <path d="M878 222c0 40-150 52-315 52s-315-12-315-52" fill="none" stroke="#b9d3df" stroke-width="3" stroke-dasharray="8 8"/>
+  <text x="563" y="312" font-family="sans-serif" text-anchor="middle" font-size="14" fill="#5a737d">每一步保留 job_id、版本、哈希与回滚点</text>
+</svg>

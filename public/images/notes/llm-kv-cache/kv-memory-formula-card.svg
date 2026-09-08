@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="390" viewBox="0 0 1080 390">
+  <rect width="1080" height="390" rx="28" fill="#f7f9fc"/>
+  <text x="56" y="58" font-family="Arial, sans-serif" font-size="23" font-weight="700" fill="#14233b">KV 显存公式审计</text>
+  <text x="56" y="86" font-family="Arial, sans-serif" font-size="15" fill="#61708a">先算有效元素，再解释线上水位与碎片</text>
+  <rect x="56" y="124" width="968" height="84" rx="18" fill="#e8f0ff" stroke="#9bb8ed"/>
+  <text x="84" y="177" font-family="Georgia, serif" font-size="27" font-weight="700" fill="#1f4d9c">M<tspan baseline-shift="sub" font-size="17">KV</tspan> ≈ 2 × L × B × T × H<tspan baseline-shift="sub" font-size="17">KV</tspan> × d<tspan baseline-shift="sub" font-size="17">h</tspan> × b</text>
+  <g font-family="Arial, sans-serif" font-size="14" fill="#52627a">
+    <text x="72" y="248">2 = K/V</text><text x="202" y="248">L = layers</text><text x="354" y="248">B = active sequences</text><text x="568" y="248">T = context tokens</text><text x="760" y="248">H<tspan baseline-shift="sub" font-size="10">KV</tspan> = KV heads</text><text x="928" y="248">b = bytes</text>
+  </g>
+  <line x1="56" y1="276" x2="1024" y2="276" stroke="#dbe2ec"/>
+  <g font-family="Arial, sans-serif">
+    <rect x="56" y="300" width="286" height="48" rx="14" fill="#e7f6ef"/><text x="76" y="330" font-size="15" font-weight="700" fill="#197145">公式值</text><text x="164" y="330" font-size="15" fill="#35624c">有效 K/V 元素</text>
+    <rect x="374" y="300" width="286" height="48" rx="14" fill="#fff4df"/><text x="394" y="330" font-size="15" font-weight="700" fill="#9a6510">线上值</text><text x="482" y="330" font-size="15" fill="#6f531e">padding + workspace</text>
+    <rect x="692" y="300" width="332" height="48" rx="14" fill="#f0eaff"/><text x="712" y="330" font-size="15" font-weight="700" fill="#6445ae">容量门禁</text><text x="816" y="330" font-size="15" fill="#51436f">水位 + 准入 + 降级</text>
+  </g>
+</svg>

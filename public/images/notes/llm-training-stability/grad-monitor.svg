@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 370" role="img" aria-labelledby="title desc">
+  <title id="title">训练梯度监控</title>
+  <desc id="desc">训练时同时监控 loss、梯度范数、overflow 和被跳过的 batch，判断是正常噪声还是数值失稳。</desc>
+  <rect width="1200" height="370" rx="28" fill="#f7f8f5"/>
+  <text x="58" y="58" fill="#1d1d1f" font-family="Arial, sans-serif" font-size="25" font-weight="700">梯度监控不是一根曲线</text>
+  <text x="58" y="88" fill="#6b6e70" font-family="Arial, sans-serif" font-size="16">把异常步和 offending batch 绑定，才能从“爆炸”回到可修复样本</text>
+  <g font-family="Arial, sans-serif">
+    <rect x="70" y="140" width="220" height="145" rx="16" fill="#e6f1ed" stroke="#9bc9bc"/><text x="180" y="178" text-anchor="middle" fill="#247a6b" font-size="17" font-weight="700">loss</text><text x="180" y="211" text-anchor="middle" fill="#1d1d1f" font-size="14">train / valid</text><text x="180" y="243" text-anchor="middle" fill="#6b6e70" font-size="14">目标是否在改善</text>
+    <rect x="350" y="140" width="220" height="145" rx="16" fill="#ffffff" stroke="#dfe4df"/><text x="460" y="178" text-anchor="middle" fill="#1d1d1f" font-size="17" font-weight="700">grad norm</text><text x="460" y="211" text-anchor="middle" fill="#6b6e70" font-size="14">before / after clip</text><text x="460" y="243" text-anchor="middle" fill="#6b6e70" font-size="14">是否步步被裁剪</text>
+    <rect x="630" y="140" width="220" height="145" rx="16" fill="#fff5e8" stroke="#e5c98f"/><text x="740" y="178" text-anchor="middle" fill="#9b6b21" font-size="17" font-weight="700">overflow</text><text x="740" y="211" text-anchor="middle" fill="#1d1d1f" font-size="14">AMP scaler / NaN</text><text x="740" y="243" text-anchor="middle" fill="#6b6e70" font-size="14">是否跳过异常步</text>
+    <rect x="910" y="140" width="220" height="145" rx="16" fill="#ffffff" stroke="#dfe4df"/><text x="1020" y="178" text-anchor="middle" fill="#247a6b" font-size="17" font-weight="700">batch ID</text><text x="1020" y="211" text-anchor="middle" fill="#1d1d1f" font-size="14">样本 / 长度 / 标签</text><text x="1020" y="243" text-anchor="middle" fill="#6b6e70" font-size="14">异常可以回放</text>
+    <path d="M300 212 H340 M580 212 H620 M860 212 H900" stroke="#247a6b" stroke-width="2"/><text x="320" y="193" fill="#247a6b" font-size="21">→</text><text x="600" y="193" fill="#247a6b" font-size="21">→</text><text x="880" y="193" fill="#247a6b" font-size="21">→</text>
+  </g>
+</svg>

@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="390" viewBox="0 0 1080 390" role="img" aria-labelledby="title desc">
+  <title id="title">临时能力授予单</title><desc id="desc">临时权限绑定能力范围、期限、审批人和自动撤销</desc>
+  <rect width="1080" height="390" rx="26" fill="#f7f8f5"/>
+  <text x="52" y="56" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif" font-size="25" font-weight="700" fill="#173f3d">临时能力授予单</text>
+  <text x="52" y="84" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif" font-size="15" fill="#5b7470">一次审批只覆盖明确能力、范围和时间窗口</text>
+  <g font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif">
+    <rect x="52" y="122" width="220" height="126" rx="17" fill="#eaf3f7" stroke="#b9d3df"/><text x="162" y="157" text-anchor="middle" font-size="17" font-weight="700" fill="#173f3d">能力</text><text x="162" y="191" text-anchor="middle" font-size="13" fill="#48635f">network.fetch</text><text x="162" y="215" text-anchor="middle" font-size="13" fill="#48635f">GET only</text>
+    <rect x="292" y="122" width="220" height="126" rx="17" fill="#fff1d9" stroke="#e8c891"/><text x="402" y="157" text-anchor="middle" font-size="17" font-weight="700" fill="#173f3d">范围</text><text x="402" y="191" text-anchor="middle" font-size="13" fill="#48635f">registry.npmjs.org</text><text x="402" y="215" text-anchor="middle" font-size="13" fill="#48635f">operation: command-17</text>
+    <rect x="532" y="122" width="220" height="126" rx="17" fill="#dfeee8" stroke="#afd0c3"/><text x="642" y="157" text-anchor="middle" font-size="17" font-weight="700" fill="#173f3d">期限</text><text x="642" y="191" text-anchor="middle" font-size="13" fill="#48635f">expires_at 23:40</text><text x="642" y="215" text-anchor="middle" font-size="13" fill="#48635f">任务完成自动撤销</text>
+    <rect x="772" y="122" width="256" height="126" rx="17" fill="#173f3d"/><text x="900" y="157" text-anchor="middle" font-size="17" font-weight="700" fill="#ffffff">审计</text><text x="900" y="191" text-anchor="middle" font-size="13" fill="#dbe9e5">approver: @owner-a</text><text x="900" y="215" text-anchor="middle" font-size="13" fill="#dbe9e5">revoked: false</text>
+  </g>
+  <path d="M272 185h20M512 185h20M752 185h20" stroke="#7d9a95" stroke-width="3" stroke-linecap="round"/>
+  <rect x="52" y="294" width="976" height="44" rx="14" fill="#e8efeb"/><text x="540" y="322" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif" font-size="15" font-weight="700" fill="#365b61">每次调用前重查授予单，超时、完成或风险变化即撤销</text>
+</svg>

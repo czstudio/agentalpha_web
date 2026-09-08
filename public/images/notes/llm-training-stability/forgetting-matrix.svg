@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 400" role="img" aria-labelledby="title desc">
+  <title id="title">训练稳定性排查矩阵</title>
+  <desc id="desc">从数据、目标、优化、评测四个方向排查训练异常。</desc>
+  <rect width="1200" height="400" rx="28" fill="#f7f8f5"/>
+  <text x="58" y="58" fill="#1d1d1f" font-family="Arial, sans-serif" font-size="25" font-weight="700">排查先分层，别把所有异常叫过拟合</text>
+  <g font-family="Arial, sans-serif" font-size="15">
+    <rect x="80" y="135" width="245" height="170" rx="14" fill="#ffffff" stroke="#dfe4df"/><text x="202" y="170" text-anchor="middle" fill="#1d1d1f" font-weight="700">数据</text><text x="110" y="205" fill="#6b6e70">重复 / 泄漏 / 难例缺失</text><text x="110" y="232" fill="#6b6e70">切分是否按事件隔离</text><text x="110" y="270" fill="#247a6b">看来源、近重复和版本</text>
+    <rect x="355" y="135" width="245" height="170" rx="14" fill="#ffffff" stroke="#dfe4df"/><text x="477" y="170" text-anchor="middle" fill="#1d1d1f" font-weight="700">目标</text><text x="385" y="205" fill="#6b6e70">mask / label / reward</text><text x="385" y="232" fill="#6b6e70">监督信号是否错位</text><text x="385" y="270" fill="#247a6b">做 token 与样本抽检</text>
+    <rect x="630" y="135" width="245" height="170" rx="14" fill="#ffffff" stroke="#dfe4df"/><text x="752" y="170" text-anchor="middle" fill="#1d1d1f" font-weight="700">优化</text><text x="660" y="205" fill="#6b6e70">学习率 / batch / epochs</text><text x="660" y="232" fill="#6b6e70">梯度和长度是否稳定</text><text x="660" y="270" fill="#247a6b">看曲线和 checkpoint</text>
+    <rect x="905" y="135" width="215" height="170" rx="14" fill="#e6f1ed" stroke="#9bc9bc"/><text x="1012" y="170" text-anchor="middle" fill="#1d1d1f" font-weight="700">评测</text><text x="930" y="205" fill="#6b6e70">采样 / rubric / 解码</text><text x="930" y="232" fill="#6b6e70">是否真的测到目标</text><text x="930" y="270" fill="#247a6b">固定集 + bad case</text>
+  </g>
+</svg>

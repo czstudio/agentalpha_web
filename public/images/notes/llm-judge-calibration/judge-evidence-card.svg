@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="390" viewBox="0 0 1080 390" role="img" aria-labelledby="title desc">
+  <title id="title">Judge 证据卡</title><desc id="desc">评分、观察、证据、置信度和转人工原因组成可审计的 Judge 证据卡</desc>
+  <rect width="1080" height="390" rx="26" fill="#f7f8f5"/>
+  <text x="52" y="56" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif" font-size="25" font-weight="700" fill="#173f3d">Judge 证据卡：分数不等于事实</text>
+  <text x="52" y="84" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif" font-size="15" fill="#5b7470">把“打了几分”和“凭什么放行”拆开保存</text>
+  <g font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif">
+    <rect x="52" y="122" width="166" height="126" rx="17" fill="#eaf3f7" stroke="#b9d3df"/><text x="135" y="157" text-anchor="middle" font-size="17" font-weight="700" fill="#173f3d">样本</text><text x="135" y="191" text-anchor="middle" font-size="13" fill="#48635f">qa-184</text><text x="135" y="215" text-anchor="middle" font-size="13" fill="#48635f">答案已匿名</text>
+    <rect x="238" y="122" width="166" height="126" rx="17" fill="#fff1d9" stroke="#e8c891"/><text x="321" y="157" text-anchor="middle" font-size="17" font-weight="700" fill="#173f3d">观察</text><text x="321" y="191" text-anchor="middle" font-size="13" fill="#48635f">引用 2/3 claim</text><text x="321" y="215" text-anchor="middle" font-size="13" fill="#48635f">遗漏限制条件</text>
+    <rect x="424" y="122" width="166" height="126" rx="17" fill="#dfeee8" stroke="#afd0c3"/><text x="507" y="157" text-anchor="middle" font-size="17" font-weight="700" fill="#173f3d">证据</text><text x="507" y="191" text-anchor="middle" font-size="13" fill="#48635f">c2 · c5</text><text x="507" y="215" text-anchor="middle" font-size="13" fill="#48635f">可回到片段</text>
+    <rect x="610" y="122" width="166" height="126" rx="17" fill="#f5d9dc" stroke="#dfb2b9"/><text x="693" y="157" text-anchor="middle" font-size="17" font-weight="700" fill="#173f3d">置信度</text><text x="693" y="191" text-anchor="middle" font-size="13" fill="#48635f">0.62</text><text x="693" y="215" text-anchor="middle" font-size="13" fill="#48635f">低于自动门槛</text>
+    <rect x="796" y="122" width="232" height="126" rx="17" fill="#173f3d"/><text x="912" y="157" text-anchor="middle" font-size="17" font-weight="700" fill="#ffffff">动作</text><text x="912" y="191" text-anchor="middle" font-size="13" fill="#dbe9e5">needs_human = true</text><text x="912" y="215" text-anchor="middle" font-size="13" fill="#dbe9e5">fingerprint 固定版本</text>
+  </g>
+  <path d="M218 185h20M404 185h20M590 185h20M776 185h20" stroke="#7d9a95" stroke-width="3" stroke-linecap="round"/>
+  <rect x="52" y="294" width="976" height="44" rx="14" fill="#e8efeb"/><text x="540" y="322" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif" font-size="15" font-weight="700" fill="#365b61">理由用于定位，证据用于放行；高风险样本默认可转人工</text>
+</svg>

@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 390" role="img" aria-labelledby="title desc">
+  <title id="title">多 Agent 五层评测</title>
+  <desc id="desc">从任务结果下钻到个体产物、协作过程、资源效率和安全恢复。</desc>
+  <rect width="900" height="390" rx="28" fill="#f7f8f5"/>
+  <g font-family="sans-serif">
+    <rect x="72" y="38" width="756" height="56" rx="15" fill="#dfeee8"/><text x="104" y="74" font-size="19" font-weight="700" fill="#173f3d">01 任务结果</text><text x="330" y="74" font-size="15" fill="#52706b">成功率 · 正确率 · 约束满足</text>
+    <rect x="116" y="106" width="668" height="56" rx="15" fill="#eaf3f7"/><text x="148" y="142" font-size="19" font-weight="700" fill="#24556a">02 个体产物</text><text x="378" y="142" font-size="15" fill="#5a737d">schema · 引用 · 计算复核</text>
+    <rect x="160" y="174" width="580" height="56" rx="15" fill="#fff1d9"/><text x="192" y="210" font-size="19" font-weight="700" fill="#704c20">03 协作过程</text><text x="422" y="210" font-size="15" fill="#856a42">消息 · 状态 · 冲突 · 合并</text>
+    <rect x="204" y="242" width="492" height="56" rx="15" fill="#f0eee8"/><text x="236" y="278" font-size="19" font-weight="700" fill="#4b514e">04 资源效率</text><text x="466" y="278" font-size="15" fill="#68706c">P95 · token · 扇出 · 成本</text>
+    <rect x="248" y="310" width="404" height="48" rx="15" fill="#fae8e1"/><text x="280" y="341" font-size="18" font-weight="700" fill="#753f32">05 安全恢复</text><text x="470" y="341" font-size="14" fill="#845a50">拦截 · 回滚 · 升级</text>
+  </g>
+</svg>

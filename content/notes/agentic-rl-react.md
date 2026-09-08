@@ -236,6 +236,39 @@ Agent 项目能跑，不等于该训。
 
 图 6：如果验证器、环境和回放能力还没准备好，先补基础设施，通常比换算法更快得到有效信息。
 
+## Rollout 还要分清“策略错”和“环境坏”
+
+多步任务失败时，最后只留一个 reward=-1，会把两类完全不同的问题混在一起：模型可能真的选错了工具，也可能只是搜索服务 500、容器启动超时或观测被截断。训练前先为每一步保留归因字段：
+
+~~~yaml
+rollout_attribution: ra_20260820_13
+episode_id: ep_771
+step: 4
+action:
+  tool: search_docs
+  args: {query: "报销制度 2026"}
+observation:
+  status: timeout
+  latency_ms: 3000
+env_status:
+  service: degraded
+  retryable: true
+policy_error: false
+infra_error: true
+reward:
+  task: null
+  attribution: environment
+replay: keep_for_infra_regression
+~~~
+
+如果工具返回 500 或环境超时，先按可重试的环境错误处理，不能直接把这一步当成策略负样本；如果模型在健康环境里反复选择无权限工具、忽略必要证据或过早停止，才进入策略归因。回放时同时报告策略错误率、环境错误率和未知归因率，未知率过高就先修观测和日志，不要急着扩大训练。
+
+![Rollout 归因卡把动作、观测、环境状态和策略责任拆开，避免把基础设施故障学成负策略](/images/notes/agentic-rl-react/rollout-attribution-card.svg)
+
+## L5：为什么不能把所有环境失败都记成 0 分？
+
+因为那会教模型“遇到服务器坏就怪自己”，同时掩盖真正的策略问题。环境错误要可重试、可回放、可单独统计；只有在环境健康且动作违反任务约束时，负奖励才代表策略需要修正。
+
 ## 面试官真正想听到的项目细节
 
 如果简历写“完成 Agentic RL 训练”，最好能拿出一条完整样本讲清楚，而不是背算法定义。
@@ -245,6 +278,60 @@ Agent 项目能跑，不等于该训。
 这一段已经覆盖了动作边界、奖励、故障隔离、复现和业务指标。面试官可以不同意你的参数，但很难说你没做过。
 
 反过来，如果回答只有“用了 GRPO，reward 上涨 20%”，问题会很多。什么 reward？和什么基线比？任务成功率涨没涨？训练样本是否泄漏？搜索服务故障怎么算？一问就散。
+
+## Rollout 预算要同时约束探索和副作用
+
+Agentic RL 的 rollout 不是“让模型多试几次”这么简单。每次工具调用都有延迟、token 和副作用风险；如果只按最终 reward 采样，策略可能学会无限搜索、重复调用或绕过昂贵的校验。训练前先给每条轨迹写预算账本，并把探索、重试和写操作分开统计。
+
+```json
+{
+  "rollout_id": "ro_20260820_44",
+  "task": "refund_policy_lookup",
+  "budgets": {"steps": 8, "tool_calls": 4, "vision_tokens": 12000, "write_actions": 0},
+  "events": [
+    {"step": 1, "action": "search", "cost_ms": 180, "evidence_gain": 0.42},
+    {"step": 2, "action": "open_doc", "cost_ms": 260, "evidence_gain": 0.31},
+    {"step": 3, "action": "search_duplicate", "cost_ms": 190, "evidence_gain": 0.01}
+  ],
+  "stop_reason": "marginal_evidence_gain_below_threshold",
+  "side_effect_guard": "dry_run"
+}
+```
+
+`evidence_gain` 让训练数据看见“这一步带来了什么”，`stop_reason` 则把过早停止、预算耗尽和边际收益过低区分开。对写操作任务，训练环境必须先用 dry-run 或隔离租户，不能为了得到一个 reward 真的退款、发邮件或修改生产数据。只有当 rollout 回执、环境版本和验收证据都齐全时，轨迹才进入策略更新。
+
+![Agentic RL 的 rollout 同时记录探索收益、工具成本、停止原因和副作用边界](/images/notes/agentic-rl-react/rollout-budget-card.svg)
+
+### L5：为什么工具调用次数不能直接当作负奖励？
+
+不同任务需要的工具次数不同，简单惩罚会让模型在真正需要检索时过早停止。更合理的是把调用成本、证据增益、失败类型和任务风险一起看；当边际收益持续接近零，或触碰副作用边界时再触发停止或人工接管。
+
+## rollout 预算还要给“最后一步”留余量
+
+如果模型把全部步数和工具额度用在探索上，最后可能没有预算整理证据、提交结果或安全收尾。预算策略应预留一个最小终止余量：当剩余步数不足以完成提交或澄清时，提前停止继续搜索，转入总结、拒答或人工接管。这样“探索很积极”不会变成“永远交不出结果”。
+
+```yaml
+terminal_reserve_policy: trp_20260820_89
+budgets:
+  max_steps: 8
+  max_tool_calls: 4
+reserve:
+  min_steps_for_finalize: 2
+  min_tool_calls_for_commit: 1
+routes:
+  reserve_reached: summarize_or_clarify
+  write_task_without_reserve: block
+metrics:
+  premature_stop_rate: 0.06
+  unfinished_after_budget: 0.03
+decision: keep_terminal_reserve
+```
+
+![Agentic RL 终止余量卡：探索预算之外，为总结、澄清和安全提交预留最后一步](/images/notes/agentic-rl-react/terminal-reserve-card.svg)
+
+### L5：为什么达到最大步数时不能直接截断？
+
+截断可能丢掉最终证据整理和提交动作，模型会把“预算耗尽”误学成自然终止。保留终止余量并标记预算原因，才能把探索不足、环境失败和真正完成区分开。
 
 ## 60 秒面试回答
 

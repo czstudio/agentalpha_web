@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 390" role="img" aria-labelledby="title desc">
+  <title id="title">知识库权限证据回放</title>
+  <desc id="desc">身份快照经过策略过滤后生成可回放的答案引用</desc>
+  <rect width="1080" height="390" rx="28" fill="#f7f8f5"/>
+  <text x="56" y="56" font-family="Arial,sans-serif" font-size="26" font-weight="700" fill="#173f3d">Evidence replay</text>
+  <text x="56" y="84" font-family="Arial,sans-serif" font-size="15" fill="#58716e">identity、policy、candidate、citation 必须在同一条 trace 上</text>
+  <g font-family="Arial,sans-serif" font-size="16" fill="#173f3d">
+    <rect x="56" y="132" width="210" height="112" rx="18" fill="#eaf3f7" stroke="#b9d3df"/><text x="82" y="168">identity</text><text x="82" y="202">tenant · groups</text><text x="82" y="226">purpose · snapshot</text>
+    <rect x="306" y="132" width="210" height="112" rx="18" fill="#fff1d9" stroke="#e8c891"/><text x="332" y="168">policy</text><text x="332" y="202">version · filters</text><text x="332" y="226">deny by default</text>
+    <rect x="556" y="132" width="210" height="112" rx="18" fill="#dfeee8" stroke="#afd0c3"/><text x="582" y="168">evidence</text><text x="582" y="202">visible chunks</text><text x="582" y="226">page · version</text>
+    <rect x="806" y="132" width="218" height="112" rx="18" fill="#173f3d"/><text x="832" y="168" fill="#f7f8f5">answer</text><text x="832" y="202" fill="#dfeee8">claim → source</text><text x="832" y="226" fill="#dfeee8">replayable</text>
+  </g>
+  <g stroke="#79908c" stroke-width="3" fill="none" stroke-linecap="round"><path d="M266 188h40"/><path d="M516 188h40"/><path d="M766 188h40"/></g>
+  <rect x="56" y="296" width="968" height="50" rx="15" fill="#182033"/><text x="540" y="328" font-family="monospace" font-size="15" text-anchor="middle" fill="#f7f8f5">same question + changed identity → only authorized evidence may change</text>
+</svg>

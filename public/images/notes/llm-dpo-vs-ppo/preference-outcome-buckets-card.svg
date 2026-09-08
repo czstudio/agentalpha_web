@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="390" viewBox="0 0 1080 390" role="img" aria-labelledby="title desc">
+  <title id="title">DPO 偏好结果分桶</title>
+  <desc id="desc">按工具结果、代码测试、引用版本和拒答边界分层评估偏好数据。</desc>
+  <rect width="1080" height="390" rx="28" fill="#F7F4EE"/>
+  <text x="54" y="56" font-family="Arial,'Noto Sans SC',sans-serif" font-size="26" font-weight="700" fill="#193C3A">DPO 偏好要绑定任务结果</text>
+  <text x="54" y="88" font-family="Arial,'Noto Sans SC',sans-serif" font-size="16" fill="#58706D">文案更顺，不等于 Agent 做对了事</text>
+  <g font-family="Arial,'Noto Sans SC',sans-serif" text-anchor="middle">
+    <rect x="54" y="132" width="180" height="126" rx="18" fill="#EAF3F7"/><text x="144" y="172" font-size="18" font-weight="700" fill="#275261">文本</text><text x="144" y="208" font-size="15" fill="#52727A">事实 / 风格</text><text x="144" y="234" font-size="15" fill="#52727A">20%</text>
+    <rect x="254" y="132" width="180" height="126" rx="18" fill="#E5F0ED"/><text x="344" y="172" font-size="18" font-weight="700" fill="#1C615A">工具</text><text x="344" y="208" font-size="15" fill="#31514E">receipt / state</text><text x="344" y="234" font-size="15" fill="#31514E">30%</text>
+    <rect x="454" y="132" width="180" height="126" rx="18" fill="#FFF0D6"/><text x="544" y="172" font-size="18" font-weight="700" fill="#875B26">代码</text><text x="544" y="208" font-size="15" fill="#6C5632">tests / diff</text><text x="544" y="234" font-size="15" fill="#6C5632">20%</text>
+    <rect x="654" y="132" width="180" height="126" rx="18" fill="#F5D9DC"/><text x="744" y="172" font-size="18" font-weight="700" fill="#78454D">RAG</text><text x="744" y="208" font-size="15" fill="#855C63">citation / version</text><text x="744" y="234" font-size="15" fill="#855C63">20%</text>
+    <rect x="854" y="132" width="174" height="126" rx="18" fill="#173F3D"/><text x="941" y="172" font-size="18" font-weight="700" fill="#FFFFFF">边界</text><text x="941" y="208" font-size="15" fill="#D8EBE5">ACL / risk</text><text x="941" y="234" font-size="15" fill="#D8EBE5">10%</text>
+  </g>
+  <g fill="none" stroke="#7D9A95" stroke-width="3" stroke-linecap="round"><path d="M234 195h20"/><path d="M434 195h20"/><path d="M634 195h20"/><path d="M834 195h20"/></g>
+  <rect x="54" y="296" width="974" height="43" rx="14" fill="#E8EFEB"/><text x="76" y="324" font-family="Arial,'Noto Sans SC',sans-serif" font-size="15" fill="#365B61">按 bucket 报告胜率、事实、安全和长度，避免简单文本题掩盖 Agent 退化</text>
+</svg>

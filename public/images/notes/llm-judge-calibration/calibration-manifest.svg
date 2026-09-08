@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="360" viewBox="0 0 1080 360" role="img" aria-labelledby="title desc">
+  <title id="title">LLM Judge 校准实验指纹</title>
+  <desc id="desc">固定模型、rubric、样本和随机种子，在人工金样上测偏差并按风险设定放行阈值。</desc>
+  <rect width="1080" height="360" rx="28" fill="#f7f8f5"/>
+  <text x="54" y="58" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif" font-size="25" font-weight="700" fill="#173f3d">校准实验指纹：一次只改一个变量</text>
+  <g font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif">
+    <rect x="54" y="122" width="208" height="106" rx="17" fill="#eaf3f7" stroke="#b9d3df"/><text x="158" y="158" text-anchor="middle" font-size="17" font-weight="700" fill="#173f3d">模型</text><text x="158" y="190" text-anchor="middle" font-size="13" fill="#55706b">版本 · 温度 · tokens</text>
+    <rect x="292" y="122" width="208" height="106" rx="17" fill="#dfeee8" stroke="#afd0c3"/><text x="396" y="158" text-anchor="middle" font-size="17" font-weight="700" fill="#173f3d">Rubric</text><text x="396" y="190" text-anchor="middle" font-size="13" fill="#55706b">行为 · 硬失败 · 权重</text>
+    <rect x="530" y="122" width="208" height="106" rx="17" fill="#fff1d9" stroke="#e8c891"/><text x="634" y="158" text-anchor="middle" font-size="17" font-weight="700" fill="#173f3d">金样</text><text x="634" y="190" text-anchor="middle" font-size="13" fill="#55706b">分层 · A/B · A/A</text>
+    <rect x="768" y="122" width="258" height="106" rx="17" fill="#173f3d"/><text x="897" y="158" text-anchor="middle" font-size="17" font-weight="700" fill="#ffffff">风险阈值</text><text x="897" y="190" text-anchor="middle" font-size="13" fill="#dbe9e5">自动放行 / 人工 / 拒绝</text>
+  </g>
+  <path d="M158 270 C330 318 730 318 897 270" fill="none" stroke="#89aaa5" stroke-width="2" stroke-dasharray="7 7"/>
+  <text x="540" y="310" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif" font-size="15" font-weight="700" fill="#365b61">高风险漏判优先于平均分</text>
+</svg>

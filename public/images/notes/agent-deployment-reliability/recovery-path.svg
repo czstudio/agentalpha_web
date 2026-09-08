@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="430" viewBox="0 0 1400 430" role="img" aria-labelledby="title desc">
+  <title id="title">Agent 故障恢复路径</title><desc id="desc">超时后的明确失败、未知结果和人工接管分流</desc>
+  <rect width="1400" height="430" rx="28" fill="#fff"/>
+  <g font-family="Arial, sans-serif" fill="#17202a">
+    <text x="72" y="72" font-size="22" letter-spacing="3" fill="#68717c">RECOVERY PATH</text>
+    <text x="72" y="116" font-size="32" font-weight="700">超时不是终点，先判断副作用是否未知</text>
+    <rect x="86" y="208" width="230" height="82" rx="14" fill="#fff1d8" stroke="#bd7a19"/><text x="201" y="258" text-anchor="middle" font-size="21" font-weight="700">工具响应异常</text>
+    <rect x="430" y="160" width="260" height="76" rx="14" fill="#e8f5ed" stroke="#39865b"/><text x="560" y="207" text-anchor="middle" font-size="19" font-weight="700">明确失败 → 可重试</text>
+    <rect x="430" y="272" width="260" height="76" rx="14" fill="#f4e8f9" stroke="#8e59a4"/><text x="560" y="319" text-anchor="middle" font-size="19" font-weight="700">未知结果 → 对账</text>
+    <rect x="840" y="216" width="260" height="76" rx="14" fill="#e3efff" stroke="#3978c8"/><text x="970" y="263" text-anchor="middle" font-size="19" font-weight="700">幂等 / ledger</text>
+    <rect x="1190" y="216" width="150" height="76" rx="14" fill="#f3f5f7" stroke="#aab2bb"/><text x="1265" y="263" text-anchor="middle" font-size="19" font-weight="700">人工</text>
+    <g fill="none" stroke="#68717c" stroke-width="3"><path d="M316 249h90v-51h24"/><path d="m414 186 16 12-16 12"/><path d="M316 249h90v61h24"/><path d="m414 298 16 12-16 12"/><path d="M690 198h140"/><path d="m814 186 16 12-16 12"/><path d="M690 310h140v-56"/><path d="m814 242 16 12-16 12"/><path d="M1100 254h90"/><path d="m1174 242 16 12-16 12"/></g>
+  </g>
+</svg>

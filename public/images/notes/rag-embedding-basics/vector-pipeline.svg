@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 400" role="img" aria-labelledby="title desc">
+  <title id="title">Embedding 检索流水线</title>
+  <desc id="desc">文本经过清洗、分块、编码、归一化与索引，查询在线复用同一模型再做过滤和重排。</desc>
+  <rect width="1200" height="400" rx="28" fill="#f7f8f5"/>
+  <text x="58" y="58" fill="#1d1d1f" font-family="Arial, sans-serif" font-size="25" font-weight="700">离线建索引，在线找证据</text>
+  <text x="58" y="88" fill="#6b6e70" font-family="Arial, sans-serif" font-size="16">同一套编码约定、同一版本记录，才能解释分数变化</text>
+  <g font-family="Arial, sans-serif" font-size="16" text-anchor="middle">
+    <rect x="60" y="150" width="180" height="82" rx="14" fill="#ffffff" stroke="#dfe4df"/>
+    <text x="150" y="185" fill="#1d1d1f" font-weight="700">清洗 / 分块</text><text x="150" y="211" fill="#6b6e70">保留标题与来源</text>
+    <rect x="275" y="150" width="180" height="82" rx="14" fill="#ffffff" stroke="#dfe4df"/>
+    <text x="365" y="185" fill="#1d1d1f" font-weight="700">Encoder</text><text x="365" y="211" fill="#6b6e70">文本 → 向量</text>
+    <rect x="490" y="150" width="180" height="82" rx="14" fill="#ffffff" stroke="#dfe4df"/>
+    <text x="580" y="185" fill="#1d1d1f" font-weight="700">归一化 / 索引</text><text x="580" y="211" fill="#6b6e70">距离度量一致</text>
+    <rect x="705" y="150" width="180" height="82" rx="14" fill="#ffffff" stroke="#dfe4df"/>
+    <text x="795" y="185" fill="#1d1d1f" font-weight="700">候选召回</text><text x="795" y="211" fill="#6b6e70">top-k + 过滤</text>
+    <rect x="920" y="150" width="220" height="82" rx="14" fill="#e6f1ed" stroke="#9bc9bc"/>
+    <text x="1030" y="185" fill="#1d1d1f" font-weight="700">重排 / 组装</text><text x="1030" y="211" fill="#6b6e70">给模型可用证据</text>
+    <g fill="#247a6b" font-size="28"><text x="255" y="201">→</text><text x="470" y="201">→</text><text x="685" y="201">→</text><text x="900" y="201">→</text></g>
+  </g>
+  <rect x="86" y="290" width="1030" height="52" rx="12" fill="#ffffff" stroke="#dfe4df"/>
+  <text x="112" y="322" fill="#6b6e70" font-family="Arial, sans-serif" font-size="15">观测字段：model_version · dim · distance · filter · candidate_id · index_version · latency_ms</text>
+</svg>

@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 360" role="img" aria-labelledby="title desc">
+  <title id="title">多 Agent 评测样本结构</title>
+  <desc id="desc">评测样本由任务、角色、扰动和预期不变量组成。</desc>
+  <rect width="900" height="360" rx="28" fill="#fbfaf6"/>
+  <g stroke="#91b1a8" stroke-width="3" fill="none" stroke-linecap="round">
+    <path d="M200 180h88M400 180h88M600 180h88"/>
+    <path d="m278 170 18 10-18 10M478 170l18 10-18 10M678 170l18 10-18 10" fill="#91b1a8"/>
+  </g>
+  <g font-family="sans-serif" text-anchor="middle">
+    <rect x="40" y="126" width="160" height="108" rx="18" fill="#dfeee8"/><text x="120" y="165" font-size="19" font-weight="700" fill="#173f3d">任务</text><text x="120" y="197" font-size="14" fill="#52706b">goal · fixtures</text>
+    <rect x="296" y="126" width="160" height="108" rx="18" fill="#eaf3f7"/><text x="376" y="165" font-size="19" font-weight="700" fill="#24556a">角色</text><text x="376" y="197" font-size="14" fill="#5a737d">planner · reviewer</text>
+    <rect x="496" y="126" width="160" height="108" rx="18" fill="#fff1d9"/><text x="576" y="165" font-size="19" font-weight="700" fill="#704c20">扰动</text><text x="576" y="197" font-size="14" fill="#856a42">delay · duplicate</text>
+    <rect x="696" y="126" width="160" height="108" rx="18" fill="#fae8e1"/><text x="776" y="165" font-size="19" font-weight="700" fill="#753f32">不变量</text><text x="776" y="197" font-size="14" fill="#845a50">must_cite · no_publish</text>
+  </g>
+</svg>

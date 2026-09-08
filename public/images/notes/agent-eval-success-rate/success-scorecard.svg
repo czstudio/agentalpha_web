@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="390" viewBox="0 0 1080 390" role="img" aria-labelledby="title desc">
+  <title id="title">Success scorecard</title>
+  <desc id="desc">评测 scorecard 同时记录分母、成功、硬失败、未知和动作。</desc>
+  <rect width="1080" height="390" rx="26" fill="#f7f8f5"/>
+  <text x="58" y="54" fill="#17342f" font-size="25" font-weight="700" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif">Success scorecard</text>
+  <text x="58" y="82" fill="#71837d" font-size="15" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif">分母、硬失败、未知结果和下一步动作一起决定是否继续灰度</text>
+  <g font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif">
+    <rect x="64" y="130" width="166" height="108" rx="18" fill="#eaf1f8" stroke="#b6cce0"/><text x="88" y="168" fill="#31516d" font-size="18" font-weight="700">分母</text><text x="88" y="198" fill="#587085" font-size="14">n = 120</text><text x="88" y="220" fill="#587085" font-size="14">切片定义</text>
+    <rect x="250" y="130" width="166" height="108" rx="18" fill="#e4f2ec" stroke="#a8d2bf"/><text x="274" y="168" fill="#205b4c" font-size="18" font-weight="700">结果</text><text x="274" y="198" fill="#4e6c63" font-size="14">success / rework</text><text x="274" y="220" fill="#4e6c63" font-size="14">不是只看文本</text>
+    <rect x="436" y="130" width="166" height="108" rx="18" fill="#f5e7ee" stroke="#dfb2c7"/><text x="460" y="168" fill="#7a3f5a" font-size="18" font-weight="700">硬失败</text><text x="460" y="198" fill="#8a6073" font-size="14">越权 = 0</text><text x="460" y="220" fill="#8a6073" font-size="14">重复写入 = 0</text>
+    <rect x="622" y="130" width="166" height="108" rx="18" fill="#fff1d9" stroke="#e9c987"/><text x="646" y="168" fill="#795a20" font-size="18" font-weight="700">未知</text><text x="646" y="198" fill="#896d39" font-size="14">unknown = 4</text><text x="646" y="220" fill="#896d39" font-size="14">先对账</text>
+    <rect x="808" y="130" width="214" height="108" rx="18" fill="#17342f"/><text x="832" y="168" fill="#f5fbf8" font-size="18" font-weight="700">动作</text><text x="832" y="198" fill="#c7e7d9" font-size="14">hold / rollback</text><text x="832" y="220" fill="#c7e7d9" font-size="14">触发下一步</text>
+  </g>
+  <g stroke="#6e9588" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M230 184h20"/><path d="M416 184h20"/><path d="M602 184h20"/><path d="M788 184h20"/><path d="M238 174l12 10-12 10"/><path d="M424 174l12 10-12 10"/><path d="M610 174l12 10-12 10"/><path d="M796 174l12 10-12 10"/></g>
+  <rect x="64" y="286" width="958" height="52" rx="15" fill="#edf4f0" stroke="#c8ddd3"/><text x="92" y="319" fill="#28594c" font-size="17" font-weight="600" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif">指标从描述结果，升级成能暂停、回滚和扩大抽样的操作接口</text>
+</svg>

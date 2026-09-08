@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 430" role="img" aria-labelledby="title desc">
+  <title id="title">RAG 四层评测模型</title>
+  <desc id="desc">从数据、检索、证据到生成四层评测，每层回答不同的问题并产出可定位的失败信号。</desc>
+  <rect width="1200" height="430" rx="28" fill="#f7f8f5"/>
+  <text x="58" y="60" fill="#1d1d1f" font-family="Arial, sans-serif" font-size="25" font-weight="700">把“答案不对”拆成四个可修的环节</text>
+  <g font-family="Arial, sans-serif" text-anchor="middle">
+    <rect x="80" y="142" width="220" height="150" rx="16" fill="#ffffff" stroke="#dfe4df"/><text x="190" y="180" fill="#1d1d1f" font-size="18" font-weight="700">① 数据</text><text x="190" y="215" fill="#6b6e70" font-size="14">完整、去重、可追溯</text><text x="190" y="252" fill="#247a6b" font-size="14">覆盖率 / 过期率</text>
+    <rect x="350" y="142" width="220" height="150" rx="16" fill="#edf1f6" stroke="#c5d1e2"/><text x="460" y="180" fill="#1d1d1f" font-size="18" font-weight="700">② 检索</text><text x="460" y="215" fill="#6b6e70" font-size="14">正确证据进 top-k</text><text x="460" y="252" fill="#3f6f9f" font-size="14">Recall / MRR / nDCG</text>
+    <rect x="620" y="142" width="220" height="150" rx="16" fill="#f4ead0" stroke="#dfc783"/><text x="730" y="180" fill="#1d1d1f" font-size="18" font-weight="700">③ 证据</text><text x="730" y="215" fill="#6b6e70" font-size="14">引用真的支持结论</text><text x="730" y="252" fill="#a57c17" font-size="14">引用准确率 / 完整率</text>
+    <rect x="890" y="142" width="220" height="150" rx="16" fill="#e6f1ed" stroke="#9bc9bc"/><text x="1000" y="180" fill="#1d1d1f" font-size="18" font-weight="700">④ 生成</text><text x="1000" y="215" fill="#6b6e70" font-size="14">准确、完整、会拒答</text><text x="1000" y="252" fill="#247a6b" font-size="14">正确性 / 拒答率 / 延迟</text>
+    <g fill="#247a6b" font-size="28"><text x="318" y="222">→</text><text x="588" y="222">→</text><text x="858" y="222">→</text></g>
+  </g>
+  <text x="80" y="355" fill="#6b6e70" font-family="Arial, sans-serif" font-size="15">总分用于看趋势，分层 trace 才能指导下一次修改</text>
+</svg>

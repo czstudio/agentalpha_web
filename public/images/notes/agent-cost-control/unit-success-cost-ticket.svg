@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="390" viewBox="0 0 1080 390" role="img" aria-labelledby="title desc">
+  <title id="title">单位成功任务成本账单</title><desc id="desc">请求范围、全量支出、成功分母、单位成本和回滚门槛组成降本账单</desc>
+  <rect width="1080" height="390" rx="26" fill="#f7f8f5"/>
+  <text x="52" y="56" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif" font-size="25" font-weight="700" fill="#173f3d">单位成功任务成本账单</text>
+  <text x="52" y="84" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif" font-size="15" fill="#5b7470">把报价、失败和人工一起算进来</text>
+  <g font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif">
+    <rect x="52" y="122" width="178" height="126" rx="17" fill="#eaf3f7" stroke="#b9d3df"/><text x="141" y="157" text-anchor="middle" font-size="17" font-weight="700" fill="#173f3d">范围</text><text x="141" y="191" text-anchor="middle" font-size="13" fill="#48635f">requests</text><text x="141" y="215" text-anchor="middle" font-size="13" fill="#48635f">时间与切片</text>
+    <rect x="250" y="122" width="178" height="126" rx="17" fill="#fff1d9" stroke="#e8c891"/><text x="339" y="157" text-anchor="middle" font-size="17" font-weight="700" fill="#173f3d">支出</text><text x="339" y="191" text-anchor="middle" font-size="13" fill="#48635f">模型 + 工具</text><text x="339" y="215" text-anchor="middle" font-size="13" fill="#48635f">重试 + 人工</text>
+    <rect x="448" y="122" width="178" height="126" rx="17" fill="#dfeee8" stroke="#afd0c3"/><text x="537" y="157" text-anchor="middle" font-size="17" font-weight="700" fill="#173f3d">分母</text><text x="537" y="191" text-anchor="middle" font-size="13" fill="#48635f">completed tasks</text><text x="537" y="215" text-anchor="middle" font-size="13" fill="#48635f">unknown 单列</text>
+    <rect x="646" y="122" width="178" height="126" rx="17" fill="#f5d9dc" stroke="#dfb2b9"/><text x="735" y="157" text-anchor="middle" font-size="17" font-weight="700" fill="#173f3d">单位</text><text x="735" y="191" text-anchor="middle" font-size="13" fill="#48635f">all-in / task</text><text x="735" y="215" text-anchor="middle" font-size="13" fill="#48635f">收益与代价</text>
+    <rect x="844" y="122" width="184" height="126" rx="17" fill="#173f3d"/><text x="936" y="157" text-anchor="middle" font-size="17" font-weight="700" fill="#ffffff">门槛</text><text x="936" y="191" text-anchor="middle" font-size="13" fill="#dbe9e5">rollback_if</text><text x="936" y="215" text-anchor="middle" font-size="13" fill="#dbe9e5">风险切片</text>
+  </g>
+  <path d="M230 185h20M428 185h20M626 185h20M824 185h20" stroke="#7d9a95" stroke-width="3" stroke-linecap="round"/>
+  <rect x="52" y="294" width="976" height="44" rx="14" fill="#e8efeb"/><text x="540" y="322" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif" font-size="15" font-weight="700" fill="#365b61">便宜的请求，不一定带来便宜的成功任务</text>
+</svg>

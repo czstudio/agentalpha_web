@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="390" viewBox="0 0 1080 390" role="img" aria-labelledby="title desc">
+  <title id="title">项目最小复现包</title>
+  <desc id="desc">把输入、版本、运行命令、fixture 和断言收进一个可交接的复现单元。</desc>
+  <rect width="1080" height="390" rx="26" fill="#f7f8f5"/>
+  <text x="52" y="56" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif" font-size="25" font-weight="700" fill="#173f3d">最小复现包</text>
+  <text x="52" y="84" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif" font-size="15" fill="#5b7470">让项目结论能被下一位工程师在离线环境里复核</text>
+  <g font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif">
+    <rect x="52" y="122" width="222" height="132" rx="17" fill="#dcecf4"/>
+    <text x="75" y="154" font-size="17" font-weight="700" fill="#244f62">inputs</text>
+    <text x="75" y="184" font-size="13" fill="#365e67">固定问题集与快照</text>
+    <text x="75" y="210" font-size="13" fill="#365e67">不带生产密钥</text>
+    <rect x="292" y="122" width="222" height="132" rx="17" fill="#f4e9bd"/>
+    <text x="315" y="154" font-size="17" font-weight="700" fill="#5a4b19">runtime</text>
+    <text x="315" y="184" font-size="13" fill="#786726">commit / lockfile / command</text>
+    <text x="315" y="210" font-size="13" fill="#786726">明确模型与配置版本</text>
+    <rect x="532" y="122" width="222" height="132" rx="17" fill="#f4dfe5"/>
+    <text x="555" y="154" font-size="17" font-weight="700" fill="#6b3349">fixtures</text>
+    <text x="555" y="184" font-size="13" fill="#7d5060">冻结工具与模型回执</text>
+    <text x="555" y="210" font-size="13" fill="#7d5060">副作用走 dry-run</text>
+    <rect x="772" y="122" width="222" height="132" rx="17" fill="#173f3d"/>
+    <text x="795" y="154" font-size="17" font-weight="700" fill="#f7f8f5">assertions</text>
+    <text x="795" y="184" font-size="13" fill="#d8e7e1">指标阈值与失败边界</text>
+    <text x="795" y="210" font-size="13" fill="#d8e7e1">状态可复核、可交接</text>
+  </g>
+  <path d="M274 188H286M514 188H526M754 188H766" fill="none" stroke="#7d9a95" stroke-width="3" stroke-linecap="round"/>
+  <path d="m280 180 8 8-8 8M520 180l8 8-8 8M760 180l8 8-8 8" fill="none" stroke="#7d9a95" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="52" y="296" width="976" height="42" rx="14" fill="#e8efeb"/>
+  <text x="78" y="323" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif" font-size="16" font-weight="700" fill="#173f3d">可复现不是“有代码”，而是输入、环境和断言都能对上</text>
+</svg>

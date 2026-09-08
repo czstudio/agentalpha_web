@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 360" role="img" aria-labelledby="title desc">
+  <title id="title">文档版面结构恢复链路</title>
+  <desc id="desc">OCR、版面检测和结构解析将页面变成带关系的文档图。</desc>
+  <rect width="900" height="360" rx="28" fill="#f7f8f5"/>
+  <path d="M180 180h74M362 180h74M544 180h74M726 180h74" stroke="#8eb8af" stroke-width="4" stroke-linecap="round"/><path d="m245 170 18 10-18 10M427 170l18 10-18 10M609 170l18 10-18 10M791 170l18 10-18 10" fill="#8eb8af"/>
+  <rect x="32" y="110" width="148" height="140" rx="18" fill="#fff" stroke="#b9cbc6"/><text x="106" y="158" text-anchor="middle" font-family="sans-serif" font-size="20" font-weight="700" fill="#173f3d">PDF</text><text x="106" y="194" text-anchor="middle" font-family="sans-serif" font-size="16" fill="#647775">页面像素</text>
+  <rect x="263" y="110" width="99" height="140" rx="18" fill="#e9f1ed" stroke="#9bc1b5"/><text x="312" y="158" text-anchor="middle" font-family="sans-serif" font-size="19" font-weight="700" fill="#173f3d">OCR</text><text x="312" y="194" text-anchor="middle" font-family="sans-serif" font-size="15" fill="#4c7068">文字 + 框</text>
+  <rect x="445" y="110" width="99" height="140" rx="18" fill="#f4dca6" stroke="#e5c58a"/><text x="494" y="158" text-anchor="middle" font-family="sans-serif" font-size="18" font-weight="700" fill="#704c20">版面</text><text x="494" y="194" text-anchor="middle" font-family="sans-serif" font-size="15" fill="#87683d">块 + 顺序</text>
+  <rect x="627" y="110" width="99" height="140" rx="18" fill="#eaf3f7" stroke="#a7c8d6"/><text x="676" y="158" text-anchor="middle" font-family="sans-serif" font-size="18" font-weight="700" fill="#24556a">结构</text><text x="676" y="194" text-anchor="middle" font-family="sans-serif" font-size="15" fill="#587783">表格 + 图表</text>
+  <rect x="809" y="110" width="64" height="140" rx="18" fill="#f2eaf7" stroke="#c6aed7"/><text x="841" y="158" text-anchor="middle" font-family="sans-serif" font-size="18" font-weight="700" fill="#604774">图</text><text x="841" y="194" text-anchor="middle" font-family="sans-serif" font-size="15" fill="#765d86">检索</text>
+  <text x="32" y="316" font-family="sans-serif" font-size="16" fill="#647775">结构恢复让“哪一列、哪一页、依据在哪”成为可计算问题。</text>
+</svg>

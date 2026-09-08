@@ -52,6 +52,8 @@ PLANNED
 
 状态转换要有版本号或 compare-and-set 条件。两个 worker 同时拿到 `RUNNING` 时，只有持有当前 lease/fencing token 的那个可以提交结果；旧 worker 即使恢复，也不能覆盖新状态。锁不是万能的，关键是让“谁有资格写入下一状态”可以被服务端验证。
 
+![恢复状态机：从未知结果进入查询、确认、重试或人工介入](/images/notes/code-agent-resume-exactly-once/state-machine.svg)
+
 ## 原理二：checkpoint 必须和事实的边界对应
 
 常见错误是把 checkpoint 放在工具调用前或调用后，却没考虑进程可能死在两者之间。
@@ -75,6 +77,21 @@ Stripe 的官方 API 文档给了一个清晰例子：客户端用 `Idempotency-
 模型可以提出计划，不能直接拥有不可逆副作用。一个稳妥的循环是：模型生成结构化 action；策略层校验参数和权限；执行器把 action 绑定 operation_id；工具服务执行并记录结果；状态机提交下一步。恢复时复用已落盘的 action 和 operation_id，不让模型重新生成已执行步骤。
 
 对于代码修改，尽量先生成补丁并保存哈希，再由工作区执行器应用补丁。对于发布、扣款、删资源，要求明确的确认状态和可查询的资源标识。对“发送通知”这类不可回滚操作，可以先写 outbox，再由发送器按 key 去重；必要时把消息内容哈希也纳入去重键，避免同一个 id 被错误复用。
+
+![副作用边界：action、outbox、执行器和对账回执](/images/notes/code-agent-resume-exactly-once/receipt-boundary.svg)
+
+### 先问“能不能查到事实”，再决定是否重试
+
+恢复策略可以压缩成一张决策表：
+
+| 当前记录 | 能查到的外部事实 | 下一步 | 是否允许模型重新规划 |
+| --- | --- | --- | --- |
+| `UNKNOWN` | 已创建/已发送 | 补写 checkpoint，返回原结果 | 否 |
+| `UNKNOWN` | 明确未执行 | 复用同一 `operation_id` 安全重试 | 否 |
+| `UNKNOWN` | 查询接口超时 | 延迟重试查询，必要时人工确认 | 否 |
+| `UNKNOWN` | 下游返回参数错误 | 标记永久失败，修正 action 后新开 step | 是，但必须记录原因 |
+
+关键是“重试工具”和“重新生成决策”分开。只要原 action 还有效，就冻结它；只有证据证明原计划不再成立时，才让模型重新规划，并生成新的版本和审计事件。
 
 ## 工程故障：恢复系统最容易在哪些地方翻车
 
@@ -135,6 +152,29 @@ return store.commit_result(op, result)
 
 这里最重要的不是 `try/except`，而是 `lookup` 和 `commit_result` 都围绕同一个 operation_id 工作。`commit_result` 还要检查 fencing token，避免旧 worker 覆盖新状态。
 
+## 恢复前还要做一次“worker 所有权租约”检查
+
+即使 operation_id 已经幂等，两个 worker 仍可能同时拿到 UNKNOWN 任务：一个在网络分区前拿到旧租约，另一个在租约过期后接管。恢复流程要给每次接管发短租约和递增 fencing token；状态存储只接受最新 token，旧 worker 即使晚到，也只能读到“已被接管”，不能继续提交 checkpoint 或补偿动作。
+
+~~~yaml
+resume_lease_receipt: rlr_20260820_43
+operation_id: op-refund-8848
+lease_id: lease-71
+owner: worker-2
+fencing_token: 19
+previous_token: 18
+expiry: 2026-08-20T19:03:00Z
+decision: resume_with_token_19
+~~~
+
+租约不是把分布式锁重新包装一层，而是把“谁有资格写”变成可验证的事实。每次状态提交都带 token，存储端用 compare-and-set 拒绝过期写入；如果下游也支持 token，就把同一份所有权继续传到副作用边界。回执只保留 operation_id、租约和 token，不记录支付账号、密钥等敏感参数。
+
+![恢复租约与 fencing token：接管前先确认唯一写入者](/images/notes/code-agent-resume-exactly-once/resume-lease-card.svg)
+
+### L5：为什么有幂等键，还要 fencing token？
+
+幂等键解决“同一意图重复到达”的结果合并，fencing token 解决“旧 worker 仍在写”的所有权问题。两者缺一不可：前者不阻止旧持有者覆盖状态，后者也不能替代下游对同一 operation 的去重。
+
 ## “Exactly once”到底该怎么回答
 
 严格说，端到端 exactly-once 不是一个可以随便贴在 Agent 上的标签。AWS Step Functions 的官方文档区分了 Standard workflow 的 exactly-once 状态执行、Express workflow 的 at-least-once，以及同步执行的 at-most-once；即便编排器内部有更强保证，外部 API 仍要靠幂等契约和对账。Azure Durable Functions 的官方说明也把持久化状态、checkpoint、重试和恢复交给运行时，同时提醒活动函数要尽量设计成幂等，关键副作用不能假设自动回滚。
@@ -154,6 +194,65 @@ return store.commit_result(op, result)
 5. Azure Durable Functions overview (https://learn.microsoft.com/en-us/azure/azure-functions/durable/durable-functions-overview)  与 错误处理和重试 (https://learn.microsoft.com/en-us/azure/azure-functions/durable/durable-functions-error-handling) ：了解 checkpoint、重试和活动幂等之间如何配合。
 
 读资料时建议做一个小实验：让工具在“服务端成功、客户端断线”的窗口故意返回 timeout，然后重启 worker。没有 operation_id 时记录会出现什么？有 operation_id 但查询接口缺失时，系统会不会错误重试？这两个答案比背术语更能说明你真的理解恢复。
+
+## 恢复时要区分“事实已发生”和“本地没收到回执”
+
+Exactly-once 最容易被误解成“代码只执行一次”。现实里更常见的是请求已经到达外部系统，但 Agent 在等待响应时崩了。恢复 worker 不能凭空重发，也不能因为本地没有结果就宣称失败；它要先用幂等键或查询接口确认外部事实，再决定补记、重试还是人工介入。
+
+```yaml
+recovery_probe:
+  task_id: task_42
+  operation: create_invoice
+  idempotency_key: task_42:create_invoice:v3
+  local_state: awaiting_receipt
+  probe: query_by_idempotency_key
+  outcomes:
+    found: {action: attach_receipt, next: checkpoint}
+    not_found: {action: retry_once, guard: same_key}
+    ambiguous: {action: pause, next: human_review}
+  invariant: "不得用新 key 绕过未知状态"
+```
+
+![恢复探针与幂等边界](/images/notes/code-agent-resume-exactly-once/recovery-probe-card.svg)
+
+这也是为什么恢复系统要把“查询事实”作为一等工具，而不是只提供一个 retry 按钮。对于不可查询的外部副作用，要把状态标成 ambiguous，并保留人工核对入口；宁可慢一点，也不要用重复创建换取表面上的自动化。
+
+### L5：为什么“查不到”不等于“没发生”？
+
+可能是索引延迟、权限变化、读写分区或第三方接口暂时不可用。面试时可以说，恢复策略要给 probe 设超时和重试预算，并把 unknown 独立计数；只有在外部系统明确返回不存在，且幂等窗口仍有效时，才允许再次提交。
+
+## checkpoint schema 变化时，恢复也要先做兼容性检查
+
+恢复不是把旧 JSON 反序列化出来就继续跑。Agent loop 的状态结构会随版本变化：旧 checkpoint 可能没有新字段，工具参数可能改名，状态枚举也可能从 `SENT` 拆成 `DISPATCHED` 和 `AWAITING_RECEIPT`。如果直接让新版本接管，最危险的不是启动失败，而是把旧状态误读成可重试状态。
+
+我会给每个 checkpoint 保存 schema 版本、迁移脚本版本和当时的工具契约摘要。恢复前先做只读 migration preview，列出新增默认值、枚举映射和无法迁移的字段；只有旧状态被明确映射，且回放不变量通过，才允许 worker 获取新的 fencing token。无法证明语义等价时，进入人工复核，而不是让模型“猜这个字段大概是什么意思”。
+
+~~~yaml
+checkpoint_compatibility: cpc_20260820_70
+checkpoint: wf-8848-step-17
+stored_schema: agent-state-v3
+runtime_schema: agent-state-v4
+tool_contract: refund.create@v5
+migration:
+  script: state-migrate-v2
+  preview: pass
+  enum_map: {SENT: AWAITING_RECEIPT}
+  default_fields: [owner_epoch]
+  unresolved: []
+replay:
+  same_idempotency_key: true
+  side_effect_probe: no_new_effect
+  invariants: [state_monotonic, owner_fenced]
+decision: resumable
+~~~
+
+![Checkpoint 兼容卡：schema、工具契约和迁移预览通过后，恢复 worker 才能接管](/images/notes/code-agent-resume-exactly-once/checkpoint-compatibility-card.svg)
+
+### L5：为什么恢复时不能让模型自己补齐缺失字段？
+
+因为缺失字段可能影响幂等、权限和副作用阶段，模型补的默认值不具备可证明的业务语义。恢复需要版本化迁移和只读预览；无法确定的字段应阻断自动执行并交给人工对账。
+
+![未知结果回放：恢复时先查询外部状态，再决定确认、重试还是人工接管](/images/notes/agent-eval-success-rate/unknown-replay-card.svg)
 
 ## 60 秒面试回答
 

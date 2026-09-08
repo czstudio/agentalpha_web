@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="390" viewBox="0 0 1080 390" role="img" aria-labelledby="title desc">
+  <title id="title">复现验收卡</title><desc id="desc">必须通过、可接受差异和停止条件绑定到同一个 replay bundle</desc>
+  <rect width="1080" height="390" rx="26" fill="#f7f8f5"/>
+  <text x="52" y="56" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif" font-size="25" font-weight="700" fill="#173f3d">复现验收卡：允许差异，但禁止静默降级</text>
+  <text x="52" y="84" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif" font-size="15" fill="#5b7470">把“脚本能跑”升级成团队共同认可的放行条件</text>
+  <g font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif">
+    <rect x="52" y="122" width="220" height="126" rx="17" fill="#dfeee8" stroke="#afd0c3"/><text x="162" y="157" text-anchor="middle" font-size="17" font-weight="700" fill="#173f3d">必须通过</text><text x="162" y="191" text-anchor="middle" font-size="13" fill="#48635f">首处分叉已记录</text><text x="162" y="215" text-anchor="middle" font-size="13" fill="#48635f">副作用 = 0</text>
+    <rect x="292" y="122" width="220" height="126" rx="17" fill="#fff1d9" stroke="#e8c891"/><text x="402" y="157" text-anchor="middle" font-size="17" font-weight="700" fill="#173f3d">允许差异</text><text x="402" y="191" text-anchor="middle" font-size="13" fill="#48635f">score ≤ 0.02</text><text x="402" y="215" text-anchor="middle" font-size="13" fill="#48635f">P95 ≤ 10%</text>
+    <rect x="532" y="122" width="220" height="126" rx="17" fill="#f5d9dc" stroke="#dfb2b9"/><text x="642" y="157" text-anchor="middle" font-size="17" font-weight="700" fill="#173f3d">停止条件</text><text x="642" y="191" text-anchor="middle" font-size="13" fill="#48635f">fixture 缺失</text><text x="642" y="215" text-anchor="middle" font-size="13" fill="#48635f">状态哈希不一致</text>
+    <rect x="772" y="122" width="256" height="126" rx="17" fill="#173f3d"/><text x="900" y="157" text-anchor="middle" font-size="17" font-weight="700" fill="#ffffff">结论</text><text x="900" y="191" text-anchor="middle" font-size="13" fill="#dbe9e5">replay-2026-0819-07</text><text x="900" y="215" text-anchor="middle" font-size="13" fill="#dbe9e5">可交付 / 或阻塞</text>
+  </g>
+  <path d="M272 185h20M512 185h20M752 185h20" stroke="#7d9a95" stroke-width="3" stroke-linecap="round"/>
+  <rect x="52" y="294" width="976" height="44" rx="14" fill="#e8efeb"/><text x="540" y="322" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif" font-size="15" font-weight="700" fill="#365b61">主动失败比拿不完整结果冒充端到端复现更安全</text>
+</svg>

@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="500" viewBox="0 0 1200 500">
+  <rect width="1200" height="500" fill="#f8faf9"/>
+  <text x="70" y="70" font-family="Arial,'Noto Sans SC',sans-serif" font-size="28" font-weight="700" fill="#19372f">A2A 边界：传输可以换，任务合同不能丢</text>
+  <g font-family="Arial,'Noto Sans SC',sans-serif">
+    <rect x="120" y="155" width="960" height="105" rx="18" fill="#e9f1f8" stroke="#a7c0d6" stroke-width="2"/><text x="170" y="203" font-size="23" font-weight="700" fill="#2d607e">传输层</text><text x="340" y="203" font-size="18" fill="#4c6e83">HTTP · Queue · SSE · WebSocket</text><text x="170" y="235" font-size="16" fill="#4c6e83">连接、鉴权、大小限制、重试、事件投递、心跳</text>
+    <rect x="120" y="315" width="960" height="105" rx="18" fill="#e8f3ee" stroke="#9fc8b3" stroke-width="2"/><text x="170" y="363" font-size="23" font-weight="700" fill="#285d4d">任务层</text><text x="340" y="363" font-size="18" fill="#4c7063">目标 · 能力 · schema · scope · 状态 · 证据</text><text x="170" y="395" font-size="16" fill="#4c7063">幂等、过期、回执、预算、版本和升级路径</text>
+  </g>
+  <path d="M600 260V305" stroke="#638d7c" stroke-width="4"/><path d="m588 292 12 18 12-18" fill="#638d7c"/>
+</svg>

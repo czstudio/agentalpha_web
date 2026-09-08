@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 680" role="img" aria-labelledby="title desc">
+  <title id="title">Agent 工程师五层能力地图</title>
+  <desc id="desc">从模型地基向上扩展到知识与工具、系统架构、评测运营和表达协作的五层能力地图。</desc>
+  <rect width="1200" height="680" rx="34" fill="#fffdf8"/>
+  <path d="M110 570H1090" stroke="#e6dfd3" stroke-width="2"/>
+  <path d="M232 540H968L870 430H330Z" fill="#dff1ff" stroke="#1167a8" stroke-width="3"/>
+  <path d="M330 406H870L790 312H410Z" fill="#ffeadc" stroke="#d96d43" stroke-width="3"/>
+  <path d="M410 288H790L720 206H480Z" fill="#e8f7ec" stroke="#2d8b57" stroke-width="3"/>
+  <path d="M480 182H720L665 116H535Z" fill="#f7e6ff" stroke="#8644a4" stroke-width="3"/>
+  <path d="M535 94H665L640 58H560Z" fill="#ffe08a" stroke="#a87900" stroke-width="3"/>
+  <g fill="#203244" font-family="Arial, sans-serif" text-anchor="middle">
+    <text x="600" y="82" font-size="25" font-weight="700">表达与协作</text>
+    <text x="600" y="157" font-size="25" font-weight="700">评测与运营</text>
+    <text x="600" y="264" font-size="25" font-weight="700">系统架构</text>
+    <text x="600" y="380" font-size="25" font-weight="700">知识与工具</text>
+    <text x="600" y="510" font-size="25" font-weight="700">模型地基</text>
+  </g>
+  <g fill="#667383" font-family="Arial, sans-serif" font-size="18">
+    <text x="100" y="635">从机制理解开始</text>
+    <text x="390" y="635">用项目制造约束</text>
+    <text x="690" y="635">用实验和回放验证</text>
+    <text x="950" y="635">最后练成可复述的决策</text>
+  </g>
+</svg>

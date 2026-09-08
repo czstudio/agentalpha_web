@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 500" role="img" aria-labelledby="title desc">
+  <title id="title">Replay contract</title>
+  <desc id="desc">A replay contract captures fixtures, runs an isolated dry run, compares versions and blocks side effects.</desc>
+  <rect width="1200" height="500" rx="28" fill="#f7f8f5"/>
+  <text x="60" y="62" font-family="Arial, sans-serif" font-size="27" font-weight="700" fill="#17211d">Replay is a contract around side effects</text>
+  <text x="60" y="96" font-family="Arial, sans-serif" font-size="16" fill="#5f6d66">Freeze what the Agent observed; simulate what it would change.</text>
+  <g font-family="Arial, sans-serif">
+    <rect x="70" y="180" width="220" height="120" rx="20" fill="#d8efe7" stroke="#217d6e" stroke-width="3"/>
+    <text x="128" y="224" font-size="20" font-weight="700" fill="#176658">线上 Trace</text>
+    <text x="108" y="253" font-size="14" fill="#23423b">snapshot · versions</text>
+    <text x="123" y="278" font-size="14" fill="#23423b">fixture_id · seed</text>
+    <path d="M290 240h105" stroke="#6d8c82" stroke-width="3" marker-end="url(#arrow)"/>
+    <rect x="400" y="180" width="220" height="120" rx="20" fill="#e7f2ef" stroke="#4d9d8e" stroke-width="3"/>
+    <text x="448" y="224" font-size="20" font-weight="700" fill="#246d60">隔离回放</text>
+    <text x="438" y="253" font-size="14" fill="#314d47">frozen observation</text>
+    <text x="453" y="278" font-size="14" fill="#314d47">dry-run tools</text>
+    <path d="M620 240h105" stroke="#6d8c82" stroke-width="3" marker-end="url(#arrow)"/>
+    <rect x="730" y="180" width="220" height="120" rx="20" fill="#f0eee3" stroke="#b8a766" stroke-width="3"/>
+    <text x="788" y="224" font-size="20" font-weight="700" fill="#7a681d">版本比较</text>
+    <text x="777" y="253" font-size="14" fill="#514b31">v7 vs v8 action</text>
+    <text x="780" y="278" font-size="14" fill="#514b31">diff · regression</text>
+    <path d="M950 240h105" stroke="#6d8c82" stroke-width="3" marker-end="url(#arrow)"/>
+    <rect x="1030" y="180" width="120" height="120" rx="20" fill="#f4e7d9" stroke="#bc8052" stroke-width="3"/>
+    <text x="1058" y="224" font-size="19" font-weight="700" fill="#8f5430">验收</text>
+    <text x="1048" y="253" font-size="14" fill="#5a3f31">merge /</text>
+    <text x="1048" y="278" font-size="14" fill="#5a3f31">rollback</text>
+    <rect x="250" y="380" width="700" height="48" rx="14" fill="#ffffff" stroke="#d5ddd8"/>
+    <text x="338" y="411" font-size="15" fill="#5f6d66">扣款、发货、删文件、发信：只允许 dry-run + 幂等键 + 审批</text>
+  </g>
+  <defs><marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto"><path d="M0,0 L10,3 L0,6 z" fill="#6d8c82"/></marker></defs>
+</svg>

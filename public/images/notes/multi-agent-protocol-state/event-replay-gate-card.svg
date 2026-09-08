@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="390" viewBox="0 0 1080 390">
+  <rect width="1080" height="390" rx="28" fill="#F7F4EE"/>
+  <text x="56" y="58" font-family="Arial,'Noto Sans SC',sans-serif" font-size="26" font-weight="700" fill="#193C3A">事件回放闸门</text>
+  <text x="56" y="91" font-family="Arial,'Noto Sans SC',sans-serif" font-size="16" fill="#58706D">复现状态转移，不重新制造命令副作用</text>
+  <rect x="56" y="136" width="242" height="150" rx="20" fill="#E5F0ED"/>
+  <text x="82" y="176" font-family="Arial,'Noto Sans SC',sans-serif" font-size="20" font-weight="700" fill="#1C615A">事件</text>
+  <text x="82" y="214" font-family="Arial,'Noto Sans SC',sans-serif" font-size="15" fill="#31514E">apply → shadow state</text>
+  <text x="82" y="248" font-family="Arial,'Noto Sans SC',sans-serif" font-size="15" fill="#31514E">允许顺序校验</text>
+  <path d="M316 211h62" stroke="#EF9D73" stroke-width="6" stroke-linecap="round"/><path d="m364 192 25 19-25 19" fill="none" stroke="#EF9D73" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="402" y="136" width="242" height="150" rx="20" fill="#FFF0D6"/>
+  <text x="428" y="176" font-family="Arial,'Noto Sans SC',sans-serif" font-size="20" font-weight="700" fill="#875B26">命令</text>
+  <text x="428" y="214" font-family="Arial,'Noto Sans SC',sans-serif" font-size="15" fill="#6C5632">dry-run + idempotency</text>
+  <text x="428" y="248" font-family="Arial,'Noto Sans SC',sans-serif" font-size="15" fill="#6C5632">禁止真实工具调用</text>
+  <path d="M662 211h62" stroke="#86A4D7" stroke-width="6" stroke-linecap="round"/><path d="m710 192 25 19-25 19" fill="none" stroke="#86A4D7" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="748" y="136" width="276" height="150" rx="20" fill="#DCEBE8"/>
+  <text x="774" y="176" font-family="Arial,'Noto Sans SC',sans-serif" font-size="20" font-weight="700" fill="#174F4A">回执</text>
+  <text x="774" y="214" font-family="Arial,'Noto Sans SC',sans-serif" font-size="15" fill="#31514E">verify version + hash</text>
+  <text x="774" y="248" font-family="Arial,'Noto Sans SC',sans-serif" font-size="15" fill="#31514E">unknown 保留 · 状态可审计</text>
+  <rect x="56" y="316" width="968" height="34" rx="17" fill="#183C3A"/>
+  <text x="540" y="339" text-anchor="middle" font-family="Arial,'Noto Sans SC',sans-serif" font-size="15" fill="#F7F4EE">replay result · real_side_effects = 0 · shadow_version = 18</text>
+</svg>

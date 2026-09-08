@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="390" viewBox="0 0 1080 390">
+  <rect width="1080" height="390" rx="28" fill="#F7F4EE"/>
+  <text x="56" y="58" font-family="Arial,'Noto Sans SC',sans-serif" font-size="26" font-weight="700" fill="#193C3A">恢复配额账本</text>
+  <text x="56" y="91" font-family="Arial,'Noto Sans SC',sans-serif" font-size="16" fill="#58706D">主流程耗尽后，仍要留资源完成对账和安全收口</text>
+  <rect x="56" y="136" width="276" height="150" rx="20" fill="#E5F0ED"/>
+  <text x="82" y="174" font-family="Arial,'Noto Sans SC',sans-serif" font-size="20" font-weight="700" fill="#1C615A">主预算</text>
+  <text x="82" y="212" font-family="Arial,'Noto Sans SC',sans-serif" font-size="15" fill="#31514E">tokens 42k</text>
+  <text x="82" y="246" font-family="Arial,'Noto Sans SC',sans-serif" font-size="15" fill="#31514E">tool calls 24</text>
+  <path d="M356 211h62" stroke="#EF9D73" stroke-width="6" stroke-linecap="round"/><path d="m404 192 25 19-25 19" fill="none" stroke="#EF9D73" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="442" y="136" width="260" height="150" rx="20" fill="#FFF0D6"/>
+  <text x="468" y="174" font-family="Arial,'Noto Sans SC',sans-serif" font-size="20" font-weight="700" fill="#875B26">恢复配额</text>
+  <text x="468" y="212" font-family="Arial,'Noto Sans SC',sans-serif" font-size="15" fill="#6C5632">reconcile 3 calls</text>
+  <text x="468" y="246" font-family="Arial,'Noto Sans SC',sans-serif" font-size="15" fill="#6C5632">700 ms · 3200 tokens</text>
+  <path d="M726 211h62" stroke="#86A4D7" stroke-width="6" stroke-linecap="round"/><path d="m774 192 25 19-25 19" fill="none" stroke="#86A4D7" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="814" y="136" width="210" height="150" rx="20" fill="#DCEBE8"/>
+  <text x="840" y="174" font-family="Arial,'Noto Sans SC',sans-serif" font-size="20" font-weight="700" fill="#174F4A">降级</text>
+  <text x="840" y="212" font-family="Arial,'Noto Sans SC',sans-serif" font-size="15" fill="#31514E">查询 unknown</text>
+  <text x="840" y="246" font-family="Arial,'Noto Sans SC',sans-serif" font-size="15" fill="#31514E">写命令：blocked</text>
+  <rect x="56" y="315" width="968" height="34" rx="17" fill="#183C3A"/>
+  <text x="540" y="338" text-anchor="middle" font-family="Arial,'Noto Sans SC',sans-serif" font-size="15" fill="#F7F4EE">主预算耗尽不是结束：预留配额负责把未知状态收口</text>
+</svg>

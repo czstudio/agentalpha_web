@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="390" viewBox="0 0 1080 390" role="img" aria-labelledby="title desc">
+  <title id="title">预训练数据配比实验卡</title><desc id="desc">来源权重、质量过滤、去重簇、预算和污染门槛组成数据配比实验</desc>
+  <rect width="1080" height="390" rx="26" fill="#f7f8f5"/>
+  <text x="52" y="56" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif" font-size="25" font-weight="700" fill="#173f3d">预训练数据配比实验卡</text>
+  <text x="52" y="84" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif" font-size="15" fill="#5b7470">比例、质量和污染必须一起看</text>
+  <g font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif">
+    <rect x="52" y="122" width="178" height="126" rx="17" fill="#eaf3f7" stroke="#b9d3df"/><text x="141" y="157" text-anchor="middle" font-size="17" font-weight="700" fill="#173f3d">来源</text><text x="141" y="191" text-anchor="middle" font-size="13" fill="#48635f">web / code</text><text x="141" y="215" text-anchor="middle" font-size="13" fill="#48635f">dialogue</text>
+    <rect x="250" y="122" width="178" height="126" rx="17" fill="#dfeee8" stroke="#afd0c3"/><text x="339" y="157" text-anchor="middle" font-size="17" font-weight="700" fill="#173f3d">质量</text><text x="339" y="191" text-anchor="middle" font-size="13" fill="#48635f">filter</text><text x="339" y="215" text-anchor="middle" font-size="13" fill="#48635f">dedup cluster</text>
+    <rect x="448" y="122" width="178" height="126" rx="17" fill="#fff1d9" stroke="#e8c891"/><text x="537" y="157" text-anchor="middle" font-size="17" font-weight="700" fill="#173f3d">预算</text><text x="537" y="191" text-anchor="middle" font-size="13" fill="#48635f">token weight</text><text x="537" y="215" text-anchor="middle" font-size="13" fill="#48635f">total tokens</text>
+    <rect x="646" y="122" width="178" height="126" rx="17" fill="#f5d9dc" stroke="#dfb2b9"/><text x="735" y="157" text-anchor="middle" font-size="17" font-weight="700" fill="#173f3d">门槛</text><text x="735" y="191" text-anchor="middle" font-size="13" fill="#48635f">contamination</text><text x="735" y="215" text-anchor="middle" font-size="13" fill="#48635f">license review</text>
+    <rect x="844" y="122" width="184" height="126" rx="17" fill="#173f3d"/><text x="936" y="157" text-anchor="middle" font-size="17" font-weight="700" fill="#ffffff">消融</text><text x="936" y="191" text-anchor="middle" font-size="13" fill="#dbe9e5">固定训练步</text><text x="936" y="215" text-anchor="middle" font-size="13" fill="#dbe9e5">对照能力</text>
+  </g>
+  <path d="M230 185h20M428 185h20M626 185h20M824 185h20" stroke="#7d9a95" stroke-width="3" stroke-linecap="round"/>
+  <rect x="52" y="294" width="976" height="44" rx="14" fill="#e8efeb"/><text x="540" y="322" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif" font-size="15" font-weight="700" fill="#365b61">不记录失败实验，就无法解释成功来自哪里</text>
+</svg>

@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 500" role="img" aria-labelledby="title desc">
+  <title id="title">Structured plan schema</title>
+  <desc id="desc">A structured plan connects dependencies, inputs, outputs, acceptance criteria and failure transitions.</desc>
+  <rect width="1200" height="500" rx="28" fill="#f7f8f5"/>
+  <text x="60" y="62" font-family="Arial, sans-serif" font-size="27" font-weight="700" fill="#17211d">A plan is executable data, not a paragraph</text>
+  <text x="60" y="96" font-family="Arial, sans-serif" font-size="16" fill="#5f6d66">Every step must say what it needs, what it produces, how to pass and where to go when it fails.</text>
+  <g font-family="Arial, sans-serif">
+    <rect x="70" y="178" width="220" height="108" rx="16" fill="#d8efe7" stroke="#217d6e" stroke-width="2"/>
+    <text x="125" y="218" font-size="21" font-weight="700" fill="#176658">Step A</text>
+    <text x="98" y="248" font-size="15" fill="#23423b">input · tool · output</text>
+    <text x="98" y="272" font-size="15" fill="#23423b">depends_on: []</text>
+    <path d="M290 232h75" stroke="#6d8c82" stroke-width="3" marker-end="url(#arrow)"/>
+    <rect x="365" y="178" width="220" height="108" rx="16" fill="#e7f2ef" stroke="#4d9d8e" stroke-width="2"/>
+    <text x="422" y="218" font-size="21" font-weight="700" fill="#246d60">Step B</text>
+    <text x="393" y="248" font-size="15" fill="#314d47">input: ${A.output}</text>
+    <text x="393" y="272" font-size="15" fill="#314d47">depends_on: [A]</text>
+    <path d="M585 232h75" stroke="#6d8c82" stroke-width="3" marker-end="url(#arrow)"/>
+    <rect x="660" y="178" width="220" height="108" rx="16" fill="#f0eee3" stroke="#b8a766" stroke-width="2"/>
+    <text x="698" y="218" font-size="21" font-weight="700" fill="#7a681d">accept</text>
+    <text x="686" y="248" font-size="15" fill="#514b31">schema == v3</text>
+    <text x="686" y="272" font-size="15" fill="#514b31">confidence >= 0.8</text>
+    <path d="M880 232h75" stroke="#6d8c82" stroke-width="3" marker-end="url(#arrow)"/>
+    <rect x="955" y="178" width="180" height="108" rx="16" fill="#f4e7d9" stroke="#bc8052" stroke-width="2"/>
+    <text x="1000" y="218" font-size="21" font-weight="700" fill="#8f5430">on_failure</text>
+    <text x="1003" y="248" font-size="15" fill="#5a3f31">retry / replan</text>
+    <text x="1003" y="272" font-size="15" fill="#5a3f31">ask_user</text>
+  </g>
+  <rect x="188" y="350" width="824" height="60" rx="16" fill="#ffffff" stroke="#d5ddd8"/>
+  <text x="230" y="387" font-family="Arial, sans-serif" font-size="16" fill="#5f6d66">goal + constraints + version + budget = 可回放、可验收、可重规划</text>
+  <defs><marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto"><path d="M0,0 L10,3 L0,6 z" fill="#6d8c82"/></marker></defs>
+</svg>

@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="390" viewBox="0 0 1080 390" role="img" aria-labelledby="title desc">
+  <title id="title">RAG 证据缺口归因</title><desc id="desc">选源、召回、投影、生成四段证据链</desc>
+  <rect width="1080" height="390" rx="26" fill="#f7f8f5"/>
+  <text x="52" y="56" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif" font-size="25" font-weight="700" fill="#173f3d">答案错了，先找证据在哪一段消失</text>
+  <text x="52" y="84" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif" font-size="15" fill="#5b7470">归因到具体链路，修复才不会落错层</text>
+  <g font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif">
+    <rect x="52" y="122" width="220" height="126" rx="17" fill="#eaf3f7" stroke="#b9d3df"/><text x="162" y="157" text-anchor="middle" font-size="17" font-weight="700" fill="#173f3d">选源</text><text x="162" y="191" text-anchor="middle" font-size="13" fill="#48635f">API / RAG</text><text x="162" y="215" text-anchor="middle" font-size="13" fill="#48635f">freshness</text>
+    <rect x="292" y="122" width="220" height="126" rx="17" fill="#fff1d9" stroke="#e8c891"/><text x="402" y="157" text-anchor="middle" font-size="17" font-weight="700" fill="#173f3d">召回</text><text x="402" y="191" text-anchor="middle" font-size="13" fill="#48635f">candidate recall</text><text x="402" y="215" text-anchor="middle" font-size="13" fill="#48635f">ACL filter</text>
+    <rect x="532" y="122" width="220" height="126" rx="17" fill="#f5d9dc" stroke="#dfb2b9"/><text x="642" y="157" text-anchor="middle" font-size="17" font-weight="700" fill="#173f3d">投影</text><text x="642" y="191" text-anchor="middle" font-size="13" fill="#48635f">dedupe</text><text x="642" y="215" text-anchor="middle" font-size="13" fill="#48635f">context budget</text>
+    <rect x="772" y="122" width="256" height="126" rx="17" fill="#173f3d"/><text x="900" y="157" text-anchor="middle" font-size="17" font-weight="700" fill="#ffffff">生成</text><text x="900" y="191" text-anchor="middle" font-size="13" fill="#dbe9e5">citation</text><text x="900" y="215" text-anchor="middle" font-size="13" fill="#dbe9e5">grounding</text>
+  </g>
+  <path d="M272 185h20M512 185h20M752 185h20" stroke="#7d9a95" stroke-width="3" stroke-linecap="round"/>
+  <rect x="52" y="294" width="976" height="44" rx="14" fill="#e8efeb"/><text x="540" y="322" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif" font-size="15" font-weight="700" fill="#365b61">先归因，再决定修路由、索引、投影还是模型</text>
+</svg>

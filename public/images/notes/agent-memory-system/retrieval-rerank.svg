@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 500" role="img" aria-labelledby="title desc">
+  <title id="title">Memory retrieval and reranking</title>
+  <desc id="desc">Tenant and permission filters happen before retrieval, then candidates are reranked by relevance, recency, confidence and conflict.</desc>
+  <rect width="1200" height="500" rx="28" fill="#f7f8f5"/>
+  <text x="60" y="62" font-family="Arial, sans-serif" font-size="27" font-weight="700" fill="#17211d">Retrieve memories for the task, not by similarity alone</text>
+  <text x="60" y="96" font-family="Arial, sans-serif" font-size="16" fill="#5f6d66">Protect the boundary first, then spend model context on the few candidates that matter.</text>
+  <g font-family="Arial, sans-serif">
+    <rect x="66" y="182" width="190" height="100" rx="18" fill="#ffffff" stroke="#9ab8ad" stroke-width="2"/>
+    <text x="116" y="222" font-size="20" font-weight="700" fill="#21473d">任务查询</text>
+    <text x="99" y="250" font-size="15" fill="#5f6d66">goal + stage + user</text>
+    <path d="M256 232h62" stroke="#6d8c82" stroke-width="3" marker-end="url(#arrow)"/>
+    <rect x="318" y="168" width="210" height="128" rx="18" fill="#f4e7d9" stroke="#bc8052" stroke-width="2"/>
+    <text x="371" y="210" font-size="20" font-weight="700" fill="#8f5430">边界过滤</text>
+    <text x="345" y="239" font-size="15" fill="#5a3f31">租户 · 用户 · 版本</text>
+    <text x="345" y="266" font-size="15" fill="#5a3f31">权限 · tombstone</text>
+    <path d="M528 232h62" stroke="#6d8c82" stroke-width="3" marker-end="url(#arrow)"/>
+    <rect x="590" y="168" width="210" height="128" rx="18" fill="#e7f2ef" stroke="#4d9d8e" stroke-width="2"/>
+    <text x="649" y="210" font-size="20" font-weight="700" fill="#246d60">候选召回</text>
+    <text x="617" y="239" font-size="15" fill="#314d47">keyword + vector</text>
+    <text x="617" y="266" font-size="15" fill="#314d47">top-k + 去重</text>
+    <path d="M800 232h62" stroke="#6d8c82" stroke-width="3" marker-end="url(#arrow)"/>
+    <rect x="862" y="168" width="270" height="128" rx="18" fill="#d8efe7" stroke="#217d6e" stroke-width="2"/>
+    <text x="923" y="210" font-size="20" font-weight="700" fill="#176658">任务重排</text>
+    <text x="891" y="239" font-size="15" fill="#23423b">相关性 · 重要性 · 时间</text>
+    <text x="891" y="266" font-size="15" fill="#23423b">置信度 − 冲突 − 风险</text>
+  </g>
+  <g font-family="Arial, sans-serif" font-size="15">
+    <rect x="170" y="365" width="860" height="54" rx="16" fill="#ffffff" stroke="#d5ddd8"/>
+    <text x="202" y="398" fill="#5f6d66">模型只接收：少量、已授权、带来源和版本的记忆；被过滤的候选不会进入上下文。</text>
+  </g>
+  <defs><marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto"><path d="M0,0 L10,3 L0,6 z" fill="#6d8c82"/></marker></defs>
+</svg>

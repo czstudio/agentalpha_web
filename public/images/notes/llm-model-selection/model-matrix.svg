@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="500" viewBox="0 0 1200 500">
+  <rect width="1200" height="500" fill="#f8faf9"/>
+  <text x="70" y="70" font-family="Arial,'Noto Sans SC',sans-serif" font-size="28" font-weight="700" fill="#19372f">模型选型矩阵：质量门槛之外再比较成本和风险</text>
+  <line x1="155" y1="395" x2="1040" y2="395" stroke="#9aa8a2" stroke-width="2"/><line x1="155" y1="140" x2="155" y2="395" stroke="#9aa8a2" stroke-width="2"/>
+  <text x="540" y="445" font-family="Arial,'Noto Sans SC',sans-serif" font-size="17" fill="#718078">单位成功成本 →</text><text x="80" y="210" font-family="Arial,'Noto Sans SC',sans-serif" font-size="17" fill="#718078" transform="rotate(-90 80 210)">任务质量 ↑</text>
+  <circle cx="340" cy="190" r="22" fill="#477e68"/><text x="380" y="197" font-family="Arial,'Noto Sans SC',sans-serif" font-size="17" fill="#365c4e">高质量、低成本：优先候选</text>
+  <circle cx="720" cy="230" r="22" fill="#d09b55"/><text x="760" y="237" font-family="Arial,'Noto Sans SC',sans-serif" font-size="17" fill="#85642e">质量够用：适合低风险路由</text>
+  <circle cx="850" cy="340" r="22" fill="#c9785e"/><text x="890" y="347" font-family="Arial,'Noto Sans SC',sans-serif" font-size="17" fill="#925541">便宜但失败多：不能只看单价</text>
+  <rect x="250" y="260" width="600" height="80" fill="none" stroke="#86b49d" stroke-width="3" stroke-dasharray="9 8"/><text x="430" y="306" font-family="Arial,'Noto Sans SC',sans-serif" font-size="17" fill="#4d7665">高风险任务的质量 / 安全硬门槛区域</text>
+</svg>

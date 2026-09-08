@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="360" viewBox="0 0 1080 360" role="img" aria-labelledby="title desc">
+  <title id="title">证据冲突处理</title>
+  <desc id="desc">RAG 先比较时间、范围和来源优先级，再决定支持、澄清或拒答</desc>
+  <rect width="1080" height="360" rx="24" fill="#f7f8f5"/>
+  <text x="56" y="54" font-family="Arial, sans-serif" font-size="26" font-weight="700" fill="#173f3d">Conflict resolution</text>
+  <text x="56" y="82" font-family="Arial, sans-serif" font-size="15" fill="#58716e">数字不同不等于矛盾：先确认它们描述的是不是同一个世界</text>
+  <g font-family="Arial, sans-serif" fill="#173f3d" font-size="16">
+    <rect x="56" y="122" width="220" height="96" rx="16" fill="#eaf3f7" stroke="#b9d3df"/>
+    <text x="78" y="151">E1 · 财务口径</text><text x="78" y="178">CN · Q2 · 3.2%</text><text x="78" y="204">2026-07-08</text>
+    <rect x="56" y="240" width="220" height="72" rx="16" fill="#fff1d9" stroke="#e8c891"/>
+    <text x="78" y="269">E2 · 运营口径</text><text x="78" y="295">Global · 4.1%</text>
+    <rect x="400" y="155" width="230" height="88" rx="16" fill="#dfeee8" stroke="#afd0c3"/>
+    <text x="430" y="184">compare</text><text x="430" y="211">time · scope · source</text>
+    <rect x="760" y="108" width="250" height="66" rx="16" fill="#dfeee8" stroke="#afd0c3"/>
+    <text x="792" y="148">same world → merge</text>
+    <rect x="760" y="190" width="250" height="66" rx="16" fill="#fff1d9" stroke="#e8c891"/>
+    <text x="792" y="230">different scope → clarify</text>
+    <rect x="760" y="272" width="250" height="54" rx="16" fill="#fae8e1" stroke="#e0b9ae"/>
+    <text x="792" y="305">unresolved → abstain</text>
+  </g>
+  <g stroke="#79908c" stroke-width="3" fill="none" stroke-linecap="round">
+    <path d="M276 170C320 170 348 178 400 184"/><path d="M276 275C330 275 348 220 400 214"/>
+    <path d="M630 184C690 160 704 141 760 141"/><path d="M630 198C696 216 712 222 760 222"/><path d="M630 218C692 265 716 296 760 298"/>
+  </g>
+</svg>

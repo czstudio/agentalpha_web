@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 390" role="img" aria-labelledby="title desc">
+  <title id="title">RAG grounding 回放链路</title>
+  <desc id="desc">claim、检索快照、评测器判定和最终动作组成可回放证据件</desc>
+  <rect width="1080" height="390" rx="28" fill="#f7f8f5"/>
+  <text x="56" y="56" font-family="Arial,sans-serif" font-size="26" font-weight="700" fill="#173f3d">Grounding replay</text>
+  <text x="56" y="84" font-family="Arial,sans-serif" font-size="15" fill="#58716e">每条结论都能回到当时的索引、版本和判定</text>
+  <g font-family="Arial,sans-serif" text-anchor="middle">
+    <rect x="56" y="138" width="210" height="106" rx="18" fill="#eaf3f7" stroke="#b9d3df"/><text x="161" y="174" font-size="19" font-weight="700" fill="#24556a">claim</text><text x="161" y="208" font-size="15" fill="#5a737d">可验证断言</text>
+    <rect x="306" y="138" width="210" height="106" rx="18" fill="#dfeee8" stroke="#afd0c3"/><text x="411" y="174" font-size="19" font-weight="700" fill="#173f3d">snapshot</text><text x="411" y="208" font-size="15" fill="#52706b">索引 · 版本 · 过滤</text>
+    <rect x="556" y="138" width="210" height="106" rx="18" fill="#fff1d9" stroke="#e8c891"/><text x="661" y="174" font-size="19" font-weight="700" fill="#704c20">judge</text><text x="661" y="208" font-size="15" fill="#856a42">支持 / 冲突 / 不足</text>
+    <rect x="806" y="138" width="218" height="106" rx="18" fill="#173f3d"/><text x="915" y="174" font-size="19" font-weight="700" fill="#f7f8f5">action</text><text x="915" y="208" font-size="15" fill="#dfeee8">回答 / 澄清 / 拒答</text>
+  </g>
+  <g stroke="#79908c" stroke-width="3" fill="none" stroke-linecap="round"><path d="M266 191h40"/><path d="M516 191h40"/><path d="M766 191h40"/></g>
+  <rect x="56" y="292" width="968" height="52" rx="15" fill="#182033"/><text x="540" y="325" font-family="Arial,sans-serif" font-size="15" text-anchor="middle" fill="#f7f8f5">replay = same evidence snapshot + same evaluator + same action policy</text>
+</svg>

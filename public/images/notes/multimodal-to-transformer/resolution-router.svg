@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 420" role="img" aria-labelledby="title desc">
+  <title id="title">多模态视图路由</title>
+  <desc id="desc">根据问题选择全图、局部高分辨率或对齐双图，并在低置信度时升级</desc>
+  <rect width="1080" height="420" rx="28" fill="#f7f8f5"/>
+  <text x="56" y="56" font-family="Arial,sans-serif" font-size="26" font-weight="700" fill="#173f3d">Resolution router</text>
+  <text x="56" y="84" font-family="Arial,sans-serif" font-size="15" fill="#58716e">先理解问题，再决定看多清楚</text>
+  <rect x="56" y="142" width="210" height="100" rx="18" fill="#eaf3f7" stroke="#b9d3df"/><text x="161" y="180" font-family="Arial,sans-serif" font-size="19" text-anchor="middle" font-weight="700" fill="#24556a">question</text><text x="161" y="214" font-family="Arial,sans-serif" font-size="15" text-anchor="middle" fill="#5a737d">global · OCR · compare</text>
+  <g font-family="Arial,sans-serif" text-anchor="middle" font-size="16">
+    <rect x="370" y="112" width="210" height="72" rx="16" fill="#dfeee8" stroke="#afd0c3"/><text x="475" y="155" fill="#173f3d">全图缩略</text>
+    <rect x="370" y="198" width="210" height="72" rx="16" fill="#fff1d9" stroke="#e8c891"/><text x="475" y="241" fill="#704c20">局部高分辨率</text>
+    <rect x="370" y="284" width="210" height="72" rx="16" fill="#fae8e1" stroke="#e0b9ae"/><text x="475" y="327" fill="#753f32">对齐双图</text>
+  </g>
+  <rect x="704" y="164" width="320" height="130" rx="18" fill="#173f3d"/><text x="864" y="204" font-family="Arial,sans-serif" font-size="18" text-anchor="middle" fill="#f7f8f5">置信度检查</text><text x="864" y="240" font-family="Arial,sans-serif" font-size="15" text-anchor="middle" fill="#dfeee8">通过 → 输出证据</text><text x="864" y="268" font-family="Arial,sans-serif" font-size="15" text-anchor="middle" fill="#dfeee8">不足 → 升级视图 / 拒答</text>
+  <g stroke="#79908c" stroke-width="3" fill="none" stroke-linecap="round"><path d="M266 192h104"/><path d="M580 148C640 148 658 194 704 194"/><path d="M580 234h124"/><path d="M580 320C640 320 658 264 704 264"/></g>
+</svg>

@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 350" role="img" aria-labelledby="title desc">
+  <title id="title">任务 DAG 与并发扇出</title>
+  <desc id="desc">规划节点向三个独立分支扇出，再合并进入写作和审核。</desc>
+  <rect width="900" height="350" rx="28" fill="#f7f8f5"/>
+  <g stroke="#91b1a8" stroke-width="3" fill="none" stroke-linecap="round">
+    <path d="M164 175h74M314 175h74M536 105h82M536 175h82M536 245h82M692 105l-1 70M692 245l-1-70M766 175h72"/>
+    <path d="m228 165 18 10-18 10M378 165l18 10-18 10M608 95l18 10-18 10M608 165l18 10-18 10M608 235l18 10-18 10M828 165l18 10-18 10" fill="#91b1a8"/>
+  </g>
+  <g font-family="sans-serif" text-anchor="middle">
+    <rect x="40" y="144" width="124" height="62" rx="16" fill="#dfeee8"/><text x="102" y="182" font-size="18" font-weight="700" fill="#173f3d">规划</text>
+    <rect x="246" y="144" width="128" height="62" rx="16" fill="#eaf3f7"/><text x="310" y="182" font-size="18" font-weight="700" fill="#24556a">扇出</text>
+    <rect x="400" y="72" width="136" height="62" rx="16" fill="#fff1d9"/><text x="468" y="110" font-size="17" font-weight="700" fill="#704c20">研究 A</text>
+    <rect x="400" y="144" width="136" height="62" rx="16" fill="#fff1d9"/><text x="468" y="182" font-size="17" font-weight="700" fill="#704c20">研究 B</text>
+    <rect x="400" y="216" width="136" height="62" rx="16" fill="#fff1d9"/><text x="468" y="254" font-size="17" font-weight="700" fill="#704c20">计算 C</text>
+    <rect x="626" y="144" width="136" height="62" rx="16" fill="#dfeee8"/><text x="694" y="182" font-size="17" font-weight="700" fill="#173f3d">合并</text>
+    <rect x="838" y="144" width="54" height="62" rx="16" fill="#fae8e1"/><text x="865" y="182" font-size="15" font-weight="700" fill="#753f32">写</text>
+  </g>
+</svg>

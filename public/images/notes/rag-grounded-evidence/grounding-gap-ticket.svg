@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="390" viewBox="0 0 1080 390" role="img" aria-labelledby="title desc">
+  <title id="title">证据缺口处置单</title><desc id="desc">claim、检索范围、缺口原因、拒答动作和补证路径组成可复核的缺口记录</desc>
+  <rect width="1080" height="390" rx="26" fill="#f7f8f5"/>
+  <text x="52" y="56" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif" font-size="25" font-weight="700" fill="#173f3d">证据缺口处置单</text>
+  <text x="52" y="84" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif" font-size="15" fill="#5b7470">正确拒答也要说明查过什么、缺了什么、下一步怎么补</text>
+  <g font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif">
+    <rect x="52" y="122" width="220" height="126" rx="17" fill="#eaf3f7" stroke="#b9d3df"/><text x="162" y="157" text-anchor="middle" font-size="17" font-weight="700" fill="#173f3d">Claim</text><text x="162" y="191" text-anchor="middle" font-size="13" fill="#48635f">2025Q4 退款率</text><text x="162" y="215" text-anchor="middle" font-size="13" fill="#48635f">2.8%?</text>
+    <rect x="292" y="122" width="220" height="126" rx="17" fill="#fff1d9" stroke="#e8c891"/><text x="402" y="157" text-anchor="middle" font-size="17" font-weight="700" fill="#173f3d">已检索</text><text x="402" y="191" text-anchor="middle" font-size="13" fill="#48635f">dashboard · report</text><text x="402" y="215" text-anchor="middle" font-size="13" fill="#48635f">version: r16</text>
+    <rect x="532" y="122" width="220" height="126" rx="17" fill="#f5d9dc" stroke="#dfb2b9"/><text x="642" y="157" text-anchor="middle" font-size="17" font-weight="700" fill="#173f3d">缺口</text><text x="642" y="191" text-anchor="middle" font-size="13" fill="#48635f">Q4 归档未授权</text><text x="642" y="215" text-anchor="middle" font-size="13" fill="#48635f">不能用旧数字替代</text>
+    <rect x="772" y="122" width="256" height="126" rx="17" fill="#173f3d"/><text x="900" y="157" text-anchor="middle" font-size="17" font-weight="700" fill="#ffffff">动作</text><text x="900" y="191" text-anchor="middle" font-size="13" fill="#dbe9e5">refuse_with_reason</text><text x="900" y="215" text-anchor="middle" font-size="13" fill="#dbe9e5">请求补充资料</text>
+  </g>
+  <path d="M272 185h20M512 185h20M752 185h20" stroke="#7d9a95" stroke-width="3" stroke-linecap="round"/>
+  <rect x="52" y="294" width="976" height="44" rx="14" fill="#e8efeb"/><text x="540" y="322" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif" font-size="15" font-weight="700" fill="#365b61">把“没有找到”和“找到冲突”分开，拒答才可评测、可改进</text>
+</svg>

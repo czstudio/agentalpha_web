@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 390" role="img" aria-labelledby="title desc">
+  <title id="title">视觉切片证据回放</title>
+  <desc id="desc">图片哈希、切片坐标、OCR 和答案引用串成可复现链路</desc>
+  <rect width="1080" height="390" rx="28" fill="#f7f8f5"/>
+  <text x="56" y="56" font-family="Arial,sans-serif" font-size="26" font-weight="700" fill="#173f3d">Slice replay</text>
+  <text x="56" y="84" font-family="Arial,sans-serif" font-size="15" fill="#58716e">固定 image hash，再替换切片器或模型版本</text>
+  <g font-family="Arial,sans-serif" font-size="16" fill="#173f3d">
+    <rect x="56" y="132" width="205" height="112" rx="18" fill="#eaf3f7" stroke="#b9d3df"/><text x="82" y="168">source</text><text x="82" y="202">image hash</text><text x="82" y="226">page · size</text>
+    <rect x="300" y="132" width="205" height="112" rx="18" fill="#dfeee8" stroke="#afd0c3"/><text x="326" y="168">views</text><text x="326" y="202">box · scale</text><text x="326" y="226">model version</text>
+    <rect x="544" y="132" width="205" height="112" rx="18" fill="#fff1d9" stroke="#e8c891"/><text x="570" y="168">OCR</text><text x="570" y="202">text · box</text><text x="570" y="226">confidence</text>
+    <rect x="788" y="132" width="236" height="112" rx="18" fill="#173f3d"/><text x="814" y="168" fill="#f7f8f5">answer</text><text x="814" y="202" fill="#dfeee8">value → evidence</text><text x="814" y="226" fill="#dfeee8">grounded / review</text>
+  </g>
+  <g stroke="#79908c" stroke-width="3" fill="none" stroke-linecap="round"><path d="M261 188h39"/><path d="M505 188h39"/><path d="M749 188h39"/></g>
+  <rect x="56" y="296" width="968" height="50" rx="15" fill="#182033"/><text x="540" y="328" font-family="monospace" font-size="15" text-anchor="middle" fill="#f7f8f5">same hash + same question + new version → coordinate diff first</text>
+</svg>

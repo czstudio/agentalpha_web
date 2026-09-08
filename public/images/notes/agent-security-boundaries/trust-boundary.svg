@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 500" role="img" aria-labelledby="title desc">
+  <title id="title">Agent trust boundaries</title>
+  <desc id="desc">The model proposes intent while policy, tools and data services enforce boundaries.</desc>
+  <rect width="1200" height="500" rx="28" fill="#f7f8f5"/>
+  <text x="60" y="62" font-family="Arial, sans-serif" font-size="27" font-weight="700" fill="#17211d">The model is not the permission center</text>
+  <text x="60" y="96" font-family="Arial, sans-serif" font-size="16" fill="#5f6d66">It proposes an action; independent layers decide whether that action can happen.</text>
+  <rect x="80" y="160" width="220" height="230" rx="22" fill="#e7f2ef" stroke="#4d9d8e" stroke-width="3"/>
+  <text x="145" y="207" font-family="Arial, sans-serif" font-size="24" font-weight="700" fill="#246d60">模型</text>
+  <text x="113" y="247" font-family="Arial, sans-serif" font-size="15" fill="#314d47">理解意图</text>
+  <text x="113" y="278" font-family="Arial, sans-serif" font-size="15" fill="#314d47">选择工具</text>
+  <text x="113" y="309" font-family="Arial, sans-serif" font-size="15" fill="#314d47">生成参数</text>
+  <text x="113" y="354" font-family="Arial, sans-serif" font-size="14" fill="#5f6d66">不直接拥有权限</text>
+  <path d="M300 275h88" stroke="#6d8c82" stroke-width="3" marker-end="url(#arrow)"/>
+  <rect x="388" y="160" width="220" height="230" rx="22" fill="#f4e7d9" stroke="#bc8052" stroke-width="3"/>
+  <text x="449" y="207" font-family="Arial, sans-serif" font-size="24" font-weight="700" fill="#8f5430">策略层</text>
+  <text x="421" y="247" font-family="Arial, sans-serif" font-size="15" fill="#5a3f31">身份 · 租户 · 资源</text>
+  <text x="421" y="278" font-family="Arial, sans-serif" font-size="15" fill="#5a3f31">动作 · 字段 · 额度</text>
+  <text x="421" y="309" font-family="Arial, sans-serif" font-size="15" fill="#5a3f31">风险 · 审批 · 版本</text>
+  <text x="421" y="354" font-family="Arial, sans-serif" font-size="14" fill="#5f6d66">允许 / 拒绝 / 审核</text>
+  <path d="M608 275h88" stroke="#6d8c82" stroke-width="3" marker-end="url(#arrow)"/>
+  <rect x="696" y="160" width="220" height="230" rx="22" fill="#d8efe7" stroke="#217d6e" stroke-width="3"/>
+  <text x="757" y="207" font-family="Arial, sans-serif" font-size="24" font-weight="700" fill="#176658">工具网关</text>
+  <text x="728" y="247" font-family="Arial, sans-serif" font-size="15" fill="#23423b">Schema 校验</text>
+  <text x="728" y="278" font-family="Arial, sans-serif" font-size="15" fill="#23423b">幂等 · 超时 · 配额</text>
+  <text x="728" y="309" font-family="Arial, sans-serif" font-size="15" fill="#23423b">审计 · 回执</text>
+  <path d="M916 275h88" stroke="#6d8c82" stroke-width="3" marker-end="url(#arrow)"/>
+  <rect x="1004" y="160" width="130" height="230" rx="22" fill="#f0eee3" stroke="#b8a766" stroke-width="3"/>
+  <text x="1036" y="207" font-family="Arial, sans-serif" font-size="24" font-weight="700" fill="#7a681d">数据</text>
+  <text x="1028" y="247" font-family="Arial, sans-serif" font-size="15" fill="#514b31">隔离</text>
+  <text x="1028" y="278" font-family="Arial, sans-serif" font-size="15" fill="#514b31">脱敏</text>
+  <text x="1028" y="309" font-family="Arial, sans-serif" font-size="15" fill="#514b31">可追溯</text>
+  <defs><marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto"><path d="M0,0 L10,3 L0,6 z" fill="#6d8c82"/></marker></defs>
+</svg>

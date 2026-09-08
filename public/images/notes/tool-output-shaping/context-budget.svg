@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 360" role="img" aria-labelledby="title desc">
+  <title id="title">工具结果上下文预算</title>
+  <desc id="desc">把上下文预算分给摘要、当前页、证据和错误信息，超出时优先截断低价值字段。</desc>
+  <rect width="900" height="360" rx="28" fill="#f7f8f5"/>
+  <g font-family="sans-serif">
+    <text x="80" y="70" font-size="21" font-weight="700" fill="#173f3d">一次观察的 token 预算</text>
+    <rect x="80" y="104" width="740" height="66" rx="17" fill="#dfeee8" stroke="#afd0c3"/><text x="110" y="143" font-size="17" font-weight="700" fill="#173f3d">决策摘要</text><text x="270" y="143" font-size="14" fill="#52706b">最重要：状态、结论、下一步</text><text x="760" y="143" font-size="14" text-anchor="end" fill="#52706b">40%</text>
+    <rect x="80" y="182" width="540" height="66" rx="17" fill="#eaf3f7" stroke="#b9d3df"/><text x="110" y="221" font-size="17" font-weight="700" fill="#24556a">当前页数据</text><text x="280" y="221" font-size="14" fill="#5a737d">少量足够回答问题的条目</text><text x="560" y="221" font-size="14" text-anchor="end" fill="#5a737d">30%</text>
+    <rect x="80" y="260" width="360" height="66" rx="17" fill="#fff1d9" stroke="#e8c891"/><text x="110" y="299" font-size="17" font-weight="700" fill="#704c20">证据与错误</text><text x="400" y="299" font-size="14" text-anchor="end" fill="#856a42">30%</text>
+  </g>
+</svg>

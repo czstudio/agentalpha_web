@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="360" viewBox="0 0 1080 360" role="img" aria-labelledby="title desc">
+  <title id="title">多模态训练消融矩阵</title>
+  <desc id="desc">投影对齐、区域监督和高分辨率路由按阶段比较能力切片</desc>
+  <rect width="1080" height="360" rx="24" fill="#f7f8f5"/>
+  <text x="56" y="54" font-family="Arial, sans-serif" font-size="26" font-weight="700" fill="#173f3d">Training ablation matrix</text>
+  <text x="56" y="82" font-family="Arial, sans-serif" font-size="15" fill="#58716e">不要只看总分：每一步训练改变了哪种视觉能力？</text>
+  <g font-family="Arial, sans-serif" font-size="15" fill="#173f3d">
+    <text x="66" y="126">stage</text><text x="360" y="126">OCR</text><text x="515" y="126">layout</text><text x="670" y="126">grounding</text><text x="855" y="126">hallucination</text>
+    <rect x="56" y="144" width="920" height="42" rx="10" fill="#eaf3f7" stroke="#b9d3df"/><text x="72" y="171">caption only</text><text x="365" y="171">low</text><text x="520" y="171">low</text><text x="675" y="171">low</text><text x="860" y="171">high</text>
+    <rect x="56" y="194" width="920" height="42" rx="10" fill="#dfeee8" stroke="#afd0c3"/><text x="72" y="221">+ projection alignment</text><text x="365" y="221">mid</text><text x="520" y="221">mid</text><text x="675" y="221">low</text><text x="860" y="221">mid</text>
+    <rect x="56" y="244" width="920" height="42" rx="10" fill="#fff1d9" stroke="#e8c891"/><text x="72" y="271">+ region grounding</text><text x="365" y="271">high</text><text x="520" y="271">high</text><text x="675" y="271">high</text><text x="860" y="271">low</text>
+    <rect x="56" y="294" width="920" height="42" rx="10" fill="#fae8e1" stroke="#e0b9ae"/><text x="72" y="321">+ crop routing</text><text x="365" y="321">high</text><text x="520" y="321">high</text><text x="675" y="321">high</text><text x="860" y="321">low</text>
+  </g>
+</svg>

@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 420" role="img" aria-labelledby="title desc">
+  <title id="title">Code Agent 补丁证明单</title><desc id="desc">改动、不可变条件、验证命令和阻塞项组成可交接补丁证明</desc>
+  <rect width="1080" height="420" rx="28" fill="#f7f8f5"/>
+  <text x="54" y="56" font-family="Arial,sans-serif" font-size="26" font-weight="700" fill="#173f3d">Patch proof</text>
+  <text x="54" y="84" font-family="Arial,sans-serif" font-size="15" fill="#58716e">交付不是一句 pass，而是别人能重新走完的证据链</text>
+  <g font-family="Arial,sans-serif" font-size="15" fill="#173f3d">
+    <rect x="54" y="126" width="216" height="112" rx="16" fill="#eaf3f7" stroke="#b9d3df"/><text x="162" y="160" text-anchor="middle" font-weight="700">任务合同</text><text x="162" y="192" text-anchor="middle">目标 · 不变式</text><text x="162" y="216" text-anchor="middle">验收口径</text>
+    <rect x="294" y="126" width="216" height="112" rx="16" fill="#fff1d9" stroke="#e8c891"/><text x="402" y="160" text-anchor="middle" font-weight="700">补丁范围</text><text x="402" y="192" text-anchor="middle">文件 · base revision</text><text x="402" y="216" text-anchor="middle">回滚入口</text>
+    <rect x="534" y="126" width="216" height="112" rx="16" fill="#dfeee8" stroke="#afd0c3"/><text x="642" y="160" text-anchor="middle" font-weight="700">验证证据</text><text x="642" y="192" text-anchor="middle">命令 · 样本 · trace</text><text x="642" y="216" text-anchor="middle">成功 + 失败</text>
+    <rect x="774" y="126" width="252" height="112" rx="16" fill="#173f3d"/><text x="900" y="160" text-anchor="middle" font-weight="700" fill="#fff">交接状态</text><text x="900" y="192" text-anchor="middle" fill="#dbe9e5">blocked / owner</text><text x="900" y="216" text-anchor="middle" fill="#dbe9e5">下一步 · 回滚</text>
+  </g>
+  <g stroke="#79908c" stroke-width="3" fill="none" stroke-linecap="round"><path d="M270 182h24"/><path d="M510 182h24"/><path d="M750 182h24"/></g>
+  <rect x="54" y="294" width="972" height="62" rx="16" fill="#182033"/><text x="80" y="331" font-family="monospace" font-size="15" fill="#f7f8f5">clean_workspace → rerun shortest path → reproduce pass/fail → hand off</text>
+</svg>

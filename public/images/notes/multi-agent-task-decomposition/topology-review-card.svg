@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="390" viewBox="0 0 1080 390" role="img" aria-labelledby="title desc">
+  <title id="title">Topology review card</title>
+  <desc id="desc">多 Agent 角色的触发条件、输入输出、权限、失败接手和 owner 被固定在一张评审卡里。</desc>
+  <rect width="1080" height="390" rx="26" fill="#f7f8f5"/>
+  <text x="58" y="54" fill="#17342f" font-size="25" font-weight="700" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif">Topology review card</text>
+  <text x="58" y="82" fill="#71837d" font-size="15" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif">每个角色都要有触发理由、可验收产物和失败接手人</text>
+  <g font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif">
+    <rect x="58" y="126" width="180" height="108" rx="18" fill="#eaf1f8" stroke="#b6cce0"/><text x="80" y="163" fill="#31516d" font-size="18" font-weight="700">触发</text><text x="80" y="192" fill="#587085" font-size="14">conflict / risk</text><text x="80" y="215" fill="#587085" font-size="14">何时启动</text>
+    <rect x="268" y="126" width="180" height="108" rx="18" fill="#e4f2ec" stroke="#a8d2bf"/><text x="290" y="163" fill="#205b4c" font-size="18" font-weight="700">输入输出</text><text x="290" y="192" fill="#4e6c63" font-size="14">artifact + decision</text><text x="290" y="215" fill="#4e6c63" font-size="14">完成条件</text>
+    <rect x="478" y="126" width="180" height="108" rx="18" fill="#fff1d9" stroke="#e9c987"/><text x="500" y="163" fill="#795a20" font-size="18" font-weight="700">权限</text><text x="500" y="192" fill="#896d39" font-size="14">read_only / tools</text><text x="500" y="215" fill="#896d39" font-size="14">边界先写清</text>
+    <rect x="688" y="126" width="180" height="108" rx="18" fill="#f5e7ee" stroke="#dfb2c7"/><text x="710" y="163" fill="#7a3f5a" font-size="18" font-weight="700">失败</text><text x="710" y="192" fill="#8a6073" font-size="14">blocked / retry</text><text x="710" y="215" fill="#8a6073" font-size="14">谁来接手</text>
+    <rect x="898" y="126" width="124" height="108" rx="18" fill="#17342f"/><text x="920" y="163" fill="#f5fbf8" font-size="18" font-weight="700">owner</text><text x="920" y="193" fill="#c7e7d9" font-size="14">负责关闭</text><text x="920" y="216" fill="#c7e7d9" font-size="14">证据链</text>
+  </g>
+  <g stroke="#6e9588" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M238 180h30"/><path d="M448 180h30"/><path d="M658 180h30"/><path d="M868 180h30"/><path d="M252 170l16 10-16 10"/><path d="M462 170l16 10-16 10"/><path d="M672 170l16 10-16 10"/><path d="M882 170l16 10-16 10"/></g>
+  <rect x="58" y="286" width="964" height="52" rx="15" fill="#edf4f0" stroke="#c8ddd3"/><text x="84" y="319" fill="#28594c" font-size="17" font-weight="600" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif">没有独立输入、输出和失败接手的角色，不应该先进入拓扑</text>
+</svg>

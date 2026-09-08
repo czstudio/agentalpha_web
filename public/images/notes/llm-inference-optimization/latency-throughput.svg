@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 560" role="img" aria-labelledby="title desc">
+  <title id="title">推理服务延迟与吞吐指标</title>
+  <desc id="desc">展示排队、Prefill、Decode 和四个核心服务指标的关系。</desc>
+  <rect width="1200" height="560" rx="24" fill="#f7f3ec"/>
+  <text x="70" y="70" font-family="Arial, PingFang SC, sans-serif" font-size="28" font-weight="700" fill="#323e3e">先把“快”拆成四个能测的指标</text>
+  <g font-family="Arial, PingFang SC, sans-serif">
+    <rect x="80" y="130" width="1040" height="100" rx="16" fill="#fffaf1" stroke="#d8c7b4" stroke-width="2"/>
+    <g text-anchor="middle"><rect x="120" y="160" width="180" height="42" rx="8" fill="#e8d9c4"/><rect x="325" y="160" width="230" height="42" rx="8" fill="#f9e076"/><rect x="580" y="160" width="230" height="42" rx="8" fill="#eef5e9"/><rect x="835" y="160" width="220" height="42" rx="8" fill="#e8d9c4"/></g>
+    <g text-anchor="middle" font-size="17" fill="#323e3e"><text x="210" y="187">排队</text><text x="440" y="187">Prefill</text><text x="695" y="187">Decode 1, 2, 3...</text><text x="945" y="187">完成</text></g>
+    <path d="M300 181h20M555 181h20M810 181h20" stroke="#ce741e" stroke-width="3"/><path d="m314 173 14 8-14 8m245-8 14 8-14 8m245-8 14 8-14 8" fill="#ce741e"/>
+    <g fill="#323e3e"><text x="95" y="310" font-size="22" font-weight="700">TTFT</text><text x="95" y="338" font-size="16" fill="#7b7770">排队 + Prefill 到首 token</text><text x="385" y="310" font-size="22" font-weight="700">TPOT</text><text x="385" y="338" font-size="16" fill="#7b7770">Decode 相邻 token 间隔</text><text x="675" y="310" font-size="22" font-weight="700">吞吐</text><text x="675" y="338" font-size="16" fill="#7b7770">requests/s 或 tokens/s</text><text x="965" y="310" font-size="22" font-weight="700">P95/P99</text><text x="965" y="338" font-size="16" fill="#7b7770">高峰期最慢的一群请求</text></g>
+    <path d="M120 420H1060" stroke="#d9d0c4" stroke-width="2"/><path d="M120 420V385M440 420V385M695 420V385M945 420V385" stroke="#7fb069" stroke-width="3"/>
+    <text x="120" y="468" font-size="16" fill="#7b7770">优化前先定位瓶颈，量化、批处理、前缀缓存和投机解码改善的不是同一段。</text>
+  </g>
+</svg>

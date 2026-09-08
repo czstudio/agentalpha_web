@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 500" role="img" aria-labelledby="title desc">
+  <title id="title">Auditable agent action</title>
+  <desc id="desc">Intent, policy decision, approval, execution and compensation events form an auditable chain.</desc>
+  <rect width="1200" height="500" rx="28" fill="#f7f8f5"/>
+  <text x="60" y="62" font-family="Arial, sans-serif" font-size="27" font-weight="700" fill="#17211d">An audit trail should tell the whole action story</text>
+  <text x="60" y="96" font-family="Arial, sans-serif" font-size="16" fill="#5f6d66">Who asked, what was decided, what changed, and how the system recovered.</text>
+  <g font-family="Arial, sans-serif">
+    <rect x="70" y="185" width="180" height="100" rx="16" fill="#e7f2ef" stroke="#4d9d8e" stroke-width="2"/>
+    <text x="123" y="225" font-size="20" font-weight="700" fill="#246d60">intent</text>
+    <text x="102" y="254" font-size="15" fill="#314d47">actor + digest</text>
+    <path d="M250 235h65" stroke="#6d8c82" stroke-width="3" marker-end="url(#arrow)"/>
+    <rect x="315" y="185" width="180" height="100" rx="16" fill="#f4e7d9" stroke="#bc8052" stroke-width="2"/>
+    <text x="359" y="225" font-size="20" font-weight="700" fill="#8f5430">decision</text>
+    <text x="345" y="254" font-size="15" fill="#5a3f31">policy version</text>
+    <path d="M495 235h65" stroke="#6d8c82" stroke-width="3" marker-end="url(#arrow)"/>
+    <rect x="560" y="185" width="180" height="100" rx="16" fill="#f0eee3" stroke="#b8a766" stroke-width="2"/>
+    <text x="612" y="225" font-size="20" font-weight="700" fill="#7a681d">approval</text>
+    <text x="595" y="254" font-size="15" fill="#514b31">scope + expiry</text>
+    <path d="M740 235h65" stroke="#6d8c82" stroke-width="3" marker-end="url(#arrow)"/>
+    <rect x="805" y="185" width="180" height="100" rx="16" fill="#d8efe7" stroke="#217d6e" stroke-width="2"/>
+    <text x="855" y="225" font-size="20" font-weight="700" fill="#176658">execute</text>
+    <text x="839" y="254" font-size="15" fill="#23423b">tool receipt</text>
+    <path d="M985 235h65" stroke="#6d8c82" stroke-width="3" marker-end="url(#arrow)"/>
+    <rect x="1050" y="185" width="100" height="100" rx="16" fill="#eeeeee" stroke="#858b87" stroke-width="2"/>
+    <text x="1063" y="225" font-size="20" font-weight="700" fill="#535a56">补偿</text>
+    <text x="1062" y="254" font-size="15" fill="#5f6d66">rollback</text>
+  </g>
+  <rect x="210" y="360" width="780" height="58" rx="16" fill="#ffffff" stroke="#d5ddd8"/>
+  <text x="264" y="396" font-family="Arial, sans-serif" font-size="16" fill="#5f6d66">字段可脱敏，但事件 ID、版本、资源和因果关系必须稳定可串联</text>
+  <defs><marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto"><path d="M0,0 L10,3 L0,6 z" fill="#6d8c82"/></marker></defs>
+</svg>

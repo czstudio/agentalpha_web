@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 640" role="img" aria-labelledby="title desc">
+  <title id="title">反事实动作分支</title>
+  <desc id="desc">固定同一状态后比较搜索一次、重复搜索和直接回答三条动作分支。</desc>
+  <rect width="1200" height="640" fill="#fbfaf7"/>
+  <text x="72" y="72" font-family="Arial, sans-serif" font-size="28" font-weight="700" fill="#17221b">同一状态，换一个动作再跑一次</text>
+  <text x="72" y="106" font-family="Arial, sans-serif" font-size="16" fill="#627066">反事实不是“猜模型心情”，而是把环境快照和验收器固定住。</text>
+  <circle cx="170" cy="310" r="60" fill="#17221b"/>
+  <text x="132" y="306" font-family="Arial, sans-serif" font-size="17" font-weight="700" fill="#f7f4ee">同一</text>
+  <text x="118" y="331" font-family="Arial, sans-serif" font-size="17" font-weight="700" fill="#f7f4ee">stateₜ</text>
+  <g font-family="Arial, sans-serif">
+    <path d="M230 300 C330 210 350 180 450 170" stroke="#7ca587" stroke-width="3" fill="none"/>
+    <path d="M230 315 C340 315 355 315 450 315" stroke="#c39b55" stroke-width="3" fill="none"/>
+    <path d="M230 330 C330 420 350 450 450 460" stroke="#ba7a73" stroke-width="3" fill="none"/>
+    <rect x="450" y="120" width="250" height="100" rx="16" fill="#e7f1e8" stroke="#7ca587" stroke-width="2"/>
+    <text x="480" y="160" font-size="18" font-weight="700" fill="#285339">动作 A：搜索一次</text>
+    <text x="480" y="190" font-size="15" fill="#35443b">证据命中，答案正确</text>
+    <rect x="450" y="265" width="250" height="100" rx="16" fill="#f3ead9" stroke="#c39b55" stroke-width="2"/>
+    <text x="480" y="305" font-size="18" font-weight="700" fill="#705426">动作 B：重复搜索</text>
+    <text x="480" y="335" font-size="15" fill="#53472f">没有新证据，浪费预算</text>
+    <rect x="450" y="410" width="250" height="100" rx="16" fill="#f2e6e5" stroke="#ba7a73" stroke-width="2"/>
+    <text x="480" y="450" font-size="18" font-weight="700" fill="#703e39">动作 C：直接回答</text>
+    <text x="480" y="480" font-size="15" fill="#5c4140">缺证据，答案不可靠</text>
+  </g>
+  <g font-family="Arial, sans-serif" font-size="15" fill="#35443b">
+    <text x="760" y="160">R = 1.0</text><text x="760" y="190">成本 = 1 次调用</text>
+    <text x="760" y="305">R = 0.2</text><text x="760" y="335">成本 = 3 次调用</text>
+    <text x="760" y="450">R = 0</text><text x="760" y="480">证据覆盖 = 0</text>
+  </g>
+  <rect x="72" y="556" width="1056" height="50" rx="12" fill="#e9edf4"/>
+  <text x="100" y="588" font-family="Arial, sans-serif" font-size="17" font-weight="700" fill="#334b6a">动作贡献 ≈ 替换动作后的结果差，而不是动作占了多少 token。</text>
+</svg>

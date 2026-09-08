@@ -40,6 +40,8 @@ DeepSeekMath 介绍的 Group Relative Policy Optimization，核心思路很直�
 - 工具名、参数、返回摘要和耗时；
 - 终止原因、奖励分解和验收结果。
 
+![GRPO Agent rollout 分组流程：固定问题与环境快照，过滤基础设施故障后才计算组内优势](/images/notes/agentic-rl-grpo-rollout/group-rollout.svg)
+
 这些字段看上去像日志工作。实际上，它们决定了你是否真的在做 group relative，而不是拿几条互不相干的故事算平均数。
 
 ## 一组 rollout，到底该怎么采
@@ -122,6 +124,54 @@ rollout 的质量最终由验收器决定。验收器只检查一个脆弱的样
 
 在资源受限时，可以先降低组大小，再做更长的离线回放；不要为了凑满一组而无限等待慢样本。一个明确标记为 incomplete 的小组，比一组混入超时重试的伪完整数据更适合调试。
 
+![Rollout 体检表：可比性、效率、质量和新鲜度四个维度一起看](/images/notes/agentic-rl-grpo-rollout/rollout-health.svg)
+
+### 把 rollout 当成数据产品，而不是 for 循环
+
+一个可交接的 rollout 记录，应该能被另一个进程独立消费。建议把轨迹状态写成明确的状态机：
+
+```text
+CREATED
+  → GENERATING
+  → TOOL_WAITING
+  → VERIFYING
+  → ACCEPTED | REJECTED | INFRA_FAILED | EXPIRED
+```
+
+`INFRA_FAILED` 和 `REJECTED` 不能共用一个失败桶。前者通常进入重试或诊断队列，后者才是策略应该学习的负反馈；`EXPIRED` 则表示样本年龄超过了本轮更新允许的窗口。
+
+轨迹元数据可以保持很小，但不能省掉版本和时间：
+
+```json
+{
+  "group_id": "q_0187_g04",
+  "prompt_version": "questions-v3",
+  "policy_version": "policy-2026-08-19-12",
+  "environment_version": "snapshot-42",
+  "verifier_version": "verifier-7",
+  "queue_wait_ms": 840,
+  "terminal": "ACCEPTED"
+}
+```
+
+更新器消费前做一次版本检查；不匹配就拒绝入 batch，并留下原因。这个门槛会丢掉少量样本，却能避免“昨天的策略采样、今天的 tokenizer 更新、明天才发现 ratio 全错”的隐性事故。
+
+### 奖励标准差为零时怎么办
+
+当一组样本全部成功或全部失败，`std(reward)=0`，组内优势没有方向。最简单的处理是跳过该组；更稳的是把它放进独立的 outcome 统计，不把它伪装成有效 policy gradient。
+
+```python
+def relative_advantage(rewards, eps=1e-6):
+    mean = sum(rewards) / len(rewards)
+    variance = sum((r - mean) ** 2 for r in rewards) / len(rewards)
+    std = variance ** 0.5
+    if std < eps:
+        return None  # 这组只用于 outcome，不用于相对更新
+    return [(r - mean) / (std + eps) for r in rewards]
+```
+
+如果“全成功”长期出现，先问任务是不是太简单、verifier 是否只看格式、采样温度是否过低；不要马上把组大小从 8 加到 64。组越大，可能只是更贵地重复没有信息的样本。
+
 ## 同步、异步和离线回放的边界
 
 同步 rollout 好理解：一轮生成完，统一算奖励，再更新策略。它的优点是样本关系清楚，缺点是被最慢轨迹卡住。异步 rollout 可以让 worker 持续生产，吞吐更高，但样本年龄、版本漂移和奖励延迟要额外监控。两者不是谁先进，而是任务能否容忍旧策略样本。
@@ -134,7 +184,119 @@ rollout 的质量最终由验收器决定。验收器只检查一个脆弱的样
 
 另外，长轨迹可以按 turn 截断，但截断必须作为终止事件进入奖励。若直接丢掉尾部 token，模型会以为任务自然结束，逐渐学会提前收尾。截断样本可用于诊断“预算不足”，但不要和真正成功样本混在同一奖励桶里。
 
+## Rollout 入批前要发一张新鲜度回执
+
+GRPO 的组内相对优势依赖样本来自可比的策略和环境。入 batch 前，我会给每组轨迹发一张新鲜度回执，把采样版本、环境版本、等待时间、奖励状态和是否允许更新写清楚：
+
+```yaml
+rollout_receipt: rr_20260820_14
+group_id: q_0187_g04
+policy_sampled: policy-12
+policy_current: policy-13
+environment: snapshot-42
+verifier: verifier-7
+queue_wait_ms: 840
+members:
+  accepted: 6
+  expired: 1
+  infra_failed: 1
+reward_std: 0.41
+admission:
+  max_policy_lag: 1
+  max_queue_wait_ms: 1200
+  allow_update: true
+```
+
+`expired` 和 `infra_failed` 不应该混进策略负反馈；`policy_lag` 或等待时间超过门槛时，整组只能做 outcome 统计或离线回放，不能伪装成有效 gradient。这样训练吞吐下降时，团队能判断是采样慢、验证慢还是版本过期，而不是只看一个“每秒轨迹数”。
+
+![Rollout 新鲜度回执把策略版本、环境、等待时间、奖励和入批门槛放在一起](/images/notes/agentic-rl-grpo-rollout/rollout-freshness-receipt.svg)
+
+## 入批之前还要做一次“同组可比性检查”
+
+GRPO 的相对优势依赖同一 prompt 下的一组可比轨迹。如果组内样本用了不同的策略版本、环境快照或 verifier，奖励差异就不再只反映动作好坏，可能只是基础设施或任务版本变了。于是我会在入批前生成 group comparability 回执，先过滤掉过期、环境失败和配置不一致的成员。
+
+~~~yaml
+group_comparability_receipt: gcr_20260820_36
+group_id: g-1842
+prompts_hash: sha256:8b2f...
+policy_version: policy-2026-08-20.3
+env_snapshot: browser-env-17
+temperature: 0.7
+valid_members: [m1, m2, m4, m5]
+excluded_members:
+  m3: infra_failed
+  m6: policy_mismatch
+reward_variance: 0.38
+decision: admit_four_members
+~~~
+
+检查不只比较 prompt 文本，还要比较工具 schema、数据权限、随机性、策略 lag 和 verifier 版本。组内有效成员太少或奖励方差接近零时，可以做 outcome 统计，但不要硬算 advantage 更新策略。把排除原因留下来，后续才能区分“模型没有学会”和“这一组根本不可比”。
+
+![GRPO 组可比性卡：同一提示、策略、环境和 verifier 通过后才进入更新](/images/notes/agentic-rl-grpo-rollout/group-comparability-card.svg)
+
+### L5：为什么组内相对优势一定要建立在可比样本上？
+
+相对优势只在比较条件相近时有意义。若某条轨迹用了旧策略或失败环境，它的奖励差不是更差的动作造成的，把它放进同组会把基础设施噪声误当成学习信号。
+
+### L5：为了保持样本新鲜，是否应该丢掉所有旧轨迹？
+
+不是。旧轨迹可以进入 verifier、奖励规则和故障回放，但要从 policy update 的有效样本中隔离，并单独报告丢弃率和原因。最怕的是把旧样本悄悄混入 batch，让训练看似稳定却无法解释。
+
 报告 rollout 时，最好把“每秒生成多少 token”和“每个正确任务花多少成本”同时给出。前者方便看系统吞吐，后者才接近产品约束。一个靠重复采样把正确率抬高的系统，可能在第二个指标上已经不可用。资源报告还应注明并发度、每条轨迹的平均工具等待和失败重试次数；否则换一台更快的机器，数字会变好，却无法说明算法本身有了提升。
+
+## rollout 质量要按“可学习性”分桶
+
+一组 rollout 不只是成功或失败两个标签。对 GRPO 来说，最有价值的是同一问题上存在可比较的行为差异，并且奖励能指出差异来自哪里。可以在入批前按任务难度、轨迹长度、工具调用数和奖励方差分桶，避免某一类长轨迹或模板化答案淹没有效信号。
+
+```yaml
+rollout_bucket:
+  task_id: code_118
+  group_size: 8
+  buckets:
+    difficulty: medium
+    length: [short: 2, normal: 5, long: 1]
+    tool_calls: [0: 3, 1-2: 4, 3+: 1]
+    reward_std: 0.42
+  action: keep
+  exclusion: "reward_std == 0 or environment_version mismatch"
+  log: [policy_sha, env_sha, judge_version, seed]
+```
+
+![rollout 可学习性分桶](/images/notes/agentic-rl-grpo-rollout/learnability-bucket-card.svg)
+
+分桶的目的不是把数据筛得越干净越好，而是让训练后可以回答“哪类任务真的受益”。如果长轨迹全部被丢弃，模型可能学不到规划；如果奖励全相同的样本全都混进来，优势归一化只是在放大噪声。最终报告应同时给出保留率、各桶奖励变化和线上任务覆盖。
+
+### L5：为什么不能只按 reward 排序取前 20%？
+
+因为最高分可能来自捷径、评测器偏差或更容易的任务。只取 top reward 会减少行为多样性，也会让模型重复已经会的模式。更稳的策略是先做质量门禁，再在难度和轨迹类型上保持覆盖，最后用独立评测确认收益没有只集中在单一桶。
+
+## rollout 还要做“奖励来源拆解”
+
+一条总 reward 很难告诉你模型为什么被选中。Agent 任务里，成功可能来自工具调用正确、最终答案完整，也可能只是 verifier 对格式宽松。入批前我会把奖励拆成可审计的分量，并标记哪些分量来自环境事实、哪些来自启发式规则；如果某个桶的总分上涨只是格式分上涨，就不能把它当成能力提升。
+
+```yaml
+reward_decomposition: rd_20260820_78
+group_id: q_0187_g04
+components:
+  task_success: 0.60
+  evidence_support: 0.20
+  tool_safety: 0.15
+  style_bonus: 0.05
+checks:
+  external_fact_readback: pass
+  style_bonus_cap: 0.10
+  shortcut_detected: false
+admission:
+  update_if: "task_success>=0.5 AND evidence_support>=0.1"
+  report_components: true
+decision: admit
+```
+
+![Rollout 奖励拆解卡：把任务成功、证据支持、工具安全和风格奖励分开审计](/images/notes/agentic-rl-grpo-rollout/reward-decomposition-card.svg)
+
+### L5：为什么总 reward 上升仍可能是坏消息？
+
+如果提升只来自容易钻空子的奖励分量，模型会学会讨好 verifier，而不是解决任务。要固定分量上限、做独立事实回读，并按任务难度切片看收益；否则训练曲线好看，线上可靠性却可能下降。
 
 ## 60 秒面试回答
 

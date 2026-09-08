@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="390" viewBox="0 0 1080 390" role="img" aria-labelledby="title desc">
+  <title id="title">Security evidence pack：一次高风险动作的完整证据</title>
+  <desc id="desc">主体、意图、策略、审批和副作用被串成一份可审计证据包。</desc>
+  <rect width="1080" height="390" rx="26" fill="#f7f8f5"/>
+  <text x="58" y="54" fill="#17342f" font-size="25" font-weight="700" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif">Security evidence pack</text>
+  <text x="58" y="82" fill="#71837d" font-size="15" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif">一次高风险动作，必须能从提出意图追到实际副作用</text>
+  <g font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif">
+    <rect x="58" y="126" width="174" height="108" rx="18" fill="#e4f2ec" stroke="#a8d2bf"/>
+    <text x="78" y="163" fill="#205b4c" font-size="18" font-weight="700">主体</text>
+    <text x="78" y="191" fill="#4e6c63" font-size="14">user / tenant</text>
+    <text x="78" y="214" fill="#4e6c63" font-size="14">agent_id</text>
+    <rect x="264" y="126" width="174" height="108" rx="18" fill="#eaf1f8" stroke="#b6cce0"/>
+    <text x="284" y="163" fill="#31516d" font-size="18" font-weight="700">意图</text>
+    <text x="284" y="191" fill="#587085" font-size="14">action + resource</text>
+    <text x="284" y="214" fill="#587085" font-size="14">input hash</text>
+    <rect x="470" y="126" width="174" height="108" rx="18" fill="#fff1d9" stroke="#e9c987"/>
+    <text x="490" y="163" fill="#795a20" font-size="18" font-weight="700">策略</text>
+    <text x="490" y="191" fill="#896d39" font-size="14">policy version</text>
+    <text x="490" y="214" fill="#896d39" font-size="14">risk decision</text>
+    <rect x="676" y="126" width="174" height="108" rx="18" fill="#f5e7ee" stroke="#dfb2c7"/>
+    <text x="696" y="163" fill="#7a3f5a" font-size="18" font-weight="700">审批</text>
+    <text x="696" y="191" fill="#8a6073" font-size="14">short-lived token</text>
+    <text x="696" y="214" fill="#8a6073" font-size="14">bound parameters</text>
+    <rect x="882" y="126" width="140" height="108" rx="18" fill="#e9e9f8" stroke="#b9b9e1"/>
+    <text x="902" y="163" fill="#4c4c82" font-size="18" font-weight="700">副作用</text>
+    <text x="902" y="191" fill="#68688f" font-size="14">provider ref</text>
+    <text x="902" y="214" fill="#68688f" font-size="14">audit event</text>
+  </g>
+  <g stroke="#6e9588" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M232 180h28"/><path d="M438 180h28"/><path d="M644 180h28"/><path d="M850 180h28"/>
+    <path d="M248 170l12 10-12 10"/><path d="M454 170l12 10-12 10"/><path d="M660 170l12 10-12 10"/><path d="M866 170l12 10-12 10"/>
+  </g>
+  <rect x="58" y="286" width="964" height="52" rx="16" fill="#17342f"/>
+  <text x="86" y="319" fill="#f5fbf8" font-size="17" font-weight="600" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif">unknown 不等于 failed：没有副作用回执，就必须暂停重试并保留对账入口</text>
+</svg>

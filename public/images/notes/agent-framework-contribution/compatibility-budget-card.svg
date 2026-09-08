@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="390" viewBox="0 0 1080 390">
+  <rect width="1080" height="390" rx="28" fill="#f7f9fc"/>
+  <text x="56" y="62" font-family="Arial,'PingFang SC',sans-serif" font-size="24" font-weight="700" fill="#172033">COMPATIBILITY BUDGET · 兼容性预算</text>
+  <text x="56" y="94" font-family="Arial,'PingFang SC',sans-serif" font-size="16" fill="#637083">把“支持多种后端”拆成可以持续回归的约束</text>
+  <g font-family="Arial,'PingFang SC',sans-serif">
+    <rect x="56" y="138" width="214" height="148" rx="18" fill="#e8f0ff" stroke="#b7ccf0"/>
+    <text x="78" y="174" font-size="16" font-weight="700" fill="#244a83">01 · 运行时</text><text x="78" y="207" font-size="15" fill="#3b4d67">local / worker</text><text x="78" y="235" font-size="15" fill="#3b4d67">serverless</text>
+    <rect x="310" y="138" width="214" height="148" rx="18" fill="#edf8f1" stroke="#b8ddc6"/>
+    <text x="332" y="174" font-size="16" font-weight="700" fill="#296444">02 · 适配器</text><text x="332" y="207" font-size="15" fill="#3e5a4b">tool schema</text><text x="332" y="235" font-size="15" fill="#3e5a4b">cancel / retry</text>
+    <rect x="564" y="138" width="214" height="148" rx="18" fill="#fff4df" stroke="#e5c98d"/>
+    <text x="586" y="174" font-size="16" font-weight="700" fill="#7b571a">03 · 不变量</text><text x="586" y="207" font-size="15" fill="#6a5734">幂等键不丢失</text><text x="586" y="235" font-size="15" fill="#6a5734">取消可观测</text>
+    <rect x="818" y="138" width="206" height="148" rx="18" fill="#f2ecff" stroke="#cfc0ee"/>
+    <text x="840" y="174" font-size="16" font-weight="700" fill="#5b428f">04 · 预算</text><text x="840" y="207" font-size="15" fill="#5d5370">p95 延迟</text><text x="840" y="235" font-size="15" fill="#5d5370">payload 增长</text>
+  </g>
+  <path d="M278 212h22m224 0h22m224 0h22" stroke="#8a98aa" stroke-width="3"/><path d="m294 204 10 8-10 8m240-8 10 8-10 8m240-8 10 8-10 8" fill="none" stroke="#8a98aa" stroke-width="3"/>
+  <text x="56" y="344" font-family="Arial,'PingFang SC',sans-serif" font-size="16" fill="#637083">每个适配器都必须在同一份 fixture 上回归，超预算就阻断发布</text>
+</svg>

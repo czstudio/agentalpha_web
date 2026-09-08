@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="460" viewBox="0 0 1400 460" role="img" aria-labelledby="title desc">
+  <title id="title">Workflow 与 Agent 的边界</title><desc id="desc">固定步骤、受限 Agent 和自由循环的责任边界</desc>
+  <rect width="1400" height="460" rx="28" fill="#fff"/>
+  <g font-family="Arial, sans-serif" fill="#17202a">
+    <text x="72" y="76" font-size="22" letter-spacing="3" fill="#68717c">DECISION BOUNDARY</text>
+    <text x="72" y="122" font-size="32" font-weight="700">不确定性越大，越需要更清晰的护栏</text>
+    <g font-size="23" font-weight="700">
+      <rect x="92" y="190" width="350" height="170" rx="18" fill="#f3f5f7" stroke="#aab2bb"/><text x="126" y="236">Workflow</text><text x="126" y="278" font-size="18" font-weight="400" fill="#68717c">固定步骤 · 规则分支</text><text x="126" y="314" font-size="18" font-weight="400" fill="#68717c">适合稳定、高审计场景</text>
+      <rect x="524" y="190" width="350" height="170" rx="18" fill="#e8f2ff" stroke="#3978c8"/><text x="558" y="236">受限 Agent</text><text x="558" y="278" font-size="18" font-weight="400" fill="#68717c">局部决策 · 外层护栏</text><text x="558" y="314" font-size="18" font-weight="400" fill="#68717c">适合检索、修复、规划节点</text>
+      <rect x="956" y="190" width="350" height="170" rx="18" fill="#fff1d8" stroke="#bd7a19"/><text x="990" y="236">自由循环</text><text x="990" y="278" font-size="18" font-weight="400" fill="#68717c">动态行动 · 高不确定性</text><text x="990" y="314" font-size="18" font-weight="400" fill="#68717c">必须有预算、权限、回放</text>
+    </g>
+    <path d="M442 275h82" stroke="#68717c" stroke-width="3"/><path d="m508 263 16 12-16 12" fill="none" stroke="#68717c" stroke-width="3"/>
+    <path d="M874 275h82" stroke="#68717c" stroke-width="3"/><path d="m940 263 16 12-16 12" fill="none" stroke="#68717c" stroke-width="3"/>
+  </g>
+</svg>

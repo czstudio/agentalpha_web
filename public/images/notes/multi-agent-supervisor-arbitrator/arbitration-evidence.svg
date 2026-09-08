@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 360" role="img" aria-labelledby="title desc">
+  <title id="title">证据驱动的仲裁</title>
+  <desc id="desc">多个候选经证据归一化后，进入规则合并或最小区分实验。</desc>
+  <rect width="900" height="360" rx="28" fill="#f7f8f5"/>
+  <g stroke="#9ab6ae" stroke-width="3" fill="none" stroke-linecap="round">
+    <path d="M220 120h110M220 240h110M510 180h110"/>
+    <path d="m318 110 18 10-18 10M318 230l18 10-18 10M608 170l18 10-18 10" fill="#9ab6ae"/>
+  </g>
+  <g font-family="sans-serif" text-anchor="middle">
+    <rect x="44" y="80" width="176" height="80" rx="16" fill="#eaf3f7"/><text x="132" y="113" font-size="18" font-weight="700" fill="#24556a">候选 A</text><text x="132" y="140" font-size="14" fill="#5a737d">日志证据</text>
+    <rect x="44" y="200" width="176" height="80" rx="16" fill="#fff1d9"/><text x="132" y="233" font-size="18" font-weight="700" fill="#704c20">候选 B</text><text x="132" y="260" font-size="14" fill="#856a42">经验推断</text>
+    <rect x="336" y="126" width="174" height="108" rx="18" fill="#dfeee8"/><text x="423" y="167" font-size="18" font-weight="700" fill="#173f3d">证据归一化</text><text x="423" y="197" font-size="14" fill="#52706b">来源 · 假设 · 版本</text>
+    <rect x="626" y="126" width="220" height="108" rx="18" fill="#f0eee8"/><text x="736" y="167" font-size="18" font-weight="700" fill="#4b514e">规则合并？</text><text x="736" y="197" font-size="14" fill="#68706c">否 → 最小区分实验</text>
+  </g>
+</svg>

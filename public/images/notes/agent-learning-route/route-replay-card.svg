@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="390" viewBox="0 0 1080 390" role="img" aria-labelledby="title desc">
+  <title id="title">学习路线回放卡</title><desc id="desc">主问题、输入版本、产物、失败和下一步决策组成学习记录</desc>
+  <rect width="1080" height="390" rx="26" fill="#f7f8f5"/>
+  <text x="52" y="56" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif" font-size="25" font-weight="700" fill="#173f3d">学习路线回放卡：记录能力怎样变化</text>
+  <text x="52" y="84" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif" font-size="15" fill="#5b7470">不记录“读了多少”，记录“哪个问题被证据推进了一步”</text>
+  <g font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif">
+    <rect x="52" y="122" width="182" height="126" rx="17" fill="#eaf3f7" stroke="#b9d3df"/><text x="143" y="157" text-anchor="middle" font-size="17" font-weight="700" fill="#173f3d">主问题</text><text x="143" y="191" text-anchor="middle" font-size="13" fill="#48635f">版本过滤为何掉召回</text><text x="143" y="215" text-anchor="middle" font-size="13" fill="#48635f">一周一个问题</text>
+    <rect x="254" y="122" width="182" height="126" rx="17" fill="#fff1d9" stroke="#e8c891"/><text x="345" y="157" text-anchor="middle" font-size="17" font-weight="700" fill="#173f3d">输入</text><text x="345" y="191" text-anchor="middle" font-size="13" fill="#48635f">rag-v4 / index@r17</text><text x="345" y="215" text-anchor="middle" font-size="13" fill="#48635f">固定版本</text>
+    <rect x="456" y="122" width="182" height="126" rx="17" fill="#dfeee8" stroke="#afd0c3"/><text x="547" y="157" text-anchor="middle" font-size="17" font-weight="700" fill="#173f3d">产物</text><text x="547" y="191" text-anchor="middle" font-size="13" fill="#48635f">replay + 60 秒回答</text><text x="547" y="215" text-anchor="middle" font-size="13" fill="#48635f">别人能复现</text>
+    <rect x="658" y="122" width="182" height="126" rx="17" fill="#f5d9dc" stroke="#dfb2b9"/><text x="749" y="157" text-anchor="middle" font-size="17" font-weight="700" fill="#173f3d">失败</text><text x="749" y="191" text-anchor="middle" font-size="13" fill="#48635f">short_query</text><text x="749" y="215" text-anchor="middle" font-size="13" fill="#48635f">旧版本误命中</text>
+    <rect x="860" y="122" width="168" height="126" rx="17" fill="#173f3d"/><text x="944" y="157" text-anchor="middle" font-size="17" font-weight="700" fill="#ffffff">下一步</text><text x="944" y="191" text-anchor="middle" font-size="13" fill="#dbe9e5">continue</text><text x="944" y="215" text-anchor="middle" font-size="13" fill="#dbe9e5">路由按长度分流</text>
+  </g>
+  <path d="M234 185h20M436 185h20M638 185h20M840 185h20" stroke="#7d9a95" stroke-width="3" stroke-linecap="round"/>
+  <rect x="52" y="294" width="976" height="44" rx="14" fill="#e8efeb"/><text x="540" y="322" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif" font-size="15" font-weight="700" fill="#365b61">学习路线与项目 backlog 共用证据，不再靠周报记忆进度</text>
+</svg>

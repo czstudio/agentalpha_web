@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 390" role="img" aria-labelledby="title desc">
+  <title id="title">预训练数据配比预算</title>
+  <desc id="desc">数据配比是能力、质量和成本的预算，不能简单追求最大规模。</desc>
+  <rect width="1200" height="390" rx="28" fill="#f7f8f5"/>
+  <text x="58" y="58" fill="#1d1d1f" font-family="Arial, sans-serif" font-size="25" font-weight="700">数据配比是一张能力预算表</text>
+  <g font-family="Arial, sans-serif">
+    <rect x="85" y="145" width="1030" height="52" rx="12" fill="#e6f1ed"/><rect x="85" y="145" width="520" height="52" rx="12" fill="#247a6b"/><text x="345" y="178" text-anchor="middle" fill="#ffffff" font-size="15">高质量通用文本 50%</text><text x="860" y="178" text-anchor="middle" fill="#247a6b" font-size="15">代码 / 数学 / 多语言 / 领域数据</text>
+    <rect x="85" y="225" width="1030" height="52" rx="12" fill="#ffffff" stroke="#dfe4df"/><text x="110" y="258" fill="#1d1d1f" font-size="15" font-weight="700">每一份数据要回答：</text><text x="290" y="258" fill="#6b6e70" font-size="15">贡献什么能力？风险是什么？多久更新？如何评测？</text>
+    <rect x="85" y="305" width="1030" height="40" rx="10" fill="#fff5e8" stroke="#e5c98f"/><text x="600" y="331" text-anchor="middle" fill="#9b6b21" font-size="15">扩大规模 ≠ 提高有效 token；低质重复会消耗训练预算并放大偏置</text>
+  </g>
+</svg>

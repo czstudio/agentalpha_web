@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 390" role="img" aria-labelledby="title desc">
+  <title id="title">Agent 角色契约</title>
+  <desc id="desc">角色契约由输入、输出、工具权限、禁止事项和完成条件组成。</desc>
+  <rect width="900" height="390" rx="28" fill="#fbfaf6"/>
+  <rect x="48" y="48" width="184" height="286" rx="20" fill="#dfeee8"/>
+  <text x="140" y="91" text-anchor="middle" font-family="sans-serif" font-size="20" font-weight="700" fill="#173f3d">角色</text>
+  <text x="140" y="150" text-anchor="middle" font-family="sans-serif" font-size="28" font-weight="700" fill="#2a7066">研究 Agent</text>
+  <text x="140" y="194" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#52706b">只读证据</text>
+  <text x="140" y="220" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#52706b">不负责发布</text>
+  <path d="M232 190h48" stroke="#78a89c" stroke-width="4" stroke-linecap="round"/>
+  <path d="m270 180 18 10-18 10" fill="#78a89c"/>
+  <g font-family="sans-serif">
+    <rect x="300" y="38" width="252" height="98" rx="16" fill="#edf4f1" stroke="#bad4ca"/>
+    <text x="326" y="71" font-size="16" font-weight="700" fill="#173f3d">输入 inputs</text>
+    <text x="326" y="103" font-size="15" fill="#5f7470">问题 · 时间范围 · 来源白名单</text>
+    <rect x="582" y="38" width="270" height="98" rx="16" fill="#e9f2f7" stroke="#b9d2df"/>
+    <text x="608" y="71" font-size="16" font-weight="700" fill="#24556a">输出 outputs</text>
+    <text x="608" y="103" font-size="15" fill="#5a737d">证据包 · 引用 · 缺口</text>
+    <rect x="300" y="154" width="252" height="98" rx="16" fill="#fff1d9" stroke="#e8c891"/>
+    <text x="326" y="187" font-size="16" font-weight="700" fill="#704c20">工具 tools</text>
+    <text x="326" y="219" font-size="15" fill="#856a42">搜索 · 抓取 · 解析</text>
+    <rect x="582" y="154" width="270" height="98" rx="16" fill="#fae8e1" stroke="#e3b8aa"/>
+    <text x="608" y="187" font-size="16" font-weight="700" fill="#753f32">禁止 must_not</text>
+    <text x="608" y="219" font-size="15" fill="#845a50">不发布 · 不改数据 · 不猜事实</text>
+    <rect x="300" y="270" width="552" height="64" rx="16" fill="#f0eee8" stroke="#d6d0c4"/>
+    <text x="326" y="309" font-size="16" font-weight="700" fill="#4b514e">完成条件 done_when</text>
+    <text x="582" y="309" font-size="15" fill="#68706c">每条结论可回链，缺口被标记</text>
+  </g>
+</svg>

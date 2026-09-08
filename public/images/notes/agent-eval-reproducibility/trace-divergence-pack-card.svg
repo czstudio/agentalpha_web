@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="390" viewBox="0 0 1080 390">
+  <rect width="1080" height="390" rx="28" fill="#f7f9fc"/>
+  <text x="56" y="58" font-family="Arial, sans-serif" font-size="23" font-weight="700" fill="#14233b">轨迹分叉回放</text>
+  <text x="56" y="86" font-family="Arial, sans-serif" font-size="15" fill="#61708a">复现失败也要留下第一处分叉，而不是只说“结果不同”</text>
+  <g font-family="Arial, sans-serif">
+    <rect x="56" y="130" width="214" height="110" rx="18" fill="#e8f0ff" stroke="#9bb8ed"/><text x="82" y="166" font-size="18" font-weight="700" fill="#1f4d9c">Run A</text><text x="82" y="196" font-size="15" fill="#355071">step digest</text><text x="82" y="221" font-size="13" fill="#5b6b80">输入 / 工具 / state hash</text>
+    <path d="M272 185H342" stroke="#5979bd" stroke-width="3"/><path d="m332 176 12 9-12 9" fill="none" stroke="#5979bd" stroke-width="3"/>
+    <rect x="344" y="130" width="214" height="110" rx="18" fill="#fff4df" stroke="#e4bd70"/><text x="370" y="166" font-size="18" font-weight="700" fill="#9a6510">Run B</text><text x="370" y="196" font-size="15" fill="#6f531e">同一 manifest</text><text x="370" y="221" font-size="13" fill="#7d6b43">找到 first divergence</text>
+    <path d="M560 185H630" stroke="#b8893e" stroke-width="3"/><path d="m620 176 12 9-12 9" fill="none" stroke="#b8893e" stroke-width="3"/>
+    <rect x="632" y="130" width="184" height="110" rx="18" fill="#e7f6ef" stroke="#98cdb1"/><text x="658" y="166" font-size="18" font-weight="700" fill="#197145">Diff</text><text x="658" y="196" font-size="15" fill="#35624c">step / field</text><text x="658" y="221" font-size="13" fill="#527464">hash / return</text>
+    <path d="M818 185H884" stroke="#4f9c72" stroke-width="3"/><path d="m874 176 12 9-12 9" fill="none" stroke="#4f9c72" stroke-width="3"/>
+    <rect x="886" y="130" width="138" height="110" rx="18" fill="#f0eaff" stroke="#b8a3e8"/><text x="908" y="166" font-size="18" font-weight="700" fill="#6445ae">Cause</text><text x="908" y="196" font-size="15" fill="#51436f">tool / KB</text><text x="908" y="221" font-size="13" fill="#6c5d85">environment</text>
+  </g>
+  <line x1="56" y1="281" x2="1024" y2="281" stroke="#dbe2ec"/><text x="56" y="321" font-family="Arial, sans-serif" font-size="15" font-weight="700" fill="#263750">动态输入</text><text x="148" y="321" font-family="Arial, sans-serif" font-size="15" fill="#52627a">外部返回、时区、并发交错和隐式缓存都要快照或显式标记</text>
+</svg>

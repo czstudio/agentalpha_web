@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="390" viewBox="0 0 1080 390" role="img" aria-labelledby="title desc">
+  <title id="title">多 Agent 交接验收单</title><desc id="desc">意图、输入约束、交付物、验收条件和失败动作组成多 Agent 交接契约</desc>
+  <rect width="1080" height="390" rx="26" fill="#f7f8f5"/>
+  <text x="52" y="56" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif" font-size="25" font-weight="700" fill="#173f3d">多 Agent 交接验收单</text>
+  <text x="52" y="84" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif" font-size="15" fill="#5b7470">把“下一棒要什么”写成可自动检查的契约</text>
+  <g font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif">
+    <rect x="52" y="122" width="178" height="126" rx="17" fill="#eaf3f7" stroke="#b9d3df"/><text x="141" y="157" text-anchor="middle" font-size="17" font-weight="700" fill="#173f3d">意图</text><text x="141" y="191" text-anchor="middle" font-size="13" fill="#48635f">handoff_id</text><text x="141" y="215" text-anchor="middle" font-size="13" fill="#48635f">from / to</text>
+    <rect x="250" y="122" width="178" height="126" rx="17" fill="#fff1d9" stroke="#e8c891"/><text x="339" y="157" text-anchor="middle" font-size="17" font-weight="700" fill="#173f3d">输入</text><text x="339" y="191" text-anchor="middle" font-size="13" fill="#48635f">租户 + 查询</text><text x="339" y="215" text-anchor="middle" font-size="13" fill="#48635f">约束与时限</text>
+    <rect x="448" y="122" width="178" height="126" rx="17" fill="#dfeee8" stroke="#afd0c3"/><text x="537" y="157" text-anchor="middle" font-size="17" font-weight="700" fill="#173f3d">产物</text><text x="537" y="191" text-anchor="middle" font-size="13" fill="#48635f">字段与证据</text><text x="537" y="215" text-anchor="middle" font-size="13" fill="#48635f">版本与 trace</text>
+    <rect x="646" y="122" width="178" height="126" rx="17" fill="#f5d9dc" stroke="#dfb2b9"/><text x="735" y="157" text-anchor="middle" font-size="17" font-weight="700" fill="#173f3d">验收</text><text x="735" y="191" text-anchor="middle" font-size="13" fill="#48635f">must_have</text><text x="735" y="215" text-anchor="middle" font-size="13" fill="#48635f">reject_if</text>
+    <rect x="844" y="122" width="184" height="126" rx="17" fill="#173f3d"/><text x="936" y="157" text-anchor="middle" font-size="17" font-weight="700" fill="#ffffff">失败</text><text x="936" y="191" text-anchor="middle" font-size="13" fill="#dbe9e5">retry / transfer</text><text x="936" y="215" text-anchor="middle" font-size="13" fill="#dbe9e5">安全返回</text>
+  </g>
+  <path d="M230 185h20M428 185h20M626 185h20M824 185h20" stroke="#7d9a95" stroke-width="3" stroke-linecap="round"/>
+  <rect x="52" y="294" width="976" height="44" rx="14" fill="#e8efeb"/><text x="540" y="322" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif" font-size="15" font-weight="700" fill="#365b61">没有可验收产物的角色，只是在传递聊天记录</text>
+</svg>

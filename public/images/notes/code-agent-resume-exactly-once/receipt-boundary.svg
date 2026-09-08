@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 620" role="img" aria-labelledby="title desc">
+  <title id="title">Code Agent 副作用与收据边界</title>
+  <desc id="desc">模型计划、执行器、副作用系统和收据/对账之间的边界。</desc>
+  <rect width="1200" height="620" fill="#fbfaf7"/>
+  <text x="72" y="72" font-family="Arial,sans-serif" font-size="28" font-weight="700" fill="#17221b">计划单不是事实，收据才是事实</text>
+  <text x="72" y="106" font-family="Arial,sans-serif" font-size="16" fill="#627066">恢复时读取结构化 action 和 operation_id，不让模型重新猜一次已经做过什么。</text>
+  <g font-family="Arial,sans-serif">
+    <rect x="72" y="210" width="200" height="130" rx="16" fill="#17221b"/><text x="112" y="260" font-size="19" font-weight="700" fill="#f7f4ee">模型计划</text><text x="112" y="294" font-size="15" fill="#cbd7ce">action + 参数</text>
+    <rect x="340" y="210" width="200" height="130" rx="16" fill="#e9edf4" stroke="#7f93b0" stroke-width="2"/><text x="376" y="260" font-size="19" font-weight="700" fill="#334b6a">策略校验</text><text x="376" y="294" font-size="15" fill="#3e4a5a">权限 + 幂等键</text>
+    <rect x="608" y="210" width="200" height="130" rx="16" fill="#f3ead9" stroke="#c39b55" stroke-width="2"/><text x="648" y="260" font-size="19" font-weight="700" fill="#705426">执行器</text><text x="648" y="294" font-size="15" fill="#53472f">绑定 operation_id</text>
+    <rect x="876" y="210" width="240" height="130" rx="16" fill="#f2e6e5" stroke="#ba7a73" stroke-width="2"/><text x="920" y="260" font-size="19" font-weight="700" fill="#703e39">外部世界</text><text x="920" y="294" font-size="15" fill="#5c4140">资源 / 消息 / 代码</text>
+  </g>
+  <g stroke="#51645a" stroke-width="3" fill="none"><path d="M272 275 H330"/><path d="M540 275 H598"/><path d="M808 275 H866"/></g><g fill="#51645a"><path d="M330 275 l-12 -8 v16z"/><path d="M598 275 l-12 -8 v16z"/><path d="M866 275 l-12 -8 v16z"/></g>
+  <rect x="340" y="430" width="470" height="72" rx="14" fill="#e7f1e8" stroke="#7ca587" stroke-width="2"/><text x="384" y="474" font-family="Arial,sans-serif" font-size="19" font-weight="700" fill="#285339">收据：结果、资源标识、时间、版本</text>
+  <path d="M708 340 C720 390 690 420 660 428" stroke="#51645a" stroke-width="3" fill="none"/><path d="M660 428 l12 -4 -4 14z" fill="#51645a"/>
+</svg>

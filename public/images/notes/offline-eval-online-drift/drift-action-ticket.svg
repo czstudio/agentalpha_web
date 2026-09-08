@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="390" viewBox="0 0 1080 390" role="img" aria-labelledby="title desc">
+  <title id="title">漂移处置单</title><desc id="desc">记录症状、版本元组、已排除假设、最小复现和下一步实验</desc>
+  <rect width="1080" height="390" rx="26" fill="#f7f8f5"/>
+  <text x="52" y="56" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif" font-size="25" font-weight="700" fill="#173f3d">漂移处置单：先排除，再实验</text>
+  <text x="52" y="84" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif" font-size="15" fill="#5b7470">告警要变成带控制组的最小验证，而不是一句换模型</text>
+  <g font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif">
+    <rect x="52" y="122" width="220" height="126" rx="17" fill="#f5d9dc" stroke="#dfb2b9"/><text x="162" y="157" text-anchor="middle" font-size="17" font-weight="700" fill="#173f3d">症状</text><text x="162" y="191" text-anchor="middle" font-size="13" fill="#48635f">groundedness -8pp</text><text x="162" y="215" text-anchor="middle" font-size="13" fill="#48635f">private_docs slice</text>
+    <rect x="292" y="122" width="220" height="126" rx="17" fill="#eaf3f7" stroke="#b9d3df"/><text x="402" y="157" text-anchor="middle" font-size="17" font-weight="700" fill="#173f3d">版本</text><text x="402" y="191" text-anchor="middle" font-size="13" fill="#48635f">model r8 · index r17</text><text x="402" y="215" text-anchor="middle" font-size="13" fill="#48635f">tool v3</text>
+    <rect x="532" y="122" width="220" height="126" rx="17" fill="#fff1d9" stroke="#e8c891"/><text x="642" y="157" text-anchor="middle" font-size="17" font-weight="700" fill="#173f3d">已排除</text><text x="642" y="191" text-anchor="middle" font-size="13" fill="#48635f">评测器未变</text><text x="642" y="215" text-anchor="middle" font-size="13" fill="#48635f">权限日志无异常</text>
+    <rect x="772" y="122" width="256" height="126" rx="17" fill="#173f3d"/><text x="900" y="157" text-anchor="middle" font-size="17" font-weight="700" fill="#ffffff">下一步</text><text x="900" y="191" text-anchor="middle" font-size="13" fill="#dbe9e5">index r16 vs r17</text><text x="900" y="215" text-anchor="middle" font-size="13" fill="#dbe9e5">gate ≥ 0.90 · freeze canary</text>
+  </g>
+  <path d="M272 185h20M512 185h20M752 185h20" stroke="#7d9a95" stroke-width="3" stroke-linecap="round"/>
+  <rect x="52" y="294" width="976" height="44" rx="14" fill="#e8efeb"/><text x="540" y="322" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif" font-size="15" font-weight="700" fill="#365b61">锁定版本元组，回放同一失败样本，再只替换一个环境因素</text>
+</svg>

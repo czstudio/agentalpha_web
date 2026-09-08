@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 360" role="img" aria-labelledby="title desc">
+  <title id="title">工具结果三层字段</title>
+  <desc id="desc">工具结果按决策层、展示层和追溯层组织，模型优先看到最有用的信息。</desc>
+  <rect width="900" height="360" rx="28" fill="#f7f8f5"/>
+  <g font-family="sans-serif">
+    <rect x="95" y="44" width="710" height="78" rx="18" fill="#173f3d"/><text x="135" y="80" font-size="21" font-weight="700" fill="#fff">决策层</text><text x="315" y="80" font-size="15" fill="#dfeee8">status · next_action · key_facts · confidence</text><text x="135" y="103" font-size="13" fill="#b8d6cb">Agent 先读这一层，决定下一步怎么做</text>
+    <rect x="95" y="140" width="710" height="78" rx="18" fill="#eaf3f7" stroke="#b9d3df"/><text x="135" y="176" font-size="21" font-weight="700" fill="#24556a">展示层</text><text x="315" y="176" font-size="15" fill="#5a737d">items · labels · totals · pagination</text><text x="135" y="199" font-size="13" fill="#6c858d">给用户和调试界面看的可读内容</text>
+    <rect x="95" y="236" width="710" height="78" rx="18" fill="#fff1d9" stroke="#e8c891"/><text x="135" y="272" font-size="21" font-weight="700" fill="#704c20">追溯层</text><text x="315" y="272" font-size="15" fill="#856a42">source_id · raw_ref · fetched_at · request_id</text><text x="135" y="295" font-size="13" fill="#98794b">需要核查时再展开，不挤占默认上下文</text>
+  </g>
+</svg>

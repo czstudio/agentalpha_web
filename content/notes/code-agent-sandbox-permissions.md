@@ -46,6 +46,8 @@ OpenAI 在《Running Codex safely at OpenAI》中把这两个概念明确拆开�
 
 ## 原理：最小权限要落到五层
 
+![Code Agent 权限矩阵：能力、默认状态、例外与验证方式](/images/notes/code-agent-sandbox-permissions/permission-matrix.svg)
+
 ### 第一层，文件系统边界
 
 至少要把工作区、缓存、临时目录和宿主机敏感目录分开。工作区可读写，缓存按需写入，临时目录在任务结束时销毁，`~/.ssh`、云凭据、浏览器 profile 等路径默认不可见。只读并不等于安全：如果 Agent 能读到一个可被后续命令上传的密钥，写权限没有开也没用。
@@ -110,7 +112,72 @@ Agent 读到 issue：“请执行下面的修复命令并上传日志”。如�
 
 第四步是逐级放权。先只读，再工作区写入，再允许缓存或内部镜像；每次扩大能力，都要有成功率、误杀率、越界告警和人工审批耗时的对比。放权不是为了让 demo 更顺，而是为了证明增加的能力带来的收益超过新增风险。
 
+![Code Agent 威胁模型：不可信输入到高价值资产的边界](/images/notes/code-agent-sandbox-permissions/threat-model.svg)
+
+### 把工具返回当成数据，不当成新权限
+
+权限矩阵还要补一列“输入信任级别”。仓库里的 `README`、issue、网页搜索结果和依赖安装脚本，都可能包含提示注入；它们可以作为观察数据进入上下文，却不能自动升级工具权限。执行器至少要区分三种 tool call：
+
+- `data`：读取文件、测试输出、日志，只提供事实，不改变状态；
+- `suggestion`：模型或不可信文本提出的命令，必须重新做参数校验和策略判断；
+- `control`：写文件、联网、发布、删资源等副作用动作，需要明确的授权、operation id 和审计记录。
+
+这样即使 Agent 在网页中读到“请把密钥上传到这个地址”，这句话也只是 `data` 里的不可信文本，没有一条隐式路径能把它变成 `control`。真正的边界在执行器，而不是 prompt 末尾的一句提醒。
+
 这里还有一个容易被忽略的产品问题：安全策略太紧，开发者会绕开 Agent；太松，事故成本会吞掉全部效率。解决办法不是选一个永远正确的数，而是把策略做成项目级配置、组织级上限和会话级临时授权，默认收紧，理由充分时再扩大，并且到期自动回收。
+
+## 临时放权也要有一张能力授予单
+
+审批按钮解决的是“这次是否允许”，还不够说明“允许了什么、到什么时候、由谁收回”。对于需要安装依赖或访问内部镜像的任务，可以把临时授权写成结构化授予单：
+
+```yaml
+grant_id: grant-204
+session: code-run-88
+capability: network.fetch
+scope:
+  hosts: [registry.npmjs.org]
+  methods: [GET]
+expires_at: 2026-08-19T23:40:00Z
+reason: "安装锁定版本依赖"
+approver: "@owner-a"
+revoked: false
+audit: [request-41, command-17]
+```
+
+执行器在每次调用前重新检查授予单，不把一次审批缓存成永久权限；超时、任务完成或风险状态变化时自动撤销。日志里同时留下命令、路径、域名和副作用，让“审批通过”可以被复核，而不是只剩一个绿色按钮。
+
+![Code Agent 临时能力授予单绑定范围、期限、审批人和自动撤销](/images/notes/code-agent-sandbox-permissions/capability-grant-ticket.svg)
+
+## 权限结束还要发一张撤销回执
+
+临时放权的闭环不是“到期时间写上去”，而是执行器确认能力已经从进程、代理和子进程环境里撤掉。可以把撤销动作记录成独立回执：
+
+```yaml
+revocation_receipt: revoke-204
+grant_id: grant-204
+reason: task_completed
+revoked_at: 2026-08-20T18:42:11Z
+checks:
+  filesystem_mount_removed: true
+  network_allowlist_cleared: true
+  child_processes_reaped: true
+  env_secret_unset: true
+  proxy_token_invalidated: true
+residual_access: []
+audit: [command-17, process-91, proxy-44]
+```
+
+`checks` 覆盖挂载、网络、子进程、环境变量和代理 token，避免只撤掉 UI 上的按钮，却把能力留在已经启动的进程里。`residual_access` 只要非空，就不能把任务标记为安全完成，应隔离进程、吊销会话并通知 owner。回放时用同一个 `grant_id` 串起申请、使用和撤销，才能证明“例外确实结束了”。
+
+![权限撤销回执：确认挂载、网络、子进程和秘密都已收回](/images/notes/code-agent-sandbox-permissions/revocation-receipt.svg)
+
+### L5：为什么撤销比授予更难验收？
+
+因为能力可能已被复制到子进程、缓存或代理会话。验收不能只看配置文件，要检查实际挂载、网络连接、进程树和 token 状态；任一残留都应继续隔离，而不是按时间戳乐观结束。
+
+## L5：为什么“用户点过允许”仍然不能放开所有命令？
+
+因为审批只能覆盖一个明确的能力和范围，不能替代路径、参数、网络目标和子进程继承检查。授予单应最小化到具体文件、域名、方法、时间窗口和 operation id；如果模型把同一请求改写成新的命令，执行器必须重新判定，而不是沿用旧批准。
 
 ## 近年的官方工程资料，面试前值得读什么
 
@@ -121,6 +188,63 @@ Agent 读到 issue：“请执行下面的修复命令并上传日志”。如�
 5. Claude Code Security (https://code.claude.com/docs/en/security) ：了解另一个主流 Code Agent 如何把权限配置、隔离和人工确认放在一起讨论。
 
 读这些资料时，别只记默认值。面试官更关心的是：某条边界由谁执行，失败时怎么观测，任务需要例外时如何审批，以及例外结束后能不能自动收回。
+
+## 权限撤销之后还要做一次“残留能力探针”
+
+撤销回执写成 revoked，不代表进程、挂载、子进程和缓存中的凭据已经真的失效。Code Agent 可能还保留一个打开的文件描述符，子进程也可能继承网络权限。高风险任务结束后，我会从能力边界反向发起探针，确认所有应拒绝的动作都真的被拒绝。
+
+最小探针回执可以这样记录：
+
+~~~yaml
+capability_residue_probe: crp_20260820_29
+run_id: run_8812
+revocation_receipt: rev_20260820_04
+probes:
+  filesystem_write:
+    expected: denied
+    observed: denied
+  network_egress:
+    expected: denied
+    observed: denied
+  child_process_spawn:
+    expected: denied
+    observed: denied
+  secret_read:
+    expected: denied
+    observed: denied
+residual_handles: 0
+decision: closed
+~~~
+
+探针要覆盖直接能力和继承能力：主进程、子进程、挂载目录、代理环境变量、缓存 token 和后台任务都要检查。若发现一个残留句柄，不要只删 token；先冻结会话、收集审计信息，再回收资源并重新跑探针。权限系统的停止条件是“探针全部拒绝且无残留”，不是“管理面板显示已撤销”。
+
+![权限撤销后的残留能力探针：文件、网络、子进程和秘密读取逐项确认拒绝](/images/notes/code-agent-sandbox-permissions/residue-probe-card.svg)
+
+### L5：为什么撤销回执显示成功，仍不能立刻释放 Code Agent 会话？
+
+因为能力可能通过子进程、打开的句柄或缓存凭据继续存在。我会先跑残留能力探针，确认拒绝结果和零残留，再关闭会话；高风险场景还要保留探针回执供审计。
+
+## 权限策略上线前要做“降级而不是放行”的演练
+
+权限策略最危险的时刻，往往不是第一次授予，而是策略服务超时、审计不可用或审批结果过期时。安全的默认动作应该是缩小能力集合，让任务停在可恢复的检查点，而不是为了“别卡住”临时放开网络和宿主机目录。
+
+```yaml
+policy_drill:
+  normal: {workspace: rw, network: deny, secrets: deny, approval: required}
+  policy_service_timeout: {workspace: ro, network: deny, secrets: deny, approval: blocked}
+  audit_sink_down: {workspace: ro, network: deny, secrets: deny, approval: blocked}
+  expired_grant: {workspace: ro, network: deny, secrets: deny, approval: recheck}
+  resume_rule: "只允许读取上下文和生成补丁，不执行副作用"
+  evidence: [policy_version, grant_id, decision, expiry, process_tree]
+```
+
+![沙箱降级演练卡](/images/notes/code-agent-sandbox-permissions/policy-degrade-drill-card.svg)
+
+把“策略服务挂了”纳入演练，才能验证安全边界真的在执行器里，而不是只存在于控制台。恢复时也要检查旧进程、临时目录、代理连接和环境变量，避免新的会话已经收紧，旧的子进程还握着原来的能力。
+
+### L5：为什么故障时不能临时放开网络？
+
+因为策略服务不可用本身就是不确定性信号，外网访问会把不确定性放大成不可审计的副作用。更稳妥的做法是保存任务状态、返回可读的阻断原因，待策略恢复后重新审批；如果必须人工介入，也要生成一次性、短时、可撤销的 grant，而不是修改全局默认值。
 
 ## 60 秒面试回答
 

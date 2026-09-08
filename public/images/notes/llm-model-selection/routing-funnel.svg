@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="470" viewBox="0 0 1200 470">
+  <rect width="1200" height="470" fill="#fbfaf7"/>
+  <text x="70" y="70" font-family="Arial,'Noto Sans SC',sans-serif" font-size="28" font-weight="700" fill="#24352f">从任务切片到受限模型路由</text>
+  <g font-family="Arial,'Noto Sans SC',sans-serif" text-anchor="middle">
+    <path d="M100 160L330 160L285 350L145 350Z" fill="#e9f1f8" stroke="#a6bfd5" stroke-width="2"/><text x="215" y="230" font-size="20" font-weight="700" fill="#2d607e">任务切片</text><text x="215" y="264" font-size="16" fill="#4b6d83">长度 · 风险 · 类型</text>
+    <path d="M370 160L600 160L555 350L415 350Z" fill="#e8f3ee" stroke="#9ec8b3" stroke-width="2"/><text x="485" y="230" font-size="20" font-weight="700" fill="#285d4d">固定评测</text><text x="485" y="264" font-size="16" fill="#4b7063">质量 · P95 · 成本</text>
+    <path d="M640 160L870 160L825 350L685 350Z" fill="#f2eee2" stroke="#d3bb7d" stroke-width="2"/><text x="755" y="230" font-size="20" font-weight="700" fill="#7c622e">受限路由</text><text x="755" y="264" font-size="16" fill="#846e42">规则 · 版本 · 回退</text>
+    <path d="M910 160L1140 160L1095 350L955 350Z" fill="#e5f1e6" stroke="#94bd99" stroke-width="2"/><text x="1025" y="230" font-size="20" font-weight="700" fill="#356b3d">灰度上线</text><text x="1025" y="264" font-size="16" fill="#4c714f">监控 · 对账 · 迭代</text>
+  </g>
+</svg>

@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 360" role="img" aria-labelledby="title desc">
+  <title id="title">工具调用状态机</title>
+  <desc id="desc">调用从 READY 到 SENT，再进入已提交、可重试、永久失败或未知状态。</desc>
+  <rect width="900" height="360" rx="28" fill="#f7f8f5"/>
+  <g font-family="sans-serif" text-anchor="middle">
+    <rect x="55" y="140" width="130" height="62" rx="18" fill="#dfeee8" stroke="#afd0c3"/><text x="120" y="177" font-size="18" font-weight="700" fill="#173f3d">READY</text>
+    <rect x="245" y="140" width="130" height="62" rx="18" fill="#eaf3f7" stroke="#b9d3df"/><text x="310" y="177" font-size="18" font-weight="700" fill="#24556a">SENT</text>
+    <rect x="440" y="48" width="170" height="62" rx="18" fill="#dfeee8" stroke="#afd0c3"/><text x="525" y="85" font-size="17" font-weight="700" fill="#173f3d">COMMITTED</text>
+    <rect x="440" y="140" width="170" height="62" rx="18" fill="#fff1d9" stroke="#e8c891"/><text x="525" y="177" font-size="17" font-weight="700" fill="#704c20">RETRYABLE</text>
+    <rect x="440" y="232" width="170" height="62" rx="18" fill="#fae8e1" stroke="#e0b9ae"/><text x="525" y="269" font-size="17" font-weight="700" fill="#753f32">PERMANENT</text>
+    <rect x="700" y="140" width="145" height="62" rx="18" fill="#173f3d"/><text x="772" y="177" font-size="17" font-weight="700" fill="#fff">UNKNOWN</text>
+  </g>
+  <g fill="none" stroke="#86a59d" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M186 171h59l-9-7m9 7-9 7"/><path d="M376 157 440 91l-10-1m10 1-2 10"/><path d="M376 171h64l-10-7m10 7-10 7"/><path d="M376 185 440 263l-2-10m2 10 10-2"/><path d="M376 150 700 166"/></g>
+</svg>

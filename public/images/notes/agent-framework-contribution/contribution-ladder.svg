@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="360" viewBox="0 0 1080 360" role="img" aria-labelledby="title desc">
+  <title id="title">Agent 项目贡献阶梯</title>
+  <desc id="desc">从配置到适配、策略、评测和平台的五级贡献阶梯</desc>
+  <rect width="1080" height="360" rx="28" fill="#f7f8f5"/>
+  <text x="54" y="58" font-family="Inter,Arial,sans-serif" font-size="25" font-weight="700" fill="#173f3d">贡献阶梯：从“调参数”走到“可迁移能力”</text>
+  <text x="54" y="88" font-family="Inter,Arial,sans-serif" font-size="15" fill="#50706c">每上一级，都要多一份边界、证据和可复现产物</text>
+  <g font-family="Inter,Arial,sans-serif">
+    <path d="M68 284h184v-34h118v-42h118v-50h118v-48h118v-38h118v212H68z" fill="#eaf3f7" stroke="#b9d3df" stroke-width="2"/>
+    <rect x="92" y="248" width="136" height="32" rx="8" fill="#dfeee8"/>
+    <text x="112" y="270" font-size="15" font-weight="700" fill="#173f3d">配置级</text>
+    <text x="112" y="303" font-size="13" fill="#50706c">模型 / 提示词</text>
+    <rect x="276" y="206" width="136" height="32" rx="8" fill="#dfeee8"/>
+    <text x="296" y="228" font-size="15" font-weight="700" fill="#173f3d">适配级</text>
+    <text x="296" y="261" font-size="13" fill="#50706c">领域 API / 错误码</text>
+    <rect x="460" y="156" width="136" height="32" rx="8" fill="#fff1d9"/>
+    <text x="480" y="178" font-size="15" font-weight="700" fill="#173f3d">策略级</text>
+    <text x="480" y="211" font-size="13" fill="#50706c">权限 / 状态 / 幂等</text>
+    <rect x="644" y="108" width="136" height="32" rx="8" fill="#fff1d9"/>
+    <text x="664" y="130" font-size="15" font-weight="700" fill="#173f3d">评测级</text>
+    <text x="664" y="163" font-size="13" fill="#50706c">回放 / 回归 / 门槛</text>
+    <rect x="828" y="70" width="136" height="32" rx="8" fill="#fae8e1"/>
+    <text x="848" y="92" font-size="15" font-weight="700" fill="#173f3d">平台级</text>
+    <text x="848" y="125" font-size="13" fill="#50706c">复用 / 发布 / 观测</text>
+    <path d="M850 302c34-6 58-25 73-54" fill="none" stroke="#7eaaa7" stroke-width="3" stroke-dasharray="7 7"/>
+    <text x="724" y="326" font-size="14" fill="#50706c">证据越完整，贡献越不依赖某个框架</text>
+  </g>
+</svg>

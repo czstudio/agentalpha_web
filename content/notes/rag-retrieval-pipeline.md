@@ -5,7 +5,7 @@ excerpt: "RAG 的难点不在于把文档塞进向量库，而在于让正确证
 series: "RAG"
 seriesNo: "03"
 number: "09"
-minutes: 14
+minutes: 22
 ---
 
 你给面试官展示一个 RAG Demo：上传 PDF，提问，模型回答，答案下面还带了引用链接。
@@ -130,6 +130,222 @@ RAG 失败至少有五个位置：数据没有进来，召回没找到，重排�
 ```
 
 这份记录不需要保存用户隐私原文，但必须足够回答四个问题：召回了什么、为什么选它、模型引用了什么、这次失败应该归到哪一层。没有 trace，RAG 优化很容易变成“换个模型再试试”。
+
+## 十、把离线链路做成可验证的状态机
+
+如果面试官继续问“你们的 RAG 知识库是怎么更新的”，不要只回答“定时跑一个 embedding 任务”。更完整的说法是：文档更新要经过解析、切块、编码、建索引和发布几个状态；每个状态都有输入、输出和可重试边界，索引只有在整批校验通过后才切换到线上。
+
+| 状态 | 输入 | 产物 | 失败时怎么处理 |
+| --- | --- | --- | --- |
+| `RECEIVED` | 原始文件、来源、版本 | 文件指纹 | 同一指纹幂等跳过 |
+| `PARSED` | 文件内容 | 结构化段落、表格、代码块 | 标记解析失败，不能静默入库 |
+| `CHUNKED` | 结构化文档 | chunk 与父块关系 | 抽样检查长度和标题路径 |
+| `EMBEDDED` | chunk 文本 | 向量与 metadata | 模型版本不一致直接拒绝 |
+| `INDEXED` | 向量、倒排词项 | 新索引版本 | 只写新版本，不影响线上 |
+| `PUBLISHED` | 通过校验的索引 | 当前 active 版本 | 原子切换，保留上一版回滚 |
+
+批次记录至少要有 `source_version`、`index_version`、`embedding_model`、`document_count`、`chunk_count` 和校验结果。这样“最近答案变差”才能追到具体是哪一批资料、哪一个模型或哪一次解析变更造成的。
+
+```python
+from dataclasses import dataclass
+from hashlib import sha256
+
+@dataclass(frozen=True)
+class Batch:
+    source_version: str
+    index_version: str
+    embedding_model: str
+    content_hash: str
+
+def make_batch(source_version: str, raw: bytes, model: str) -> Batch:
+    digest = sha256(raw).hexdigest()
+    index_version = f"{source_version}-{digest[:10]}"
+    return Batch(source_version, index_version, model, digest)
+
+def should_publish(report: dict) -> bool:
+    return (
+        report["parse_error_rate"] == 0
+        and report["missing_title_rate"] < 0.01
+        and report["embedding_dimension_ok"]
+        and report["gold_recall_at_10"] >= report["baseline_recall_at_10"] - 0.01
+    )
+```
+
+这里的 `should_publish` 不是为了制造一个漂亮的门禁数字，而是把发布前必须回答的问题显式化：解析有没有坏、向量维度是否一致、核心问题集有没有明显回退。阈值应该来自当前业务基线，不能照抄示例。
+
+## 十一、在线请求也要有明确的状态转移
+
+一次查询可以用下面的状态机描述：
+
+```text
+RECEIVE
+  ↓
+NORMALIZE ──(无法识别意图)──> ASK_CLARIFICATION
+  ↓
+RETRIEVE ──(无候选)────────> ABSTAIN_OR_SEARCH_AGAIN
+  ↓
+FILTER ────(无权限证据)────> ABSTAIN
+  ↓
+RERANK ────(证据冲突)──────> SHOW_CONFLICT
+  ↓
+ASSEMBLE_CONTEXT
+  ↓
+GENERATE ──(引用缺失)──────> REPAIR_OR_ABSTAIN
+  ↓
+RESPOND + TRACE
+```
+
+这张图的价值在于把“模型回答不知道”与“系统没有找到证据”分开。比如用户问“昨天的报销为什么还没到账”，如果检索结果只解释了报销入口，系统应记录为 `RETRIEVE_MISS` 或 `EVIDENCE_INCOMPLETE`，而不是把责任都归到模型生成。
+
+对多轮对话，原问题和改写问题必须同时进入 trace。改写服务可以补充产品名、时间和实体，但不能丢掉用户的限制条件：
+
+```json
+{
+  "original_query": "那昨天那笔呢？",
+  "conversation_entities": {"expense_type": "差旅报销", "date": "2026-08-18"},
+  "rewritten_query": "2026-08-18 的差旅报销到账时效和未到账原因",
+  "preserved_constraints": ["date=2026-08-18", "expense_type=差旅报销"],
+  "rewrite_confidence": 0.87
+}
+```
+
+当 `rewrite_confidence` 低于业务阈值时，追问一句往往比自信地检索错误主题更便宜。
+
+## 十二、多跳问题要留下证据链，不要只留最终答案
+
+“哪家门店在周末仍支持退货，而且距离地铁站不超过 500 米？”至少包含门店营业规则、退货规则和地理距离三个子问题。一个向量查询很难同时保证三类证据完整，比较稳的方式是拆成子查询，再把结果按实体合并：
+
+1. 先找满足“周末营业”的门店集合。
+2. 对集合内门店检索退货规则，保留版本和门店范围。
+3. 调用地图或结构化数据库工具计算距离。
+4. 把每个结论对应的证据 ID 放回答案，而不是只引用最后一篇文档。
+
+```json
+{
+  "answer": "A 店满足条件，周末营业且支持 7 天无理由退货，距地铁站 320 米。",
+  "claims": [
+    {"text": "A 店周末营业", "evidence": ["store-a#hours"]},
+    {"text": "支持 7 天无理由退货", "evidence": ["store-a#return-policy"]},
+    {"text": "距离 320 米", "evidence": ["map-route#20260819"]}
+  ]
+}
+```
+
+如果一个 claim 没有证据，系统应当删掉这句、降低置信度或转人工，而不是用同一条“相关文档”给所有结论贴引用。
+
+## 十三、延迟、成本和质量要放在同一张预算表里
+
+线上 RAG 不是“质量越高越好”，而是在约束下找到可接受的质量。可以先给每个阶段留预算：
+
+| 阶段 | 典型预算 | 主要开关 |
+| --- | --- | --- |
+| 查询改写 | 20–80 ms | 是否只对多轮或低置信问题启用 |
+| 多路召回 | 30–120 ms | top-k、索引类型、缓存 |
+| 重排 | 50–180 ms | candidate-k、批量大小、模型档位 |
+| 上下文组装 | 5–30 ms | 去重、父块数量、token 上限 |
+| 生成 | 由模型与输出长度决定 | 路由、max tokens、流式返回 |
+
+总延迟可以粗略写成：
+
+\[
+T_{e2e}=T_{rewrite}+T_{retrieve}+T_{filter}+T_{rerank}+T_{assemble}+T_{generate}
+\]
+
+如果只把 `T_generate` 换成更快的模型，却让 candidate-k 从 20 拉到 200，端到端 P95 可能反而更差。每次优化要同时报告 Recall、引用支持率、P95 和单位请求成本，避免“分数涨了，用户却等得更久”。
+
+## 十四、分层面试题：从会背流程到能做系统
+
+### L1 基础题
+
+1. RAG 的离线阶段和在线阶段分别做什么？
+2. 为什么要先分块再做 Embedding？
+3. 向量召回和关键词召回各自擅长什么？
+4. 重排器为什么不直接扫描整个知识库？
+5. 没有证据时，系统应该如何回答？
+
+### L2 工程题
+
+6. 多轮对话的 Query Rewrite 如何避免丢失时间和权限约束？
+7. 知识库增量更新怎样做到不停服和可回滚？
+8. 为什么候选集里有正确文档，最终上下文却没有它？
+9. 如何给一次 RAG 请求设计 trace？哪些字段不能缺？
+10. 多跳问题如何保证每一个结论都有对应证据？
+
+### L3 追问题
+
+11. 如果召回 Recall@20 上升，但最终引用准确率下降，你先查哪一层？
+12. 如何设计不可回答问题，验证系统不会“看着资料编答案”？
+13. 权限过滤应该放在向量召回前、后，还是两边都做？为什么？
+14. 线上模型升级后答案变差，怎样区分模型、索引和数据版本影响？
+15. 如果同一个问题需要结构化数据库和文档证据，Agent 的编排边界怎么划？
+
+回答这些题时，优先说“输入是什么、输出是什么、失败怎么回退、用什么指标证明”，再补组件名称。面试官要听的是工程闭环，不是名词接龙。
+
+## 检索结果要携带“证据来源链”
+
+一个候选片段进入上下文前，最好能回答它从哪份原文来、经过了哪些变换、为什么被选中。只保存最终 chunk 文本，会让后续排查无法区分清洗、分块、查询改写、过滤还是重排造成了变化。为每个证据保留来源链，换索引或解析器后还能做版本对照。
+
+```yaml
+evidence_lineage: ev_20260820_52
+source:
+  document_id: handbook-17
+  source_version: v12
+  page: 8
+transform:
+  parser: pdf-layout-v3
+  chunker: semantic-v2
+  chunk_id: handbook-17:p8:c04
+query:
+  original: "退款多久到账"
+  rewritten: "退款到账时间 处理时限 银行卡"
+selection:
+  retrievers: [bm25, dense]
+  candidate_rank: 7
+  rerank_score: 0.88
+filters: {tenant: pass, acl: pass, version: pass}
+```
+
+来源链的价值在于让线上 bad case 能顺着证据回走：如果 chunk 本身缺前提，修分块；如果候选集没有它，修召回或过滤；如果它已经进上下文却没被引用，再查编排和生成。每次转换都写版本和 digest，才能证明“同一个 evidence_id”在新索引里没有悄悄指向另一段文本。
+
+![RAG 证据来源链把原文、解析、分块、改写、召回、过滤和重排串成可回放路径](/images/notes/rag-retrieval-pipeline/evidence-lineage-card.svg)
+
+### L5：为什么只记录 rerank 分数不够？
+
+分数只能说明候选在某个模型下排得靠前，不能证明它来自正确版本、经过权限过滤或包含完整前提。排查需要同时看到来源、转换版本、候选排名和过滤结果，否则很难判断是“排错了”还是“证据本来就坏”。
+
+## 检索要有自适应停止条件，不能把 top-k 当成固定答案
+
+不同问题需要的证据量不同。简单的错误码查询可能在第一条精确命中后就够了，多跳政策问题则需要继续扩展实体、版本和引用关系。如果每次都固定召回 20 条，会浪费延迟和上下文；如果每次只取 3 条，又容易在证据不完整时过早生成。在线编排应根据证据覆盖、冲突和剩余预算决定继续、收缩或停止。
+
+我会把停止条件写成可观测的状态：是否覆盖了问题中的关键实体，候选之间是否存在版本冲突，当前证据是否能支持所有将要输出的 claim，以及继续一次检索的预期收益是否超过成本。达到软门槛可以先生成草稿，发现引用缺口时再做一次定向补召回；触及硬预算则返回缺口和下一步，而不是假装已经找全。
+
+~~~yaml
+retrieval_stop_policy: rsp_20260820_72
+query: policy-version-migration
+budget: {max_rounds: 3, max_chunks: 18, max_ms: 900}
+rounds:
+  - n: 1
+    entity_coverage: 0.62
+    claim_support: 0.48
+    action: expand_version_filter
+  - n: 2
+    entity_coverage: 0.94
+    claim_support: 0.86
+    conflicts: 1
+    action: fetch_authoritative_revision
+  - n: 3
+    entity_coverage: 0.94
+    claim_support: 0.96
+    conflicts: 0
+    action: stop_and_generate
+decision: grounded_with_budget
+~~~
+
+![RAG 自适应停止卡：证据覆盖、冲突、预算和预期收益共同决定是否继续检索](/images/notes/rag-retrieval-pipeline/retrieval-stop-policy-card.svg)
+
+### L5：为什么 top-k 越大不一定越准？
+
+更多候选可能带来重复、旧版本和互相冲突的证据，挤占上下文并增加重排成本。真正要优化的是关键 claim 的支持率和冲突处理；当新增候选不再提高支持率时，继续扩大 top-k 只是在增加噪声。
 
 ## 60 秒面试回答
 

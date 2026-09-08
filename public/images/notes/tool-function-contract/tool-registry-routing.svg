@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 360" role="img" aria-labelledby="title desc">
+  <title id="title">工具注册表路由</title>
+  <desc id="desc">任务语义召回候选工具，再经过权限风险和版本过滤形成会话工具目录。</desc>
+  <rect width="1080" height="360" rx="28" fill="#f7f8f5"/>
+  <g font-family="sans-serif" text-anchor="middle">
+    <rect x="38" y="125" width="170" height="92" rx="18" fill="#eaf3f7" stroke="#b9d3df"/>
+    <text x="123" y="160" font-size="19" font-weight="700" fill="#24556a">用户任务</text><text x="123" y="190" font-size="14" fill="#5a737d">退款 / 查询 / 创建</text>
+    <rect x="250" y="105" width="190" height="132" rx="18" fill="#dfeee8" stroke="#afd0c3"/>
+    <text x="345" y="145" font-size="19" font-weight="700" fill="#173f3d">语义召回</text><text x="345" y="175" font-size="14" fill="#52706b">候选工具 shortlist</text><text x="345" y="200" font-size="13" fill="#52706b">命名空间 + 能力标签</text>
+    <rect x="482" y="105" width="190" height="132" rx="18" fill="#fff1d9" stroke="#e8c891"/>
+    <text x="577" y="145" font-size="19" font-weight="700" fill="#704c20">策略裁剪</text><text x="577" y="175" font-size="14" fill="#856a42">租户 · 风险 · 环境</text><text x="577" y="200" font-size="13" fill="#856a42">版本 + 权限</text>
+    <rect x="714" y="105" width="190" height="132" rx="18" fill="#fae8e1" stroke="#e0b9ae"/>
+    <text x="809" y="145" font-size="19" font-weight="700" fill="#753f32">版本协商</text><text x="809" y="175" font-size="14" fill="#8c5d51">schema 2.1</text><text x="809" y="200" font-size="13" fill="#8c5d51">迁移与回放</text>
+    <rect x="946" y="125" width="96" height="92" rx="18" fill="#173f3d"/>
+    <text x="994" y="160" font-size="18" font-weight="700" fill="#fff">会话目录</text><text x="994" y="190" font-size="13" fill="#dfeee8">最小可见</text>
+  </g>
+  <g fill="none" stroke="#86a59d" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M208 171h42l-10-7m10 7-10 7"/><path d="M440 171h42l-10-7m10 7-10 7"/><path d="M672 171h42l-10-7m10 7-10 7"/><path d="M904 171h42l-10-7m10 7-10 7"/></g>
+</svg>

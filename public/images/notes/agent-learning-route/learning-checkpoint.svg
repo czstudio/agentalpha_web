@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="360" viewBox="0 0 1080 360" role="img" aria-labelledby="title desc">
+  <title id="title">学习检查点</title><desc id="desc">阅读、实现、对照实验和面试表达组成可复查的学习产物</desc>
+  <rect width="1080" height="360" rx="24" fill="#f7f8f5"/>
+  <text x="52" y="54" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif" font-size="26" font-weight="700" fill="#173f3d">学习检查点：每一步都留下可复查产物</text>
+  <text x="52" y="84" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif" font-size="15" fill="#5b7470">读懂只是入口，能实现、对照、讲清才算闭环</text>
+  <g font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif">
+    <rect x="52" y="126" width="210" height="154" rx="18" fill="#eaf3f7" stroke="#b9d3df"/><text x="78" y="158" font-size="18" font-weight="700" fill="#173f3d">机制笔记</text><text x="78" y="190" font-size="14" fill="#48635f">链路图 + 反例</text><text x="78" y="216" font-size="14" fill="#48635f">输入 / 状态 / 边界</text><text x="78" y="242" font-size="14" fill="#48635f">先问解决了什么</text>
+    <rect x="288" y="126" width="210" height="154" rx="18" fill="#dfeee8" stroke="#afd0c3"/><text x="314" y="158" font-size="18" font-weight="700" fill="#173f3d">最小实现</text><text x="314" y="190" font-size="14" fill="#48635f">命令 + 固定依赖</text><text x="314" y="216" font-size="14" fill="#48635f">换样本可复跑</text><text x="314" y="242" font-size="14" fill="#48635f">记录失败而非只截图</text>
+    <rect x="524" y="126" width="210" height="154" rx="18" fill="#fff1d9" stroke="#e8c891"/><text x="550" y="158" font-size="18" font-weight="700" fill="#173f3d">对照实验</text><text x="550" y="190" font-size="14" fill="#48635f">基线 / 唯一变量</text><text x="550" y="216" font-size="14" fill="#48635f">切片 / 代价 / 区间</text><text x="550" y="242" font-size="14" fill="#48635f">结果可解释</text>
+    <rect x="760" y="126" width="268" height="154" rx="18" fill="#fae8e1" stroke="#e0b9ae"/><text x="786" y="158" font-size="18" font-weight="700" fill="#173f3d">面试卡片</text><text x="786" y="190" font-size="14" fill="#48635f">结论 → 依据 → 反例</text><text x="786" y="216" font-size="14" fill="#48635f">→ 验证动作</text><text x="786" y="242" font-size="14" fill="#48635f">60 秒 + 分层追问</text>
+  </g>
+  <path d="M262 203h26M498 203h26M734 203h26" stroke="#7d9a95" stroke-width="3" stroke-linecap="round"/>
+</svg>

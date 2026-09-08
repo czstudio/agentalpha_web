@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="470" viewBox="0 0 1200 470">
+  <rect width="1200" height="470" fill="#fbfaf7"/>
+  <text x="70" y="68" font-family="Arial,'Noto Sans SC',sans-serif" font-size="28" font-weight="700" fill="#24352f">Needle 测试：把关键事实移动到不同位置</text>
+  <g font-family="Arial,'Noto Sans SC',sans-serif" text-anchor="middle">
+    <rect x="100" y="170" width="260" height="80" rx="14" fill="#e9f1f8" stroke="#a6bfd5" stroke-width="2"/><text x="230" y="218" font-size="18" fill="#2d607e">开头 needle</text>
+    <rect x="470" y="170" width="260" height="80" rx="14" fill="#f2eee2" stroke="#d3bb7d" stroke-width="2"/><text x="600" y="218" font-size="18" fill="#7c622e">中间 needle</text>
+    <rect x="840" y="170" width="260" height="80" rx="14" fill="#e8f3ee" stroke="#9ec8b3" stroke-width="2"/><text x="970" y="218" font-size="18" fill="#285d4d">结尾 needle</text>
+  </g>
+  <g stroke="#8aa196" stroke-width="2" stroke-dasharray="7 7"><path d="M100 290H360"/><path d="M470 290H730"/><path d="M840 290H1100"/></g>
+  <text x="100" y="340" font-family="Arial,'Noto Sans SC',sans-serif" font-size="17" fill="#6b7d75">同时加入干扰事实、同名实体、版本冲突和无答案样本，检查召回、引用与拒答。</text>
+</svg>

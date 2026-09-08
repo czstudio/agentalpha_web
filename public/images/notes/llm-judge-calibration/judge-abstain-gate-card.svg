@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="390" viewBox="0 0 1080 390" role="img" aria-labelledby="title desc">
+  <title id="title">Judge 低置信闸门</title>
+  <desc id="desc">顺序交换冲突或证据不足时保留 tie/abstain，转人工而不是硬排序。</desc>
+  <rect width="1080" height="390" rx="28" fill="#F7F4EE"/>
+  <text x="54" y="56" font-family="Arial,'Noto Sans SC',sans-serif" font-size="26" font-weight="700" fill="#193C3A">Judge 低置信度可以 abstain</text>
+  <text x="54" y="88" font-family="Arial,'Noto Sans SC',sans-serif" font-size="16" fill="#58706D">证据不足时不强行排序，反而更保护回归信号</text>
+  <g font-family="Arial,'Noto Sans SC',sans-serif" text-anchor="middle">
+    <rect x="54" y="132" width="206" height="126" rx="18" fill="#EAF3F7"/><text x="157" y="172" font-size="19" font-weight="700" fill="#275261">顺序 A/B</text><text x="157" y="207" font-size="15" fill="#52727A">winner A</text><text x="157" y="233" font-size="15" fill="#52727A">confidence .62</text>
+    <rect x="278" y="132" width="206" height="126" rx="18" fill="#FFF0D6"/><text x="381" y="172" font-size="19" font-weight="700" fill="#875B26">顺序 B/A</text><text x="381" y="207" font-size="15" fill="#6C5632">tie</text><text x="381" y="233" font-size="15" fill="#6C5632">confidence .41</text>
+    <rect x="502" y="132" width="206" height="126" rx="18" fill="#F5D9DC"/><text x="605" y="172" font-size="19" font-weight="700" fill="#78454D">冲突</text><text x="605" y="207" font-size="15" fill="#855C63">order flip</text><text x="605" y="233" font-size="15" fill="#855C63">scope unclear</text>
+    <rect x="726" y="132" width="302" height="126" rx="18" fill="#173F3D"/><text x="877" y="182" font-size="19" font-weight="700" fill="#FFFFFF">人工队列</text><text x="877" y="218" font-size="15" fill="#D8EBE5">raw votes + reasons</text>
+  </g>
+  <g fill="none" stroke="#7D9A95" stroke-width="3" stroke-linecap="round"><path d="M260 195h18"/><path d="M484 195h18"/><path d="M708 195h18"/></g>
+  <rect x="54" y="296" width="974" height="43" rx="14" fill="#E8EFEB"/><text x="76" y="324" font-family="Arial,'Noto Sans SC',sans-serif" font-size="15" fill="#365B61">abstain 是可解释边界：记录原因、人工结论和 rubric 修订，不把犹豫伪装成精确分数</text>
+</svg>

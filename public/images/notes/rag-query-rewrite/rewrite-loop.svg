@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="520" viewBox="0 0 1200 520">
+  <rect width="1200" height="520" fill="#f8faf9"/>
+  <text x="70" y="70" font-family="Arial,'Noto Sans SC',sans-serif" font-size="28" font-weight="700" fill="#19372f">Query rewrite：翻译，不是替用户补问题</text>
+  <g font-family="Arial,'Noto Sans SC',sans-serif" text-anchor="middle">
+    <rect x="70" y="210" width="190" height="82" rx="16" fill="#e9f1f8" stroke="#a6bfd6" stroke-width="2"/><text x="165" y="244" font-size="20" font-weight="700" fill="#2d607e">原始问题</text><text x="165" y="272" font-size="15" fill="#486d83">保留语义锚点</text>
+    <rect x="350" y="180" width="210" height="140" rx="16" fill="#e8f3ee" stroke="#9cc8b2" stroke-width="2"/><text x="455" y="220" font-size="20" font-weight="700" fill="#275f4e">分类与约束</text><text x="455" y="252" font-size="15" fill="#4b7063">口语 / 多跳 / 精确 token</text><text x="455" y="280" font-size="15" fill="#4b7063">记录假设和新增词</text>
+    <rect x="650" y="180" width="210" height="140" rx="16" fill="#f2eee2" stroke="#d4bc7e" stroke-width="2"/><text x="755" y="220" font-size="20" font-weight="700" fill="#7c622e">候选检索</text><text x="755" y="252" font-size="15" fill="#846e42">原问 + 少量改写</text><text x="755" y="280" font-size="15" fill="#846e42">同一证据集比较</text>
+    <rect x="950" y="210" width="180" height="82" rx="16" fill="#f8e9e6" stroke="#d7a399" stroke-width="2"/><text x="1040" y="244" font-size="20" font-weight="700" fill="#984f42">回退 / 采用</text><text x="1040" y="272" font-size="15" fill="#995c50">看覆盖，不看文采</text>
+  </g>
+  <g fill="none" stroke="#5b8b79" stroke-width="4"><path d="M260 251H338"/><path d="m325 239 18 12-18 12" fill="#5b8b79"/><path d="M560 251H638"/><path d="m625 239 18 12-18 12" fill="#5b8b79"/><path d="M860 251H938"/><path d="m925 239 18 12-18 12" fill="#5b8b79"/></g>
+  <path d="M1040 310C1040 410 420 440 240 310" fill="none" stroke="#bd8b55" stroke-width="3" stroke-dasharray="9 9"/>
+  <text x="495" y="423" font-family="Arial,'Noto Sans SC',sans-serif" font-size="17" fill="#8a6636">无增益、假设过多或证据不足 → 回到原问 / 澄清</text>
+</svg>

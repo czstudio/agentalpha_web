@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="360" viewBox="0 0 1080 360" role="img" aria-labelledby="title desc">
+  <title id="title">Agent 学习产物矩阵</title>
+  <desc id="desc">基础、项目、论文和面试四条学习线对应的最小产物与过关信号</desc>
+  <rect width="1080" height="360" rx="28" fill="#f7f8f5"/>
+  <text x="54" y="58" font-family="Inter,Arial,sans-serif" font-size="25" font-weight="700" fill="#173f3d">学习产物矩阵：读过不等于做过</text>
+  <text x="54" y="88" font-family="Inter,Arial,sans-serif" font-size="15" fill="#50706c">每条学习线都留下可运行、可复述、可复查的最小证据</text>
+  <g font-family="Inter,Arial,sans-serif">
+    <rect x="54" y="126" width="222" height="150" rx="18" fill="#eaf3f7" stroke="#b9d3df"/><text x="82" y="164" font-size="18" font-weight="700" fill="#173f3d">基础</text><text x="82" y="198" font-size="15" fill="#315653">手写推导</text><text x="82" y="224" font-size="15" fill="#315653">最小实现</text><text x="82" y="250" font-size="14" fill="#50706c">形状 / 复杂度 / 边界</text>
+    <rect x="300" y="126" width="222" height="150" rx="18" fill="#dfeee8" stroke="#afd0c3"/><text x="328" y="164" font-size="18" font-weight="700" fill="#173f3d">项目</text><text x="328" y="198" font-size="15" fill="#315653">补丁或实验</text><text x="328" y="224" font-size="15" fill="#315653">失败回放</text><text x="328" y="250" font-size="14" fill="#50706c">版本 / 输入 / 回滚</text>
+    <rect x="546" y="126" width="222" height="150" rx="18" fill="#fff1d9" stroke="#e8c891"/><text x="574" y="164" font-size="18" font-weight="700" fill="#173f3d">论文</text><text x="574" y="198" font-size="15" fill="#315653">假设卡</text><text x="574" y="224" font-size="15" fill="#315653">最小复现</text><text x="574" y="250" font-size="14" fill="#50706c">变量 / 数据 / 代价</text>
+    <rect x="792" y="126" width="234" height="150" rx="18" fill="#fae8e1" stroke="#e0b9ae"/><text x="820" y="164" font-size="18" font-weight="700" fill="#173f3d">面试</text><text x="820" y="198" font-size="15" fill="#315653">60 秒回答</text><text x="820" y="224" font-size="15" fill="#315653">三层追问</text><text x="820" y="250" font-size="14" fill="#50706c">条件变化能重算</text>
+  </g>
+</svg>

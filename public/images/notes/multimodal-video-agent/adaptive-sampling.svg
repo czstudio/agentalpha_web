@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 360" role="img" aria-labelledby="title desc">
+  <title id="title">视频自适应采样</title>
+  <desc id="desc">均匀低频采样和事件命中区间共同决定高密度采样窗口。</desc>
+  <rect width="900" height="360" rx="28" fill="#f7f8f5"/>
+  <text x="52" y="72" font-family="sans-serif" font-size="19" font-weight="700" fill="#173f3d">时间轴</text>
+  <path d="M80 180h740" stroke="#8eb8af" stroke-width="5" stroke-linecap="round"/>
+  <g fill="#7fae9f"><circle cx="100" cy="180" r="9"/><circle cx="210" cy="180" r="9"/><circle cx="320" cy="180" r="9"/><circle cx="430" cy="180" r="9"/><circle cx="540" cy="180" r="9"/><circle cx="650" cy="180" r="9"/><circle cx="760" cy="180" r="9"/></g>
+  <path d="M300 120h250" stroke="#d27b56" stroke-width="12" stroke-linecap="round" opacity=".35"/><g fill="#d27b56"><circle cx="320" cy="180" r="11"/><circle cx="340" cy="180" r="11"/><circle cx="360" cy="180" r="11"/><circle cx="380" cy="180" r="11"/><circle cx="400" cy="180" r="11"/><circle cx="420" cy="180" r="11"/><circle cx="440" cy="180" r="11"/><circle cx="460" cy="180" r="11"/><circle cx="480" cy="180" r="11"/><circle cx="500" cy="180" r="11"/><circle cx="520" cy="180" r="11"/></g>
+  <text x="100" y="235" text-anchor="middle" font-family="sans-serif" font-size="15" fill="#4c7068">coarse</text><text x="410" y="235" text-anchor="middle" font-family="sans-serif" font-size="15" fill="#a35e42">event hit → dense</text><text x="760" y="235" text-anchor="middle" font-family="sans-serif" font-size="15" fill="#4c7068">coarse</text>
+  <rect x="80" y="278" width="170" height="40" rx="12" fill="#d7e9e2"/><text x="165" y="304" text-anchor="middle" font-family="sans-serif" font-size="16" font-weight="700" fill="#173f3d">低频全局地图</text>
+  <rect x="300" y="278" width="230" height="40" rx="12" fill="#f4dca6"/><text x="415" y="304" text-anchor="middle" font-family="sans-serif" font-size="16" font-weight="700" fill="#704c20">关键词/镜头/事件</text>
+  <rect x="580" y="278" width="240" height="40" rx="12" fill="#eaf3f7"/><text x="700" y="304" text-anchor="middle" font-family="sans-serif" font-size="16" font-weight="700" fill="#24556a">局部高密度精读</text>
+</svg>

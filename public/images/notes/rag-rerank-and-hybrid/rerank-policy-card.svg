@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="390" viewBox="0 0 1080 390" role="img" aria-labelledby="title desc">
+  <title id="title">重排分层策略卡</title><desc id="desc">RAG 请求按风险、证据缺口和延迟预算选择快、守护和严格路径</desc>
+  <rect width="1080" height="390" rx="26" fill="#f7f8f5"/>
+  <text x="52" y="56" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif" font-size="25" font-weight="700" fill="#173f3d">重排分层策略：阈值要和风险一起看</text>
+  <text x="52" y="84" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif" font-size="15" fill="#5b7470">candidate-k、top-n 和校验强度随请求升级</text>
+  <g font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif">
+    <rect x="52" y="122" width="220" height="126" rx="17" fill="#dfeee8" stroke="#afd0c3"/><text x="162" y="157" text-anchor="middle" font-size="17" font-weight="700" fill="#173f3d">Fast</text><text x="162" y="191" text-anchor="middle" font-size="13" fill="#48635f">low risk</text><text x="162" y="215" text-anchor="middle" font-size="13" fill="#48635f">k20 / n4</text>
+    <rect x="292" y="122" width="220" height="126" rx="17" fill="#fff1d9" stroke="#e8c891"/><text x="402" y="157" text-anchor="middle" font-size="17" font-weight="700" fill="#173f3d">Guarded</text><text x="402" y="191" text-anchor="middle" font-size="13" fill="#48635f">margin &lt; 0.12</text><text x="402" y="215" text-anchor="middle" font-size="13" fill="#48635f">k40 / n6</text>
+    <rect x="532" y="122" width="220" height="126" rx="17" fill="#f5d9dc" stroke="#dfb2b9"/><text x="642" y="157" text-anchor="middle" font-size="17" font-weight="700" fill="#173f3d">Strict</text><text x="642" y="191" text-anchor="middle" font-size="13" fill="#48635f">high risk / missing</text><text x="642" y="215" text-anchor="middle" font-size="13" fill="#48635f">k60 / n8</text>
+    <rect x="772" y="122" width="256" height="126" rx="17" fill="#173f3d"/><text x="900" y="157" text-anchor="middle" font-size="17" font-weight="700" fill="#ffffff">出口</text><text x="900" y="191" text-anchor="middle" font-size="13" fill="#dbe9e5">引用 / 版本 / ACL</text><text x="900" y="215" text-anchor="middle" font-size="13" fill="#dbe9e5">否则 clarify</text>
+  </g>
+  <path d="M272 185h20M512 185h20M752 185h20" stroke="#7d9a95" stroke-width="3" stroke-linecap="round"/>
+  <rect x="52" y="294" width="976" height="44" rx="14" fill="#e8efeb"/><text x="540" y="322" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif" font-size="15" font-weight="700" fill="#365b61">重排不是默认开关，而是证据风险和延迟预算的路由</text>
+</svg>

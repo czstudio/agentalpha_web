@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="500" viewBox="0 0 1200 500">
+  <rect width="1200" height="500" fill="#fbfaf7"/>
+  <text x="70" y="68" font-family="Arial,'Noto Sans SC',sans-serif" font-size="28" font-weight="700" fill="#24352f">改写候选要比较证据覆盖，而不是比较句子长度</text>
+  <line x1="130" y1="390" x2="1060" y2="390" stroke="#9aa8a2" stroke-width="2"/><line x1="130" y1="150" x2="130" y2="390" stroke="#9aa8a2" stroke-width="2"/>
+  <text x="550" y="445" font-family="Arial,'Noto Sans SC',sans-serif" font-size="17" fill="#718078">假设风险 →</text><text x="54" y="180" font-family="Arial,'Noto Sans SC',sans-serif" font-size="17" fill="#718078" transform="rotate(-90 54 180)">证据覆盖 ↑</text>
+  <circle cx="290" cy="230" r="16" fill="#6b9e87"/><text x="320" y="236" font-family="Arial,'Noto Sans SC',sans-serif" font-size="17" fill="#365c4e">原问：低假设，中等覆盖</text>
+  <circle cx="565" cy="185" r="16" fill="#477e68"/><text x="595" y="191" font-family="Arial,'Noto Sans SC',sans-serif" font-size="17" fill="#365c4e">候选 A：覆盖提升，假设可解释</text>
+  <circle cx="870" cy="300" r="16" fill="#c9785e"/><text x="900" y="306" font-family="Arial,'Noto Sans SC',sans-serif" font-size="17" fill="#925541">候选 B：句子更长，但风险更高</text>
+  <path d="M290 230L565 185" stroke="#6b9e87" stroke-width="3" stroke-dasharray="8 7"/><path d="M565 185L870 300" stroke="#c9785e" stroke-width="3" stroke-dasharray="8 7"/>
+</svg>

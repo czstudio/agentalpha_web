@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="390" viewBox="0 0 1080 390">
+  <rect width="1080" height="390" rx="28" fill="#f7f9fc"/>
+  <text x="56" y="58" font-family="Arial, sans-serif" font-size="23" font-weight="700" fill="#14233b">Oracle 变更审计</text>
+  <text x="56" y="86" font-family="Arial, sans-serif" font-size="15" fill="#61708a">绿灯之前，先确认判定器没有被悄悄放宽</text>
+  <g font-family="Arial, sans-serif">
+    <rect x="58" y="132" width="208" height="104" rx="18" fill="#e8f0ff" stroke="#9bb8ed"/>
+    <text x="82" y="166" font-size="18" font-weight="700" fill="#1f4d9c">Production diff</text>
+    <text x="82" y="195" font-size="14" fill="#355071">改了什么行为？</text>
+    <text x="82" y="218" font-size="13" fill="#5b6b80">文件 / 配置 / 依赖</text>
+    <path d="M268 184H336" stroke="#5979bd" stroke-width="3"/><path d="m326 175 12 9-12 9" fill="none" stroke="#5979bd" stroke-width="3"/>
+    <rect x="338" y="132" width="208" height="104" rx="18" fill="#fff4df" stroke="#e4bd70"/>
+    <text x="362" y="166" font-size="18" font-weight="700" fill="#9a6510">Oracle diff</text>
+    <text x="362" y="195" font-size="14" fill="#6f531e">断言是否变弱？</text>
+    <text x="362" y="218" font-size="13" fill="#7d6b43">matcher / fixture / mock</text>
+    <path d="M548 184H616" stroke="#b8893e" stroke-width="3"/><path d="m606 175 12 9-12 9" fill="none" stroke="#b8893e" stroke-width="3"/>
+    <rect x="618" y="132" width="184" height="104" rx="18" fill="#e7f6ef" stroke="#98cdb1"/>
+    <text x="642" y="166" font-size="18" font-weight="700" fill="#197145">Hidden check</text>
+    <text x="642" y="195" font-size="14" fill="#35624c">不变量抽样</text>
+    <text x="642" y="218" font-size="13" fill="#527464">独立于本地绿灯</text>
+    <path d="M804 184H872" stroke="#4f9c72" stroke-width="3"/><path d="m862 175 12 9-12 9" fill="none" stroke="#4f9c72" stroke-width="3"/>
+    <rect x="874" y="132" width="148" height="104" rx="18" fill="#f0eaff" stroke="#b8a3e8"/>
+    <text x="898" y="166" font-size="18" font-weight="700" fill="#6445ae">Decision</text>
+    <text x="898" y="195" font-size="14" fill="#51436f">pass / unknown</text>
+    <text x="898" y="218" font-size="13" fill="#6c5d85">带 trace 交接</text>
+  </g>
+  <line x1="56" y1="279" x2="1024" y2="279" stroke="#dbe2ec"/>
+  <text x="56" y="319" font-family="Arial, sans-serif" font-size="15" font-weight="700" fill="#263750">核心原则</text>
+  <text x="166" y="319" font-family="Arial, sans-serif" font-size="15" fill="#52627a">测试是判定器；判定器变了，旧绿灯自动降级为 unknown</text>
+</svg>

@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="390" viewBox="0 0 1080 390" role="img" aria-labelledby="title desc">
+  <title id="title">DPO 偏好迁移验收</title><desc id="desc">同分布、近邻迁移、工具环境、真实结果和发布决策组成 DPO 偏好迁移验收</desc>
+  <rect width="1080" height="390" rx="26" fill="#f7f8f5"/>
+  <text x="52" y="56" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif" font-size="25" font-weight="700" fill="#173f3d">DPO 验收：偏好要迁移到真实任务</text>
+  <text x="52" y="84" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif" font-size="15" fill="#5b7470">win rate 上涨，不等于工具任务变好了</text>
+  <g font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif">
+    <rect x="52" y="122" width="190" height="126" rx="17" fill="#eaf3f7" stroke="#b9d3df"/><text x="147" y="157" text-anchor="middle" font-size="17" font-weight="700" fill="#173f3d">同分布</text><text x="147" y="191" text-anchor="middle" font-size="13" fill="#48635f">pair win 84%</text><text x="147" y="215" text-anchor="middle" font-size="13" fill="#48635f">task 82%</text>
+    <rect x="262" y="122" width="190" height="126" rx="17" fill="#dfeee8" stroke="#afd0c3"/><text x="357" y="157" text-anchor="middle" font-size="17" font-weight="700" fill="#173f3d">近邻迁移</text><text x="357" y="191" text-anchor="middle" font-size="13" fill="#48635f">pair win 77%</text><text x="357" y="215" text-anchor="middle" font-size="13" fill="#48635f">task 74%</text>
+    <rect x="472" y="122" width="190" height="126" rx="17" fill="#fff1d9" stroke="#e8c891"/><text x="567" y="157" text-anchor="middle" font-size="17" font-weight="700" fill="#173f3d">工具环境</text><text x="567" y="191" text-anchor="middle" font-size="13" fill="#48635f">pair win 79%</text><text x="567" y="215" text-anchor="middle" font-size="13" fill="#48635f">task 61%</text>
+    <rect x="682" y="122" width="190" height="126" rx="17" fill="#f5d9dc" stroke="#dfb2b9"/><text x="777" y="157" text-anchor="middle" font-size="17" font-weight="700" fill="#173f3d">差异</text><text x="777" y="191" text-anchor="middle" font-size="13" fill="#48635f">citation / refusal</text><text x="777" y="215" text-anchor="middle" font-size="13" fill="#48635f">hard eval</text>
+    <rect x="892" y="122" width="136" height="126" rx="17" fill="#173f3d"/><text x="960" y="157" text-anchor="middle" font-size="17" font-weight="700" fill="#ffffff">发布</text><text x="960" y="191" text-anchor="middle" font-size="13" fill="#dbe9e5">text only</text><text x="960" y="215" text-anchor="middle" font-size="13" fill="#dbe9e5">hold tools</text>
+  </g>
+  <path d="M242 185h20M452 185h20M662 185h20M872 185h20" stroke="#7d9a95" stroke-width="3" stroke-linecap="round"/>
+  <rect x="52" y="294" width="976" height="44" rx="14" fill="#e8efeb"/><text x="540" y="322" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif" font-size="15" font-weight="700" fill="#365b61">偏好学习先看迁移，再决定是否进入环境任务</text>
+</svg>

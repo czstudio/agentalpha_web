@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="390" viewBox="0 0 1080 390" role="img" aria-labelledby="title desc">
+  <title id="title">Tombstone 传播探针</title>
+  <desc id="desc">删除记忆后逐层确认缓存、向量、摘要、队列与备份都已清除或遮蔽。</desc>
+  <rect width="1080" height="390" rx="26" fill="#f7f8f5"/>
+  <text x="52" y="54" font-size="25" font-weight="700" fill="#173f3d">删除记忆：让 tombstone 穿过每一层</text>
+  <text x="52" y="84" font-size="16" fill="#5b7470">删除意图落地，不等于所有异步副本已经忘记</text>
+  <g font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif" text-anchor="middle">
+    <rect x="52" y="122" width="190" height="126" rx="17" fill="#eaf3f7" stroke="#b9d3df"/>
+    <text x="147" y="167" font-size="18" font-weight="700" fill="#275261">发 tombstone</text><text x="147" y="199" font-size="15" fill="#52727a">版本号 7</text>
+    <rect x="262" y="122" width="190" height="126" rx="17" fill="#fff1d9" stroke="#e8c891"/>
+    <text x="357" y="167" font-size="18" font-weight="700" fill="#6e5223">穿过副本</text><text x="357" y="199" font-size="15" fill="#806a3d">缓存 / 向量 / 队列</text>
+    <rect x="472" y="122" width="190" height="126" rx="17" fill="#dfeee8" stroke="#afd0c3"/>
+    <text x="567" y="167" font-size="18" font-weight="700" fill="#2b6353">确认状态</text><text x="567" y="199" font-size="15" fill="#53786b">摘要 / 备份遮蔽</text>
+    <rect x="682" y="122" width="190" height="126" rx="17" fill="#f5d9dc" stroke="#dfb2b9"/>
+    <text x="777" y="167" font-size="18" font-weight="700" fill="#78454d">反向查询</text><text x="777" y="199" font-size="15" fill="#855c63">原文 + 语义改写</text>
+    <rect x="892" y="122" width="136" height="126" rx="17" fill="#173f3d"/>
+    <text x="960" y="175" font-size="18" font-weight="700" fill="#ffffff">删除闭环</text><text x="960" y="207" font-size="15" fill="#d8ebe5">可验收</text>
+  </g>
+  <g fill="none" stroke="#7d9a95" stroke-width="2.5" stroke-linecap="round"><path d="M242 185h20"/><path d="M452 185h20"/><path d="M662 185h20"/><path d="M872 185h20"/></g>
+  <rect x="52" y="294" width="976" height="44" rx="14" fill="#e8efeb"/>
+  <text x="76" y="322" font-size="15" fill="#365b61">exact_id 与 paraphrase 都 no_hit，才把删除状态从 pending 推到 propagated</text>
+</svg>

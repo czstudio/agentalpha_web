@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 640" role="img" aria-labelledby="title desc">
+  <title id="title">Code Agent 权限矩阵</title>
+  <desc id="desc">文件、网络、进程、秘密和审批五层权限矩阵。</desc>
+  <rect width="1200" height="640" fill="#f7f4ee"/>
+  <text x="72" y="72" font-family="Arial,sans-serif" font-size="28" font-weight="700" fill="#17221b">沙箱权限要写成矩阵，不是一个容器标签</text>
+  <text x="72" y="106" font-family="Arial,sans-serif" font-size="16" fill="#627066">每项能力都要有范围、默认值和升级路径。</text>
+  <g font-family="Arial,sans-serif">
+    <rect x="72" y="170" width="220" height="66" rx="12" fill="#17221b"/><text x="108" y="212" font-size="18" font-weight="700" fill="#f7f4ee">能力</text>
+    <rect x="308" y="170" width="250" height="66" rx="12" fill="#17221b"/><text x="344" y="212" font-size="18" font-weight="700" fill="#f7f4ee">默认</text>
+    <rect x="574" y="170" width="250" height="66" rx="12" fill="#17221b"/><text x="610" y="212" font-size="18" font-weight="700" fill="#f7f4ee">升级条件</text>
+    <rect x="840" y="170" width="288" height="66" rx="12" fill="#17221b"/><text x="876" y="212" font-size="18" font-weight="700" fill="#f7f4ee">审计事件</text>
+    <g font-size="16">
+      <rect x="72" y="250" width="220" height="62" rx="10" fill="#e7f1e8"/><text x="108" y="289" fill="#285339">文件系统</text><rect x="308" y="250" width="250" height="62" rx="10" fill="#f7fbf7"/><text x="344" y="289" fill="#35443b">只读工作树</text><rect x="574" y="250" width="250" height="62" rx="10" fill="#fbfaf7"/><text x="610" y="289" fill="#53472f">明确路径 + diff</text><rect x="840" y="250" width="288" height="62" rx="10" fill="#fbfaf7"/><text x="876" y="289" fill="#5c4140">读/写/删除</text>
+      <rect x="72" y="324" width="220" height="62" rx="10" fill="#e9edf4"/><text x="108" y="363" fill="#334b6a">网络</text><rect x="308" y="324" width="250" height="62" rx="10" fill="#f7fbff"/><text x="344" y="363" fill="#3e4a5a">默认关闭</text><rect x="574" y="324" width="250" height="62" rx="10" fill="#fbfaf7"/><text x="610" y="363" fill="#53472f">域名白名单</text><rect x="840" y="324" width="288" height="62" rx="10" fill="#fbfaf7"/><text x="876" y="363" fill="#5c4140">目标/响应摘要</text>
+      <rect x="72" y="398" width="220" height="62" rx="10" fill="#f3ead9"/><text x="108" y="437" fill="#705426">进程</text><rect x="308" y="398" width="250" height="62" rx="10" fill="#fffaf0"/><text x="344" y="437" fill="#53472f">非特权用户</text><rect x="574" y="398" width="250" height="62" rx="10" fill="#fbfaf7"/><text x="610" y="437" fill="#53472f">命令 + 资源预算</text><rect x="840" y="398" width="288" height="62" rx="10" fill="#fbfaf7"/><text x="876" y="437" fill="#5c4140">退出码/耗时</text>
+      <rect x="72" y="472" width="220" height="62" rx="10" fill="#f2e6e5"/><text x="108" y="511" fill="#703e39">秘密/写操作</text><rect x="308" y="472" width="250" height="62" rx="10" fill="#fff8f7"/><text x="344" y="511" fill="#5c4140">不可见 / 需审批</text><rect x="574" y="472" width="250" height="62" rx="10" fill="#fbfaf7"/><text x="610" y="511" fill="#5c4140">人工确认 + 回滚</text><rect x="840" y="472" width="288" height="62" rx="10" fill="#fbfaf7"/><text x="876" y="511" fill="#5c4140">谁批准/何时/结果</text>
+    </g>
+  </g>
+</svg>

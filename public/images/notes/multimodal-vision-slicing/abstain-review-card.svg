@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="390" viewBox="0 0 1080 390" role="img" aria-labelledby="title desc">
+  <title id="title">视觉切片拒答与回看</title><desc id="desc">根据像素高度、冲突和边缘距离决定自动通过、二次裁剪或人工复核</desc>
+  <rect width="1080" height="390" rx="26" fill="#f7f8f5"/>
+  <text x="52" y="54" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif" font-size="26" font-weight="700" fill="#173f3d">切片链路：允许拒答，也要能回看</text>
+  <text x="52" y="84" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif" font-size="16" fill="#5b7470">低清、贴边、冲突时，不让模型用常识补齐数字</text>
+  <g font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif" text-anchor="middle">
+    <rect x="52" y="122" width="190" height="126" rx="17" fill="#eaf3f7" stroke="#b9d3df"/><text x="147" y="165" font-size="18" font-weight="700" fill="#275261">读取证据</text><text x="147" y="198" font-size="15" fill="#52727a">像素 / OCR / 坐标</text>
+    <rect x="262" y="122" width="190" height="126" rx="17" fill="#fff1d9" stroke="#e8c891"/><text x="357" y="165" font-size="18" font-weight="700" fill="#6e5223">自动通过</text><text x="357" y="198" font-size="15" fill="#806a3d">一致且覆盖完整</text>
+    <rect x="472" y="122" width="190" height="126" rx="17" fill="#dfeee8" stroke="#afd0c3"/><text x="567" y="165" font-size="18" font-weight="700" fill="#2b6353">二次 crop</text><text x="567" y="198" font-size="15" fill="#53786b">补上下文再读</text>
+    <rect x="682" y="122" width="190" height="126" rx="17" fill="#f5d9dc" stroke="#dfb2b9"/><text x="777" y="165" font-size="18" font-weight="700" fill="#78454d">人工复核</text><text x="777" y="198" font-size="15" fill="#855c63">证据不足或冲突</text>
+    <rect x="892" y="122" width="136" height="126" rx="17" fill="#173f3d"/><text x="960" y="169" font-size="18" font-weight="700" fill="#fff">回归集</text><text x="960" y="202" font-size="15" fill="#d8ebe5">留下反例</text>
+  </g>
+  <g fill="none" stroke="#7d9a95" stroke-width="2.5" stroke-linecap="round"><path d="M242 185h20"/><path d="M452 185h20"/><path d="M662 185h20"/><path d="M872 185h20"/></g>
+  <rect x="52" y="294" width="976" height="44" rx="14" fill="#e8efeb"/><text x="76" y="322" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif" font-size="15" fill="#365b61">错答进入事故样本，拒答进入路由样本：两者都要可统计</text>
+</svg>

@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="360" viewBox="0 0 1080 360" role="img" aria-labelledby="title desc">
+  <title id="title">综合题追问阶梯</title><desc id="desc">面试追问从需求边界下钻到证据、状态、成本和回滚</desc>
+  <rect width="1080" height="360" rx="24" fill="#f7f8f5"/>
+  <text x="52" y="54" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif" font-size="26" font-weight="700" fill="#173f3d">综合题追问阶梯</text>
+  <text x="52" y="84" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif" font-size="15" fill="#5b7470">从“能不能做”走到“敢不敢上线”</text>
+  <g font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif">
+    <rect x="52" y="126" width="180" height="154" rx="18" fill="#eaf3f7" stroke="#b9d3df"/><text x="78" y="158" font-size="18" font-weight="700" fill="#173f3d">需求</text><text x="78" y="190" font-size="14" fill="#48635f">成功口径</text><text x="78" y="216" font-size="14" fill="#48635f">硬约束 / 范围</text><text x="78" y="242" font-size="14" fill="#48635f">先确认边界</text>
+    <rect x="256" y="126" width="180" height="154" rx="18" fill="#dfeee8" stroke="#afd0c3"/><text x="282" y="158" font-size="18" font-weight="700" fill="#173f3d">证据</text><text x="282" y="190" font-size="14" fill="#48635f">版本 / ACL</text><text x="282" y="216" font-size="14" fill="#48635f">召回 / 引用</text><text x="282" y="242" font-size="14" fill="#48635f">为什么知道</text>
+    <rect x="460" y="126" width="180" height="154" rx="18" fill="#fff1d9" stroke="#e8c891"/><text x="486" y="158" font-size="18" font-weight="700" fill="#173f3d">状态</text><text x="486" y="190" font-size="14" fill="#48635f">超时 / unknown</text><text x="486" y="216" font-size="14" fill="#48635f">幂等 / 审批</text><text x="486" y="242" font-size="14" fill="#48635f">副作用边界</text>
+    <rect x="664" y="126" width="180" height="154" rx="18" fill="#fae8e1" stroke="#e0b9ae"/><text x="690" y="158" font-size="18" font-weight="700" fill="#173f3d">线上</text><text x="690" y="190" font-size="14" fill="#48635f">P95 / 成本</text><text x="690" y="216" font-size="14" fill="#48635f">人工接管</text><text x="690" y="242" font-size="14" fill="#48635f">分布漂移</text>
+    <rect x="868" y="126" width="160" height="154" rx="18" fill="#f2eee5" stroke="#d5c8ad"/><text x="892" y="158" font-size="18" font-weight="700" fill="#173f3d">上线</text><text x="892" y="190" font-size="14" fill="#48635f">灰度</text><text x="892" y="216" font-size="14" fill="#48635f">回滚</text><text x="892" y="242" font-size="14" fill="#48635f">剩余风险</text>
+  </g>
+  <path d="M232 203h24M436 203h24M640 203h24M844 203h24" stroke="#7d9a95" stroke-width="3" stroke-linecap="round"/>
+</svg>

@@ -25,6 +25,12 @@ export interface Note extends NoteMeta {
   content: string
 }
 
+export interface NoteHeading {
+  id: string
+  title: string
+  level: 2 | 3
+}
+
 const PROMO_MARKER = "## AgentAlpha 大模型 Agent 训练营"
 
 function parseFrontmatter(raw: string): { data: Record<string, string>; body: string } {
@@ -52,6 +58,35 @@ function toMeta(slug: string, data: Record<string, string>): NoteMeta {
     number: data.number || "",
     minutes: Number(data.minutes) || 8,
   }
+}
+
+export function slugifyHeading(title: string): string {
+  const normalized = title
+    .replace(/[`*_]/g, "")
+    .replace(/^§\s*/, "section-")
+    .trim()
+    .toLowerCase()
+    .replace(/[^a-z0-9\u4e00-\u9fff]+/g, "-")
+    .replace(/^-+|-+$/g, "")
+  return normalized || "section"
+}
+
+export function getNoteHeadings(content: string): NoteHeading[] {
+  const seen = new Map<string, number>()
+  const headings: NoteHeading[] = []
+  for (const match of content.matchAll(/^(#{2,3})\s+(.+)$/gm)) {
+    const level = match[1].length as 2 | 3
+    const title = match[2].trim().replace(/[`*_]/g, "")
+    const base = slugifyHeading(title)
+    const count = seen.get(base) || 0
+    seen.set(base, count + 1)
+    headings.push({
+      id: count ? `${base}-${count + 1}` : base,
+      title,
+      level,
+    })
+  }
+  return headings
 }
 
 export function getAllNotes(): NoteMeta[] {

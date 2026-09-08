@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="430" viewBox="0 0 1400 430" role="img" aria-labelledby="title desc">
+  <title id="title">上下文路由</title><desc id="desc">结构化状态决定需要读取的证据与动作候选</desc>
+  <rect width="1400" height="430" rx="28" fill="#fff"/>
+  <g font-family="Arial, sans-serif" fill="#17202a">
+    <text x="72" y="72" font-size="22" letter-spacing="3" fill="#68717c">CONTEXT ROUTING</text>
+    <text x="72" y="116" font-size="32" font-weight="700">状态先路由，再把少量证据交给模型</text>
+    <rect x="100" y="194" width="300" height="128" rx="16" fill="#fff1d8" stroke="#bd7a19"/><text x="250" y="246" text-anchor="middle" font-size="22" font-weight="700">结构化状态</text><text x="250" y="284" text-anchor="middle" font-size="16" fill="#68717c">phase / tenant / budget</text>
+    <rect x="548" y="160" width="280" height="78" rx="14" fill="#e8f5ed" stroke="#39865b"/><text x="688" y="207" text-anchor="middle" font-size="20" font-weight="700">当前证据</text>
+    <rect x="548" y="272" width="280" height="78" rx="14" fill="#e3efff" stroke="#3978c8"/><text x="688" y="319" text-anchor="middle" font-size="20" font-weight="700">动作候选</text>
+    <rect x="1010" y="210" width="260" height="100" rx="16" fill="#f4e8f9" stroke="#8e59a4"/><text x="1140" y="268" text-anchor="middle" font-size="22" font-weight="700">模型决策</text>
+    <g fill="none" stroke="#68717c" stroke-width="3"><path d="M400 258h120"/><path d="m504 246 16 12-16 12"/><path d="M828 198h182"/><path d="m994 186 16 12-16 12"/><path d="M828 311h182"/><path d="m994 299 16 12-16 12"/></g>
+  </g>
+</svg>

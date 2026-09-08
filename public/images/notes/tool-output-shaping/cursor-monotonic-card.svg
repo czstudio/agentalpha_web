@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="390" viewBox="0 0 1080 390" role="img" aria-labelledby="title desc">
+  <title id="title">流式游标单调性探针</title>
+  <desc id="desc">断线重连时允许事件重放，客户端去重，最终产物只提交一次。</desc>
+  <rect width="1080" height="390" rx="26" fill="#f7f8f5"/>
+  <text x="52" y="54" font-size="25" font-weight="700" fill="#173f3d">流式输出：把游标和提交分开验收</text>
+  <text x="52" y="84" font-size="16" fill="#5b7470">event_id 连续，不代表客户端已经安全落盘</text>
+  <g font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif" text-anchor="middle">
+    <rect x="52" y="122" width="190" height="126" rx="17" fill="#eaf3f7" stroke="#b9d3df"/>
+    <text x="147" y="167" font-size="18" font-weight="700" fill="#275261">收到 41–43</text><text x="147" y="199" font-size="15" fill="#52727a">记录持久游标</text>
+    <rect x="262" y="122" width="190" height="126" rx="17" fill="#fff1d9" stroke="#e8c891"/>
+    <text x="357" y="167" font-size="18" font-weight="700" fill="#6e5223">连接中断</text><text x="357" y="199" font-size="15" fill="#806a3d">从 42 恢复</text>
+    <rect x="472" y="122" width="190" height="126" rx="17" fill="#dfeee8" stroke="#afd0c3"/>
+    <text x="567" y="167" font-size="18" font-weight="700" fill="#2b6353">重放 42–43</text><text x="567" y="199" font-size="15" fill="#53786b">按 event_id 去重</text>
+    <rect x="682" y="122" width="190" height="126" rx="17" fill="#f5d9dc" stroke="#dfb2b9"/>
+    <text x="777" y="167" font-size="18" font-weight="700" fill="#78454d">提交一次</text><text x="777" y="199" font-size="15" fill="#855c63">副作用不重复</text>
+    <rect x="892" y="122" width="136" height="126" rx="17" fill="#173f3d"/>
+    <text x="960" y="175" font-size="18" font-weight="700" fill="#ffffff">游标单调</text><text x="960" y="207" font-size="15" fill="#d8ebe5">可恢复</text>
+  </g>
+  <g fill="none" stroke="#7d9a95" stroke-width="2.5" stroke-linecap="round"><path d="M242 185h20"/><path d="M452 185h20"/><path d="M662 185h20"/><path d="M872 185h20"/></g>
+  <rect x="52" y="294" width="976" height="44" rx="14" fill="#e8efeb"/>
+  <text x="76" y="322" font-size="15" fill="#365b61">已看到、已落盘、已提交是三个游标，不能只维护最后一个数字</text>
+</svg>

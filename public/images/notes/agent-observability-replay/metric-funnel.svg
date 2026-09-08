@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 500" role="img" aria-labelledby="title desc">
+  <title id="title">Agent metric funnel</title>
+  <desc id="desc">Metrics narrow from task success to steps, tools, retrieval, generation and safety.</desc>
+  <rect width="1200" height="500" rx="28" fill="#f7f8f5"/>
+  <text x="60" y="62" font-family="Arial, sans-serif" font-size="27" font-weight="700" fill="#17211d">Drill down until the first metric changes</text>
+  <text x="60" y="96" font-family="Arial, sans-serif" font-size="16" fill="#5f6d66">A success-rate drop is a signal, not a root cause.</text>
+  <g font-family="Arial, sans-serif">
+    <path d="M120 145h960l-62 58H182z" fill="#d8efe7" stroke="#217d6e" stroke-width="3"/>
+    <text x="565" y="181" font-size="20" font-weight="700" fill="#176658">任务：success rate · handoff · total time</text>
+    <path d="M182 215h836l-63 58H245z" fill="#e7f2ef" stroke="#4d9d8e" stroke-width="3"/>
+    <text x="572" y="251" font-size="19" font-weight="700" fill="#246d60">步骤：pass rate · retry · idle</text>
+    <path d="M245 285h710l-64 58H309z" fill="#f0eee3" stroke="#b8a766" stroke-width="3"/>
+    <text x="563" y="321" font-size="19" font-weight="700" fill="#7a681d">工具：timeout · quota · schema</text>
+    <path d="M309 355h582l-64 58H373z" fill="#f4e7d9" stroke="#bc8052" stroke-width="3"/>
+    <text x="530" y="391" font-size="19" font-weight="700" fill="#8f5430">检索 / 生成 / 安全：证据、格式、越权</text>
+    <path d="M60 438h1080" stroke="#9ba7a1" stroke-width="2" stroke-dasharray="8 8"/>
+    <text x="64" y="466" font-size="14" fill="#5f6d66">按版本、租户、模型、工具、任务难度切片，再抽样 trace 回放。</text>
+  </g>
+</svg>

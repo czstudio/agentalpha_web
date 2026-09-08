@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="360" viewBox="0 0 1080 360" role="img" aria-labelledby="title desc">
+  <title id="title">综合型 Agent 面试证据卡</title>
+  <desc id="desc">从数据、检索、工具和线上指标四个方向组织面试证据，并连接到失败样本回放。</desc>
+  <rect width="1080" height="360" rx="28" fill="#f7f8f5"/>
+  <text x="54" y="60" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif" font-size="25" font-weight="700" fill="#173f3d">一张证据卡，回答四类连续追问</text>
+  <text x="54" y="91" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif" font-size="14" fill="#55706b">结论 → 依据 → 反例 → 验证</text>
+  <g font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif">
+    <rect x="54" y="126" width="218" height="126" rx="18" fill="#eaf3f7" stroke="#b9d3df"/>
+    <text x="78" y="160" font-size="18" font-weight="700" fill="#173f3d">数据</text><text x="78" y="190" font-size="14" fill="#365b61">版本 · 租户 · 删除</text><text x="78" y="218" font-size="13" fill="#55706b">旧索引不能当实时事实</text>
+    <rect x="292" y="126" width="218" height="126" rx="18" fill="#dfeee8" stroke="#afd0c3"/>
+    <text x="316" y="160" font-size="18" font-weight="700" fill="#173f3d">检索</text><text x="316" y="190" font-size="14" fill="#365b61">Recall · 过滤 · 重排</text><text x="316" y="218" font-size="13" fill="#55706b">把没召回和没用上分开</text>
+    <rect x="530" y="126" width="218" height="126" rx="18" fill="#fff1d9" stroke="#e8c891"/>
+    <text x="554" y="160" font-size="18" font-weight="700" fill="#173f3d">工具</text><text x="554" y="190" font-size="14" fill="#365b61">权限 · 幂等 · 状态</text><text x="554" y="218" font-size="13" fill="#55706b">unknown 先对账再决定</text>
+    <rect x="768" y="126" width="258" height="126" rx="18" fill="#fae8e1" stroke="#e0b9ae"/>
+    <text x="792" y="160" font-size="18" font-weight="700" fill="#173f3d">线上</text><text x="792" y="190" font-size="14" fill="#365b61">P95 · 成本 · 接管</text><text x="792" y="218" font-size="13" fill="#55706b">安全门槛优先于平均分</text>
+  </g>
+  <path d="M162 274 C300 320 480 320 620 274" fill="none" stroke="#89aaa5" stroke-width="2" stroke-dasharray="6 7"/>
+  <rect x="390" y="278" width="300" height="48" rx="16" fill="#173f3d"/>
+  <text x="540" y="308" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif" font-size="15" font-weight="700" fill="#ffffff">失败样本 → 回放 → 回归用例</text>
+</svg>

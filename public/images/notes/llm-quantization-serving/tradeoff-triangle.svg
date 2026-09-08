@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="480" viewBox="0 0 1200 480">
+  <rect width="1200" height="480" fill="#fbfaf7"/>
+  <text x="70" y="70" font-family="Arial,'Noto Sans SC',sans-serif" font-size="28" font-weight="700" fill="#24352f">量化的三角权衡</text>
+  <polygon points="600,130 355,370 845,370" fill="#e8f3ee" stroke="#86b49d" stroke-width="3"/>
+  <circle cx="600" cy="130" r="45" fill="#e9f1f8" stroke="#a6bfd5" stroke-width="2"/><text x="600" y="137" text-anchor="middle" font-family="Arial,'Noto Sans SC',sans-serif" font-size="19" fill="#2d607e">质量</text>
+  <circle cx="355" cy="370" r="45" fill="#f2eee2" stroke="#d3bb7d" stroke-width="2"/><text x="355" y="377" text-anchor="middle" font-family="Arial,'Noto Sans SC',sans-serif" font-size="19" fill="#7c622e">显存</text>
+  <circle cx="845" cy="370" r="45" fill="#f8e9e6" stroke="#d5a299" stroke-width="2"/><text x="845" y="377" text-anchor="middle" font-family="Arial,'Noto Sans SC',sans-serif" font-size="19" fill="#985043">延迟 / 成本</text>
+  <text x="500" y="430" font-family="Arial,'Noto Sans SC',sans-serif" font-size="17" fill="#6e7c76">目标不是追求最低 bit，而是在业务硬门槛内获得服务收益。</text>
+</svg>

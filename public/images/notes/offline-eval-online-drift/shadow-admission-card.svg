@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="390" viewBox="0 0 1080 390" role="img" aria-labelledby="title desc">
+  <title id="title">影子流量准入</title>
+  <desc id="desc">保留线上长尾形状，网关拒绝写副作用，并按四类漂移拆解归因。</desc>
+  <rect width="1080" height="390" rx="28" fill="#F7F4EE"/>
+  <text x="54" y="56" font-family="Arial,'Noto Sans SC',sans-serif" font-size="26" font-weight="700" fill="#193C3A">影子流量：保留长尾，切掉副作用</text>
+  <text x="54" y="88" font-family="Arial,'Noto Sans SC',sans-serif" font-size="16" fill="#58706D">真实请求形状可以进来，真实写权限不能进来</text>
+  <g font-family="Arial,'Noto Sans SC',sans-serif" text-anchor="middle">
+    <rect x="54" y="132" width="206" height="126" rx="18" fill="#EAF3F7"/><text x="157" y="172" font-size="19" font-weight="700" fill="#275261">线上长尾</text><text x="157" y="207" font-size="15" fill="#52727A">追问 / 权限</text><text x="157" y="233" font-size="15" fill="#52727A">真实分布</text>
+    <rect x="278" y="132" width="206" height="126" rx="18" fill="#F5D9DC"/><text x="381" y="172" font-size="19" font-weight="700" fill="#78454D">网关隔离</text><text x="381" y="207" font-size="15" fill="#855C63">write = deny</text><text x="381" y="233" font-size="15" fill="#855C63">shadow namespace</text>
+    <rect x="502" y="132" width="206" height="126" rx="18" fill="#FFF0D6"/><text x="605" y="172" font-size="19" font-weight="700" fill="#875B26">漂移拆解</text><text x="605" y="207" font-size="15" fill="#6C5632">input / KB</text><text x="605" y="233" font-size="15" fill="#6C5632">tool / behavior</text>
+    <rect x="726" y="132" width="302" height="126" rx="18" fill="#173F3D"/><text x="877" y="182" font-size="19" font-weight="700" fill="#FFFFFF">回流</text><text x="877" y="218" font-size="15" fill="#D8EBE5">未解释样本 → golden case</text>
+  </g>
+  <g fill="none" stroke="#7D9A95" stroke-width="3" stroke-linecap="round"><path d="M260 195h18"/><path d="M484 195h18"/><path d="M708 195h18"/></g>
+  <rect x="54" y="296" width="974" height="43" rx="14" fill="#E8EFEB"/><text x="76" y="324" font-family="Arial,'Noto Sans SC',sans-serif" font-size="15" fill="#365B61">影子实验必须在工具、凭证和命名空间三层切断真实副作用</text>
+</svg>

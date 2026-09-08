@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 400" role="img" aria-labelledby="title desc">
+  <title id="title">预训练数据去重图</title>
+  <desc id="desc">文档按精确重复、近重复、模板重复和跨版本关系聚类，再决定保留和采样。</desc>
+  <rect width="1200" height="400" rx="28" fill="#f7f8f5"/>
+  <text x="58" y="58" fill="#1d1d1f" font-family="Arial, sans-serif" font-size="25" font-weight="700">去重不是删除相同字符串</text>
+  <g stroke="#9bc9bc" stroke-width="2" fill="none"><path d="M240 190 L470 140"/><path d="M240 190 L470 240"/><path d="M690 140 L930 190"/><path d="M690 240 L930 190"/></g>
+  <g font-family="Arial, sans-serif" text-anchor="middle">
+    <circle cx="180" cy="190" r="70" fill="#ffffff" stroke="#dfe4df"/><text x="180" y="184" fill="#1d1d1f" font-size="17" font-weight="700">原始语料</text><text x="180" y="210" fill="#6b6e70" font-size="14">网页 / 代码 / 对话</text>
+    <circle cx="560" cy="140" r="70" fill="#e6f1ed" stroke="#9bc9bc"/><text x="560" y="134" fill="#1d1d1f" font-size="16" font-weight="700">精确重复</text><text x="560" y="160" fill="#6b6e70" font-size="14">hash / URL</text>
+    <circle cx="560" cy="240" r="70" fill="#ffffff" stroke="#dfe4df"/><text x="560" y="234" fill="#1d1d1f" font-size="16" font-weight="700">近重复</text><text x="560" y="260" fill="#6b6e70" font-size="14">minhash / embedding</text>
+    <circle cx="1010" cy="190" r="82" fill="#247a6b"/><text x="1010" y="184" fill="#ffffff" font-size="16" font-weight="700">保留策略</text><text x="1010" y="211" fill="#d8ebe4" font-size="14">质量 × 新鲜度 × 配比</text>
+  </g>
+</svg>

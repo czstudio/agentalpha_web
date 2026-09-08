@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 360" role="img" aria-labelledby="title desc">
+  <title id="title">视频证据回放</title>
+  <desc id="desc">视频答案通过时间窗、关键帧和原片链接支持审阅和回放。</desc>
+  <rect width="900" height="360" rx="28" fill="#f7f8f5"/>
+  <rect x="44" y="68" width="390" height="220" rx="18" fill="#1f3435"/>
+  <rect x="70" y="96" width="150" height="86" rx="8" fill="#597b78"/><rect x="234" y="96" width="150" height="86" rx="8" fill="#739691"/><path d="M70 218h300" stroke="#9dc4b9" stroke-width="7" stroke-linecap="round"/><circle cx="188" cy="218" r="11" fill="#f4dca6"/><text x="238" y="256" text-anchor="middle" font-family="sans-serif" font-size="16" fill="#d7e9e2">00:07:01 — 00:07:03</text>
+  <path d="M434 178h90" stroke="#8eb8af" stroke-width="4" stroke-linecap="round"/><path d="m514 168 18 10-18 10" fill="#8eb8af"/>
+  <rect x="536" y="72" width="320" height="210" rx="18" fill="#eaf3f7" stroke="#a7c8d6"/><text x="696" y="112" text-anchor="middle" font-family="sans-serif" font-size="19" font-weight="700" fill="#24556a">Evidence ev-001</text><text x="696" y="150" text-anchor="middle" font-family="sans-serif" font-size="15" fill="#587783">start/end · keyframes</text><text x="696" y="181" text-anchor="middle" font-family="sans-serif" font-size="15" fill="#587783">原片 hash · 方法</text><text x="696" y="221" text-anchor="middle" font-family="sans-serif" font-size="16" font-weight="700" fill="#3f7384">点击回放 / 重新核验</text>
+  <text x="44" y="324" font-family="sans-serif" font-size="16" fill="#647775">摘要是入口，时间戳和原片才是最终证据。</text>
+</svg>

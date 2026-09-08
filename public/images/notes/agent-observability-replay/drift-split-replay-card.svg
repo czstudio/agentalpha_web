@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="390" viewBox="0 0 1080 390" role="img" aria-labelledby="title desc">
+  <title id="title">回放漂移拆分</title>
+  <desc id="desc">用冻结观察和刷新环境两条路径拆开策略漂移与状态漂移。</desc>
+  <rect width="1080" height="390" rx="26" fill="#f7f8f5"/>
+  <text x="52" y="56" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif" font-size="25" font-weight="700" fill="#173f3d">回放漂移拆分</text>
+  <text x="52" y="84" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif" font-size="15" fill="#5b7470">同一条失败，先判断是策略变了，还是环境返回变了</text>
+  <g font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif">
+    <rect x="52" y="122" width="222" height="132" rx="17" fill="#dcecf4"/>
+    <text x="75" y="154" font-size="17" font-weight="700" fill="#244f62">fixture</text>
+    <text x="75" y="184" font-size="13" fill="#365e67">冻结任务与原始观察</text>
+    <text x="75" y="210" font-size="13" fill="#365e67">保留失败 Span</text>
+    <rect x="292" y="122" width="222" height="132" rx="17" fill="#f4e9bd"/>
+    <text x="315" y="154" font-size="17" font-weight="700" fill="#5a4b19">closed world</text>
+    <text x="315" y="184" font-size="13" fill="#786726">观察不变，换候选策略</text>
+    <text x="315" y="210" font-size="13" fill="#786726">判断 policy drift</text>
+    <rect x="532" y="122" width="222" height="132" rx="17" fill="#f4dfe5"/>
+    <text x="555" y="154" font-size="17" font-weight="700" fill="#6b3349">refresh env</text>
+    <text x="555" y="184" font-size="13" fill="#7d5060">固定模型，更新 fixture</text>
+    <text x="555" y="210" font-size="13" fill="#7d5060">判断 environment drift</text>
+    <rect x="772" y="122" width="222" height="132" rx="17" fill="#173f3d"/>
+    <text x="795" y="154" font-size="17" font-weight="700" fill="#f7f8f5">owner</text>
+    <text x="795" y="184" font-size="13" fill="#d8e7e1">策略回归 / fixture 更新</text>
+    <text x="795" y="210" font-size="13" fill="#d8e7e1">责任路径不同</text>
+  </g>
+  <path d="M274 188H286M514 188H526M754 188H766" fill="none" stroke="#7d9a95" stroke-width="3" stroke-linecap="round"/>
+  <path d="m280 180 8 8-8 8M520 180l8 8-8 8M760 180l8 8-8 8" fill="none" stroke="#7d9a95" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="52" y="296" width="976" height="42" rx="14" fill="#e8efeb"/>
+  <text x="78" y="323" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif" font-size="16" font-weight="700" fill="#173f3d">回放的第一问不是“谁错了”，而是“哪一类输入发生了漂移”</text>
+</svg>

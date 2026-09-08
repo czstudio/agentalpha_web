@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="390" viewBox="0 0 1080 390" role="img" aria-labelledby="title desc">
+  <title id="title">MCP 生命周期矩阵</title>
+  <desc id="desc">Resource、Tool、Prompt 分别管理缓存、刷新、权限和注入边界。</desc>
+  <rect width="1080" height="390" rx="28" fill="#F7F8F5"/>
+  <text x="54" y="56" font-family="Arial,'Noto Sans SC',sans-serif" font-size="26" font-weight="700" fill="#173F3D">MCP 三类能力要分开治理</text>
+  <text x="54" y="88" font-family="Arial,'Noto Sans SC',sans-serif" font-size="16" fill="#5B7470">Resource、Tool、Prompt 的缓存和授权不是一回事</text>
+  <g font-family="Arial,'Noto Sans SC',sans-serif" text-anchor="middle">
+    <rect x="54" y="132" width="286" height="126" rx="18" fill="#EAF3F7"/><text x="197" y="172" font-size="19" font-weight="700" fill="#275261">Resource</text><text x="197" y="207" font-size="15" fill="#52727A">metadata cache</text><text x="197" y="233" font-size="15" fill="#52727A">version / ACL read</text>
+    <rect x="376" y="132" width="286" height="126" rx="18" fill="#F5D9DC"/><text x="519" y="172" font-size="19" font-weight="700" fill="#78454D">Tool</text><text x="519" y="207" font-size="15" fill="#855C63">schema only</text><text x="519" y="233" font-size="15" fill="#855C63">capability per call</text>
+    <rect x="698" y="132" width="330" height="126" rx="18" fill="#FFF0D6"/><text x="863" y="172" font-size="19" font-weight="700" fill="#875B26">Prompt</text><text x="863" y="207" font-size="15" fill="#6C5632">template + source</text><text x="863" y="233" font-size="15" fill="#6C5632">host-owned boundary</text>
+  </g>
+  <rect x="54" y="296" width="974" height="43" rx="14" fill="#E8EFEB"/><text x="76" y="324" font-family="Arial,'Noto Sans SC',sans-serif" font-size="15" fill="#365B61">发现回执只是当前事实，不是永久许可；高风险 Tool 每次调用前重校验</text>
+</svg>

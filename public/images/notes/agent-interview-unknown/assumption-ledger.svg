@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="390" viewBox="0 0 1080 390" role="img" aria-labelledby="title desc">
+  <title id="title">Assumption ledger</title>
+  <desc id="desc">陌生题回答账本记录判断、假设、证据缺口、验证和退路</desc>
+  <rect width="1080" height="390" rx="26" fill="#f7f8f5"/>
+  <text x="52" y="56" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif" font-size="25" font-weight="700" fill="#173f3d">Assumption ledger：先把假设摆到桌面</text>
+  <text x="52" y="84" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif" font-size="15" fill="#5b7470">条件变化时只重算受影响的一行，不必推倒整套答案</text>
+  <g font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif" font-size="13" text-anchor="middle">
+    <rect x="46" y="132" width="174" height="116" rx="15" fill="#e8f2f3"/><text x="133" y="165" font-weight="700" fill="#205a5e">判断</text><text x="133" y="198" fill="#5b7470">实时库存</text><text x="133" y="222" fill="#5b7470">自动退款</text>
+    <rect x="246" y="132" width="174" height="116" rx="15" fill="#fff1d7"/><text x="333" y="165" font-weight="700" fill="#8a5d16">假设</text><text x="333" y="198" fill="#7c6b4b">有 API 契约</text><text x="333" y="222" fill="#7c6b4b">可校验权限</text>
+    <rect x="446" y="132" width="174" height="116" rx="15" fill="#f7e2df"/><text x="533" y="165" font-weight="700" fill="#8c4b46">证据缺口</text><text x="533" y="198" fill="#7c6663">没有 SLA</text><text x="533" y="222" fill="#7c6663">没有幂等规则</text>
+    <rect x="646" y="132" width="174" height="116" rx="15" fill="#dfeee9"/><text x="733" y="165" font-weight="700" fill="#286458">验证</text><text x="733" y="198" fill="#5b7470">问接口与 SLA</text><text x="733" y="222" fill="#5b7470">先做 dry-run</text>
+    <rect x="846" y="132" width="188" height="116" rx="15" fill="#173f3d"/><text x="940" y="165" font-weight="700" fill="#fff">退路</text><text x="940" y="198" fill="#dcebea">标注时间</text><text x="940" y="222" fill="#dcebea">转人工不写入</text>
+  </g>
+  <g stroke="#71918c" stroke-width="2" fill="none"><path d="M220 190h26"/><path d="M420 190h26"/><path d="M620 190h26"/><path d="M820 190h26"/></g>
+  <text x="540" y="310" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif" font-size="14" fill="#286458" text-anchor="middle">“基于这个假设，我会……”让回答可调整，也让边界可验证</text>
+</svg>

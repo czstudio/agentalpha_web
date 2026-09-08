@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="360" viewBox="0 0 1080 360" role="img" aria-labelledby="title desc">
+  <title id="title">事故证据包</title><desc id="desc">影响切片、时间线、轨迹、状态差异和护栏组成可复核的事故证据包</desc>
+  <rect width="1080" height="360" rx="24" fill="#f7f8f5"/>
+  <text x="52" y="54" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif" font-size="26" font-weight="700" fill="#173f3d">事故证据包：让失败脱离当事人也能被复核</text>
+  <text x="52" y="84" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif" font-size="15" fill="#5b7470">事实不靠记忆，结论不靠口述</text>
+  <g font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif">
+    <rect x="52" y="126" width="174" height="150" rx="18" fill="#fae8e1" stroke="#e0b9ae"/>
+    <text x="72" y="160" font-size="18" font-weight="700" fill="#173f3d">影响切片</text><text x="72" y="190" font-size="14" fill="#48635f">谁被影响？</text><text x="72" y="218" font-size="14" fill="#48635f">租户 / 任务 / 范围</text><text x="72" y="246" font-size="14" fill="#48635f">先给边界，再谈比例</text>
+    <rect x="246" y="126" width="174" height="150" rx="18" fill="#fff1d9" stroke="#e8c891"/>
+    <text x="266" y="160" font-size="18" font-weight="700" fill="#173f3d">时间线</text><text x="266" y="190" font-size="14" fill="#48635f">发布 → 告警</text><text x="266" y="218" font-size="14" fill="#48635f">发现 → 止血</text><text x="266" y="246" font-size="14" fill="#48635f">每个节点有证据</text>
+    <rect x="440" y="126" width="174" height="150" rx="18" fill="#eaf3f7" stroke="#b9d3df"/>
+    <text x="460" y="160" font-size="18" font-weight="700" fill="#173f3d">Trace</text><text x="460" y="190" font-size="14" fill="#48635f">输入、工具、回执</text><text x="460" y="218" font-size="14" fill="#48635f">版本与权限指纹</text><text x="460" y="246" font-size="14" fill="#48635f">可重放才可定位</text>
+    <rect x="634" y="126" width="174" height="150" rx="18" fill="#dfeee8" stroke="#afd0c3"/>
+    <text x="654" y="160" font-size="18" font-weight="700" fill="#173f3d">状态差异</text><text x="654" y="190" font-size="14" fill="#48635f">修复前后 diff</text><text x="654" y="218" font-size="14" fill="#48635f">副作用与人工接管</text><text x="654" y="246" font-size="14" fill="#48635f">不只看最终文本</text>
+    <rect x="828" y="126" width="200" height="150" rx="18" fill="#f2eee5" stroke="#d5c8ad"/>
+    <text x="848" y="160" font-size="18" font-weight="700" fill="#173f3d">护栏</text><text x="848" y="190" font-size="14" fill="#48635f">回归集 / 开关 / Owner</text><text x="848" y="218" font-size="14" fill="#48635f">剩余风险与复查日</text><text x="848" y="246" font-size="14" fill="#48635f">让修复可以关闭</text>
+  </g>
+  <path d="M226 201h20M420 201h20M614 201h20M808 201h20" stroke="#7d9a95" stroke-width="3" stroke-linecap="round"/>
+</svg>

@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 390" role="img" aria-labelledby="title desc">
+  <title id="title">线上漂移排查三角</title>
+  <desc id="desc">从样本、环境和口径三个角度定位离线线上差距</desc>
+  <rect width="1080" height="390" rx="28" fill="#f7f8f5"/>
+  <text x="56" y="56" font-family="Arial,sans-serif" font-size="26" font-weight="700" fill="#173f3d">Drift triage</text>
+  <text x="56" y="84" font-family="Arial,sans-serif" font-size="15" fill="#58716e">只改变一个角，才能知道差距来自哪里</text>
+  <g font-family="Arial,sans-serif" text-anchor="middle">
+    <rect x="104" y="126" width="220" height="104" rx="18" fill="#eaf3f7" stroke="#b9d3df"/><text x="214" y="160" font-size="20" font-weight="700" fill="#24556a">样本</text><text x="214" y="194" font-size="15" fill="#5a737d">意图 · 长度 · 追问</text>
+    <rect x="430" y="126" width="220" height="104" rx="18" fill="#dfeee8" stroke="#afd0c3"/><text x="540" y="160" font-size="20" font-weight="700" fill="#173f3d">环境</text><text x="540" y="194" font-size="15" fill="#52706b">工具 · 权限 · 数据</text>
+    <rect x="756" y="126" width="220" height="104" rx="18" fill="#fff1d9" stroke="#e8c891"/><text x="866" y="160" font-size="20" font-weight="700" fill="#704c20">口径</text><text x="866" y="194" font-size="15" fill="#856a42">成功 · 拒答 · 风险</text>
+  </g>
+  <path d="M214 252v54h652v-54" fill="none" stroke="#79908c" stroke-width="3" stroke-linecap="round"/>
+  <rect x="374" y="288" width="332" height="56" rx="16" fill="#182033"/><text x="540" y="323" font-family="Arial,sans-serif" font-size="16" text-anchor="middle" fill="#f7f8f5">最小复现 → 回放 → 发布门槛</text>
+</svg>

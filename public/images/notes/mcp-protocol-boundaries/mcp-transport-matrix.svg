@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 360" role="img" aria-labelledby="title desc">
+  <title id="title">MCP 传输方式矩阵</title>
+  <desc id="desc">stdio、HTTP SSE 和 Streamable HTTP 在隔离、会话和多租户治理上的差异。</desc>
+  <rect width="1080" height="360" rx="28" fill="#f7f8f5"/>
+  <g font-family="sans-serif">
+    <rect x="50" y="52" width="980" height="58" rx="14" fill="#173f3d"/>
+    <text x="130" y="88" font-size="18" font-weight="700" fill="#fff">传输</text><text x="355" y="88" font-size="18" font-weight="700" fill="#fff">典型场景</text><text x="625" y="88" font-size="18" font-weight="700" fill="#fff">关键治理</text><text x="915" y="88" font-size="18" font-weight="700" fill="#fff">断线恢复</text>
+    <rect x="50" y="122" width="980" height="58" rx="12" fill="#eaf3f7"/><text x="130" y="158" font-size="17" font-weight="700" fill="#24556a">stdio</text><text x="300" y="158" font-size="15" fill="#5a737d">同机开发 / 单用户</text><text x="535" y="158" font-size="15" fill="#5a737d">进程隔离、输出清洁</text><text x="865" y="158" font-size="15" fill="#5a737d">重启进程后查询</text>
+    <rect x="50" y="192" width="980" height="58" rx="12" fill="#dfeee8"/><text x="130" y="228" font-size="17" font-weight="700" fill="#173f3d">HTTP + SSE</text><text x="300" y="228" font-size="15" fill="#52706b">长连接 / 推送</text><text x="535" y="228" font-size="15" fill="#52706b">鉴权、代理超时、心跳</text><text x="865" y="228" font-size="15" fill="#52706b">request_id 对账</text>
+    <rect x="50" y="262" width="980" height="58" rx="12" fill="#fff1d9"/><text x="130" y="298" font-size="17" font-weight="700" fill="#704c20">Streamable HTTP</text><text x="355" y="298" font-size="15" fill="#856a42">远程多租户 / 流式</text><text x="625" y="298" font-size="15" fill="#856a42">会话绑定、背压、限流</text><text x="915" y="298" font-size="15" fill="#856a42">事件序号续接</text>
+  </g>
+</svg>

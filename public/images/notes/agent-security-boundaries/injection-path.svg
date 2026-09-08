@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 500" role="img" aria-labelledby="title desc">
+  <title id="title">Prompt injection path</title>
+  <desc id="desc">Untrusted web content enters context but is blocked from sensitive actions by source labeling and policy checks.</desc>
+  <rect width="1200" height="500" rx="28" fill="#f7f8f5"/>
+  <text x="60" y="62" font-family="Arial, sans-serif" font-size="27" font-weight="700" fill="#17211d">Injection can change text, not authorization</text>
+  <text x="60" y="96" font-family="Arial, sans-serif" font-size="16" fill="#5f6d66">Even if an untrusted document persuades the model, the execution boundary still has the final say.</text>
+  <g font-family="Arial, sans-serif">
+    <rect x="70" y="190" width="190" height="100" rx="16" fill="#f4e7d9" stroke="#bc8052" stroke-width="2"/>
+    <text x="122" y="230" font-size="20" font-weight="700" fill="#8f5430">网页/文档</text>
+    <text x="104" y="259" font-size="15" fill="#5a3f31">恶意指令</text>
+    <path d="M260 240h72" stroke="#bc8052" stroke-width="3" marker-end="url(#arrow)"/>
+    <rect x="332" y="190" width="190" height="100" rx="16" fill="#eeeeee" stroke="#858b87" stroke-width="2"/>
+    <text x="389" y="230" font-size="20" font-weight="700" fill="#535a56">上下文</text>
+    <text x="366" y="259" font-size="15" fill="#5f6d66">source=untrusted</text>
+    <path d="M522 240h72" stroke="#6d8c82" stroke-width="3" marker-end="url(#arrow)"/>
+    <rect x="594" y="190" width="190" height="100" rx="16" fill="#e7f2ef" stroke="#4d9d8e" stroke-width="2"/>
+    <text x="651" y="230" font-size="20" font-weight="700" fill="#246d60">模型</text>
+    <text x="622" y="259" font-size="15" fill="#314d47">可能被影响意图</text>
+    <path d="M784 240h72" stroke="#6d8c82" stroke-width="3" marker-end="url(#arrow)"/>
+    <rect x="856" y="170" width="270" height="140" rx="18" fill="#d8efe7" stroke="#217d6e" stroke-width="3"/>
+    <text x="922" y="215" font-size="21" font-weight="700" fill="#176658">策略与工具</text>
+    <text x="886" y="247" font-size="15" fill="#23423b">身份 · 资源 · 参数</text>
+    <text x="886" y="275" font-size="15" fill="#23423b">审批 · 审计 · 配额</text>
+    <text x="886" y="303" font-size="15" fill="#23423b">越权动作 → 拒绝</text>
+  </g>
+  <path d="M950 330v54" stroke="#217d6e" stroke-width="3" marker-end="url(#arrow)"/>
+  <rect x="760" y="390" width="380" height="48" rx="14" fill="#ffffff" stroke="#d5ddd8"/>
+  <text x="806" y="421" font-family="Arial, sans-serif" font-size="15" fill="#5f6d66">攻击者最多影响候选意图，不能直接获得权限</text>
+  <defs><marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto"><path d="M0,0 L10,3 L0,6 z" fill="#6d8c82"/></marker></defs>
+</svg>

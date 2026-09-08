@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="390" viewBox="0 0 1080 390">
+  <rect width="1080" height="390" rx="28" fill="#f7f9fc"/>
+  <text x="56" y="58" font-family="Arial, sans-serif" font-size="23" font-weight="700" fill="#14233b">反事实回放范围</text>
+  <text x="56" y="86" font-family="Arial, sans-serif" font-size="15" fill="#61708a">冻结原始条件，只改变一个护栏，才能解释修复效果</text>
+  <g font-family="Arial, sans-serif">
+    <rect x="56" y="130" width="220" height="112" rx="18" fill="#e8f0ff" stroke="#9bb8ed"/><text x="82" y="166" font-size="18" font-weight="700" fill="#1f4d9c">Freeze</text><text x="82" y="196" font-size="15" fill="#355071">trace / input</text><text x="82" y="222" font-size="13" fill="#5b6b80">tool / KB / concurrency</text>
+    <path d="M278 186H344" stroke="#5979bd" stroke-width="3"/><path d="m334 177 12 9-12 9" fill="none" stroke="#5979bd" stroke-width="3"/>
+    <rect x="346" y="130" width="220" height="112" rx="18" fill="#fff4df" stroke="#e4bd70"/><text x="372" y="166" font-size="18" font-weight="700" fill="#9a6510">Baseline</text><text x="372" y="196" font-size="15" fill="#6f531e">原始事故轨迹</text><text x="372" y="222" font-size="13" fill="#7d6b43">副作用可复现</text>
+    <path d="M568 186H634" stroke="#b8893e" stroke-width="3"/><path d="m624 177 12 9-12 9" fill="none" stroke="#b8893e" stroke-width="3"/>
+    <rect x="636" y="130" width="184" height="112" rx="18" fill="#e7f6ef" stroke="#98cdb1"/><text x="662" y="166" font-size="18" font-weight="700" fill="#197145">Patched</text><text x="662" y="196" font-size="15" fill="#35624c">只加护栏</text><text x="662" y="222" font-size="13" fill="#527464">其他条件不变</text>
+    <path d="M822 186H888" stroke="#4f9c72" stroke-width="3"/><path d="m878 177 12 9-12 9" fill="none" stroke="#4f9c72" stroke-width="3"/>
+    <rect x="890" y="130" width="134" height="112" rx="18" fill="#f0eaff" stroke="#b8a3e8"/><text x="914" y="166" font-size="18" font-weight="700" fill="#6445ae">Gate</text><text x="914" y="196" font-size="15" fill="#51436f">side effect=0</text><text x="914" y="222" font-size="13" fill="#6c5d85">evidence complete</text>
+  </g>
+  <line x1="56" y1="283" x2="1024" y2="283" stroke="#dbe2ec"/><text x="56" y="322" font-family="Arial, sans-serif" font-size="15" font-weight="700" fill="#263750">结论等级</text><text x="148" y="322" font-family="Arial, sans-serif" font-size="15" fill="#52627a">替身环境只能证明近似有效；线上还需要影子、灰度和人工对账</text>
+</svg>

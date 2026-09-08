@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 940 360" role="img" aria-labelledby="title desc">
+  <title id="title">工具调用审计轨迹</title>
+  <desc id="desc">审计事件按时间串联意图、策略、审批、外部请求和最终结果，支持回放与归因。</desc>
+  <rect width="940" height="360" rx="28" fill="#f7f8f5"/>
+  <line x1="102" y1="176" x2="838" y2="176" stroke="#86a59d" stroke-width="4"/>
+  <g font-family="sans-serif" text-anchor="middle">
+    <circle cx="120" cy="176" r="25" fill="#173f3d"/><text x="120" y="182" font-size="14" font-weight="700" fill="#fff">01</text><text x="120" y="105" font-size="17" font-weight="700" fill="#173f3d">意图</text><text x="120" y="239" font-size="13" fill="#52706b">request_id</text>
+    <circle cx="295" cy="176" r="25" fill="#24556a"/><text x="295" y="182" font-size="14" font-weight="700" fill="#fff">02</text><text x="295" y="105" font-size="17" font-weight="700" fill="#24556a">策略</text><text x="295" y="239" font-size="13" fill="#5a737d">policy_id</text>
+    <circle cx="470" cy="176" r="25" fill="#704c20"/><text x="470" y="182" font-size="14" font-weight="700" fill="#fff">03</text><text x="470" y="105" font-size="17" font-weight="700" fill="#704c20">审批</text><text x="470" y="239" font-size="13" fill="#856a42">approval_id</text>
+    <circle cx="645" cy="176" r="25" fill="#753f32"/><text x="645" y="182" font-size="14" font-weight="700" fill="#fff">04</text><text x="645" y="105" font-size="17" font-weight="700" fill="#753f32">外部请求</text><text x="645" y="239" font-size="13" fill="#8c5d51">provider_ref</text>
+    <circle cx="820" cy="176" r="25" fill="#173f3d"/><text x="820" y="182" font-size="14" font-weight="700" fill="#fff">05</text><text x="820" y="105" font-size="17" font-weight="700" fill="#173f3d">结果</text><text x="820" y="239" font-size="13" fill="#52706b">status + evidence</text>
+  </g>
+</svg>

@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="390" viewBox="0 0 1080 390" role="img" aria-labelledby="title desc">
+  <title id="title">文档 schema 迁移窗口</title><desc id="desc">旧版可读、新版双写、渲染回归和可回滚路由</desc>
+  <rect width="1080" height="390" rx="26" fill="#f7f8f5"/>
+  <text x="52" y="54" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif" font-size="26" font-weight="700" fill="#173f3d">解析器升级：旧版可读，新版双写</text>
+  <text x="52" y="84" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif" font-size="16" fill="#5b7470">schema 是交接契约，不要和解析器一起一次性翻新</text>
+  <g font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif" text-anchor="middle">
+    <rect x="52" y="122" width="190" height="126" rx="17" fill="#eaf3f7" stroke="#b9d3df"/><text x="147" y="165" font-size="18" font-weight="700" fill="#275261">v2 读取</text><text x="147" y="198" font-size="15" fill="#52727a">历史引用</text>
+    <rect x="262" y="122" width="190" height="126" rx="17" fill="#fff1d9" stroke="#e8c891"/><text x="357" y="165" font-size="18" font-weight="700" fill="#6e5223">v3 双写</text><text x="357" y="198" font-size="15" fill="#806a3d">像素 + 归一化</text>
+    <rect x="472" y="122" width="190" height="126" rx="17" fill="#dfeee8" stroke="#afd0c3"/><text x="567" y="165" font-size="18" font-weight="700" fill="#2b6353">回投影</text><text x="567" y="198" font-size="15" fill="#53786b">像素漂移检查</text>
+    <rect x="682" y="122" width="190" height="126" rx="17" fill="#f5d9dc" stroke="#dfb2b9"/><text x="777" y="165" font-size="18" font-weight="700" fill="#78454d">迁移窗口</text><text x="777" y="198" font-size="15" fill="#855c63">14 天 / 可回滚</text>
+    <rect x="892" y="122" width="136" height="126" rx="17" fill="#173f3d"/><text x="960" y="169" font-size="18" font-weight="700" fill="#fff">稳定</text><text x="960" y="202" font-size="15" fill="#d8ebe5">再停旧读</text>
+  </g>
+  <g fill="none" stroke="#7d9a95" stroke-width="2.5" stroke-linecap="round"><path d="M242 185h20"/><path d="M452 185h20"/><path d="M662 185h20"/><path d="M872 185h20"/></g>
+  <rect x="52" y="294" width="976" height="44" rx="14" fill="#e8efeb"/><text x="76" y="322" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif" font-size="15" fill="#365b61">不只比 JSON 能否解析：表格边界和引用坐标也要做渲染回归</text>
+</svg>

@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="390" viewBox="0 0 1080 390" role="img" aria-labelledby="title desc">
+  <title id="title">Layout evidence contract</title>
+  <desc id="desc">文档解析 API 将页面、版面块、关系、引用资格和下一步动作固定成交接产物。</desc>
+  <rect width="1080" height="390" rx="26" fill="#f7f8f5"/>
+  <text x="58" y="54" fill="#17342f" font-size="25" font-weight="700" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif">Layout evidence contract</text>
+  <text x="58" y="82" fill="#71837d" font-size="15" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif">解析结果要让 RAG、审计和人工队列都能读懂、复核和继续处理</text>
+  <g font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif">
+    <rect x="58" y="130" width="170" height="108" rx="18" fill="#eaf1f8" stroke="#b6cce0"/><text x="80" y="168" fill="#31516d" font-size="18" font-weight="700">页面</text><text x="80" y="198" fill="#587085" font-size="14">document / page</text><text x="80" y="220" fill="#587085" font-size="14">source hash</text>
+    <rect x="250" y="130" width="170" height="108" rx="18" fill="#e4f2ec" stroke="#a8d2bf"/><text x="272" y="168" fill="#205b4c" font-size="18" font-weight="700">块</text><text x="272" y="198" fill="#4e6c63" font-size="14">type / bbox</text><text x="272" y="220" fill="#4e6c63" font-size="14">parent_id</text>
+    <rect x="442" y="130" width="170" height="108" rx="18" fill="#fff1d9" stroke="#e9c987"/><text x="464" y="168" fill="#795a20" font-size="18" font-weight="700">关系</text><text x="464" y="198" fill="#896d39" font-size="14">row / column</text><text x="464" y="220" fill="#896d39" font-size="14">value / unit</text>
+    <rect x="634" y="130" width="170" height="108" rx="18" fill="#f5e7ee" stroke="#dfb2c7"/><text x="656" y="168" fill="#7a3f5a" font-size="18" font-weight="700">引用</text><text x="656" y="198" fill="#8a6073" font-size="14">ready / source</text><text x="656" y="220" fill="#8a6073" font-size="14">confidence</text>
+    <rect x="826" y="130" width="196" height="108" rx="18" fill="#17342f"/><text x="850" y="168" fill="#f5fbf8" font-size="18" font-weight="700">动作</text><text x="850" y="198" fill="#c7e7d9" font-size="14">index / sample</text><text x="850" y="220" fill="#c7e7d9" font-size="14">reparse / block</text>
+  </g>
+  <g stroke="#6e9588" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M228 184h22"/><path d="M420 184h22"/><path d="M612 184h22"/><path d="M804 184h22"/><path d="M238 174l12 10-12 10"/><path d="M430 174l12 10-12 10"/><path d="M622 174l12 10-12 10"/><path d="M814 174l12 10-12 10"/></g>
+  <rect x="58" y="286" width="964" height="52" rx="15" fill="#edf4f0" stroke="#c8ddd3"/><text x="86" y="319" fill="#28594c" font-size="17" font-weight="600" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif">字段语义稳定，解析模型才可以放心升级</text>
+</svg>

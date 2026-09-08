@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="390" viewBox="0 0 1080 390" role="img" aria-labelledby="title desc">
+  <title id="title">MoE 动态容量</title>
+  <desc id="desc">按任务风险和 token 量调 capacity，溢出保留可回放的降级路径。</desc>
+  <rect width="1080" height="390" rx="28" fill="#F7F8F5"/>
+  <text x="54" y="56" font-family="Arial,'Noto Sans SC',sans-serif" font-size="26" font-weight="700" fill="#173F3D">MoE capacity 要按任务分层</text>
+  <text x="54" y="88" font-family="Arial,'Noto Sans SC',sans-serif" font-size="16" fill="#5B7470">长 batch、热点专家和高风险 token 不该共用一个常数</text>
+  <g font-family="Arial,'Noto Sans SC',sans-serif" text-anchor="middle">
+    <rect x="54" y="132" width="206" height="126" rx="18" fill="#F5D9DC"/><text x="157" y="172" font-size="19" font-weight="700" fill="#78454D">工具</text><text x="157" y="207" font-size="15" fill="#855C63">1.35</text><text x="157" y="233" font-size="15" fill="#855C63">drop = 0</text>
+    <rect x="278" y="132" width="206" height="126" rx="18" fill="#EAF3F7"/><text x="381" y="172" font-size="19" font-weight="700" fill="#275261">代码</text><text x="381" y="207" font-size="15" fill="#52727A">1.20</text><text x="381" y="233" font-size="15" fill="#52727A">drop ≤ 1%</text>
+    <rect x="502" y="132" width="206" height="126" rx="18" fill="#FFF0D6"/><text x="605" y="172" font-size="19" font-weight="700" fill="#875B26">闲聊</text><text x="605" y="207" font-size="15" fill="#6C5632">1.05</text><text x="605" y="233" font-size="15" fill="#6C5632">drop ≤ 3%</text>
+    <rect x="726" y="132" width="302" height="126" rx="18" fill="#173F3D"/><text x="877" y="182" font-size="19" font-weight="700" fill="#FFFFFF">溢出</text><text x="877" y="218" font-size="15" fill="#D8EBE5">residual / dense backup</text>
+  </g>
+  <g fill="none" stroke="#7D9A95" stroke-width="3" stroke-linecap="round"><path d="M260 195h18"/><path d="M484 195h18"/><path d="M708 195h18"/></g>
+  <rect x="54" y="296" width="974" height="43" rx="14" fill="#E8EFEB"/><text x="76" y="324" font-family="Arial,'Noto Sans SC',sans-serif" font-size="15" fill="#365B61">容量变大不等于更优：还要看显存、通信 P99、drop 类型和最终质量</text>
+</svg>

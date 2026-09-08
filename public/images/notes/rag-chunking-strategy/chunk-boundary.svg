@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 470" role="img" aria-labelledby="title desc">
+  <title id="title">RAG 分块边界策略</title>
+  <desc id="desc">结构边界优先，长度上限兜底，父子块补充上下文，展示好分块和坏分块的差异。</desc>
+  <rect width="1200" height="470" rx="28" fill="#f7f8f5"/>
+  <text x="58" y="60" fill="#1d1d1f" font-family="Arial, sans-serif" font-size="26" font-weight="700">先保住结构，再控制长度</text>
+  <text x="58" y="92" fill="#6b6e70" font-family="Arial, sans-serif" font-size="16">chunk 不是切香肠：标题、表头、代码边界决定证据能否独立成立</text>
+  <text x="78" y="145" fill="#247a6b" font-family="Arial, sans-serif" font-size="18" font-weight="700">结构优先</text>
+  <rect x="78" y="169" width="490" height="176" rx="16" fill="#ffffff" stroke="#b7d9ce"/>
+  <rect x="102" y="194" width="180" height="42" rx="8" fill="#e6f1ed"/><text x="192" y="221" fill="#1d1d1f" font-family="Arial, sans-serif" font-size="15" text-anchor="middle">§ 缓存失效原因</text>
+  <rect x="102" y="252" width="205" height="60" rx="8" fill="#f4ead0"/><text x="204" y="277" fill="#1d1d1f" font-family="Arial, sans-serif" font-size="14" text-anchor="middle">现象 + 前提 + 例子</text><text x="204" y="299" fill="#6b6e70" font-family="Arial, sans-serif" font-size="13" text-anchor="middle">一个 chunk 能独立解释</text>
+  <rect x="328" y="252" width="210" height="60" rx="8" fill="#edf1f6"/><text x="433" y="277" fill="#1d1d1f" font-family="Arial, sans-serif" font-size="14" text-anchor="middle">metadata</text><text x="433" y="299" fill="#6b6e70" font-family="Arial, sans-serif" font-size="13" text-anchor="middle">路径 / 版本 / 更新时间</text>
+  <text x="645" y="145" fill="#b25e3f" font-family="Arial, sans-serif" font-size="18" font-weight="700">长度兜底</text>
+  <rect x="645" y="169" width="478" height="176" rx="16" fill="#ffffff" stroke="#e4c1b2"/>
+  <rect x="673" y="194" width="414" height="42" rx="8" fill="#f6e7e1"/><text x="880" y="221" fill="#1d1d1f" font-family="Arial, sans-serif" font-size="15" text-anchor="middle">超过 token 上限 → 在句号 / 列表边界截断</text>
+  <rect x="673" y="252" width="180" height="60" rx="8" fill="#fff6e0"/><text x="763" y="277" fill="#1d1d1f" font-family="Arial, sans-serif" font-size="14" text-anchor="middle">子块：精确命中</text><text x="763" y="299" fill="#6b6e70" font-family="Arial, sans-serif" font-size="13" text-anchor="middle">top-k 负责被找到</text>
+  <rect x="878" y="252" width="209" height="60" rx="8" fill="#e9eef5"/><text x="982" y="277" fill="#1d1d1f" font-family="Arial, sans-serif" font-size="14" text-anchor="middle">父块：补上下文</text><text x="982" y="299" fill="#6b6e70" font-family="Arial, sans-serif" font-size="13" text-anchor="middle">但不能无限膨胀</text>
+  <text x="80" y="405" fill="#6b6e70" font-family="Arial, sans-serif" font-size="15">验收问题：命中的片段，脱离原文后能不能回答一个具体问题？</text>
+</svg>

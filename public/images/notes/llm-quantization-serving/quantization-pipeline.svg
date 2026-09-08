@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="500" viewBox="0 0 1200 500">
+  <rect width="1200" height="500" fill="#f8faf9"/>
+  <text x="70" y="70" font-family="Arial,'Noto Sans SC',sans-serif" font-size="28" font-weight="700" fill="#19372f">量化上线链路：校准、回归、灰度、回退</text>
+  <g font-family="Arial,'Noto Sans SC',sans-serif" text-anchor="middle">
+    <rect x="70" y="200" width="200" height="80" rx="16" fill="#e9f1f8" stroke="#a6bfd5" stroke-width="2"/><text x="170" y="248" font-size="18" fill="#2d607e">线上样本校准</text>
+    <rect x="345" y="200" width="200" height="80" rx="16" fill="#e8f3ee" stroke="#9ec8b3" stroke-width="2"/><text x="445" y="248" font-size="18" fill="#285d4d">质量 + 性能回归</text>
+    <rect x="620" y="200" width="200" height="80" rx="16" fill="#f2eee2" stroke="#d3bb7d" stroke-width="2"/><text x="720" y="248" font-size="18" fill="#7c622e">小流量灰度</text>
+    <rect x="895" y="200" width="200" height="80" rx="16" fill="#e5f1e6" stroke="#94bd99" stroke-width="2"/><text x="995" y="248" font-size="18" fill="#356b3d">收益确认 / 回退</text>
+  </g>
+  <g fill="none" stroke="#5e8d7c" stroke-width="4"><path d="M270 240H330"/><path d="m317 228 18 12-18 12" fill="#5e8d7c"/><path d="M545 240H605"/><path d="m592 228 18 12-18 12" fill="#5e8d7c"/><path d="M820 240H880"/><path d="m867 228 18 12-18 12" fill="#5e8d7c"/></g>
+  <text x="90" y="380" font-family="Arial,'Noto Sans SC',sans-serif" font-size="17" fill="#6b7d75">关键层保留高精度；结构化输出、长上下文和工具调用必须进入回归集。</text>
+</svg>

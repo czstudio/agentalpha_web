@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="390" viewBox="0 0 1080 390" role="img" aria-labelledby="title desc">
+  <title id="title">工具输出遏制</title><desc id="desc">工具返回的外部内容作为低信任 observation，不能直接升级为执行指令</desc>
+  <rect width="1080" height="390" rx="26" fill="#f7f8f5"/>
+  <text x="52" y="56" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif" font-size="25" font-weight="700" fill="#173f3d">工具返回值：能被引用，不等于能被执行</text>
+  <text x="52" y="84" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif" font-size="15" fill="#5b7470">数据来源的可信度不能替代权限校验</text>
+  <g font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif">
+    <rect x="52" y="122" width="220" height="126" rx="17" fill="#fff1d9" stroke="#e8c891"/><text x="162" y="157" text-anchor="middle" font-size="17" font-weight="700" fill="#173f3d">外部内容</text><text x="162" y="191" text-anchor="middle" font-size="13" fill="#48635f">网页 / 邮件 / 日志</text><text x="162" y="215" text-anchor="middle" font-size="13" fill="#48635f">untrusted</text>
+    <rect x="292" y="122" width="220" height="126" rx="17" fill="#eaf3f7" stroke="#b9d3df"/><text x="402" y="157" text-anchor="middle" font-size="17" font-weight="700" fill="#173f3d">结构化观测</text><text x="402" y="191" text-anchor="middle" font-size="13" fill="#48635f">allowlist fields</text><text x="402" y="215" text-anchor="middle" font-size="13" fill="#48635f">source / tenant</text>
+    <rect x="532" y="122" width="220" height="126" rx="17" fill="#f5d9dc" stroke="#dfb2b9"/><text x="642" y="157" text-anchor="middle" font-size="17" font-weight="700" fill="#173f3d">遏制</text><text x="642" y="191" text-anchor="middle" font-size="13" fill="#48635f">block markup</text><text x="642" y="215" text-anchor="middle" font-size="13" fill="#48635f">alert + replay</text>
+    <rect x="772" y="122" width="256" height="126" rx="17" fill="#173f3d"/><text x="900" y="157" text-anchor="middle" font-size="17" font-weight="700" fill="#ffffff">策略复核</text><text x="900" y="191" text-anchor="middle" font-size="13" fill="#dbe9e5">observation only</text><text x="900" y="215" text-anchor="middle" font-size="13" fill="#dbe9e5">write capability: none</text>
+  </g>
+  <path d="M272 185h20M512 185h20M752 185h20" stroke="#7d9a95" stroke-width="3" stroke-linecap="round"/>
+  <rect x="52" y="294" width="976" height="44" rx="14" fill="#e8efeb"/><text x="540" y="322" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif" font-size="15" font-weight="700" fill="#365b61">模型可以解释外部内容，但只有策略层能授予副作用权限</text>
+</svg>

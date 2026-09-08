@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 390" role="img" aria-labelledby="title desc">
+  <title id="title">多 Agent 交接契约</title>
+  <desc id="desc">子 Agent 以 artifact、证据、缺口和 owner 交接给下一节点</desc>
+  <rect width="1080" height="390" rx="28" fill="#f7f8f5"/>
+  <text x="56" y="56" font-family="Arial,sans-serif" font-size="26" font-weight="700" fill="#173f3d">Handoff contract</text>
+  <text x="56" y="84" font-family="Arial,sans-serif" font-size="15" fill="#58716e">角色变化不应影响下游，只要 artifact 契约保持稳定</text>
+  <g font-family="Arial,sans-serif" font-size="16" fill="#173f3d">
+    <rect x="56" y="132" width="230" height="112" rx="18" fill="#eaf3f7" stroke="#b9d3df"/><text x="82" y="168">producer</text><text x="82" y="202">检索 / 计算 / 审核</text><text x="82" y="226">交付 partial 也可</text>
+    <rect x="334" y="132" width="230" height="112" rx="18" fill="#dfeee8" stroke="#afd0c3"/><text x="360" y="168">artifact</text><text x="360" y="202">claims · evidence</text><text x="360" y="226">status · gaps</text>
+    <rect x="612" y="132" width="230" height="112" rx="18" fill="#fff1d9" stroke="#e8c891"/><text x="638" y="168">validator</text><text x="638" y="202">schema · 引用</text><text x="638" y="226">完成条件</text>
+    <rect x="890" y="132" width="134" height="112" rx="18" fill="#173f3d"/><text x="917" y="168" fill="#f7f8f5">owner</text><text x="917" y="202" fill="#dfeee8">next step</text><text x="917" y="226" fill="#dfeee8">补救</text>
+  </g>
+  <g stroke="#79908c" stroke-width="3" fill="none" stroke-linecap="round"><path d="M286 188h48"/><path d="M564 188h48"/><path d="M842 188h48"/></g>
+  <rect x="56" y="296" width="968" height="50" rx="15" fill="#182033"/><text x="540" y="328" font-family="monospace" font-size="15" text-anchor="middle" fill="#f7f8f5">partial / blocked → local repair, never silently promote to success</text>
+</svg>

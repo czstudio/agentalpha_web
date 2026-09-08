@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="620" viewBox="0 0 1200 620">
+  <rect width="1200" height="620" fill="#f8faf9"/>
+  <text x="70" y="72" font-family="Arial,'Noto Sans SC',sans-serif" font-size="28" font-weight="700" fill="#18332c">Handoff contract：把责任交接成可验证的协议</text>
+  <text x="70" y="106" font-family="Arial,'Noto Sans SC',sans-serif" font-size="17" fill="#6b7c75">目标、证据、能力和回执都在边界上留下记录</text>
+  <rect x="70" y="170" width="250" height="240" rx="18" fill="#e8f3ee" stroke="#9bc9b5" stroke-width="2"/>
+  <text x="100" y="212" font-family="Arial,'Noto Sans SC',sans-serif" font-size="22" font-weight="700" fill="#1f5746">发送方 Agent</text>
+  <text x="100" y="254" font-family="Arial,'Noto Sans SC',sans-serif" font-size="17" fill="#31584e">目标 objective</text>
+  <text x="100" y="285" font-family="Arial,'Noto Sans SC',sans-serif" font-size="17" fill="#31584e">父状态 parent_state</text>
+  <text x="100" y="316" font-family="Arial,'Noto Sans SC',sans-serif" font-size="17" fill="#31584e">证据 refs · 预算</text>
+  <text x="100" y="347" font-family="Arial,'Noto Sans SC',sans-serif" font-size="17" fill="#31584e">幂等键 idempotency</text>
+  <rect x="457" y="156" width="286" height="270" rx="18" fill="#ffffff" stroke="#c9d8d2" stroke-width="2"/>
+  <text x="500" y="204" font-family="Arial,'Noto Sans SC',sans-serif" font-size="21" font-weight="700" fill="#18332c">aa-handoff / v1</text>
+  <rect x="500" y="232" width="195" height="34" rx="17" fill="#f2eee2"/>
+  <text x="523" y="255" font-family="Arial,'Noto Sans SC',sans-serif" font-size="16" fill="#8c6a2e">校验身份与能力</text>
+  <rect x="500" y="280" width="195" height="34" rx="17" fill="#e9f1f8"/>
+  <text x="532" y="303" font-family="Arial,'Noto Sans SC',sans-serif" font-size="16" fill="#2e6387">状态机推进</text>
+  <rect x="500" y="328" width="195" height="34" rx="17" fill="#f8e9e6"/>
+  <text x="526" y="351" font-family="Arial,'Noto Sans SC',sans-serif" font-size="16" fill="#9b5244">超时 / 回退 / 对账</text>
+  <rect x="880" y="170" width="250" height="240" rx="18" fill="#e9f0f8" stroke="#a7c0d7" stroke-width="2"/>
+  <text x="910" y="212" font-family="Arial,'Noto Sans SC',sans-serif" font-size="22" font-weight="700" fill="#2a5b7b">接收方 Agent</text>
+  <text x="910" y="254" font-family="Arial,'Noto Sans SC',sans-serif" font-size="17" fill="#355b72">accepted：合同通过</text>
+  <text x="910" y="285" font-family="Arial,'Noto Sans SC',sans-serif" font-size="17" fill="#355b72">running：执行中</text>
+  <text x="910" y="316" font-family="Arial,'Noto Sans SC',sans-serif" font-size="17" fill="#355b72">committed：证据提交</text>
+  <text x="910" y="347" font-family="Arial,'Noto Sans SC',sans-serif" font-size="17" fill="#355b72">unknown：先查询再重试</text>
+  <path d="M320 290H450" fill="none" stroke="#4f8976" stroke-width="4"/>
+  <path d="m435 278 18 12-18 12" fill="#4f8976"/>
+  <path d="M750 290H870" fill="none" stroke="#4f8976" stroke-width="4"/>
+  <path d="m855 278 18 12-18 12" fill="#4f8976"/>
+  <path d="M1005 422C1005 515 605 530 280 422" fill="none" stroke="#bd8c55" stroke-width="3" stroke-dasharray="9 9"/>
+  <text x="520" y="520" font-family="Arial,'Noto Sans SC',sans-serif" font-size="18" fill="#8b6538">回执 + trace + 幂等状态 → 父 Agent 才能继续</text>
+</svg>

@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="390" viewBox="0 0 1080 390" role="img" aria-labelledby="title desc">
+  <title id="title">分块边界错误回放</title>
+  <desc id="desc">将检索失败拆分为证据缺失、排序靠后和结构不完整，再分别修复。</desc>
+  <rect width="1080" height="390" rx="26" fill="#f7f8f5"/>
+  <text x="52" y="56" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif" font-size="25" font-weight="700" fill="#173f3d">边界错误回放</text>
+  <text x="52" y="84" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif" font-size="15" fill="#5b7470">先判断证据在哪里，再决定改分块、排序还是上下文拼接</text>
+  <g font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif">
+    <rect x="52" y="122" width="222" height="132" rx="17" fill="#dcecf4"/>
+    <text x="75" y="154" font-size="17" font-weight="700" fill="#244f62">问题集</text>
+    <text x="75" y="184" font-size="13" fill="#365e67">gold span + 邻接范围</text>
+    <text x="75" y="210" font-size="13" fill="#365e67">记录版本与表头</text>
+    <rect x="292" y="122" width="222" height="132" rx="17" fill="#f4e9bd"/>
+    <text x="315" y="154" font-size="17" font-weight="700" fill="#5a4b19">检索回放</text>
+    <text x="315" y="184" font-size="13" fill="#786726">证据缺失 / 排名靠后</text>
+    <text x="315" y="210" font-size="13" fill="#786726">结构缺口 / 冲突版本</text>
+    <rect x="532" y="122" width="222" height="132" rx="17" fill="#f4dfe5"/>
+    <text x="555" y="154" font-size="17" font-weight="700" fill="#6b3349">分类</text>
+    <text x="555" y="184" font-size="13" fill="#7d5060">parse / rank / lineage</text>
+    <text x="555" y="210" font-size="13" fill="#7d5060">避免一个参数全兜底</text>
+    <rect x="772" y="122" width="222" height="132" rx="17" fill="#173f3d"/>
+    <text x="795" y="154" font-size="17" font-weight="700" fill="#f7f8f5">修复路径</text>
+    <text x="795" y="184" font-size="13" fill="#d8e7e1">边界 / rerank / 父块</text>
+    <text x="795" y="210" font-size="13" fill="#d8e7e1">回放后再进入回归集</text>
+  </g>
+  <path d="M274 188H286M514 188H526M754 188H766" fill="none" stroke="#7d9a95" stroke-width="3" stroke-linecap="round"/>
+  <path d="m280 180 8 8-8 8M520 180l8 8-8 8M760 180l8 8-8 8" fill="none" stroke="#7d9a95" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="52" y="296" width="976" height="42" rx="14" fill="#e8efeb"/>
+  <text x="78" y="323" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif" font-size="16" font-weight="700" fill="#173f3d">Recall 只是入口，证据完整与版本一致才是交付条件</text>
+</svg>

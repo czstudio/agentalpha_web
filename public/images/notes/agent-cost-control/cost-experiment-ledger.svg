@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="360" viewBox="0 0 1080 360" role="img" aria-labelledby="title desc">
+  <title id="title">降本实验账本</title>
+  <desc id="desc">从基线、候选变化到质量护栏和回滚条件的降本实验闭环</desc>
+  <rect width="1080" height="360" rx="28" fill="#f7f8f5"/>
+  <text x="54" y="58" font-family="Inter,Arial,sans-serif" font-size="25" font-weight="700" fill="#173f3d">降本实验账本：便宜之前，先把边界写清楚</text>
+  <text x="54" y="88" font-family="Inter,Arial,sans-serif" font-size="15" fill="#50706c">固定基线 → 小流量实验 → 质量护栏 → 可回滚结论</text>
+  <g font-family="Inter,Arial,sans-serif">
+    <rect x="54" y="132" width="210" height="142" rx="18" fill="#eaf3f7" stroke="#b9d3df"/>
+    <text x="78" y="168" font-size="18" font-weight="700" fill="#173f3d">01 基线</text>
+    <text x="78" y="198" font-size="15" fill="#315653">任务成功率</text>
+    <text x="78" y="222" font-size="15" fill="#315653">单位成功成本</text>
+    <text x="78" y="246" font-size="15" fill="#315653">P95 / 人工接管</text>
+    <path d="M274 203h42" stroke="#7eaaa7" stroke-width="3"/>
+    <path d="m307 193 12 10-12 10" fill="none" stroke="#7eaaa7" stroke-width="3"/>
+    <rect x="326" y="132" width="210" height="142" rx="18" fill="#dfeee8" stroke="#afd0c3"/>
+    <text x="350" y="168" font-size="18" font-weight="700" fill="#173f3d">02 候选</text>
+    <text x="350" y="198" font-size="15" fill="#315653">路由 / 上下文</text>
+    <text x="350" y="222" font-size="15" fill="#315653">缓存 / 批处理</text>
+    <text x="350" y="246" font-size="15" fill="#315653">版本与流量比例</text>
+    <path d="M546 203h42" stroke="#7eaaa7" stroke-width="3"/>
+    <path d="m579 193 12 10-12 10" fill="none" stroke="#7eaaa7" stroke-width="3"/>
+    <rect x="600" y="132" width="210" height="142" rx="18" fill="#fff1d9" stroke="#e8c891"/>
+    <text x="624" y="168" font-size="18" font-weight="700" fill="#173f3d">03 护栏</text>
+    <text x="624" y="198" font-size="15" fill="#315653">安全与权限</text>
+    <text x="624" y="222" font-size="15" fill="#315653">证据覆盖 / 新鲜度</text>
+    <text x="624" y="246" font-size="15" fill="#315653">最大回归幅度</text>
+    <path d="M820 203h42" stroke="#7eaaa7" stroke-width="3"/>
+    <path d="m853 193 12 10-12 10" fill="none" stroke="#7eaaa7" stroke-width="3"/>
+    <rect x="874" y="132" width="152" height="142" rx="18" fill="#fae8e1" stroke="#e0b9ae"/>
+    <text x="898" y="168" font-size="18" font-weight="700" fill="#173f3d">04 结论</text>
+    <text x="898" y="198" font-size="15" fill="#315653">扩大</text>
+    <text x="898" y="222" font-size="15" fill="#315653">暂停</text>
+    <text x="898" y="246" font-size="15" fill="#315653">回滚</text>
+  </g>
+  <text x="54" y="320" font-family="Inter,Arial,sans-serif" font-size="14" fill="#6f8783">每次实验都保留候选配置、统计窗口、置信区间和回滚原因</text>
+</svg>

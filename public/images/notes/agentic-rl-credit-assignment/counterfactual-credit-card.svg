@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="390" viewBox="0 0 1080 390" role="img" aria-labelledby="title desc">
+  <title id="title">反事实动作替换</title><desc id="desc">固定状态、原动作、候选动作、分叉结果和责任归因组成反事实动作替换</desc>
+  <rect width="1080" height="390" rx="26" fill="#f7f8f5"/>
+  <text x="52" y="56" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif" font-size="25" font-weight="700" fill="#173f3d">责任归因：用反事实动作缩小责任单元</text>
+  <text x="52" y="84" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif" font-size="15" fill="#5b7470">固定环境，再比较“如果换一步会怎样”</text>
+  <g font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif">
+    <rect x="52" y="122" width="190" height="126" rx="17" fill="#eaf3f7" stroke="#b9d3df"/><text x="147" y="157" text-anchor="middle" font-size="17" font-weight="700" fill="#173f3d">状态</text><text x="147" y="191" text-anchor="middle" font-size="13" fill="#48635f">step 7</text><text x="147" y="215" text-anchor="middle" font-size="13" fill="#48635f">seed / snapshot</text>
+    <rect x="262" y="122" width="190" height="126" rx="17" fill="#f5d9dc" stroke="#dfb2b9"/><text x="357" y="157" text-anchor="middle" font-size="17" font-weight="700" fill="#173f3d">原动作</text><text x="357" y="191" text-anchor="middle" font-size="13" fill="#48635f">invalid args</text><text x="357" y="215" text-anchor="middle" font-size="13" fill="#48635f">reward -0.8</text>
+    <rect x="472" y="122" width="190" height="126" rx="17" fill="#dfeee8" stroke="#afd0c3"/><text x="567" y="157" text-anchor="middle" font-size="17" font-weight="700" fill="#173f3d">候选动作</text><text x="567" y="191" text-anchor="middle" font-size="13" fill="#48635f">fixed args</text><text x="567" y="215" text-anchor="middle" font-size="13" fill="#48635f">reward +0.6</text>
+    <rect x="682" y="122" width="190" height="126" rx="17" fill="#fff1d9" stroke="#e8c891"/><text x="777" y="157" text-anchor="middle" font-size="17" font-weight="700" fill="#173f3d">分叉结果</text><text x="777" y="191" text-anchor="middle" font-size="13" fill="#48635f">delta +1.4</text><text x="777" y="215" text-anchor="middle" font-size="13" fill="#48635f">no side effect</text>
+    <rect x="892" y="122" width="136" height="126" rx="17" fill="#173f3d"/><text x="960" y="157" text-anchor="middle" font-size="17" font-weight="700" fill="#ffffff">训练</text><text x="960" y="191" text-anchor="middle" font-size="13" fill="#dbe9e5">pairwise</text><text x="960" y="215" text-anchor="middle" font-size="13" fill="#dbe9e5">weighted</text>
+  </g>
+  <path d="M242 185h20M452 185h20M662 185h20M872 185h20" stroke="#7d9a95" stroke-width="3" stroke-linecap="round"/>
+  <rect x="52" y="294" width="976" height="44" rx="14" fill="#e8efeb"/><text x="540" y="322" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif" font-size="15" font-weight="700" fill="#365b61">反事实不是因果真值，但能让高置信度责任更靠近具体动作</text>
+</svg>

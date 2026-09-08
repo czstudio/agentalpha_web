@@ -3,6 +3,7 @@ import type { Metadata } from "next"
 import { Analytics } from "@vercel/analytics/next"
 import { ThemeProvider } from "@/components/theme-provider"
 import { LanguageProvider } from "@/contexts/language-context"
+import "katex/dist/katex.min.css"
 import "./globals.css"
 
 const siteUrl = "https://agentalpha.top"

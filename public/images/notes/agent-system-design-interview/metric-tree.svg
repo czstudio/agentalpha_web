@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="500" viewBox="0 0 1200 500">
+  <rect width="1200" height="500" fill="#fbfaf7"/>
+  <text x="70" y="70" font-family="Arial,'Noto Sans SC',sans-serif" font-size="28" font-weight="700" fill="#24352f">Agent 指标树：结果之外，还要看过程和证据</text>
+  <g font-family="Arial,'Noto Sans SC',sans-serif" text-anchor="middle">
+    <rect x="490" y="120" width="220" height="70" rx="35" fill="#e8f3ee" stroke="#9ec8b3" stroke-width="2"/><text x="600" y="163" font-size="20" font-weight="700" fill="#285d4d">任务是否成功</text>
+    <rect x="90" y="290" width="190" height="80" rx="16" fill="#e9f1f8" stroke="#a6bfd5" stroke-width="2"/><text x="185" y="325" font-size="18" fill="#2d607e">结果</text><text x="185" y="350" font-size="15" fill="#4b6e83">成功 / 正确 / 完成</text>
+    <rect x="350" y="290" width="190" height="80" rx="16" fill="#f2eee2" stroke="#d3bb7d" stroke-width="2"/><text x="445" y="325" font-size="18" fill="#7c622e">过程</text><text x="445" y="350" font-size="15" fill="#846e42">工具错 / 重试 / 接管</text>
+    <rect x="660" y="290" width="190" height="80" rx="16" fill="#e5f1e6" stroke="#94bd99" stroke-width="2"/><text x="755" y="325" font-size="18" fill="#356b3d">证据</text><text x="755" y="350" font-size="15" fill="#4c714f">引用 / 权限 / 版本</text>
+    <rect x="920" y="290" width="190" height="80" rx="16" fill="#f8e9e6" stroke="#d5a299" stroke-width="2"/><text x="1015" y="325" font-size="18" fill="#985043">体验与成本</text><text x="1015" y="350" font-size="15" fill="#9a5c50">P95 / token / 单次成本</text>
+  </g>
+  <g fill="none" stroke="#6b8e80" stroke-width="3"><path d="M530 190L190 280"/><path d="M575 190L450 280"/><path d="M625 190L750 280"/><path d="M670 190L1010 280"/></g>
+</svg>

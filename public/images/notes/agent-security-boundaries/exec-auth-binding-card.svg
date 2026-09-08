@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="390" viewBox="0 0 1080 390">
+  <rect width="1080" height="390" rx="28" fill="#f7f9fc"/>
+  <text x="56" y="58" font-family="Arial, sans-serif" font-size="23" font-weight="700" fill="#14233b">执行前授权绑定</text>
+  <text x="56" y="86" font-family="Arial, sans-serif" font-size="15" fill="#61708a">审批是时间点判断，副作用前必须重新确认当前动作</text>
+  <g font-family="Arial, sans-serif">
+    <rect x="56" y="130" width="202" height="112" rx="18" fill="#e8f0ff" stroke="#9bb8ed"/><text x="80" y="166" font-size="18" font-weight="700" fill="#1f4d9c">Principal</text><text x="80" y="196" font-size="15" fill="#355071">主体 / 租户</text><text x="80" y="222" font-size="13" fill="#5b6b80">当前 ACL epoch</text>
+    <path d="M260 186H324" stroke="#5979bd" stroke-width="3"/><path d="m314 177 12 9-12 9" fill="none" stroke="#5979bd" stroke-width="3"/>
+    <rect x="326" y="130" width="202" height="112" rx="18" fill="#fff4df" stroke="#e4bd70"/><text x="350" y="166" font-size="18" font-weight="700" fill="#9a6510">Resource</text><text x="350" y="196" font-size="15" fill="#6f531e">资源 / owner</text><text x="350" y="222" font-size="13" fill="#7d6b43">版本是否一致</text>
+    <path d="M530 186H594" stroke="#b8893e" stroke-width="3"/><path d="m584 177 12 9-12 9" fill="none" stroke="#b8893e" stroke-width="3"/>
+    <rect x="596" y="130" width="202" height="112" rx="18" fill="#e7f6ef" stroke="#98cdb1"/><text x="620" y="166" font-size="18" font-weight="700" fill="#197145">Action</text><text x="620" y="196" font-size="15" fill="#35624c">动作 / amount</text><text x="620" y="222" font-size="13" fill="#527464">工具 schema</text>
+    <path d="M800 186H864" stroke="#4f9c72" stroke-width="3"/><path d="m854 177 12 9-12 9" fill="none" stroke="#4f9c72" stroke-width="3"/>
+    <rect x="866" y="130" width="158" height="112" rx="18" fill="#f0eaff" stroke="#b8a3e8"/><text x="890" y="166" font-size="18" font-weight="700" fill="#6445ae">Receipt</text><text x="890" y="196" font-size="15" fill="#51436f">绑定回执</text><text x="890" y="222" font-size="13" fill="#6c5d85">不一致则阻断</text>
+  </g>
+  <line x1="56" y1="283" x2="1024" y2="283" stroke="#dbe2ec"/><text x="56" y="322" font-family="Arial, sans-serif" font-size="15" font-weight="700" fill="#263750">绑定字段</text><text x="150" y="322" font-family="Arial, sans-serif" font-size="15" fill="#52627a">principal · resource · action · policy_revision · approval_id</text>
+</svg>

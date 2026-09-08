@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="390" viewBox="0 0 1080 390" role="img" aria-labelledby="title desc">
+  <title id="title">多 Agent 拆分的拓扑消融</title>
+  <desc id="desc">用同一批任务比较单 Agent、工作流和多 Agent 的收益与代价</desc>
+  <rect width="1080" height="390" rx="26" fill="#f7f8f5"/>
+  <text x="52" y="58" font-family="Inter,Arial,sans-serif" font-size="28" font-weight="700" fill="#173f3d">多 Agent 拆分的拓扑消融</text>
+  <text x="52" y="89" font-family="Inter,Arial,sans-serif" font-size="17" fill="#5b7470">角色越多不等于系统越强，先把收益和代价跑出来</text>
+  <g font-family="Inter,Arial,sans-serif">
+    <rect x="52" y="122" width="190" height="126" rx="17" fill="#eaf3f7" stroke="#b9d3df"/>
+    <text x="75" y="160" font-size="20" font-weight="700" fill="#173f3d">01</text>
+    <text x="75" y="190" font-size="17" fill="#365b61">单 Agent</text>
+    <text x="75" y="219" font-size="15" fill="#5b7470">成本基线</text>
+    <rect x="262" y="122" width="190" height="126" rx="17" fill="#fff1d9" stroke="#e8c891"/>
+    <text x="285" y="160" font-size="20" font-weight="700" fill="#173f3d">02</text>
+    <text x="285" y="190" font-size="17" fill="#365b61">工作流</text>
+    <text x="285" y="219" font-size="15" fill="#5b7470">固定步骤</text>
+    <rect x="472" y="122" width="190" height="126" rx="17" fill="#dfeee8" stroke="#afd0c3"/>
+    <text x="495" y="160" font-size="20" font-weight="700" fill="#173f3d">03</text>
+    <text x="495" y="190" font-size="17" fill="#365b61">多 Agent</text>
+    <text x="495" y="219" font-size="15" fill="#5b7470">隔离 / 并行</text>
+    <rect x="682" y="122" width="190" height="126" rx="17" fill="#f5d9dc" stroke="#dfb2b9"/>
+    <text x="705" y="160" font-size="20" font-weight="700" fill="#173f3d">04</text>
+    <text x="705" y="190" font-size="17" fill="#365b61">局部恢复</text>
+    <text x="705" y="219" font-size="15" fill="#5b7470">失败接手率</text>
+    <rect x="892" y="122" width="136" height="126" rx="17" fill="#173f3d"/>
+    <text x="915" y="172" font-size="18" font-weight="700" fill="#f7f8f5">05</text>
+    <text x="915" y="204" font-size="17" fill="#f7f8f5">决策</text>
+    <text x="915" y="229" font-size="14" fill="#c7ded6">按风险扩用</text>
+    <path d="M242 185H258M452 185H468M662 185H678M872 185H888" fill="none" stroke="#7d9a95" stroke-width="3" stroke-linecap="round"/>
+  </g>
+  <rect x="52" y="294" width="976" height="44" rx="14" fill="#e8efeb"/>
+  <text x="76" y="322" font-family="Inter,Arial,sans-serif" font-size="16" fill="#365b61">对照指标：成功率、P95、单位成本与局部恢复率</text>
+</svg>

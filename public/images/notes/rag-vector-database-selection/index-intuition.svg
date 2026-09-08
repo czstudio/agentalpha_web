@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="520" viewBox="0 0 1200 520">
+  <rect width="1200" height="520" fill="#fbfaf7"/>
+  <text x="70" y="68" font-family="Arial,'Noto Sans SC',sans-serif" font-size="28" font-weight="700" fill="#24352f">近似检索的两个旋钮</text>
+  <text x="70" y="102" font-family="Arial,'Noto Sans SC',sans-serif" font-size="17" fill="#718078">扩大候选范围通常换来更高召回与更高延迟</text>
+  <g font-family="Arial,'Noto Sans SC',sans-serif">
+    <text x="115" y="164" font-size="21" font-weight="700" fill="#2b5c4c">HNSW</text>
+    <circle cx="160" cy="300" r="120" fill="#eef6f1" stroke="#9fc7b4" stroke-width="2"/>
+    <g stroke="#74a28f" stroke-width="3" fill="#ffffff">
+      <circle cx="115" cy="235" r="13"/><circle cx="200" cy="240" r="13"/><circle cx="115" cy="350" r="13"/><circle cx="220" cy="350" r="13"/><circle cx="160" cy="290" r="15"/>
+      <path d="M115 235L160 290L200 240M160 290L115 350L220 350L200 240M115 235L115 350" fill="none"/>
+    </g>
+    <text x="80" y="465" font-size="17" fill="#4f7063">多层图跳转，ef_search 控范围</text>
+    <text x="520" y="164" font-size="21" font-weight="700" fill="#2b5c4c">IVF</text>
+    <rect x="500" y="190" width="300" height="220" rx="16" fill="#f3efe5" stroke="#d4bd80" stroke-width="2"/>
+    <line x1="650" y1="190" x2="650" y2="410" stroke="#d4bd80" stroke-width="2"/><line x1="500" y1="300" x2="800" y2="300" stroke="#d4bd80" stroke-width="2"/>
+    <g fill="#8c6d34"><circle cx="550" cy="240" r="8"/><circle cx="580" cy="265" r="8"/><circle cx="710" cy="235" r="8"/><circle cx="745" cy="260" r="8"/><circle cx="550" cy="350" r="8"/><circle cx="590" cy="380" r="8"/><circle cx="710" cy="345" r="8"/><circle cx="755" cy="370" r="8"/></g>
+    <circle cx="704" cy="280" r="13" fill="#b34e3e"/>
+    <path d="M704 280L710 235M704 280L745 260" stroke="#b34e3e" stroke-width="3" stroke-dasharray="7 6"/>
+    <text x="515" y="465" font-size="17" fill="#7d6839">先分簇，再用 nprobe 搜索候选簇</text>
+  </g>
+</svg>

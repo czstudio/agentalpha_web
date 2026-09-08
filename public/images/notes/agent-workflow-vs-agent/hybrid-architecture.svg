@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="420" viewBox="0 0 1400 420" role="img" aria-labelledby="title desc">
+  <title id="title">Workflow 包住 Agent</title><desc id="desc">外层固定边界，内层处理局部选择，最后由程序验收</desc>
+  <rect width="1400" height="420" rx="28" fill="#fff"/>
+  <g font-family="Arial, sans-serif" fill="#17202a">
+    <text x="72" y="72" font-size="22" letter-spacing="3" fill="#68717c">HYBRID ARCHITECTURE</text>
+    <text x="72" y="116" font-size="32" font-weight="700">Workflow 管边界，Agent 管局部不确定性</text>
+    <g font-size="21" font-weight="700" text-anchor="middle">
+      <rect x="90" y="210" width="230" height="90" rx="14" fill="#f3f5f7" stroke="#aab2bb"/><text x="205" y="264">权限 / 预算</text>
+      <rect x="400" y="210" width="230" height="90" rx="14" fill="#e3efff" stroke="#3978c8"/><text x="515" y="264">Agent 节点</text>
+      <rect x="710" y="210" width="230" height="90" rx="14" fill="#e8f5ed" stroke="#39865b"/><text x="825" y="264">证据 / 验收</text>
+      <rect x="1020" y="210" width="230" height="90" rx="14" fill="#fff1d8" stroke="#bd7a19"/><text x="1135" y="264">完成 / 升级</text>
+    </g>
+    <g fill="none" stroke="#68717c" stroke-width="3"><path d="M320 255h80"/><path d="m384 243 16 12-16 12"/><path d="M630 255h80"/><path d="m694 243 16 12-16 12"/><path d="M940 255h80"/><path d="m1004 243 16 12-16 12"/></g>
+    <text x="408" y="348" font-size="18" fill="#68717c">候选动作 · 查询改写 · 局部规划</text>
+  </g>
+</svg>

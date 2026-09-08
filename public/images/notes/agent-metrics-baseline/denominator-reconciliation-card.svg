@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="390" viewBox="0 0 1080 390" role="img" aria-labelledby="title desc">
+  <title id="title">指标分母对账卡</title><desc id="desc">总量、纳入、排除、未知和敏感性结果组成指标分母对账</desc>
+  <rect width="1080" height="390" rx="26" fill="#f7f8f5"/>
+  <text x="52" y="56" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif" font-size="25" font-weight="700" fill="#173f3d">指标分母对账：先确认统计了谁</text>
+  <text x="52" y="84" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif" font-size="15" fill="#5b7470">未知桶不能消失在平均数里</text>
+  <g font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif">
+    <rect x="52" y="122" width="190" height="126" rx="17" fill="#eaf3f7" stroke="#b9d3df"/><text x="147" y="157" text-anchor="middle" font-size="17" font-weight="700" fill="#173f3d">总量</text><text x="147" y="191" text-anchor="middle" font-size="13" fill="#48635f">12,000 requests</text><text x="147" y="215" text-anchor="middle" font-size="13" fill="#48635f">固定窗口</text>
+    <rect x="262" y="122" width="190" height="126" rx="17" fill="#dfeee8" stroke="#afd0c3"/><text x="357" y="157" text-anchor="middle" font-size="17" font-weight="700" fill="#173f3d">纳入</text><text x="357" y="191" text-anchor="middle" font-size="13" fill="#48635f">eligible 10,840</text><text x="357" y="215" text-anchor="middle" font-size="13" fill="#48635f">verified 9,130</text>
+    <rect x="472" y="122" width="190" height="126" rx="17" fill="#fff1d9" stroke="#e8c891"/><text x="567" y="157" text-anchor="middle" font-size="17" font-weight="700" fill="#173f3d">排除</text><text x="567" y="191" text-anchor="middle" font-size="13" fill="#48635f">policy / cancel</text><text x="567" y="215" text-anchor="middle" font-size="13" fill="#48635f">保留原因</text>
+    <rect x="682" y="122" width="190" height="126" rx="17" fill="#f5d9dc" stroke="#dfb2b9"/><text x="777" y="157" text-anchor="middle" font-size="17" font-weight="700" fill="#173f3d">未知</text><text x="777" y="191" text-anchor="middle" font-size="13" fill="#48635f">timeout 330</text><text x="777" y="215" text-anchor="middle" font-size="13" fill="#48635f">alert &gt; 2%</text>
+    <rect x="892" y="122" width="136" height="126" rx="17" fill="#173f3d"/><text x="960" y="157" text-anchor="middle" font-size="17" font-weight="700" fill="#ffffff">发布</text><text x="960" y="191" text-anchor="middle" font-size="13" fill="#dbe9e5">双口径</text><text x="960" y="215" text-anchor="middle" font-size="13" fill="#dbe9e5">可解释</text>
+  </g>
+  <path d="M242 185h20M452 185h20M662 185h20M872 185h20" stroke="#7d9a95" stroke-width="3" stroke-linecap="round"/>
+  <rect x="52" y="294" width="976" height="44" rx="14" fill="#e8efeb"/><text x="540" y="322" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif" font-size="15" font-weight="700" fill="#365b61">先对账分母，再讨论成功率变好了多少</text>
+</svg>

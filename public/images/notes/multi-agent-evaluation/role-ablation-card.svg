@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="390" viewBox="0 0 1080 390" role="img" aria-labelledby="title desc">
+  <title id="title">多 Agent 角色消融</title><desc id="desc">固定预算与评测器，只改变角色是否存在并记录风险贡献</desc>
+  <rect width="1080" height="390" rx="26" fill="#f7f8f5"/>
+  <text x="52" y="56" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif" font-size="25" font-weight="700" fill="#173f3d">角色消融：删掉它，真的只改变了一个变量吗？</text>
+  <text x="52" y="84" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif" font-size="15" fill="#5b7470">预算、信息和评测器必须保持一致</text>
+  <g font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif">
+    <rect x="52" y="122" width="220" height="126" rx="17" fill="#eaf3f7" stroke="#b9d3df"/><text x="162" y="157" text-anchor="middle" font-size="17" font-weight="700" fill="#173f3d">固定条件</text><text x="162" y="191" text-anchor="middle" font-size="13" fill="#48635f">seed / budget</text><text x="162" y="215" text-anchor="middle" font-size="13" fill="#48635f">same evaluator</text>
+    <rect x="292" y="122" width="220" height="126" rx="17" fill="#fff1d9" stroke="#e8c891"/><text x="402" y="157" text-anchor="middle" font-size="17" font-weight="700" fill="#173f3d">完整角色组</text><text x="402" y="191" text-anchor="middle" font-size="13" fill="#48635f">success / cost</text><text x="402" y="215" text-anchor="middle" font-size="13" fill="#48635f">risk baseline</text>
+    <rect x="532" y="122" width="220" height="126" rx="17" fill="#f5d9dc" stroke="#dfb2b9"/><text x="642" y="157" text-anchor="middle" font-size="17" font-weight="700" fill="#173f3d">去掉一个</text><text x="642" y="191" text-anchor="middle" font-size="13" fill="#48635f">same messages</text><text x="642" y="215" text-anchor="middle" font-size="13" fill="#48635f">same gates</text>
+    <rect x="772" y="122" width="256" height="126" rx="17" fill="#173f3d"/><text x="900" y="157" text-anchor="middle" font-size="17" font-weight="700" fill="#ffffff">贡献结论</text><text x="900" y="191" text-anchor="middle" font-size="13" fill="#dbe9e5">cost / quality</text><text x="900" y="215" text-anchor="middle" font-size="13" fill="#dbe9e5">risk slice</text>
+  </g>
+  <path d="M272 185h20M512 185h20M752 185h20" stroke="#7d9a95" stroke-width="3" stroke-linecap="round"/>
+  <rect x="52" y="294" width="976" height="44" rx="14" fill="#e8efeb"/><text x="540" y="322" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif" font-size="15" font-weight="700" fill="#365b61">角色价值要看它减少了什么风险，而不只是提高了多少平均分</text>
+</svg>

@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 390" role="img" aria-labelledby="title desc">
+  <title id="title">训练 loss 与真实能力错位</title>
+  <desc id="desc">训练 loss 下降可能伴随验证能力、通用能力或安全指标下降，需要分层曲线。</desc>
+  <rect width="1200" height="390" rx="28" fill="#f7f8f5"/>
+  <text x="58" y="58" fill="#1d1d1f" font-family="Arial, sans-serif" font-size="25" font-weight="700">loss 降了，不代表模型变聪明</text>
+  <g font-family="Arial, sans-serif">
+    <line x1="110" y1="305" x2="1090" y2="305" stroke="#cfd6d0"/><line x1="110" y1="115" x2="110" y2="305" stroke="#cfd6d0"/>
+    <path d="M120 155 C300 185 370 205 520 235 S780 270 1060 290" fill="none" stroke="#247a6b" stroke-width="4"/><text x="930" y="278" fill="#247a6b" font-size="15">train loss ↓</text>
+    <path d="M120 260 C320 245 450 210 580 190 S820 205 1060 250" fill="none" stroke="#d08a3c" stroke-width="4"/><text x="910" y="240" fill="#9b6b21" font-size="15">通用回归先升后降</text>
+    <path d="M120 275 C340 270 470 265 650 245 S890 210 1060 178" fill="none" stroke="#2f5fc7" stroke-width="4"/><text x="900" y="170" fill="#2f5fc7" font-size="15">目标任务可能上涨</text>
+    <text x="110" y="340" fill="#6b6e70" font-size="14">step</text><text x="70" y="130" fill="#6b6e70" font-size="14">score</text>
+  </g>
+</svg>

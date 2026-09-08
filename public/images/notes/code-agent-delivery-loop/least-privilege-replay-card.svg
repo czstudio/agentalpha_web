@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="390" viewBox="0 0 1080 390" role="img" aria-labelledby="title desc">
+  <title id="title">权限缩小回放</title>
+  <desc id="desc">在交接前用最小权限运行补丁，并验证越界写入与命令会被拒绝。</desc>
+  <rect width="1080" height="390" rx="26" fill="#f7f8f5"/>
+  <text x="52" y="54" font-size="25" font-weight="700" fill="#173f3d">交接前：做一次权限缩小回放</text>
+  <text x="52" y="84" font-size="16" fill="#5b7470">目标补丁要能完成，越界动作要能留下拒绝证据</text>
+  <g font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif" text-anchor="middle">
+    <rect x="52" y="122" width="190" height="126" rx="17" fill="#eaf3f7" stroke="#b9d3df"/>
+    <text x="147" y="167" font-size="18" font-weight="700" fill="#275261">收窄能力</text><text x="147" y="199" font-size="15" fill="#52727a">路径 / 命令白名单</text>
+    <rect x="262" y="122" width="190" height="126" rx="17" fill="#fff1d9" stroke="#e8c891"/>
+    <text x="357" y="167" font-size="18" font-weight="700" fill="#6e5223">回放补丁</text><text x="357" y="199" font-size="15" fill="#806a3d">期望动作通过</text>
+    <rect x="472" y="122" width="190" height="126" rx="17" fill="#dfeee8" stroke="#afd0c3"/>
+    <text x="567" y="167" font-size="18" font-weight="700" fill="#2b6353">故意越界</text><text x="567" y="199" font-size="15" fill="#53786b">写生产 / 读密钥</text>
+    <rect x="682" y="122" width="190" height="126" rx="17" fill="#f5d9dc" stroke="#dfb2b9"/>
+    <text x="777" y="167" font-size="18" font-weight="700" fill="#78454d">验证拒绝</text><text x="777" y="199" font-size="15" fill="#855c63">原因进入审计</text>
+    <rect x="892" y="122" width="136" height="126" rx="17" fill="#173f3d"/>
+    <text x="960" y="175" font-size="18" font-weight="700" fill="#ffffff">安全交接</text><text x="960" y="207" font-size="15" fill="#d8ebe5">最小能力</text>
+  </g>
+  <g fill="none" stroke="#7d9a95" stroke-width="2.5" stroke-linecap="round"><path d="M242 185h20"/><path d="M452 185h20"/><path d="M662 185h20"/><path d="M872 185h20"/></g>
+  <rect x="52" y="294" width="976" height="44" rx="14" fill="#e8efeb"/>
+  <text x="76" y="322" font-size="15" fill="#365b61">“能完成”与“只能完成什么”是两道不同的交接验收题</text>
+</svg>

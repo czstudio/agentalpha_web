@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="390" viewBox="0 0 1080 390" role="img" aria-labelledby="title desc">
+  <title id="title">Checkpoint 兼容性检查</title><desc id="desc">读取 checkpoint、检查 schema、迁移字段、恢复任务</desc>
+  <rect width="1080" height="390" rx="26" fill="#f7f8f5"/>
+  <text x="52" y="56" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif" font-size="25" font-weight="700" fill="#173f3d">恢复之前，先确认 checkpoint 还能被理解</text>
+  <text x="52" y="84" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif" font-size="15" fill="#5b7470">schema 变化不是小问题，它会直接改变 exactly-once 的边界</text>
+  <g font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif">
+    <rect x="52" y="122" width="220" height="126" rx="17" fill="#eaf3f7" stroke="#b9d3df"/><text x="162" y="157" text-anchor="middle" font-size="17" font-weight="700" fill="#173f3d">读取</text><text x="162" y="191" text-anchor="middle" font-size="13" fill="#48635f">checkpoint_id</text><text x="162" y="215" text-anchor="middle" font-size="13" fill="#48635f">schema_version</text>
+    <rect x="292" y="122" width="220" height="126" rx="17" fill="#fff1d9" stroke="#e8c891"/><text x="402" y="157" text-anchor="middle" font-size="17" font-weight="700" fill="#173f3d">校验</text><text x="402" y="191" text-anchor="middle" font-size="13" fill="#48635f">required fields</text><text x="402" y="215" text-anchor="middle" font-size="13" fill="#48635f">permission scope</text>
+    <rect x="532" y="122" width="220" height="126" rx="17" fill="#f5d9dc" stroke="#dfb2b9"/><text x="642" y="157" text-anchor="middle" font-size="17" font-weight="700" fill="#173f3d">迁移</text><text x="642" y="191" text-anchor="middle" font-size="13" fill="#48635f">v2 → v3</text><text x="642" y="215" text-anchor="middle" font-size="13" fill="#48635f">audit diff</text>
+    <rect x="772" y="122" width="256" height="126" rx="17" fill="#173f3d"/><text x="900" y="157" text-anchor="middle" font-size="17" font-weight="700" fill="#ffffff">恢复</text><text x="900" y="191" text-anchor="middle" font-size="13" fill="#dbe9e5">resume_from</text><text x="900" y="215" text-anchor="middle" font-size="13" fill="#dbe9e5">replay fence</text>
+  </g>
+  <path d="M272 185h20M512 185h20M752 185h20" stroke="#7d9a95" stroke-width="3" stroke-linecap="round"/>
+  <rect x="52" y="294" width="976" height="44" rx="14" fill="#e8efeb"/><text x="540" y="322" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif" font-size="15" font-weight="700" fill="#365b61">不兼容就停在恢复前：宁可人工迁移，也不要让模型猜字段</text>
+</svg>

@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="360" viewBox="0 0 1080 360" role="img" aria-labelledby="title desc">
+  <title id="title">多 Agent 角色消融</title><desc id="desc">通过完整系统、去掉角色、替换基线和预算账本判断角色边际价值</desc>
+  <rect width="1080" height="360" rx="24" fill="#f7f8f5"/>
+  <text x="52" y="54" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif" font-size="26" font-weight="700" fill="#173f3d">角色消融：谁真的改变了结果？</text>
+  <text x="52" y="84" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif" font-size="15" fill="#5b7470">固定任务、版本、预算，只改变一个角色，差异才有归因</text>
+  <g font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif">
+    <rect x="52" y="126" width="190" height="154" rx="18" fill="#dfeee8" stroke="#afd0c3"/><text x="78" y="158" font-size="18" font-weight="700" fill="#173f3d">Full</text><text x="78" y="190" font-size="14" fill="#48635f">Planner + Retriever</text><text x="78" y="216" font-size="14" fill="#48635f">+ Critic</text><text x="78" y="242" font-size="14" fill="#48635f">质量 / 成本基线</text>
+    <rect x="268" y="126" width="190" height="154" rx="18" fill="#fae8e1" stroke="#e0b9ae"/><text x="294" y="158" font-size="18" font-weight="700" fill="#173f3d">-Critic</text><text x="294" y="190" font-size="14" fill="#48635f">固定其余条件</text><text x="294" y="216" font-size="14" fill="#48635f">看错误发现率</text><text x="294" y="242" font-size="14" fill="#48635f">看返工与恢复</text>
+    <rect x="484" y="126" width="190" height="154" rx="18" fill="#eaf3f7" stroke="#b9d3df"/><text x="510" y="158" font-size="18" font-weight="700" fill="#173f3d">-Retriever</text><text x="510" y="190" font-size="14" fill="#48635f">引用覆盖变化</text><text x="510" y="216" font-size="14" fill="#48635f">幻觉与 token</text><text x="510" y="242" font-size="14" fill="#48635f">产物是否被用</text>
+    <rect x="700" y="126" width="160" height="154" rx="18" fill="#fff1d9" stroke="#e8c891"/><text x="724" y="158" font-size="18" font-weight="700" fill="#173f3d">Baseline</text><text x="724" y="190" font-size="14" fill="#48635f">单 Agent</text><text x="724" y="216" font-size="14" fill="#48635f">消息是否只是转发</text><text x="724" y="242" font-size="14" fill="#48635f">合并的参照</text>
+    <rect x="886" y="126" width="142" height="154" rx="18" fill="#f2eee5" stroke="#d5c8ad"/><text x="910" y="158" font-size="18" font-weight="700" fill="#173f3d">账本</text><text x="910" y="190" font-size="14" fill="#48635f">token</text><text x="910" y="216" font-size="14" fill="#48635f">等待 / 重试</text><text x="910" y="242" font-size="14" fill="#48635f">边际价值</text>
+  </g>
+  <path d="M242 203h26M458 203h26M674 203h26M860 203h26" stroke="#7d9a95" stroke-width="3" stroke-linecap="round"/>
+</svg>

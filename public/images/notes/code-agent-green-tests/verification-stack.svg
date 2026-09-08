@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 640" role="img" aria-labelledby="title desc">
+  <title id="title">Code Agent 分层验证栈</title>
+  <desc id="desc">执行完整性、局部行为、组合行为、静态约束和需求不变量五层验证。</desc>
+  <rect width="1200" height="640" fill="#f7f4ee"/>
+  <text x="72" y="72" font-family="Arial,sans-serif" font-size="28" font-weight="700" fill="#17221b">绿色不是一层证据，而是一座验证栈</text>
+  <text x="72" y="106" font-family="Arial,sans-serif" font-size="16" fill="#627066">越往上越接近用户真正关心的行为，越需要明确覆盖边界。</text>
+  <g font-family="Arial,sans-serif">
+    <rect x="180" y="170" width="820" height="68" rx="14" fill="#17221b"/><text x="214" y="213" font-size="19" font-weight="700" fill="#f7f4ee">需求不变量：权限、重复副作用、分页边界、反例</text>
+    <rect x="230" y="250" width="720" height="68" rx="14" fill="#e9edf4" stroke="#7f93b0" stroke-width="2"/><text x="264" y="293" font-size="19" font-weight="700" fill="#334b6a">静态约束：类型、lint、schema diff、依赖审计</text>
+    <rect x="280" y="330" width="620" height="68" rx="14" fill="#f3ead9" stroke="#c39b55" stroke-width="2"/><text x="314" y="373" font-size="19" font-weight="700" fill="#705426">组合行为：集成、契约、端到端</text>
+    <rect x="330" y="410" width="520" height="68" rx="14" fill="#e7f1e8" stroke="#7ca587" stroke-width="2"/><text x="364" y="453" font-size="19" font-weight="700" fill="#285339">局部行为：单元、异常、副作用</text>
+    <rect x="380" y="490" width="420" height="68" rx="14" fill="#f2e6e5" stroke="#ba7a73" stroke-width="2"/><text x="414" y="533" font-size="19" font-weight="700" fill="#703e39">执行完整性：命令、退出码、环境</text>
+  </g>
+</svg>

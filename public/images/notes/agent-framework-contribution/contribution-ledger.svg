@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="390" viewBox="0 0 1080 390" role="img" aria-labelledby="title desc">
+  <title id="title">Agent 项目贡献账本</title><desc id="desc">框架默认、项目契约、证据和迁移边界构成贡献账本</desc>
+  <rect width="1080" height="390" rx="26" fill="#f7f8f5"/>
+  <text x="52" y="56" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif" font-size="25" font-weight="700" fill="#173f3d">贡献账本：做过，不等于留下了</text>
+  <text x="52" y="84" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif" font-size="15" fill="#5b7470">每一行都回答：默认能力是什么，我补了什么，证据在哪里</text>
+  <g font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif">
+    <rect x="52" y="122" width="228" height="126" rx="17" fill="#eaf3f7" stroke="#b9d3df"/><text x="166" y="157" text-anchor="middle" font-size="17" font-weight="700" fill="#173f3d">业务问题</text><text x="166" y="191" text-anchor="middle" font-size="13" fill="#48635f">超时重复写入</text><text x="166" y="215" text-anchor="middle" font-size="13" fill="#48635f">私有文档越权</text>
+    <rect x="300" y="122" width="228" height="126" rx="17" fill="#fff1d9" stroke="#e8c891"/><text x="414" y="157" text-anchor="middle" font-size="17" font-weight="700" fill="#173f3d">框架默认</text><text x="414" y="191" text-anchor="middle" font-size="13" fill="#48635f">自动重试 / 向量召回</text><text x="414" y="215" text-anchor="middle" font-size="13" fill="#48635f">不懂业务边界</text>
+    <rect x="548" y="122" width="228" height="126" rx="17" fill="#dfeee8" stroke="#afd0c3"/><text x="662" y="157" text-anchor="middle" font-size="17" font-weight="700" fill="#173f3d">新增契约</text><text x="662" y="191" text-anchor="middle" font-size="13" fill="#48635f">幂等键 + ACL + 审计</text><text x="662" y="215" text-anchor="middle" font-size="13" fill="#48635f">状态与回滚</text>
+    <rect x="796" y="122" width="232" height="126" rx="17" fill="#173f3d"/><text x="912" y="157" text-anchor="middle" font-size="17" font-weight="700" fill="#ffffff">证据 / 迁移</text><text x="912" y="191" text-anchor="middle" font-size="13" fill="#dbe9e5">故障注入 · 回归集</text><text x="912" y="215" text-anchor="middle" font-size="13" fill="#dbe9e5">换框架仍可复用</text>
+  </g>
+  <path d="M280 185h20M528 185h20M776 185h20" stroke="#7d9a95" stroke-width="3" stroke-linecap="round"/>
+  <rect x="52" y="294" width="976" height="44" rx="14" fill="#e8efeb"/><text x="540" y="322" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif" font-size="15" font-weight="700" fill="#365b61">不要罗列组件：讲清业务约束、可复现证据和迁移边界</text>
+</svg>

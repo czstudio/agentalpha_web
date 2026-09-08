@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 370" role="img" aria-labelledby="title desc">
+  <title id="title">四层并发预算</title>
+  <desc id="desc">全局、租户、工具和任务预算逐层收紧并发和成本。</desc>
+  <rect width="900" height="370" rx="28" fill="#fbfaf6"/>
+  <g font-family="sans-serif">
+    <rect x="66" y="44" width="768" height="70" rx="18" fill="#dfeee8"/><text x="104" y="87" font-size="21" font-weight="700" fill="#173f3d">全局 Global</text><text x="340" y="87" font-size="16" fill="#52706b">系统并发 · 队列长度 · 总 token</text>
+    <rect x="116" y="124" width="668" height="70" rx="18" fill="#eaf3f7"/><text x="154" y="167" font-size="21" font-weight="700" fill="#24556a">租户 Tenant</text><text x="390" y="167" font-size="16" fill="#5a737d">公平配额 · 每日金额 · 并发槽</text>
+    <rect x="166" y="204" width="568" height="70" rx="18" fill="#fff1d9"/><text x="204" y="247" font-size="21" font-weight="700" fill="#704c20">工具 Tool</text><text x="400" y="247" font-size="16" fill="#856a42">搜索 · DB · 沙箱 · 发布</text>
+    <rect x="216" y="284" width="468" height="52" rx="16" fill="#fae8e1"/><text x="252" y="317" font-size="19" font-weight="700" fill="#753f32">任务 Task</text><text x="390" y="317" font-size="15" fill="#845a50">扇出 · deadline · retries · token</text>
+  </g>
+</svg>

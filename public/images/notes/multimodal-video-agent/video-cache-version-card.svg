@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="390" viewBox="0 0 1080 390">
+  <rect width="1080" height="390" rx="28" fill="#F7F4EE"/>
+  <text x="56" y="58" font-family="Arial,'Noto Sans SC',sans-serif" font-size="26" font-weight="700" fill="#193C3A">视频证据缓存版本</text>
+  <text x="56" y="91" font-family="Arial,'Noto Sans SC',sans-serif" font-size="16" fill="#58706D">源文件或时间轴变了，旧窗口就必须失效</text>
+  <rect x="56" y="136" width="246" height="150" rx="20" fill="#E5F0ED"/>
+  <text x="82" y="174" font-family="Arial,'Noto Sans SC',sans-serif" font-size="20" font-weight="700" fill="#1C615A">源文件</text>
+  <text x="82" y="212" font-family="Arial,'Noto Sans SC',sans-serif" font-size="15" fill="#31514E">sha256 / duration</text>
+  <text x="82" y="246" font-family="Arial,'Noto Sans SC',sans-serif" font-size="15" fill="#31514E">fps / calibration</text>
+  <path d="M326 211h62" stroke="#EF9D73" stroke-width="6" stroke-linecap="round"/><path d="m374 192 25 19-25 19" fill="none" stroke="#EF9D73" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="414" y="136" width="260" height="150" rx="20" fill="#FFF0D6"/>
+  <text x="440" y="174" font-family="Arial,'Noto Sans SC',sans-serif" font-size="20" font-weight="700" fill="#875B26">缓存窗口</text>
+  <text x="440" y="212" font-family="Arial,'Noto Sans SC',sans-serif" font-size="15" fill="#6C5632">42 windows</text>
+  <text x="440" y="246" font-family="Arial,'Noto Sans SC',sans-serif" font-size="15" fill="#6C5632">time-aligned evidence</text>
+  <path d="M702 211h62" stroke="#86A4D7" stroke-width="6" stroke-linecap="round"/><path d="m750 192 25 19-25 19" fill="none" stroke="#86A4D7" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="792" y="136" width="232" height="150" rx="20" fill="#DCEBE8"/>
+  <text x="818" y="174" font-family="Arial,'Noto Sans SC',sans-serif" font-size="20" font-weight="700" fill="#174F4A">变化</text>
+  <text x="818" y="212" font-family="Arial,'Noto Sans SC',sans-serif" font-size="15" fill="#31514E">stale → reindex</text>
+  <text x="818" y="246" font-family="Arial,'Noto Sans SC',sans-serif" font-size="15" fill="#31514E">引用门禁：reject</text>
+  <rect x="56" y="315" width="968" height="34" rx="17" fill="#183C3A"/>
+  <text x="540" y="338" text-anchor="middle" font-family="Arial,'Noto Sans SC',sans-serif" font-size="15" fill="#F7F4EE">video_id 不是版本：hash 和时间轴校准才是证据身份</text>
+</svg>

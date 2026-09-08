@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="390" viewBox="0 0 1080 390" role="img" aria-labelledby="title desc">
+  <title id="title">DPO 梯度占比审计</title><desc id="desc">偏好分桶、token、权重和更新贡献</desc>
+  <rect width="1080" height="390" rx="26" fill="#f7f8f5"/>
+  <text x="52" y="56" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif" font-size="25" font-weight="700" fill="#173f3d">数据分桶之后，还要看它们真正贡献了多少梯度</text>
+  <text x="52" y="84" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif" font-size="15" fill="#5b7470">pair 多，不代表关键任务真的影响了参数更新</text>
+  <g font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif">
+    <rect x="52" y="122" width="220" height="126" rx="17" fill="#eaf3f7" stroke="#b9d3df"/><text x="162" y="157" text-anchor="middle" font-size="17" font-weight="700" fill="#173f3d">分桶</text><text x="162" y="191" text-anchor="middle" font-size="13" fill="#48635f">tool / rag</text><text x="162" y="215" text-anchor="middle" font-size="13" fill="#48635f">refusal</text>
+    <rect x="292" y="122" width="220" height="126" rx="17" fill="#fff1d9" stroke="#e8c891"/><text x="402" y="157" text-anchor="middle" font-size="17" font-weight="700" fill="#173f3d">计量</text><text x="402" y="191" text-anchor="middle" font-size="13" fill="#48635f">pair count</text><text x="402" y="215" text-anchor="middle" font-size="13" fill="#48635f">token count</text>
+    <rect x="532" y="122" width="220" height="126" rx="17" fill="#dfeee8" stroke="#afd0c3"/><text x="642" y="157" text-anchor="middle" font-size="17" font-weight="700" fill="#173f3d">更新</text><text x="642" y="191" text-anchor="middle" font-size="13" fill="#48635f">loss weight</text><text x="642" y="215" text-anchor="middle" font-size="13" fill="#48635f">gradient share</text>
+    <rect x="772" y="122" width="256" height="126" rx="17" fill="#173f3d"/><text x="900" y="157" text-anchor="middle" font-size="17" font-weight="700" fill="#ffffff">验收</text><text x="900" y="191" text-anchor="middle" font-size="13" fill="#dbe9e5">frozen eval</text><text x="900" y="215" text-anchor="middle" font-size="13" fill="#dbe9e5">transfer</text>
+  </g>
+  <path d="M272 185h20M512 185h20M752 185h20" stroke="#7d9a95" stroke-width="3" stroke-linecap="round"/>
+  <rect x="52" y="294" width="976" height="44" rx="14" fill="#e8efeb"/><text x="540" y="322" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif" font-size="15" font-weight="700" fill="#365b61">关键 bucket 要在真实更新里占有足够、可解释的份额</text>
+</svg>

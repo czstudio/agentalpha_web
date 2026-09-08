@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="390" viewBox="0 0 1080 390">
+  <rect width="1080" height="390" rx="28" fill="#f7f9fc"/>
+  <text x="56" y="58" font-family="Arial, sans-serif" font-size="23" font-weight="700" fill="#14233b">指标合同版本</text>
+  <text x="56" y="86" font-family="Arial, sans-serif" font-size="15" fill="#61708a">分子、分母和 unknown 改变时，趋势线必须留下断点</text>
+  <g font-family="Arial, sans-serif">
+    <rect x="56" y="130" width="216" height="108" rx="18" fill="#e8f0ff" stroke="#9bb8ed"/><text x="82" y="166" font-size="18" font-weight="700" fill="#1f4d9c">Definition</text><text x="82" y="196" font-size="15" fill="#355071">numerator / denominator</text><text x="82" y="221" font-size="13" fill="#5b6b80">eligible / unknown</text>
+    <path d="M274 184H340" stroke="#5979bd" stroke-width="3"/><path d="m330 175 12 9-12 9" fill="none" stroke="#5979bd" stroke-width="3"/>
+    <rect x="342" y="130" width="216" height="108" rx="18" fill="#fff4df" stroke="#e4bd70"/><text x="368" y="166" font-size="18" font-weight="700" fill="#9a6510">Slices</text><text x="368" y="196" font-size="15" fill="#6f531e">risk / tenant / tool</text><text x="368" y="221" font-size="13" fill="#7d6b43">同口径切片</text>
+    <path d="M560 184H626" stroke="#b8893e" stroke-width="3"/><path d="m616 175 12 9-12 9" fill="none" stroke="#b8893e" stroke-width="3"/>
+    <rect x="628" y="130" width="184" height="108" rx="18" fill="#e7f6ef" stroke="#98cdb1"/><text x="654" y="166" font-size="18" font-weight="700" fill="#197145">Bridge</text><text x="654" y="196" font-size="15" fill="#35624c">并行 14 天</text><text x="654" y="221" font-size="13" fill="#527464">old / new</text>
+    <path d="M814 184H880" stroke="#4f9c72" stroke-width="3"/><path d="m870 175 12 9-12 9" fill="none" stroke="#4f9c72" stroke-width="3"/>
+    <rect x="882" y="130" width="142" height="108" rx="18" fill="#f0eaff" stroke="#b8a3e8"/><text x="906" y="166" font-size="18" font-weight="700" fill="#6445ae">Trend</text><text x="906" y="196" font-size="15" fill="#51436f">connect?</text><text x="906" y="221" font-size="13" fill="#6c5d85">break marker</text>
+  </g>
+  <line x1="56" y1="280" x2="1024" y2="280" stroke="#dbe2ec"/><text x="56" y="320" font-family="Arial, sans-serif" font-size="15" font-weight="700" fill="#263750">发布证据</text><text x="148" y="320" font-family="Arial, sans-serif" font-size="15" fill="#52627a">同口径基线 + 置信区间 + 硬失败单列，不用平均值盖住风险</text>
+</svg>

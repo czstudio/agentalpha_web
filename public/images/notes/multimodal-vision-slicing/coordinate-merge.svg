@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 360" role="img" aria-labelledby="title desc">
+  <title id="title">视觉切片坐标和重叠合并</title>
+  <desc id="desc">两个有重叠的切片通过原图坐标和 IoU 合并成可回溯证据。</desc>
+  <rect width="900" height="360" rx="28" fill="#f7f8f5"/>
+  <rect x="42" y="48" width="330" height="238" rx="16" fill="#fff" stroke="#b9cbc6" stroke-width="3"/>
+  <rect x="75" y="86" width="188" height="152" rx="10" fill="#e9f1ed" stroke="#9bc1b5" stroke-width="3"/>
+  <rect x="214" y="86" width="120" height="152" rx="10" fill="#f4dca6" fill-opacity=".75" stroke="#c37651" stroke-width="3" stroke-dasharray="8 6"/>
+  <text x="153" y="268" text-anchor="middle" font-family="sans-serif" font-size="17" font-weight="700" fill="#173f3d">crop A</text><text x="274" y="268" text-anchor="middle" font-family="sans-serif" font-size="17" font-weight="700" fill="#704c20">crop B</text>
+  <path d="M385 167h150" stroke="#8eb8af" stroke-width="4" stroke-linecap="round"/><path d="m520 157 18 10-18 10" fill="#8eb8af"/>
+  <rect x="558" y="95" width="286" height="145" rx="20" fill="#eaf3f7" stroke="#a7c8d6"/>
+  <text x="701" y="136" text-anchor="middle" font-family="sans-serif" font-size="19" font-weight="700" fill="#24556a">merge evidence</text>
+  <text x="701" y="172" text-anchor="middle" font-family="sans-serif" font-size="16" fill="#587783">page=2 · bbox=(...)</text>
+  <text x="701" y="204" text-anchor="middle" font-family="sans-serif" font-size="16" fill="#587783">同一行 · 去重 · 可回放</text>
+  <text x="42" y="322" font-family="sans-serif" font-size="16" fill="#647775">重叠是为了保上下文，坐标是为了避免重复和冲突。</text>
+</svg>

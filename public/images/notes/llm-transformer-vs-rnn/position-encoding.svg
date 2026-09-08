@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 500" role="img" aria-labelledby="title desc">
+  <title id="title">位置编码把顺序注入 Transformer</title>
+  <desc id="desc">token embedding 与位置机制合并，进入 Q 和 K 的注意力计算。</desc>
+  <rect width="1200" height="500" rx="24" fill="#f7f3ec"/>
+  <text x="70" y="72" font-family="Arial, PingFang SC, sans-serif" font-size="28" font-weight="700" fill="#323e3e">Transformer 没有循环，顺序从哪里来？</text>
+  <g font-family="Arial, PingFang SC, sans-serif" text-anchor="middle">
+    <g fill="#fffaf1" stroke="#ce741e" stroke-width="2"><rect x="100" y="174" width="190" height="82" rx="12"/><rect x="100" y="310" width="190" height="82" rx="12"/></g>
+    <text x="195" y="210" font-size="20" fill="#323e3e">token embedding</text><text x="195" y="236" font-size="15" fill="#7b7770">“猫”“追”“鼠”</text>
+    <text x="195" y="346" font-size="20" fill="#323e3e">position signal</text><text x="195" y="372" font-size="15" fill="#7b7770">绝对 / 相对 / RoPE</text>
+    <path d="M290 215h116M290 350h116" stroke="#ce741e" stroke-width="3"/><path d="m396 207 14 8-14 8m0 119 14 8-14 8" fill="#ce741e"/>
+    <rect x="410" y="220" width="270" height="126" rx="16" fill="#e8d9c4" stroke="#323e3e" stroke-width="2"/>
+    <text x="545" y="270" font-size="24" font-weight="700" fill="#323e3e">Q / K 旋转或偏置</text><text x="545" y="300" font-size="16" fill="#625e58">让分数看见距离</text>
+    <path d="M680 283h116" stroke="#7fb069" stroke-width="3"/><path d="m786 275 14 8-14 8" fill="#7fb069"/>
+    <rect x="800" y="220" width="290" height="126" rx="16" fill="#eef5e9" stroke="#7fb069" stroke-width="2"/>
+    <text x="945" y="270" font-size="24" font-weight="700" fill="#323e3e">Attention scores</text><text x="945" y="300" font-size="16" fill="#625e58">“谁离我更近？”</text>
+  </g>
+  <text x="70" y="438" font-family="Arial, PingFang SC, sans-serif" font-size="18" fill="#7b7770">位置机制不负责替代 Attention，它只把顺序与相对距离补回信息流。</text>
+</svg>

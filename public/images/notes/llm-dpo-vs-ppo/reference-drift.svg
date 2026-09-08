@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 360" role="img" aria-labelledby="title desc">
+  <title id="title">DPO reference drift</title>
+  <desc id="desc">DPO 的 reference policy、beta 和序列长度归一化共同决定更新幅度，实验必须固定版本。</desc>
+  <rect width="1200" height="360" rx="28" fill="#f7f8f5"/>
+  <text x="58" y="58" fill="#1d1d1f" font-family="Arial, sans-serif" font-size="25" font-weight="700">DPO 的三个隐藏旋钮</text>
+  <g font-family="Arial, sans-serif">
+    <circle cx="180" cy="205" r="64" fill="#e6f1ed" stroke="#9bc9bc"/><text x="180" y="198" text-anchor="middle" fill="#247a6b" font-size="17" font-weight="700">reference</text><text x="180" y="224" text-anchor="middle" fill="#6b6e70" font-size="14">版本锚点</text>
+    <circle cx="600" cy="205" r="64" fill="#fff5e8" stroke="#e5c98f"/><text x="600" y="198" text-anchor="middle" fill="#9b6b21" font-size="19" font-weight="700">β</text><text x="600" y="224" text-anchor="middle" fill="#6b6e70" font-size="14">偏好强度</text>
+    <circle cx="1020" cy="205" r="64" fill="#ffffff" stroke="#dfe4df"/><text x="1020" y="198" text-anchor="middle" fill="#1d1d1f" font-size="17" font-weight="700">length</text><text x="1020" y="224" text-anchor="middle" fill="#6b6e70" font-size="14">log-prob 归一化</text>
+    <path d="M250 205 H520 M670 205 H940" stroke="#247a6b" stroke-width="2" stroke-dasharray="7 7"/><text x="385" y="180" text-anchor="middle" fill="#247a6b" font-size="14">相对概率</text><text x="805" y="180" text-anchor="middle" fill="#247a6b" font-size="14">更新幅度</text>
+    <rect x="365" y="286" width="470" height="36" rx="10" fill="#ffffff" stroke="#dfe4df"/><text x="600" y="310" text-anchor="middle" fill="#1d1d1f" font-size="14">三者变化，都会改变同一条偏好对的梯度</text>
+  </g>
+</svg>

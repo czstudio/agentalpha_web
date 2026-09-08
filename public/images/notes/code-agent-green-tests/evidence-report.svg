@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 620" role="img" aria-labelledby="title desc">
+  <title id="title">Code Agent 验证报告</title>
+  <desc id="desc">测试结果报告应该区分通过、未运行、不确定和失败，并列出覆盖缺口。</desc>
+  <rect width="1200" height="620" fill="#fbfaf7"/>
+  <text x="72" y="72" font-family="Arial,sans-serif" font-size="28" font-weight="700" fill="#17221b">交付报告不要只有一个绿色圆点</text>
+  <text x="72" y="106" font-family="Arial,sans-serif" font-size="16" fill="#627066">让人一眼看到：做了什么、证明了什么、还缺什么。</text>
+  <g font-family="Arial,sans-serif">
+    <rect x="72" y="170" width="240" height="110" rx="16" fill="#e7f1e8" stroke="#7ca587" stroke-width="2"/><text x="108" y="215" font-size="20" font-weight="700" fill="#285339">通过</text><text x="108" y="250" font-size="15" fill="#35443b">实际运行 + 断言成立</text>
+    <rect x="340" y="170" width="240" height="110" rx="16" fill="#e9edf4" stroke="#7f93b0" stroke-width="2"/><text x="376" y="215" font-size="20" font-weight="700" fill="#334b6a">未运行</text><text x="376" y="250" font-size="15" fill="#3e4a5a">门禁或环境未覆盖</text>
+    <rect x="608" y="170" width="240" height="110" rx="16" fill="#f3ead9" stroke="#c39b55" stroke-width="2"/><text x="644" y="215" font-size="20" font-weight="700" fill="#705426">不确定</text><text x="644" y="250" font-size="15" fill="#53472f">flaky / mock / 结果缺失</text>
+    <rect x="876" y="170" width="240" height="110" rx="16" fill="#f2e6e5" stroke="#ba7a73" stroke-width="2"/><text x="912" y="215" font-size="20" font-weight="700" fill="#703e39">失败</text><text x="912" y="250" font-size="15" fill="#5c4140">实现或环境需要处理</text>
+  </g>
+  <rect x="72" y="350" width="1044" height="150" rx="18" fill="#17221b"/>
+  <text x="104" y="392" font-family="Arial,sans-serif" font-size="17" font-weight="700" fill="#f7f4ee">交付摘要</text>
+  <text x="104" y="428" font-family="Arial,sans-serif" font-size="16" fill="#cbd7ce">已验证：分页返回 / 旧客户端兼容</text>
+  <text x="104" y="458" font-family="Arial,sans-serif" font-size="16" fill="#f1c36b">未验证：租户隔离的真实数据库路径</text>
+</svg>

@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="480" viewBox="0 0 1200 480">
+  <rect width="1200" height="480" fill="#fbfaf7"/>
+  <text x="70" y="70" font-family="Arial,'Noto Sans SC',sans-serif" font-size="28" font-weight="700" fill="#24352f">断线恢复：从事件序号接着看，不要重新执行</text>
+  <g font-family="Arial,'Noto Sans SC',sans-serif" text-anchor="middle">
+    <rect x="90" y="185" width="220" height="100" rx="18" fill="#e9f1f8" stroke="#a7c0d6" stroke-width="2"/><text x="200" y="226" font-size="20" font-weight="700" fill="#2d607e">客户端</text><text x="200" y="256" font-size="16" fill="#4a6e84">last_seq = 41</text>
+    <rect x="470" y="155" width="260" height="160" rx="18" fill="#e8f3ee" stroke="#9ec8b3" stroke-width="2"/><text x="600" y="204" font-size="20" font-weight="700" fill="#285d4d">事件存储 / 终态快照</text><text x="600" y="242" font-size="16" fill="#4c7063">after(41) → 42, 43, 44</text><text x="600" y="272" font-size="16" fill="#4c7063">已终态 → snapshot</text>
+    <rect x="890" y="185" width="220" height="100" rx="18" fill="#f2eee2" stroke="#d3bb7d" stroke-width="2"/><text x="1000" y="226" font-size="20" font-weight="700" fill="#7c622e">继续展示</text><text x="1000" y="256" font-size="16" fill="#846e42">不触发 tool</text>
+  </g>
+  <path d="M310 235H455" stroke="#5d8c7b" stroke-width="4"/><path d="m442 223 18 12-18 12" fill="#5d8c7b"/><path d="M730 235H875" stroke="#5d8c7b" stroke-width="4"/><path d="m862 223 18 12-18 12" fill="#5d8c7b"/>
+  <path d="M1000 310C1000 390 420 410 220 310" fill="none" stroke="#c4795e" stroke-width="3" stroke-dasharray="8 8"/>
+  <text x="420" y="394" font-family="Arial,'Noto Sans SC',sans-serif" font-size="17" fill="#985644">禁止把连接重试当成业务重试</text>
+</svg>

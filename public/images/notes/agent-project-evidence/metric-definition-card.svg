@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="390" viewBox="0 0 1080 390" role="img" aria-labelledby="title desc">
+  <title id="title">项目数字口径卡</title><desc id="desc">项目指标同时记录定义、分母、切片、版本和证据完整度</desc>
+  <rect width="1080" height="390" rx="26" fill="#f7f8f5"/>
+  <text x="52" y="56" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif" font-size="25" font-weight="700" fill="#173f3d">项目数字口径卡：先说清楚“怎么算”</text>
+  <text x="52" y="84" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif" font-size="15" fill="#5b7470">分子、分母、切片和版本决定一个数字能否外推</text>
+  <g font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif">
+    <rect x="52" y="122" width="190" height="126" rx="17" fill="#eaf3f7" stroke="#b9d3df"/><text x="147" y="157" text-anchor="middle" font-size="17" font-weight="700" fill="#173f3d">定义</text><text x="147" y="191" text-anchor="middle" font-size="13" fill="#48635f">claim support</text><text x="147" y="215" text-anchor="middle" font-size="13" fill="#48635f">可判定 claim</text>
+    <rect x="262" y="122" width="190" height="126" rx="17" fill="#fff1d9" stroke="#e8c891"/><text x="357" y="157" text-anchor="middle" font-size="17" font-weight="700" fill="#173f3d">口径</text><text x="357" y="191" text-anchor="middle" font-size="13" fill="#48635f">分子 / 分母</text><text x="357" y="215" text-anchor="middle" font-size="13" fill="#48635f">排除项</text>
+    <rect x="472" y="122" width="190" height="126" rx="17" fill="#dfeee8" stroke="#afd0c3"/><text x="567" y="157" text-anchor="middle" font-size="17" font-weight="700" fill="#173f3d">对照</text><text x="567" y="191" text-anchor="middle" font-size="13" fill="#48635f">v4 → v5</text><text x="567" y="215" text-anchor="middle" font-size="13" fill="#48635f">同一切片</text>
+    <rect x="682" y="122" width="190" height="126" rx="17" fill="#f5d9dc" stroke="#dfb2b9"/><text x="777" y="157" text-anchor="middle" font-size="17" font-weight="700" fill="#173f3d">边界</text><text x="777" y="191" text-anchor="middle" font-size="13" fill="#48635f">partial</text><text x="777" y="215" text-anchor="middle" font-size="13" fill="#48635f">不可外推</text>
+    <rect x="892" y="122" width="136" height="126" rx="17" fill="#173f3d"/><text x="960" y="157" text-anchor="middle" font-size="17" font-weight="700" fill="#ffffff">复核</text><text x="960" y="191" text-anchor="middle" font-size="13" fill="#dbe9e5">trace</text><text x="960" y="215" text-anchor="middle" font-size="13" fill="#dbe9e5">replay</text>
+  </g>
+  <path d="M242 185h20M452 185h20M662 185h20M872 185h20" stroke="#7d9a95" stroke-width="3" stroke-linecap="round"/>
+  <rect x="52" y="294" width="976" height="44" rx="14" fill="#e8efeb"/><text x="540" y="322" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif" font-size="15" font-weight="700" fill="#365b61">一个可信数字，必须能沿着证据链回到样本</text>
+</svg>

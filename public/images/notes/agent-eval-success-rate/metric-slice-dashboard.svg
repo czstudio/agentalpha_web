@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 390" role="img" aria-labelledby="title desc">
+  <title id="title">评测切片仪表盘</title>
+  <desc id="desc">评测按风险切片展示硬失败、质量、延迟和版本元组</desc>
+  <rect width="1080" height="390" rx="28" fill="#f7f8f5"/>
+  <text x="56" y="56" font-family="Arial,sans-serif" font-size="26" font-weight="700" fill="#173f3d">Slice dashboard</text>
+  <text x="56" y="84" font-family="Arial,sans-serif" font-size="15" fill="#58716e">先看风险切片，再看全局平均</text>
+  <g font-family="Arial,sans-serif" font-size="16" fill="#173f3d">
+    <rect x="56" y="132" width="210" height="112" rx="18" fill="#f5d9dc" stroke="#d99da6"/><text x="82" y="168">hard gate</text><text x="82" y="202">越权 · 副作用</text><text x="82" y="226">0 才能继续</text>
+    <rect x="306" y="132" width="210" height="112" rx="18" fill="#dfeee8" stroke="#afd0c3"/><text x="332" y="168">quality</text><text x="332" y="202">success · grounded</text><text x="332" y="226">slice delta</text>
+    <rect x="556" y="132" width="210" height="112" rx="18" fill="#fff1d9" stroke="#e8c891"/><text x="582" y="168">tail</text><text x="582" y="202">P95 · cost</text><text x="582" y="226">budget</text>
+    <rect x="806" y="132" width="218" height="112" rx="18" fill="#173f3d"/><text x="832" y="168" fill="#f7f8f5">versions</text><text x="832" y="202" fill="#dfeee8">model · retriever</text><text x="832" y="226" fill="#dfeee8">tools · data</text>
+  </g>
+  <g stroke="#79908c" stroke-width="3" fill="none" stroke-linecap="round"><path d="M266 188h40"/><path d="M516 188h40"/><path d="M766 188h40"/></g>
+  <rect x="56" y="296" width="968" height="50" rx="15" fill="#182033"/><text x="540" y="328" font-family="monospace" font-size="15" text-anchor="middle" fill="#f7f8f5">hard fail blocks release, average score cannot cancel risk</text>
+</svg>

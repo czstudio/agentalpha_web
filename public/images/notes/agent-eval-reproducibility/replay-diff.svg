@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="360" viewBox="0 0 1080 360" role="img" aria-labelledby="title desc">
+  <title id="title">Agent 回放事件差分</title>
+  <desc id="desc">两次运行在工具超时处出现第一处分叉，事件级 diff 帮助定位归因</desc>
+  <rect width="1080" height="360" rx="24" fill="#f7f8f5"/>
+  <text x="56" y="54" font-family="Arial, sans-serif" font-size="26" font-weight="700" fill="#173f3d">Replay bundle · event diff</text>
+  <text x="56" y="82" font-family="Arial, sans-serif" font-size="15" fill="#58716e">不要只比较最终答案，先找两条轨迹的第一处分叉</text>
+  <g font-family="Arial, sans-serif" font-size="15" fill="#173f3d">
+    <text x="60" y="133" fill="#58716e">run A</text><text x="60" y="235" fill="#58716e">run B</text>
+    <rect x="140" y="104" width="150" height="54" rx="12" fill="#eaf3f7" stroke="#b9d3df"/><text x="184" y="137">retrieve</text>
+    <rect x="340" y="104" width="150" height="54" rx="12" fill="#dfeee8" stroke="#afd0c3"/><text x="397" y="137">plan</text>
+    <rect x="540" y="104" width="170" height="54" rx="12" fill="#fff1d9" stroke="#e8c891"/><text x="574" y="137">tool.search</text>
+    <rect x="760" y="104" width="150" height="54" rx="12" fill="#dfeee8" stroke="#afd0c3"/><text x="813" y="137">answer</text>
+    <rect x="140" y="206" width="150" height="54" rx="12" fill="#eaf3f7" stroke="#b9d3df"/><text x="184" y="239">retrieve</text>
+    <rect x="340" y="206" width="150" height="54" rx="12" fill="#dfeee8" stroke="#afd0c3"/><text x="397" y="239">plan</text>
+    <rect x="540" y="206" width="170" height="54" rx="12" fill="#fae8e1" stroke="#e0b9ae"/><text x="566" y="239">timeout → retry</text>
+    <rect x="760" y="206" width="150" height="54" rx="12" fill="#fff1d9" stroke="#e8c891"/><text x="813" y="239">answer</text>
+  </g>
+  <g stroke="#79908c" stroke-width="3" fill="none" stroke-linecap="round">
+    <path d="M290 131H340M490 131H540M710 131H760"/><path d="M290 233H340M490 233H540M710 233H760"/>
+  </g>
+  <path d="M625 163V204" stroke="#e0b9ae" stroke-width="4" stroke-dasharray="7 7"/>
+  <text x="56" y="316" font-family="Arial, sans-serif" font-size="15" fill="#58716e">第一处分叉 → 检查工具返回、调度、重试策略和状态哈希，再解释最终分数。</text>
+</svg>

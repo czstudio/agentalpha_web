@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="390" viewBox="0 0 1080 390" role="img" aria-labelledby="title desc">
+  <title id="title">Claim ledger 证据账本</title>
+  <desc id="desc">每条结论独立绑定支持、反证、范围和动作，未关闭的 claim 不进入确定答案。</desc>
+  <rect width="1080" height="390" rx="28" fill="#F7F4EE"/>
+  <text x="54" y="56" font-family="Arial,'Noto Sans SC',sans-serif" font-size="26" font-weight="700" fill="#193C3A">Claim ledger：一条结论一条证据链</text>
+  <text x="54" y="88" font-family="Arial,'Noto Sans SC',sans-serif" font-size="16" fill="#58706D">支持、反证、范围和下一步动作不能只藏在长答案里</text>
+  <g font-family="Arial,'Noto Sans SC',sans-serif" text-anchor="middle">
+    <rect x="54" y="132" width="206" height="126" rx="18" fill="#EAF3F7"/><text x="157" y="172" font-size="19" font-weight="700" fill="#275261">claim</text><text x="157" y="207" font-size="15" fill="#52727A">可验证句子</text><text x="157" y="233" font-size="15" fill="#52727A">范围 / 时间</text>
+    <rect x="278" y="132" width="206" height="126" rx="18" fill="#E5F0ED"/><text x="381" y="172" font-size="19" font-weight="700" fill="#1C615A">证据</text><text x="381" y="207" font-size="15" fill="#31514E">support + counter</text><text x="381" y="233" font-size="15" fill="#31514E">version / locator</text>
+    <rect x="502" y="132" width="206" height="126" rx="18" fill="#FFF0D6"/><text x="605" y="172" font-size="19" font-weight="700" fill="#875B26">状态</text><text x="605" y="207" font-size="15" fill="#6C5632">closed / open</text><text x="605" y="233" font-size="15" fill="#6C5632">freshness budget</text>
+    <rect x="726" y="132" width="302" height="126" rx="18" fill="#173F3D"/><text x="877" y="182" font-size="19" font-weight="700" fill="#FFFFFF">动作</text><text x="877" y="218" font-size="15" fill="#D8EBE5">answer / clarify / refuse</text>
+  </g>
+  <g fill="none" stroke="#7D9A95" stroke-width="3" stroke-linecap="round"><path d="M260 195h18"/><path d="M484 195h18"/><path d="M708 195h18"/></g>
+  <rect x="54" y="296" width="974" height="43" rx="14" fill="#E8EFEB"/><text x="76" y="324" font-family="Arial,'Noto Sans SC',sans-serif" font-size="15" fill="#365B61">未关闭 claim 不进入确定语气；文档更新后重新打开，而不是继续复用旧答案</text>
+</svg>

@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 420" role="img" aria-labelledby="title desc">
+  <title id="title">陌生 Agent 题的回答证据包</title>
+  <desc id="desc">把假设、决策、证据、边界和退路放在同一张卡片中</desc>
+  <rect width="1080" height="420" rx="28" fill="#f7f8f5"/>
+  <text x="56" y="56" font-family="Arial,sans-serif" font-size="26" font-weight="700" fill="#173f3d">Answer evidence pack</text>
+  <text x="56" y="84" font-family="Arial,sans-serif" font-size="15" fill="#58716e">不是背组件，而是把每个决策绑定到条件和验证</text>
+  <g font-family="Arial,sans-serif" font-size="16" fill="#173f3d">
+    <rect x="56" y="126" width="176" height="114" rx="16" fill="#eaf3f7" stroke="#b9d3df"/><text x="80" y="160">假设</text><text x="80" y="194">只读 · 200 QPS</text><text x="80" y="220">每日更新</text>
+    <rect x="254" y="126" width="176" height="114" rx="16" fill="#dfeee8" stroke="#afd0c3"/><text x="278" y="160">决策</text><text x="278" y="194">检索 → 规划</text><text x="278" y="220">写入需审批</text>
+    <rect x="452" y="126" width="176" height="114" rx="16" fill="#fff1d9" stroke="#e8c891"/><text x="476" y="160">证据</text><text x="476" y="194">回放集 · P95</text><text x="476" y="220">拒答率</text>
+    <rect x="650" y="126" width="176" height="114" rx="16" fill="#fae8e1" stroke="#e0b9ae"/><text x="674" y="160">边界</text><text x="674" y="194">权限冲突</text><text x="674" y="220">未知写入</text>
+    <rect x="848" y="126" width="176" height="114" rx="16" fill="#173f3d"/><text x="872" y="160" fill="#f7f8f5">退路</text><text x="872" y="194" fill="#dfeee8">对账 / 人工</text><text x="872" y="220" fill="#dfeee8">恢复 owner</text>
+  </g>
+  <g stroke="#79908c" stroke-width="3" fill="none" stroke-linecap="round"><path d="M232 183h22"/><path d="M430 183h22"/><path d="M628 183h22"/><path d="M826 183h22"/></g>
+  <rect x="56" y="304" width="968" height="58" rx="16" fill="#182033"/><text x="540" y="340" font-family="monospace" font-size="15" text-anchor="middle" fill="#f7f8f5">condition changes → update one assumption → re-run affected evidence</text>
+</svg>

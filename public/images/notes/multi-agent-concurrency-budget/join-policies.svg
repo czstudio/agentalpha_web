@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 380" role="img" aria-labelledby="title desc">
+  <title id="title">多 Agent 汇聚策略</title>
+  <desc id="desc">all-of、quorum、first-valid 和 deadline 的收敛方式。</desc>
+  <rect width="900" height="380" rx="28" fill="#f7f8f5"/>
+  <g font-family="sans-serif" text-anchor="middle">
+    <rect x="48" y="54" width="180" height="112" rx="18" fill="#eaf3f7"/><text x="138" y="91" font-size="19" font-weight="700" fill="#24556a">all-of</text><text x="138" y="124" font-size="15" fill="#5a737d">等全部分支</text><text x="138" y="148" font-size="14" fill="#5a737d">强一致 / 发布</text>
+    <rect x="256" y="54" width="180" height="112" rx="18" fill="#dfeee8"/><text x="346" y="91" font-size="19" font-weight="700" fill="#173f3d">quorum</text><text x="346" y="124" font-size="15" fill="#52706b">达到 k 个</text><text x="346" y="148" font-size="14" fill="#52706b">研究 / 投票</text>
+    <rect x="464" y="54" width="180" height="112" rx="18" fill="#fff1d9"/><text x="554" y="91" font-size="19" font-weight="700" fill="#704c20">first-valid</text><text x="554" y="124" font-size="15" fill="#856a42">首个通过校验</text><text x="554" y="148" font-size="14" fill="#856a42">延迟优先</text>
+    <rect x="672" y="54" width="180" height="112" rx="18" fill="#fae8e1"/><text x="762" y="91" font-size="19" font-weight="700" fill="#753f32">deadline</text><text x="762" y="124" font-size="15" fill="#845a50">截止即降级</text><text x="762" y="148" font-size="14" fill="#845a50">线上应答</text>
+  </g>
+  <path d="M100 256h700" stroke="#a4b7b0" stroke-width="3" stroke-linecap="round"/>
+  <g font-family="sans-serif" text-anchor="middle" fill="#68706c" font-size="15"><text x="138" y="292">可靠性 ↑</text><text x="346" y="292">平衡</text><text x="554" y="292">延迟 ↓</text><text x="762" y="292">确定性 ↑</text></g>
+</svg>

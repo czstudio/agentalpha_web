@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="390" viewBox="0 0 1080 390" role="img" aria-labelledby="title desc">
+  <title id="title">仲裁后漂移探针</title>
+  <desc id="desc">在副作用提交前比较裁决快照与当前状态，发现证据或预算漂移就标记 stale 并重算。</desc>
+  <rect width="1080" height="390" rx="26" fill="#f7f8f5"/>
+  <text x="52" y="56" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif" font-size="25" font-weight="700" fill="#173f3d">裁决后漂移探针</text>
+  <text x="52" y="84" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif" font-size="15" fill="#5b7470">批准是一个时间点的判断，提交前还要重验当前证据与预算</text>
+  <g font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif">
+    <rect x="52" y="122" width="220" height="126" rx="17" fill="#dcecf4"/>
+    <text x="74" y="153" font-size="17" font-weight="700" fill="#173f3d">prepared ruling</text>
+    <text x="74" y="181" font-size="13" fill="#365e67">evidence v12</text>
+    <text x="74" y="208" font-size="13" fill="#365e67">budget 240 / policy v4</text>
+    <rect x="292" y="122" width="220" height="126" rx="17" fill="#f4e9bd"/>
+    <text x="314" y="153" font-size="17" font-weight="700" fill="#5a4b19">current state</text>
+    <text x="314" y="181" font-size="13" fill="#786726">evidence v13</text>
+    <text x="314" y="208" font-size="13" fill="#786726">budget 80 / policy v4</text>
+    <rect x="532" y="122" width="220" height="126" rx="17" fill="#f4dfe5"/>
+    <text x="554" y="153" font-size="17" font-weight="700" fill="#6b3349">compare-and-set</text>
+    <text x="554" y="181" font-size="13" fill="#7d5060">证据、权限、预算</text>
+    <text x="554" y="208" font-size="13" fill="#7d5060">逐项比较版本快照</text>
+    <rect x="772" y="122" width="220" height="126" rx="17" fill="#173f3d"/>
+    <text x="794" y="153" font-size="17" font-weight="700" fill="#f7f8f5">stale / recompute</text>
+    <text x="794" y="181" font-size="13" fill="#d8e7e1">阻断副作用</text>
+    <text x="794" y="208" font-size="13" fill="#d8e7e1">澄清、重算或人工复核</text>
+  </g>
+  <path d="M272 185H286M512 185H526M752 185H766" fill="none" stroke="#7d9a95" stroke-width="3" stroke-linecap="round"/>
+  <path d="m280 177 8 8-8 8M520 177l8 8-8 8M760 177l8 8-8 8" fill="none" stroke="#7d9a95" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="52" y="294" width="976" height="44" rx="14" fill="#e8efeb"/>
+  <text x="78" y="322" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif" font-size="16" font-weight="700" fill="#173f3d">批准是时间点事实，提交前仍要重验</text>
+</svg>

@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 620" role="img" aria-labelledby="title desc">
+  <title id="title">Prefill 与 Decode 的 KV Cache 数据流</title>
+  <desc id="desc">Prefill 一次写入历史 K/V，Decode 每轮只追加新 token 并读取缓存。</desc>
+  <rect width="1200" height="620" rx="24" fill="#f7f3ec"/>
+  <text x="70" y="70" font-family="Arial, PingFang SC, sans-serif" font-size="28" font-weight="700" fill="#323e3e">KV Cache：把不变的历史留下来</text>
+  <g font-family="Arial, PingFang SC, sans-serif">
+    <rect x="70" y="130" width="1060" height="180" rx="18" fill="#fffaf1" stroke="#d8c7b4" stroke-width="2"/><text x="100" y="170" font-size="20" font-weight="700" fill="#ce741e">Prefill · 一次处理 prompt</text>
+    <g text-anchor="middle"><rect x="100" y="215" width="130" height="48" rx="9" fill="#e8d9c4"/><rect x="250" y="215" width="130" height="48" rx="9" fill="#e8d9c4"/><rect x="400" y="215" width="130" height="48" rx="9" fill="#e8d9c4"/><rect x="550" y="215" width="130" height="48" rx="9" fill="#e8d9c4"/><rect x="730" y="198" width="160" height="82" rx="12" fill="#eef5e9" stroke="#7fb069" stroke-width="2"/><rect x="940" y="198" width="140" height="82" rx="12" fill="#f9e076"/></g>
+    <g text-anchor="middle" font-size="17" fill="#323e3e"><text x="165" y="245">token₀</text><text x="315" y="245">token₁</text><text x="465" y="245">token₂</text><text x="615" y="245">token₃</text><text x="810" y="233">K_cache</text><text x="810" y="258">V_cache</text><text x="1010" y="233">首 token</text><text x="1010" y="258">logits</text></g>
+    <path d="M680 239h42M890 239h42" stroke="#7fb069" stroke-width="3"/><path d="m714 231 14 8-14 8m204-8 14 8-14 8" fill="#7fb069"/>
+    <rect x="70" y="350" width="1060" height="190" rx="18" fill="#eef5e9" stroke="#7fb069" stroke-width="2"/><text x="100" y="390" font-size="20" font-weight="700" fill="#7fb069">Decode · 每轮只新增一个 token</text>
+    <g text-anchor="middle"><rect x="110" y="435" width="130" height="48" rx="9" fill="#fffaf1"/><rect x="270" y="435" width="130" height="48" rx="9" fill="#fffaf1"/><rect x="430" y="435" width="130" height="48" rx="9" fill="#fffaf1"/><rect x="620" y="425" width="190" height="68" rx="12" fill="#e8d9c4"/><rect x="900" y="425" width="150" height="68" rx="12" fill="#f9e076"/></g>
+    <g text-anchor="middle" font-size="17" fill="#323e3e"><text x="175" y="465">读取 K₀...Kₜ</text><text x="335" y="465">读取 V₀...Vₜ</text><text x="495" y="465">当前 qₜ</text><text x="715" y="455">追加 kₜ, vₜ</text><text x="715" y="480">不重算历史</text><text x="975" y="455">tokenₜ₊₁</text><text x="975" y="480">继续循环</text></g>
+    <path d="M560 459h48M810 459h78" stroke="#ce741e" stroke-width="3"/><path d="m600 451 14 8-14 8m278-8 14 8-14 8" fill="#ce741e"/>
+  </g>
+</svg>

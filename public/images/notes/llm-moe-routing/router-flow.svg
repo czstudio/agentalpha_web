@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 620" role="img" aria-labelledby="title desc">
+  <title id="title">MoE Router 路由流程</title>
+  <desc id="desc">token 经过 Router 计算分数，选择 Top-2 专家并加权合并。</desc>
+  <rect width="1200" height="620" rx="24" fill="#f7f3ec"/>
+  <text x="70" y="70" font-family="Arial, PingFang SC, sans-serif" font-size="28" font-weight="700" fill="#323e3e">一个 token，为什么只走少数专家？</text>
+  <g font-family="Arial, PingFang SC, sans-serif" text-anchor="middle">
+    <rect x="75" y="240" width="180" height="86" rx="14" fill="#fffaf1" stroke="#ce741e" stroke-width="2"/><text x="165" y="277" font-size="24" font-weight="700" fill="#323e3e">token x</text><text x="165" y="302" font-size="15" fill="#7b7770">[d_model]</text>
+    <path d="M255 283h100" stroke="#ce741e" stroke-width="3"/><path d="m345 275 14 8-14 8" fill="#ce741e"/>
+    <rect x="360" y="210" width="220" height="146" rx="16" fill="#e8d9c4" stroke="#323e3e" stroke-width="2"/><text x="470" y="260" font-size="23" font-weight="700" fill="#323e3e">Router</text><text x="470" y="290" font-size="16" fill="#625e58">softmax(Wᵣx)</text><text x="470" y="319" font-size="15" fill="#7b7770">Top-k + 权重</text>
+    <path d="M580 250h90M580 315h90" stroke="#7fb069" stroke-width="3"/><path d="m660 242 14 8-14 8m0 57 14 8-14 8" fill="#7fb069"/>
+    <g fill="#eef5e9" stroke="#7fb069" stroke-width="2"><rect x="690" y="120" width="190" height="74" rx="12"/><rect x="690" y="230" width="190" height="74" rx="12"/><rect x="690" y="340" width="190" height="74" rx="12"/><rect x="690" y="450" width="190" height="74" rx="12"/></g>
+    <g fill="#323e3e" font-size="20"><text x="785" y="165">Expert 1</text><text x="785" y="275">Expert 2 ✓</text><text x="785" y="385">Expert 3</text><text x="785" y="495">Expert 4 ✓</text></g>
+    <g stroke="#7fb069" stroke-width="2" stroke-dasharray="7 7"><path d="M674 283C710 270 700 267 690 267"/><path d="M674 283C710 462 700 487 690 487"/></g>
+    <path d="M880 267h110M880 487h110" stroke="#7fb069" stroke-width="3"/><path d="m980 259 14 8-14 8m0 212 14 8-14 8" fill="#7fb069"/>
+    <rect x="995" y="235" width="150" height="154" rx="16" fill="#fffaf1" stroke="#323e3e" stroke-width="2"/><text x="1070" y="285" font-size="21" font-weight="700" fill="#323e3e">Σ pₑ · Eₑ(x)</text><text x="1070" y="321" font-size="15" fill="#7b7770">加权合并</text><text x="1070" y="348" font-size="15" fill="#7b7770">回到主干</text>
+  </g>
+  <text x="70" y="570" font-family="Arial, PingFang SC, sans-serif" font-size="18" fill="#7b7770">Router 的分数决定计算路径，专家的分工由训练形成，不是人工贴上的语义标签。</text>
+</svg>

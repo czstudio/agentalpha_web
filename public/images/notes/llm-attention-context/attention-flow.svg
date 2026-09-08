@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="460" viewBox="0 0 1200 460" role="img" aria-labelledby="title desc">
+  <title id="title">Attention 计算流程</title>
+  <desc id="desc">Query 与 Key 计算匹配分数，经过缩放和 softmax 得到权重，再对 Value 加权汇总。</desc>
+  <rect width="1200" height="460" fill="#fbfaf7"/>
+  <g font-family="Arial, 'PingFang SC', sans-serif">
+    <text x="70" y="66" fill="#1f2833" font-size="28" font-weight="700">一行 Attention，四个动作</text>
+    <text x="70" y="98" fill="#6e7681" font-size="16">先匹配，再归一化，最后把真正的内容按比例取回来</text>
+
+    <g transform="translate(70 150)">
+      <rect width="215" height="190" rx="16" fill="#e8f1f8" stroke="#b8d2e5"/>
+      <text x="24" y="44" fill="#3276a8" font-size="18" font-weight="700">01 · 匹配</text>
+      <text x="24" y="92" fill="#1f2833" font-size="26" font-weight="700">Q × Kᵀ</text>
+      <text x="24" y="130" fill="#6e7681" font-size="15">我在找什么？</text>
+      <text x="24" y="158" fill="#6e7681" font-size="15">谁和我的问题相关？</text>
+    </g>
+    <text x="306" y="250" fill="#3276a8" font-size="26">→</text>
+    <g transform="translate(350 150)">
+      <rect width="215" height="190" rx="16" fill="#f7eee1" stroke="#e3c89f"/>
+      <text x="24" y="44" fill="#a9662b" font-size="18" font-weight="700">02 · 稳定尺度</text>
+      <text x="24" y="92" fill="#1f2833" font-size="24" font-weight="700">÷ √dₖ</text>
+      <text x="24" y="130" fill="#6e7681" font-size="15">避免 softmax 过早饱和</text>
+      <text x="24" y="158" fill="#6e7681" font-size="15">让梯度保持可学习</text>
+    </g>
+    <text x="586" y="250" fill="#3276a8" font-size="26">→</text>
+    <g transform="translate(630 150)">
+      <rect width="215" height="190" rx="16" fill="#eef0f4" stroke="#cbd1da"/>
+      <text x="24" y="44" fill="#5a6470" font-size="18" font-weight="700">03 · 归一化</text>
+      <text x="24" y="92" fill="#1f2833" font-size="24" font-weight="700">softmax</text>
+      <text x="24" y="130" fill="#6e7681" font-size="15">分数 → 权重</text>
+      <text x="24" y="158" fill="#6e7681" font-size="15">每行权重之和为 1</text>
+    </g>
+    <text x="866" y="250" fill="#3276a8" font-size="26">→</text>
+    <g transform="translate(910 150)">
+      <rect width="215" height="190" rx="16" fill="#e7f2eb" stroke="#b8d9c3"/>
+      <text x="24" y="44" fill="#3b8157" font-size="18" font-weight="700">04 · 汇总</text>
+      <text x="24" y="92" fill="#1f2833" font-size="24" font-weight="700">权重 × V</text>
+      <text x="24" y="130" fill="#6e7681" font-size="15">找到谁，就取回谁的内容</text>
+      <text x="24" y="158" fill="#6e7681" font-size="15">多个位置可以共同贡献</text>
+    </g>
+  </g>
+</svg>

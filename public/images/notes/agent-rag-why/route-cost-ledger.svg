@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 390" role="img" aria-labelledby="title desc">
+  <title id="title">RAG 路线决策账本</title>
+  <desc id="desc">无 RAG、RAG 和工具路线通过质量、成本与回退开关进行比较</desc>
+  <rect width="1080" height="390" rx="28" fill="#f7f8f5"/>
+  <text x="56" y="56" font-family="Arial,sans-serif" font-size="26" font-weight="700" fill="#173f3d">Route ledger</text>
+  <text x="56" y="84" font-family="Arial,sans-serif" font-size="15" fill="#58716e">质量增益、维护成本和回退路径一起算</text>
+  <g font-family="Arial,sans-serif" font-size="16" fill="#173f3d">
+    <rect x="56" y="132" width="250" height="112" rx="18" fill="#eaf3f7" stroke="#b9d3df"/><text x="82" y="168">no RAG</text><text x="82" y="202">fast · low ops</text><text x="82" y="226">coverage 58%</text>
+    <rect x="334" y="132" width="250" height="112" rx="18" fill="#dfeee8" stroke="#afd0c3"/><text x="360" y="168">RAG</text><text x="360" y="202">evidence · ACL</text><text x="360" y="226">coverage 91%</text>
+    <rect x="612" y="132" width="250" height="112" rx="18" fill="#fff1d9" stroke="#e8c891"/><text x="638" y="168">tool</text><text x="638" y="202">realtime state</text><text x="638" y="226">side-effect risk</text>
+    <rect x="890" y="132" width="134" height="112" rx="18" fill="#173f3d"/><text x="917" y="168" fill="#f7f8f5">switch</text><text x="917" y="202" fill="#dfeee8">rollback</text><text x="917" y="226" fill="#dfeee8">by route</text>
+  </g>
+  <g stroke="#79908c" stroke-width="3" fill="none" stroke-linecap="round"><path d="M306 188h28"/><path d="M584 188h28"/><path d="M862 188h28"/></g>
+  <rect x="56" y="296" width="968" height="50" rx="15" fill="#182033"/><text x="540" y="328" font-family="monospace" font-size="15" text-anchor="middle" fill="#f7f8f5">choose by unit-success cost, not by stack popularity</text>
+</svg>

@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="390" viewBox="0 0 1080 390">
+  <rect width="1080" height="390" rx="28" fill="#F7F4EE"/>
+  <text x="56" y="58" font-family="Arial,'Noto Sans SC',sans-serif" font-size="26" font-weight="700" fill="#193C3A">跨模态证据包闸门</text>
+  <text x="56" y="91" font-family="Arial,'Noto Sans SC',sans-serif" font-size="16" fill="#58706D">图片、表格和文本在生成前重新核对权限与有效期</text>
+  <rect x="56" y="136" width="246" height="150" rx="20" fill="#E5F0ED"/>
+  <text x="82" y="174" font-family="Arial,'Noto Sans SC',sans-serif" font-size="20" font-weight="700" fill="#1C615A">证据项</text>
+  <text x="82" y="212" font-family="Arial,'Noto Sans SC',sans-serif" font-size="15" fill="#31514E">image bbox / table row</text>
+  <text x="82" y="246" font-family="Arial,'Noto Sans SC',sans-serif" font-size="15" fill="#31514E">parent + version</text>
+  <path d="M328 211h62" stroke="#EF9D73" stroke-width="6" stroke-linecap="round"/><path d="m376 192 25 19-25 19" fill="none" stroke="#EF9D73" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="416" y="136" width="260" height="150" rx="20" fill="#FFF0D6"/>
+  <text x="442" y="174" font-family="Arial,'Noto Sans SC',sans-serif" font-size="20" font-weight="700" fill="#875B26">服务端复核</text>
+  <text x="442" y="212" font-family="Arial,'Noto Sans SC',sans-serif" font-size="15" fill="#6C5632">ACL epoch = requester</text>
+  <text x="442" y="246" font-family="Arial,'Noto Sans SC',sans-serif" font-size="15" fill="#6C5632">expires_at 未到期</text>
+  <path d="M700 211h62" stroke="#86A4D7" stroke-width="6" stroke-linecap="round"/><path d="m748 192 25 19-25 19" fill="none" stroke="#86A4D7" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="788" y="136" width="236" height="150" rx="20" fill="#DCEBE8"/>
+  <text x="814" y="174" font-family="Arial,'Noto Sans SC',sans-serif" font-size="20" font-weight="700" fill="#174F4A">生成</text>
+  <text x="814" y="212" font-family="Arial,'Noto Sans SC',sans-serif" font-size="15" fill="#31514E">eligible</text>
+  <text x="814" y="246" font-family="Arial,'Noto Sans SC',sans-serif" font-size="15" fill="#31514E">否则拒答/追问</text>
+  <rect x="56" y="315" width="968" height="34" rx="17" fill="#183C3A"/>
+  <text x="540" y="338" text-anchor="middle" font-family="Arial,'Noto Sans SC',sans-serif" font-size="15" fill="#F7F4EE">索引命中不等于可以使用，生成前仍要经过最后一道 ACL 闸门</text>
+</svg>

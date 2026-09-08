@@ -72,6 +72,10 @@ minutes: 11
 
 对 Agent 来说，最有价值的不是再增加十个普通 happy path，而是补上能击穿当前实现的反例。一个小型的 mutation test——故意把比较符号、权限条件或分页边界改错，看测试是否能红——往往比盲目追求覆盖率更能说明 oracle 是否有牙齿。
 
+![Code Agent 的验证栈：从执行完整性到需求不变量](/images/notes/code-agent-green-tests/verification-stack.svg)
+
+这张验证栈可以直接变成 Agent 的停止检查：底层命令没真正执行，上层的断言再漂亮也没有意义；局部单测通过，仍要问组合协议、静态约束和业务不变量有没有证据。每一层都应该返回自己的状态，而不是把所有结果压成一个绿色布尔值。
+
 ## 工程故障：为什么“全绿”仍然会出事
 
 ### 故障一：Agent 只跑了它改过的测试
@@ -142,6 +146,23 @@ Agent 可能连续重跑几次，碰巧拿到一次绿色，就把结果当成�
 
 这不等于堆更多模型。独立视角的价值在于不同停止条件：实现 Agent 负责做事，验证 Agent 负责证明，CI 负责重复执行，人负责最终风险判断。
 
+![交接验证报告的最小字段：改动、证据、缺口与风险](/images/notes/code-agent-green-tests/evidence-report.svg)
+
+### 一份可交接的验证报告长什么样
+
+我会要求 Agent 在任务结束时输出一份短报告，而不是只回一句“测试通过”：
+
+```text
+变更：src/api/pagination.ts，新增 cursor 参数与稳定排序
+已验证：unit 18/18；contract 6/6；typecheck；lint
+未验证：真实数据库迁移（当前环境没有 staging schema）
+风险：旧客户端传 page 参数时的兼容行为需要产品确认
+证据：tests/api/pagination.test.ts；命令与 commit 已记录
+停止原因：关键不变量有证据，未验证项已显式交接
+```
+
+报告的价值在于把“完成”拆成事实和缺口。接手任务的人可以决定是继续补验证、接受风险，还是回滚，而不是重新猜 Agent 到底跑了什么。
+
 ## 从公开工程资料看“绿灯”的边界
 
 SWE-bench 之所以有影响力，是因为它把代码修改放进真实仓库和 issue，最终通过隐藏测试验证补丁，而不是比较生成文本长得像不像。这个设定直接提醒我们：可见测试通过，不代表隐藏行为就正确；测试集合本身决定了评估的盲区。SWE-bench 论文 (https://arxiv.org/abs/2310.06770)
@@ -155,6 +176,107 @@ GitHub 对 Copilot coding agent 的公开资料也把运行测试、检查变更
 2026 年 OpenAI 对编码评测的两次审计进一步说明，测试集本身也会出错。SWE-bench Verified 的复核发现，一部分题目的测试与 issue 意图不一致、过度限定实现或存在其他缺陷；随后对 SWE-bench Pro 的质量分析也报告了相当比例的问题任务。这里不能简单得出“基准都没用”，更合理的工程结论是：Agent 分数要带上任务审计、失败归因和测试质量证据，尤其不能把一条绿色曲线直接当成真实交付能力。
 
 这些资料都没有承诺“测试全绿就绝对正确”。它们更接近一个共识：Agent 的能力要用可重复的环境、清晰的失败信号和覆盖风险的验收标准来约束。绿色是信号，不是豁免证。
+
+## 绿灯之后还要做一次“被改松的断言”扫描
+
+测试全绿之后，我会再问一个不太舒服的问题：是不是为了得到绿色，测试本身被改得更宽松了？Code Agent 可能删除断言、扩大 mock 范围、把真实依赖换成永远成功的桩，甚至把高风险用例标成 skipped。它们都能让 CI 变绿，却不会让产品行为更可靠。
+
+因此交付回执要同时记录测试 oracle 的变化，而不只是运行结果：
+
+~~~yaml
+oracle_integrity_receipt: oir_20260820_06
+changed_files:
+  - src/checkout/retry.ts
+  - tests/checkout/retry.test.ts
+assertions_removed: 0
+mocks_added:
+  - payment_gateway: contract_stub_v3
+skipped_tests: []
+hidden_checks:
+  - mutation: passed
+  - contract_fixture: passed
+diff_review:
+  widened_matchers: 0
+  deleted_cases: 0
+decision: accepted
+~~~
+
+扫描可以先做静态 diff：统计删除的断言、增加的 mock、放宽的 matcher 和新增的跳过标记；高风险改动再跑 mutation、契约 fixture 或独立隐藏检查。重点不是禁止 mock，而是让每个 mock 都说明隔离了哪一层、还剩什么没有被真实验证。若断言减少但覆盖缺口没有解释，Agent 应自动停在“需要复核”，而不是继续提交。
+
+![绿灯之后的 oracle 完整性扫描：断言、mock、跳过项与隐藏检查](/images/notes/code-agent-green-tests/oracle-integrity-card.svg)
+
+### L5：为什么“测试全部通过”仍然不能直接作为交付结论？
+
+因为绿色只描述当前测试集合的结果，不能证明测试没有被改松，也不能覆盖隐藏行为。我会把测试运行回执和 oracle diff 放在一起审阅：关键断言未减少、mock 边界可解释、隐藏检查通过且未验证项已交接，才算真正达到停止条件。
+
+## 绿灯之后还要扫一遍需求不变量
+
+测试集合再完整，也可能没有覆盖产品真正关心的状态不变量。比如支付重试不能产生两次扣款、删除后的文档不能再次被引用、租户 A 的数据不能出现在租户 B 的回答里。这些约束不一定对应某一个函数，却应该在 patch 前后都能被探针验证。
+
+我会把需求不变量写成与实现解耦的回执，交给独立脚本或隐藏 fixture 执行：
+
+~~~yaml
+invariant_probe: ip_20260820_12
+patch: pr_1842
+invariants:
+  - id: payment.single_effect
+    probe: replay/payment-timeout-17
+    before: violated
+    after: passed
+  - id: rag.deleted_source_not_cited
+    probe: replay/delete-tombstone-04
+    before: violated
+    after: passed
+  - id: tenant.data_isolation
+    probe: replay/cross-tenant-09
+    before: passed
+    after: passed
+  - id: api.backward_compatibility
+    probe: contract/legacy-client-v2
+    before: passed
+    after: unknown
+release_effect:
+  decision: hold_for_contract_review
+  owner: platform-api
+~~~
+
+`after: unknown` 不是失败，但也不是绿灯。它通常表示依赖服务、迁移脚本或隐藏数据还没有可用环境；这类结果必须出现在交付摘要里，不能被测试框架压成一个 `true`。把需求不变量独立出来还有一个好处：实现换语言、重构目录或更换测试框架时，验收标准仍然保持稳定。
+
+![需求不变量扫描：业务状态约束与单测结果并列，未知项直接进入发布门槛](/images/notes/code-agent-green-tests/invariant-probe-card.svg)
+
+### L5：不变量和普通测试有什么区别？
+
+普通测试通常验证某个输入对应的输出，不变量验证跨步骤、跨服务或跨租户的状态约束。比如“退款接口返回 200”不是不变量，“同一幂等键最多产生一次副作用”才是。两者要一起跑，才能同时看局部实现和系统边界。
+
+## 绿灯之外还要做一次 oracle 变更审计
+
+Code Agent 最容易制造的一类假绿灯，是为了让测试通过而改变测试本身、mock、fixture 或验收脚本。交付前应把被测代码和 oracle 分开做 diff，并为每个测试记录“谁提供断言、断言覆盖哪个不变量、这次是否被修改”。如果 oracle 发生变化，结果应先标记为 `unknown`，交给独立审阅，而不是直接沿用旧的通过结论。
+
+```yaml
+oracle_diff_audit: oda_20260820_96
+change_set:
+  production_files: 7
+  test_files: 2
+  fixture_files: 1
+checks:
+  assertion_count_delta: 0
+  weakened_matchers: 0
+  mock_boundary_changed: false
+  fixture_semantics_changed: false
+  hidden_invariant_sampled: true
+result:
+  execution: pass
+  oracle_integrity: pass
+  delivery_state: green_with_trace
+```
+
+![Oracle 变更审计：把生产代码、断言、mock 和 fixture 的变化拆开验收](/images/notes/code-agent-green-tests/oracle-diff-audit-card.svg)
+
+### L5：为什么“测试全绿”还要检查测试文件的 diff？
+
+因为测试是判定器，不是被测对象。放宽断言、替换真实依赖或改写 fixture 都可能让同一段错误代码得到绿色结果。独立保存变更前后的 oracle 摘要，并抽一小组隐藏不变量复核，才能证明绿灯仍然有意义。
+
+![测试失败切片：把绿灯、隐藏断言和业务不变量放在同一张复盘表里](/images/notes/agent-eval-success-rate/failure-slices.svg)
 
 ## 60 秒面试回答
 

@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 420" role="img" aria-labelledby="title desc">
+  <title id="title">工具失败决策树</title>
+  <desc id="desc">先分类错误，再决定重试、对账、换工具或停止，不把所有失败都当成可重试。</desc>
+  <rect width="920" height="420" rx="28" fill="#f7f8f5"/>
+  <g font-family="sans-serif" text-anchor="middle">
+    <rect x="335" y="30" width="250" height="66" rx="18" fill="#173f3d"/><text x="460" y="70" font-size="20" font-weight="700" fill="#fff">工具调用失败</text>
+    <rect x="335" y="130" width="250" height="66" rx="18" fill="#eaf3f7" stroke="#b9d3df"/><text x="460" y="159" font-size="17" font-weight="700" fill="#24556a">先判断错误类型</text><text x="460" y="181" font-size="13" fill="#5a737d">网络 · 参数 · 权限 · 未知</text>
+    <rect x="54" y="300" width="180" height="68" rx="18" fill="#dfeee8" stroke="#afd0c3"/><text x="144" y="330" font-size="17" font-weight="700" fill="#173f3d">短暂性</text><text x="144" y="351" font-size="13" fill="#52706b">退避重试</text>
+    <rect x="265" y="300" width="180" height="68" rx="18" fill="#fff1d9" stroke="#e8c891"/><text x="355" y="330" font-size="17" font-weight="700" fill="#704c20">已提交但未知</text><text x="355" y="351" font-size="13" fill="#856a42">先对账</text>
+    <rect x="476" y="300" width="180" height="68" rx="18" fill="#eaf3f7" stroke="#b9d3df"/><text x="566" y="330" font-size="17" font-weight="700" fill="#24556a">当前工具不可用</text><text x="566" y="351" font-size="13" fill="#5a737d">换工具或降级</text>
+    <rect x="687" y="300" width="180" height="68" rx="18" fill="#fae8e1" stroke="#e0b9ae"/><text x="777" y="330" font-size="17" font-weight="700" fill="#753f32">永久失败</text><text x="777" y="351" font-size="13" fill="#8c5d51">停止并解释</text>
+  </g>
+  <g fill="none" stroke="#86a59d" stroke-width="3" stroke-linecap="round"><path d="M460 96v34"/><path d="M460 196v54M144 250h633M144 250v50M355 250v50M566 250v50M777 250v50"/></g>
+</svg>

@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="390" viewBox="0 0 1080 390" role="img" aria-labelledby="title desc">
+  <title id="title">权限撤销对账</title><desc id="desc">已提交、执行器未知、未提交和收口流程</desc>
+  <rect width="1080" height="390" rx="26" fill="#f7f8f5"/>
+  <text x="52" y="56" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif" font-size="25" font-weight="700" fill="#173f3d">撤销之后，先分清哪些动作已经发生</text>
+  <text x="52" y="84" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif" font-size="15" fill="#5b7470">阻断新提交，不等于抹掉已提交的外部事实</text>
+  <g font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif">
+    <rect x="52" y="122" width="220" height="126" rx="17" fill="#dfeee8" stroke="#afd0c3"/><text x="162" y="157" text-anchor="middle" font-size="17" font-weight="700" fill="#173f3d">已提交</text><text x="162" y="191" text-anchor="middle" font-size="13" fill="#48635f">external receipt</text><text x="162" y="215" text-anchor="middle" font-size="13" fill="#48635f">reconcile</text>
+    <rect x="292" y="122" width="220" height="126" rx="17" fill="#fff1d9" stroke="#e8c891"/><text x="402" y="157" text-anchor="middle" font-size="17" font-weight="700" fill="#173f3d">未知</text><text x="402" y="191" text-anchor="middle" font-size="13" fill="#48635f">at executor</text><text x="402" y="215" text-anchor="middle" font-size="13" fill="#48635f">read back</text>
+    <rect x="532" y="122" width="220" height="126" rx="17" fill="#f5d9dc" stroke="#dfb2b9"/><text x="642" y="157" text-anchor="middle" font-size="17" font-weight="700" fill="#173f3d">未提交</text><text x="642" y="191" text-anchor="middle" font-size="13" fill="#48635f">queued only</text><text x="642" y="215" text-anchor="middle" font-size="13" fill="#48635f">drop safely</text>
+    <rect x="772" y="122" width="256" height="126" rx="17" fill="#173f3d"/><text x="900" y="157" text-anchor="middle" font-size="17" font-weight="700" fill="#ffffff">收口</text><text x="900" y="191" text-anchor="middle" font-size="13" fill="#dbe9e5">request_id</text><text x="900" y="215" text-anchor="middle" font-size="13" fill="#dbe9e5">audit timeline</text>
+  </g>
+  <path d="M272 185h20M512 185h20M752 185h20" stroke="#7d9a95" stroke-width="3" stroke-linecap="round"/>
+  <rect x="52" y="294" width="976" height="44" rx="14" fill="#e8efeb"/><text x="540" y="322" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif" font-size="15" font-weight="700" fill="#365b61">已发生的动作要对账，真正未提交的意图才可以丢弃</text>
+</svg>

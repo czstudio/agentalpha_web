@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="360" viewBox="0 0 1080 360" role="img" aria-labelledby="title desc">
+  <title id="title">评测发布门槛</title><desc id="desc">样本切片通过硬门槛、质量、资源和回放证据后进入发布</desc>
+  <rect width="1080" height="360" rx="24" fill="#f7f8f5"/>
+  <text x="52" y="54" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif" font-size="26" font-weight="700" fill="#173f3d">从评测样本到发布门槛</text>
+  <text x="52" y="84" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif" font-size="15" fill="#5b7470">平均分只是入口，硬风险、长尾和资源约束决定能不能上线</text>
+  <g font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif">
+    <rect x="52" y="126" width="174" height="154" rx="18" fill="#eaf3f7" stroke="#b9d3df"/><text x="76" y="158" font-size="18" font-weight="700" fill="#173f3d">样本分层</text><text x="76" y="190" font-size="14" fill="#48635f">正常 / 扰动</text><text x="76" y="216" font-size="14" fill="#48635f">关键风险切片</text><text x="76" y="242" font-size="14" fill="#48635f">n、分子分母</text>
+    <rect x="246" y="126" width="174" height="154" rx="18" fill="#fae8e1" stroke="#e0b9ae"/><text x="270" y="158" font-size="18" font-weight="700" fill="#173f3d">硬门槛</text><text x="270" y="190" font-size="14" fill="#48635f">越权 = 0</text><text x="270" y="216" font-size="14" fill="#48635f">错误写入 = 0</text><text x="270" y="242" font-size="14" fill="#48635f">硬失败不平均</text>
+    <rect x="440" y="126" width="174" height="154" rx="18" fill="#dfeee8" stroke="#afd0c3"/><text x="464" y="158" font-size="18" font-weight="700" fill="#173f3d">质量长尾</text><text x="464" y="190" font-size="14" fill="#48635f">关键切片不退化</text><text x="464" y="216" font-size="14" fill="#48635f">报告区间</text><text x="464" y="242" font-size="14" fill="#48635f">拒答也要评</text>
+    <rect x="634" y="126" width="174" height="154" rx="18" fill="#fff1d9" stroke="#e8c891"/><text x="658" y="158" font-size="18" font-weight="700" fill="#173f3d">资源预算</text><text x="658" y="190" font-size="14" fill="#48635f">P95 / P99</text><text x="658" y="216" font-size="14" fill="#48635f">token / 单位成本</text><text x="658" y="242" font-size="14" fill="#48635f">增长可解释</text>
+    <rect x="828" y="126" width="200" height="154" rx="18" fill="#f2eee5" stroke="#d5c8ad"/><text x="852" y="158" font-size="18" font-weight="700" fill="#173f3d">发布证据</text><text x="852" y="190" font-size="14" fill="#48635f">trace / 版本</text><text x="852" y="216" font-size="14" fill="#48635f">回放包齐全</text><text x="852" y="242" font-size="14" fill="#48635f">通过才灰度</text>
+  </g>
+  <path d="M226 203h20M420 203h20M614 203h20M808 203h20" stroke="#7d9a95" stroke-width="3" stroke-linecap="round"/>
+</svg>

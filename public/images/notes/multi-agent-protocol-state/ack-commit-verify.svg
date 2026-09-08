@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="390" viewBox="0 0 1080 390" role="img" aria-labelledby="title desc">
+  <title id="title">ACK → commit → verify</title>
+  <desc id="desc">多 Agent 协议把收到消息、提交产物和回读校验区分开。</desc>
+  <rect width="1080" height="390" rx="26" fill="#f7f8f5"/>
+  <text x="58" y="54" fill="#17342f" font-size="25" font-weight="700" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif">ACK → commit → verify</text>
+  <text x="58" y="82" fill="#71837d" font-size="15" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif">消息到了，只说明入口收到了；提交并回读，才说明产物真的可用</text>
+  <g font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif">
+    <rect x="72" y="132" width="258" height="112" rx="20" fill="#eaf1f8" stroke="#b6cce0"/>
+    <text x="98" y="171" fill="#31516d" font-size="19" font-weight="700">1 · received</text>
+    <text x="98" y="201" fill="#587085" font-size="14">message_id / lease</text>
+    <text x="98" y="224" fill="#587085" font-size="14">只承诺“我看到了”</text>
+    <rect x="411" y="132" width="258" height="112" rx="20" fill="#e4f2ec" stroke="#a8d2bf"/>
+    <text x="437" y="171" fill="#205b4c" font-size="19" font-weight="700">2 · committed</text>
+    <text x="437" y="201" fill="#4e6c63" font-size="14">state transition</text>
+    <text x="437" y="224" fill="#4e6c63" font-size="14">幂等键绑定提交</text>
+    <rect x="750" y="132" width="258" height="112" rx="20" fill="#fff1d9" stroke="#e9c987"/>
+    <text x="776" y="171" fill="#795a20" font-size="19" font-weight="700">3 · verified</text>
+    <text x="776" y="201" fill="#896d39" font-size="14">read-back / checksum</text>
+    <text x="776" y="224" fill="#896d39" font-size="14">确认外部事实一致</text>
+  </g>
+  <g stroke="#6e9588" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M330 188h81"/><path d="M669 188h81"/>
+    <path d="M395 178l16 10-16 10"/><path d="M734 178l16 10-16 10"/>
+  </g>
+  <rect x="72" y="294" width="936" height="48" rx="15" fill="#17342f"/>
+  <text x="102" y="324" fill="#f5fbf8" font-size="17" font-weight="600" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif">消息到了 ≠ 产物可用：把 ACK、commit 和 verify 写进协议状态</text>
+</svg>

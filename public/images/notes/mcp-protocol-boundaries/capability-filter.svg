@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 360" role="img" aria-labelledby="title desc">
+  <title id="title">MCP 能力过滤</title>
+  <desc id="desc">服务器声明能力后，客户端和策略层按租户、任务和风险过滤，模型只能看到最终白名单。</desc>
+  <rect width="900" height="360" rx="28" fill="#f7f8f5"/>
+  <g font-family="sans-serif" text-anchor="middle">
+    <rect x="55" y="120" width="180" height="86" rx="18" fill="#eaf3f7" stroke="#b9d3df"/><text x="145" y="156" font-size="18" font-weight="700" fill="#24556a">Server 能力</text><text x="145" y="181" font-size="14" fill="#5a737d">20 个 tools</text>
+    <rect x="275" y="120" width="180" height="86" rx="18" fill="#fff1d9" stroke="#e8c891"/><text x="365" y="156" font-size="18" font-weight="700" fill="#704c20">租户与任务</text><text x="365" y="181" font-size="14" fill="#856a42">身份 · 数据域 · 环境</text>
+    <rect x="495" y="120" width="180" height="86" rx="18" fill="#fae8e1" stroke="#e0b9ae"/><text x="585" y="156" font-size="18" font-weight="700" fill="#753f32">风险策略</text><text x="585" y="181" font-size="14" fill="#8c5d51">读写 · 审批 · 预算</text>
+    <rect x="715" y="120" width="130" height="86" rx="18" fill="#173f3d"/><text x="780" y="156" font-size="18" font-weight="700" fill="#fff">最终白名单</text><text x="780" y="181" font-size="14" fill="#dfeee8">3 个 tools</text>
+  </g>
+  <g fill="none" stroke="#86a59d" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M235 163h40l-9-7m9 7-9 7"/><path d="M455 163h40l-9-7m9 7-9 7"/><path d="M675 163h40l-9-7m9 7-9 7"/></g>
+</svg>

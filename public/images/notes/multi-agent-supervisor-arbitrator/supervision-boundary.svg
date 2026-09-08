@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 360" role="img" aria-labelledby="title desc">
+  <title id="title">监督者与仲裁器边界</title>
+  <desc id="desc">监督者检查过程和边界，仲裁器比较候选证据并处理冲突。</desc>
+  <rect width="900" height="360" rx="28" fill="#f7f8f5"/>
+  <rect x="68" y="68" width="340" height="220" rx="22" fill="#dfeee8"/>
+  <rect x="492" y="68" width="340" height="220" rx="22" fill="#fff1d9"/>
+  <g font-family="sans-serif" text-anchor="middle">
+    <text x="238" y="116" font-size="24" font-weight="700" fill="#173f3d">监督者 Supervisor</text>
+    <text x="238" y="158" font-size="16" fill="#52706b">检查过程与边界</text>
+    <text x="238" y="202" font-size="15" fill="#52706b">schema · 权限 · 预算</text>
+    <text x="238" y="232" font-size="15" fill="#52706b">引用 · 状态迁移</text>
+    <text x="662" y="116" font-size="24" font-weight="700" fill="#704c20">仲裁器 Arbitrator</text>
+    <text x="662" y="158" font-size="16" fill="#856a42">比较候选与证据</text>
+    <text x="662" y="202" font-size="15" fill="#856a42">来源 · 独立性 · 时效</text>
+    <text x="662" y="232" font-size="15" fill="#856a42">实验 · 裁决 · 升级</text>
+  </g>
+  <path d="M408 178h84" stroke="#a18d6d" stroke-width="4" stroke-linecap="round"/>
+  <path d="m482 168 18 10-18 10" fill="#a18d6d"/>
+</svg>

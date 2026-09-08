@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="390" viewBox="0 0 1080 390" role="img" aria-labelledby="title desc">
+  <title id="title">多卡推理通信预算</title>
+  <desc id="desc">把排队、计算、通信和采样放在同一条多卡推理延迟账本里。</desc>
+  <rect width="1080" height="390" rx="26" fill="#f7f8f5"/>
+  <text x="52" y="56" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif" font-size="25" font-weight="700" fill="#173f3d">多卡通信预算</text>
+  <text x="52" y="84" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif" font-size="15" fill="#5b7470">加卡之前，先确认同步等待没有吃掉计算收益</text>
+  <g font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif">
+    <rect x="52" y="122" width="222" height="132" rx="17" fill="#dcecf4"/>
+    <text x="75" y="154" font-size="17" font-weight="700" fill="#244f62">queue</text>
+    <text x="75" y="184" font-size="13" fill="#365e67">到达与调度等待</text>
+    <text x="75" y="210" font-size="13" fill="#365e67">看 P99，不看平均值</text>
+    <rect x="292" y="122" width="222" height="132" rx="17" fill="#f4e9bd"/>
+    <text x="315" y="154" font-size="17" font-weight="700" fill="#5a4b19">compute</text>
+    <text x="315" y="184" font-size="13" fill="#786726">Prefill / Decode</text>
+    <text x="315" y="210" font-size="13" fill="#786726">记录 kernel 与显存</text>
+    <rect x="532" y="122" width="222" height="132" rx="17" fill="#f4dfe5"/>
+    <text x="555" y="154" font-size="17" font-weight="700" fill="#6b3349">communication</text>
+    <text x="555" y="184" font-size="13" fill="#7d5060">all-reduce / all-gather</text>
+    <text x="555" y="210" font-size="13" fill="#7d5060">链路与同步占比</text>
+    <rect x="772" y="122" width="222" height="132" rx="17" fill="#173f3d"/>
+    <text x="795" y="154" font-size="17" font-weight="700" fill="#f7f8f5">gate</text>
+    <text x="795" y="184" font-size="13" fill="#d8e7e1">share ≤ budget</text>
+    <text x="795" y="210" font-size="13" fill="#d8e7e1">否则拒绝继续加卡</text>
+  </g>
+  <path d="M274 188H286M514 188H526M754 188H766" fill="none" stroke="#7d9a95" stroke-width="3" stroke-linecap="round"/>
+  <path d="m280 180 8 8-8 8M520 180l8 8-8 8M760 180l8 8-8 8" fill="none" stroke="#7d9a95" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="52" y="296" width="976" height="42" rx="14" fill="#e8efeb"/>
+  <text x="78" y="323" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif" font-size="16" font-weight="700" fill="#173f3d">多卡收益 = 省下的计算时间 − 新增的通信与排队时间</text>
+</svg>

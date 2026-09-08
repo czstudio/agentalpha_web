@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 360" role="img" aria-labelledby="title desc">
+  <title id="title">失败恢复决策</title>
+  <desc id="desc">失败状态先经过对账，再决定重试、切换、降级或人工补偿。</desc>
+  <rect width="1080" height="360" rx="28" fill="#f7f8f5"/>
+  <g font-family="sans-serif" text-anchor="middle">
+    <rect x="42" y="122" width="180" height="96" rx="18" fill="#eaf3f7" stroke="#b9d3df"/><text x="132" y="160" font-size="19" font-weight="700" fill="#24556a">失败事件</text><text x="132" y="190" font-size="14" fill="#5a737d">超时 / 5xx / 限流</text>
+    <rect x="272" y="105" width="190" height="130" rx="18" fill="#fff1d9" stroke="#e8c891"/><text x="367" y="145" font-size="19" font-weight="700" fill="#704c20">状态判断</text><text x="367" y="175" font-size="14" fill="#856a42">已发送？有副作用？</text><text x="367" y="200" font-size="13" fill="#856a42">幂等键 + request_id</text>
+    <rect x="512" y="74" width="140" height="74" rx="16" fill="#dfeee8" stroke="#afd0c3"/><text x="582" y="104" font-size="17" font-weight="700" fill="#173f3d">对账</text><text x="582" y="128" font-size="13" fill="#52706b">查最终状态</text>
+    <rect x="512" y="166" width="140" height="74" rx="16" fill="#fae8e1" stroke="#e0b9ae"/><text x="582" y="196" font-size="17" font-weight="700" fill="#753f32">保护</text><text x="582" y="220" font-size="13" fill="#8c5d51">预算 + 熔断</text>
+    <rect x="710" y="45" width="130" height="70" rx="15" fill="#eaf3f7" stroke="#b9d3df"/><text x="775" y="75" font-size="17" font-weight="700" fill="#24556a">重试</text><text x="775" y="98" font-size="13" fill="#5a737d">幂等退避</text>
+    <rect x="710" y="143" width="130" height="70" rx="15" fill="#dfeee8" stroke="#afd0c3"/><text x="775" y="173" font-size="17" font-weight="700" fill="#173f3d">换工具</text><text x="775" y="196" font-size="13" fill="#52706b">能力验收</text>
+    <rect x="710" y="241" width="130" height="70" rx="15" fill="#fff1d9" stroke="#e8c891"/><text x="775" y="271" font-size="17" font-weight="700" fill="#704c20">降级/人工</text><text x="775" y="294" font-size="13" fill="#856a42">补偿任务</text>
+    <rect x="896" y="122" width="140" height="96" rx="18" fill="#173f3d"/><text x="966" y="160" font-size="18" font-weight="700" fill="#fff">最终回执</text><text x="966" y="190" font-size="13" fill="#dfeee8">可解释、可追溯</text>
+  </g>
+  <g fill="none" stroke="#86a59d" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M222 170h50l-10-7m10 7-10 7"/><path d="M462 150l50-40"/><path d="M462 190h50"/><path d="M652 110l58-28"/><path d="M652 190h58"/><path d="M652 225l58 45"/><path d="M840 80l56 75"/><path d="M840 178h56"/><path d="M840 275l56-70"/></g>
+</svg>

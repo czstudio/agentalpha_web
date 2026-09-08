@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="390" viewBox="0 0 1080 390" role="img" aria-labelledby="title desc">
+  <title id="title">Judge 分歧采样</title>
+  <desc id="desc">从总体分数下钻到拒答、引用、工具轨迹和长上下文切片</desc>
+  <rect width="1080" height="390" rx="26" fill="#f7f8f5"/>
+  <text x="52" y="58" font-family="Inter,Arial,sans-serif" font-size="28" font-weight="700" fill="#173f3d">Judge 分歧采样</text>
+  <text x="52" y="89" font-family="Inter,Arial,sans-serif" font-size="17" fill="#5b7470">平均相关性之外，优先审查差异最大的高风险切片</text>
+  <g font-family="Inter,Arial,sans-serif">
+    <rect x="52" y="122" width="190" height="126" rx="17" fill="#eaf3f7" stroke="#b9d3df"/>
+    <text x="75" y="160" font-size="20" font-weight="700" fill="#173f3d">01</text>
+    <text x="75" y="190" font-size="17" fill="#365b61">总体分数</text>
+    <text x="75" y="219" font-size="15" fill="#5b7470">先看趋势</text>
+    <rect x="262" y="122" width="190" height="126" rx="17" fill="#fff1d9" stroke="#e8c891"/>
+    <text x="285" y="160" font-size="20" font-weight="700" fill="#173f3d">02</text>
+    <text x="285" y="190" font-size="17" fill="#365b61">分歧样本</text>
+    <text x="285" y="219" font-size="15" fill="#5b7470">挑最大差异</text>
+    <rect x="472" y="122" width="190" height="126" rx="17" fill="#dfeee8" stroke="#afd0c3"/>
+    <text x="495" y="160" font-size="20" font-weight="700" fill="#173f3d">03</text>
+    <text x="495" y="190" font-size="17" fill="#365b61">风险切片</text>
+    <text x="495" y="219" font-size="15" fill="#5b7470">拒答 / 引用</text>
+    <rect x="682" y="122" width="190" height="126" rx="17" fill="#f5d9dc" stroke="#dfb2b9"/>
+    <text x="705" y="160" font-size="20" font-weight="700" fill="#173f3d">04</text>
+    <text x="705" y="190" font-size="17" fill="#365b61">人工复核</text>
+    <text x="705" y="219" font-size="15" fill="#5b7470">解释误差来源</text>
+    <rect x="892" y="122" width="136" height="126" rx="17" fill="#173f3d"/>
+    <text x="915" y="172" font-size="18" font-weight="700" fill="#f7f8f5">05</text>
+    <text x="915" y="204" font-size="17" fill="#f7f8f5">校准</text>
+    <text x="915" y="229" font-size="14" fill="#c7ded6">再放行</text>
+    <path d="M242 185H258M452 185H468M662 185H678M872 185H888" fill="none" stroke="#7d9a95" stroke-width="3" stroke-linecap="round"/>
+  </g>
+  <rect x="52" y="294" width="976" height="44" rx="14" fill="#e8efeb"/>
+  <text x="76" y="322" font-family="Inter,Arial,sans-serif" font-size="16" fill="#365b61">分歧可解释、风险切片达标，Judge 才能承担更多自动评测</text>
+</svg>

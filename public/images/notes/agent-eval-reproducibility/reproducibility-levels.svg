@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 390" role="img" aria-labelledby="title desc">
+  <title id="title">Agent 复现等级</title>
+  <desc id="desc">从统计复现到端到端审计逐级增加保存内容</desc>
+  <rect width="1080" height="390" rx="28" fill="#f7f8f5"/>
+  <text x="56" y="56" font-family="Arial,sans-serif" font-size="26" font-weight="700" fill="#173f3d">Reproducibility levels</text>
+  <text x="56" y="84" font-family="Arial,sans-serif" font-size="15" fill="#58716e">风险越高，回放需要的证据越完整</text>
+  <g font-family="Arial,sans-serif" text-anchor="middle">
+    <rect x="56" y="132" width="220" height="104" rx="18" fill="#eaf3f7" stroke="#b9d3df"/><text x="166" y="170" font-size="20" font-weight="700" fill="#24556a">R0</text><text x="166" y="204" font-size="15" fill="#5a737d">统计指标</text>
+    <rect x="306" y="132" width="220" height="104" rx="18" fill="#dfeee8" stroke="#afd0c3"/><text x="416" y="170" font-size="20" font-weight="700" fill="#173f3d">R1</text><text x="416" y="204" font-size="15" fill="#52706b">轨迹回放</text>
+    <rect x="556" y="132" width="220" height="104" rx="18" fill="#fff1d9" stroke="#e8c891"/><text x="666" y="170" font-size="20" font-weight="700" fill="#704c20">R2</text><text x="666" y="204" font-size="15" fill="#856a42">确定性 fixture</text>
+    <rect x="806" y="132" width="218" height="104" rx="18" fill="#173f3d"/><text x="915" y="170" font-size="20" font-weight="700" fill="#f7f8f5">R3</text><text x="915" y="204" font-size="15" fill="#dfeee8">端到端审计</text>
+  </g>
+  <path d="M106 288h870" stroke="#79908c" stroke-width="3" stroke-linecap="round"/><text x="540" y="328" font-family="Arial,sans-serif" font-size="15" text-anchor="middle" fill="#68706c">保存成本 ↑ · 风险可解释性 ↑</text>
+</svg>

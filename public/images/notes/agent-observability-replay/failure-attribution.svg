@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 500" role="img" aria-labelledby="title desc">
+  <title id="title">Agent failure attribution</title>
+  <desc id="desc">The first anomaly in a task timeline is attributed to input, policy, tool, environment or evaluation.</desc>
+  <rect width="1200" height="500" rx="28" fill="#f7f8f5"/>
+  <text x="60" y="62" font-family="Arial, sans-serif" font-size="27" font-weight="700" fill="#17211d">Find the first anomaly, then assign ownership</text>
+  <text x="60" y="96" font-family="Arial, sans-serif" font-size="16" fill="#5f6d66">The last failed answer is rarely where the failure started.</text>
+  <g font-family="Arial, sans-serif">
+    <path d="M120 250H1070" stroke="#6d8c82" stroke-width="4"/>
+    <g fill="#d8efe7" stroke="#217d6e" stroke-width="3">
+      <circle cx="170" cy="250" r="40"/><circle cx="340" cy="250" r="40"/><circle cx="510" cy="250" r="40"/>
+      <circle cx="680" cy="250" r="40"/><circle cx="850" cy="250" r="40"/><circle cx="1020" cy="250" r="40"/>
+    </g>
+    <g font-size="15" font-weight="700" fill="#176658" text-anchor="middle">
+      <text x="170" y="256">输入</text><text x="340" y="256">计划</text><text x="510" y="256">工具</text><text x="680" y="256">环境</text><text x="850" y="256">验收</text><text x="1020" y="256">结果</text>
+    </g>
+    <circle cx="510" cy="250" r="52" fill="none" stroke="#bc8052" stroke-width="7"/>
+    <path d="M510 192v-58" stroke="#bc8052" stroke-width="3"/>
+    <rect x="377" y="108" width="266" height="48" rx="14" fill="#f4e7d9" stroke="#bc8052" stroke-width="2"/>
+    <text x="418" y="138" font-size="16" font-weight="700" fill="#8f5430">第一个异常：tool schema 变更</text>
+    <g font-size="14" fill="#5f6d66" text-anchor="middle">
+      <text x="170" y="330">goal / auth</text><text x="340" y="330">policy / step</text><text x="510" y="330">timeout / args</text><text x="680" y="330">data / state</text><text x="850" y="330">check / evidence</text><text x="1020" y="330">最终失败</text>
+    </g>
+    <rect x="220" y="398" width="760" height="48" rx="14" fill="#ffffff" stroke="#d5ddd8"/>
+    <text x="288" y="428" font-size="15" fill="#5f6d66">修复顺序：止损 → 归因 → 最小复现 → 回归集 → 灰度</text>
+  </g>
+</svg>

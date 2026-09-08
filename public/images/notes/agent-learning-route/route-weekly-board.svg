@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="390" viewBox="0 0 1080 390" role="img" aria-labelledby="title desc">
+  <title id="title">四周学习看板</title><desc id="desc">主问题、输入、产物、验收信号和下一步组成可交接的学习路线</desc>
+  <rect width="1080" height="390" rx="26" fill="#f7f8f5"/>
+  <text x="52" y="56" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif" font-size="25" font-weight="700" fill="#173f3d">四周学习看板：从阅读到交付</text>
+  <text x="52" y="84" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif" font-size="15" fill="#5b7470">每轮只改一个变量，产物必须能被别人接手</text>
+  <g font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif">
+    <rect x="52" y="122" width="190" height="126" rx="17" fill="#eaf3f7" stroke="#b9d3df"/><text x="147" y="157" text-anchor="middle" font-size="17" font-weight="700" fill="#173f3d">主问题</text><text x="147" y="191" text-anchor="middle" font-size="13" fill="#48635f">版本变化</text><text x="147" y="215" text-anchor="middle" font-size="13" fill="#48635f">为何影响引用</text>
+    <rect x="262" y="122" width="190" height="126" rx="17" fill="#fff1d9" stroke="#e8c891"/><text x="357" y="157" text-anchor="middle" font-size="17" font-weight="700" fill="#173f3d">输入</text><text x="357" y="191" text-anchor="middle" font-size="13" fill="#48635f">index-r16</text><text x="357" y="215" text-anchor="middle" font-size="13" fill="#48635f">replay-640</text>
+    <rect x="472" y="122" width="190" height="126" rx="17" fill="#dfeee8" stroke="#afd0c3"/><text x="567" y="157" text-anchor="middle" font-size="17" font-weight="700" fill="#173f3d">产物</text><text x="567" y="191" text-anchor="middle" font-size="13" fill="#48635f">可运行脚本</text><text x="567" y="215" text-anchor="middle" font-size="13" fill="#48635f">证据覆盖表</text>
+    <rect x="682" y="122" width="190" height="126" rx="17" fill="#f5d9dc" stroke="#dfb2b9"/><text x="777" y="157" text-anchor="middle" font-size="17" font-weight="700" fill="#173f3d">验收</text><text x="777" y="191" text-anchor="middle" font-size="13" fill="#48635f">可回放</text><text x="777" y="215" text-anchor="middle" font-size="13" fill="#48635f">首处分叉</text>
+    <rect x="892" y="122" width="136" height="126" rx="17" fill="#173f3d"/><text x="960" y="157" text-anchor="middle" font-size="17" font-weight="700" fill="#ffffff">下一步</text><text x="960" y="191" text-anchor="middle" font-size="13" fill="#dbe9e5">补样本</text><text x="960" y="215" text-anchor="middle" font-size="13" fill="#dbe9e5">继续</text>
+  </g>
+  <path d="M242 185h20M452 185h20M662 185h20M872 185h20" stroke="#7d9a95" stroke-width="3" stroke-linecap="round"/>
+  <rect x="52" y="294" width="976" height="44" rx="14" fill="#e8efeb"/><text x="540" y="322" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif" font-size="15" font-weight="700" fill="#365b61">没有代码、失败样本和可复述回答，状态就不能标记为完成</text>
+</svg>

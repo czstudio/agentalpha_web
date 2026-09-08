@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="390" viewBox="0 0 1080 390" role="img" aria-labelledby="title desc">
+  <title id="title">Trace 脱敏回放</title>
+  <desc id="desc">公开摘要、受控 artifact 和因果关联同时保留。</desc>
+  <rect width="1080" height="390" rx="28" fill="#F7F8F5"/>
+  <text x="54" y="56" font-family="Arial,'Noto Sans SC',sans-serif" font-size="26" font-weight="700" fill="#173F3D">Trace 脱敏也要保留因果</text>
+  <text x="54" y="88" font-family="Arial,'Noto Sans SC',sans-serif" font-size="16" fill="#5B7470">不复制隐私，也不把回放变成一段无关联摘要</text>
+  <g font-family="Arial,'Noto Sans SC',sans-serif" text-anchor="middle">
+    <rect x="54" y="132" width="214" height="126" rx="18" fill="#EAF3F7"/><text x="161" y="172" font-size="19" font-weight="700" fill="#275261">公开 trace</text><text x="161" y="207" font-size="15" fill="#52727A">pseudonym</text><text x="161" y="233" font-size="15" fill="#52727A">shape + version</text>
+    <rect x="292" y="132" width="214" height="126" rx="18" fill="#E5F0ED"/><text x="399" y="172" font-size="19" font-weight="700" fill="#1C615A">受控 artifact</text><text x="399" y="207" font-size="15" fill="#31514E">evidence_ref</text><text x="399" y="233" font-size="15" fill="#31514E">gated raw</text>
+    <rect x="530" y="132" width="214" height="126" rx="18" fill="#FFF0D6"/><text x="637" y="172" font-size="19" font-weight="700" fill="#875B26">一致性</text><text x="637" y="207" font-size="15" fill="#6C5632">parent / child</text><text x="637" y="233" font-size="15" fill="#6C5632">idempotency stable</text>
+    <rect x="768" y="132" width="260" height="126" rx="18" fill="#173F3D"/><text x="898" y="182" font-size="19" font-weight="700" fill="#FFFFFF">dry-run 回放</text><text x="898" y="218" font-size="15" fill="#D8EBE5">secret = never replay</text>
+  </g>
+  <g fill="none" stroke="#7D9A95" stroke-width="3" stroke-linecap="round"><path d="M268 195h24"/><path d="M506 195h24"/><path d="M744 195h24"/></g>
+  <rect x="54" y="296" width="974" height="43" rx="14" fill="#E8EFEB"/><text x="76" y="324" font-family="Arial,'Noto Sans SC',sans-serif" font-size="15" fill="#365B61">敏感字段不可恢复，参数结构、证据引用和因果链仍必须可复现</text>
+</svg>

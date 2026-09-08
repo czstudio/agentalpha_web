@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="470" viewBox="0 0 1200 470">
+  <rect width="1200" height="470" fill="#fbfaf7"/>
+  <text x="70" y="68" font-family="Arial,'Noto Sans SC',sans-serif" font-size="28" font-weight="700" fill="#24352f">位置距离会改变注意力关系</text>
+  <line x1="130" y1="310" x2="1040" y2="310" stroke="#9aa8a2" stroke-width="3"/>
+  <g font-family="Arial,'Noto Sans SC',sans-serif" text-anchor="middle">
+    <circle cx="220" cy="310" r="34" fill="#e9f1f8" stroke="#a6bed5" stroke-width="2"/><text x="220" y="316" font-size="17" fill="#2d607e">t1</text>
+    <circle cx="460" cy="310" r="34" fill="#e8f3ee" stroke="#9ec8b3" stroke-width="2"/><text x="460" y="316" font-size="17" fill="#285d4d">t2</text>
+    <circle cx="760" cy="310" r="34" fill="#f2eee2" stroke="#d3bb7d" stroke-width="2"/><text x="760" y="316" font-size="17" fill="#7c622e">t3</text>
+    <circle cx="980" cy="310" r="34" fill="#f8e9e6" stroke="#d5a299" stroke-width="2"/><text x="980" y="316" font-size="17" fill="#985043">t4</text>
+  </g>
+  <path d="M220 230C360 120 620 120 760 230" fill="none" stroke="#5f8e7c" stroke-width="4"/><path d="M220 235C500 60 830 60 980 235" fill="none" stroke="#c27a5e" stroke-width="3" stroke-dasharray="9 9"/>
+  <text x="430" y="132" font-family="Arial,'Noto Sans SC',sans-serif" font-size="17" fill="#4f7768">近距离依赖</text><text x="640" y="85" font-family="Arial,'Noto Sans SC',sans-serif" font-size="17" fill="#985644">远距离位置关系更难稳定外推</text>
+</svg>

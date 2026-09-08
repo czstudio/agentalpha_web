@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 940 380" role="img" aria-labelledby="title desc">
+  <title id="title">MCP 架构边界</title>
+  <desc id="desc">Host 通过 Client 连接 MCP Server，Server 再访问外部系统并暴露工具、资源和提示。</desc>
+  <rect width="940" height="380" rx="28" fill="#f7f8f5"/>
+  <g font-family="sans-serif" text-anchor="middle">
+    <rect x="50" y="105" width="180" height="150" rx="20" fill="#eaf3f7" stroke="#b9d3df"/><text x="140" y="153" font-size="22" font-weight="700" fill="#24556a">Host</text><text x="140" y="184" font-size="14" fill="#5a737d">Agent 运行时</text><text x="140" y="210" font-size="14" fill="#5a737d">模型、会话、策略</text>
+    <rect x="285" y="105" width="180" height="150" rx="20" fill="#dfeee8" stroke="#afd0c3"/><text x="375" y="153" font-size="22" font-weight="700" fill="#173f3d">Client</text><text x="375" y="184" font-size="14" fill="#52706b">连接与能力协商</text><text x="375" y="210" font-size="14" fill="#52706b">超时、认证、路由</text>
+    <rect x="520" y="105" width="180" height="150" rx="20" fill="#fff1d9" stroke="#e8c891"/><text x="610" y="153" font-size="22" font-weight="700" fill="#704c20">Server</text><text x="610" y="184" font-size="14" fill="#856a42">Tools · Resources · Prompts</text><text x="610" y="210" font-size="14" fill="#856a42">能力白名单</text>
+    <rect x="755" y="105" width="135" height="150" rx="20" fill="#fae8e1" stroke="#e0b9ae"/><text x="822" y="153" font-size="20" font-weight="700" fill="#753f32">外部系统</text><text x="822" y="184" font-size="14" fill="#8c5d51">数据库</text><text x="822" y="210" font-size="14" fill="#8c5d51">SaaS / API</text>
+  </g>
+  <g fill="none" stroke="#86a59d" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M230 180h55l-10-7m10 7-10 7"/><path d="M465 180h55l-10-7m10 7-10 7"/><path d="M700 180h55l-10-7m10 7-10 7"/></g>
+  <text x="470" y="320" text-anchor="middle" font-family="sans-serif" font-size="16" fill="#52706b">协议标准化的是连接与描述，不会自动替你完成权限、隔离和数据治理</text>
+</svg>

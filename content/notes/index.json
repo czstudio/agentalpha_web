@@ -1,6 +1,555 @@
 {
   "notes": [
     {
+      "slug": "agent-system-design-interview",
+      "title": "Agent 系统设计题怎么答：从用户目标一路画到指标和回退",
+      "excerpt": "系统设计面试不要求一上来画出十几个服务，而是看你能否把目标、约束、状态、工具、证据、评测和上线风险串成一条可验证路径。先问清问题，再做取舍。",
+      "series": "通用与软实力",
+      "seriesNo": "12",
+      "number": "74",
+      "minutes": 24
+    },
+    {
+      "slug": "llm-long-context",
+      "title": "长上下文不是把窗口拉长：先解决信息进入、留存和被正确引用",
+      "excerpt": "长上下文系统的瓶颈往往不是能塞多少 token，而是关键事实能否被定位、保留和引用。把上下文预算拆成任务、证据、工具和输出，并用中间信息测试验证，才能谈长文能力。",
+      "series": "LLM 基础",
+      "seriesNo": "04",
+      "number": "73",
+      "minutes": 22
+    },
+    {
+      "slug": "llm-model-selection",
+      "title": "LLM 选型不是比一个总榜：把任务、成本和失败代价放进同一张表",
+      "excerpt": "模型选型真正要比较的是任务切片上的质量、延迟、成本、稳定性和可控性。先定义不可失败的场景，再用固定数据做路由和灰度，而不是被一个综合分数牵着走。",
+      "series": "LLM 基础",
+      "seriesNo": "04",
+      "number": "72",
+      "minutes": 21
+    },
+    {
+      "slug": "llm-quantization-serving",
+      "title": "量化不是把模型变小就结束：质量、带宽和服务形态要一起看",
+      "excerpt": "量化通过降低权重或激活的数值精度减少显存和带宽，但误差会集中影响敏感层、长上下文和工具调用。面试要能讲清量化粒度、校准数据、部署硬件和回退策略。",
+      "series": "LLM 基础",
+      "seriesNo": "04",
+      "number": "71",
+      "minutes": 22
+    },
+    {
+      "slug": "llm-tokenizer-position-encoding",
+      "title": "Tokenizer 和位置编码：模型为什么看不懂你以为的一个词",
+      "excerpt": "Token 不是字数，位置也不只是给每个词贴序号。面试回答要把分词粒度、上下文长度、位置外推和成本体验连起来，解释清楚为什么同一句话在不同语言和长度下表现不同。",
+      "series": "LLM 基础",
+      "seriesNo": "04",
+      "number": "70",
+      "minutes": 21
+    },
+    {
+      "slug": "tool-a2a-transport",
+      "title": "Agent 到 Agent 的通信边界：先设计 envelope，再讨论协议名字",
+      "excerpt": "A2A 场景最先要解决的不是选哪个协议，而是消息如何寻址、鉴权、版本化、幂等和回执。把传输层和任务层分开，才能在不同 Agent、队列和网关之间迁移。",
+      "series": "工具调用",
+      "seriesNo": "10",
+      "number": "69",
+      "minutes": 21
+    },
+    {
+      "slug": "tool-streaming-gateway",
+      "title": "工具调用为什么要做流式网关：别让用户只看到一个漫长的转圈",
+      "excerpt": "Tool streaming 不只是把文字切成小段，而是把工具调用拆成可排序、可恢复的事件流。网关要处理顺序、背压、断线续传、权限和最终提交，体验和可靠性才能同时成立。",
+      "series": "工具调用",
+      "seriesNo": "10",
+      "number": "68",
+      "minutes": 21
+    },
+    {
+      "slug": "rag-graph-retrieval",
+      "title": "Graph RAG 不是给知识库画一张图：关键是让证据沿关系可回溯",
+      "excerpt": "当问题需要跨文档、跨实体、多跳关系时，图结构能补足纯向量相似度的短板。设计时要把节点、边、来源、时间和路径评分一起纳入，而不是只展示一个漂亮的关系网络。",
+      "series": "RAG",
+      "seriesNo": "03",
+      "number": "67",
+      "minutes": 23
+    },
+    {
+      "slug": "rag-query-rewrite",
+      "title": "RAG 查询改写不是把问题说长：先守住原意，再扩大可检索性",
+      "excerpt": "Query rewrite、拆解和假设文档的价值，是把用户表达映射到知识库的语言，而不是让模型自由发挥新问题。每一次改写都要能回指原问、记录版本并可被否决。",
+      "series": "RAG",
+      "seriesNo": "03",
+      "number": "66",
+      "minutes": 21
+    },
+    {
+      "slug": "rag-vector-database-selection",
+      "title": "RAG 选向量库不能只看排行榜：先把检索目标和边界算清楚",
+      "excerpt": "向量库不是 RAG 的魔法核心。先定义语料规模、过滤条件、更新频率、召回目标和尾延迟，再在 HNSW、倒排、混合检索和托管服务之间做选择。",
+      "series": "RAG",
+      "seriesNo": "03",
+      "number": "65",
+      "minutes": 22
+    },
+    {
+      "slug": "agent-handoff-contract",
+      "title": "多智能体交接不是把聊天记录转发过去：先把合同写清楚",
+      "excerpt": "多智能体系统最容易被忽略的不是角色数量，而是交接边界。把任务、状态、证据、权限、幂等键和确认协议写成合同，协作才不会变成一群 Agent 互相甩锅。",
+      "series": "多智能体",
+      "seriesNo": "07",
+      "number": "64",
+      "minutes": 23
+    },
+    {
+      "slug": "agent-deployment-reliability",
+      "title": "Agent 线上可靠性：成功、失败与未知结果都要有路",
+      "excerpt": "线上 Agent 不能只记录成功和失败，还要把超时、重试、未知副作用和人工接管写成可恢复状态。可靠性来自边界、幂等、预算与回放，不是多加一句提示词。",
+      "series": "Agent 架构",
+      "seriesNo": "06",
+      "number": "63",
+      "minutes": 24
+    },
+    {
+      "slug": "agent-context-engineering",
+      "title": "Context Engineering：别把所有历史都塞进 Prompt",
+      "excerpt": "上下文工程的核心不是堆更多文字，而是决定任务、证据、工具结果和历史状态在什么时机、以什么结构进入模型。用信号密度和预算约束，让 Agent 看见真正重要的东西。",
+      "series": "Agent 架构",
+      "seriesNo": "06",
+      "number": "62",
+      "minutes": 23
+    },
+    {
+      "slug": "agent-workflow-vs-agent",
+      "title": "Workflow 还是 Agent：先看不确定性，再决定要不要把方向盘交出去",
+      "excerpt": "面试里的 Workflow vs Agent 不是概念二选一，而是一次边界设计。把不确定性、风险、验证成本和回退方式放在同一张表里，答案才不会停在‘Agent 更灵活’。",
+      "series": "Agent 架构",
+      "seriesNo": "06",
+      "number": "61",
+      "minutes": 22
+    },
+    {
+      "slug": "agent-core-architecture",
+      "title": "Agent 到底是什么：别把会调用模型的流程都叫 Agent",
+      "excerpt": "Agent 不是给流程加一个聊天框。用目标、状态、策略、行动、观察和停止条件拆开它，才能解释 Agent 与 Workflow 的边界，以及为什么线上系统必须保留可验证的状态转换。",
+      "series": "Agent 架构",
+      "seriesNo": "06",
+      "number": "24",
+      "minutes": 24
+    },
+    {
+      "slug": "bytedance-agent-interview",
+      "title": "字节高频 Agent 题：从 RAG 细节到线上性能，面试官在追什么",
+      "excerpt": "字节类 Agent 面试题常把知识库、工具调用和线上指标串在一起追问。准备时不要背单点名词，要能从需求判断、检索证据、状态恢复一路讲到延迟、成本和灰度。",
+      "series": "五厂高频题",
+      "seriesNo": "13",
+      "number": "60",
+      "minutes": 24
+    },
+    {
+      "slug": "agent-learning-route",
+      "title": "Agent 工程师的学习路线怎么排：基础、项目、论文和面试如何互相喂养",
+      "excerpt": "学习 Agent 不是把论文、框架和面试题各自刷完。用基础知识解释项目，用项目暴露问题，再用论文和面试复述验证，四条线循环推进，才不会学完仍然不会做。",
+      "series": "通用与软实力",
+      "seriesNo": "12",
+      "number": "59",
+      "minutes": 22
+    },
+    {
+      "slug": "agent-technical-disagreement",
+      "title": "技术方案有争议怎么办？从不同意见到可验证实验",
+      "excerpt": "技术争议不是谁声音大谁赢。把分歧改写成可比较的假设，固定数据和指标，做一个成本可控的实验，再用决策记录留下取舍，团队就能从争论回到事实。",
+      "series": "通用与软实力",
+      "seriesNo": "12",
+      "number": "58",
+      "minutes": 20
+    },
+    {
+      "slug": "agent-failure-story",
+      "title": "面试官追问失败案例时，怎样讲得具体又不自毁",
+      "excerpt": "失败案例不是自我否定题，而是边界和复盘题。选择一个真实失败，按现象、影响、定位、修复和剩余风险讲清楚，既不甩锅，也不把所有责任都揽到自己身上。",
+      "series": "通用与软实力",
+      "seriesNo": "12",
+      "number": "57",
+      "minutes": 20
+    },
+    {
+      "slug": "agent-project-evidence",
+      "title": "项目讲不深，通常不是项目小而是证据链断了",
+      "excerpt": "面试官追问项目时，真正想听的不是组件数量，而是从问题、动作到结果的证据链。把背景、决策、实现、实验和复盘串起来，小项目也能讲出工程深度。",
+      "series": "通用与软实力",
+      "seriesNo": "12",
+      "number": "56",
+      "minutes": 21
+    },
+    {
+      "slug": "agent-interview-unknown",
+      "title": "不会的 Agent 面试题怎么答：先拆问题，再声明假设",
+      "excerpt": "遇到没做过的 Agent 题，不需要装作知道所有细节。先把目标、约束、输入输出和风险拆开，再用假设、方案、验证和取舍组织回答，面试官反而更容易看到你的工程判断。",
+      "series": "通用与软实力",
+      "seriesNo": "12",
+      "number": "55",
+      "minutes": 20
+    },
+    {
+      "slug": "agent-framework-contribution",
+      "title": "项目被追问‘你做的和框架有什么区别’，怎样讲出自己的贡献",
+      "excerpt": "面试官不是想听你背框架 API，而是想知道你做了哪些不可替代的工程决策。把框架能力、项目约束、个人贡献和验证证据分层，才能讲清楚自己真正改变了什么。",
+      "series": "项目深挖",
+      "seriesNo": "11",
+      "number": "54",
+      "minutes": 22
+    },
+    {
+      "slug": "agent-cost-control",
+      "title": "线上成本突然翻倍，Agent 项目从哪里开始降本",
+      "excerpt": "降本不是把所有请求换成小模型，而是先画出一次成功任务的成本栈，再按风险做路由、缓存、上下文压缩和预算护栏。",
+      "series": "项目深挖",
+      "seriesNo": "11",
+      "number": "53",
+      "minutes": 22
+    },
+    {
+      "slug": "agent-metrics-baseline",
+      "title": "项目里的指标是怎么来的？把 Demo 讲成可验证的工程系统",
+      "excerpt": "一个漂亮的成功率不能证明 Agent 可靠。先定义任务结果、过程、证据安全、成本体验，再固定数据和版本指纹，指标才有比较和归因的意义。",
+      "series": "项目深挖",
+      "seriesNo": "11",
+      "number": "52",
+      "minutes": 23
+    },
+    {
+      "slug": "agent-rag-why",
+      "title": "你的 Agent 项目为什么要用 RAG？不用会怎样",
+      "excerpt": "RAG 不是 Agent 的默认装饰。只有当知识会变化、数据是私有的、答案需要引用或上下文无法稳定放进提示词时，检索才真正解决问题。",
+      "series": "项目深挖",
+      "seriesNo": "11",
+      "number": "51",
+      "minutes": 22
+    },
+    {
+      "slug": "enterprise-knowledge-agent-design",
+      "title": "面试官让你从零设计企业知识库 Agent，先画哪张图",
+      "excerpt": "企业知识库 Agent 不是‘向量库加一个聊天框’。从内容接入、版本、租户权限、检索、编排到证据评测，都要在一张能落地的架构图里说清楚。",
+      "series": "项目深挖",
+      "seriesNo": "11",
+      "number": "50",
+      "minutes": 24
+    },
+    {
+      "slug": "code-agent-delivery-loop",
+      "title": "从需求到补丁：一个可靠 Code Agent 的任务分解、修改和验收",
+      "excerpt": "可靠的 Code Agent 不把一句需求直接变成一大段代码，而是先拆成可验证的任务，再沿仓库证据做小步修改，最后用分层验收证明补丁真的能交付。",
+      "series": "Code Agent",
+      "seriesNo": "02",
+      "number": "49",
+      "minutes": 22
+    },
+    {
+      "slug": "tool-permission-audit",
+      "title": "如何给工具调用做权限控制和审计？",
+      "excerpt": "Agent 的权限不是给一个 API key 就结束。把主体、租户、资源、动作、审批、幂等和审计证据放进同一条调用链，才能知道谁在什么条件下让系统做了什么。",
+      "series": "工具调用",
+      "seriesNo": "10",
+      "number": "48",
+      "minutes": 21
+    },
+    {
+      "slug": "tool-output-shaping",
+      "title": "工具返回一大段 JSON，为什么 Agent 反而更容易做错",
+      "excerpt": "工具结果不是越完整越好。把观察对象、字段优先级、分页、截断和证据引用设计清楚，Agent 才能在有限上下文里抓住真正影响下一步的事实。",
+      "series": "工具调用",
+      "seriesNo": "10",
+      "number": "47",
+      "minutes": 19
+    },
+    {
+      "slug": "mcp-protocol-boundaries",
+      "title": "MCP 解决了什么问题？工具协议标准化之后仍有哪些坑",
+      "excerpt": "MCP 把模型与外部工具、资源和提示模板的连接方式标准化了，但它没有自动解决身份、权限、版本、租户隔离和副作用控制。协议统一只是起点。",
+      "series": "工具调用",
+      "seriesNo": "10",
+      "number": "46",
+      "minutes": 21
+    },
+    {
+      "slug": "tool-retry-policy",
+      "title": "工具调用失败后，Agent 应该重试、换工具还是停下来？",
+      "excerpt": "失败不是一个布尔值。先判断请求有没有到达、外部副作用是否未知、参数是否有问题，再决定重试、换工具、回退还是转人工。",
+      "series": "工具调用",
+      "seriesNo": "10",
+      "number": "45",
+      "minutes": 20
+    },
+    {
+      "slug": "tool-function-contract",
+      "title": "Function Calling 不是让模型‘会调用函数’：参数、协议和验证",
+      "excerpt": "Function Calling 真正解决的是把自然语言决策变成可校验的动作请求。Schema、解析、权限和执行回执缺一环，模型就可能把一个看似漂亮的 JSON 变成线上事故。",
+      "series": "工具调用",
+      "seriesNo": "10",
+      "number": "44",
+      "minutes": 20
+    },
+    {
+      "slug": "agent-eval-reproducibility",
+      "title": "一次 Agent 实验怎样算可复现？从版本指纹到结果归因",
+      "excerpt": "同一套 Prompt 第二次跑出不同结果，不一定是模型随机；工具、知识库、系统时间、并发和评测器都可能变了。可复现实验需要锁住完整的运行环境，并记录能解释结果的证据。",
+      "series": "评测",
+      "seriesNo": "09",
+      "number": "43",
+      "minutes": 21
+    },
+    {
+      "slug": "llm-judge-calibration",
+      "title": "LLM-as-a-Judge 为什么会偏？从评分 rubric 到校准",
+      "excerpt": "让一个大模型给另一个模型打分很方便，但它会偏爱更长、更像自己、更有格式感的答案。可靠的 Judge 需要 rubric、盲评、程序规则和人工样本共同校准。",
+      "series": "评测",
+      "seriesNo": "09",
+      "number": "42",
+      "minutes": 19
+    },
+    {
+      "slug": "offline-eval-online-drift",
+      "title": "离线评测高分，线上为什么还是翻车？",
+      "excerpt": "离线集验证的是一组固定样本，线上面对的是变化的用户、工具和数据。把分布漂移、长尾失败、版本组合和副作用纳入评测，才能解释‘离线 95%，线上 70%’。",
+      "series": "评测",
+      "seriesNo": "09",
+      "number": "41",
+      "minutes": 20
+    },
+    {
+      "slug": "rag-grounded-evidence",
+      "title": "RAG 答案看着对，怎么证明它真的有依据？",
+      "excerpt": "引用一个文档链接不等于有依据。要验证 RAG 的答案，必须把结论拆成可核查的 claim，再检查证据是否覆盖、是否矛盾、是否来自正确版本。",
+      "series": "评测",
+      "seriesNo": "09",
+      "number": "40",
+      "minutes": 19
+    },
+    {
+      "slug": "agent-eval-success-rate",
+      "title": "Agent 评测不能只看成功率：从结果到轨迹的五层指标",
+      "excerpt": "一个 Agent 说自己成功了，不代表它真的完成了任务。把任务结果、步骤质量、工具调用、成本和安全约束分层，才能知道系统哪里可靠、哪里只是在碰运气。",
+      "series": "评测",
+      "seriesNo": "09",
+      "number": "39",
+      "minutes": 20
+    },
+    {
+      "slug": "multimodal-video-agent",
+      "title": "视频 Agent 如何处理百万级帧？采样、时间定位和证据回放",
+      "excerpt": "视频 Agent 不会把每一帧都塞给模型。它要先建立时间轴，用镜头切分、关键帧、语音和 OCR 做粗到细检索，再把答案落回可回放的时间区间。",
+      "series": "多模态",
+      "seriesNo": "08",
+      "number": "38",
+      "minutes": 21
+    },
+    {
+      "slug": "multimodal-rag",
+      "title": "多模态 RAG 怎么检索图片、表格和文字",
+      "excerpt": "多模态 RAG 不是给文本 RAG 再加一列 image_url，而是把文字、表格、图片和坐标组织成统一证据对象，再用跨模态召回、元数据过滤和引用回溯回答问题。",
+      "series": "多模态",
+      "seriesNo": "08",
+      "number": "37",
+      "minutes": 20
+    },
+    {
+      "slug": "multimodal-document-layout",
+      "title": "文档理解为什么要保留版面？从 OCR 到表格和图表解析",
+      "excerpt": "把 PDF 变成一串 OCR 文本，会丢掉栏、行、表头和脚注之间的关系。可靠的文档 Agent 要同时保存文字、坐标、块类型和跨页结构，才能回答“哪一列、哪一行、依据在哪”。",
+      "series": "多模态",
+      "seriesNo": "08",
+      "number": "36",
+      "minutes": 20
+    },
+    {
+      "slug": "multimodal-vision-slicing",
+      "title": "图片问答答非所问，问题可能不在模型而在视觉切片",
+      "excerpt": "小字、表格和长截图经常不是模型能力不够，而是它根本没有以合适的分辨率看到目标。用全图定位、局部切片、OCR 和证据合并，才能把视觉问答做稳。",
+      "series": "多模态",
+      "seriesNo": "08",
+      "number": "35",
+      "minutes": 18
+    },
+    {
+      "slug": "multimodal-to-transformer",
+      "title": "多模态模型不是给图片加一个输入框：图像如何进入 Transformer",
+      "excerpt": "图片要被语言模型理解，必须先经过视觉编码、特征投影和跨模态融合。把像素、patch、视觉 token 和文本 token 串起来，才能解释模型到底看到了什么。",
+      "series": "多模态",
+      "seriesNo": "08",
+      "number": "34",
+      "minutes": 19
+    },
+    {
+      "slug": "multi-agent-evaluation",
+      "title": "如何评测多 Agent 协作？不能只看最终答案",
+      "excerpt": "最终答案正确，不代表协作过程可靠。多 Agent 评测要把个体能力、消息质量、协作效率、失败恢复和安全边界拆开看。",
+      "series": "多智能体",
+      "seriesNo": "07",
+      "number": "33",
+      "minutes": 19
+    },
+    {
+      "slug": "multi-agent-concurrency-budget",
+      "title": "多 Agent 系统为什么越加人越慢？并发、上下文和预算控制",
+      "excerpt": "并发不是把任务数乘上 Agent 数。共享资源、上下文复制和尾延迟会让系统越协作越慢，真正要控制的是拓扑、扇出、token 和失败重试。",
+      "series": "多智能体",
+      "seriesNo": "07",
+      "number": "32",
+      "minutes": 18
+    },
+    {
+      "slug": "multi-agent-supervisor-arbitrator",
+      "title": "多 Agent 互相甩锅怎么办？从监督者到仲裁器设计",
+      "excerpt": "当多个 Agent 给出冲突结论时，继续让它们自由辩论往往只会制造更多文本。真正的监督者要检查证据、约束和责任，而不是简单投票。",
+      "series": "多智能体",
+      "seriesNo": "07",
+      "number": "31",
+      "minutes": 19
+    },
+    {
+      "slug": "multi-agent-protocol-state",
+      "title": "多 Agent 不是群聊：角色分工、消息协议和状态同步怎么做",
+      "excerpt": "让多个 Agent 协作的关键不是让它们互相发消息，而是约定谁能说什么、谁能改什么、状态何时提交，以及一条消息如何被确认。",
+      "series": "多智能体",
+      "seriesNo": "07",
+      "number": "30",
+      "minutes": 20
+    },
+    {
+      "slug": "multi-agent-task-decomposition",
+      "title": "为什么一个 Agent 做不完的事，要拆成多个 Agent？",
+      "excerpt": "多 Agent 的价值不在于把一个聊天窗口复制几份，而在于把互相牵制的目标拆成可验收的责任边界。先判断是否值得拆，再决定角色、交接和失败回退。",
+      "series": "多智能体",
+      "seriesNo": "07",
+      "number": "29",
+      "minutes": 18
+    },
+    {
+      "slug": "agent-observability-replay",
+      "title": "Agent 上线后怎么定位问题？从 trace 到可观测性和回放",
+      "excerpt": "最终答案只是 Agent 的最后一帧。要定位线上 Bad Case，必须把规划、检索、工具、模型、状态变化和验收证据串成一条能重放的轨迹。",
+      "series": "Agent 架构",
+      "seriesNo": "06",
+      "number": "28",
+      "minutes": 20
+    },
+    {
+      "slug": "agent-security-boundaries",
+      "title": "Agent 安全不是加一句提示词：权限、工具和数据边界怎么设计",
+      "excerpt": "Agent 的风险不只来自模型胡说，还来自它能看什么、能调用什么、能造成哪些副作用。安全设计要把自然语言意图变成可验证的权限和审批。",
+      "series": "Agent 架构",
+      "seriesNo": "06",
+      "number": "27",
+      "minutes": 20
+    },
+    {
+      "slug": "agent-planning-reflection",
+      "title": "规划与反思什么时候有用，什么时候只是让 Agent 多说废话",
+      "excerpt": "Planner 不是把任务拆得越细越聪明，Reflection 也不是再问模型一句‘你确定吗’。真正可靠的 Agent，要让计划可执行、反馈可修正、停止条件可验证。",
+      "series": "Agent 架构",
+      "seriesNo": "06",
+      "number": "26",
+      "minutes": 19
+    },
+    {
+      "slug": "agent-memory-system",
+      "title": "记忆系统不是聊天记录：短期、长期和压缩到底怎么分工",
+      "excerpt": "Agent 的记忆不是把每一句话永久塞进向量库，而是决定什么值得留下、以什么形式保存、什么时候取回，以及发现冲突后如何覆盖和遗忘。",
+      "series": "Agent 架构",
+      "seriesNo": "06",
+      "number": "25",
+      "minutes": 20
+    },
+    {
+      "slug": "llm-data-mixture",
+      "title": "预训练数据不是越多越好：清洗、去重和数据配比如何影响能力",
+      "excerpt": "大模型吃下的 token 越多，不代表学到的能力越多。重复网页会放大偏见，模板化代码会挤占推理数据，低质量语料会让训练预算变成噪声。",
+      "series": "LLM 训练",
+      "seriesNo": "05",
+      "number": "23",
+      "minutes": 18
+    },
+    {
+      "slug": "llm-training-stability",
+      "title": "训练 loss 降了，模型为什么没变聪明？训练稳定性排查清单",
+      "excerpt": "一条漂亮的 loss 曲线，只能说明优化器在当前目标上前进。用指标矩阵和可回滚的实验，才能把训练问题定位到可修复的环节。",
+      "series": "LLM 训练",
+      "seriesNo": "05",
+      "number": "22",
+      "minutes": 18
+    },
+    {
+      "slug": "llm-dpo-vs-ppo",
+      "title": "DPO 和 PPO 到底差在哪？什么时候不需要单独训练奖励模型",
+      "excerpt": "DPO 把偏好优化改写成一个离线分类目标，省掉了 PPO 的在线 rollout 和显式奖励模型，但它并没有消除数据质量、参考策略和分布外风险。",
+      "series": "LLM 训练",
+      "seriesNo": "05",
+      "number": "21",
+      "minutes": 19
+    },
+    {
+      "slug": "llm-rlhf-reward-model",
+      "title": "RLHF 为什么要奖励模型？从偏好数据到 PPO 的完整链路",
+      "excerpt": "RLHF 不是把‘人类喜欢’直接塞给语言模型，而是先把偏好变成可学习的奖励，再用策略优化把行为推向更高质量。",
+      "series": "LLM 训练",
+      "seriesNo": "05",
+      "number": "20",
+      "minutes": 20
+    },
+    {
+      "slug": "llm-sft-data-quality",
+      "title": "SFT 不是把答案背下来：一条训练样本如何改变模型行为",
+      "excerpt": "监督微调真正改变的是模型在特定输入下的行为分布。把数据构造、loss mask、质量分层和回归评测拆开，才能知道模型学会了什么。",
+      "series": "LLM 训练",
+      "seriesNo": "05",
+      "number": "19",
+      "minutes": 18
+    },
+    {
+      "slug": "llm-inference-optimization",
+      "title": "大模型推理优化不是只换量化：吞吐、延迟和显存怎么一起看",
+      "excerpt": "推理优化没有一个万能开关。先把 TTFT、TPOT、吞吐和显存分开，再选择量化、连续批处理、前缀缓存、投机解码与并行策略。",
+      "series": "LLM 基础",
+      "seriesNo": "04",
+      "number": "18",
+      "minutes": 20
+    },
+    {
+      "slug": "llm-kv-cache",
+      "title": "KV Cache 到底缓存了什么？为什么长对话越聊越贵",
+      "excerpt": "KV Cache 缓存每层历史 token 的 Key 和 Value，让 Decode 阶段只计算新 token；代价是上下文越长，显存和带宽压力越大。",
+      "series": "LLM 基础",
+      "seriesNo": "04",
+      "number": "17",
+      "minutes": 18
+    },
+    {
+      "slug": "llm-moe-routing",
+      "title": "MoE 为什么能少算一点还变大？路由、负载均衡与专家塌缩",
+      "excerpt": "MoE 用稀疏路由把每个 token 的计算交给少数专家，真正的难点在 Router、容量、负载均衡和分布式通信。",
+      "series": "LLM 基础",
+      "seriesNo": "04",
+      "number": "16",
+      "minutes": 20
+    },
+    {
+      "slug": "llm-transformer-vs-rnn",
+      "title": "Transformer 为什么能替代 RNN？从并行训练到位置编码",
+      "excerpt": "RNN 不是突然过时，而是顺序依赖在大规模训练和长上下文里越来越昂贵。把训练、推理、位置和工程取舍拆开，你就能回答 Transformer 为什么赢。",
+      "series": "LLM 基础",
+      "seriesNo": "04",
+      "number": "15",
+      "minutes": 20
+    },
+    {
+      "slug": "llm-attention-context",
+      "title": "Attention 不是“注意力”：一行公式如何变成上下文理解",
+      "excerpt": "面试里不要只会背 Q、K、V。把一行 Attention 公式拆成匹配、取值、加权汇总，再接上 mask、多头和复杂度，你就能解释 Transformer 为什么真的看懂了上下文。",
+      "series": "LLM 基础",
+      "seriesNo": "04",
+      "number": "14",
+      "minutes": 18
+    },
+    {
       "slug": "rag-evaluation-practice",
       "title": "RAG 怎么评测才不自欺？把“答得像”拆成四层证据",
       "excerpt": "RAG 的评测不能只看最终答案。把数据、召回、引用和生成分层，才能知道系统到底在哪一环掉链子。",
@@ -136,6 +685,66 @@
       "name": "RAG",
       "title": "让答案有证据，也让证据可追溯",
       "description": "从 Embedding、分块、混合检索到重排和评测，把“能回答”推进到“答得对、讲得清、出了问题能定位”。"
+    },
+    {
+      "no": "04",
+      "name": "LLM 基础",
+      "title": "从一行 Attention 到可运行的 Transformer",
+      "description": "从 Attention、位置编码、MoE 到 KV Cache 和推理优化，把大模型的地基知识讲成能复述、能推导、能落地的面试答案。"
+    },
+    {
+      "no": "05",
+      "name": "LLM 训练",
+      "title": "把训练目标变成可复盘的行为变化",
+      "description": "从 SFT 数据、loss mask 到偏好对齐和稳定性排查，理解模型为什么学会、遗忘，或只是把模板背得更熟。"
+    },
+    {
+      "no": "06",
+      "name": "Agent 架构",
+      "title": "从会调用工具到可控、可复盘的 Agent",
+      "description": "把记忆、规划、安全和可观测性拆成可验证的工程边界，让 Agent 的每一次行动都能解释、恢复和迭代。"
+    },
+    {
+      "no": "07",
+      "name": "多智能体",
+      "title": "从群聊式协作到可验证的团队系统",
+      "description": "把角色分工、消息协议、冲突仲裁、并发预算和协作评测拆开，理解多 Agent 什么时候创造收益，什么时候只是增加成本。"
+    },
+    {
+      "no": "08",
+      "name": "多模态",
+      "title": "让图片、文档和视频成为可检索的证据",
+      "description": "从视觉 token、切片和版面结构，到多模态 RAG 与视频时间轴，把“看到了”推进到“能定位、能引用、能回放”。"
+    },
+    {
+      "no": "09",
+      "name": "评测",
+      "title": "把 Agent 的‘看起来能用’变成可证明的可靠",
+      "description": "从结果、证据、线上漂移到 Judge 校准和实验复现，建立能定位、能回放、能持续回归的评测闭环。"
+    },
+    {
+      "no": "10",
+      "name": "工具调用",
+      "title": "让每一次外部行动都有契约、有回执、有边界",
+      "description": "从 Function Calling、重试、MCP 到结果塑形和权限审计，把模型提出的动作变成可校验、可恢复、可追溯的工具调用。"
+    },
+    {
+      "no": "11",
+      "name": "项目深挖",
+      "title": "把 Demo 讲成可验证的工程系统",
+      "description": "从架构、RAG 取舍、指标、成本到框架边界，把项目经验拆成可复述、可验证、可迁移的工程决策。"
+    },
+    {
+      "no": "12",
+      "name": "通用与软实力",
+      "title": "把未知讲清楚，把项目讲深",
+      "description": "用假设、证据、失败复盘、技术沟通和学习路线，把 Agent 面试从背题变成可验证的工程表达。"
+    },
+    {
+      "no": "13",
+      "name": "五厂高频题",
+      "title": "把一套 Agent 系统讲到线上",
+      "description": "按大厂常见追问，从 RAG、工具、状态、性能到成本与稳定性，练习把单点知识串成完整系统。"
     }
   ]
 }

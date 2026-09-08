@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="390" viewBox="0 0 1080 390" role="img" aria-labelledby="title desc">
+  <title id="title">Incident finding → drill gate</title>
+  <desc id="desc">事故发现被转换成故障注入、期望行为和发布门槛。</desc>
+  <rect width="1080" height="390" rx="26" fill="#f7f8f5"/>
+  <text x="58" y="54" fill="#17342f" font-size="25" font-weight="700" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif">Incident finding → drill gate</text>
+  <text x="58" y="82" fill="#71837d" font-size="15" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif">复盘结论只有进入演练和发布门槛，才会从经验变成系统能力</text>
+  <g font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif">
+    <rect x="60" y="130" width="218" height="108" rx="18" fill="#f5e7ee" stroke="#dfb2c7"/><text x="84" y="168" fill="#7a3f5a" font-size="18" font-weight="700">发现</text><text x="84" y="197" fill="#8a6073" font-size="14">缓存缺版本</text><text x="84" y="219" fill="#8a6073" font-size="14">工具回执未知</text>
+    <rect x="306" y="130" width="218" height="108" rx="18" fill="#fff1d9" stroke="#e9c987"/><text x="330" y="168" fill="#795a20" font-size="18" font-weight="700">注入</text><text x="330" y="197" fill="#896d39" font-size="14">返回旧版本</text><text x="330" y="219" fill="#896d39" font-size="14">提交后终止 worker</text>
+    <rect x="552" y="130" width="218" height="108" rx="18" fill="#eaf1f8" stroke="#b6cce0"/><text x="576" y="168" fill="#31516d" font-size="18" font-weight="700">期望</text><text x="576" y="197" fill="#587085" font-size="14">拒绝复用并告警</text><text x="576" y="219" fill="#587085" font-size="14">unknown，暂停重试</text>
+    <rect x="798" y="130" width="222" height="108" rx="18" fill="#e4f2ec" stroke="#a8d2bf"/><text x="822" y="168" fill="#205b4c" font-size="18" font-weight="700">门槛</text><text x="822" y="197" fill="#4e6c63" font-size="14">回放命中率 &lt; 1%</text><text x="822" y="219" fill="#4e6c63" font-size="14">重复副作用 = 0</text>
+  </g>
+  <g stroke="#6e9588" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M278 184h28"/><path d="M524 184h28"/><path d="M770 184h28"/>
+    <path d="M290 174l16 10-16 10"/><path d="M536 174l16 10-16 10"/><path d="M782 174l16 10-16 10"/>
+  </g>
+  <rect x="60" y="286" width="960" height="52" rx="15" fill="#17342f"/>
+  <text x="88" y="319" fill="#f5fbf8" font-size="17" font-weight="600" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif">复盘结论 → 故障注入 → 期望行为 → 发布门槛</text>
+</svg>

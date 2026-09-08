@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="390" viewBox="0 0 1080 390">
+  <rect width="1080" height="390" rx="28" fill="#F7F4EE"/>
+  <text x="56" y="58" font-family="Arial,'Noto Sans SC',sans-serif" font-size="26" font-weight="700" fill="#193C3A">训练回滚包</text>
+  <text x="56" y="91" font-family="Arial,'Noto Sans SC',sans-serif" font-size="16" fill="#58706D">恢复的不只是权重，还有下一步更新所依赖的状态</text>
+  <rect x="56" y="136" width="246" height="150" rx="20" fill="#E5F0ED"/>
+  <text x="82" y="174" font-family="Arial,'Noto Sans SC',sans-serif" font-size="20" font-weight="700" fill="#1C615A">模型</text>
+  <text x="82" y="212" font-family="Arial,'Noto Sans SC',sans-serif" font-size="15" fill="#31514E">weights checkpoint</text>
+  <text x="82" y="246" font-family="Arial,'Noto Sans SC',sans-serif" font-size="15" fill="#31514E">seed = 17</text>
+  <path d="M326 211h62" stroke="#EF9D73" stroke-width="6" stroke-linecap="round"/><path d="m374 192 25 19-25 19" fill="none" stroke="#EF9D73" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="414" y="136" width="260" height="150" rx="20" fill="#FFF0D6"/>
+  <text x="440" y="174" font-family="Arial,'Noto Sans SC',sans-serif" font-size="20" font-weight="700" fill="#875B26">更新状态</text>
+  <text x="440" y="212" font-family="Arial,'Noto Sans SC',sans-serif" font-size="15" fill="#6C5632">optimizer / scheduler</text>
+  <text x="440" y="246" font-family="Arial,'Noto Sans SC',sans-serif" font-size="15" fill="#6C5632">scaler / data cursor</text>
+  <path d="M702 211h62" stroke="#86A4D7" stroke-width="6" stroke-linecap="round"/><path d="m750 192 25 19-25 19" fill="none" stroke="#86A4D7" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="792" y="136" width="232" height="150" rx="20" fill="#DCEBE8"/>
+  <text x="818" y="174" font-family="Arial,'Noto Sans SC',sans-serif" font-size="20" font-weight="700" fill="#174F4A">验收</text>
+  <text x="818" y="212" font-family="Arial,'Noto Sans SC',sans-serif" font-size="15" fill="#31514E">first batch hash</text>
+  <text x="818" y="246" font-family="Arial,'Noto Sans SC',sans-serif" font-size="15" fill="#31514E">smoke loss delta</text>
+  <rect x="56" y="315" width="968" height="34" rx="17" fill="#183C3A"/>
+  <text x="540" y="338" text-anchor="middle" font-family="Arial,'Noto Sans SC',sans-serif" font-size="15" fill="#F7F4EE">权重一致 ≠ 行为一致：恢复全套状态后再继续训练</text>
+</svg>

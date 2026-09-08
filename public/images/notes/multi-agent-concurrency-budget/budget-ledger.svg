@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 400" role="img" aria-labelledby="title desc">
+  <title id="title">并发预算账本</title>
+  <desc id="desc">记录多 Agent 分支的预算预留、实际消耗、取消和浪费</desc>
+  <rect width="1080" height="400" rx="28" fill="#f7f8f5"/>
+  <text x="56" y="56" font-family="Arial,sans-serif" font-size="26" font-weight="700" fill="#173f3d">Budget ledger</text>
+  <text x="56" y="84" font-family="Arial,sans-serif" font-size="15" fill="#58716e">每一支都要能回答：预留了什么、花了什么、为什么停止</text>
+  <g font-family="Arial,sans-serif" font-size="16" fill="#173f3d">
+    <rect x="56" y="126" width="220" height="86" rx="16" fill="#eaf3f7" stroke="#b9d3df"/><text x="80" y="160">reserved</text><text x="80" y="190">token 2500 · $0.018</text>
+    <rect x="316" y="126" width="220" height="86" rx="16" fill="#dfeee8" stroke="#afd0c3"/><text x="340" y="160">committed</text><text x="340" y="190">actual 2210 · $0.014</text>
+    <rect x="576" y="126" width="220" height="86" rx="16" fill="#fff1d9" stroke="#e8c891"/><text x="600" y="160">released</text><text x="600" y="190">quorum reached</text>
+    <rect x="836" y="126" width="188" height="86" rx="16" fill="#fae8e1" stroke="#e0b9ae"/><text x="860" y="160">wasted</text><text x="860" y="190">retry × 2</text>
+  </g>
+  <g stroke="#79908c" stroke-width="3" fill="none" stroke-linecap="round"><path d="M276 169h40"/><path d="M536 169h40"/><path d="M796 169h40"/></g>
+  <rect x="56" y="270" width="968" height="62" rx="16" fill="#182033"/>
+  <text x="82" y="307" font-family="monospace" font-size="15" fill="#f7f8f5">run=research-184  branch=search-c  status=cancelled_after_quorum  reason=3 independent sources</text>
+</svg>

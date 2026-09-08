@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 420" role="img" aria-labelledby="title desc">
+  <title id="title">并发调度单</title><desc id="desc">剩余预算、证据缺口和下一步动作组成可审计调度单</desc>
+  <rect width="1080" height="420" rx="28" fill="#f7f8f5"/>
+  <text x="54" y="56" font-family="Arial,sans-serif" font-size="26" font-weight="700" fill="#173f3d">Scheduling sheet</text>
+  <text x="54" y="84" font-family="Arial,sans-serif" font-size="15" fill="#58716e">预算不是只会说“不行”，还要说明下一步为什么值得</text>
+  <g font-family="Arial,sans-serif" font-size="15" fill="#173f3d">
+    <rect x="54" y="126" width="250" height="112" rx="16" fill="#eaf3f7" stroke="#b9d3df"/><text x="78" y="160" font-weight="700">剩余预算</text><text x="78" y="190">2,860 tokens · 2 slots</text><text x="78" y="216">$0.021 · 4.2s</text>
+    <rect x="328" y="126" width="250" height="112" rx="16" fill="#fff1d9" stroke="#e8c891"/><text x="352" y="160" font-weight="700">证据状态</text><text x="352" y="190">独立来源 2 / 3</text><text x="352" y="216">冲突 1 · 必需项未齐</text>
+    <rect x="602" y="126" width="250" height="112" rx="16" fill="#dfeee8" stroke="#afd0c3"/><text x="626" y="160" font-weight="700">候选动作</text><text x="626" y="190">重试高价值搜索</text><text x="626" y="216">取消重复分支</text>
+    <rect x="876" y="126" width="150" height="112" rx="16" fill="#173f3d"/><text x="951" y="160" text-anchor="middle" font-weight="700" fill="#fff">降级</text><text x="951" y="192" text-anchor="middle" fill="#dbe9e5">needs_review</text><text x="951" y="216" text-anchor="middle" fill="#dbe9e5">保留缺口</text>
+  </g>
+  <g stroke="#79908c" stroke-width="3" fill="none" stroke-linecap="round"><path d="M304 182h24"/><path d="M578 182h24"/><path d="M852 182h24"/></g>
+  <rect x="54" y="294" width="972" height="62" rx="16" fill="#182033"/><text x="80" y="331" font-family="monospace" font-size="15" fill="#f7f8f5">filter(policy, deadline, side_effect) → rank(value / cost / wait) → next_action</text>
+</svg>

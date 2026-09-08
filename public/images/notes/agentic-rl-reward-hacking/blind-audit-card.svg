@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="390" viewBox="0 0 1080 390" role="img" aria-labelledby="title desc">
+  <title id="title">奖励盲审回放</title>
+  <desc id="desc">公开回放和隐藏审计对照，发现高分低质后回滚奖励契约。</desc>
+  <rect width="1080" height="390" rx="26" fill="#f7f8f5"/>
+  <text x="52" y="54" font-size="25" font-weight="700" fill="#173f3d">奖励契约更新后：做一次盲审回放</text>
+  <text x="52" y="84" font-size="16" fill="#5b7470">策略看不到隐藏规则，审计器只核对真实任务与副作用</text>
+  <g font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif" text-anchor="middle">
+    <rect x="52" y="122" width="190" height="126" rx="17" fill="#eaf3f7" stroke="#b9d3df"/>
+    <text x="147" y="167" font-size="18" font-weight="700" fill="#275261">改契约</text><text x="147" y="199" font-size="15" fill="#52727a">版本化 reward</text>
+    <rect x="262" y="122" width="190" height="126" rx="17" fill="#fff1d9" stroke="#e8c891"/>
+    <text x="357" y="167" font-size="18" font-weight="700" fill="#6e5223">公开回放</text><text x="357" y="199" font-size="15" fill="#806a3d">分数与轨迹</text>
+    <rect x="472" y="122" width="190" height="126" rx="17" fill="#dfeee8" stroke="#afd0c3"/>
+    <text x="567" y="167" font-size="18" font-weight="700" fill="#2b6353">隐藏审计</text><text x="567" y="199" font-size="15" fill="#53786b">任务 / 副作用</text>
+    <rect x="682" y="122" width="190" height="126" rx="17" fill="#f5d9dc" stroke="#dfb2b9"/>
+    <text x="777" y="167" font-size="18" font-weight="700" fill="#78454d">对照差异</text><text x="777" y="199" font-size="15" fill="#855c63">找 shortcut</text>
+    <rect x="892" y="122" width="136" height="126" rx="17" fill="#173f3d"/>
+    <text x="960" y="175" font-size="18" font-weight="700" fill="#ffffff">先回滚</text><text x="960" y="207" font-size="15" fill="#d8ebe5">再训练</text>
+  </g>
+  <g fill="none" stroke="#7d9a95" stroke-width="2.5" stroke-linecap="round"><path d="M242 185h20"/><path d="M452 185h20"/><path d="M662 185h20"/><path d="M872 185h20"/></g>
+  <rect x="52" y="294" width="976" height="44" rx="14" fill="#e8efeb"/>
+  <text x="76" y="322" font-size="15" fill="#365b61">公开集变好、隐藏集掉分时，优先修 verifier 和契约，不要继续放大奖励</text>
+</svg>

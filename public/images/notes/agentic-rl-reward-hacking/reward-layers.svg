@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 640" role="img" aria-labelledby="title desc">
+  <title id="title">Agent Reward 三层结构</title>
+  <desc id="desc">真实目标、可观察证据和奖励实现三层结构，以及硬约束门控和效率偏好。</desc>
+  <rect width="1200" height="640" fill="#f7f4ee"/>
+  <text x="72" y="72" font-family="Arial, sans-serif" font-size="28" font-weight="700" fill="#17221b">Reward 是验收器的代理，不是真实目标</text>
+  <text x="72" y="106" font-family="Arial, sans-serif" font-size="16" fill="#627066">先让不合格方案出局，再在合格方案里比较效率。</text>
+  <g font-family="Arial, sans-serif">
+    <rect x="110" y="190" width="270" height="180" rx="18" fill="#17221b"/>
+    <text x="144" y="236" font-size="20" font-weight="700" fill="#f7f4ee">真实目标</text>
+    <text x="144" y="274" font-size="16" fill="#cbd7ce">用户真的想要什么？</text>
+    <text x="144" y="308" font-size="16" fill="#cbd7ce">事实、状态、业务结果</text>
+    <rect x="465" y="190" width="270" height="180" rx="18" fill="#e9edf4" stroke="#7f93b0" stroke-width="2"/>
+    <text x="499" y="236" font-size="20" font-weight="700" fill="#334b6a">可观察证据</text>
+    <text x="499" y="274" font-size="16" fill="#3e4a5a">引用、测试、状态差异</text>
+    <text x="499" y="308" font-size="16" fill="#3e4a5a">工具结果、审计事件</text>
+    <rect x="820" y="190" width="270" height="180" rx="18" fill="#f3ead9" stroke="#c39b55" stroke-width="2"/>
+    <text x="854" y="236" font-size="20" font-weight="700" fill="#705426">奖励实现</text>
+    <text x="854" y="274" font-size="16" fill="#53472f">代码或 judge 的打分</text>
+    <text x="854" y="308" font-size="16" fill="#53472f">最容易被模型钻空子</text>
+  </g>
+  <g stroke="#51645a" stroke-width="3" fill="none"><path d="M380 280 H455"/><path d="M735 280 H810"/></g>
+  <g fill="#51645a"><path d="M455 280 l-12 -8 v16z"/><path d="M810 280 l-12 -8 v16z"/></g>
+  <rect x="110" y="440" width="980" height="82" rx="16" fill="#f2e6e5" stroke="#ba7a73" stroke-width="2"/>
+  <text x="144" y="476" font-family="Arial, sans-serif" font-size="17" font-weight="700" fill="#703e39">硬门控：越权 / 改测试 / 伪造引用 → 不合格</text>
+  <text x="144" y="505" font-family="Arial, sans-serif" font-size="17" fill="#5c4140">合格后才比较：时延、token、工具次数、成本</text>
+</svg>

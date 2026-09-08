@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="390" viewBox="0 0 1080 390" role="img" aria-labelledby="title desc">
+  <title id="title">奖励模型训练审计卡</title><desc id="desc">偏好数据、奖励边际、策略漂移、独立任务和发布决定组成奖励审计卡</desc>
+  <rect width="1080" height="390" rx="26" fill="#f7f8f5"/>
+  <text x="52" y="56" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif" font-size="25" font-weight="700" fill="#173f3d">奖励模型训练审计卡</text>
+  <text x="52" y="84" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif" font-size="15" fill="#5b7470">奖励涨了，先确认能力没有被刷出来</text>
+  <g font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif">
+    <rect x="52" y="122" width="178" height="126" rx="17" fill="#eaf3f7" stroke="#b9d3df"/><text x="141" y="157" text-anchor="middle" font-size="17" font-weight="700" fill="#173f3d">偏好</text><text x="141" y="191" text-anchor="middle" font-size="13" fill="#48635f">pair set</text><text x="141" y="215" text-anchor="middle" font-size="13" fill="#48635f">覆盖与盲区</text>
+    <rect x="250" y="122" width="178" height="126" rx="17" fill="#fff1d9" stroke="#e8c891"/><text x="339" y="157" text-anchor="middle" font-size="17" font-weight="700" fill="#173f3d">奖励</text><text x="339" y="191" text-anchor="middle" font-size="13" fill="#48635f">mean / margin</text><text x="339" y="215" text-anchor="middle" font-size="13" fill="#48635f">length corr</text>
+    <rect x="448" y="122" width="178" height="126" rx="17" fill="#dfeee8" stroke="#afd0c3"/><text x="537" y="157" text-anchor="middle" font-size="17" font-weight="700" fill="#173f3d">策略</text><text x="537" y="191" text-anchor="middle" font-size="13" fill="#48635f">KL to reference</text><text x="537" y="215" text-anchor="middle" font-size="13" fill="#48635f">clip fraction</text>
+    <rect x="646" y="122" width="178" height="126" rx="17" fill="#f5d9dc" stroke="#dfb2b9"/><text x="735" y="157" text-anchor="middle" font-size="17" font-weight="700" fill="#173f3d">独立任务</text><text x="735" y="191" text-anchor="middle" font-size="13" fill="#48635f">truthfulness</text><text x="735" y="215" text-anchor="middle" font-size="13" fill="#48635f">format hacks</text>
+    <rect x="844" y="122" width="184" height="126" rx="17" fill="#173f3d"/><text x="936" y="157" text-anchor="middle" font-size="17" font-weight="700" fill="#ffffff">决定</text><text x="936" y="191" text-anchor="middle" font-size="13" fill="#dbe9e5">ship / hold</text><text x="936" y="215" text-anchor="middle" font-size="13" fill="#dbe9e5">rollback</text>
+  </g>
+  <path d="M230 185h20M428 185h20M626 185h20M824 185h20" stroke="#7d9a95" stroke-width="3" stroke-linecap="round"/>
+  <rect x="52" y="294" width="976" height="44" rx="14" fill="#e8efeb"/><text x="540" y="322" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif" font-size="15" font-weight="700" fill="#365b61">奖励模型是裁判，也要接受独立复核</text>
+</svg>

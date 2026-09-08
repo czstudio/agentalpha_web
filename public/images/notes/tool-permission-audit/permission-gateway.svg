@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 320" role="img" aria-labelledby="title desc">
+  <title id="title">工具权限网关</title>
+  <desc id="desc">工具请求先经过身份、资源、动作、风险和审批检查，放行后才进入执行器。</desc>
+  <rect width="980" height="320" rx="28" fill="#f7f8f5"/>
+  <g font-family="sans-serif" text-anchor="middle">
+    <rect x="35" y="111" width="150" height="92" rx="18" fill="#eaf3f7" stroke="#b9d3df"/><text x="110" y="147" font-size="18" font-weight="700" fill="#24556a">工具请求</text><text x="110" y="174" font-size="14" fill="#5a737d">actor · resource · args</text>
+    <rect x="215" y="111" width="150" height="92" rx="18" fill="#dfeee8" stroke="#afd0c3"/><text x="290" y="147" font-size="18" font-weight="700" fill="#173f3d">身份</text><text x="290" y="174" font-size="14" fill="#52706b">用户、服务、租户</text>
+    <rect x="395" y="111" width="150" height="92" rx="18" fill="#fff1d9" stroke="#e8c891"/><text x="470" y="147" font-size="18" font-weight="700" fill="#704c20">策略</text><text x="470" y="174" font-size="14" fill="#856a42">资源、动作、风险</text>
+    <rect x="575" y="111" width="150" height="92" rx="18" fill="#fae8e1" stroke="#e0b9ae"/><text x="650" y="147" font-size="18" font-weight="700" fill="#753f32">审批</text><text x="650" y="174" font-size="14" fill="#8c5d51">必要时绑定参数</text>
+    <rect x="755" y="111" width="190" height="92" rx="18" fill="#173f3d"/><text x="850" y="147" font-size="18" font-weight="700" fill="#fff">执行与审计</text><text x="850" y="174" font-size="14" fill="#dfeee8">放行、拒绝、记录</text>
+  </g>
+  <g fill="none" stroke="#86a59d" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M185 157h30l-9-7m9 7-9 7"/><path d="M365 157h30l-9-7m9 7-9 7"/><path d="M545 157h30l-9-7m9 7-9 7"/><path d="M725 157h30l-9-7m9 7-9 7"/></g>
+</svg>

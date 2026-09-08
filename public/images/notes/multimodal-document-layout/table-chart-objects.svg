@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 360" role="img" aria-labelledby="title desc">
+  <title id="title">表格与图表的结构化对象</title>
+  <desc id="desc">表格保存行列和单位，图表保存坐标轴、图例和数据点。</desc>
+  <rect width="900" height="360" rx="28" fill="#f7f8f5"/>
+  <rect x="50" y="75" width="360" height="200" rx="18" fill="#fff" stroke="#b9cbc6" stroke-width="3"/>
+  <text x="230" y="109" text-anchor="middle" font-family="sans-serif" font-size="19" font-weight="700" fill="#173f3d">表格对象 · unit=%</text>
+  <path d="M76 132h308M76 174h308M76 216h308M174 132v110M280 132v110" stroke="#9bc1b5" stroke-width="3"/>
+  <text x="90" y="159" font-family="sans-serif" font-size="15" fill="#4c7068">指标</text><text x="194" y="159" font-family="sans-serif" font-size="15" fill="#4c7068">Q1</text><text x="300" y="159" font-family="sans-serif" font-size="15" fill="#4c7068">Q2</text><text x="90" y="202" font-family="sans-serif" font-size="15" fill="#704c20">毛利率</text><text x="194" y="202" font-family="sans-serif" font-size="15" fill="#704c20">12.4</text><text x="300" y="202" font-family="sans-serif" font-size="15" fill="#704c20">13.8</text>
+  <rect x="490" y="75" width="360" height="200" rx="18" fill="#eaf3f7" stroke="#a7c8d6" stroke-width="3"/>
+  <text x="670" y="109" text-anchor="middle" font-family="sans-serif" font-size="19" font-weight="700" fill="#24556a">图表对象 · y=万人</text>
+  <path d="M535 232V142M535 232h250" stroke="#587783" stroke-width="3"/><path d="M560 215l55-35 52 22 70-54" fill="none" stroke="#3f7384" stroke-width="5"/><circle cx="560" cy="215" r="6" fill="#3f7384"/><circle cx="615" cy="180" r="6" fill="#3f7384"/><circle cx="667" cy="202" r="6" fill="#3f7384"/><circle cx="737" cy="148" r="6" fill="#3f7384"/><text x="547" y="260" font-family="sans-serif" font-size="14" fill="#587783">x=月份</text>
+  <text x="50" y="324" font-family="sans-serif" font-size="16" fill="#647775">结构化对象让回答携带单位、关系和可核验数据点。</text>
+</svg>

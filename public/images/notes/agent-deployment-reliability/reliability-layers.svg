@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="460" viewBox="0 0 1400 460" role="img" aria-labelledby="title desc">
+  <title id="title">Agent 可靠性分层</title><desc id="desc">请求、决策、工具和结果四条可观测线索</desc>
+  <rect width="1400" height="460" rx="28" fill="#f7f8fa"/>
+  <g font-family="Arial, sans-serif" fill="#17202a">
+    <text x="72" y="74" font-size="22" letter-spacing="3" fill="#68717c">RELIABILITY LAYERS</text>
+    <text x="72" y="118" font-size="32" font-weight="700">容量、状态和副作用要分别治理</text>
+    <g font-size="21" font-weight="700" text-anchor="middle">
+      <rect x="102" y="202" width="250" height="110" rx="16" fill="#f3f5f7" stroke="#aab2bb"/><text x="227" y="264">请求 / deadline</text>
+      <rect x="416" y="202" width="250" height="110" rx="16" fill="#e3efff" stroke="#3978c8"/><text x="541" y="264">决策 / state</text>
+      <rect x="730" y="202" width="250" height="110" rx="16" fill="#fff1d8" stroke="#bd7a19"/><text x="855" y="264">工具 / idempotency</text>
+      <rect x="1044" y="202" width="250" height="110" rx="16" fill="#e8f5ed" stroke="#39865b"/><text x="1169" y="264">结果 / reconcile</text>
+    </g>
+    <g fill="none" stroke="#68717c" stroke-width="3"><path d="M352 257h64"/><path d="m400 245 16 12-16 12"/><path d="M666 257h64"/><path d="m714 245 16 12-16 12"/><path d="M980 257h64"/><path d="m1028 245 16 12-16 12"/></g>
+  </g>
+</svg>

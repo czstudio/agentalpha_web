@@ -3,6 +3,10 @@
 
 @custom-variant dark (&:is(.dark *));
 
+html {
+  scroll-padding-top: 84px;
+}
+
 @font-face {
   font-family: "MiSans";
   src: url("/fonts/MiSans-Regular.woff2") format("woff2");
@@ -476,13 +480,16 @@ html.enrollment-dialog-open { overflow: hidden; }
 .aa-masthead {
   height: 60px;
   color: var(--foreground);
-  background: rgb(255 255 255 / 0.82);
+  /* Keep the fixed masthead legible while scrolling long note pages. A lightly
+     translucent header let body copy show through on mobile, which read as
+     overlap rather than intentional depth. */
+  background: var(--background);
   border-bottom: 1px solid var(--border);
   backdrop-filter: saturate(180%) blur(20px);
   -webkit-backdrop-filter: saturate(180%) blur(20px);
 }
 .dark .aa-masthead {
-  background: rgb(10 10 12 / 0.82);
+  background: var(--background);
 }
 .aa-masthead-bar {
   display: flex;
@@ -516,13 +523,15 @@ html.enrollment-dialog-open { overflow: hidden; }
 .aa-site-logo-crop {
   display: block;
   height: 30px;
-  width: auto;
+  width: 142px;
+  flex: 0 0 142px;
+  overflow: hidden;
   font-size: 0;
 }
 .aa-site-logo-crop img {
   height: 30px !important;
-  width: auto !important;
-  max-width: none !important;
+  width: 142px !important;
+  max-width: 142px !important;
   object-fit: contain;
 }
 .aa-site-logo-text {
@@ -1150,6 +1159,60 @@ html.enrollment-dialog-open { overflow: hidden; }
 .aa-notes-map-step span { display: flex; gap: 8px; align-items: baseline; font-size: .78rem; color: var(--aa-muted); }
 .aa-notes-map-step strong { color: var(--aa-ink); font-size: 1rem; font-family: var(--font-display); }
 
+/* —— ARIS 式主线地图：用三栏阅读法先给目录一张能力地图 —— */
+.aa-notes-aris-map {
+  padding: clamp(42px, 6vw, 76px) 0 clamp(32px, 5vw, 58px);
+  border-bottom: 1px solid var(--aa-rule);
+  background: color-mix(in oklab, var(--aa-sky) 38%, var(--aa-paper));
+}
+.aa-notes-aris-head {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 28px;
+  margin-bottom: clamp(26px, 4vw, 42px);
+}
+.aa-notes-aris-head h2 {
+  max-width: 16ch;
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(1.55rem, 3vw, 2.55rem);
+  line-height: 1.2;
+  letter-spacing: -.035em;
+}
+.aa-notes-aris-head > p {
+  max-width: 520px;
+  margin: 0;
+  color: var(--aa-muted);
+  font-size: .92rem;
+  line-height: 1.8;
+}
+.aa-notes-aris-rails {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  border-top: 1px solid var(--aa-rule);
+}
+.aa-notes-aris-rail {
+  display: flex;
+  flex-direction: column;
+  min-height: 238px;
+  padding: 18px 20px 18px 0;
+  color: inherit;
+  text-decoration: none;
+  border-bottom: 1px solid var(--aa-rule);
+  transition: color .2s ease, transform .2s ease;
+}
+.aa-notes-aris-rail + .aa-notes-aris-rail { padding-left: 20px; border-left: 1px solid var(--aa-rule); }
+.aa-notes-aris-rail:hover { color: var(--aa-blue); transform: translateY(-2px); }
+.aa-notes-aris-no { color: var(--aa-blue); font-size: .72rem; font-weight: 800; letter-spacing: .15em; }
+.aa-notes-aris-label { display: flex; justify-content: space-between; gap: 12px; margin-top: 18px; color: var(--aa-muted); font-size: .74rem; letter-spacing: .1em; }
+.aa-notes-aris-label b { color: var(--aa-ink); font-weight: 700; letter-spacing: 0; }
+.aa-notes-aris-rail strong { margin-top: 13px; color: var(--aa-ink); font-family: var(--font-display); font-size: 1.05rem; line-height: 1.4; }
+.aa-notes-aris-description { margin-top: 9px; color: var(--aa-muted); font-size: .82rem; line-height: 1.7; }
+.aa-notes-aris-link { display: inline-flex; align-items: center; gap: 6px; margin-top: auto; padding-top: 18px; color: var(--aa-blue); font-size: .78rem; font-weight: 700; }
+.aa-notes-aris-link svg { width: 14px; height: 14px; transition: transform .2s ease; }
+.aa-notes-aris-rail:hover .aa-notes-aris-link svg { transform: translateX(4px); }
+
 .aa-notes-index-strip { border-top: 1px solid var(--aa-rule); border-bottom: 1px solid var(--aa-rule); }
 .aa-notes-index-strip .aa-notes-shell { display: flex; align-items: center; gap: 26px; min-height: 52px; font-size: .82rem; }
 .aa-notes-index-strip div div { display: flex; align-items: center; gap: 8px; margin-right: auto; color: var(--aa-muted); font-weight: 700; }
@@ -1158,7 +1221,7 @@ html.enrollment-dialog-open { overflow: hidden; }
 .aa-notes-index-strip a:hover { color: var(--aa-blue); }
 
 /* —— 专题区块 —— */
-.aa-notes-series { padding: clamp(36px, 6vw, 72px) 0; border-top: 1px solid var(--aa-rule); }
+.aa-notes-series { padding: clamp(36px, 6vw, 72px) 0; border-top: 1px solid var(--aa-rule); scroll-margin-top: 84px; }
 .aa-notes-series:nth-of-type(odd) { background: transparent; }
 
 .aa-notes-series-head {
@@ -1167,6 +1230,9 @@ html.enrollment-dialog-open { overflow: hidden; }
   gap: clamp(16px, 3vw, 32px);
   margin-bottom: clamp(26px, 4vw, 44px);
 }
+
+/* 长路径标签使用横向滚动时，不应把专题头部的 flex 项撑出视口。 */
+.aa-notes-series-head > div { min-width: 0; }
 
 .aa-notes-series-no {
   flex-shrink: 0;
@@ -1179,7 +1245,18 @@ html.enrollment-dialog-open { overflow: hidden; }
   font-weight: 800;
 }
 .aa-notes-series--01 .aa-notes-series-no { color: var(--aa-blue); background: var(--aa-sky); }
-.aa-notes-series--02 .aa-notes-series-no { color: var(--accent); background: var(--aa-peach); }
+.aa-notes-series--02 .aa-notes-series-no { color: var(--aa-ink); background: var(--aa-peach); }
+.aa-notes-series--03 .aa-notes-series-no { color: var(--aa-blue); background: color-mix(in oklab, var(--aa-sky) 72%, white); }
+.aa-notes-series--04 .aa-notes-series-no { color: var(--aa-ink); background: color-mix(in oklab, var(--aa-peach) 72%, white); }
+.aa-notes-series--05 .aa-notes-series-no { color: var(--aa-blue); background: color-mix(in oklab, var(--aa-sky) 84%, white); }
+.aa-notes-series--06 .aa-notes-series-no { color: var(--aa-ink); background: color-mix(in oklab, var(--aa-peach) 84%, white); }
+.aa-notes-series--07 .aa-notes-series-no { color: var(--aa-blue); background: color-mix(in oklab, var(--aa-sky) 60%, white); }
+.aa-notes-series--08 .aa-notes-series-no { color: var(--aa-ink); background: color-mix(in oklab, var(--aa-peach) 60%, white); }
+.aa-notes-series--09 .aa-notes-series-no { color: var(--aa-blue); background: color-mix(in oklab, var(--aa-sky) 52%, white); }
+.aa-notes-series--10 .aa-notes-series-no { color: var(--aa-ink); background: color-mix(in oklab, var(--aa-peach) 46%, white); }
+.aa-notes-series--11 .aa-notes-series-no { color: var(--aa-blue); background: color-mix(in oklab, var(--aa-sky) 46%, white); }
+.aa-notes-series--12 .aa-notes-series-no { color: var(--aa-coral); background: color-mix(in oklab, var(--aa-apricot) 46%, white); }
+.aa-notes-series--13 .aa-notes-series-no { color: var(--aa-blue); background: color-mix(in oklab, var(--aa-sky) 46%, white); }
 
 .aa-notes-series-name {
   margin: 0 0 6px;
@@ -1189,7 +1266,18 @@ html.enrollment-dialog-open { overflow: hidden; }
   text-transform: uppercase;
 }
 .aa-notes-series--01 .aa-notes-series-name { color: var(--aa-blue); }
-.aa-notes-series--02 .aa-notes-series-name { color: var(--accent); }
+.aa-notes-series--02 .aa-notes-series-name { color: var(--aa-ink); }
+.aa-notes-series--03 .aa-notes-series-name { color: var(--aa-blue); }
+.aa-notes-series--04 .aa-notes-series-name { color: var(--aa-ink); }
+.aa-notes-series--05 .aa-notes-series-name { color: var(--aa-blue); }
+.aa-notes-series--06 .aa-notes-series-name { color: var(--aa-ink); }
+.aa-notes-series--07 .aa-notes-series-name { color: var(--aa-blue); }
+.aa-notes-series--08 .aa-notes-series-name { color: var(--aa-ink); }
+.aa-notes-series--09 .aa-notes-series-name { color: var(--aa-blue); }
+.aa-notes-series--10 .aa-notes-series-name { color: var(--aa-ink); }
+.aa-notes-series--11 .aa-notes-series-name { color: var(--aa-blue); }
+.aa-notes-series--12 .aa-notes-series-name { color: var(--aa-coral); }
+.aa-notes-series--13 .aa-notes-series-name { color: var(--aa-blue); }
 
 .aa-notes-series-head h2 {
   margin: 0;
@@ -1210,6 +1298,21 @@ html.enrollment-dialog-open { overflow: hidden; }
 .aa-notes-series-meta { display: flex; gap: 14px; margin-top: 14px; color: var(--aa-muted); font-size: .78rem; }
 .aa-notes-series-meta span { display: inline-flex; align-items: center; gap: 5px; }
 .aa-notes-series-meta svg { width: 13px; height: 13px; color: var(--aa-blue); }
+
+.aa-notes-series-route {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  margin-top: 18px;
+  padding-top: 14px;
+  border-top: 1px solid var(--aa-rule);
+  color: var(--aa-muted);
+  font-size: .74rem;
+  white-space: nowrap;
+  overflow-x: auto;
+}
+.aa-notes-series-route span { color: var(--aa-ink); font-weight: 700; }
+.aa-notes-series-route i { color: var(--aa-blue); font-style: normal; }
 
 .aa-notes-grid {
   display: grid;
@@ -1246,7 +1349,18 @@ html.enrollment-dialog-open { overflow: hidden; }
   letter-spacing: .14em;
   color: var(--aa-blue);
 }
-.aa-notes-series--02 .aa-notes-card-no { color: var(--accent); }
+.aa-notes-series--02 .aa-notes-card-no { color: var(--aa-ink); }
+.aa-notes-series--03 .aa-notes-card-no { color: var(--aa-blue); }
+.aa-notes-series--04 .aa-notes-card-no { color: var(--aa-ink); }
+.aa-notes-series--05 .aa-notes-card-no { color: var(--aa-blue); }
+.aa-notes-series--06 .aa-notes-card-no { color: var(--aa-ink); }
+.aa-notes-series--07 .aa-notes-card-no { color: var(--aa-blue); }
+.aa-notes-series--08 .aa-notes-card-no { color: var(--aa-ink); }
+.aa-notes-series--09 .aa-notes-card-no { color: var(--aa-blue); }
+.aa-notes-series--10 .aa-notes-card-no { color: var(--aa-ink); }
+.aa-notes-series--11 .aa-notes-card-no { color: var(--aa-blue); }
+.aa-notes-series--12 .aa-notes-card-no { color: var(--aa-coral); }
+.aa-notes-series--13 .aa-notes-card-no { color: var(--aa-blue); }
 
 .aa-notes-card-minutes {
   display: inline-flex;
@@ -1344,12 +1458,21 @@ html.enrollment-dialog-open { overflow: hidden; }
   .aa-learn-chapter em { grid-column: 2; margin-top: -10px; }
   .aa-notes-hero-grid, .aa-notes-method .aa-notes-shell { grid-template-columns: 1fr; }
   .aa-notes-map { padding-top: 10px; }
+  .aa-notes-aris-head, .aa-note-aris-head { align-items: start; flex-direction: column; gap: 14px; }
+  .aa-notes-aris-rails { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .aa-notes-aris-rail { min-height: 220px; padding-right: 16px; }
+  .aa-notes-aris-rail + .aa-notes-aris-rail { padding-left: 16px; }
+  .aa-notes-aris-rail:nth-child(3) { padding-left: 0; border-left: 0; }
+  .aa-notes-aris-rail:nth-child(n+3) { border-top: 1px solid var(--aa-rule); }
+  .aa-note-aris-grid { grid-template-columns: 1fr; }
+  .aa-note-aris-grid article { min-height: auto; padding: 16px 0; }
+  .aa-note-aris-grid article + article { padding-left: 0; border-top: 1px solid var(--aa-rule); border-left: 0; }
   .aa-notes-index-strip .aa-notes-shell { gap: 14px; overflow: auto; white-space: nowrap; }
   .aa-notes-index-strip div div { margin-right: 0; }
 }
 
 /* —— 详情页 —— */
-.aa-note-article { max-width: 920px; padding: clamp(36px, 6vw, 72px) 0 clamp(64px, 9vw, 110px); }
+.aa-note-article { max-width: 1240px; padding: clamp(36px, 6vw, 72px) 0 clamp(64px, 9vw, 110px); }
 
 .aa-note-breadcrumb { margin-bottom: 34px; }
 .aa-note-breadcrumb a {
@@ -1393,9 +1516,10 @@ html.enrollment-dialog-open { overflow: hidden; }
 .aa-note-minutes svg { width: 13px; height: 13px; }
 
 .aa-note-header h1 {
+  max-width: 900px;
   margin: 0;
   font-family: var(--font-display);
-  font-size: clamp(2rem, 4.4vw, 3.4rem);
+  font-size: clamp(1.9rem, 3.8vw, 3.05rem);
   font-weight: 700;
   line-height: 1.25;
   letter-spacing: -.02em;
@@ -1417,28 +1541,58 @@ html.enrollment-dialog-open { overflow: hidden; }
 .aa-note-reading-path span { display: inline-flex; align-items: center; gap: 5px; padding: 6px 10px; border: 1px solid var(--aa-rule); border-radius: 999px; color: var(--aa-muted); font-size: .76rem; }
 .aa-note-reading-path svg { width: 13px; height: 13px; color: var(--aa-blue); }
 
-.aa-note-diagram { display: flex; align-items: center; gap: 10px; margin-top: 34px; padding: 18px; border: 1px solid var(--aa-rule); border-radius: 14px; background: var(--aa-sky); overflow: auto; }
+/* 详情页的三栏深读卡：基础知识 / 高频追问 / 从零实现 */
+.aa-note-aris {
+  margin-top: clamp(34px, 5vw, 58px);
+  padding: clamp(22px, 3vw, 32px) 0 0;
+  border-top: 1px solid var(--aa-rule);
+}
+.aa-note-aris-head { display: flex; align-items: end; justify-content: space-between; gap: 28px; margin-bottom: 24px; }
+.aa-note-aris-head h2 { margin: 0; font-family: var(--font-display); font-size: clamp(1.35rem, 2.5vw, 2rem); letter-spacing: -.03em; }
+.aa-note-aris-head > p { max-width: 530px; margin: 0; color: var(--aa-muted); font-size: .87rem; line-height: 1.75; }
+.aa-note-aris-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border-top: 1px solid var(--aa-rule); border-bottom: 1px solid var(--aa-rule); }
+.aa-note-aris-grid article { min-height: 166px; padding: 16px 20px 18px 0; }
+.aa-note-aris-grid article + article { padding-left: 20px; border-left: 1px solid var(--aa-rule); }
+.aa-note-aris-grid article > span { color: var(--aa-blue); font-size: .69rem; font-weight: 800; letter-spacing: .13em; }
+.aa-note-aris-grid strong { display: block; margin-top: 14px; color: var(--aa-ink); font-size: .98rem; line-height: 1.45; }
+.aa-note-aris-grid p { margin: 8px 0 0; color: var(--aa-muted); font-size: .8rem; line-height: 1.72; }
+
+.aa-note-reading-grid { display: grid; grid-template-columns: minmax(160px, 190px) minmax(0, 780px); gap: clamp(28px, 5.3vw, 72px); align-items: start; margin-top: 34px; }
+.aa-note-reading-main { min-width: 0; }
+.aa-note-toc { position: sticky; top: 96px; min-width: 0; padding-top: 18px; border-top: 1px solid var(--aa-rule); }
+.aa-note-toc > p { margin: 0 0 14px; color: var(--aa-muted); font-size: .68rem; font-weight: 800; letter-spacing: .16em; text-transform: uppercase; }
+.aa-note-toc ol { margin: 0; padding: 0; list-style: none; }
+.aa-note-toc li { margin: 0; }
+.aa-note-toc li + li { margin-top: 8px; }
+.aa-note-toc a { display: block; color: var(--aa-muted); font-size: .76rem; line-height: 1.45; text-decoration: none; transition: color .2s ease; }
+.aa-note-toc a:hover { color: var(--aa-blue); }
+.aa-note-toc-h3 { padding-left: 12px; }
+
+.aa-note-diagram { display: flex; align-items: center; gap: 10px; margin-top: 0; padding: 18px; border: 1px solid var(--aa-rule); border-radius: 14px; background: var(--aa-sky); overflow: auto; }
 .aa-note-diagram > div { min-width: 130px; display: grid; gap: 5px; }
 .aa-note-diagram b { color: var(--aa-blue); font-size: .72rem; letter-spacing: .08em; }
 .aa-note-diagram span { color: var(--aa-ink); font-size: .8rem; white-space: nowrap; }
 .aa-note-diagram i { color: var(--aa-blue); font-style: normal; }
 
 /* 正文排版 */
-.note-prose { max-width: 760px; margin-top: clamp(30px, 5vw, 48px); font-size: .98rem; line-height: 1.82; }
-.note-prose p { margin: 0 0 1.4em; color: color-mix(in oklab, var(--aa-ink) 88%, transparent); }
+.note-prose { max-width: 780px; margin-top: clamp(30px, 5vw, 48px); font-size: 1rem; line-height: 1.92; }
+.note-prose p { margin: 0 0 1.5em; color: color-mix(in oklab, var(--aa-ink) 88%, transparent); }
+.note-prose > p:first-of-type { font-size: 1.06em; color: var(--aa-ink); }
 
 .note-prose h2 {
-  margin: 2.2em 0 1em;
-  padding-left: 0;
+  margin: 2.7em 0 1em;
+  padding: .85em 0 0;
+  border-top: 1px solid var(--aa-rule);
   border-left: 0;
   font-family: var(--font-display);
   font-size: clamp(1.3rem, 2.4vw, 1.85rem);
   font-weight: 700;
   line-height: 1.4;
   letter-spacing: -.02em;
+  scroll-margin-top: 108px;
 }
 
-.note-prose h3 { margin: 1.8em 0 .8em; font-size: 1.08rem; font-weight: 800; }
+.note-prose h3 { margin: 1.9em 0 .8em; font-size: 1.08rem; font-weight: 800; scroll-margin-top: 108px; }
 
 .note-prose strong { color: var(--aa-ink); font-weight: 700; }
 
@@ -1451,17 +1605,24 @@ html.enrollment-dialog-open { overflow: hidden; }
   display: block;
   width: 100%;
   height: auto;
-  margin: 1.8em 0;
-  padding: 10px;
+  content-visibility: visible;
+  margin: 2.1em 0 .6em;
+  padding: 0;
   background: #fff; /* 正文插图多为浅色 SVG 示意图，白底保证深色模式下可读 */
   border: 1px solid var(--aa-rule);
-  border-radius: 12px;
-  box-shadow: var(--aa-soft-shadow);
+  border-radius: 10px;
+  box-shadow: none;
 }
+.note-prose p:has(> img) { margin-bottom: 1.8em; }
 
-.note-prose table { width: 100%; margin: 1.6em 0 2em; border-collapse: collapse; font-size: .9em; background: var(--aa-card); }
+.note-table-wrap { width: 100%; margin: 1.7em 0 2em; overflow-x: auto; border: 1px solid var(--aa-rule); border-radius: 10px; background: var(--aa-card); -webkit-overflow-scrolling: touch; }
+.note-prose table { width: 100%; min-width: 560px; margin: 0; border-collapse: collapse; font-size: .9em; background: var(--aa-card); }
 .note-prose th, .note-prose td { padding: 11px 13px; border: 1px solid var(--aa-rule); text-align: left; vertical-align: top; }
 .note-prose th { color: var(--aa-ink); background: var(--aa-sky); font-weight: 800; }
+
+.note-prose .katex-display { margin: 1.8em 0 2em; padding: 16px 18px; overflow-x: auto; overflow-y: hidden; text-align: left; background: color-mix(in oklab, var(--aa-sky) 74%, transparent); border-top: 1px solid var(--aa-rule); border-bottom: 1px solid var(--aa-rule); -webkit-overflow-scrolling: touch; }
+.note-prose .katex-display > .katex { white-space: normal; }
+.note-prose .katex { font-size: 1.03em; }
 
 .note-prose code {
   padding: .18em .45em;
@@ -1482,15 +1643,23 @@ html.enrollment-dialog-open { overflow: hidden; }
 }
 .note-prose pre code { padding: 0; background: transparent; color: inherit; }
 
+.note-code-card { margin: 0 0 1.6em; border: 1px solid var(--aa-rule); border-radius: 14px; overflow: hidden; background: oklch(0.24 0.03 265); }
+.note-code-card summary { padding: 11px 16px; color: oklch(0.9 0.02 250); background: oklch(0.2 0.03 265); cursor: pointer; font-size: .8rem; font-weight: 700; list-style: none; }
+.note-code-card summary::-webkit-details-marker { display: none; }
+.note-code-card summary::before { content: "＋"; margin-right: 7px; color: var(--aa-blue); }
+.note-code-card[open] summary::before { content: "－"; }
+.note-code-card pre { margin: 0; border-radius: 0; }
+
 .note-prose a { color: var(--aa-blue); text-decoration: underline; text-underline-offset: 3px; }
 
 .note-prose blockquote {
-  margin: 0 0 1.4em;
-  padding: 4px 0 4px 16px;
-  border-left: 2px solid var(--aa-ink);
-  background: none;
-  border-radius: 0;
+  margin: 1.7em 0 1.8em;
+  padding: 15px 18px;
+  border-left: 3px solid var(--aa-blue);
+  background: color-mix(in oklab, var(--aa-sky) 78%, transparent);
+  border-radius: 0 10px 10px 0;
 }
+.note-prose blockquote p:last-child { margin-bottom: 0; }
 
 /* 面试官 / 候选人对话 */
 .note-speaker {
@@ -1609,9 +1778,19 @@ html.enrollment-dialog-open { overflow: hidden; }
 }
 
 @media (max-width: 640px) {
+  .aa-note-reading-grid { grid-template-columns: 1fr; gap: 20px; margin-top: 24px; }
+  .aa-note-toc { position: static; padding: 14px 0; border-top: 1px solid var(--aa-rule); border-bottom: 1px solid var(--aa-rule); overflow-x: auto; }
+  .aa-note-reading-main { overflow-x: clip; }
+  .aa-note-toc ol { display: flex; gap: 12px; min-width: max-content; }
+  .aa-note-toc li + li { margin-top: 0; }
+  .aa-note-toc-h3 { padding-left: 0; }
+  .aa-note-toc a { white-space: nowrap; }
   .aa-note-pager { grid-template-columns: 1fr; }
   .aa-note-pager-card--next { text-align: left; }
   .aa-note-pager-card--next .aa-note-pager-label { justify-content: flex-start; }
+  .note-prose { font-size: .98rem; line-height: 1.88; }
+  .note-prose .katex-display { margin-left: -4px; margin-right: -4px; padding: 13px 12px; }
+  .note-prose table { min-width: 520px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -1626,3 +1805,5 @@ html.enrollment-dialog-open { overflow: hidden; }
 .dark .note-prose pre {
   background: oklch(0.13 0.02 265);
 }
+.dark .note-code-card { background: oklch(0.13 0.02 265); }
+.dark .note-code-card summary { background: oklch(0.16 0.02 265); }

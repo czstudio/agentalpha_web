@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="390" viewBox="0 0 1080 390" role="img" aria-labelledby="title desc">
+  <title id="title">Agent request replay pack</title>
+  <desc id="desc">版本、输入、轨迹、证据和第一处分歧组成可交接回放包</desc>
+  <rect width="1080" height="390" rx="26" fill="#f7f8f5"/>
+  <text x="52" y="56" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif" font-size="25" font-weight="700" fill="#173f3d">Request pack：一次请求也能交接</text>
+  <text x="52" y="84" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif" font-size="15" fill="#5b7470">先锁版本，再找第一处分歧；写工具默认 dry-run</text>
+  <g font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif" font-size="14" font-weight="700" text-anchor="middle">
+    <rect x="46" y="138" width="160" height="84" rx="16" fill="#e8f2f3"/><text x="126" y="174" fill="#205a5e">01 manifest</text><text x="126" y="198" font-size="12" font-weight="400" fill="#5b7470">版本指纹</text>
+    <rect x="236" y="138" width="160" height="84" rx="16" fill="#fff1d7"/><text x="316" y="174" fill="#8a5d16">02 input</text><text x="316" y="198" font-size="12" font-weight="400" fill="#7c6b4b">脱敏请求</text>
+    <rect x="426" y="138" width="160" height="84" rx="16" fill="#dfeee9"/><text x="506" y="174" fill="#286458">03 trace</text><text x="506" y="198" font-size="12" font-weight="400" fill="#5b7470">状态与回执</text>
+    <rect x="616" y="138" width="160" height="84" rx="16" fill="#f7e2df"/><text x="696" y="174" fill="#8c4b46">04 evidence</text><text x="696" y="198" font-size="12" font-weight="400" fill="#7c6663">引用与有效期</text>
+    <rect x="806" y="138" width="220" height="84" rx="16" fill="#173f3d"/><text x="916" y="174" fill="#fff">05 first divergence</text><text x="916" y="198" font-size="12" font-weight="400" fill="#dcebea">和基线首次不同</text>
+  </g>
+  <g stroke="#71918c" stroke-width="2" fill="none"><path d="M206 180h30"/><path d="M396 180h30"/><path d="M586 180h30"/><path d="M776 180h30"/></g>
+  <rect x="46" y="276" width="980" height="54" rx="14" fill="#e6efeb"/>
+  <text x="536" y="309" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif" font-size="14" fill="#286458" text-anchor="middle">可复查 ≠ 可重做所有外部状态：把不可复现的边界写在包里</text>
+</svg>

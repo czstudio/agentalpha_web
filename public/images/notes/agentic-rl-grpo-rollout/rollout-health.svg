@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 620" role="img" aria-labelledby="title desc">
+  <title id="title">Rollout 体检表</title>
+  <desc id="desc">从可比性、效率、质量、新鲜度四个维度检查 Agent rollout。</desc>
+  <rect width="1200" height="620" fill="#fbfaf7"/>
+  <text x="72" y="72" font-family="Arial, sans-serif" font-size="28" font-weight="700" fill="#17221b">不要只报 samples / second</text>
+  <text x="72" y="106" font-family="Arial, sans-serif" font-size="16" fill="#627066">rollout 是数据产品，健康度至少要看四个维度。</text>
+  <g font-family="Arial, sans-serif">
+    <rect x="72" y="170" width="240" height="260" rx="18" fill="#e7f1e8" stroke="#7ca587" stroke-width="2"/>
+    <text x="104" y="216" font-size="20" font-weight="700" fill="#285339">可比性</text>
+    <text x="104" y="258" font-size="16" fill="#35443b">快照命中率</text><text x="104" y="290" font-size="16" fill="#35443b">verifier 一致率</text><text x="104" y="322" font-size="16" fill="#35443b">std=0 组占比</text><text x="104" y="374" font-size="14" fill="#627066">能不能比较？</text>
+    <rect x="344" y="170" width="240" height="260" rx="18" fill="#f3ead9" stroke="#c39b55" stroke-width="2"/>
+    <text x="376" y="216" font-size="20" font-weight="700" fill="#705426">效率</text>
+    <text x="376" y="258" font-size="16" fill="#53472f">p50 / p95 / p99</text><text x="376" y="290" font-size="16" fill="#53472f">GPU 等待时间</text><text x="376" y="322" font-size="16" fill="#53472f">重试与工具成本</text><text x="376" y="374" font-size="14" fill="#7d6b49">尾部会不会拖垮批次？</text>
+    <rect x="616" y="170" width="240" height="260" rx="18" fill="#e9edf4" stroke="#7f93b0" stroke-width="2"/>
+    <text x="648" y="216" font-size="20" font-weight="700" fill="#334b6a">质量</text>
+    <text x="648" y="258" font-size="16" fill="#3e4a5a">最终正确率</text><text x="648" y="290" font-size="16" fill="#3e4a5a">约束通过率</text><text x="648" y="322" font-size="16" fill="#3e4a5a">引用/测试支持率</text><text x="648" y="374" font-size="14" fill="#5b6e89">reward 是否刷分？</text>
+    <rect x="888" y="170" width="240" height="260" rx="18" fill="#f2e6e5" stroke="#ba7a73" stroke-width="2"/>
+    <text x="920" y="216" font-size="20" font-weight="700" fill="#703e39">新鲜度</text>
+    <text x="920" y="258" font-size="16" fill="#5c4140">policy version</text><text x="920" y="290" font-size="16" fill="#5c4140">队列等待时间</text><text x="920" y="322" font-size="16" fill="#5c4140">policy lag</text><text x="920" y="374" font-size="14" fill="#80514b">样本是不是过期？</text>
+  </g>
+  <rect x="72" y="480" width="1056" height="58" rx="13" fill="#17221b"/>
+  <text x="100" y="517" font-family="Arial, sans-serif" font-size="18" font-weight="700" fill="#f7f4ee">最值得人工抽样的不是平均轨迹，而是最高优势与最低优势轨迹。</text>
+</svg>

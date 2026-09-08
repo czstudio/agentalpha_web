@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 390" role="img" aria-labelledby="title desc">
+  <title id="title">Agent 领先指标</title>
+  <desc id="desc">数据、工具、模型和交互的领先信号映射到结果指标和发布动作</desc>
+  <rect width="1080" height="390" rx="28" fill="#f7f8f5"/>
+  <text x="56" y="56" font-family="Arial,sans-serif" font-size="26" font-weight="700" fill="#173f3d">Leading signals</text>
+  <text x="56" y="84" font-family="Arial,sans-serif" font-size="15" fill="#58716e">先看过程变化，再等结果指标报警</text>
+  <g font-family="Arial,sans-serif" font-size="16" fill="#173f3d">
+    <rect x="56" y="126" width="210" height="108" rx="18" fill="#eaf3f7" stroke="#b9d3df"/><text x="82" y="162">数据</text><text x="82" y="196">未入索引 · 冲突</text><text x="82" y="220">→ 引用覆盖</text>
+    <rect x="306" y="126" width="210" height="108" rx="18" fill="#dfeee8" stroke="#afd0c3"/><text x="332" y="162">工具</text><text x="332" y="196">超时 · schema 失败</text><text x="332" y="220">→ 任务成功</text>
+    <rect x="556" y="126" width="210" height="108" rx="18" fill="#fff1d9" stroke="#e8c891"/><text x="582" y="162">模型</text><text x="582" y="196">步骤变长 · 重试</text><text x="582" y="220">→ P95 / 成本</text>
+    <rect x="806" y="126" width="218" height="108" rx="18" fill="#173f3d"/><text x="832" y="162" fill="#f7f8f5">交互</text><text x="832" y="196" fill="#dfeee8">重复改写 · 撤销</text><text x="832" y="220" fill="#dfeee8">→ 满意度</text>
+  </g>
+  <path d="M106 292h870" stroke="#79908c" stroke-width="3" stroke-linecap="round"/><text x="540" y="330" font-family="Arial,sans-serif" font-size="15" text-anchor="middle" fill="#68706c">领先信号 → 切片 → 灰度 / 收窄路由 / 阻断</text>
+</svg>

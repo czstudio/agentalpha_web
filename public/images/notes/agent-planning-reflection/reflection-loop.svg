@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 500" role="img" aria-labelledby="title desc">
+  <title id="title">Reflection control loop</title>
+  <desc id="desc">Reflection is triggered by failure or new evidence, changes the plan, and stops at success, failure or budget limits.</desc>
+  <rect width="1200" height="500" rx="28" fill="#f7f8f5"/>
+  <text x="60" y="62" font-family="Arial, sans-serif" font-size="27" font-weight="700" fill="#17211d">Reflection is a control loop, not a second opinion</text>
+  <text x="60" y="96" font-family="Arial, sans-serif" font-size="16" fill="#5f6d66">It needs a trigger, a changed artifact and a stop condition.</text>
+  <g font-family="Arial, sans-serif">
+    <circle cx="240" cy="268" r="78" fill="#d8efe7" stroke="#217d6e" stroke-width="3"/>
+    <text x="198" y="262" font-size="20" font-weight="700" fill="#176658">执行计划</text>
+    <text x="204" y="290" font-size="14" fill="#23423b">tool + state</text>
+    <circle cx="560" cy="268" r="78" fill="#e7f2ef" stroke="#4d9d8e" stroke-width="3"/>
+    <text x="516" y="262" font-size="20" font-weight="700" fill="#246d60">验收/观察</text>
+    <text x="516" y="290" font-size="14" fill="#314d47">new evidence</text>
+    <circle cx="860" cy="268" r="78" fill="#f4e7d9" stroke="#bc8052" stroke-width="3"/>
+    <text x="818" y="262" font-size="20" font-weight="700" fill="#8f5430">反思重规划</text>
+    <text x="823" y="290" font-size="14" fill="#5a3f31">change plan v+1</text>
+    <path d="M318 268h160" stroke="#6d8c82" stroke-width="3" marker-end="url(#arrow)"/>
+    <path d="M638 268h140" stroke="#6d8c82" stroke-width="3" marker-end="url(#arrow)"/>
+    <path d="M860 190 C640 110 390 110 240 190" fill="none" stroke="#6d8c82" stroke-width="3" marker-end="url(#arrow)"/>
+    <rect x="435" y="122" width="320" height="48" rx="14" fill="#ffffff" stroke="#d5ddd8"/>
+    <text x="477" y="153" font-size="15" fill="#5f6d66">只有失败/冲突/预算信号才触发</text>
+  </g>
+  <g font-family="Arial, sans-serif" font-size="15">
+    <rect x="190" y="400" width="220" height="46" rx="12" fill="#d8efe7"/><text x="252" y="429" fill="#176658">成功 → stop</text>
+    <rect x="490" y="400" width="220" height="46" rx="12" fill="#f4e7d9"/><text x="548" y="429" fill="#8f5430">上限 → degrade</text>
+    <rect x="790" y="400" width="220" height="46" rx="12" fill="#eeeeee"/><text x="846" y="429" fill="#535a56">无变化 → 不重试</text>
+  </g>
+  <defs><marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto"><path d="M0,0 L10,3 L0,6 z" fill="#6d8c82"/></marker></defs>
+</svg>

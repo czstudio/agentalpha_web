@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="390" viewBox="0 0 1080 390" role="img" aria-labelledby="title desc">
+  <title id="title">RAG route record</title>
+  <desc id="desc">RAG 路由记录把输入信号、选择理由、回退路径、权限策略和预算绑定到一次查询。</desc>
+  <rect width="1080" height="390" rx="26" fill="#f7f8f5"/>
+  <text x="58" y="54" fill="#17342f" font-size="25" font-weight="700" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif">RAG route record</text>
+  <text x="58" y="82" fill="#71837d" font-size="15" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif">知道走了哪条路径，还要知道为什么走、失败后去哪</text>
+  <g font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif">
+    <rect x="64" y="130" width="190" height="108" rx="18" fill="#eaf1f8" stroke="#b6cce0"/><text x="88" y="168" fill="#31516d" font-size="18" font-weight="700">信号</text><text x="88" y="198" fill="#587085" font-size="14">private / fresh</text><text x="88" y="220" fill="#587085" font-size="14">write / citation</text>
+    <rect x="276" y="130" width="190" height="108" rx="18" fill="#e4f2ec" stroke="#a8d2bf"/><text x="300" y="168" fill="#205b4c" font-size="18" font-weight="700">路线</text><text x="300" y="198" fill="#4e6c63" font-size="14">rag / tool / model</text><text x="300" y="220" fill="#4e6c63" font-size="14">选择理由</text>
+    <rect x="488" y="130" width="190" height="108" rx="18" fill="#fff1d9" stroke="#e9c987"/><text x="512" y="168" fill="#795a20" font-size="18" font-weight="700">策略</text><text x="512" y="198" fill="#896d39" font-size="14">tenant scoped</text><text x="512" y="220" fill="#896d39" font-size="14">top_k / budget</text>
+    <rect x="700" y="130" width="190" height="108" rx="18" fill="#f5e7ee" stroke="#dfb2c7"/><text x="724" y="168" fill="#7a3f5a" font-size="18" font-weight="700">回退</text><text x="724" y="198" fill="#8a6073" font-size="14">ask / no_answer</text><text x="724" y="220" fill="#8a6073" font-size="14">human review</text>
+    <rect x="912" y="130" width="110" height="108" rx="18" fill="#17342f"/><text x="936" y="168" fill="#f5fbf8" font-size="18" font-weight="700">回放</text><text x="936" y="198" fill="#c7e7d9" font-size="14">query_id</text><text x="936" y="220" fill="#c7e7d9" font-size="14">trace</text>
+  </g>
+  <g stroke="#6e9588" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M254 184h22"/><path d="M466 184h22"/><path d="M678 184h22"/><path d="M890 184h22"/><path d="M264 174l12 10-12 10"/><path d="M476 174l12 10-12 10"/><path d="M688 174l12 10-12 10"/><path d="M900 174l12 10-12 10"/></g>
+  <rect x="64" y="286" width="958" height="52" rx="15" fill="#17342f"/><text x="92" y="319" fill="#f5fbf8" font-size="17" font-weight="600" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif">记录理由，才能按输入信号切片回放错误路由</text>
+</svg>

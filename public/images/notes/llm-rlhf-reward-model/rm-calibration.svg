@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 360" role="img" aria-labelledby="title desc">
+  <title id="title">奖励模型校准检查</title>
+  <desc id="desc">从 pair accuracy、长度相关性和隐藏集一致性三条线检查奖励模型是否可用。</desc>
+  <rect width="1200" height="360" rx="28" fill="#f7f8f5"/>
+  <text x="58" y="58" fill="#1d1d1f" font-family="Arial, sans-serif" font-size="25" font-weight="700">奖励模型要过三道校准门</text>
+  <text x="58" y="88" fill="#6b6e70" font-family="Arial, sans-serif" font-size="16">单看 pair accuracy，可能把长度和模板误当成质量</text>
+  <g font-family="Arial, sans-serif">
+    <rect x="70" y="135" width="305" height="145" rx="16" fill="#e6f1ed" stroke="#9bc9bc"/>
+    <text x="222" y="173" text-anchor="middle" fill="#247a6b" font-size="17" font-weight="700">① 偏好排序</text>
+    <text x="222" y="207" text-anchor="middle" fill="#1d1d1f" font-size="14">pair accuracy / margin</text>
+    <text x="222" y="238" text-anchor="middle" fill="#6b6e70" font-size="14">不同任务切片都一致</text>
+    <text x="222" y="263" text-anchor="middle" fill="#6b6e70" font-size="14">而不是只在模板题上高</text>
+    <rect x="447" y="135" width="305" height="145" rx="16" fill="#fff5e8" stroke="#e5c98f"/>
+    <text x="599" y="173" text-anchor="middle" fill="#9b6b21" font-size="17" font-weight="700">② 捷径相关性</text>
+    <text x="599" y="207" text-anchor="middle" fill="#1d1d1f" font-size="14">reward ↔ length / style</text>
+    <text x="599" y="238" text-anchor="middle" fill="#6b6e70" font-size="14">控制长度后仍然成立</text>
+    <text x="599" y="263" text-anchor="middle" fill="#6b6e70" font-size="14">否则进入数据复核</text>
+    <rect x="824" y="135" width="305" height="145" rx="16" fill="#ffffff" stroke="#dfe4df"/>
+    <text x="976" y="173" text-anchor="middle" fill="#247a6b" font-size="17" font-weight="700">③ 隐藏集</text>
+    <text x="976" y="207" text-anchor="middle" fill="#1d1d1f" font-size="14">新 prompt / 新风格</text>
+    <text x="976" y="238" text-anchor="middle" fill="#6b6e70" font-size="14">与真实任务指标同向</text>
+    <text x="976" y="263" text-anchor="middle" fill="#6b6e70" font-size="14">否则停止 PPO 更新</text>
+    <path d="M390 207 H430 M767 207 H807" stroke="#247a6b" stroke-width="2"/><text x="410" y="190" fill="#247a6b" font-size="22">→</text><text x="787" y="190" fill="#247a6b" font-size="22">→</text>
+  </g>
+</svg>

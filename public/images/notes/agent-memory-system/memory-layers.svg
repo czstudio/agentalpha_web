@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 500" role="img" aria-labelledby="title desc">
+  <title id="title">Agent memory layers</title>
+  <desc id="desc">Working, episodic, semantic and procedural memory layers with different lifecycles.</desc>
+  <rect width="1200" height="500" rx="28" fill="#f7f8f5"/>
+  <text x="60" y="62" font-family="Arial, sans-serif" font-size="27" font-weight="700" fill="#17211d">Agent memory is layered, not a single bucket</text>
+  <text x="60" y="96" font-family="Arial, sans-serif" font-size="16" fill="#5f6d66">The closer to the task, the faster it changes; the farther away, the higher the write threshold.</text>
+  <g font-family="Arial, sans-serif">
+    <rect x="80" y="150" width="250" height="250" rx="22" fill="#d8efe7" stroke="#217d6e" stroke-width="3"/>
+    <text x="105" y="195" font-size="24" font-weight="700" fill="#176658">Working</text>
+    <text x="105" y="229" font-size="16" fill="#23423b">目标 · 约束 · 未决事项</text>
+    <text x="105" y="270" font-size="15" fill="#23423b">当前任务即时更新</text>
+    <text x="105" y="306" font-size="15" fill="#23423b">状态对象 / checkpoint</text>
+    <text x="105" y="366" font-size="14" fill="#176658">分钟级生命周期</text>
+
+    <rect x="360" y="150" width="250" height="250" rx="22" fill="#e7f2ef" stroke="#4d9d8e" stroke-width="3"/>
+    <text x="385" y="195" font-size="24" font-weight="700" fill="#2a766b">Episodic</text>
+    <text x="385" y="229" font-size="16" fill="#314d47">具体经历 · 工具结果</text>
+    <text x="385" y="270" font-size="15" fill="#314d47">按时间和任务回放</text>
+    <text x="385" y="306" font-size="15" fill="#314d47">事件表 + 索引</text>
+    <text x="385" y="366" font-size="14" fill="#2a766b">天到月</text>
+
+    <rect x="640" y="150" width="250" height="250" rx="22" fill="#f0eee3" stroke="#b8a766" stroke-width="3"/>
+    <text x="665" y="195" font-size="24" font-weight="700" fill="#7a681d">Semantic</text>
+    <text x="665" y="229" font-size="16" fill="#514b31">事实 · 偏好 · 规则</text>
+    <text x="665" y="270" font-size="15" fill="#514b31">带来源、版本、范围</text>
+    <text x="665" y="306" font-size="15" fill="#514b31">结构化表 + 检索</text>
+    <text x="665" y="366" font-size="14" fill="#7a681d">月到年</text>
+
+    <rect x="920" y="150" width="200" height="250" rx="22" fill="#f4e7d9" stroke="#bc8052" stroke-width="3"/>
+    <text x="943" y="195" font-size="24" font-weight="700" fill="#8f5430">Procedural</text>
+    <text x="943" y="229" font-size="16" fill="#5a3f31">步骤 · 策略</text>
+    <text x="943" y="270" font-size="15" fill="#5a3f31">多次验证后复用</text>
+    <text x="943" y="306" font-size="15" fill="#5a3f31">规则 / workflow</text>
+    <text x="943" y="366" font-size="14" fill="#8f5430">版本周期</text>
+  </g>
+  <path d="M330 275h30M610 275h30M890 275h30" stroke="#71827a" stroke-width="3" stroke-dasharray="8 8"/>
+</svg>

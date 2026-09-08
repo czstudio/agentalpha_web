@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="390" viewBox="0 0 1080 390" role="img" aria-labelledby="title desc">
+  <title id="title">Golden case 版本审查</title>
+  <desc id="desc">证据哈希、标签理由和 shadow 晋升路径一起留痕。</desc>
+  <rect width="1080" height="390" rx="28" fill="#F7F4EE"/>
+  <text x="54" y="56" font-family="Arial,'Noto Sans SC',sans-serif" font-size="26" font-weight="700" fill="#193C3A">Golden case 也要版本化</text>
+  <text x="54" y="88" font-family="Arial,'Noto Sans SC',sans-serif" font-size="16" fill="#58706D">题目、证据和动作标签变化，都要能解释</text>
+  <g font-family="Arial,'Noto Sans SC',sans-serif" text-anchor="middle">
+    <rect x="54" y="132" width="214" height="126" rx="18" fill="#EAF3F7"/><text x="161" y="172" font-size="19" font-weight="700" fill="#275261">case v3</text><text x="161" y="207" font-size="15" fill="#52727A">source hash</text><text x="161" y="233" font-size="15" fill="#52727A">expected action</text>
+    <rect x="292" y="132" width="214" height="126" rx="18" fill="#FFF0D6"/><text x="399" y="172" font-size="19" font-weight="700" fill="#875B26">变更审查</text><text x="399" y="207" font-size="15" fill="#6C5632">version bump</text><text x="399" y="233" font-size="15" fill="#6C5632">two annotators</text>
+    <rect x="530" y="132" width="214" height="126" rx="18" fill="#E5F0ED"/><text x="637" y="172" font-size="19" font-weight="700" fill="#1C615A">shadow 集</text><text x="637" y="207" font-size="15" fill="#31514E">7 days replay</text><text x="637" y="233" font-size="15" fill="#31514E">no blocker</text>
+    <rect x="768" y="132" width="260" height="126" rx="18" fill="#173F3D"/><text x="898" y="182" font-size="19" font-weight="700" fill="#FFFFFF">blocking v4</text><text x="898" y="218" font-size="15" fill="#D8EBE5">历史基线仍保留</text>
+  </g>
+  <g fill="none" stroke="#7D9A95" stroke-width="3" stroke-linecap="round"><path d="M268 195h24"/><path d="M506 195h24"/><path d="M744 195h24"/></g>
+  <rect x="54" y="296" width="974" height="43" rx="14" fill="#E8EFEB"/><text x="76" y="324" font-family="Arial,'Noto Sans SC',sans-serif" font-size="15" fill="#365B61">旧题不物理删除：移出阻断集，但保留版本、失效理由和历史分数</text>
+</svg>

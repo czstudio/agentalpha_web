@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="390" viewBox="0 0 1080 390" role="img" aria-labelledby="title desc">
+  <title id="title">Agent 实验 replay bundle</title><desc id="desc">入口、样本、工具 fixture、状态快照和差异报告组成可独立打开的复现包</desc>
+  <rect width="1080" height="390" rx="26" fill="#f7f8f5"/>
+  <text x="52" y="56" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif" font-size="25" font-weight="700" fill="#173f3d">Replay bundle：另一个人也能独立打开</text>
+  <text x="52" y="84" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif" font-size="15" fill="#5b7470">把“我发你日志了”变成可以预检、重放和差分的交付物</text>
+  <g font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif">
+    <rect x="52" y="122" width="172" height="126" rx="17" fill="#eaf3f7" stroke="#b9d3df"/><text x="138" y="157" text-anchor="middle" font-size="17" font-weight="700" fill="#173f3d">入口</text><text x="138" y="191" text-anchor="middle" font-size="13" fill="#48635f">manifest + run.sh</text><text x="138" y="215" text-anchor="middle" font-size="13" fill="#48635f">先做环境预检</text>
+    <rect x="240" y="122" width="172" height="126" rx="17" fill="#fff1d9" stroke="#e8c891"/><text x="326" y="157" text-anchor="middle" font-size="17" font-weight="700" fill="#173f3d">样本</text><text x="326" y="191" text-anchor="middle" font-size="13" fill="#48635f">脱敏输入</text><text x="326" y="215" text-anchor="middle" font-size="13" fill="#48635f">任务不变量</text>
+    <rect x="428" y="122" width="172" height="126" rx="17" fill="#dfeee8" stroke="#afd0c3"/><text x="514" y="157" text-anchor="middle" font-size="17" font-weight="700" fill="#173f3d">Fixture</text><text x="514" y="191" text-anchor="middle" font-size="13" fill="#48635f">工具返回 / 超时</text><text x="514" y="215" text-anchor="middle" font-size="13" fill="#48635f">禁止偷偷上线上</text>
+    <rect x="616" y="122" width="172" height="126" rx="17" fill="#f5d9dc" stroke="#dfb2b9"/><text x="702" y="157" text-anchor="middle" font-size="17" font-weight="700" fill="#173f3d">状态</text><text x="702" y="191" text-anchor="middle" font-size="13" fill="#48635f">snapshot + hash</text><text x="702" y="215" text-anchor="middle" font-size="13" fill="#48635f">事件级定位</text>
+    <rect x="804" y="122" width="224" height="126" rx="17" fill="#173f3d"/><text x="916" y="157" text-anchor="middle" font-size="17" font-weight="700" fill="#ffffff">报告</text><text x="916" y="191" text-anchor="middle" font-size="13" fill="#dbe9e5">diff.html</text><text x="916" y="215" text-anchor="middle" font-size="13" fill="#dbe9e5">首处分叉 + 结论</text>
+  </g>
+  <path d="M224 185h16M412 185h16M600 185h16M788 185h16" stroke="#7d9a95" stroke-width="3" stroke-linecap="round"/>
+  <rect x="52" y="294" width="976" height="44" rx="14" fill="#e8efeb"/><text x="540" y="322" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif" font-size="15" font-weight="700" fill="#365b61">预检失败就停止：部分回放要明确标注缺口，不伪装成端到端复现</text>
+</svg>

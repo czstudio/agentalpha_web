@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 500" role="img" aria-labelledby="title desc">
+  <title id="title">Long-term memory write gate</title>
+  <desc id="desc">A candidate memory passes evidence, sensitivity, conflict and reuse checks before being written.</desc>
+  <rect width="1200" height="500" rx="28" fill="#f7f8f5"/>
+  <text x="60" y="62" font-family="Arial, sans-serif" font-size="27" font-weight="700" fill="#17211d">Long-term memory needs a write gate</text>
+  <text x="60" y="96" font-family="Arial, sans-serif" font-size="16" fill="#5f6d66">A message appearing in the conversation is not enough to become a durable fact.</text>
+  <g font-family="Arial, sans-serif" font-size="17">
+    <rect x="70" y="180" width="180" height="92" rx="16" fill="#ffffff" stroke="#9ab8ad" stroke-width="2"/>
+    <text x="104" y="218" fill="#21473d" font-weight="700">候选事实</text>
+    <text x="92" y="247" fill="#5f6d66">message / tool / 摘要</text>
+    <path d="M250 226h54" stroke="#6d8c82" stroke-width="3" marker-end="url(#arrow)"/>
+
+    <rect x="304" y="166" width="180" height="120" rx="16" fill="#e7f2ef" stroke="#4d9d8e" stroke-width="2"/>
+    <text x="344" y="204" fill="#246d60" font-weight="700">证据核验</text>
+    <text x="328" y="233" fill="#314d47">来源 · 置信度</text>
+    <text x="328" y="259" fill="#314d47">是否明确陈述</text>
+    <path d="M484 226h54" stroke="#6d8c82" stroke-width="3" marker-end="url(#arrow)"/>
+
+    <rect x="538" y="166" width="180" height="120" rx="16" fill="#f0eee3" stroke="#b8a766" stroke-width="2"/>
+    <text x="574" y="204" fill="#7a681d" font-weight="700">风险检查</text>
+    <text x="559" y="233" fill="#514b31">秘密 · 租户 · 范围</text>
+    <text x="559" y="259" fill="#514b31">可删除 · 可审计</text>
+    <path d="M718 226h54" stroke="#6d8c82" stroke-width="3" marker-end="url(#arrow)"/>
+
+    <rect x="772" y="166" width="180" height="120" rx="16" fill="#f4e7d9" stroke="#bc8052" stroke-width="2"/>
+    <text x="810" y="204" fill="#8f5430" font-weight="700">冲突判断</text>
+    <text x="792" y="233" fill="#5a3f31">版本 · 时间 · 作用域</text>
+    <text x="792" y="259" fill="#5a3f31">覆盖 / 共存 / 审核</text>
+    <path d="M952 226h54" stroke="#6d8c82" stroke-width="3" marker-end="url(#arrow)"/>
+    <rect x="1006" y="180" width="130" height="92" rx="16" fill="#217d6e"/>
+    <text x="1037" y="218" fill="#ffffff" font-weight="700">写入</text>
+    <text x="1024" y="247" fill="#d8efe7">active + source</text>
+  </g>
+  <g font-family="Arial, sans-serif" font-size="15">
+    <rect x="222" y="350" width="240" height="58" rx="14" fill="#ffffff" stroke="#d5ddd8"/>
+    <text x="253" y="385" fill="#5f6d66">不够重要 → 只留 Working</text>
+    <rect x="480" y="350" width="240" height="58" rx="14" fill="#ffffff" stroke="#d5ddd8"/>
+    <text x="530" y="385" fill="#5f6d66">有冲突 → review</text>
+    <rect x="738" y="350" width="240" height="58" rx="14" fill="#ffffff" stroke="#d5ddd8"/>
+    <text x="775" y="385" fill="#5f6d66">含秘密 → reject</text>
+  </g>
+  <defs><marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto"><path d="M0,0 L10,3 L0,6 z" fill="#6d8c82"/></marker></defs>
+</svg>

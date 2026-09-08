@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 360" role="img" aria-labelledby="title desc">
+  <title id="title">多 Agent 协议三层结构</title>
+  <desc id="desc">角色契约、消息协议和版本化状态三层协作。</desc>
+  <rect width="900" height="360" rx="28" fill="#f7f8f5"/>
+  <g font-family="sans-serif">
+    <rect x="80" y="52" width="740" height="76" rx="18" fill="#dfeee8" stroke="#afd0c3"/>
+    <text x="120" y="98" font-size="22" font-weight="700" fill="#173f3d">01 角色契约</text>
+    <text x="390" y="98" font-size="16" fill="#52706b">谁负责什么 · 能读什么 · 能改什么</text>
+    <rect x="80" y="142" width="740" height="76" rx="18" fill="#eaf3f7" stroke="#b9d3df"/>
+    <text x="120" y="188" font-size="22" font-weight="700" fill="#24556a">02 消息协议</text>
+    <text x="390" y="188" font-size="16" fill="#5a737d">任务 ID · schema · 因果 · 幂等 · TTL</text>
+    <rect x="80" y="232" width="740" height="76" rx="18" fill="#fff1d9" stroke="#e8c891"/>
+    <text x="120" y="278" font-size="22" font-weight="700" fill="#704c20">03 共享状态</text>
+    <text x="390" y="278" font-size="16" fill="#856a42">owner · version · commit · event log</text>
+  </g>
+  <path d="M450 128v14M450 218v14" stroke="#86a59d" stroke-width="3"/>
+</svg>

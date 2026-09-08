@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 430" role="img" aria-labelledby="title desc">
+  <title id="title">SFT 的 token loss</title>
+  <desc id="desc">监督微调只在 assistant 输出 token 上计算损失，用户问题与模板 token 作为条件输入。</desc>
+  <rect width="1200" height="430" rx="28" fill="#f7f8f5"/>
+  <text x="58" y="58" fill="#1d1d1f" font-family="Arial, sans-serif" font-size="25" font-weight="700">SFT 不是把整段对话都当答案</text>
+  <text x="58" y="88" fill="#6b6e70" font-family="Arial, sans-serif" font-size="16">训练目标决定模型究竟在模仿什么：格式、语气，还是可验证的行为</text>
+  <g font-family="Arial, sans-serif" font-size="17">
+    <rect x="72" y="142" width="1056" height="66" rx="14" fill="#ffffff" stroke="#dfe4df"/>
+    <text x="104" y="181" fill="#6b6e70">user</text><text x="188" y="181" fill="#1d1d1f">请把订单按金额从高到低排序，并说明异常值。</text>
+    <rect x="72" y="228" width="1056" height="82" rx="14" fill="#e6f1ed" stroke="#9bc9bc"/>
+    <text x="104" y="266" fill="#247a6b" font-weight="700">assistant</text><text x="230" y="266" fill="#1d1d1f">先检查金额是否为负数，再执行稳定排序。</text>
+    <text x="230" y="293" fill="#1d1d1f">异常订单：…</text>
+    <rect x="72" y="332" width="1056" height="48" rx="12" fill="#1d1d1f"/>
+    <text x="104" y="362" fill="#ffffff">loss mask</text><text x="236" y="362" fill="#b7d7ca">0 0 0 0 0 0</text><text x="420" y="362" fill="#f4d6a0">1 1 1 1 1 …</text>
+    <text x="730" y="362" fill="#ffffff">只对目标输出 token 求交叉熵</text>
+  </g>
+</svg>

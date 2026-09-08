@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 380" role="img" aria-labelledby="title desc">
+  <title id="title">DPO 与 PPO 的目标对比</title>
+  <desc id="desc">PPO 需要在线采样和奖励模型，DPO 直接用 chosen rejected 偏好对优化相对 log ratio。</desc>
+  <rect width="1200" height="380" rx="28" fill="#f7f8f5"/>
+  <text x="58" y="58" fill="#1d1d1f" font-family="Arial, sans-serif" font-size="25" font-weight="700">DPO 把在线强化学习改写成偏好分类</text>
+  <g font-family="Arial, sans-serif">
+    <rect x="80" y="130" width="470" height="180" rx="16" fill="#ffffff" stroke="#dfe4df"/>
+    <text x="120" y="168" fill="#1d1d1f" font-size="20" font-weight="700">PPO</text><text x="120" y="202" fill="#6b6e70" font-size="15">policy 生成 → reward model 打分</text><text x="120" y="230" fill="#6b6e70" font-size="15">KL 约束 → value / advantage → 更新</text><text x="120" y="270" fill="#247a6b" font-size="15">在线、灵活、成本与稳定性更高</text>
+    <rect x="650" y="130" width="470" height="180" rx="16" fill="#e6f1ed" stroke="#9bc9bc"/>
+    <text x="690" y="168" fill="#1d1d1f" font-size="20" font-weight="700">DPO</text><text x="690" y="202" fill="#6b6e70" font-size="15">固定 prompt + chosen / rejected</text><text x="690" y="230" fill="#6b6e70" font-size="15">直接优化 policy 与 reference 的 log-ratio</text><text x="690" y="270" fill="#247a6b" font-size="15">离线、简单，但依赖偏好对质量</text>
+  </g>
+</svg>

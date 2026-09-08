@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 360" role="img" aria-labelledby="title desc">
+  <title id="title">多 Agent 拆分判断路径</title>
+  <desc id="desc">从固定流程判断到专业、权限与并行边界，最后决定单 Agent、工作流或多 Agent。</desc>
+  <rect width="900" height="360" rx="28" fill="#f7f8f5"/>
+  <path d="M80 180h138M348 180h120M598 180h122" stroke="#93b8af" stroke-width="4" stroke-linecap="round"/>
+  <path d="m208 170 18 10-18 10M458 170l18 10-18 10M710 170l18 10-18 10" fill="#93b8af"/>
+  <rect x="28" y="128" width="190" height="104" rx="18" fill="#e9f1ed" stroke="#9bc1b5"/>
+  <text x="123" y="164" text-anchor="middle" font-family="sans-serif" font-size="20" font-weight="700" fill="#173f3d">任务是否固定？</text>
+  <text x="123" y="194" text-anchor="middle" font-family="sans-serif" font-size="15" fill="#5a706d">顺序、输入、输出</text>
+  <rect x="250" y="128" width="208" height="104" rx="18" fill="#fff3dd" stroke="#e5c58a"/>
+  <text x="354" y="164" text-anchor="middle" font-family="sans-serif" font-size="19" font-weight="700" fill="#704c20">三类边界</text>
+  <text x="354" y="194" text-anchor="middle" font-family="sans-serif" font-size="15" fill="#87683d">专业 · 权限 · 并行</text>
+  <rect x="478" y="128" width="242" height="104" rx="18" fill="#eaf3f7" stroke="#a7c8d6"/>
+  <text x="599" y="164" text-anchor="middle" font-family="sans-serif" font-size="19" font-weight="700" fill="#24556a">可验收产物？</text>
+  <text x="599" y="194" text-anchor="middle" font-family="sans-serif" font-size="15" fill="#587783">不是一段“完成了”</text>
+  <rect x="744" y="112" width="128" height="54" rx="14" fill="#d7e9e2"/>
+  <text x="808" y="146" text-anchor="middle" font-family="sans-serif" font-size="17" font-weight="700" fill="#173f3d">多 Agent</text>
+  <rect x="744" y="178" width="128" height="54" rx="14" fill="#f5e6c6"/>
+  <text x="808" y="212" text-anchor="middle" font-family="sans-serif" font-size="17" font-weight="700" fill="#704c20">工作流</text>
+  <text x="40" y="304" font-family="sans-serif" font-size="16" fill="#647775">固定流程 → 工作流；动态分工 + 权限隔离 + 并行收益 → 多 Agent</text>
+</svg>

@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="390" viewBox="0 0 1080 390" role="img" aria-labelledby="title desc">
+  <title id="title">Agent 分阶段预算</title><desc id="desc">规划、检索、工具和恢复各有软硬预算，拒绝与缓存也进入成本账本</desc>
+  <rect width="1080" height="390" rx="26" fill="#f7f8f5"/>
+  <text x="52" y="56" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif" font-size="25" font-weight="700" fill="#173f3d">预算分层：先保住关键步骤，再优化单价</text>
+  <text x="52" y="84" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif" font-size="15" fill="#5b7470">总 token 上限无法解释钱花在了哪里</text>
+  <g font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif">
+    <rect x="52" y="122" width="220" height="126" rx="17" fill="#eaf3f7" stroke="#b9d3df"/><text x="162" y="157" text-anchor="middle" font-size="17" font-weight="700" fill="#173f3d">规划</text><text x="162" y="191" text-anchor="middle" font-size="13" fill="#48635f">soft / hard tokens</text><text x="162" y="215" text-anchor="middle" font-size="13" fill="#48635f">compress</text>
+    <rect x="292" y="122" width="220" height="126" rx="17" fill="#fff1d9" stroke="#e8c891"/><text x="402" y="157" text-anchor="middle" font-size="17" font-weight="700" fill="#173f3d">检索</text><text x="402" y="191" text-anchor="middle" font-size="13" fill="#48635f">call budget</text><text x="402" y="215" text-anchor="middle" font-size="13" fill="#48635f">cache / stale</text>
+    <rect x="532" y="122" width="220" height="126" rx="17" fill="#f5d9dc" stroke="#dfb2b9"/><text x="642" y="157" text-anchor="middle" font-size="17" font-weight="700" fill="#173f3d">工具</text><text x="642" y="191" text-anchor="middle" font-size="13" fill="#48635f">retry reserve</text><text x="642" y="215" text-anchor="middle" font-size="13" fill="#48635f">policy denied</text>
+    <rect x="772" y="122" width="256" height="126" rx="17" fill="#173f3d"/><text x="900" y="157" text-anchor="middle" font-size="17" font-weight="700" fill="#ffffff">硬停止</text><text x="900" y="191" text-anchor="middle" font-size="13" fill="#dbe9e5">partial + owner</text><text x="900" y="215" text-anchor="middle" font-size="13" fill="#dbe9e5">human handoff</text>
+  </g>
+  <path d="M272 185h20M512 185h20M752 185h20" stroke="#7d9a95" stroke-width="3" stroke-linecap="round"/>
+  <rect x="52" y="294" width="976" height="44" rx="14" fill="#e8efeb"/><text x="540" y="322" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif" font-size="15" font-weight="700" fill="#365b61">预算不是越省越好，而是要把资源留给能完成任务的路径</text>
+</svg>

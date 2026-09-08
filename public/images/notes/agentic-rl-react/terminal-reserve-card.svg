@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="390" viewBox="0 0 1080 390" role="img" aria-labelledby="title desc">
+  <title id="title">Agentic RL 终止余量</title>
+  <desc id="desc">在探索预算之外，为证据整理、澄清和安全提交预留最后一步。</desc>
+  <rect width="1080" height="390" rx="26" fill="#f7f8f5"/>
+  <text x="52" y="56" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif" font-size="25" font-weight="700" fill="#173f3d">终止余量策略</text>
+  <text x="52" y="84" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif" font-size="15" fill="#5b7470">探索不是把预算耗光，而是给最后的证据整理与安全收尾留位置</text>
+  <g font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif">
+    <rect x="52" y="122" width="220" height="126" rx="17" fill="#dcecf4"/>
+    <text x="74" y="153" font-size="17" font-weight="700" fill="#173f3d">探索</text>
+    <text x="74" y="181" font-size="13" fill="#365e67">搜索、观察、尝试</text>
+    <text x="74" y="208" font-size="13" fill="#365e67">记录边际证据收益</text>
+    <rect x="292" y="122" width="220" height="126" rx="17" fill="#f4e9bd"/>
+    <text x="314" y="153" font-size="17" font-weight="700" fill="#5a4b19">余量</text>
+    <text x="314" y="181" font-size="13" fill="#786726">min steps for finalize</text>
+    <text x="314" y="208" font-size="13" fill="#786726">min tools for commit</text>
+    <rect x="532" y="122" width="220" height="126" rx="17" fill="#f4dfe5"/>
+    <text x="554" y="153" font-size="17" font-weight="700" fill="#6b3349">收尾</text>
+    <text x="554" y="181" font-size="13" fill="#7d5060">整理证据、澄清缺口</text>
+    <text x="554" y="208" font-size="13" fill="#7d5060">拒答或人工接管</text>
+    <rect x="772" y="122" width="220" height="126" rx="17" fill="#173f3d"/>
+    <text x="794" y="153" font-size="17" font-weight="700" fill="#f7f8f5">提交 / 澄清</text>
+    <text x="794" y="181" font-size="13" fill="#d8e7e1">有预算才允许写入</text>
+    <text x="794" y="208" font-size="13" fill="#d8e7e1">否则安全停机</text>
+  </g>
+  <path d="M272 185H286M512 185H526M752 185H766" fill="none" stroke="#7d9a95" stroke-width="3" stroke-linecap="round"/>
+  <path d="m280 177 8 8-8 8M520 177l8 8-8 8M760 177l8 8-8 8" fill="none" stroke="#7d9a95" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="52" y="294" width="976" height="44" rx="14" fill="#e8efeb"/>
+  <text x="78" y="322" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif" font-size="16" font-weight="700" fill="#173f3d">给最后一步留余量，避免永远交不出结果</text>
+</svg>

@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="390" viewBox="0 0 1080 390" role="img" aria-labelledby="title desc">
+  <title id="title">容量成本卡</title><desc id="desc">流量假设、单请求开销、预算门槛和降级动作组成上线判断</desc>
+  <rect width="1080" height="390" rx="26" fill="#f7f8f5"/>
+  <text x="52" y="56" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif" font-size="25" font-weight="700" fill="#173f3d">容量成本卡：在什么预算下敢上线？</text>
+  <text x="52" y="84" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif" font-size="15" fill="#5b7470">数字不必假装精确，但取舍必须可重算</text>
+  <g font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif">
+    <rect x="52" y="122" width="190" height="126" rx="17" fill="#eaf3f7" stroke="#b9d3df"/><text x="147" y="157" text-anchor="middle" font-size="17" font-weight="700" fill="#173f3d">流量</text><text x="147" y="191" text-anchor="middle" font-size="13" fill="#48635f">1200 rpm</text><text x="147" y="215" text-anchor="middle" font-size="13" fill="#48635f">峰值 ×3</text>
+    <rect x="262" y="122" width="190" height="126" rx="17" fill="#fff1d9" stroke="#e8c891"/><text x="357" y="157" text-anchor="middle" font-size="17" font-weight="700" fill="#173f3d">单请求</text><text x="357" y="191" text-anchor="middle" font-size="13" fill="#48635f">模型 4 次</text><text x="357" y="215" text-anchor="middle" font-size="13" fill="#48635f">工具 6 次</text>
+    <rect x="472" y="122" width="190" height="126" rx="17" fill="#dfeee8" stroke="#afd0c3"/><text x="567" y="157" text-anchor="middle" font-size="17" font-weight="700" fill="#173f3d">预算</text><text x="567" y="191" text-anchor="middle" font-size="13" fill="#48635f">P95 1800ms</text><text x="567" y="215" text-anchor="middle" font-size="13" fill="#48635f">$0.018 / success</text>
+    <rect x="682" y="122" width="190" height="126" rx="17" fill="#f5d9dc" stroke="#dfb2b9"/><text x="777" y="157" text-anchor="middle" font-size="17" font-weight="700" fill="#173f3d">降级</text><text x="777" y="191" text-anchor="middle" font-size="13" fill="#48635f">小模型路由</text><text x="777" y="215" text-anchor="middle" font-size="13" fill="#48635f">关闭非必要 rerank</text>
+    <rect x="892" y="122" width="136" height="126" rx="17" fill="#173f3d"/><text x="960" y="157" text-anchor="middle" font-size="17" font-weight="700" fill="#ffffff">证据</text><text x="960" y="191" text-anchor="middle" font-size="13" fill="#dbe9e5">replay</text><text x="960" y="215" text-anchor="middle" font-size="13" fill="#dbe9e5">canary</text>
+  </g>
+  <path d="M242 185h20M452 185h20M662 185h20M872 185h20" stroke="#7d9a95" stroke-width="3" stroke-linecap="round"/>
+  <rect x="52" y="294" width="976" height="44" rx="14" fill="#e8efeb"/><text x="540" y="322" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif" font-size="15" font-weight="700" fill="#365b61">容量估算的价值，是让“能不能做”变成“敢不敢做”</text>
+</svg>

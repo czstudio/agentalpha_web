@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="390" viewBox="0 0 1080 390" role="img" aria-labelledby="title desc">
+  <title id="title">视觉 crop 一致性探针</title>
+  <desc id="desc">比较多 crop 的重叠区域、OCR 结果和图片版本，冲突时暂停生成并请求更清晰输入。</desc>
+  <rect width="1080" height="390" rx="26" fill="#f7f8f5"/>
+  <text x="52" y="56" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif" font-size="25" font-weight="700" fill="#173f3d">多 crop 一致性探针</text>
+  <text x="52" y="84" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif" font-size="15" fill="#5b7470">两个高置信度读数冲突时，保留定位证据，不让模型投票猜答案</text>
+  <g font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif">
+    <rect x="52" y="122" width="220" height="126" rx="17" fill="#dcecf4"/>
+    <text x="74" y="153" font-size="17" font-weight="700" fill="#173f3d">multi-crop</text>
+    <text x="74" y="181" font-size="13" fill="#365e67">同图不同缩放</text>
+    <text x="74" y="208" font-size="13" fill="#365e67">记录 bbox 与版本</text>
+    <rect x="292" y="122" width="220" height="126" rx="17" fill="#f4e9bd"/>
+    <text x="314" y="153" font-size="17" font-weight="700" fill="#5a4b19">overlap</text>
+    <text x="314" y="181" font-size="13" fill="#786726">比较重叠区域</text>
+    <text x="314" y="208" font-size="13" fill="#786726">确认是否同一证据</text>
+    <rect x="532" y="122" width="220" height="126" rx="17" fill="#f4dfe5"/>
+    <text x="554" y="153" font-size="17" font-weight="700" fill="#6b3349">OCR / version</text>
+    <text x="554" y="181" font-size="13" fill="#7d5060">1280.50 vs 1280.00</text>
+    <text x="554" y="208" font-size="13" fill="#7d5060">高置信度仍可能冲突</text>
+    <rect x="772" y="122" width="220" height="126" rx="17" fill="#173f3d"/>
+    <text x="794" y="153" font-size="17" font-weight="700" fill="#f7f8f5">clarify / block</text>
+    <text x="794" y="181" font-size="13" fill="#d8e7e1">请求原图或人工确认</text>
+    <text x="794" y="208" font-size="13" fill="#d8e7e1">冲突解决前禁止生成</text>
+  </g>
+  <path d="M272 185H286M512 185H526M752 185H766" fill="none" stroke="#7d9a95" stroke-width="3" stroke-linecap="round"/>
+  <path d="m280 177 8 8-8 8M520 177l8 8-8 8M760 177l8 8-8 8" fill="none" stroke="#7d9a95" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="52" y="294" width="976" height="44" rx="14" fill="#e8efeb"/>
+  <text x="78" y="322" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif" font-size="16" font-weight="700" fill="#173f3d">冲突的视觉证据不能靠模型投票</text>
+</svg>

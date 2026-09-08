@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="500" viewBox="0 0 1200 500">
+  <rect width="1200" height="500" fill="#f8faf9"/>
+  <text x="70" y="70" font-family="Arial,'Noto Sans SC',sans-serif" font-size="28" font-weight="700" fill="#19372f">文本 → token → 位置表示</text>
+  <g font-family="Arial,'Noto Sans SC',sans-serif" text-anchor="middle">
+    <rect x="80" y="190" width="220" height="90" rx="16" fill="#e9f1f8" stroke="#a5bed4" stroke-width="2"/><text x="190" y="228" font-size="20" font-weight="700" fill="#2d607e">原始文本</text><text x="190" y="258" font-size="16" fill="#4b6e83">Agent 读取文档</text>
+    <rect x="420" y="170" width="300" height="130" rx="16" fill="#e8f3ee" stroke="#9fc8b3" stroke-width="2"/><text x="570" y="214" font-size="20" font-weight="700" fill="#285d4d">token ids</text><text x="570" y="246" font-size="16" fill="#4b7063">[1842] [77] [9012] [36]</text><text x="570" y="274" font-size="16" fill="#4b7063">子词 / 字节 / 特殊符号</text>
+    <rect x="840" y="190" width="260" height="90" rx="16" fill="#f2eee2" stroke="#d3bb7d" stroke-width="2"/><text x="970" y="228" font-size="20" font-weight="700" fill="#7c622e">位置 + 表示</text><text x="970" y="258" font-size="16" fill="#846e42">顺序 / 距离 / 注意力</text>
+  </g>
+  <g fill="none" stroke="#5f8e7c" stroke-width="4"><path d="M300 235H405"/><path d="m392 223 18 12-18 12" fill="#5f8e7c"/><path d="M720 235H825"/><path d="m812 223 18 12-18 12" fill="#5f8e7c"/></g>
+  <text x="100" y="400" font-family="Arial,'Noto Sans SC',sans-serif" font-size="17" fill="#6a7d75">token 数决定预算；位置机制决定模型能否分辨“先后与远近”。</text>
+</svg>

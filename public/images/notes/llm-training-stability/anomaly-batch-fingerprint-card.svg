@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="390" viewBox="0 0 1080 390" role="img" aria-labelledby="title desc">
+  <title id="title">异常 batch 指纹与复现</title><desc id="desc">异常 batch 的数据、mask、梯度和混合精度状态进入隔离回放链</desc>
+  <rect width="1080" height="390" rx="26" fill="#f7f8f5"/>
+  <text x="52" y="56" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif" font-size="25" font-weight="700" fill="#173f3d">异常 batch：先留下指纹，再决定跳过还是修复</text>
+  <text x="52" y="84" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif" font-size="15" fill="#5b7470">一根尖峰曲线不够解释根因</text>
+  <g font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif">
+    <rect x="52" y="122" width="220" height="126" rx="17" fill="#eaf3f7" stroke="#b9d3df"/><text x="162" y="157" text-anchor="middle" font-size="17" font-weight="700" fill="#173f3d">数据指纹</text><text x="162" y="191" text-anchor="middle" font-size="13" fill="#48635f">batch hash</text><text x="162" y="215" text-anchor="middle" font-size="13" fill="#48635f">source / length</text>
+    <rect x="292" y="122" width="220" height="126" rx="17" fill="#fff1d9" stroke="#e8c891"/><text x="402" y="157" text-anchor="middle" font-size="17" font-weight="700" fill="#173f3d">训练状态</text><text x="402" y="191" text-anchor="middle" font-size="13" fill="#48635f">mask ratio</text><text x="402" y="215" text-anchor="middle" font-size="13" fill="#48635f">grad / scaler</text>
+    <rect x="532" y="122" width="220" height="126" rx="17" fill="#f5d9dc" stroke="#dfb2b9"/><text x="642" y="157" text-anchor="middle" font-size="17" font-weight="700" fill="#173f3d">隔离</text><text x="642" y="191" text-anchor="middle" font-size="13" fill="#48635f">quarantine</text><text x="642" y="215" text-anchor="middle" font-size="13" fill="#48635f">no silent drop</text>
+    <rect x="772" y="122" width="256" height="126" rx="17" fill="#173f3d"/><text x="900" y="157" text-anchor="middle" font-size="17" font-weight="700" fill="#ffffff">复现分类</text><text x="900" y="191" text-anchor="middle" font-size="13" fill="#dbe9e5">data / label / AMP</text><text x="900" y="215" text-anchor="middle" font-size="13" fill="#dbe9e5">next action</text>
+  </g>
+  <path d="M272 185h20M512 185h20M752 185h20" stroke="#7d9a95" stroke-width="3" stroke-linecap="round"/>
+  <rect x="52" y="294" width="976" height="44" rx="14" fill="#e8efeb"/><text x="540" y="322" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif" font-size="15" font-weight="700" fill="#365b61">异常样本不是垃圾：它是下一次修复能否成功的证据</text>
+</svg>

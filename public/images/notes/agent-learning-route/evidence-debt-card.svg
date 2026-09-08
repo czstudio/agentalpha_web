@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="390" viewBox="0 0 1080 390">
+  <rect width="1080" height="390" rx="28" fill="#f7f9fc"/>
+  <text x="56" y="58" font-family="Arial, sans-serif" font-size="23" font-weight="700" fill="#14233b">学习路线证据债务</text>
+  <text x="56" y="86" font-family="Arial, sans-serif" font-size="15" fill="#61708a">把“看过”转成最小实现、回放和可复述答案</text>
+  <g font-family="Arial, sans-serif">
+    <rect x="56" y="130" width="214" height="112" rx="18" fill="#fff4df" stroke="#e4bd70"/><text x="82" y="166" font-size="18" font-weight="700" fill="#9a6510">Debt</text><text x="82" y="196" font-size="15" fill="#6f531e">只看文章</text><text x="82" y="222" font-size="13" fill="#7d6b43">无反例 / 无回放</text>
+    <path d="M272 186H342" stroke="#b8893e" stroke-width="3"/><path d="m332 177 12 9-12 9" fill="none" stroke="#b8893e" stroke-width="3"/>
+    <rect x="344" y="130" width="214" height="112" rx="18" fill="#e8f0ff" stroke="#9bb8ed"/><text x="370" y="166" font-size="18" font-weight="700" fill="#1f4d9c">Probe</text><text x="370" y="196" font-size="15" fill="#355071">最小实验</text><text x="370" y="222" font-size="13" fill="#5b6b80">产生可验证证据</text>
+    <path d="M560 186H630" stroke="#5979bd" stroke-width="3"/><path d="m620 177 12 9-12 9" fill="none" stroke="#5979bd" stroke-width="3"/>
+    <rect x="632" y="130" width="184" height="112" rx="18" fill="#e7f6ef" stroke="#98cdb1"/><text x="658" y="166" font-size="18" font-weight="700" fill="#197145">Replay</text><text x="658" y="196" font-size="15" fill="#35624c">反例 / 回放</text><text x="658" y="222" font-size="13" fill="#527464">覆盖边界</text>
+    <path d="M818 186H884" stroke="#4f9c72" stroke-width="3"/><path d="m874 177 12 9-12 9" fill="none" stroke="#4f9c72" stroke-width="3"/>
+    <rect x="886" y="130" width="138" height="112" rx="18" fill="#f0eaff" stroke="#b8a3e8"/><text x="910" y="166" font-size="18" font-weight="700" fill="#6445ae">Exit</text><text x="910" y="196" font-size="15" fill="#51436f">可复述</text><text x="910" y="222" font-size="13" fill="#6c5d85">pause / continue</text>
+  </g>
+  <line x1="56" y1="283" x2="1024" y2="283" stroke="#dbe2ec"/><text x="56" y="322" font-family="Arial, sans-serif" font-size="15" font-weight="700" fill="#263750">优先级</text><text x="132" y="322" font-family="Arial, sans-serif" font-size="15" fill="#52627a">先偿还影响项目和面试的高风险证据债务，再扩展主题数量</text>
+</svg>

@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 390" role="img" aria-labelledby="title desc">
+  <title id="title">多 Agent 状态提交状态机</title>
+  <desc id="desc">prepared、committed 和 verified 三个提交检查点</desc>
+  <rect width="1080" height="390" rx="28" fill="#f7f8f5"/>
+  <text x="56" y="56" font-family="Arial,sans-serif" font-size="26" font-weight="700" fill="#173f3d">Commit state machine</text>
+  <text x="56" y="84" font-family="Arial,sans-serif" font-size="15" fill="#58716e">消息被接收，不等于产物已经可用</text>
+  <g font-family="Arial,sans-serif" text-anchor="middle">
+    <rect x="110" y="144" width="210" height="90" rx="18" fill="#eaf3f7" stroke="#b9d3df"/><text x="215" y="180" font-size="20" font-weight="700" fill="#24556a">prepared</text><text x="215" y="210" font-size="15" fill="#5a737d">待提交</text>
+    <rect x="435" y="144" width="210" height="90" rx="18" fill="#dfeee8" stroke="#afd0c3"/><text x="540" y="180" font-size="20" font-weight="700" fill="#173f3d">committed</text><text x="540" y="210" font-size="15" fill="#52706b">版本 +1</text>
+    <rect x="760" y="144" width="210" height="90" rx="18" fill="#173f3d"/><text x="865" y="180" font-size="20" font-weight="700" fill="#f7f8f5">verified</text><text x="865" y="210" font-size="15" fill="#dfeee8">下游可读</text>
+  </g>
+  <g stroke="#79908c" stroke-width="3" fill="none" stroke-linecap="round"><path d="M320 189h115"/><path d="M645 189h115"/><path d="M540 234v72H330"/></g>
+  <text x="330" y="332" font-family="Arial,sans-serif" font-size="15" fill="#753f32">校验失败 / 版本冲突 → rejected + owner 仲裁</text>
+</svg>

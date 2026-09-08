@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="360" viewBox="0 0 1080 360" role="img" aria-labelledby="title desc">
+  <title id="title">项目贡献账本</title><desc id="desc">版本、反事实、观测结果和回滚开关证明改动的真实增量</desc>
+  <rect width="1080" height="360" rx="24" fill="#f7f8f5"/>
+  <text x="52" y="54" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif" font-size="26" font-weight="700" fill="#173f3d">项目贡献账本：证明一次改动的增量</text>
+  <text x="52" y="84" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif" font-size="15" fill="#5b7470">不只说“我做了”，还要说“没有它会怎样”</text>
+  <g font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif">
+    <rect x="52" y="126" width="200" height="154" rx="18" fill="#eaf3f7" stroke="#b9d3df"/><text x="78" y="158" font-size="18" font-weight="700" fill="#173f3d">版本</text><text x="78" y="190" font-size="14" fill="#48635f">baseline / change</text><text x="78" y="216" font-size="14" fill="#48635f">模型 / 数据 / 工具</text><text x="78" y="242" font-size="14" fill="#48635f">固定唯一变量</text>
+    <rect x="276" y="126" width="200" height="154" rx="18" fill="#fae8e1" stroke="#e0b9ae"/><text x="302" y="158" font-size="18" font-weight="700" fill="#173f3d">反事实</text><text x="302" y="190" font-size="14" fill="#48635f">不改会怎样？</text><text x="302" y="216" font-size="14" fill="#48635f">旧缓存 / 旧路径</text><text x="302" y="242" font-size="14" fill="#48635f">故障注入或回放</text>
+    <rect x="500" y="126" width="200" height="154" rx="18" fill="#dfeee8" stroke="#afd0c3"/><text x="526" y="158" font-size="18" font-weight="700" fill="#173f3d">观测</text><text x="526" y="190" font-size="14" fill="#48635f">样本 / 切片</text><text x="526" y="216" font-size="14" fill="#48635f">质量 / 延迟 / 成本</text><text x="526" y="242" font-size="14" fill="#48635f">失败类型</text>
+    <rect x="724" y="126" width="304" height="154" rx="18" fill="#fff1d9" stroke="#e8c891"/><text x="750" y="158" font-size="18" font-weight="700" fill="#173f3d">回滚与留下</text><text x="750" y="190" font-size="14" fill="#48635f">feature flag / owner / 复查日</text><text x="750" y="216" font-size="14" fill="#48635f">接口、回归集、监控</text><text x="750" y="242" font-size="14" fill="#48635f">让增量可以被接手</text>
+  </g>
+  <path d="M252 203h24M476 203h24M700 203h24" stroke="#7d9a95" stroke-width="3" stroke-linecap="round"/>
+</svg>

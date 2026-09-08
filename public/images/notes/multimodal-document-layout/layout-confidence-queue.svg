@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="390" viewBox="0 0 1080 390" role="img" aria-labelledby="title desc">
+  <title id="title">多模态文档低置信复核队列</title><desc id="desc">文字、版面和关系置信度共同决定文档是否可引用</desc>
+  <rect width="1080" height="390" rx="26" fill="#f7f8f5"/>
+  <text x="52" y="56" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif" font-size="25" font-weight="700" fill="#173f3d">低置信队列：不是每个 98% 都能引用</text>
+  <text x="52" y="84" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif" font-size="15" fill="#5b7470">拆开看文字、版面和关系，优先复核会改变答案的区域</text>
+  <g font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif">
+    <rect x="52" y="122" width="202" height="126" rx="17" fill="#eaf3f7" stroke="#b9d3df"/><text x="153" y="157" text-anchor="middle" font-size="17" font-weight="700" fill="#173f3d">文字</text><text x="153" y="191" text-anchor="middle" font-size="13" fill="#48635f">0.98</text><text x="153" y="215" text-anchor="middle" font-size="13" fill="#48635f">字符读得准</text>
+    <rect x="274" y="122" width="202" height="126" rx="17" fill="#fff1d9" stroke="#e8c891"/><text x="375" y="157" text-anchor="middle" font-size="17" font-weight="700" fill="#173f3d">版面</text><text x="375" y="191" text-anchor="middle" font-size="13" fill="#48635f">0.71</text><text x="375" y="215" text-anchor="middle" font-size="13" fill="#48635f">列关系可疑</text>
+    <rect x="496" y="122" width="202" height="126" rx="17" fill="#f5d9dc" stroke="#dfb2b9"/><text x="597" y="157" text-anchor="middle" font-size="17" font-weight="700" fill="#173f3d">关系</text><text x="597" y="191" text-anchor="middle" font-size="13" fill="#48635f">0.54</text><text x="597" y="215" text-anchor="middle" font-size="13" fill="#48635f">合并单元格歧义</text>
+    <rect x="718" y="122" width="310" height="126" rx="17" fill="#173f3d"/><text x="873" y="157" text-anchor="middle" font-size="17" font-weight="700" fill="#ffffff">动作</text><text x="873" y="191" text-anchor="middle" font-size="13" fill="#dbe9e5">citation_ready = false</text><text x="873" y="215" text-anchor="middle" font-size="13" fill="#dbe9e5">金额 / 期限优先人工</text>
+  </g>
+  <path d="M254 185h20M476 185h20M698 185h20" stroke="#7d9a95" stroke-width="3" stroke-linecap="round"/>
+  <rect x="52" y="294" width="976" height="44" rx="14" fill="#e8efeb"/><text x="540" y="322" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif" font-size="15" font-weight="700" fill="#365b61">复核结果回写原始块与解析版本，下一轮直接进入回归集</text>
+</svg>

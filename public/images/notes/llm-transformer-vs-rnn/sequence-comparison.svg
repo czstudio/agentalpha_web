@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 560" role="img" aria-labelledby="title desc">
+  <title id="title">RNN 串行时间步与 Transformer 全局关系</title>
+  <desc id="desc">上方是 RNN 依次传递隐藏状态，下方是 Transformer 一次建立 token 之间的关系。</desc>
+  <rect width="1200" height="560" rx="24" fill="#f7f3ec"/>
+  <path d="M72 274H1128" stroke="#d9d0c4" stroke-width="2"/>
+  <text x="72" y="72" font-family="Arial, PingFang SC, sans-serif" font-size="28" font-weight="700" fill="#323e3e">同一段序列，两种信息流</text>
+  <text x="72" y="116" font-family="Arial, PingFang SC, sans-serif" font-size="18" fill="#7b7770">RNN 把顺序写进状态更新；Transformer 把顺序交给位置，把关系交给矩阵。</text>
+  <text x="72" y="184" font-family="Arial, PingFang SC, sans-serif" font-size="20" font-weight="700" fill="#ce741e">RNN · 时间步依赖</text>
+  <g font-family="Arial, PingFang SC, sans-serif" text-anchor="middle">
+    <g fill="#fffaf1" stroke="#ce741e" stroke-width="2">
+      <rect x="90" y="212" width="116" height="50" rx="10"/><rect x="270" y="212" width="116" height="50" rx="10"/><rect x="450" y="212" width="116" height="50" rx="10"/><rect x="630" y="212" width="116" height="50" rx="10"/><rect x="810" y="212" width="116" height="50" rx="10"/>
+    </g>
+    <g fill="#323e3e" font-size="18"><text x="148" y="244">x₁ → h₁</text><text x="328" y="244">x₂ → h₂</text><text x="508" y="244">x₃ → h₃</text><text x="688" y="244">x₄ → h₄</text><text x="868" y="244">x₅ → h₅</text></g>
+    <g stroke="#ce741e" stroke-width="3" fill="none"><path d="M206 237h58"/><path d="M386 237h58"/><path d="M566 237h58"/><path d="M746 237h58"/></g>
+    <g fill="#ce741e"><path d="m254 229 12 8-12 8z"/><path d="m434 229 12 8-12 8z"/><path d="m614 229 12 8-12 8z"/><path d="m794 229 12 8-12 8z"/></g>
+    <text x="1040" y="244" font-size="16" fill="#7b7770">每一步都要等前一步</text>
+  </g>
+  <text x="72" y="358" font-family="Arial, PingFang SC, sans-serif" font-size="20" font-weight="700" fill="#7fb069">Transformer · 全局读取</text>
+  <g font-family="Arial, PingFang SC, sans-serif" text-anchor="middle">
+    <g fill="#eef5e9" stroke="#7fb069" stroke-width="2"><rect x="110" y="408" width="108" height="50" rx="10"/><rect x="310" y="408" width="108" height="50" rx="10"/><rect x="510" y="408" width="108" height="50" rx="10"/><rect x="710" y="408" width="108" height="50" rx="10"/><rect x="910" y="408" width="108" height="50" rx="10"/></g>
+    <g fill="#323e3e" font-size="18"><text x="164" y="440">token₁</text><text x="364" y="440">token₂</text><text x="564" y="440">token₃</text><text x="764" y="440">token₄</text><text x="964" y="440">token₅</text></g>
+    <g stroke="#7fb069" stroke-width="2" opacity=".55"><path d="M164 408V370H964V408"/><path d="M364 408V382H764V408"/><path d="M564 408V366H164V408"/><path d="M764 408V378H364V408"/></g>
+    <text x="600" y="510" font-size="16" fill="#7b7770">同一轮矩阵运算建立多组位置关系</text>
+  </g>
+</svg>

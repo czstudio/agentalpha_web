@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="390" viewBox="0 0 1080 390">
+  <rect width="1080" height="390" rx="28" fill="#F7F4EE"/>
+  <text x="56" y="58" font-family="Arial,'Noto Sans SC',sans-serif" font-size="26" font-weight="700" fill="#193C3A">Chunk 版本切换</text>
+  <text x="56" y="91" font-family="Arial,'Noto Sans SC',sans-serif" font-size="16" fill="#58706D">先写新块，再 tombstone 旧块，最后物理清理</text>
+  <rect x="56" y="136" width="242" height="150" rx="20" fill="#E5F0ED"/>
+  <text x="82" y="174" font-family="Arial,'Noto Sans SC',sans-serif" font-size="20" font-weight="700" fill="#1C615A">v8 新块</text>
+  <text x="82" y="212" font-family="Arial,'Noto Sans SC',sans-serif" font-size="15" fill="#31514E">write + effective_at</text>
+  <text x="82" y="246" font-family="Arial,'Noto Sans SC',sans-serif" font-size="15" fill="#31514E">parent refs 更新</text>
+  <path d="M324 211h62" stroke="#EF9D73" stroke-width="6" stroke-linecap="round"/><path d="m372 192 25 19-25 19" fill="none" stroke="#EF9D73" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="410" y="136" width="260" height="150" rx="20" fill="#FFF0D6"/>
+  <text x="436" y="174" font-family="Arial,'Noto Sans SC',sans-serif" font-size="20" font-weight="700" fill="#875B26">v7 tombstone</text>
+  <text x="436" y="212" font-family="Arial,'Noto Sans SC',sans-serif" font-size="15" fill="#6C5632">reject retrieval</text>
+  <text x="436" y="246" font-family="Arial,'Noto Sans SC',sans-serif" font-size="15" fill="#6C5632">keep traceability</text>
+  <path d="M692 211h62" stroke="#86A4D7" stroke-width="6" stroke-linecap="round"/><path d="m740 192 25 19-25 19" fill="none" stroke="#86A4D7" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="780" y="136" width="244" height="150" rx="20" fill="#DCEBE8"/>
+  <text x="806" y="174" font-family="Arial,'Noto Sans SC',sans-serif" font-size="20" font-weight="700" fill="#174F4A">清理</text>
+  <text x="806" y="212" font-family="Arial,'Noto Sans SC',sans-serif" font-size="15" fill="#31514E">cache invalidated</text>
+  <text x="806" y="246" font-family="Arial,'Noto Sans SC',sans-serif" font-size="15" fill="#31514E">replay confirmed</text>
+  <rect x="56" y="315" width="968" height="34" rx="17" fill="#183C3A"/>
+  <text x="540" y="338" text-anchor="middle" font-family="Arial,'Noto Sans SC',sans-serif" font-size="15" fill="#F7F4EE">旧块已废弃但可追溯，避免更新窗口混入新旧规则</text>
+</svg>

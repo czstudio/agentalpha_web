@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="390" viewBox="0 0 1080 390" role="img" aria-labelledby="title desc">
+  <title id="title">线上漂移告警卡</title><desc id="desc">影响切片、版本元组、怀疑原因和处置动作组成漂移告警卡</desc>
+  <rect width="1080" height="390" rx="26" fill="#f7f8f5"/>
+  <text x="52" y="56" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif" font-size="25" font-weight="700" fill="#173f3d">漂移告警卡：红色百分比后面要有动作</text>
+  <text x="52" y="84" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif" font-size="15" fill="#5b7470">把线上差距压成切片、版本、怀疑和处置四个可复查字段</text>
+  <g font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif">
+    <rect x="52" y="122" width="190" height="126" rx="17" fill="#eaf3f7" stroke="#b9d3df"/><text x="147" y="157" text-anchor="middle" font-size="17" font-weight="700" fill="#173f3d">影响</text><text x="147" y="191" text-anchor="middle" font-size="13" fill="#48635f">long_query</text><text x="147" y="215" text-anchor="middle" font-size="13" fill="#48635f">0.91 → 0.83</text>
+    <rect x="258" y="122" width="190" height="126" rx="17" fill="#fff1d9" stroke="#e8c891"/><text x="353" y="157" text-anchor="middle" font-size="17" font-weight="700" fill="#173f3d">版本</text><text x="353" y="191" text-anchor="middle" font-size="13" fill="#48635f">model@r8</text><text x="353" y="215" text-anchor="middle" font-size="13" fill="#48635f">index@r17 · tool@v3</text>
+    <rect x="464" y="122" width="190" height="126" rx="17" fill="#dfeee8" stroke="#afd0c3"/><text x="559" y="157" text-anchor="middle" font-size="17" font-weight="700" fill="#173f3d">怀疑</text><text x="559" y="191" text-anchor="middle" font-size="13" fill="#48635f">index drift</text><text x="559" y="215" text-anchor="middle" font-size="13" fill="#48635f">待 replay 验证</text>
+    <rect x="670" y="122" width="190" height="126" rx="17" fill="#f5d9dc" stroke="#dfb2b9"/><text x="765" y="157" text-anchor="middle" font-size="17" font-weight="700" fill="#173f3d">处置</text><text x="765" y="191" text-anchor="middle" font-size="13" fill="#48635f">freeze canary</text><text x="765" y="215" text-anchor="middle" font-size="13" fill="#48635f">回放 + 聚类</text>
+    <rect x="876" y="122" width="152" height="126" rx="17" fill="#173f3d"/><text x="952" y="157" text-anchor="middle" font-size="17" font-weight="700" fill="#ffffff">责任</text><text x="952" y="191" text-anchor="middle" font-size="13" fill="#dbe9e5">owner</text><text x="952" y="215" text-anchor="middle" font-size="13" fill="#dbe9e5">复查时间</text>
+  </g>
+  <path d="M242 185h16M448 185h16M654 185h16M860 185h16" stroke="#7d9a95" stroke-width="3" stroke-linecap="round"/>
+  <rect x="52" y="294" width="976" height="44" rx="14" fill="#e8efeb"/><text x="540" y="322" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif" font-size="15" font-weight="700" fill="#365b61">轻微漂移扩大抽样，高风险漏判冻结灰度；告警必须能指向下一步</text>
+</svg>

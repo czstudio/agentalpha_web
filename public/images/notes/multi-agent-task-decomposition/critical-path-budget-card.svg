@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="390" viewBox="0 0 1080 390" role="img" aria-labelledby="title desc">
+  <title id="title">多 Agent 关键路径预算</title>
+  <desc id="desc">并行分支有降级，串行尾部只在证据齐备后提交。</desc>
+  <rect width="1080" height="390" rx="28" fill="#F7F4EE"/>
+  <text x="54" y="56" font-family="Arial,'Noto Sans SC',sans-serif" font-size="26" font-weight="700" fill="#193C3A">多 Agent 预算要围绕关键路径</text>
+  <text x="54" y="88" font-family="Arial,'Noto Sans SC',sans-serif" font-size="16" fill="#58706D">不是每个角色平分 token，而是给最慢环节留出回退</text>
+  <g font-family="Arial,'Noto Sans SC',sans-serif" text-anchor="middle">
+    <rect x="54" y="132" width="206" height="126" rx="18" fill="#EAF3F7"/><text x="157" y="172" font-size="19" font-weight="700" fill="#275261">研究</text><text x="157" y="207" font-size="15" fill="#52727A">500ms / cite gap</text><text x="157" y="233" font-size="15" fill="#52727A">parallel</text>
+    <rect x="278" y="132" width="206" height="126" rx="18" fill="#E5F0ED"/><text x="381" y="172" font-size="19" font-weight="700" fill="#1C615A">查单</text><text x="381" y="207" font-size="15" fill="#31514E">600ms / read back</text><text x="381" y="233" font-size="15" fill="#31514E">parallel</text>
+    <rect x="502" y="132" width="206" height="126" rx="18" fill="#FFF0D6"/><text x="605" y="172" font-size="19" font-weight="700" fill="#875B26">风控</text><text x="605" y="207" font-size="15" fill="#6C5632">450ms / human</text><text x="605" y="233" font-size="15" fill="#6C5632">parallel</text>
+    <rect x="726" y="132" width="302" height="126" rx="18" fill="#173F3D"/><text x="877" y="172" font-size="19" font-weight="700" fill="#FFFFFF">监督 + 提交</text><text x="877" y="207" font-size="15" fill="#D8EBE5">220ms serial tail</text><text x="877" y="233" font-size="15" fill="#D8EBE5">receipts required</text>
+  </g>
+  <g fill="none" stroke="#7D9A95" stroke-width="3" stroke-linecap="round"><path d="M260 195h18"/><path d="M484 195h18"/><path d="M708 195h18"/></g>
+  <rect x="54" y="296" width="974" height="43" rx="14" fill="#E8EFEB"/><text x="76" y="324" font-family="Arial,'Noto Sans SC',sans-serif" font-size="15" fill="#365B61">并行分支可降级，副作用提交必须等关键证据和真实回执</text>
+</svg>

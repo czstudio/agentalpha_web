@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="500" viewBox="0 0 1200 500">
+  <rect width="1200" height="500" fill="#f8faf9"/>
+  <text x="70" y="70" font-family="Arial,'Noto Sans SC',sans-serif" font-size="28" font-weight="700" fill="#19372f">工具事件流：展示过程，但只相信终态</text>
+  <g font-family="Arial,'Noto Sans SC',sans-serif" text-anchor="middle">
+    <rect x="70" y="210" width="170" height="70" rx="35" fill="#e9f1f8" stroke="#a5bed4" stroke-width="2"/><text x="155" y="253" font-size="18" fill="#2d607e">run_started</text>
+    <rect x="300" y="210" width="190" height="70" rx="35" fill="#e8f3ee" stroke="#9dc7b1" stroke-width="2"/><text x="395" y="253" font-size="18" fill="#2b5e4d">tool_requested</text>
+    <rect x="550" y="210" width="170" height="70" rx="35" fill="#f2eee2" stroke="#d3bb7d" stroke-width="2"/><text x="635" y="253" font-size="18" fill="#7b622e">progress × N</text>
+    <rect x="780" y="210" width="170" height="70" rx="35" fill="#e8f3ee" stroke="#9dc7b1" stroke-width="2"/><text x="865" y="253" font-size="18" fill="#2b5e4d">tool_result</text>
+    <rect x="1010" y="210" width="150" height="70" rx="35" fill="#e5f1e6" stroke="#94bd99" stroke-width="2"/><text x="1085" y="253" font-size="18" fill="#356b3d">committed</text>
+  </g>
+  <g fill="none" stroke="#5c8b79" stroke-width="4"><path d="M240 245H290"/><path d="m277 233 18 12-18 12" fill="#5c8b79"/><path d="M490 245H540"/><path d="m527 233 18 12-18 12" fill="#5c8b79"/><path d="M720 245H770"/><path d="m757 233 18 12-18 12" fill="#5c8b79"/><path d="M950 245H1000"/><path d="m987 233 18 12-18 12" fill="#5c8b79"/></g>
+  <text x="85" y="370" font-family="Arial,'Noto Sans SC',sans-serif" font-size="17" fill="#6b7c75">网关：seq、心跳、背压、可见性、断线续传</text>
+  <text x="85" y="404" font-family="Arial,'Noto Sans SC',sans-serif" font-size="17" fill="#8b6438">执行器：真实进度、幂等副作用、最终提交</text>
+</svg>

@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 420" role="img" aria-labelledby="title desc">
+  <title id="title">技术决策重开触发器</title><desc id="desc">硬门槛、趋势信号和暂停动作形成可复查的决策触发器</desc>
+  <rect width="1080" height="420" rx="28" fill="#f7f8f5"/>
+  <text x="54" y="56" font-family="Arial,sans-serif" font-size="26" font-weight="700" fill="#173f3d">Reopen trigger</text>
+  <text x="54" y="84" font-family="Arial,sans-serif" font-size="15" fill="#58716e">改变主意不是翻旧账，而是按预先写好的条件行动</text>
+  <g font-family="Arial,sans-serif" font-size="15" fill="#173f3d">
+    <rect x="54" y="126" width="236" height="112" rx="16" fill="#fae8e1" stroke="#e0b9ae"/><text x="172" y="160" text-anchor="middle" font-weight="700">硬门槛</text><text x="172" y="192" text-anchor="middle">越权 = 0</text><text x="172" y="216" text-anchor="middle">grounding ≥ 0.92</text>
+    <rect x="316" y="126" width="236" height="112" rx="16" fill="#fff1d9" stroke="#e8c891"/><text x="434" y="160" text-anchor="middle" font-weight="700">趋势信号</text><text x="434" y="192" text-anchor="middle">7d 成功率下降</text><text x="434" y="216" text-anchor="middle">单位成本上升</text>
+    <rect x="578" y="126" width="236" height="112" rx="16" fill="#eaf3f7" stroke="#b9d3df"/><text x="696" y="160" text-anchor="middle" font-weight="700">触发器</text><text x="696" y="192" text-anchor="middle">一次硬失败</text><text x="696" y="216" text-anchor="middle">连续两窗趋势</text>
+    <rect x="840" y="126" width="186" height="112" rx="16" fill="#173f3d"/><text x="933" y="160" text-anchor="middle" font-weight="700" fill="#fff">动作</text><text x="933" y="192" text-anchor="middle" fill="#dbe9e5">暂停 / 回基线</text><text x="933" y="216" text-anchor="middle" fill="#dbe9e5">补样本复查</text>
+  </g>
+  <g stroke="#79908c" stroke-width="3" fill="none" stroke-linecap="round"><path d="M290 182h26"/><path d="M552 182h26"/><path d="M814 182h26"/></g>
+  <rect x="54" y="294" width="972" height="62" rx="16" fill="#182033"/><text x="80" y="331" font-family="monospace" font-size="15" fill="#f7f8f5">decision = canary_only  ·  owner = search-team  ·  reopen_when = explicit</text>
+</svg>

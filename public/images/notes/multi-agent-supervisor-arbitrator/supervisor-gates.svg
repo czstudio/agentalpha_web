@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 380" role="img" aria-labelledby="title desc">
+  <title id="title">监督检查点</title>
+  <desc id="desc">产物在状态迁移前依次经过 schema、字段、权限、引用与预算检查。</desc>
+  <rect width="900" height="380" rx="28" fill="#fbfaf6"/>
+  <g font-family="sans-serif" text-anchor="middle">
+    <rect x="38" y="148" width="140" height="66" rx="15" fill="#dfeee8"/><text x="108" y="188" font-size="17" font-weight="700" fill="#173f3d">产物</text>
+    <path d="M178 181h26M230 181h26M282 181h26M334 181h26M386 181h26M438 181h26M490 181h26M542 181h26" stroke="#8eaaa2" stroke-width="3"/>
+    <path d="m196 173 12 8-12 8M248 173l12 8-12 8M300 173l12 8-12 8M352 173l12 8-12 8M404 173l12 8-12 8M456 173l12 8-12 8M508 173l12 8-12 8" fill="#8eaaa2"/>
+    <rect x="204" y="136" width="52" height="90" rx="12" fill="#eaf3f7"/><text x="230" y="170" font-size="14" fill="#24556a">SCHEMA</text><text x="230" y="198" font-size="13" fill="#5a737d">版本</text>
+    <rect x="256" y="136" width="52" height="90" rx="12" fill="#fff1d9"/><text x="282" y="170" font-size="14" fill="#704c20">FIELDS</text><text x="282" y="198" font-size="13" fill="#856a42">完整</text>
+    <rect x="308" y="136" width="52" height="90" rx="12" fill="#fae8e1"/><text x="334" y="170" font-size="14" fill="#753f32">POLICY</text><text x="334" y="198" font-size="13" fill="#845a50">权限</text>
+    <rect x="360" y="136" width="52" height="90" rx="12" fill="#dfeee8"/><text x="386" y="170" font-size="14" fill="#173f3d">CITATION</text><text x="386" y="198" font-size="13" fill="#52706b">证据</text>
+    <rect x="412" y="136" width="52" height="90" rx="12" fill="#eaf3f7"/><text x="438" y="170" font-size="14" fill="#24556a">BUDGET</text><text x="438" y="198" font-size="13" fill="#5a737d">成本</text>
+    <rect x="570" y="148" width="284" height="66" rx="15" fill="#f0eee8"/><text x="712" y="188" font-size="17" font-weight="700" fill="#4b514e">接受 / 阻断 / 升级</text>
+  </g>
+  <text x="450" y="300" text-anchor="middle" font-family="sans-serif" font-size="16" fill="#68706c">检查点必须能落成规则或查询，不靠监督者“感觉不错”。</text>
+</svg>

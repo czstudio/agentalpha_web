@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="390" viewBox="0 0 1080 390" role="img" aria-labelledby="title desc">
+  <title id="title">训练数据配比竞争审计</title>
+  <desc id="desc">从原始数据桶到 packing、step share 和重新平衡，观察 token、序列与优化步骤的真实占用。</desc>
+  <rect width="1080" height="390" rx="26" fill="#f7f8f5"/>
+  <text x="52" y="56" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif" font-size="25" font-weight="700" fill="#173f3d">跨桶竞争审计</text>
+  <text x="52" y="84" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif" font-size="15" fill="#5b7470">token 配比相同，不代表每个数据桶拿到相同的更新机会</text>
+  <g font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif">
+    <rect x="52" y="122" width="220" height="126" rx="17" fill="#dcecf4"/>
+    <text x="74" y="153" font-size="17" font-weight="700" fill="#173f3d">原始桶</text>
+    <text x="74" y="181" font-size="13" fill="#365e67">code / web / dialogue</text>
+    <text x="74" y="208" font-size="13" fill="#365e67">记录 token 与长度分布</text>
+    <rect x="292" y="122" width="220" height="126" rx="17" fill="#f4e9bd"/>
+    <text x="314" y="153" font-size="17" font-weight="700" fill="#5a4b19">packing</text>
+    <text x="314" y="181" font-size="13" fill="#786726">长序列占更多位置</text>
+    <text x="314" y="208" font-size="13" fill="#786726">短样本可能被挤出</text>
+    <rect x="532" y="122" width="220" height="126" rx="17" fill="#f4dfe5"/>
+    <text x="554" y="153" font-size="17" font-weight="700" fill="#6b3349">step share</text>
+    <text x="554" y="181" font-size="13" fill="#7d5060">比较 token / sequence / step</text>
+    <text x="554" y="208" font-size="13" fill="#7d5060">发现真实训练竞争</text>
+    <rect x="772" y="122" width="220" height="126" rx="17" fill="#173f3d"/>
+    <text x="794" y="153" font-size="17" font-weight="700" fill="#f7f8f5">rebalance</text>
+    <text x="794" y="181" font-size="13" fill="#d8e7e1">限制长序列与重采样</text>
+    <text x="794" y="208" font-size="13" fill="#d8e7e1">保留旧 manifest 回放</text>
+  </g>
+  <path d="M272 185H286M512 185H526M752 185H766" fill="none" stroke="#7d9a95" stroke-width="3" stroke-linecap="round"/>
+  <path d="m280 177 8 8-8 8M520 177l8 8-8 8M760 177l8 8-8 8" fill="none" stroke="#7d9a95" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="52" y="294" width="976" height="44" rx="14" fill="#e8efeb"/>
+  <text x="78" y="322" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif" font-size="16" font-weight="700" fill="#173f3d">token 配比相同，实际更新机会也可能不同</text>
+</svg>

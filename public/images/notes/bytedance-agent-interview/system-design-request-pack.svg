@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="390" viewBox="0 0 1080 390" role="img" aria-labelledby="title desc">
+  <title id="title">系统设计 request-pack</title><desc id="desc">目标、版本、链路、证据、失败和处置动作组成可交接的线上请求包</desc>
+  <rect width="1080" height="390" rx="26" fill="#f7f8f5"/>
+  <text x="52" y="56" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif" font-size="25" font-weight="700" fill="#173f3d">系统设计 request-pack</text>
+  <text x="52" y="84" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif" font-size="15" fill="#5b7470">一条脱敏请求，把架构、证据、失败和副作用讲完整</text>
+  <g font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif">
+    <rect x="52" y="122" width="190" height="126" rx="17" fill="#eaf3f7" stroke="#b9d3df"/><text x="147" y="157" text-anchor="middle" font-size="17" font-weight="700" fill="#173f3d">目标</text><text x="147" y="191" text-anchor="middle" font-size="13" fill="#48635f">合同摘要</text><text x="147" y="215" text-anchor="middle" font-size="13" fill="#48635f">带引用</text>
+    <rect x="262" y="122" width="190" height="126" rx="17" fill="#fff1d9" stroke="#e8c891"/><text x="357" y="157" text-anchor="middle" font-size="17" font-weight="700" fill="#173f3d">版本 / 链路</text><text x="357" y="191" text-anchor="middle" font-size="13" fill="#48635f">model r8 · index r17</text><text x="357" y="215" text-anchor="middle" font-size="13" fill="#48635f">retrieval 42ms</text>
+    <rect x="472" y="122" width="190" height="126" rx="17" fill="#dfeee8" stroke="#afd0c3"/><text x="567" y="157" text-anchor="middle" font-size="17" font-weight="700" fill="#173f3d">证据</text><text x="567" y="191" text-anchor="middle" font-size="13" fill="#48635f">doc-17:p4</text><text x="567" y="215" text-anchor="middle" font-size="13" fill="#48635f">doc-22:p8</text>
+    <rect x="682" y="122" width="190" height="126" rx="17" fill="#f5d9dc" stroke="#dfb2b9"/><text x="777" y="157" text-anchor="middle" font-size="17" font-weight="700" fill="#173f3d">失败</text><text x="777" y="191" text-anchor="middle" font-size="13" fill="#48635f">claim-3 冲突</text><text x="777" y="215" text-anchor="middle" font-size="13" fill="#48635f">draft.save dry-run</text>
+    <rect x="892" y="122" width="136" height="126" rx="17" fill="#173f3d"/><text x="960" y="157" text-anchor="middle" font-size="17" font-weight="700" fill="#ffffff">动作</text><text x="960" y="191" text-anchor="middle" font-size="13" fill="#dbe9e5">阻止发布</text><text x="960" y="215" text-anchor="middle" font-size="13" fill="#dbe9e5">转人工</text>
+  </g>
+  <path d="M242 185h20M452 185h20M662 185h20M872 185h20" stroke="#7d9a95" stroke-width="3" stroke-linecap="round"/>
+  <rect x="52" y="294" width="976" height="44" rx="14" fill="#e8efeb"/><text x="540" y="322" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif" font-size="15" font-weight="700" fill="#365b61">约束变化时只替换受影响字段，已验证边界继续保留</text>
+</svg>

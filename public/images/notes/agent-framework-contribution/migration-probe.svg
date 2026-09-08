@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 420" role="img" aria-labelledby="title desc">
+  <title id="title">框架迁移探针</title><desc id="desc">用假执行器验证工具、权限、幂等和恢复契约</desc>
+  <rect width="1080" height="420" rx="28" fill="#f7f8f5"/>
+  <text x="54" y="56" font-family="Arial,sans-serif" font-size="26" font-weight="700" fill="#173f3d">Migration probe</text>
+  <text x="54" y="84" font-family="Arial,sans-serif" font-size="15" fill="#58716e">先替换执行器，再看哪些业务契约真的属于项目</text>
+  <g font-family="Arial,sans-serif" font-size="15" fill="#173f3d">
+    <rect x="54" y="126" width="218" height="112" rx="16" fill="#eaf3f7" stroke="#b9d3df"/><text x="163" y="160" text-anchor="middle" font-weight="700">脱敏回放</text><text x="163" y="192" text-anchor="middle">trace + 失败样本</text><text x="163" y="216" text-anchor="middle">固定版本</text>
+    <rect x="296" y="126" width="218" height="112" rx="16" fill="#fff1d9" stroke="#e8c891"/><text x="405" y="160" text-anchor="middle" font-weight="700">假执行器</text><text x="405" y="192" text-anchor="middle">invoke / stream</text><text x="405" y="216" text-anchor="middle">cancel</text>
+    <rect x="538" y="126" width="218" height="112" rx="16" fill="#dfeee8" stroke="#afd0c3"/><text x="647" y="160" text-anchor="middle" font-weight="700">契约检查</text><text x="647" y="192" text-anchor="middle">schema · ACL</text><text x="647" y="216" text-anchor="middle">幂等 · 恢复</text>
+    <rect x="780" y="126" width="246" height="112" rx="16" fill="#173f3d"/><text x="903" y="160" text-anchor="middle" font-weight="700" fill="#fff">边界</text><text x="903" y="192" text-anchor="middle" fill="#dbe9e5">pass / fail</text><text x="903" y="216" text-anchor="middle" fill="#dbe9e5">指出耦合点</text>
+  </g>
+  <g stroke="#79908c" stroke-width="3" fill="none" stroke-linecap="round"><path d="M272 182h24"/><path d="M514 182h24"/><path d="M756 182h24"/></g>
+  <rect x="54" y="294" width="972" height="62" rx="16" fill="#182033"/><text x="80" y="331" font-family="monospace" font-size="15" fill="#f7f8f5">framework swap → replay → contract diff → migration boundary</text>
+</svg>

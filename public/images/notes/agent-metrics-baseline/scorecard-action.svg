@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="390" viewBox="0 0 1080 390" role="img" aria-labelledby="title desc">
+  <title id="title">Scorecard action loop</title>
+  <desc id="desc">发布指标通过阈值触发阻断、扩量或继续观察</desc>
+  <rect width="1080" height="390" rx="26" fill="#f7f8f5"/>
+  <text x="52" y="56" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif" font-size="25" font-weight="700" fill="#173f3d">Scorecard → action：指标必须会做决定</text>
+  <text x="52" y="84" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif" font-size="15" fill="#5b7470">每一项都有信号、阈值、动作和负责人</text>
+  <g font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif" font-size="14" text-anchor="middle">
+    <rect x="50" y="140" width="190" height="90" rx="16" fill="#e8f2f3"/><text x="145" y="176" font-weight="700" fill="#205a5e">signal</text><text x="145" y="202" font-size="12" fill="#5b7470">安全 / 成功 / P95</text>
+    <rect x="270" y="140" width="190" height="90" rx="16" fill="#fff1d7"/><text x="365" y="176" font-weight="700" fill="#8a5d16">threshold</text><text x="365" y="202" font-size="12" fill="#7c6b4b">硬门槛与置信区间</text>
+    <rect x="490" y="140" width="190" height="90" rx="16" fill="#dfeee9"/><text x="585" y="176" font-weight="700" fill="#286458">action</text><text x="585" y="202" font-size="12" fill="#5b7470">阻断 / 扩量 / 观察</text>
+    <rect x="710" y="140" width="190" height="90" rx="16" fill="#f7e2df"/><text x="805" y="176" font-weight="700" fill="#8c4b46">owner</text><text x="805" y="202" font-size="12" fill="#7c6663">谁负责复查</text>
+    <rect x="930" y="140" width="100" height="90" rx="16" fill="#173f3d"/><text x="980" y="176" font-weight="700" fill="#fff">decision</text><text x="980" y="202" font-size="12" fill="#dcebea">留记录</text>
+  </g>
+  <g stroke="#71918c" stroke-width="2" fill="none"><path d="M240 185h30"/><path d="M460 185h30"/><path d="M680 185h30"/><path d="M900 185h30"/></g>
+  <rect x="104" y="280" width="872" height="48" rx="14" fill="#e6efeb"/><text x="540" y="310" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif" font-size="14" fill="#286458" text-anchor="middle">越权和副作用是硬门槛，不能被平均分抵消</text>
+</svg>

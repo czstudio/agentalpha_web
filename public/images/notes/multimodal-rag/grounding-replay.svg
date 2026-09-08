@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="390" viewBox="0 0 1080 390" role="img" aria-labelledby="title desc">
+  <title id="title">多模态 RAG 证据回放包</title><desc id="desc">路由、证据、重排和引用组成可回放的跨模态答案记录</desc>
+  <rect width="1080" height="390" rx="26" fill="#f7f8f5"/>
+  <text x="52" y="56" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif" font-size="25" font-weight="700" fill="#173f3d">证据回放包：定位“检索对，答案错”</text>
+  <text x="52" y="84" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif" font-size="15" fill="#5b7470">每一层都留下 ID，才能单独重跑和解释变化</text>
+  <g font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif">
+    <rect x="52" y="122" width="196" height="126" rx="17" fill="#eaf3f7" stroke="#b9d3df"/><text x="150" y="157" text-anchor="middle" font-size="17" font-weight="700" fill="#173f3d">路由</text><text x="150" y="191" text-anchor="middle" font-size="13" fill="#48635f">image + table</text><text x="150" y="215" text-anchor="middle" font-size="13" fill="#48635f">问题需要什么证据</text>
+    <rect x="268" y="122" width="196" height="126" rx="17" fill="#fff1d9" stroke="#e8c891"/><text x="366" y="157" text-anchor="middle" font-size="17" font-weight="700" fill="#173f3d">证据</text><text x="366" y="191" text-anchor="middle" font-size="13" fill="#48635f">E1 / E2</text><text x="366" y="215" text-anchor="middle" font-size="13" fill="#48635f">页码 · bbox · row</text>
+    <rect x="484" y="122" width="196" height="126" rx="17" fill="#dfeee8" stroke="#afd0c3"/><text x="582" y="157" text-anchor="middle" font-size="17" font-weight="700" fill="#173f3d">重排</text><text x="582" y="191" text-anchor="middle" font-size="13" fill="#48635f">version_match</text><text x="582" y="215" text-anchor="middle" font-size="13" fill="#48635f">parent_coherence</text>
+    <rect x="700" y="122" width="328" height="126" rx="17" fill="#173f3d"/><text x="864" y="157" text-anchor="middle" font-size="17" font-weight="700" fill="#ffffff">答案引用</text><text x="864" y="191" text-anchor="middle" font-size="13" fill="#dbe9e5">text + citations: [E1,E2]</text><text x="864" y="215" text-anchor="middle" font-size="13" fill="#dbe9e5">可回到原图和表格单元格</text>
+  </g>
+  <path d="M248 185h20M464 185h20M680 185h20" stroke="#7d9a95" stroke-width="3" stroke-linecap="round"/>
+  <rect x="52" y="294" width="976" height="44" rx="14" fill="#e8efeb"/><text x="540" y="322" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif" font-size="15" font-weight="700" fill="#365b61">路由错、过滤错、重排错、生成错：回放包让故障不再是一团黑盒</text>
+</svg>

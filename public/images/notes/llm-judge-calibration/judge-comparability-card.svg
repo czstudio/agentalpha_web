@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="390" viewBox="0 0 1080 390">
+  <rect width="1080" height="390" rx="28" fill="#f7f9fc"/>
+  <text x="56" y="62" font-family="Arial,'PingFang SC',sans-serif" font-size="24" font-weight="700" fill="#172033">JUDGE COMPARABILITY · 可比较区间</text>
+  <text x="56" y="94" font-family="Arial,'PingFang SC',sans-serif" font-size="16" fill="#637083">先判断量尺是否一致，再谈模型是否进步</text>
+  <g font-family="Arial,'PingFang SC',sans-serif">
+    <rect x="56" y="138" width="218" height="148" rx="18" fill="#e8f0ff" stroke="#b7ccf0"/><text x="78" y="174" font-size="16" font-weight="700" fill="#244a83">01 · 重叠集</text><text x="78" y="211" font-size="15" fill="#3b4d67">same prompts</text><text x="78" y="239" font-size="15" fill="#3b4d67">same references</text>
+    <rect x="308" y="138" width="218" height="148" rx="18" fill="#edf8f1" stroke="#b8ddc6"/><text x="330" y="174" font-size="16" font-weight="700" fill="#296444">02 · 对齐</text><text x="330" y="211" font-size="15" fill="#3e5a4b">pairwise agreement</text><text x="330" y="239" font-size="15" fill="#3e5a4b">confidence interval</text>
+    <rect x="560" y="138" width="218" height="148" rx="18" fill="#fff4df" stroke="#e5c98d"/><text x="582" y="174" font-size="16" font-weight="700" fill="#7b571a">03 · 切片</text><text x="582" y="211" font-size="15" fill="#6a5734">long context</text><text x="582" y="239" font-size="15" fill="#6a5734">refusal / citation</text>
+    <rect x="812" y="138" width="212" height="148" rx="18" fill="#f2ecff" stroke="#cfc0ee"/><text x="834" y="174" font-size="16" font-weight="700" fill="#5b428f">04 · 发布</text><text x="834" y="211" font-size="15" fill="#5d5370">tie / abstain</text><text x="834" y="239" font-size="15" fill="#5d5370">human review</text>
+  </g>
+  <path d="M282 212h22m224 0h22m224 0h22" stroke="#8a98aa" stroke-width="3"/><path d="m298 204 10 8-10 8m240-8 10 8-10 8m240-8 10 8-10 8" fill="none" stroke="#8a98aa" stroke-width="3"/>
+  <text x="56" y="344" font-family="Arial,'PingFang SC',sans-serif" font-size="16" fill="#637083">高风险分歧保留 tie/abstain，交给人工，而不是用一个漂亮均值掩盖量尺漂移</text>
+</svg>

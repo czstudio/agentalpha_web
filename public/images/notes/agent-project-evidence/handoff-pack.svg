@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="390" viewBox="0 0 1080 390" role="img" aria-labelledby="title desc">
+  <title id="title">Evidence handoff pack</title>
+  <desc id="desc">项目证据包由入口、版本、基线、实验、bad case和回滚组成</desc>
+  <rect width="1080" height="390" rx="26" fill="#f7f8f5"/>
+  <text x="52" y="56" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif" font-size="25" font-weight="700" fill="#173f3d">Evidence pack：让项目能被接手</text>
+  <text x="52" y="84" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif" font-size="15" fill="#5b7470">结论、版本、对照、失败和回滚，都要有入口</text>
+  <g font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif" font-size="14" text-anchor="middle">
+    <rect x="42" y="142" width="160" height="92" rx="15" fill="#e8f2f3"/><text x="122" y="179" font-weight="700" fill="#205a5e">README</text><text x="122" y="205" font-size="12" fill="#5b7470">结论与边界</text>
+    <rect x="222" y="142" width="160" height="92" rx="15" fill="#fff1d7"/><text x="302" y="179" font-weight="700" fill="#8a5d16">manifest</text><text x="302" y="205" font-size="12" fill="#7c6b4b">版本指纹</text>
+    <rect x="402" y="142" width="160" height="92" rx="15" fill="#dfeee9"/><text x="482" y="179" font-weight="700" fill="#286458">baseline</text><text x="482" y="205" font-size="12" fill="#5b7470">前后对照</text>
+    <rect x="582" y="142" width="160" height="92" rx="15" fill="#f7e2df"/><text x="662" y="179" font-weight="700" fill="#8c4b46">cases</text><text x="662" y="205" font-size="12" fill="#7c6663">失败回归</text>
+    <rect x="762" y="142" width="160" height="92" rx="15" fill="#173f3d"/><text x="842" y="179" font-weight="700" fill="#fff">rollback</text><text x="842" y="205" font-size="12" fill="#dcebea">开关与负责人</text>
+  </g>
+  <g stroke="#71918c" stroke-width="2" fill="none"><path d="M202 188h20"/><path d="M382 188h20"/><path d="M562 188h20"/><path d="M742 188h20"/></g>
+  <rect x="86" y="282" width="890" height="48" rx="14" fill="#e6efeb"/><text x="531" y="312" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif" font-size="14" fill="#286458" text-anchor="middle">外部依赖标成 live-required，同时提供 fixture 或 dry-run</text>
+</svg>

@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 360" role="img" aria-labelledby="title desc">
+  <title id="title">审批与参数绑定</title>
+  <desc id="desc">审批应绑定动作、资源和参数哈希，任一关键字段变化都必须重新审批。</desc>
+  <rect width="900" height="360" rx="28" fill="#f7f8f5"/>
+  <g font-family="sans-serif" text-anchor="middle">
+    <rect x="70" y="64" width="220" height="190" rx="20" fill="#eaf3f7" stroke="#b9d3df"/><text x="180" y="106" font-size="21" font-weight="700" fill="#24556a">待审批动作</text><text x="180" y="145" font-size="15" fill="#5a737d">tool_name</text><text x="180" y="174" font-size="15" fill="#5a737d">resource_id</text><text x="180" y="203" font-size="15" fill="#5a737d">normalized_args</text>
+    <rect x="340" y="64" width="220" height="190" rx="20" fill="#fff1d9" stroke="#e8c891"/><text x="450" y="106" font-size="21" font-weight="700" fill="#704c20">审批票据</text><text x="450" y="145" font-size="15" fill="#856a42">approval_id</text><text x="450" y="174" font-size="15" fill="#856a42">args_hash</text><text x="450" y="203" font-size="15" fill="#856a42">expires_at</text>
+    <rect x="610" y="64" width="220" height="190" rx="20" fill="#dfeee8" stroke="#afd0c3"/><text x="720" y="106" font-size="21" font-weight="700" fill="#173f3d">执行检查</text><text x="720" y="145" font-size="15" fill="#52706b">哈希一致 → 放行</text><text x="720" y="174" font-size="15" fill="#52706b">过期 → 拒绝</text><text x="720" y="203" font-size="15" fill="#52706b">参数变化 → 重审</text>
+  </g>
+  <g fill="none" stroke="#86a59d" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M290 159h50l-9-7m9 7-9 7"/><path d="M560 159h50l-9-7m9 7-9 7"/></g>
+</svg>

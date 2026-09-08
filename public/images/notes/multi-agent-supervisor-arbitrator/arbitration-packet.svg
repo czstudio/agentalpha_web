@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="390" viewBox="0 0 1080 390" role="img" aria-labelledby="title desc">
+  <title id="title">Arbitration packet</title>
+  <desc id="desc">仲裁裁决包记录候选、证据、规则检查、撤销条件和下一位 owner。</desc>
+  <rect width="1080" height="390" rx="26" fill="#f7f8f5"/>
+  <text x="58" y="54" fill="#17342f" font-size="25" font-weight="700" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif">Arbitration packet</text>
+  <text x="58" y="82" fill="#71837d" font-size="15" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif">裁决不是一句“选 A”，而是一份可回放、可撤销的证据包</text>
+  <g font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif">
+    <rect x="64" y="130" width="196" height="108" rx="18" fill="#eaf1f8" stroke="#b6cce0"/><text x="88" y="168" fill="#31516d" font-size="18" font-weight="700">候选</text><text x="88" y="197" fill="#587085" font-size="14">claim A / B</text><text x="88" y="220" fill="#587085" font-size="14">版本与假设</text>
+    <rect x="286" y="130" width="196" height="108" rx="18" fill="#e4f2ec" stroke="#a8d2bf"/><text x="310" y="168" fill="#205b4c" font-size="18" font-weight="700">证据</text><text x="310" y="197" fill="#4e6c63" font-size="14">source / strength</text><text x="310" y="220" fill="#4e6c63" font-size="14">新鲜度与独立性</text>
+    <rect x="508" y="130" width="196" height="108" rx="18" fill="#fff1d9" stroke="#e9c987"/><text x="532" y="168" fill="#795a20" font-size="18" font-weight="700">规则</text><text x="532" y="197" fill="#896d39" font-size="14">tenant / side_effect</text><text x="532" y="220" fill="#896d39" font-size="14">硬门槛</text>
+    <rect x="730" y="130" width="196" height="108" rx="18" fill="#f5e7ee" stroke="#dfb2c7"/><text x="754" y="168" fill="#7a3f5a" font-size="18" font-weight="700">裁决</text><text x="754" y="197" fill="#8a6073" font-size="14">decision / bounded</text><text x="754" y="220" fill="#8a6073" font-size="14">下一位 owner</text>
+    <rect x="952" y="130" width="70" height="108" rx="18" fill="#17342f"/><text x="968" y="168" fill="#f5fbf8" font-size="17" font-weight="700">撤销</text><text x="968" y="198" fill="#c7e7d9" font-size="13">新证据</text><text x="968" y="220" fill="#c7e7d9" font-size="13">到来</text>
+  </g>
+  <g stroke="#6e9588" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M260 184h26"/><path d="M482 184h26"/><path d="M704 184h26"/><path d="M926 184h26"/><path d="M272 174l14 10-14 10"/><path d="M494 174l14 10-14 10"/><path d="M716 174l14 10-14 10"/><path d="M938 174l14 10-14 10"/></g>
+  <rect x="64" y="286" width="958" height="52" rx="15" fill="#17342f"/><text x="92" y="319" fill="#f5fbf8" font-size="17" font-weight="600" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif">当前证据足够做有限动作，不等于结论永远正确</text>
+</svg>

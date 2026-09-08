@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="390" viewBox="0 0 1080 390" role="img" aria-labelledby="title desc">
+  <title id="title">Visual token budget</title>
+  <desc id="desc">视觉输入从全图、裁剪、预留到停止追加，按信息增益管理 token 预算。</desc>
+  <rect width="1080" height="390" rx="26" fill="#f7f8f5"/>
+  <text x="58" y="54" fill="#17342f" font-size="25" font-weight="700" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif">Visual token budget</text>
+  <text x="58" y="82" fill="#71837d" font-size="15" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif">先把视觉输入当作预算账本，再决定是否继续放大或追加视图</text>
+  <g font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif">
+    <rect x="72" y="132" width="200" height="112" rx="20" fill="#eaf1f8" stroke="#b6cce0"/>
+    <text x="96" y="171" fill="#31516d" font-size="19" font-weight="700">全图</text>
+    <text x="96" y="201" fill="#587085" font-size="14">256 tokens</text>
+    <text x="96" y="224" fill="#587085" font-size="14">先判断布局和任务</text>
+    <rect x="310" y="132" width="200" height="112" rx="20" fill="#e4f2ec" stroke="#a8d2bf"/>
+    <text x="334" y="171" fill="#205b4c" font-size="19" font-weight="700">裁剪</text>
+    <text x="334" y="201" fill="#4e6c63" font-size="14">+768 tokens</text>
+    <text x="334" y="224" fill="#4e6c63" font-size="14">只放大疑点区域</text>
+    <rect x="548" y="132" width="200" height="112" rx="20" fill="#fff1d9" stroke="#e9c987"/>
+    <text x="572" y="171" fill="#795a20" font-size="19" font-weight="700">预留</text>
+    <text x="572" y="201" fill="#896d39" font-size="14">2048 max</text>
+    <text x="572" y="224" fill="#896d39" font-size="14">留给 OCR / 证据</text>
+    <rect x="786" y="132" width="222" height="112" rx="20" fill="#f5e7ee" stroke="#dfb2c7"/>
+    <text x="810" y="171" fill="#7a3f5a" font-size="19" font-weight="700">停止</text>
+    <text x="810" y="201" fill="#8a6073" font-size="14">gain &lt; threshold</text>
+    <text x="810" y="224" fill="#8a6073" font-size="14">不再追加视图</text>
+  </g>
+  <g stroke="#6e9588" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M272 188h38"/><path d="M510 188h38"/><path d="M748 188h38"/>
+    <path d="M294 178l16 10-16 10"/><path d="M532 178l16 10-16 10"/><path d="M770 178l16 10-16 10"/>
+  </g>
+  <rect x="72" y="294" width="936" height="48" rx="15" fill="#17342f"/>
+  <text x="102" y="324" fill="#f5fbf8" font-size="17" font-weight="600" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif">信息增益达到阈值就停止追加视图：清晰度不是越高越好，证据够用才是</text>
+</svg>

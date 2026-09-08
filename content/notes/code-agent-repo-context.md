@@ -36,6 +36,10 @@ minutes: 11
 
 每一层都可能推翻上一层的猜测。任务说“增加分页”，结构告诉你这是 GraphQL resolver，不是 REST controller；调用关系告诉你游标由数据库层生成；测试告诉你默认顺序必须稳定；历史提交又解释了为什么不能直接改成 offset。Agent 的工作是把这些冲突消解掉，再落一笔改动。
 
+![仓库上下文的五层证据：任务、结构、符号、行为与历史](/images/notes/code-agent-repo-context/context-layers.svg)
+
+这五层不是固定的阅读清单，而是一条证据优先级。任务约束决定“要解决什么”，结构决定“从哪儿进入”，符号关系决定“会影响谁”，测试与运行结果决定“现在到底怎么工作”，历史资料只在前四层无法解释时补位。面试时能把这个顺序画出来，比说“我们接了一个代码向量库”更能说明你知道检索为什么会错。
+
 这也是为什么一个短小、明确的 `AGENTS.md` 往往比一大段自动摘要更有用。它不是替模型写答案，而是声明仓库自己的规则：从哪里开始看、用什么命令、哪些目录不能手改、完成后必须跑哪些检查。OpenAI 介绍 Codex 时，把这类文件描述成和 README 类似的仓库内指导，并明确建议写导航、测试命令和项目惯例。OpenAI：Introducing Codex (https://openai.com/index/introducing-codex/)
 
 ## 原理：把“找代码”拆成可验证的上下文构建
@@ -82,6 +86,18 @@ score = 任务词命中 + 符号/调用关系 + 测试关联 + 路径邻近 + �
 一个简单的做法是维护“事实表”： 事实证据可信度下一步分页参数在 resolver 入口校验`src/graphql/resolver.ts`高追调用链默认排序按 `created_at`现有测试 3 条高保持兼容文档说支持 `page` 参数`docs/api.md`中运行接口测试确认旧 service 仍在使用最近一次 grep低查 import 和 git log
 
 事实表不必暴露给用户，但要让 Agent 的计划能指出“我还缺哪条证据”。这比让它先写一版，再靠人找错，更省时间。
+
+![事实表把判断映射回路径、版本和验证动作](/images/notes/code-agent-repo-context/fact-trace.svg)
+
+### 给上下文包设置“停止读取”的条件
+
+上下文工程最容易被误解成“继续找，直到模型满意”。实际系统需要明确的停止条件，否则每一轮都会把更多 README、相似文件和旧日志塞进窗口：
+
+1. **入口闭合**：已经确认目标符号、调用者、直接依赖和对应测试，新增相似文件不能改变调用链。
+2. **验收闭合**：每条需求都有可执行命令或明确的人工检查，剩下的内容只影响背景理解，不影响本轮决策。
+3. **冲突显式**：文档、代码和运行结果仍有矛盾时，不继续扩大检索假装解决，而是把冲突写进计划，交给人确认。
+
+可以把停止原因写进上下文包的 metadata：`closed_by=callgraph+tests`、`budget_tokens=6800`、`open_questions=[feature_flag]`。这样下一轮恢复时，Agent 知道哪些内容已经读过、哪些问题仍然开放，也不会因为“再搜一个文件”而把原来的证据顺序打乱。
 
 ## 面试现场最常见的四个坑
 
@@ -138,6 +154,99 @@ GitHub 对 Copilot 的公开说明，则把“当前文件、选中代码、工�
 研究侧也在验证一个朴素问题：仓库级上下文文件到底有没有帮助。2026 年关于 `AGENTS.md` 的评估把它放到 SWE-bench 与真实仓库中比较，结果并非“有文件就更好”：总体成功率没有稳定提升，平均推理成本反而增加超过 20%；真正有价值的主要是非标准工程约束，而不是冗长仓库概览。这说明 context 文件也必须做消融和成本评估。Evaluating AGENTS.md (https://arxiv.org/abs/2602.11988)
 
 这些资料没有给出一个“永远正确的上下文模板”。它们共同强调的是可读、可执行、可追溯和有限预算。模型能力还会变化，仓库的事实和验证链必须先站稳。
+
+## 上下文包要发出一张“停止回执”
+
+Agent 读到多少文件不是效率指标，能否在证据闭合时停下来才是。每次任务结束时保存停止原因、覆盖的调用链和仍未解决的问题，下一轮恢复就不会重复扫描：
+
+~~~yaml
+context_stop_receipt: csr_20260820_07
+task_id: issue_csv_export
+closed_by:
+  - target_symbol
+  - direct_callers
+  - related_tests
+  - validation_command
+budget:
+  files_read: 14
+  tokens_used: 6800
+open_questions:
+  - feature_flag_in_staging
+excluded:
+  - generated_openapi
+  - unrelated_discount_module
+next_action: "run staging smoke test"
+status: closed_with_open_question
+~~~
+
+停止回执不是把未知项藏起来，而是把“已经足够做决定”和“仍需人或环境确认”分开。这样可以统计首次定位正确率、无效读取比例和恢复轮数，也能避免上下文缓存把另一条分支的事实带进当前任务。
+
+![上下文停止回执把闭合证据、预算、开放问题和下一步动作固定下来](/images/notes/code-agent-repo-context/context-stop-receipt.svg)
+
+### L5：什么时候不能继续扩大上下文？
+
+当入口、调用者、直接依赖、测试和验收命令已经闭合，而新增文件只增加背景、不改变决策时就应停止。若仍有代码与文档冲突，记录为 open question，交给人或环境验证，而不是靠继续读取制造确定感。
+
+## 上下文包还要记录“读了什么、没读什么”
+
+仓库级 Agent 很容易把“读得更多”误当作“理解得更深”。每次任务结束时，建议保存一个上下文包：入口、调用链、直接依赖、测试和验收命令属于已闭合证据；未读取的文件、冲突文档和待验证假设单独列出。下一轮恢复时，Agent 可以从开放问题继续，而不是重新扫描整个仓库。
+
+```yaml
+context_pack: cp_20260820_14
+task: add_csv_export
+closed_evidence:
+  - src/api/export.ts
+  - src/service/exporter.ts
+  - tests/export.test.ts
+  - command: "pnpm test -- export"
+open_questions:
+  - "feature_flag 是否由后台配置覆盖"
+  - "旧客户端是否依赖字段顺序"
+not_read:
+  - docs/legacy-import.md
+  - packages/mobile/
+stop_reason: "entry + callgraph + test + acceptance are closed"
+budget_tokens: 6800
+next_action: "verify feature_flag before widening patch"
+```
+
+`not_read` 不是遗漏清单，而是边界声明：它说明本轮结论没有覆盖哪些区域。只要新增内容不改变入口、调用链、测试或验收，继续扩大上下文的收益就很低；如果代码与文档冲突，把它记成 open question，交给运行结果或人确认，不要靠更多相似文件制造确定感。
+
+![代码 Agent 上下文包同时记录闭合证据、开放问题、未读取范围和停止原因](/images/notes/code-agent-repo-context/context-boundary-card.svg)
+
+### L5：为什么“未读取文件”也要写进交接？
+
+因为它定义了结论边界。下一位工程师知道哪些目录没有被证明、哪些假设仍开放，就不会把局部调用链误当成全仓库结论，也能更快选择下一步验证动作。
+
+## 上下文边界还要绑定“版本快照”
+
+同一条路径在不同分支、工作树或生成代码版本里可能不是同一个事实。只写 `src/service/exporter.ts` 还不够，交接包应绑定 commit、工作树状态和依赖锁文件摘要；恢复时先比对快照，发现代码已经变化就重新验证入口和测试，不要把旧结论直接套到新代码上。
+
+```yaml
+context_snapshot: cxs_20260820_83
+task: add_csv_export
+git:
+  commit: 9b7e1d2
+  worktree: clean
+  branch: feature/csv-export
+dependencies_lock: sha256:lock-44...
+closed_evidence:
+  - src/api/export.ts
+  - src/service/exporter.ts
+  - tests/export.test.ts
+resume:
+  compare_snapshot_first: true
+  on_drift: rerun_targeted_validation
+decision: handoff_replayable
+```
+
+![代码 Agent 上下文快照卡：路径、commit、工作树和依赖锁一起绑定恢复边界](/images/notes/code-agent-repo-context/context-snapshot-card.svg)
+
+### L5：为什么路径相同仍不能直接复用上下文？
+
+分支、生成文件或依赖版本变化都会让同一路径的行为不同。上下文包绑定快照后，恢复能先发现漂移，再决定哪些证据需要重读，避免把过期结论当成当前事实。
+
+![上下文路由：代码 Agent 先判断任务类型，再选择应读取的证据层](/images/notes/agent-context-engineering/context-routing.svg)
 
 ## 60 秒面试回答
 

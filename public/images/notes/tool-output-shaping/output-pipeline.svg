@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 300" role="img" aria-labelledby="title desc">
+  <title id="title">工具输出塑形流水线</title>
+  <desc id="desc">原始响应先投影成决策摘要，再补充分页和证据引用，最后交给 Agent。</desc>
+  <rect width="980" height="300" rx="28" fill="#f7f8f5"/>
+  <g font-family="sans-serif" text-anchor="middle">
+    <rect x="35" y="92" width="155" height="94" rx="18" fill="#fae8e1" stroke="#e0b9ae"/><text x="112" y="128" font-size="18" font-weight="700" fill="#753f32">原始响应</text><text x="112" y="157" font-size="14" fill="#8c5d51">大 JSON · 冗余字段</text>
+    <rect x="215" y="92" width="155" height="94" rx="18" fill="#fff1d9" stroke="#e8c891"/><text x="292" y="128" font-size="18" font-weight="700" fill="#704c20">字段投影</text><text x="292" y="157" font-size="14" fill="#856a42">保留决策所需</text>
+    <rect x="395" y="92" width="155" height="94" rx="18" fill="#dfeee8" stroke="#afd0c3"/><text x="472" y="128" font-size="18" font-weight="700" fill="#173f3d">分页与摘要</text><text x="472" y="157" font-size="14" fill="#52706b">数量、游标、截断</text>
+    <rect x="575" y="92" width="155" height="94" rx="18" fill="#eaf3f7" stroke="#b9d3df"/><text x="652" y="128" font-size="18" font-weight="700" fill="#24556a">证据引用</text><text x="652" y="157" font-size="14" fill="#5a737d">source_id · 时间</text>
+    <rect x="755" y="92" width="190" height="94" rx="18" fill="#173f3d"/><text x="850" y="128" font-size="18" font-weight="700" fill="#fff">Agent 观察</text><text x="850" y="157" font-size="14" fill="#dfeee8">可读、可行动、可追溯</text>
+  </g>
+  <g fill="none" stroke="#86a59d" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M190 139h25l-9-7m9 7-9 7"/><path d="M370 139h25l-9-7m9 7-9 7"/><path d="M550 139h25l-9-7m9 7-9 7"/><path d="M730 139h25l-9-7m9 7-9 7"/></g>
+</svg>

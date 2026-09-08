@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="360" viewBox="0 0 1080 360" role="img" aria-labelledby="title desc">
+  <title id="title">视频时间轴校准</title>
+  <desc id="desc">视频帧、ASR 和 OCR 通过人工标注事件校准到统一的源时间轴</desc>
+  <rect width="1080" height="360" rx="24" fill="#f7f8f5"/>
+  <text x="56" y="54" font-family="Arial, sans-serif" font-size="26" font-weight="700" fill="#173f3d">One timebase, many signals</text>
+  <text x="56" y="82" font-family="Arial, sans-serif" font-size="15" fill="#58716e">先校准偏移，再让每一个时间窗可以稳定回放</text>
+  <g font-family="Arial, sans-serif" fill="#173f3d" font-size="15">
+    <text x="60" y="132">video pts</text><text x="60" y="202">ASR</text><text x="60" y="272">OCR / object</text>
+    <path d="M170 126H970M170 196H970M170 266H970" stroke="#79908c" stroke-width="3"/>
+    <circle cx="420" cy="126" r="10" fill="#eaf3f7" stroke="#b9d3df"/><circle cx="575" cy="126" r="10" fill="#eaf3f7" stroke="#b9d3df"/>
+    <circle cx="462" cy="196" r="10" fill="#dfeee8" stroke="#afd0c3"/><circle cx="617" cy="196" r="10" fill="#dfeee8" stroke="#afd0c3"/>
+    <circle cx="448" cy="266" r="10" fill="#fff1d9" stroke="#e8c891"/><circle cx="603" cy="266" r="10" fill="#fff1d9" stroke="#e8c891"/>
+    <path d="M420 126L462 196L448 266M575 126L617 196L603 266" stroke="#173f3d" stroke-width="2" stroke-dasharray="5 7" fill="none"/>
+    <rect x="760" y="104" width="210" height="66" rx="14" fill="#dfeee8" stroke="#afd0c3"/><text x="786" y="132">source_pts</text><text x="786" y="153">offset = -84 ms</text>
+    <rect x="760" y="216" width="210" height="66" rx="14" fill="#fae8e1" stroke="#e0b9ae"/><text x="786" y="244">index v31</text><text x="786" y="265">replay by hash</text>
+  </g>
+  <text x="56" y="322" font-family="Arial, sans-serif" font-size="15" fill="#58716e">同一事件在三路信号上对齐，回放时以原片 pts 和 source hash 为准。</text>
+</svg>

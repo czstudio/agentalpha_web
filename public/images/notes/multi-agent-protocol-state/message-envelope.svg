@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 370" role="img" aria-labelledby="title desc">
+  <title id="title">消息信封字段</title>
+  <desc id="desc">消息信封按身份、因果、版本、产物和生命周期分区。</desc>
+  <rect width="900" height="370" rx="28" fill="#fbfaf6"/>
+  <rect x="66" y="48" width="768" height="270" rx="20" fill="#fff" stroke="#d8ddd7" stroke-width="2"/>
+  <g font-family="sans-serif">
+    <rect x="92" y="78" width="212" height="92" rx="14" fill="#dfeee8"/>
+    <text x="112" y="113" font-size="17" font-weight="700" fill="#173f3d">身份 identity</text>
+    <text x="112" y="145" font-size="15" fill="#52706b">sender · recipient · task_id</text>
+    <rect x="328" y="78" width="212" height="92" rx="14" fill="#eaf3f7"/>
+    <text x="348" y="113" font-size="17" font-weight="700" fill="#24556a">因果 causation</text>
+    <text x="348" y="145" font-size="15" fill="#5a737d">message_id · parent_id · type</text>
+    <rect x="564" y="78" width="244" height="92" rx="14" fill="#fff1d9"/>
+    <text x="584" y="113" font-size="17" font-weight="700" fill="#704c20">版本 version</text>
+    <text x="584" y="145" font-size="15" fill="#856a42">schema · state_version · idempotency</text>
+    <rect x="92" y="194" width="344" height="92" rx="14" fill="#f0eee8"/>
+    <text x="112" y="229" font-size="17" font-weight="700" fill="#4b514e">产物 artifact</text>
+    <text x="112" y="261" font-size="15" fill="#68706c">payload_ref · evidence · revision</text>
+    <rect x="460" y="194" width="348" height="92" rx="14" fill="#fae8e1"/>
+    <text x="480" y="229" font-size="17" font-weight="700" fill="#753f32">生命周期 lifecycle</text>
+    <text x="480" y="261" font-size="15" fill="#845a50">TTL · requires_ack · retry_count</text>
+  </g>
+</svg>

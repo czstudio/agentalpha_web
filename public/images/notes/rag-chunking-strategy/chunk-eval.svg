@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 400" role="img" aria-labelledby="title desc">
+  <title id="title">分块策略离线回放</title>
+  <desc id="desc">用真实问题、最小充分证据和多个分块候选进行离线回放，比较证据完整率与重复率。</desc>
+  <rect width="1200" height="400" rx="28" fill="#f7f8f5"/>
+  <text x="58" y="60" fill="#1d1d1f" font-family="Arial, sans-serif" font-size="25" font-weight="700">不要争 256 还是 512，让问题集投票</text>
+  <g font-family="Arial, sans-serif" font-size="15" text-anchor="middle">
+    <rect x="70" y="150" width="200" height="82" rx="14" fill="#ffffff" stroke="#dfe4df"/><text x="170" y="184" fill="#1d1d1f" font-weight="700">真实问题集</text><text x="170" y="209" fill="#6b6e70">工单 / 搜索 / 面试追问</text>
+    <rect x="335" y="150" width="200" height="82" rx="14" fill="#ffffff" stroke="#dfe4df"/><text x="435" y="184" fill="#1d1d1f" font-weight="700">最小充分证据</text><text x="435" y="209" fill="#6b6e70">段落 / 表格 / 相邻段</text>
+    <rect x="600" y="150" width="200" height="82" rx="14" fill="#f4ead0" stroke="#dfc783"/><text x="700" y="184" fill="#1d1d1f" font-weight="700">候选分块</text><text x="700" y="209" fill="#6b6e70">size × overlap × parent</text>
+    <rect x="865" y="150" width="265" height="82" rx="14" fill="#e6f1ed" stroke="#9bc9bc"/><text x="997" y="184" fill="#1d1d1f" font-weight="700">回放指标</text><text x="997" y="209" fill="#6b6e70">证据完整率 / 重复率 / 延迟</text>
+    <g fill="#247a6b" font-size="28"><text x="302" y="201">→</text><text x="567" y="201">→</text><text x="832" y="201">→</text></g>
+  </g>
+  <rect x="90" y="285" width="1020" height="54" rx="12" fill="#ffffff" stroke="#dfe4df"/>
+  <text x="112" y="318" fill="#6b6e70" font-family="Arial, sans-serif" font-size="15">决策规则：优先选择能完整支撑答案、冲突版本最少、上下文最省的方案，而不是分数最高的方案</text>
+</svg>

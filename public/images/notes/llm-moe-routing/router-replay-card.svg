@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="390" viewBox="0 0 1080 390">
+  <rect width="1080" height="390" rx="28" fill="#F7F4EE"/>
+  <text x="56" y="58" font-family="Arial,'Noto Sans SC',sans-serif" font-size="26" font-weight="700" fill="#193C3A">MoE 路由回放</text>
+  <text x="56" y="91" font-family="Arial,'Noto Sans SC',sans-serif" font-size="16" fill="#58706D">把 token 选择、容量溢出和 rank 队列放在一张图里</text>
+  <rect x="56" y="136" width="244" height="150" rx="20" fill="#E5F0ED"/>
+  <text x="82" y="174" font-family="Arial,'Noto Sans SC',sans-serif" font-size="20" font-weight="700" fill="#1C615A">Token route</text>
+  <text x="82" y="212" font-family="Arial,'Noto Sans SC',sans-serif" font-size="15" fill="#31514E">Top-k = 2</text>
+  <text x="82" y="246" font-family="Arial,'Noto Sans SC',sans-serif" font-size="15" fill="#31514E">expert histogram</text>
+  <path d="M326 211h62" stroke="#EF9D73" stroke-width="6" stroke-linecap="round"/><path d="m374 192 25 19-25 19" fill="none" stroke="#EF9D73" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="414" y="136" width="260" height="150" rx="20" fill="#FFF0D6"/>
+  <text x="440" y="174" font-family="Arial,'Noto Sans SC',sans-serif" font-size="20" font-weight="700" fill="#875B26">容量</text>
+  <text x="440" y="212" font-family="Arial,'Noto Sans SC',sans-serif" font-size="15" fill="#6C5632">dropped tokens = 7</text>
+  <text x="440" y="246" font-family="Arial,'Noto Sans SC',sans-serif" font-size="15" fill="#6C5632">dispatch order hash</text>
+  <path d="M698 211h62" stroke="#86A4D7" stroke-width="6" stroke-linecap="round"/><path d="m746 192 25 19-25 19" fill="none" stroke="#86A4D7" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="786" y="136" width="238" height="150" rx="20" fill="#DCEBE8"/>
+  <text x="812" y="174" font-family="Arial,'Noto Sans SC',sans-serif" font-size="20" font-weight="700" fill="#174F4A">Device trace</text>
+  <text x="812" y="212" font-family="Arial,'Noto Sans SC',sans-serif" font-size="15" fill="#31514E">rank_3 queue 18.7 ms</text>
+  <text x="812" y="246" font-family="Arial,'Noto Sans SC',sans-serif" font-size="15" fill="#31514E">topology hotspot</text>
+  <rect x="56" y="315" width="968" height="34" rx="17" fill="#183C3A"/>
+  <text x="540" y="338" text-anchor="middle" font-family="Arial,'Noto Sans SC',sans-serif" font-size="15" fill="#F7F4EE">平均负载均衡 ≠ 没有热点：要看最慢 rank 的队列与 token 溢出</text>
+</svg>

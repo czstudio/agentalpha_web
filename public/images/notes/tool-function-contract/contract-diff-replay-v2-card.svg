@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="390" viewBox="0 0 1080 390">
+  <rect width="1080" height="390" rx="28" fill="#F7F4EE"/>
+  <text x="56" y="58" font-family="Arial,'Noto Sans SC',sans-serif" font-size="26" font-weight="700" fill="#193C3A">契约变更双回放</text>
+  <text x="56" y="91" font-family="Arial,'Noto Sans SC',sans-serif" font-size="16" fill="#58706D">旧调用可回放，新调用可拒绝；写操作只进沙箱</text>
+  <rect x="56" y="132" width="274" height="178" rx="20" fill="#E5F0ED"/>
+  <text x="82" y="170" font-family="Arial,'Noto Sans SC',sans-serif" font-size="20" font-weight="700" fill="#1C615A">v3 历史调用</text>
+  <text x="82" y="205" font-family="Arial,'Noto Sans SC',sans-serif" font-size="15" fill="#31514E">schema / args / trace</text>
+  <text x="82" y="238" font-family="Arial,'Noto Sans SC',sans-serif" font-size="15" fill="#31514E">解析通过 · policy 重查</text>
+  <text x="82" y="272" font-family="Arial,'Noto Sans SC',sans-serif" font-size="15" fill="#31514E">execute → sandbox only</text>
+  <path d="M344 220h90" stroke="#EF9D73" stroke-width="6" stroke-linecap="round"/><path d="m420 201 25 19-25 19" fill="none" stroke="#EF9D73" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="458" y="132" width="274" height="178" rx="20" fill="#FFF0D6"/>
+  <text x="484" y="170" font-family="Arial,'Noto Sans SC',sans-serif" font-size="20" font-weight="700" fill="#875B26">v4 差异门禁</text>
+  <text x="484" y="205" font-family="Arial,'Noto Sans SC',sans-serif" font-size="15" fill="#6C5632">删除字段 → reject</text>
+  <text x="484" y="238" font-family="Arial,'Noto Sans SC',sans-serif" font-size="15" fill="#6C5632">枚举收窄 → error_code</text>
+  <text x="484" y="272" font-family="Arial,'Noto Sans SC',sans-serif" font-size="15" fill="#6C5632">新必填 → migrate / clarify</text>
+  <path d="M746 220h90" stroke="#86A4D7" stroke-width="6" stroke-linecap="round"/><path d="m822 201 25 19-25 19" fill="none" stroke="#86A4D7" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="860" y="132" width="164" height="178" rx="20" fill="#DCEBE8"/>
+  <text x="884" y="170" font-family="Arial,'Noto Sans SC',sans-serif" font-size="20" font-weight="700" fill="#174F4A">发布</text>
+  <text x="884" y="211" font-family="Arial,'Noto Sans SC',sans-serif" font-size="15" fill="#31514E">兼容窗口</text>
+  <text x="884" y="244" font-family="Arial,'Noto Sans SC',sans-serif" font-size="15" fill="#31514E">版本化回执</text>
+  <text x="884" y="277" font-family="Arial,'Noto Sans SC',sans-serif" font-size="15" fill="#31514E">真实副作用：0</text>
+</svg>

@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="390" viewBox="0 0 1080 390">
+  <rect width="1080" height="390" rx="28" fill="#f7f9fc"/>
+  <text x="56" y="62" font-family="Arial,'PingFang SC',sans-serif" font-size="24" font-weight="700" fill="#172033">UNEXPLAINED LEDGER · 未解释样本账本</text>
+  <text x="56" y="94" font-family="Arial,'PingFang SC',sans-serif" font-size="16" fill="#637083">先归因，再升级为回归集</text>
+  <g font-family="Arial,'PingFang SC',sans-serif">
+    <rect x="56" y="138" width="218" height="148" rx="18" fill="#e8f0ff" stroke="#b7ccf0"/><text x="78" y="174" font-size="16" font-weight="700" fill="#244a83">01 · 记录</text><text x="78" y="211" font-size="15" fill="#3b4d67">线上 trace</text><text x="78" y="239" font-size="15" fill="#3b4d67">版本 / 上下文</text>
+    <rect x="308" y="138" width="218" height="148" rx="18" fill="#edf8f1" stroke="#b8ddc6"/><text x="330" y="174" font-size="16" font-weight="700" fill="#296444">02 · 分类</text><text x="330" y="211" font-size="15" fill="#3e5a4b">missing context</text><text x="330" y="239" font-size="15" fill="#3e5a4b">label dispute</text>
+    <rect x="560" y="138" width="218" height="148" rx="18" fill="#fff4df" stroke="#e5c98d"/><text x="582" y="174" font-size="16" font-weight="700" fill="#7b571a">03 · 复现</text><text x="582" y="211" font-size="15" fill="#6a5734">one variable</text><text x="582" y="239" font-size="15" fill="#6a5734">second confirmation</text>
+    <rect x="812" y="138" width="212" height="148" rx="18" fill="#f2ecff" stroke="#cfc0ee"/><text x="834" y="174" font-size="16" font-weight="700" fill="#5b428f">04 · 升级</text><text x="834" y="211" font-size="15" fill="#5d5370">gold set</text><text x="834" y="239" font-size="15" fill="#5d5370">or keep ledger</text>
+  </g>
+  <path d="M282 212h22m224 0h22m224 0h22" stroke="#8a98aa" stroke-width="3"/><path d="m298 204 10 8-10 8m240-8 10 8-10 8m240-8 10 8-10 8" fill="none" stroke="#8a98aa" stroke-width="3"/>
+  <text x="56" y="344" font-family="Arial,'PingFang SC',sans-serif" font-size="16" fill="#637083">未经归因的失败留在账本里，避免把事故噪声直接固化成评测标准</text>
+</svg>

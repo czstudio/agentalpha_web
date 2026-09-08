@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 420" role="img" aria-labelledby="title desc">
+  <title id="title">SFT 数据漏斗</title>
+  <desc id="desc">业务日志经过脱敏、去重、质量分层、难例补齐和回归切分，形成可训练、可评测的数据集。</desc>
+  <rect width="1200" height="420" rx="28" fill="#f7f8f5"/>
+  <text x="58" y="58" fill="#1d1d1f" font-family="Arial, sans-serif" font-size="25" font-weight="700">SFT 先筛数据，再谈训练</text>
+  <text x="58" y="88" fill="#6b6e70" font-family="Arial, sans-serif" font-size="16">每次缩小都要记录丢掉了什么，避免把清洗规则误当成模型能力</text>
+  <g font-family="Arial, sans-serif" text-anchor="middle">
+    <path d="M90 145 H1110 L1010 205 H190 Z" fill="#ffffff" stroke="#dfe4df"/>
+    <text x="600" y="181" font-size="17" fill="#1d1d1f" font-weight="700">业务日志 / 人工示例 · 原始事实</text>
+    <path d="M190 220 H1010 L930 272 H270 Z" fill="#eaf3ef" stroke="#b7d7ca"/>
+    <text x="600" y="252" font-size="16" fill="#1d1d1f" font-weight="700">脱敏 + 去重 + 格式校验</text>
+    <path d="M270 287 H930 L850 339 H350 Z" fill="#d8ebe4" stroke="#9bc9bc"/>
+    <text x="600" y="319" font-size="16" fill="#1d1d1f" font-weight="700">质量分层 + 难例补齐</text>
+    <path d="M350 354 H850 L800 392 H400 Z" fill="#247a6b"/>
+    <text x="600" y="380" font-size="15" fill="#ffffff" font-weight="700">train / dev / regression：可训练也可验收</text>
+  </g>
+  <g fill="#6b6e70" font-family="Arial, sans-serif" font-size="14">
+    <text x="1120" y="178">保留来源</text><text x="1018" y="246">删掉隐私</text><text x="942" y="313">标记置信度</text>
+  </g>
+</svg>

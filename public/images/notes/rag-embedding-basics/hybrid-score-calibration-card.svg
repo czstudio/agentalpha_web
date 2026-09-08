@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="390" viewBox="0 0 1080 390">
+  <rect width="1080" height="390" rx="28" fill="#f7f9fc"/>
+  <text x="56" y="58" font-family="Arial, sans-serif" font-size="23" font-weight="700" fill="#14233b">混合检索校准</text>
+  <text x="56" y="86" font-family="Arial, sans-serif" font-size="15" fill="#61708a">候选分数必须能解释，不让一个总分掩盖权限与版本问题</text>
+  <rect x="56" y="124" width="968" height="76" rx="18" fill="#e8f0ff" stroke="#9bb8ed"/>
+  <text x="82" y="173" font-family="Georgia, serif" font-size="24" font-weight="700" fill="#1f4d9c">score = α dense + β lexical + γ metadata − λ conflict</text>
+  <g font-family="Arial, sans-serif">
+    <rect x="56" y="236" width="208" height="70" rx="16" fill="#e7f6ef"/><text x="80" y="266" font-size="17" font-weight="700" fill="#197145">Dense</text><text x="80" y="290" font-size="14" fill="#35624c">同义表达召回</text>
+    <rect x="286" y="236" width="208" height="70" rx="16" fill="#fff4df"/><text x="310" y="266" font-size="17" font-weight="700" fill="#9a6510">Lexical</text><text x="310" y="290" font-size="14" fill="#6f531e">错误码 / API</text>
+    <rect x="516" y="236" width="208" height="70" rx="16" fill="#e8f0ff"/><text x="540" y="266" font-size="17" font-weight="700" fill="#1f4d9c">Metadata</text><text x="540" y="290" font-size="14" fill="#355071">版本 / 租户</text>
+    <rect x="746" y="236" width="278" height="70" rx="16" fill="#f0eaff"/><text x="770" y="266" font-size="17" font-weight="700" fill="#6445ae">Conflict penalty</text><text x="770" y="290" font-size="14" fill="#51436f">冲突证据降权</text>
+  </g>
+  <line x1="56" y1="333" x2="1024" y2="333" stroke="#dbe2ec"/><text x="56" y="359" font-family="Arial, sans-serif" font-size="14" fill="#52627a">先 ACL / 版本过滤，再 rerank；保留每个分量以便 bad case 回放</text>
+</svg>

@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="480" viewBox="0 0 1200 480">
+  <rect width="1200" height="480" fill="#fbfaf7"/>
+  <text x="70" y="70" font-family="Arial,'Noto Sans SC',sans-serif" font-size="28" font-weight="700" fill="#24352f">路径预算：跳得更远，也要付出证据成本</text>
+  <g font-family="Arial,'Noto Sans SC',sans-serif">
+    <rect x="90" y="155" width="260" height="180" rx="18" fill="#e8f3ee" stroke="#9fc8b3" stroke-width="2"/><text x="130" y="205" font-size="21" font-weight="700" fill="#2b5d4d">1 跳</text><text x="130" y="245" font-size="17" fill="#4c7063">入口实体 → 直接关系</text><text x="130" y="280" font-size="17" fill="#4c7063">低成本，高精度</text>
+    <rect x="470" y="155" width="260" height="180" rx="18" fill="#f2eee2" stroke="#d3bb7d" stroke-width="2"/><text x="510" y="205" font-size="21" font-weight="700" fill="#7c622e">2–3 跳</text><text x="510" y="245" font-size="17" fill="#846e42">关系组合 → 跨文档</text><text x="510" y="280" font-size="17" fill="#846e42">需要 join key 与排序</text>
+    <rect x="850" y="155" width="260" height="180" rx="18" fill="#f8e9e6" stroke="#d5a299" stroke-width="2"/><text x="890" y="205" font-size="21" font-weight="700" fill="#994f42">无限扩展</text><text x="890" y="245" font-size="17" fill="#9b5e51">噪声、冲突、token 爆炸</text><text x="890" y="280" font-size="17" fill="#9b5e51">应截断或转人工</text>
+  </g>
+  <path d="M350 245H455" stroke="#638d7c" stroke-width="4"/><path d="m442 233 18 12-18 12" fill="#638d7c"/><path d="M730 245H835" stroke="#bd8a55" stroke-width="4"/><path d="m822 233 18 12-18 12" fill="#bd8a55"/>
+</svg>

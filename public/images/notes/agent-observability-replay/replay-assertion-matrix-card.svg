@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="390" viewBox="0 0 1080 390">
+  <rect width="1080" height="390" rx="28" fill="#F7F4EE"/>
+  <text x="56" y="58" font-family="Arial,'Noto Sans SC',sans-serif" font-size="26" font-weight="700" fill="#193C3A">回放断言矩阵</text>
+  <text x="56" y="91" font-family="Arial,'Noto Sans SC',sans-serif" font-size="16" fill="#58706D">文本可以变，决策边界和副作用不能偷偷变</text>
+  <rect x="56" y="136" width="270" height="150" rx="20" fill="#E5F0ED"/>
+  <text x="82" y="174" font-family="Arial,'Noto Sans SC',sans-serif" font-size="20" font-weight="700" fill="#1C615A">硬断言</text>
+  <text x="82" y="212" font-family="Arial,'Noto Sans SC',sans-serif" font-size="15" fill="#31514E">首个失败 Span</text>
+  <text x="82" y="246" font-family="Arial,'Noto Sans SC',sans-serif" font-size="15" fill="#31514E">policy / citation / side effect</text>
+  <path d="M350 211h62" stroke="#EF9D73" stroke-width="6" stroke-linecap="round"/><path d="m398 192 25 19-25 19" fill="none" stroke="#EF9D73" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="440" y="136" width="268" height="150" rx="20" fill="#FFF0D6"/>
+  <text x="466" y="174" font-family="Arial,'Noto Sans SC',sans-serif" font-size="20" font-weight="700" fill="#875B26">差异预算</text>
+  <text x="466" y="212" font-family="Arial,'Noto Sans SC',sans-serif" font-size="15" fill="#6C5632">措辞 tokens ≤ 24</text>
+  <text x="466" y="246" font-family="Arial,'Noto Sans SC',sans-serif" font-size="15" fill="#6C5632">参数 / 策略 / 副作用 = 0</text>
+  <path d="M732 211h62" stroke="#86A4D7" stroke-width="6" stroke-linecap="round"/><path d="m780 192 25 19-25 19" fill="none" stroke="#86A4D7" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="822" y="136" width="202" height="150" rx="20" fill="#DCEBE8"/>
+  <text x="848" y="174" font-family="Arial,'Noto Sans SC',sans-serif" font-size="20" font-weight="700" fill="#174F4A">决策</text>
+  <text x="848" y="212" font-family="Arial,'Noto Sans SC',sans-serif" font-size="15" fill="#31514E">pass</text>
+  <text x="848" y="246" font-family="Arial,'Noto Sans SC',sans-serif" font-size="15" fill="#31514E">或人工复核</text>
+  <rect x="56" y="315" width="968" height="34" rx="17" fill="#183C3A"/>
+  <text x="540" y="338" text-anchor="middle" font-family="Arial,'Noto Sans SC',sans-serif" font-size="15" fill="#F7F4EE">最终答案相似只是辅助，安全、证据和副作用必须单独验收</text>
+</svg>

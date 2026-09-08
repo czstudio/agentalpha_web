@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 390" role="img" aria-labelledby="title desc">
+  <title id="title">RLHF reward debug</title>
+  <desc id="desc">通过奖励上涨但任务失败的样本回放，定位长度、模板、拒答和事实四类奖励捷径。</desc>
+  <rect width="1200" height="390" rx="28" fill="#f7f8f5"/>
+  <text x="58" y="58" fill="#1d1d1f" font-family="Arial, sans-serif" font-size="25" font-weight="700">奖励上涨但任务失败：先回放，再调权重</text>
+  <g font-family="Arial, sans-serif">
+    <rect x="68" y="145" width="210" height="82" rx="14" fill="#e6f1ed" stroke="#9bc9bc"/><text x="173" y="178" text-anchor="middle" fill="#247a6b" font-size="16" font-weight="700">hidden case</text><text x="173" y="203" text-anchor="middle" fill="#1d1d1f" font-size="14">reward ↑ / task ↓</text>
+    <path d="M290 186 H350" stroke="#247a6b" stroke-width="2"/><text x="319" y="169" fill="#247a6b" font-size="22">→</text>
+    <rect x="370" y="125" width="180" height="122" rx="14" fill="#ffffff" stroke="#dfe4df"/><text x="460" y="160" text-anchor="middle" fill="#1d1d1f" font-size="15" font-weight="700">完整轨迹</text><text x="460" y="190" text-anchor="middle" fill="#6b6e70" font-size="13">prompt / answer</text><text x="460" y="214" text-anchor="middle" fill="#6b6e70" font-size="13">各分量奖励 / KL</text>
+    <path d="M565 186 H625" stroke="#247a6b" stroke-width="2"/><text x="594" y="169" fill="#247a6b" font-size="22">→</text>
+    <g font-size="14"><rect x="645" y="105" width="220" height="58" rx="12" fill="#fff5e8" stroke="#e5c98f"/><text x="755" y="140" text-anchor="middle" fill="#9b6b21">长度/套话捷径</text><rect x="645" y="175" width="220" height="58" rx="12" fill="#fff5e8" stroke="#e5c98f"/><text x="755" y="210" text-anchor="middle" fill="#9b6b21">拒答/关键词捷径</text><rect x="645" y="245" width="220" height="58" rx="12" fill="#e6f1ed" stroke="#9bc9bc"/><text x="755" y="280" text-anchor="middle" fill="#247a6b">事实/任务真验收</text></g>
+    <path d="M880 204 H930" stroke="#247a6b" stroke-width="2"/><text x="905" y="187" fill="#247a6b" font-size="22">→</text>
+    <rect x="950" y="145" width="180" height="82" rx="14" fill="#ffffff" stroke="#dfe4df"/><text x="1040" y="178" text-anchor="middle" fill="#1d1d1f" font-size="15" font-weight="700">修奖励或数据</text><text x="1040" y="203" text-anchor="middle" fill="#6b6e70" font-size="13">再跑 hidden set</text>
+  </g>
+</svg>

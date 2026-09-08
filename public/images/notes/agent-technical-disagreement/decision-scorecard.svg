@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="360" viewBox="0 0 1080 360" role="img" aria-labelledby="title desc">
+  <title id="title">技术方案决策评分表</title>
+  <desc id="desc">把候选方案在成功、风险、延迟、成本和维护维度的相对评分转成实验优先级</desc>
+  <rect width="1080" height="360" rx="28" fill="#f7f8f5"/>
+  <text x="54" y="58" font-family="Inter,Arial,sans-serif" font-size="25" font-weight="700" fill="#173f3d">决策评分表：先暴露权重，再决定实验顺序</text>
+  <text x="54" y="88" font-family="Inter,Arial,sans-serif" font-size="15" fill="#50706c">评分只排优先级，实验数据出来后必须更新</text>
+  <g font-family="Inter,Arial,sans-serif" font-size="15" fill="#315653">
+    <rect x="54" y="124" width="972" height="48" rx="10" fill="#173f3d"/>
+    <text x="80" y="155" fill="#ffffff" font-weight="700">候选方案</text><text x="268" y="155" fill="#ffffff" font-weight="700">成功</text><text x="390" y="155" fill="#ffffff" font-weight="700">风险</text><text x="512" y="155" fill="#ffffff" font-weight="700">延迟</text><text x="634" y="155" fill="#ffffff" font-weight="700">成本</text><text x="756" y="155" fill="#ffffff" font-weight="700">维护</text><text x="878" y="155" fill="#ffffff" font-weight="700">先验证</text>
+    <rect x="54" y="172" width="972" height="48" rx="8" fill="#eaf3f7"/><text x="80" y="203">直接回答</text><text x="274" y="203">3</text><text x="396" y="203">2</text><text x="518" y="203">5</text><text x="640" y="203">5</text><text x="762" y="203">5</text><text x="878" y="203">常识集</text>
+    <rect x="54" y="220" width="972" height="48" rx="8" fill="#dfeee8"/><text x="80" y="251">纯向量 RAG</text><text x="274" y="251">3</text><text x="396" y="251">3</text><text x="518" y="251">4</text><text x="640" y="251">4</text><text x="762" y="251">3</text><text x="878" y="251">版本命中</text>
+    <rect x="54" y="268" width="972" height="48" rx="8" fill="#fff1d9"/><text x="80" y="299">混合 + 重排</text><text x="274" y="299">5</text><text x="396" y="299">4</text><text x="518" y="299">3</text><text x="640" y="299">2</text><text x="762" y="299">2</text><text x="878" y="299">引用长尾</text>
+  </g>
+</svg>

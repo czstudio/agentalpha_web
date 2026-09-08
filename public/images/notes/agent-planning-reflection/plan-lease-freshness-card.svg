@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="390" viewBox="0 0 1080 390">
+  <rect width="1080" height="390" rx="28" fill="#F7F4EE"/>
+  <text x="56" y="58" font-family="Arial,'Noto Sans SC',sans-serif" font-size="26" font-weight="700" fill="#193C3A">计划租约与证据新鲜度</text>
+  <text x="56" y="91" font-family="Arial,'Noto Sans SC',sans-serif" font-size="16" fill="#58706D">计划能变，过期事实不能继续支撑副作用</text>
+  <rect x="56" y="136" width="254" height="150" rx="20" fill="#E5F0ED"/>
+  <text x="82" y="174" font-family="Arial,'Noto Sans SC',sans-serif" font-size="20" font-weight="700" fill="#1C615A">快照</text>
+  <text x="82" y="212" font-family="Arial,'Noto Sans SC',sans-serif" font-size="15" fill="#31514E">order / policy / ACL</text>
+  <text x="82" y="246" font-family="Arial,'Noto Sans SC',sans-serif" font-size="15" fill="#31514E">versioned evidence</text>
+  <path d="M334 211h62" stroke="#EF9D73" stroke-width="6" stroke-linecap="round"/><path d="m382 192 25 19-25 19" fill="none" stroke="#EF9D73" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="422" y="136" width="260" height="150" rx="20" fill="#FFF0D6"/>
+  <text x="448" y="174" font-family="Arial,'Noto Sans SC',sans-serif" font-size="20" font-weight="700" fill="#875B26">租约</text>
+  <text x="448" y="212" font-family="Arial,'Noto Sans SC',sans-serif" font-size="15" fill="#6C5632">09:30 → 09:35</text>
+  <text x="448" y="246" font-family="Arial,'Noto Sans SC',sans-serif" font-size="15" fill="#6C5632">expired → replan</text>
+  <path d="M710 211h62" stroke="#86A4D7" stroke-width="6" stroke-linecap="round"/><path d="m758 192 25 19-25 19" fill="none" stroke="#86A4D7" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="792" y="136" width="232" height="150" rx="20" fill="#DCEBE8"/>
+  <text x="818" y="174" font-family="Arial,'Noto Sans SC',sans-serif" font-size="20" font-weight="700" fill="#174F4A">写入前</text>
+  <text x="818" y="212" font-family="Arial,'Noto Sans SC',sans-serif" font-size="15" fill="#31514E">reread current state</text>
+  <text x="818" y="246" font-family="Arial,'Noto Sans SC',sans-serif" font-size="15" fill="#31514E">old plan: blocked</text>
+  <rect x="56" y="315" width="968" height="34" rx="17" fill="#183C3A"/>
+  <text x="540" y="338" text-anchor="middle" font-family="Arial,'Noto Sans SC',sans-serif" font-size="15" fill="#F7F4EE">plan_version ≠ evidence freshness：关键副作用前必须读回</text>
+</svg>

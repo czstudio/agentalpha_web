@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="390" viewBox="0 0 1080 390">
+  <rect width="1080" height="390" rx="28" fill="#F7F4EE"/>
+  <text x="56" y="58" font-family="Arial,'Noto Sans SC',sans-serif" font-size="26" font-weight="700" fill="#193C3A">奖励模型低置信度闸门</text>
+  <text x="56" y="91" font-family="Arial,'Noto Sans SC',sans-serif" font-size="16" fill="#58706D">margin 太小或工具未知时，不强行把噪声变成奖励</text>
+  <rect x="56" y="136" width="246" height="150" rx="20" fill="#E5F0ED"/>
+  <text x="82" y="174" font-family="Arial,'Noto Sans SC',sans-serif" font-size="20" font-weight="700" fill="#1C615A">Pair</text>
+  <text x="82" y="212" font-family="Arial,'Noto Sans SC',sans-serif" font-size="15" fill="#31514E">chosen 0.42</text>
+  <text x="82" y="246" font-family="Arial,'Noto Sans SC',sans-serif" font-size="15" fill="#31514E">rejected 0.40</text>
+  <path d="M326 211h62" stroke="#EF9D73" stroke-width="6" stroke-linecap="round"/><path d="m374 192 25 19-25 19" fill="none" stroke="#EF9D73" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="414" y="136" width="260" height="150" rx="20" fill="#FFF0D6"/>
+  <text x="440" y="174" font-family="Arial,'Noto Sans SC',sans-serif" font-size="20" font-weight="700" fill="#875B26">证据检查</text>
+  <text x="440" y="212" font-family="Arial,'Noto Sans SC',sans-serif" font-size="15" fill="#6C5632">margin 0.02 &lt; 0.08</text>
+  <text x="440" y="246" font-family="Arial,'Noto Sans SC',sans-serif" font-size="15" fill="#6C5632">tool state = unknown</text>
+  <path d="M702 211h62" stroke="#86A4D7" stroke-width="6" stroke-linecap="round"/><path d="m750 192 25 19-25 19" fill="none" stroke="#86A4D7" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="792" y="136" width="232" height="150" rx="20" fill="#DCEBE8"/>
+  <text x="818" y="174" font-family="Arial,'Noto Sans SC',sans-serif" font-size="20" font-weight="700" fill="#174F4A">决策</text>
+  <text x="818" y="212" font-family="Arial,'Noto Sans SC',sans-serif" font-size="15" fill="#31514E">abstain</text>
+  <text x="818" y="246" font-family="Arial,'Noto Sans SC',sans-serif" font-size="15" fill="#31514E">补证据 / 人工</text>
+  <rect x="56" y="315" width="968" height="34" rx="17" fill="#183C3A"/>
+  <text x="540" y="338" text-anchor="middle" font-family="Arial,'Noto Sans SC',sans-serif" font-size="15" fill="#F7F4EE">不确定时允许 abstain，比把微小 margin 当真理更安全</text>
+</svg>
