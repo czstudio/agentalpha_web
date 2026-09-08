@@ -21,7 +21,7 @@
 RAG →memory→  单 Agent 架构与强化  4) 多智能体协作   → 5) DeepSearch → 6) 高效推理 → 7)  code agent 8) →  自进化agent →9) Agentic RL→ 10) 综合实战
 </callout>
 
-![图片展示了AgentAlpha训练营的课程体系，分为10个模块。模块1是RAG基础，包含1.1 RAG基本架构等；模块2是2-agent memory，涵盖2.1记忆内容区分等；模块3是单Agent、多智能体协作，有3.1Agent基础结构等内容；模块4是DeepSearch，包含5.1Agentic Search In-Loop等；模块5是6-LLM推理加速，有6.1缓存优化等；模块6是7-Code Agent，涉及7.1端到端代码任务执行流程等；模块7是9-Agentic RL，包含9.1搜索“工具调用”嵌入强化学习环境中的动作等；模块8是8-掌握自进化编码；模块9是综合成长，有1.参与1000 - 7000星原创开源项目等。](https://api3-eeft-drive.feishu.cn/space/api/box/stream/download/authcode/?code=NmUwN2MzOWUwNzlkY2EyNmZjZDdkMGIyMzM0MmJiMjFfOGRmNThmNzc1MjkxNWRmZmNkNGI3YTQ4NzczZTA5NWNfSUQ6NzY3MDUzMzc2MzA4ODQzNjE4MF8xNzg2ODgwOTI5OjE3ODY4ODQ1MjlfVjM)
+![图片展示了AgentAlpha训练营的课程体系，分为10个模块。模块1是RAG基础，包含1.1 RAG基本架构等；模块2是2-agent memory，涵盖2.1记忆内容区分等；模块3是单Agent、多智能体协作，有3.1Agent基础结构等内容；模块4是DeepSearch，包含5.1Agentic Search In-Loop等；模块5是6-LLM推理加速，有6.1缓存优化等；模块6是7-Code Agent，涉及7.1端到端代码任务执行流程等；模块7是9-Agentic RL，包含9.1搜索“工具调用”嵌入强化学习环境中的动作等；模块8是8-掌握自进化编码；模块9是综合成长，有1.参与1000 - 7000星原创开源项目等。](https://feishu.cn/file/I2z8bmsJ6o2E7VxvE0KcXhcInug)
 
 感兴趣的可以联系微信： aistudioyes 
 
@@ -1187,5 +1187,4 @@ Function Calling → API 设计 → 工具选择 → 错误处理 → 安全约�
 
 
 
-![图片展示的是AgentAlpha创客星球的加入方式。上方文字为“AgentAlpha创客星球”，下方是“微信扫码加入星球”，并配有“知识星球”的标识。右侧有一个绿色的二维码，二维码内有蓝色的卡通形象。该图片位于文档结尾处，是对文档中加入知识星球获取更多资料和一对一答疑的引导，与文档中鼓励加入知识星球以获取更多面试资料和答疑的内容相呼应。](https://api3-eeft-drive.feishu.cn/space/api/box/stream/download/authcode/?code=ZDk2Mjk4M2E4MzE0OWYxOTcyYmNhMTY5ZWM3MWI5MzlfN2QzZmU0NTg5YTYxZTA0YjQ0YzRmMmM1OGI2YTVkYmZfSUQ6NzY0MDMyMjk5MzcwNDc2NjY1NF8xNzg2ODgwOTI5OjE3ODY4ODQ1MjlfVjM)
-
+![图片展示的是AgentAlpha创客星球的加入方式。上方文字为“AgentAlpha创客星球”，下方是“微信扫码加入星球”，并配有“知识星球”的标识。右侧有一个绿色的二维码，二维码内有蓝色的卡通形象。该图片位于文档结尾处，是对文档中加入知识星球获取更多资料和一对一答疑的引导，与文档中鼓励加入知识星球以获取更多面试资料和答疑的内容相呼应。](https://feishu.cn/file/AFz0b1tCOobKWbxg3q7cFRmun83)

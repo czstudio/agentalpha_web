@@ -4,6 +4,7 @@ import { ArrowRight, ArrowUpRight, BookOpen, CheckCircle2, Clock3, Layers3, Sear
 import { Navigation } from "@/components/navigation"
 import { getAllNotes, getSeries } from "@/lib/notes"
 import { getLearnDirectory } from "@/lib/learn-directory"
+import publishedWechat from "@/content/notes/published-wechat.json"
 
 export const metadata: Metadata = {
   title: "Agent 面试笔记",
@@ -151,6 +152,22 @@ export default function NotesIndexPage() {
             </section>
           )
         })}
+
+        <section id="wechat-archive" className="aa-notes-wechat" aria-labelledby="wechat-archive-title">
+          <div className="aa-notes-shell">
+            <div className="aa-notes-wechat-head">
+              <div><p className="aa-notes-kicker">FROM AGENTALPHA · WECHAT ARCHIVE</p><h2 id="wechat-archive-title">公众号里的真实追问，继续读下去。</h2></div>
+              <p>这里收录 AgentAlpha 已发表内容的公开入口；与站内笔记重复的主题会保持独立来源，不替换原文。</p>
+            </div>
+            <div className="aa-notes-wechat-grid">
+              {publishedWechat.map((article) => <a className="aa-notes-wechat-card" href={article.url} target="_blank" rel="noreferrer" key={article.articleId}><span>{article.publishedAt} · 已发表</span><h3>{article.title}</h3><strong>打开原文 <ArrowUpRight aria-hidden /></strong></a>)}
+            </div>
+            <div className="aa-notes-cta-grid">
+              <a className="aa-notes-cta-card" href="/community#3-课程体系"><span>课程入口</span><strong>沿着路线，把题目做成项目 <ArrowRight aria-hidden /></strong><small>公开课程体系 · 以当前站点内容为准</small></a>
+              <a className="aa-notes-cta-card aa-notes-cta-card--dark" href="/#join"><span>社区入口</span><strong>加入 AgentAlpha，一起练习和复盘 <ArrowRight aria-hidden /></strong><small>社区与训练营信息 · 不承诺录取或结果</small></a>
+            </div>
+          </div>
+        </section>
 
         <section id="learn-directory" className="aa-learn-directory">
           <div className="aa-notes-shell">

@@ -1,0 +1,11 @@
+{
+  "source": "Edge user tab: mp.weixin.qq.com/cgi-bin/home",
+  "fetched_at": "2026-09-08T09:42:58Z",
+  "mode": "read-only",
+  "observed_published_count": 10,
+  "imported_metadata_count": 10,
+  "deduplicated_against_existing_site_notes": 4,
+  "body_and_media_status": "not-fetched-from-list-view",
+  "published": false,
+  "sensitive_data_copied": false
+}
