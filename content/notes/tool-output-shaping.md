@@ -1,7 +1,7 @@
 ---
 slug: "tool-output-shaping"
 title: "工具返回一大段 JSON，为什么 Agent 反而更容易做错"
-excerpt: "工具结果不是越完整越好。把观察对象、字段优先级、分页、截断和证据引用设计清楚，Agent 才能在有限上下文里抓住真正影响下一步的事实。"
+excerpt: "工具返回得越多，Agent 不一定看得越明白。先定观察对象和字段优先级，再处理分页、截断和引用，下一步才不会被无关 JSON 带偏。"
 series: "工具调用"
 seriesNo: "10"
 number: "47"

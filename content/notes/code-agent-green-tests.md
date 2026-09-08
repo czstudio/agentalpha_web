@@ -1,7 +1,7 @@
 ---
 slug: "code-agent-green-tests"
 title: "面试官追问：代码 Agent 说测试全绿，为什么我还是不敢合并？"
-excerpt: "绿色只说明当前测试观察到的行为没有被破坏。Code Agent 真正要交付的是可解释的证据链，而不是一行 passed。"
+excerpt: "测试全绿，只能说明这次测试没发现问题。Code Agent 还要交代改了什么、测了什么、哪些边界没覆盖，不能只甩出一行 passed。"
 series: "Code Agent"
 seriesNo: "02"
 number: "06"

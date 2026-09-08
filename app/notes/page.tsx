@@ -26,31 +26,31 @@ export default function NotesIndexPage() {
       no: "01",
       label: "系统骨架",
       title: "先把 Agent 画成一张能运行的图",
-      description: "从 Agentic RL、架构、Code Agent 到多智能体，理解状态、行动、交接和恢复如何组成闭环。",
+      description: "从 Agentic RL、架构、Code Agent 到多智能体，沿着状态、行动、交接和恢复，把一套 Agent 系统讲明白。",
       count: seriesCount(["Agentic RL", "Agent 架构", "Code Agent", "多智能体"]),
       href: "#series-01",
     },
     {
       no: "02",
       label: "知识与多模态",
-      title: "让答案有证据，也能看懂世界",
-      description: "从 RAG、Embedding、重排到文档版面和视频时间轴，处理知识变化、空间关系与引用边界。",
+      title: "答案要有依据，图片和文档也要看得懂",
+      description: "从 RAG、Embedding、重排到文档版面和视频时间轴，练习处理知识更新、空间关系和引用边界。",
       count: seriesCount(["RAG", "多模态"]),
       href: "#series-03",
     },
     {
       no: "03",
       label: "工具与治理",
-      title: "把一次调用变成可审计的动作",
-      description: "契约、MCP、重试、权限和评测共同决定系统是否能在不确定的外部世界里安全运行。",
+      title: "每次调用都要留得下回执",
+      description: "契约、MCP、重试、权限和评测，决定 Agent 在外部系统里会不会越帮越忙。",
       count: seriesCount(["工具调用", "评测"]),
       href: "#series-09",
     },
     {
       no: "04",
       label: "模型与表达",
-      title: "从公式推到项目，再讲给面试官",
-      description: "LLM 基础与训练打底，项目深挖和通用表达负责把机制、取舍、证据压缩成可复述答案。",
+      title: "公式要会推，项目也要讲得清",
+      description: "LLM 基础和训练负责打底，项目复盘和面试表达负责把机制、取舍和证据说清楚。",
       count: seriesCount(["LLM 基础", "LLM 训练", "项目深挖", "通用与软实力", "五厂高频题"]),
       href: "#series-04",
     },
@@ -97,7 +97,7 @@ export default function NotesIndexPage() {
                 <p className="aa-notes-kicker">THREE-COLUMN STUDY MAP · INSPIRED BY ARIS</p>
                 <h2 id="aa-notes-aris-title">一套题，拆成四条能互相喂养的主线。</h2>
               </div>
-              <p>每篇文章都沿着「基础知识 → 高频追问 → 从零实现」推进，再用项目证据和 60 秒回答收口。先按主线选题，再回到专题目录，不会在名词之间迷路。</p>
+            <p>每篇文章都先讲基础，再接面试官的追问，最后落到实现和项目。先按主线挑题，读完用自己的项目复述一遍。</p>
             </div>
             <div className="aa-notes-aris-rails">
               {learningRails.map((rail) => (
@@ -163,7 +163,7 @@ export default function NotesIndexPage() {
               {publishedWechat.map((article) => <a className="aa-notes-wechat-card" href={article.url} target="_blank" rel="noreferrer" key={article.articleId}><span>{article.publishedAt} · 已发表</span><h3>{article.title}</h3><strong>打开原文 <ArrowUpRight aria-hidden /></strong></a>)}
             </div>
             <div className="aa-notes-cta-grid">
-              <a className="aa-notes-cta-card" href="/community#3-课程体系"><span>课程入口</span><strong>沿着路线，把题目做成项目 <ArrowRight aria-hidden /></strong><small>公开课程体系 · 以当前站点内容为准</small></a>
+              <a className="aa-notes-cta-card" href="/community#3-课程体系"><span>课程入口</span><strong>按路线练，把面试题做成项目 <ArrowRight aria-hidden /></strong><small>公开课程体系 · 具体安排以站内信息为准</small></a>
               <a className="aa-notes-cta-card aa-notes-cta-card--dark" href="/#join"><span>社区入口</span><strong>加入 AgentAlpha，一起练习和复盘 <ArrowRight aria-hidden /></strong><small>社区与训练营信息 · 不承诺录取或结果</small></a>
             </div>
           </div>
