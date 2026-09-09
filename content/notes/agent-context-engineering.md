@@ -1,7 +1,7 @@
 ---
 slug: "agent-context-engineering"
-title: "Context Engineering 不是把 Prompt 写长：让每个 token 都有任务"
-excerpt: "Agent 变笨时，问题常常不在模型能力，而在上下文里混进了旧状态、无关工具结果和无法验证的指令。Context Engineering 要做的是选择、压缩、排序和标注信息。"
+title: "上下文越塞越满，Agent 为什么反而变笨？"
+excerpt: "Agent 变笨，常常不是模型不够大，而是上下文里塞进了旧状态、无关工具结果和没人核过的指令。先筛选，再压缩、排序和标注，模型才看得见重点。"
 series: "Agent 架构"
 seriesNo: "06"
 number: "62"

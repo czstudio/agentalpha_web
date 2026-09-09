@@ -1,7 +1,7 @@
 ---
 slug: "agent-observability-replay"
 title: "Agent 上线后怎么定位问题？从 trace 到可观测性和回放"
-excerpt: "最终答案只是 Agent 的最后一帧。要定位线上 Bad Case，必须把规划、检索、工具、模型、状态变化和验收证据串成一条能重放的轨迹。"
+excerpt: "最终答案只是 Agent 的最后一幕。要查线上坏案例，得把规划、检索、工具、模型、状态变化和验收证据按顺序记下来，之后才能重放。"
 series: "Agent 架构"
 seriesNo: "06"
 number: "28"

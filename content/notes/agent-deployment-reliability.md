@@ -1,7 +1,7 @@
 ---
 slug: "agent-deployment-reliability"
 title: "Agent 上线不是把接口接通：超时、熔断和未知结果要先设计"
-excerpt: "Agent 的线上故障很少是模型单点崩溃，更多是工具超时、重复副作用、上下文膨胀和版本漂移叠在一起。可靠部署要先画状态和故障边界，再谈扩容。"
+excerpt: "Agent 线上出故障，往往不是模型单点崩了，而是工具超时、重复写入、上下文膨胀和版本漂移撞在了一起。先画状态和故障边界，再谈扩容。"
 series: "Agent 架构"
 seriesNo: "06"
 number: "63"
