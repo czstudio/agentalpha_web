@@ -16,7 +16,7 @@ Agent 不是“接了大模型的工作流”，而是一个围绕目标运行�
 
 ![目标、状态、行动、观察和停止条件组成 Agent 闭环](/images/notes/agent-core-architecture/agent-loop.svg)
 
-这个定义有一个好处：它不依赖某个 SDK。换成 Python、Java 或者一组队列服务，仍然可以用同一套问题检查系统。
+这个定义不依赖某个 SDK。换成 Python、Java 或一组队列服务，仍然可以用同一套问题检查系统。
 
 ## 五个组件，分别回答五个问题
 
