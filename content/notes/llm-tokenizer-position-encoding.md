@@ -18,7 +18,7 @@ Tokenizer 把文本映射成离散 token id，词表和分词规则决定长度�
 
 ## 为什么 token 数不是字符数
 
-英文常见子词切分，中文可能接近按字切，也可能因为词表覆盖出现不同组合；代码、URL、emoji 和数字又会产生大量碎片。实际预算应该以目标 tokenizer 统计，而不是用字符数乘一个固定比例。
+英文常见子词切分，中文可能接近按字切，也可能因为词表覆盖出现不同组合；代码、URL、emoji 和数字又会产生大量碎片。实际预算应该交给目标 tokenizer 统计，不能用字符数乘一个固定比例。
 
 ```python
 def budget(text: str, tokenizer, *, max_input: int, reserved_output: int):
@@ -28,7 +28,7 @@ def budget(text: str, tokenizer, *, max_input: int, reserved_output: int):
     return {"tokens": len(ids), "remaining": max_input - len(ids) - reserved_output}
 ```
 
-高频面试题“为什么中文成本可能更高”没有统一答案，要结合具体 tokenizer、词表和模型计费规则测量。把实验输入固定下来，报告 token 数和输出质量，才是可靠结论。
+高频面试题“为什么中文成本可能更高”没有统一答案，要结合具体 tokenizer、词表和模型计费规则测量。固定实验输入，报告 token 数和输出质量，结论才可靠。
 
 ## 位置编码在注意力里做什么
 
