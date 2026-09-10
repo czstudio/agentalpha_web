@@ -1,0 +1,11 @@
+{
+  "jobs": 2,
+  "tasks": [
+    {"id": "attention-steps", "promptFiles": ["prompts/attention-steps.md"], "image": "generated/attention-steps.png", "provider": "openai", "model": "gpt-image-2", "quality": "low", "size": "1280x720", "ar": "16:9", "ref": ["/home/aistudio/tmp/agentalpha-illustrations-20260910/style-reference.png"]},
+    {"id": "rag-evidence-loop", "promptFiles": ["prompts/rag-evidence-loop.md"], "image": "generated/rag-evidence-loop.png", "provider": "openai", "model": "gpt-image-2", "quality": "low", "size": "1280x720", "ar": "16:9", "ref": ["/home/aistudio/tmp/agentalpha-illustrations-20260910/style-reference.png"]},
+    {"id": "inference-three-stage", "promptFiles": ["prompts/inference-three-stage.md"], "image": "generated/inference-three-stage.png", "provider": "openai", "model": "gpt-image-2", "quality": "low", "size": "1280x720", "ar": "16:9", "ref": ["/home/aistudio/tmp/agentalpha-illustrations-20260910/style-reference.png"]},
+    {"id": "vision-token-route", "promptFiles": ["prompts/vision-token-route.md"], "image": "generated/vision-token-route.png", "provider": "openai", "model": "gpt-image-2", "quality": "low", "size": "1280x720", "ar": "16:9", "ref": ["/home/aistudio/tmp/agentalpha-illustrations-20260910/style-reference.png"]},
+    {"id": "data-mixture-loop", "promptFiles": ["prompts/data-mixture-loop.md"], "image": "generated/data-mixture-loop.png", "provider": "openai", "model": "gpt-image-2", "quality": "low", "size": "1280x720", "ar": "16:9", "ref": ["/home/aistudio/tmp/agentalpha-illustrations-20260910/style-reference.png"]},
+    {"id": "dpo-ppo-contrast", "promptFiles": ["prompts/dpo-ppo-contrast.md"], "image": "generated/dpo-ppo-contrast.png", "provider": "openai", "model": "gpt-image-2", "quality": "low", "size": "1280x720", "ar": "16:9", "ref": ["/home/aistudio/tmp/agentalpha-illustrations-20260910/style-reference.png"]}
+  ]
+}

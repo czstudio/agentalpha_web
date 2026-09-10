@@ -26,6 +26,9 @@ minutes: 18
 
 ![loss、验证集和真实行为可能走向不同方向，排查要先对齐时间轴和数据版本](/images/notes/llm-training-stability/loss-mismatch.svg)
 
+![LoRA 原论文的低秩适配路径](/images/notes/evidence/lora/figure-1-low-rank.svg)
+*论文图：LoRA: Low-Rank Adaptation of Large Language Models，Figure 1；[原文](https://arxiv.org/abs/2106.09685)。*
+
 常见的四种错位如下：
 
 | 现象 | 可能含义 | 第一处检查 |

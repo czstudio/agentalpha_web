@@ -42,6 +42,9 @@ reward hacking 往往发生在第二层到第三层的翻译处。证据不完�
 
 ![Reward 三层结构：真实目标、可观察证据和奖励实现之间需要硬约束门控](/images/notes/agentic-rl-reward-hacking/reward-layers.svg)
 
+![DeepSeek-R1 原论文的推理能力评测对比](/images/notes/evidence/deepseek-r1/figure-1-performance.svg)
+*论文图：DeepSeek-R1: Incentivizing Reasoning Capability in LLMs via Reinforcement Learning，Figure 1；[原文](https://arxiv.org/abs/2501.12948)。*
+
 ### 先写“合格”，再写“更快”
 
 一个容易落地的奖励接口，不是把所有指标塞进一个浮点数，而是先返回结构化验收结果：

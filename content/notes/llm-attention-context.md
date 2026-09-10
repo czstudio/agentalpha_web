@@ -90,6 +90,14 @@ Attention(Q, K, V) = softmax(QKᵀ / √d_k) V
 
 ![Attention 从匹配到汇总的四步流程](/images/notes/llm-attention-context/attention-flow.svg)
 
+![Attention 四步：输入、QK 匹配、权重与 V 汇总](/images/notes/llm-attention-context/attention-steps.png)
+
+![Transformer 原论文的编码器—解码器结构图](/images/notes/evidence/attention-is-all-you-need/figure-1.png)
+*论文图：Attention Is All You Need，Figure 1；[原文](https://arxiv.org/abs/1706.03762)。*
+
+![Attention 原论文展示的指代消解注意力头](/images/notes/evidence/attention-is-all-you-need/figure-4-anaphora.svg)
+*论文图：Attention Is All You Need，Figure 4（Attention Visualizations）；[原文](https://arxiv.org/abs/1706.03762)。*
+
 假设一个 batch 中有 `B` 条样本、`T` 个 token、每个 head 的维度是 `D`：
 
 ```text

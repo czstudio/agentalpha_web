@@ -1,0 +1,62 @@
+{
+  "mode": "batch",
+  "total": 6,
+  "succeeded": 6,
+  "failed": 0,
+  "results": [
+    {
+      "id": "attention-steps",
+      "provider": "openai",
+      "model": "gpt-image-2",
+      "outputPath": "/home/aistudio/tmp/agentalpha-illustrations-20260910/generated/attention-steps.png",
+      "success": true,
+      "attempts": 1,
+      "error": null
+    },
+    {
+      "id": "rag-evidence-loop",
+      "provider": "openai",
+      "model": "gpt-image-2",
+      "outputPath": "/home/aistudio/tmp/agentalpha-illustrations-20260910/generated/rag-evidence-loop.png",
+      "success": true,
+      "attempts": 1,
+      "error": null
+    },
+    {
+      "id": "inference-three-stage",
+      "provider": "openai",
+      "model": "gpt-image-2",
+      "outputPath": "/home/aistudio/tmp/agentalpha-illustrations-20260910/generated/inference-three-stage.png",
+      "success": true,
+      "attempts": 1,
+      "error": null
+    },
+    {
+      "id": "vision-token-route",
+      "provider": "openai",
+      "model": "gpt-image-2",
+      "outputPath": "/home/aistudio/tmp/agentalpha-illustrations-20260910/generated/vision-token-route.png",
+      "success": true,
+      "attempts": 1,
+      "error": null
+    },
+    {
+      "id": "data-mixture-loop",
+      "provider": "openai",
+      "model": "gpt-image-2",
+      "outputPath": "/home/aistudio/tmp/agentalpha-illustrations-20260910/generated/data-mixture-loop.png",
+      "success": true,
+      "attempts": 1,
+      "error": null
+    },
+    {
+      "id": "dpo-ppo-contrast",
+      "provider": "openai",
+      "model": "gpt-image-2",
+      "outputPath": "/home/aistudio/tmp/agentalpha-illustrations-20260910/generated/dpo-ppo-contrast.png",
+      "success": true,
+      "attempts": 1,
+      "error": null
+    }
+  ]
+}

@@ -26,6 +26,11 @@ minutes: 18
 
 ![预训练数据从来源采集到精确去重、近重复聚类和质量抽样的处理路径](/images/notes/llm-data-mixture/dedupe-graph.svg)
 
+![DataComp-LM 原论文的数据筛选与训练工作流](/images/notes/evidence/datacomp-lm/figure-2-workflow.png)
+*论文图：DataComp-LM: In search of the next generation of training sets，Figure 2；[原文](https://arxiv.org/abs/2406.11794)。*
+
+![预训练数据从来源、清洗、去重到配比和评测](/images/notes/llm-data-mixture/data-mixture-loop.png)
+
 同一篇网页可能以不同 URL、不同抓取时间、不同模板出现在语料里。若直接按文档数统计，重复内容会被误认为“更多证据”；按 token 统计，又可能让某种低质量模板挤占稀缺的数学、代码或长文推理数据。
 
 可以先把数据分成四个层次：
@@ -97,6 +102,9 @@ for doc in documents:
 ## 第二张图：mixture 是预算，不是愿望清单
 
 ![把有限训练 token 分成语言、代码、数学、知识和对话桶，并用能力增益动态调整](/images/notes/llm-data-mixture/mixture-budget.svg)
+
+![DataComp-LM 原论文的数据筛选、训练和评测流向](/images/notes/evidence/datacomp-lm/figure-4-sankey.svg)
+*论文图：DataComp-LM: In search of the next generation of training sets，Figure 4；[原文](https://arxiv.org/abs/2406.11794)。*
 
 一个可解释的 mixture 表至少包含四列：
 

@@ -42,6 +42,9 @@ DeepSeekMath 介绍的 Group Relative Policy Optimization，核心思路很直�
 
 ![GRPO Agent rollout 分组流程：固定问题与环境快照，过滤基础设施故障后才计算组内优势](/images/notes/agentic-rl-grpo-rollout/group-rollout.svg)
 
+![DeepSeek-R1 原论文记录的训练中平均回答长度变化](/images/notes/evidence/deepseek-r1/figure-3-response-length.png)
+*论文图：DeepSeek-R1: Incentivizing Reasoning Capability in LLMs via Reinforcement Learning，Figure 3；[原文](https://arxiv.org/abs/2501.12948)。*
+
 这些字段看上去像日志工作。实际上，它们决定了你是否真的在做 group relative，而不是拿几条互不相干的故事算平均数。
 
 ## 一组 rollout，到底该怎么采

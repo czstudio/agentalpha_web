@@ -24,6 +24,9 @@ RAG 是把外部知识接入生成模型的一套检索与生成流程。离线�
 
 图 1：RAG 不是一个向量数据库调用，而是离线链路和在线链路的汇合。
 
+![RAG 原论文展示的检索文档数量与效果关系](/images/notes/evidence/rag/figure-3-retrieval.svg)
+*论文图：Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks，Figure 3；[原文](https://arxiv.org/abs/2005.11401)。*
+
 ## 一、离线阶段：先把“能被检索的知识”做出来
 
 ### 1. 文档清洗比换 Embedding 更容易被忽略

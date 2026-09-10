@@ -18,6 +18,11 @@ RAG 适合解决“知识在模型参数之外、会变化、需要按权限取�
 
 ![是否使用 RAG 的判断树：知识变化、私有性、结构化和引用要求](/images/notes/agent-rag-why/rag-decision-tree.svg)
 
+![RAG 原论文的检索器—文档索引—生成器结构图](/images/notes/evidence/rag/figure-1-architecture.svg)
+*论文图：Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks，Figure 1；[原文](https://arxiv.org/abs/2005.11401)。*
+
+![RAG 从问题到引用答案的证据链](/images/notes/agent-rag-why/rag-evidence-loop.png)
+
 ## 先问四个问题
 
 ### 知识是不是经常变化

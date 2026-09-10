@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "updatedAt": "2026-09-10T11:20:00Z",
+  "policy": "论文图来自原论文的 arXiv / ar5iv 图资产；保留原图文字，不重绘结论。站内仅作教育性引用展示，原作者与出版方权利不变。",
+  "evidenceDefaults": {
+    "accessedAt": "2026-09-10T11:17:55Z",
+    "supportsClaim": "仅支撑图中所示的结构、流程或实验趋势；正文判断仍以原文和站内文字为准。",
+    "licenseNote": "教育性引用展示；原作者、arXiv 与出版方权利不变，不作独立商业再授权。"
+  },
+  "assets": [
+    {"path": "/images/notes/evidence/attention-is-all-you-need/figure-1.png", "note": "llm-attention-context", "sourceUrl": "https://arxiv.org/abs/1706.03762", "sourceType": "arXiv paper", "locator": "Figure 1", "crop": "none", "sha256": "56d69ccc192b90c3b93e5e285ff892f74753f970103939b40291945e106e9f79"},
+    {"path": "/images/notes/evidence/attention-is-all-you-need/figure-4-anaphora.svg", "note": "llm-attention-context", "sourceUrl": "https://arxiv.org/abs/1706.03762", "sourceType": "arXiv paper", "locator": "Figure 4, Attention Visualizations", "crop": "none", "sha256": "ed9fc3af4c43e9cbc471ae269fb32c99f0ad1865cbdfe989f338522fb8d11770"},
+    {"path": "/images/notes/evidence/rag/figure-1-architecture.svg", "note": "agent-rag-why", "sourceUrl": "https://arxiv.org/abs/2005.11401", "sourceType": "arXiv paper", "locator": "Figure 1", "crop": "none", "sha256": "f92d8f52d70b7fd3a5ac4fb33d01f9e35810d79fd37cda5c24a9ae95449ec685"},
+    {"path": "/images/notes/evidence/rag/figure-3-retrieval.svg", "note": "rag-retrieval-pipeline", "sourceUrl": "https://arxiv.org/abs/2005.11401", "sourceType": "arXiv paper", "locator": "Figure 3", "crop": "none", "sha256": "97ba12fd155d1e221c0253646c06820fc519a03a0a945cbbb05685487f718033"},
+    {"path": "/images/notes/evidence/colbert/figure-3-maxsim.png", "note": "rag-rerank-and-hybrid", "sourceUrl": "https://arxiv.org/abs/2004.12832", "sourceType": "arXiv paper", "locator": "Figure 3", "crop": "none", "sha256": "16c2da94ceb730b94af53a1a5fd660acebbdc10138596db22f88470af5573cf5"},
+    {"path": "/images/notes/evidence/swe-bench/figure-1-teaser.svg", "note": "code-agent-green-tests", "sourceUrl": "https://arxiv.org/abs/2310.06770", "sourceType": "arXiv paper", "locator": "Figure 1", "crop": "none", "sha256": "69f5ccf4270263a6ebf40611ef5cb0605257924d29f4fc1922fb9811cba2565f"},
+    {"path": "/images/notes/evidence/swe-bench/figure-2-collection.svg", "note": "code-agent-green-tests", "sourceUrl": "https://arxiv.org/abs/2310.06770", "sourceType": "arXiv paper", "locator": "Figure 2", "crop": "none", "sha256": "14545ca34c02b0442b855ad081e7ce63c4e335c7bcd68c0637ecf2fdd9b690b5"},
+    {"path": "/images/notes/evidence/swe-agent/figure-1-overview.png", "note": "code-agent-green-tests", "sourceUrl": "https://arxiv.org/abs/2405.15793", "sourceType": "arXiv paper", "locator": "Figure 1", "crop": "none", "sha256": "5fccc1b52e3405b2eb219a0a656b0c31fca94e4753fa0621de78274a3a9b7fee"},
+    {"path": "/images/notes/evidence/deepseek-r1/figure-1-performance.svg", "note": "agentic-rl-reward-hacking", "sourceUrl": "https://arxiv.org/abs/2501.12948", "sourceType": "arXiv paper", "locator": "Figure 1", "crop": "none", "sha256": "b1a5d39d0c994c7a8f18009fcd038aa9133edf9fb04f4d332346ae05f818a846"},
+    {"path": "/images/notes/evidence/deepseek-r1/figure-3-response-length.png", "note": "agentic-rl-grpo-rollout", "sourceUrl": "https://arxiv.org/abs/2501.12948", "sourceType": "arXiv paper", "locator": "Figure 3", "crop": "none", "sha256": "6e80fdb528975ec6ae5df9641bd26095fe151dc760083b80d8ab4bc8e8bfdd58"},
+    {"path": "/images/notes/evidence/switch-transformers/figure-2-routing.svg", "note": "llm-moe-routing", "sourceUrl": "https://arxiv.org/abs/2101.03961", "sourceType": "arXiv paper", "locator": "Figure 2", "crop": "none", "sha256": "57a7449ff9d19e15f20ad187935dcbb8bfa803f18ff08f99e89a0bad285c39be"},
+    {"path": "/images/notes/evidence/lora/figure-1-low-rank.svg", "note": "llm-training-stability", "sourceUrl": "https://arxiv.org/abs/2106.09685", "sourceType": "arXiv paper", "locator": "Figure 1", "crop": "none", "sha256": "d3f0ab3c367f9fd8f9cff0b7062063b0322ea2b366905c145cdf32d7ec8eb812"},
+    {"path": "/images/notes/evidence/llava/figure-1-architecture.svg", "note": "multimodal-to-transformer", "sourceUrl": "https://arxiv.org/abs/2304.08485", "sourceType": "arXiv paper", "locator": "Figure 1", "crop": "none", "sha256": "2e8596836df11577a7e3b3ade731523b0b9d743012a35b72f5ea51201b4ea366"},
+    {"path": "/images/notes/evidence/datacomp-lm/figure-2-workflow.png", "note": "llm-data-mixture", "sourceUrl": "https://arxiv.org/abs/2406.11794", "sourceType": "arXiv paper", "locator": "Figure 2", "crop": "none", "sha256": "964eb4cd68cfac1958e1375580d736f8be98e004b0d9494f5c180e5af70d82be"},
+    {"path": "/images/notes/evidence/datacomp-lm/figure-4-sankey.svg", "note": "llm-data-mixture", "sourceUrl": "https://arxiv.org/abs/2406.11794", "sourceType": "arXiv paper", "locator": "Figure 4", "crop": "none", "sha256": "ac92b2dcf5b505e20afbf2e43f8c1caac0de9602e3ee08d39c48941b80402ede"},
+    {"path": "/images/notes/evidence/efficient-transformer-inference/figure-1-decode-cost.svg", "note": "llm-inference-optimization", "sourceUrl": "https://arxiv.org/abs/2211.05102", "sourceType": "arXiv paper", "locator": "Figure 1, Decode panel", "crop": "none", "sha256": "66e0fab79ec641355df3d9169ac4c713331e86fb23c074669eaf20fc659fdd39"},
+    {"path": "/images/notes/evidence/efficient-transformer-inference/figure-1-prefill-cost.svg", "note": "llm-inference-optimization", "sourceUrl": "https://arxiv.org/abs/2211.05102", "sourceType": "arXiv paper", "locator": "Figure 1, Prefill panel", "crop": "none", "sha256": "fa8a1bc156c3210b97e93e6743570607a5299b5998a662c26a34f209073ce95b"},
+    {"path": "/images/notes/evidence/dpo/figure-1-teaser.png", "note": "llm-dpo-vs-ppo", "sourceUrl": "https://arxiv.org/abs/2305.18290", "sourceType": "arXiv paper", "locator": "Figure 1", "crop": "none", "sha256": "af51c080272561bcb736aef8b56c1ef220465f89b8ad3bf045014922941e89c4"}
+  ]
+}

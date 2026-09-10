@@ -1,0 +1,25 @@
+{
+  "schema": "agentalpha.unikeyx-illustration-receipt/v1",
+  "createdAt": "2026-09-10T11:26:00Z",
+  "route": "UniKeyX OpenAI-compatible image route",
+  "provider": "openai",
+  "model": "gpt-image-2",
+  "quality": "low",
+  "size": "1280x720",
+  "aspectRatio": "16:9",
+  "remoteHost": "aistudio Linux",
+  "remoteScript": "/home/aistudio/code/wechat_publish/scripts/agentalpha_unikeyx_image_gen.sh",
+  "referenceImage": {
+    "source": "existing AgentAlpha hand-drawn illustration used only for line and palette reference",
+    "sha256": "cca9ac1ad078fdef409803532e7535da0f0948cdf305376a88c3cb04c12085e3"
+  },
+  "batchResult": "generation.json",
+  "assets": [
+    {"id": "attention-steps", "prompt": "prompts/attention-steps.md", "promptSha256": "c9c02c79bf7999d4747e73b1a3fe698ac3d7c86dd37f70cfaba70ebb734ad6cb", "remoteOutput": "/home/aistudio/tmp/agentalpha-illustrations-20260910/generated/attention-steps.png", "path": "/images/notes/llm-attention-context/attention-steps.png", "sha256": "ae794edf3ac2095caedfe3a027c256c2e1a0d6b2cf10bfc2c28f5197cb360cd2", "status": "succeeded", "attempts": 1},
+    {"id": "rag-evidence-loop", "prompt": "prompts/rag-evidence-loop.md", "promptSha256": "c0d0031b9756cc569e05551d6ef5bf63fe3952c5966141fa95ad90f1beb8fd5e", "remoteOutput": "/home/aistudio/tmp/agentalpha-illustrations-20260910/generated/rag-evidence-loop.png", "path": "/images/notes/agent-rag-why/rag-evidence-loop.png", "sha256": "b231fbe69d22a1affd075f82e83cfd516e9e13de6b4e6a37aa1cd4fbdd5dd8e2", "status": "succeeded", "attempts": 1},
+    {"id": "inference-three-stage", "prompt": "prompts/inference-three-stage.md", "promptSha256": "5cffb48b2d3a1398118575bad201ced3fc9769bd5602285110867aa7e68f3f46", "remoteOutput": "/home/aistudio/tmp/agentalpha-illustrations-20260910/generated/inference-three-stage.png", "path": "/images/notes/llm-inference-optimization/inference-three-stage.png", "sha256": "8da701d71bc1290a2fef4b03a5823400e29312c09e84533177053c9f5401aa10", "status": "succeeded", "attempts": 1},
+    {"id": "vision-token-route", "prompt": "prompts/vision-token-route.md", "promptSha256": "f7a9ea598967eb5443b1d8c3930b51c0d78cd4ac6a711862a556f8bd02019b41", "remoteOutput": "/home/aistudio/tmp/agentalpha-illustrations-20260910/generated/vision-token-route.png", "path": "/images/notes/multimodal-to-transformer/vision-token-route.png", "sha256": "baa1d526668a189532e55bcc0e1cfe2adc9e6f7d6ff61c8b450aaaf3d731da9b", "status": "succeeded", "attempts": 1},
+    {"id": "data-mixture-loop", "prompt": "prompts/data-mixture-loop.md", "promptSha256": "5ccc3ebdf25e16d8d4e6f7ef38692d82471838d607c08e7ad3552278732ab922", "remoteOutput": "/home/aistudio/tmp/agentalpha-illustrations-20260910/generated/data-mixture-loop.png", "path": "/images/notes/llm-data-mixture/data-mixture-loop.png", "sha256": "ac6313b5fe1095056fd558fa5c3fd03951443293c4eb5e7e550f88220df072c4", "status": "succeeded", "attempts": 1},
+    {"id": "dpo-ppo-contrast", "prompt": "prompts/dpo-ppo-contrast.md", "promptSha256": "60fcafd33fb415c19df86ffe7694e3ac884c18db522f2ff19da92a4f999e0eca", "remoteOutput": "/home/aistudio/tmp/agentalpha-illustrations-20260910/generated/dpo-ppo-contrast.png", "path": "/images/notes/llm-dpo-vs-ppo/dpo-ppo-contrast.png", "sha256": "fc9719f2af9d17f424cc414ca4fa298da3c6dbfc8a31597d3668bb2c665078a2", "status": "succeeded", "attempts": 1}
+  ]
+}

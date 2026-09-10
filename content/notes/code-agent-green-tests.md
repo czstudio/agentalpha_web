@@ -74,6 +74,15 @@ minutes: 11
 
 ![Code Agent 的验证栈：从执行完整性到需求不变量](/images/notes/code-agent-green-tests/verification-stack.svg)
 
+![SWE-bench 原论文的真实 issue 到补丁评测流程](/images/notes/evidence/swe-bench/figure-1-teaser.svg)
+*论文图：SWE-bench: Can Language Models Resolve Real-world GitHub Issues? Figure 1；[原文](https://arxiv.org/abs/2310.06770)。*
+
+![SWE-bench 原论文的数据收集与评测样本构造](/images/notes/evidence/swe-bench/figure-2-collection.svg)
+*论文图：SWE-bench: Can Language Models Resolve Real-world GitHub Issues? Figure 2；[原文](https://arxiv.org/abs/2310.06770)。*
+
+![SWE-agent 原论文的仓库级软件工程 Agent 总览](/images/notes/evidence/swe-agent/figure-1-overview.png)
+*论文图：SWE-agent: Agent-Computer Interfaces Enable Automated Software Engineering Figure 1；[原文](https://arxiv.org/abs/2405.15793)。*
+
 这张验证栈可以直接变成 Agent 的停止检查：底层命令没真正执行，上层的断言再漂亮也没有意义；局部单测通过，仍要问组合协议、静态约束和业务不变量有没有证据。每一层都应该返回自己的状态，而不是把所有结果压成一个绿色布尔值。
 
 ## 工程故障：为什么“全绿”仍然会出事

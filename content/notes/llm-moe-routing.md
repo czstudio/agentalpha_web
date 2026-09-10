@@ -53,6 +53,9 @@ token x → Router ──────┼─ Expert 2 ─┼─ 加权合并 → 
 
 ![MoE Router 为 token 选择专家并合并输出](/images/notes/llm-moe-routing/router-flow.svg)
 
+![Switch Transformer 原论文的稀疏专家路由结构](/images/notes/evidence/switch-transformers/figure-2-routing.svg)
+*论文图：Switch Transformers: Scaling to Trillion Parameter Models with Simple and Efficient Sparsity，Figure 2；[原文](https://arxiv.org/abs/2101.03961)。*
+
 每个 Expert 通常是结构相同、参数独立的 FFN。它们不是手工写的“代码专家、数学专家、中文专家”，而是在训练过程中因为输入分布和路由反馈逐渐形成不同偏好。
 
 ### 1.1 总参数和激活参数

@@ -16,6 +16,11 @@ minutes: 19
 
 ![图片从像素到视觉 token，再与文本 token 融合进入 Transformer](/images/notes/multimodal-to-transformer/pixel-pipeline.svg)
 
+![LLaVA 原论文的视觉编码器—投影层—语言模型结构](/images/notes/evidence/llava/figure-1-architecture.svg)
+*论文图：LLaVA: Visual Instruction Tuning，Figure 1；[原文](https://arxiv.org/abs/2304.08485)。*
+
+![图片经过 patch、视觉 token 和投影层进入语言模型](/images/notes/multimodal-to-transformer/vision-token-route.png)
+
 图 1：同一张图片要经过多个表示空间，语言模型接收到的不是原始像素。
 
 ## 一、图片为什么不能直接喂给语言模型

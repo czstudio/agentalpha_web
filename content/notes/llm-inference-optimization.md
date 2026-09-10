@@ -34,6 +34,14 @@ minutes: 20
 
 ![推理服务从排队到输出的延迟与吞吐关系](/images/notes/llm-inference-optimization/latency-throughput.svg)
 
+![Transformer 推理论文对 Decode 成本的拆分](/images/notes/evidence/efficient-transformer-inference/figure-1-decode-cost.svg)
+*论文图：Efficiently Scaling Transformer Inference，Figure 1（Decode panel）；[原文](https://arxiv.org/abs/2211.05102)。*
+
+![Transformer 推理论文对 Prefill 成本的拆分](/images/notes/evidence/efficient-transformer-inference/figure-1-prefill-cost.svg)
+*论文图：Efficiently Scaling Transformer Inference，Figure 1（Prefill panel）；[原文](https://arxiv.org/abs/2211.05102)。*
+
+![推理服务的请求、排队、Prefill、Decode 三段路径](/images/notes/llm-inference-optimization/inference-three-stage.png)
+
 ### 1.1 TTFT：用户什么时候看到第一句话
 
 ```text

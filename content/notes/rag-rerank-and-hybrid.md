@@ -48,6 +48,9 @@ minutes: 21
 
 ![混合检索与重排：BM25 和向量召回扩大候选，reranker 再把能回答问题的片段排前](/images/notes/rag-rerank-and-hybrid/hybrid-retrieval.svg)
 
+![ColBERT 原论文的逐 token 表示与 MaxSim 交互](/images/notes/evidence/colbert/figure-3-maxsim.png)
+*论文图：ColBERT: Efficient and Effective Passage Search via Contextualized Late Interaction over BERT，Figure 3；[原文](https://arxiv.org/abs/2004.12832)。*
+
 ## 四、融合时别直接把两个分数相加
 
 BM25 的分数和向量相似度不是一个量纲。一个检索器输出 12.4，另一个输出 0.82，并不意味着前者应该占十五倍权重。工程上常见的做法是先把各路结果转成排名，再做 Reciprocal Rank Fusion（RRF）或经过校准的加权融合。
