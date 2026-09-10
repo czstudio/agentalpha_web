@@ -1,14 +1,14 @@
 ---
 slug: llm-attention-context
-title: Attention 不是“注意力”：一行公式如何变成上下文理解
-excerpt: 面试里不要只会背 Q、K、V。把一行 Attention 公式拆成匹配、取值、加权汇总，再接上 mask、多头和复杂度，你就能解释 Transformer 为什么真的看懂了上下文。
+title: Attention 到底在算什么？从一行公式讲清上下文理解
+excerpt: 面试别只背 Q、K、V。把 Attention 拆成“找谁相关、取哪些信息、按多大权重合并”，再接上 mask、多头和复杂度，Transformer 为什么能处理上下文就清楚了。
 series: "LLM 基础"
 seriesNo: "04"
 number: "14"
 minutes: 18
 ---
 
-你在面试里大概率会遇到这样一道题：
+面试官很可能把白板递过来，问你一句：
 
 > “请你解释一下 Self-Attention，最好不要只背公式。”
 
