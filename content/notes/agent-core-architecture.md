@@ -306,11 +306,11 @@ Prompt 不是强约束。预算、权限、次数和高风险动作应由程序�
 
 ## 相关阅读
 
-- [Agent 记忆系统：短期、长期和压缩怎么分工](/notes/agent-memory-system)
-- [规划与反思什么时候有用](/notes/agent-planning-reflection)
-- [多 Agent 任务拆解](/notes/multi-agent-task-decomposition)
+- [记忆系统不是聊天记录：短期、长期和压缩到底怎么分工](/notes/agent-memory-system)
+- [规划与反思什么时候有用，什么时候只是让 Agent 多说废话](/notes/agent-planning-reflection)
+- [一个 Agent 做不完，什么时候该拆成多个？](/notes/multi-agent-task-decomposition)
 
 ## 资料来源
 
-- 《Agent 岗面试宝典 v3 · 精华版》（本地飞书资料整理）
+- AgentAlpha《Agent 岗面试宝典 v3 · 精华版》：Agent 架构章节（内部讲义，未公开）
 - [ARIS-in-AI-Offer](https://github.com/wanshuiyin/ARIS-in-AI-Offer)：基础知识、面试追问、从零实现的三栏组织方式

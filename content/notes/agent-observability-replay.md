@@ -22,7 +22,7 @@ request finished
 
 这就是很多 Agent 系统的可观测性现状：日志不少，真正能拿来查问题的证据却很少。
 
-飞书文档里的调试与可观测性题会继续追问：怎样设计全链路 Trace？如何做离线评测、回放评测、灰度评测和线上指标闭环？一次升级让成功率下降 3%，如何止损和定位？这些问题的共同答案是：不要只记录最终文本，要记录每一次决策和状态变化，并让它们可以被安全地重放。
+面试往深里问，通常是这几道：怎样设计全链路 Trace？如何做离线评测、回放评测、灰度评测和线上指标闭环？一次升级让成功率下降 3%，如何止损和定位？这些问题的共同答案是：不要只记录最终文本，要记录每一次决策和状态变化，并让它们可以被安全地重放。
 
 ## 先给一个能复述的答案
 
@@ -373,7 +373,7 @@ next: pin_fixture_and_add_policy_regression
 - [ ] 长文本是否脱敏，同时保留证据 ID 和摘要一致性？
 - [ ] 指标是否能按任务、步骤、工具、检索、模型和安全切片？
 - [ ] 回放是否使用 fixture、dry-run 和幂等键保护副作用？
-- [ ] 失败修复是否会沉淀为黄金集、回放集或线上回归集？
+- [ ] 失败修复是否进入了黄金集、回放集或线上回归集？
 
 ## 本篇总结
 
@@ -385,10 +385,10 @@ next: pin_fixture_and_add_policy_regression
 
 ## 相关内容
 
-- [规划与反思什么时候有用](/notes/agent-planning-reflection)
-- [Agent 安全不是加一句提示词](/notes/agent-security-boundaries)
-- [代码 Agent 说测试全绿，为什么还不敢合并](/notes/code-agent-green-tests)
-- [RAG 答案为什么仍然会错](/notes/rag-evaluation-practice)
+- [规划与反思什么时候有用，什么时候只是让 Agent 多说废话](/notes/agent-planning-reflection)
+- [Agent 安全不是加一句提示词：权限、工具和数据边界怎么设计](/notes/agent-security-boundaries)
+- [面试官追问：代码 Agent 说测试全绿，为什么我还是不敢合并？](/notes/code-agent-green-tests)
+- [RAG 怎么评测才不自欺？把“答得像”拆开看](/notes/rag-evaluation-practice)
 
 ## 参考资料
 

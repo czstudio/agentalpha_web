@@ -98,8 +98,6 @@ def search_with_fallback(primary: Retriever, backup: Retriever, query: str, tena
 
 因此可以先做两条候选路径：一条是现有搜索引擎的倒排 + 向量能力，另一条是专用 HNSW 服务；用同一批真实查询和过滤条件比较，再决定是否承担额外运维。这个过程比先拍板产品名更容易在面试中讲清楚。
 
-![规模、过滤与尾延迟共同决定向量库形态](/images/notes/rag-embedding-basics/ann-recall-budget-card.svg)
-
 ## 把过滤顺序写进评测，不要只写在文档里
 
 很多系统名义上支持 pre-filter，实际却是先召回 1,000 个向量再在应用层过滤，导致小租户或细权限场景的召回骤降。可以把过滤正确性单独作为硬指标：
@@ -121,8 +119,6 @@ def secure_search(index, query, *, tenant, acl, top_k=8):
 ```
 
 如果库本身不提供可靠的 pre-filter，就要把风险写进选型结论，而不是用应用层的一次 `if` 假装解决。
-
-![过滤、重排和引用的先后顺序](/images/notes/rag-rerank-and-hybrid/filter-before-rerank-card.svg)
 
 ## 选型实验应该固定什么，改变什么
 
@@ -146,8 +142,6 @@ vector_benchmark:
 ```
 
 不要把平均结果和尾延迟放在同一张“排行榜”里就结束。真正的上线候选还要通过快照恢复、租户删除、版本回滚和冷缓存压测。
-
-![离线指标、线上漂移与版本门禁](/images/notes/offline-eval-online-drift/version-gate.svg)
 
 ## 四类失败，四种回退
 
@@ -189,8 +183,6 @@ vector_benchmark:
 | 大量删除 | tombstone + 后台回收 | 已删除内容仍被召回 |
 
 删除验证尤其不能省：用户要求撤回文档时，既要从主索引删掉，也要验证缓存、快照和 rerank 输入不再返回它。
-
-![检索更新、删除与版本切换的门禁](/images/notes/rag-retrieval-pipeline/retrieval-stop-policy-card.svg)
 
 ## 召回、过滤和重排的预算要串起来
 
@@ -279,11 +271,11 @@ def visible(doc, tenant, min_version):
 
 ## 相关阅读
 
-- [RAG 检索流水线：从问题到证据](/notes/rag-retrieval-pipeline)
-- [Rerank 与混合检索怎么做取舍](/notes/rag-rerank-and-hybrid)
-- [RAG 为什么是你的项目选择](/notes/agent-rag-why)
+- [RAG 不只是“向量库 + 提示词”：证据怎样一路到答案？](/notes/rag-retrieval-pipeline)
+- [混合检索和重排，分别在补 RAG 的什么漏洞？](/notes/rag-rerank-and-hybrid)
+- [你的 Agent 项目为什么要用 RAG？不用会怎样](/notes/agent-rag-why)
 
 ## 资料来源
 
-- 《Agent 岗面试宝典 v3 · 精华版》（本地飞书资料整理）
-- [ARIS-in-AI-Offer](https://github.com/wanshuiyin/ARIS-in-AI-Offer)：吸收公式、代码和分层追问并置的排版方式
+- 《Agent 岗面试宝典 v3 · 精华版》
+- [ARIS-in-AI-Offer](https://github.com/wanshuiyin/ARIS-in-AI-Offer)

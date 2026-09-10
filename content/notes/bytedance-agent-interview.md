@@ -293,7 +293,7 @@ action: "阻止发布，转人工复核"
 
 讲完链路和失败出口后，再补一张粗粒度容量卡，面试官才能判断方案是否能上线。估算不需要假装精确，但要声明流量、上下文、工具次数和预算假设，并说明哪个变量变化会触发降级：
 
-\`\`\`yaml
+```yaml
 capacity_note: cap_20260820_04
 traffic:
   requests_per_minute: 1200
@@ -311,7 +311,7 @@ degrade:
   - "工具队列 > 70%：只读任务进入排队"
   - "预算超阈值：关闭非必要 rerank"
 evidence: "replay-pack-0042 + canary-10%"
-\`\`\`
+```
 
 估算的重点是暴露取舍：想把上下文扩大一倍，就要说明成本和时延怎么变；想增加一个 verifier，就要给出成功率提升是否值得。把“能不能做”推进到“在什么预算下敢不敢做”，答案才完整。
 
@@ -423,9 +423,9 @@ decision: canary_ready
 ## 相关阅读
 
 - [你的 Agent 项目为什么要用 RAG？不用会怎样](/notes/agent-rag-why)
-- [工具调用失败后，Agent 应该重试、换工具还是停下来？](/notes/tool-retry-policy)
+- [工具调用失败后，Agent 该重试、换工具还是停下？](/notes/tool-retry-policy)
 - [线上成本突然翻倍，Agent 项目从哪里开始降本](/notes/agent-cost-control)
-- [离线评测高分，线上为什么还是翻车？](/notes/offline-eval-online-drift)
+- [离线评测 95 分，线上为什么还是翻车？](/notes/offline-eval-online-drift)
 
 ## 资料来源
 

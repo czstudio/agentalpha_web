@@ -80,8 +80,6 @@ acceptance:
 | 长会话 OOM | KV cache 量化或分页 | 远距离注意力变弱 |
 | batch 太小 | 合并请求、连续批处理 | 等待时间增加 |
 
-![权重、激活和 KV cache 的显存分解](/images/notes/llm-kv-cache/kv-memory-formula-card.svg)
-
 如果不先做分解，团队很容易为了“4bit”这个标签投入几天，却发现真正的峰值来自上下文缓存或通信 buffer。
 
 ## 用敏感度实验决定保留精度的层
@@ -105,8 +103,6 @@ def sensitivity_report(model, layers, calibration, evaluate):
 ```
 
 敏感度报告要按任务切片保存。某一层对通用问答影响很小，可能却决定 JSON 括号是否闭合，不能用一个总分把它抹平。最终的混合精度方案应写出“哪些层保留 FP16、哪些组用 INT8、KV cache 使用什么 bit”，而不是只写“采用 W4A16”。
-
-![量化前后行为差异的定位卡](/images/notes/llm-training-stability/behavior-diff-card.svg)
 
 ## 校准不是跑几条样例就结束
 
@@ -138,6 +134,8 @@ rollback: "model-fp16-20260818"
 如果结构化输出错误率从 0.3% 升到 1.1%，即使显存节省很多，也应该暂停放量。回退策略必须提前演练：新版本停止接收、旧版本接管新请求、进行中的无副作用任务可以继续，有副作用任务先查状态再决定是否重试。
 
 ## 一个可复现的量化对照表
+
+下表为示意数据，非实测结论。
 
 | 版本 | 权重/激活/KV | 显存峰值 | P95 | JSON 通过率 | 单位成功成本 | 结论 |
 | --- | --- | ---: | ---: | ---: | ---: | --- |
@@ -189,8 +187,6 @@ calibration_set:
 ```
 
 校准集越接近真实分布，量化结果越有参考价值；但黄金集仍要保留少量极端边界，防止平均分掩盖事故。
-
-![校准样本、行为差异和量化版本对照](/images/notes/llm-training-stability/behavior-diff-card.svg)
 
 ## 层敏感度之外，还要看服务形态
 
@@ -296,11 +292,11 @@ coverage:
 
 ## 相关阅读
 
-- [推理优化：延迟、吞吐和成本](/notes/llm-inference-optimization)
-- [KV Cache 的服务代价](/notes/llm-kv-cache)
-- [LLM 模型选择与基准](/notes/llm-model-selection)
+- [大模型推理优化不只是换量化：吞吐、延迟和显存要一起看](/notes/llm-inference-optimization)
+- [KV Cache 缓存的到底是什么？为什么长对话越聊越贵](/notes/llm-kv-cache)
+- [LLM 选型不是比一个总榜：把任务、成本和失败代价放进同一张表](/notes/llm-model-selection)
 
 ## 资料来源
 
-- 《Agent 岗面试宝典 v3 · 精华版》（本地飞书资料整理）
+- 《Agent 岗面试宝典 v3 · 精华版》
 - [ARIS-in-AI-Offer](https://github.com/wanshuiyin/ARIS-in-AI-Offer)

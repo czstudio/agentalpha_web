@@ -260,7 +260,7 @@ next_actions: [list_next_page, get_detail]
 
 版本化不是每次改字段就把旧客户端甩下车。对工具输出，先定义新增字段如何降级、旧字段何时退役、哪些语义变化必须升大版本。迁移期间同时记录生产调用方的 schema 版本，才能知道“没人用了”是不是事实：
 
-\`\`\`yaml
+```yaml
 schema_compatibility: sc_orders_v3
 current: v3
 accept:
@@ -279,7 +279,7 @@ telemetry:
 sunset:
   announce: 2026-08-20
   block_after: 2026-09-03
-\`\`\`
+```
 
 兼容层只能处理语法兼容，不能掩盖语义变化。比如“total”从“当前页数量”变成“全量数量”，即使类型仍是整数，也必须升版本并补契约测试；否则模型和前端会同时得到一个看似合法、实际含义不同的答案。
 
@@ -310,11 +310,13 @@ sunset:
 
 因为编号只说明顺序，不说明确认语义。要把“已看到”“已写入本地”和“已提交副作用”分成三个游标，恢复时从最后一个持久化游标重放，再用 event_id 去重，才能避免先确认后落盘造成的空洞。
 
-## L5：什么时候应该升大版本，而不是继续兼容？
+## 高频追问
+
+### L5：什么时候应该升大版本，而不是继续兼容？
 
 当字段含义、完整性语义、排序稳定性或错误状态发生变化时，应升大版本。新增可选字段可以在兼容窗口内灰度，但不能把“类型没变”误当成“语义没变”。迁移完成后还要用调用遥测证明旧版本确实退出。
 
-## L5：为什么输出契约里的 `is_complete` 比“返回 200”更重要？
+### L5：为什么输出契约里的 `is_complete` 比“返回 200”更重要？
 
 HTTP 200 只说明请求成功，不说明结果覆盖了完整范围。没有 `is_complete` 和 `has_more`，Agent 很容易把“这一页没有”说成“系统里没有”；把完整性作为一等字段，才能让模型继续翻页或诚实表达边界。
 
@@ -417,11 +419,11 @@ decision: safe_to_answer
 
 ## 相关笔记
 
-- [MCP 解决了什么问题？工具协议标准化之后仍有哪些坑](/notes/mcp-protocol-boundaries)
-- [RAG 答案看着对，怎么证明它真的有依据？](/notes/rag-grounded-evidence)
+- [MCP 统一了工具接入，为什么还有这么多坑？](/notes/mcp-protocol-boundaries)
+- [RAG 答案看着对，怎样证明它有依据？](/notes/rag-grounded-evidence)
 - [Agent 评测不能只看成功率：从结果到轨迹的五层指标](/notes/agent-eval-success-rate)
 
 ## 参考
 
-- [Agent 岗面试宝典 v3：工具调用章节（本地导入）](/content/imports/agent-interview-v3.feishu.md)
+- AgentAlpha《Agent 岗面试宝典 v3》：工具调用章节
 - [ARIS-in-AI-Offer](https://github.com/wanshuiyin/ARIS-in-AI-Offer)

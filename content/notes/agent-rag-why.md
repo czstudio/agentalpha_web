@@ -166,30 +166,6 @@ tool_total = api_gateway + query + permission + llm + review
 
 给同一批问题分别关闭 RAG、关闭工具、只保留长上下文，再比较失败类型。若关闭 RAG 后只有引用覆盖下降，说明它承担的是证据职责；若关闭 RAG 后连实时库存也答错，说明路由器把工具问题误送进了文档链路。把这种差异写进项目复盘，比一句“RAG 能减少幻觉”更有说服力。
 
-## 路由决定要留下可回放的选择记录
-
-每次决定“走 RAG、工具还是直接回答”，都应该保留一条轻量 route record，避免线上出错时只能猜路由器当时看到了什么：
-
-```json
-{
-  "query_id": "q_781",
-  "signals": {"private": true, "freshness": "weekly", "write": false, "citation": true},
-  "route": "rag",
-  "reason": ["private", "needs_citation"],
-  "fallback": "ask_for_access",
-  "retrieval_policy": "tenant_scoped_v4",
-  "budget": {"top_k": 8, "max_tokens": 2200}
-}
-```
-
-记录理由比记录“RAG 命中”更重要。后续如果发现某类问题总被送进错误路径，可以直接按信号切片回放；当权限、时效或引用要求变化时，也能只调整路由策略，不必把所有问答样本重新猜一遍。
-
-![RAG 路由记录把输入信号、选择理由、回退路径、权限策略和预算绑定到一次查询](/images/notes/agent-rag-why/rag-route-record.svg)
-
-### L5：如何证明路由器是在“按理由选择”，而不是随机偏好 RAG？
-
-构造信号相同但答案路径不同的反事实集：关闭私有性、去掉引用要求、替换为实时状态，再观察路由是否按预期改变。若理由字段不变、路径却漂移，说明路由策略没有被稳定约束，应先修评测和门槛。
-
 ## 四个常见坑
 
 ### 为了展示技术栈强行接 RAG
@@ -291,7 +267,7 @@ RAG 先筛选外部证据，适合知识多、变化快和需要权限；长上�
 
 记录 `candidates` 能看出路由器是否只会偏爱 RAG，`reason` 让“没查库”成为可讨论的选择，`outcome` 把选型与真实结果连起来。线上出现失败时，可以用同一问题重放候选打分，再判断是意图识别错、数据新鲜度不够，还是路由规则把风险切片漏掉了。
 
-“不用 RAG”不是反技术，而是把检索放在适合它的地方：需要私有、变化频繁且可引用的知识时用 RAG，需要强一致状态时优先业务 API，需要缺少关键信息时先澄清。日志把这些判断写出来，系统才会越跑越聪明，而不是越堆组件越复杂。
+“不用 RAG”不是反技术，而是把检索放在适合它的地方：需要私有、变化频繁且可引用的知识时用 RAG，需要强一致状态时优先业务 API，关键信息缺失时先向用户澄清。日志把这些判断写出来，系统才会越跑越聪明，而不是越堆组件越复杂。
 
 ![RAG 路由选择记录](/images/notes/agent-rag-why/rag-route-decision-record.svg)
 
@@ -408,12 +384,12 @@ decision: fix_projection_before_retraining
 
 ## 相关阅读
 
-- [RAG 为什么不是“向量库 + 提示词”？](/notes/rag-retrieval-pipeline)
-- [Embedding 到底把什么变成了向量？](/notes/rag-embedding-basics)
-- [如何给工具调用做权限控制和审计？](/notes/tool-permission-audit)
-- [面试官让你从零设计企业知识库 Agent](/notes/enterprise-knowledge-agent-design)
+- [RAG 不只是“向量库 + 提示词”：证据怎样一路到答案？](/notes/rag-retrieval-pipeline)
+- [Embedding 到底把什么变成了向量？相似不等于正确](/notes/rag-embedding-basics)
+- [工具调用怎么做权限控制和审计？](/notes/tool-permission-audit)
+- [从零设计企业知识库 Agent，第一张图该画什么？](/notes/enterprise-knowledge-agent-design)
 
 ## 资料来源
 
-- Agent 岗面试宝典 v3（AgentAlpha 飞书文档）
+- AgentAlpha《Agent 岗面试宝典 v3》（未公开讲义）
 - ARIS in AI Offer：系统设计题的取舍、基线和分层追问结构

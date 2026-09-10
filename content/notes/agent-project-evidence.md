@@ -420,12 +420,12 @@ commit 只能定位代码，不能保证数据快照、依赖、模型路由、�
 
 ## 相关阅读
 
-- [项目里的指标是怎么来的？把 Demo 讲成可验证的工程系统](/notes/agent-metrics-baseline)
+- [项目里的指标怎么来的？别只报一个漂亮数字](/notes/agent-metrics-baseline)
 - [项目被追问‘你做的和框架有什么区别’，怎样讲出自己的贡献](/notes/agent-framework-contribution)
-- [离线评测高分，线上为什么还是翻车？](/notes/offline-eval-online-drift)
-- [一次 Agent 实验怎样算可复现？从版本指纹到结果归因](/notes/agent-eval-reproducibility)
+- [离线评测 95 分，线上为什么还是翻车？](/notes/offline-eval-online-drift)
+- [同一个 Agent 实验，怎样才能复现？](/notes/agent-eval-reproducibility)
 
 ## 资料来源
 
-- Agent 岗面试宝典 v3（AgentAlpha 飞书文档）
+- AgentAlpha《Agent 岗面试宝典 v3》（未公开讲义）
 - ARIS in AI Offer：项目叙事、证据卡与结果归因结构

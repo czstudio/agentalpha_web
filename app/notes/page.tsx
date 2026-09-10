@@ -172,7 +172,7 @@ export default function NotesIndexPage() {
         <section id="learn-directory" className="aa-learn-directory">
           <div className="aa-notes-shell">
             <div className="aa-learn-directory-head">
-              <div><p className="aa-notes-kicker">FROM FEISHU · IN PROGRESS</p><h2>{learn.title}</h2><p>{learn.description}</p></div>
+              <div><p className="aa-notes-kicker">CLAUDE CODE · 逐章整理中</p><h2>{learn.title}</h2><p>{learn.description}</p></div>
               <span className="aa-learn-directory-count">{learn.chapters.length} 章目录</span>
             </div>
             {learn.volumes.map((volume) => {
@@ -188,7 +188,7 @@ export default function NotesIndexPage() {
         <section id="faq" className="aa-notes-outro">
           <div className="aa-notes-shell">
             <p>△ AgentAlpha Notes</p>
-            <h2>把复杂问题讲到可以推理,而不是背诵。</h2>
+            <h2>把复杂问题讲到可以推理，而不是背诵。</h2>
             <Link href="/#join" className="aa-notes-join">
               加入社区 <ArrowUpRight aria-hidden />
             </Link>

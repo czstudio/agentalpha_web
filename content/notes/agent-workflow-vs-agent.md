@@ -226,8 +226,6 @@ def authorize(action: dict, *, user, policy) -> dict:
 
 每一步都保留上一阶段的默认路径。比如只读检索的成功率和引用覆盖稳定后，才让 Agent 选择混合检索；计划在沙箱中通过参数校验后，才允许进入审批。这样每次增加的自由度都能对应一组新的测试，而不是把所有风险一次推上线。
 
-![从固定流程到受限 Agent 的能力梯度](/images/notes/agent-eval-success-rate/failure-slices.svg)
-
 ## 把“回退到 Workflow”做成产品能力
 
 回退不是事故时临时切一个开关，而是每次任务都应能走的合法路径：
@@ -283,11 +281,11 @@ Workflow 在设计时决定路径，Agent 在运行时根据状态和观察选�
 
 ## 相关阅读
 
-- [Agent 核心架构：目标、状态、行动与观察](/notes/agent-core-architecture)
-- [Agent 安全边界：权限、工具和数据如何隔离](/notes/agent-security-boundaries)
-- [Agent 评测不能只看成功率](/notes/agent-eval-success-rate)
+- [Agent 到底是什么：别把会调用模型的流程都叫 Agent](/notes/agent-core-architecture)
+- [Agent 安全不是加一句提示词：权限、工具和数据边界怎么设计](/notes/agent-security-boundaries)
+- [Agent 评测不能只看成功率：从结果到轨迹的五层指标](/notes/agent-eval-success-rate)
 
 ## 资料来源
 
-- 《Agent 岗面试宝典 v3 · 精华版》（本地飞书资料整理）
+- AgentAlpha《Agent 岗面试宝典 v3》（未公开讲义）
 - [ARIS-in-AI-Offer](https://github.com/wanshuiyin/ARIS-in-AI-Offer)：以基础、追问、实现三层组织面试学习

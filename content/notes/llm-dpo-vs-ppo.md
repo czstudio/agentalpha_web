@@ -146,7 +146,7 @@ reference 通常是 SFT checkpoint，提供“不要偏离初始行为太远”�
 
 ![reference 漂移会改变同一偏好对的相对 log-prob，训练记录必须固定并标注 reference 版本](/images/notes/llm-dpo-vs-ppo/reference-drift.svg)
 
-## 一个最小的离线验收闭环
+## 一套最小的离线验收流程
 
 不要只看 DPO loss。至少保留 base/SFT/DPO 三组，评测同一批 prompt：
 
@@ -378,8 +378,6 @@ decision: keep_sampling_mix
 
 ## AgentAlpha 大模型 Agent 训练营
 
-DPO 解决的是“已有偏好对，如何低成本对齐”。下一篇训练稳定性会继续追问：为什么 loss 一路下降，模型的真实行为却没有改善，甚至出现灾难性遗忘？
+DPO 解决的是“已有偏好对，如何低成本对齐”。先判断反馈来自数据还是环境，再决定用离线偏好还是在线探索。
 
-查看 AgentAlpha 大模型 Agent 训练营 (https://agentalpha.feishu.cn/wiki/TjZJwXw70ijEX6kkyKicgortnpb)
-
-先判断反馈来自数据还是环境，再决定用离线偏好还是在线探索。下篇见。
+[查看 AgentAlpha 大模型 Agent 训练营](https://agentalpha.feishu.cn/wiki/TjZJwXw70ijEX6kkyKicgortnpb)

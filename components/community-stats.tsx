@@ -56,10 +56,10 @@ export function CommunityStats() {
           className="text-center mb-20"
         >
           <h2 className="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
-            社区影响力
+            社区数据
           </h2>
           <p className="text-xl text-gray-400 max-w-3xl mx-auto leading-relaxed">
-            数据见证成长，每个数字背后都是真实的故事
+            成员数、Talk 场次、项目数，均来自社区的真实记录
           </p>
         </motion.div>
 

@@ -363,10 +363,6 @@ decision: publish_new_series_with_break_marker
 
 ![Judge 桥接回放：旧模型、新模型和人工金样用重叠集合对齐尺度与高风险分歧](/images/notes/llm-judge-calibration/judge-bridge-card.svg)
 
-### L5：为什么新 Judge 平均分更高，不能直接宣布模型进步？
-
-因为平均分可能来自评分尺度变化或 rubric 变宽。先用重叠金样做桥接，确认高风险切片没有系统性翻转，并在报表上标出换尺子的断点；桥接完成前只做并行观察，不把新旧分数直接合并。
-
 ## Judge 要允许“低置信度，不强行排序”
 
 开放式 Agent 评测里，两个答案可能都部分正确，或者证据不足以支持细粒度比较。强迫 Judge 给出 1 到 4 的确定分数，会把犹豫伪装成精确数据，尤其容易放大长度、格式和自偏好。可以给 rubric 加 `tie`、`abstain` 和 `needs_evidence` 三个出口，并把触发理由写回评测报告。
@@ -436,11 +432,11 @@ LLM-as-a-Judge 适合扩大开放式质量评测，但不是天然公正的裁�
 
 ## 相关笔记
 
-- [RAG 答案看着对，怎么证明它真的有依据？](/notes/rag-grounded-evidence)
-- [一次 Agent 实验怎样算可复现？从版本指纹到结果归因](/notes/agent-eval-reproducibility)
+- [RAG 答案看着对，怎样证明它有依据？](/notes/rag-grounded-evidence)
+- [同一个 Agent 实验，怎样才能复现？](/notes/agent-eval-reproducibility)
 - [Agent 评测不能只看成功率：从结果到轨迹的五层指标](/notes/agent-eval-success-rate)
 
 ## 参考
 
-- [Agent 岗面试宝典 v3：LLM-as-a-Judge 考点（本地导入）](/content/imports/agent-interview-v3.feishu.md)
+- AgentAlpha《Agent 岗面试宝典 v3》：LLM-as-a-Judge 章节
 - [ARIS-in-AI-Offer](https://github.com/wanshuiyin/ARIS-in-AI-Offer)

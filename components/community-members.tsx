@@ -22,7 +22,7 @@ export function CommunityMembers() {
             核心成员
           </h2>
           <p className="text-xl text-gray-400 max-w-3xl mx-auto leading-relaxed">
-            来自顶尖高校和一线企业的 AI 专家，共同打造最专业的技术社区
+            来自高校和一线企业的 AI 从业者，一起做项目、互相复盘。
           </p>
         </motion.div>
 

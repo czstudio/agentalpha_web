@@ -8,7 +8,7 @@ number: "22"
 minutes: 18
 ---
 
-“训练 loss 从 2.1 降到 0.6，应该已经学得很好了吧？”先别急着庆祝，面试官通常还会追问验证集和线上任务。
+“训练 loss 从 2.1 降到 0.6（示意数字），应该已经学得很好了吧？”先别急着庆祝，面试官通常还会追问验证集和线上任务。
 
 👔 面试官  验证集也降了，为什么线上任务成功率不涨？
 
@@ -423,15 +423,12 @@ Adam 的动量、学习率调度器和下一个数据 shard 都会影响下一�
 
 ## 参考资料
 
-1. On the Stability of Fine-Tuning Large Language Models (https://arxiv.org/abs/2306.04757)
-2. LoRA: Low-Rank Adaptation of Large Language Models (https://arxiv.org/abs/2106.09685)
-3. Llama 3 Model Card and training details (https://arxiv.org/abs/2407.21783)
-4. PyTorch Automatic Mixed Precision examples (https://pytorch.org/docs/stable/notes/amp_examples.html)
+1. LoRA: Low-Rank Adaptation of Large Language Models (https://arxiv.org/abs/2106.09685)
+2. Llama 3 Model Card and training details (https://arxiv.org/abs/2407.21783)
+3. PyTorch Automatic Mixed Precision examples (https://pytorch.org/docs/stable/notes/amp_examples.html)
 
 ## AgentAlpha 大模型 Agent 训练营
 
-训练阶段最怕把曲线当结论。AgentAlpha 的训练记录会保留数据版本、mask 检查、异常 batch、checkpoint 对照和回归底线，让“为什么变好/变坏”都能被复盘。
+想把训练稳定性这类专题系统练一遍，可以看 [AgentAlpha 大模型 Agent 训练营](https://agentalpha.feishu.cn/wiki/TjZJwXw70ijEX6kkyKicgortnpb)。训练阶段的关键习惯是留好记录：数据版本、mask 检查、异常 batch、checkpoint 对照和回归底线，让“为什么变好、为什么变坏”都能复盘。
 
-查看 AgentAlpha 大模型 Agent 训练营 (https://agentalpha.feishu.cn/wiki/TjZJwXw70ijEX6kkyKicgortnpb)
-
-先证明模型在学对的目标，再讨论它学得快不快。下篇见。
+先证明模型在学对的目标，再讨论它学得快不快。

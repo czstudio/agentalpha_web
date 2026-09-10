@@ -30,7 +30,7 @@ minutes: 20
 
 ## 先给一个能复述的答案
 
-> MoE 层通常由一个 Router 和多个同构的 Expert FFN 组成。Router 根据当前 token 的隐藏状态计算每个专家的分数，选择 Top-k 个专家，并用归一化后的权重合并专家输出。这样模型总参数量可以扩展到很多专家，但每个 token 只激活少数专家，计算量主要随激活专家数增长。工程上最难的是负载均衡：如果 token 集中到少数专家，就会出现容量溢出、token 丢弃、GPU 空闲和 all-to-all 通信瓶颈。因此要结合辅助负载均衡损失、capacity factor、dispatch 策略和专家并行一起设计。>
+> MoE 层通常由一个 Router 和多个同构的 Expert FFN 组成。Router 根据当前 token 的隐藏状态计算每个专家的分数，选择 Top-k 个专家，并用归一化后的权重合并专家输出。这样模型总参数量可以扩展到很多专家，但每个 token 只激活少数专家，计算量主要随激活专家数增长。工程上最难的是负载均衡：如果 token 集中到少数专家，就会出现容量溢出、token 丢弃、GPU 空闲和 all-to-all 通信瓶颈。因此要结合辅助负载均衡损失、capacity factor、dispatch 策略和专家并行一起设计。
 
 面试官听到这段，通常会顺着四个词继续问：**Top-k、容量、均衡、通信**。下面一一拆开。
 
@@ -428,8 +428,6 @@ decision: code_slice_hotspot
 
 Router 可能为了平均概率而增加跨卡 dispatch，或者把 token 分散到更多专家，导致 all-to-all 和同步等待变长。应同时比较质量、dropped ratio、每卡队列和通信 P99；只优化辅助损失，可能把数学上的均衡换成系统上的拥塞。
 
-![路由失败切片：专家负载、容量溢出和任务质量要一起回放](/images/notes/agent-eval-success-rate/failure-slices.svg)
-
 ## 60 秒面试回答
 
 > MoE 是在 Transformer 的 FFN 部分放入多个专家，再用 Router 为每个 token 选择 Top-k 个专家。这样总参数容量可以很大，但每个 token 只激活少数专家，所以激活计算不会随总参数量同比增长。Router 的分数不是人工语义标签，专家分工由训练形成。真正的工程难点是负载均衡和通信：热门专家可能容量溢出，token 被丢弃或造成热点 GPU，因此要结合辅助均衡损失、capacity factor、dispatch 策略和专家并行。判断 MoE 是否健康，不能只看 FLOPs，还要看路由分布、溢出比例、专家差异、all-to-all 延迟和最终质量。
@@ -443,10 +441,10 @@ Router 可能为了平均概率而增加跨卡 dispatch，或者把 token 分散
 - 负载均衡要同时看概率、实际 token 数、溢出、专家差异和系统热点。
 - 专家并行让 MoE 从模型结构问题变成了通信与调度问题。
 
-下一篇会把视线从“参数走哪条路”转到“历史状态放在哪里”：**KV Cache 到底缓存了什么？为什么长对话越聊越贵？**
+“参数走哪条路”之后是“历史状态放在哪里”：KV Cache 到底缓存了什么？为什么长对话越聊越贵？系列里 KV Cache 一篇接着讲。
 
 ## 参考资料
 
-1. AgentAlpha《Agent 岗面试宝典 v3》：LLM 基础章节与 MoE、专家路由、负载均衡专题（内部学习资料）。
+1. AgentAlpha《Agent 岗面试宝典 v3》：MoE、专家路由与负载均衡专题。
 2. [Switch Transformers](https://arxiv.org/abs/2101.03961)，稀疏专家路由的代表性工作。
 3. [ARIS in AI Offer](https://github.com/wanshuiyin/ARIS-in-AI-Offer)，参考其将原理、工程取舍和分层面试题放在同一篇文章中的方式。

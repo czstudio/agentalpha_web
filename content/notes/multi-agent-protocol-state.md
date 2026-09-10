@@ -192,10 +192,6 @@ prepared --commit(v7)--> committed(v8)
 
 会，所以高风险动作不能只依赖最终一致事件，必须在提交点做版本和权限校验。事件用于记录事实和回放，命令用于请求动作，二者要分开。
 
-### L4：为什么 ACK 成功还要回读校验？
-
-ACK 只代表消息被接收，不一定代表业务状态提交或产物通过校验。回读可以确认版本、权限和业务不变量，发现不一致时进入补偿而不是继续向下游广播。
-
 ### L5：冲突状态应该让哪个 Agent 决定？
 
 由状态 owner 或独立仲裁器依据版本、权限和业务规则决定；普通生成 Agent 只能提出合并建议，不能静默覆盖另一方的事实。
@@ -226,7 +222,7 @@ ACK 只代表消息被接收，不一定代表业务状态提交或产物通过�
 
 多 Agent 之间传递的提交回执不是永久通行证。它应当带版本、过期时间、调用方和幂等键；消费方先检查是否仍在有效窗口，再决定接受、查询当前状态还是转入人工。这样旧消息即使重新到达，也不会把已经提交的结果覆盖掉：
 
-\`\`\`yaml
+```yaml
 commit_receipt: cr_20260820_31
 operation: update_contract_status
 producer: contract-agent-r7
@@ -240,7 +236,7 @@ replay_policy:
   same_key: "return current state"
   old_version: "reject_and_read_back"
   unknown: "pause and escalate"
-\`\`\`
+```
 
 不要把“消息送达”当成“状态仍然有效”。尤其是审批、扣款和写回任务，过期回执只能触发读回与对账，不能靠重发消息赌一次成功。
 
@@ -382,12 +378,12 @@ decision: rollout_with_v3_guard
 
 ## 相关笔记
 
-- [为什么一个 Agent 做不完的事，要拆成多个 Agent？](/notes/multi-agent-task-decomposition)
-- [多 Agent 互相甩锅怎么办？从监督者到仲裁器设计](/notes/multi-agent-supervisor-arbitrator)
+- [一个 Agent 做不完，什么时候该拆成多个？](/notes/multi-agent-task-decomposition)
+- [多 Agent 结论打架怎么办？监督者和仲裁器各管什么](/notes/multi-agent-supervisor-arbitrator)
 - [Agent 上线后怎么定位问题？从 trace 到可观测性和回放](/notes/agent-observability-replay)
-- [工具调用失败后，Agent 应该重试、换工具还是停下来？](/notes/code-agent-resume-exactly-once)
+- [Code Agent 跑到一半挂了，怎样恢复又不重复执行？](/notes/code-agent-resume-exactly-once)
 
 ## 参考
 
-- [Agent 岗面试宝典 v3：通信与协作考点（本地导入）](/content/imports/agent-interview-v3.feishu.md)
+- AgentAlpha《Agent 岗面试宝典 v3》：通信与协作章节
 - [ARIS-in-AI-Offer](https://github.com/wanshuiyin/ARIS-in-AI-Offer)

@@ -101,8 +101,6 @@ def expand(graph, seeds, *, max_hops=3, max_nodes=40):
 
 每一跳都要有 `from`、`relation`、`to`、`valid_at` 和 `source_refs`。如果第二跳只找到一个新闻摘要、没有原始公告，路径应该停在 `needs_more_evidence`，而不是继续向下扩展成一条“看起来完整”的链。
 
-![多跳图检索的入口、关系和证据链](/images/notes/multi-agent-task-decomposition/topology-review-card.svg)
-
 ### 路径证据卡
 
 ```json
@@ -131,8 +129,6 @@ def expand(graph, seeds, *, max_hops=3, max_nodes=40):
 | 发布 | 写入可查询图版本，保留 diff | `published` / `rejected` |
 
 高风险关系（例如“有权访问”“已批准”“属于某租户”）不应只靠模型抽取。可以先让模型提出候选，再由规则或人工审核确认。
-
-![实体消歧与证据审核的图构建流程](/images/notes/rag-grounded-evidence/grounding-graph.svg)
 
 ## 关系冲突比节点冲突更难处理
 
@@ -176,8 +172,6 @@ def expand_with_budget(graph, seeds, *, max_hops=3, max_nodes=32, max_tokens=240
 
 这里的 `edge.conflict` 不是把冲突边永远删掉，而是避免它在普通回答路径里被静默采纳。需要解释冲突时，可以单独进入审查模式，扩大证据预算并把两侧材料都交给生成器。
 
-![路径扩展的跳数、证据和预算闸门](/images/notes/rag-retrieval-pipeline/retrieval-failure.svg)
-
 ## 评测别只看最终答案：四个可定位指标
 
 Graph RAG 的离线集要记录“金路径”，然后分层看：
@@ -209,8 +203,6 @@ graph_eval:
 3. 团队是否有能力维护实体消歧、版本和边的审核流程。
 
 如果三个问题大多回答“否”，先把切片、混合检索和引用做好，通常比建一张稀疏但错误很多的图更划算。图结构本身也会引入新的失败：关系抽取错、别名合并错、路径评分偏置和权限边遗漏。
-
-![图检索与向量检索的入口选择](/images/notes/rag-embedding-basics/embedding-space.svg)
 
 ## 节点、边和文档要允许不同生命周期
 
@@ -246,8 +238,6 @@ lifecycle:
 | 3 | Alpha-3 → 发布 → v1.2 | 2024-09 | changelog#p2 | needs_review |
 
 第三跳仍需审核时，答案可以回答前两跳，并明确“模型版本尚未得到第二份来源确认”。分段披露比把整条路径说成确定事实更诚实。
-
-![图路径的证据、冲突与可解释输出](/images/notes/rag-grounded-evidence/claim-ledger-card.svg)
 
 ## 复杂路径应当允许主动停止
 
@@ -301,11 +291,11 @@ def should_stop(path, *, min_gain=0.08, max_hops=3):
 
 ## 相关阅读
 
-- [RAG 检索流水线：从问题到证据](/notes/rag-retrieval-pipeline)
-- [RAG 如何保住引用证据](/notes/rag-grounded-evidence)
-- [多模态 RAG：图片和文本如何共同检索](/notes/multimodal-rag)
+- [RAG 不只是“向量库 + 提示词”：证据怎样一路到答案？](/notes/rag-retrieval-pipeline)
+- [RAG 答案看着对，怎样证明它有依据？](/notes/rag-grounded-evidence)
+- [多模态 RAG 怎样把图片、表格和文字一起查出来？](/notes/multimodal-rag)
 
 ## 资料来源
 
-- 《Agent 岗面试宝典 v3 · 精华版》（本地飞书资料整理）
+- 《Agent 岗面试宝典 v3 · 精华版》
 - [ARIS-in-AI-Offer](https://github.com/wanshuiyin/ARIS-in-AI-Offer)

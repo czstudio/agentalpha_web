@@ -29,7 +29,7 @@ minutes: 23
 
 ## Handoff envelope 应该包含什么
 
-一份可审计的 envelope 至少要回答六个问题：
+一份可审计的 envelope 至少要回答八个问题：
 
 | 字段 | 作用 | 缺失时的风险 |
 | --- | --- | --- |
@@ -275,11 +275,11 @@ handoff schema 增加可选字段很容易，真正危险的是同一个字段�
 
 ## 相关阅读
 
-- [多智能体任务拆解：先分边界，再谈协作](/notes/multi-agent-task-decomposition)
-- [多智能体协议与状态：消息不是状态机](/notes/multi-agent-protocol-state)
-- [Agent 线上可靠性：成功、失败与未知结果](/notes/agent-deployment-reliability)
+- [一个 Agent 做不完，什么时候该拆成多个？](/notes/multi-agent-task-decomposition)
+- [多 Agent 不是群聊：消息和状态到底怎么管？](/notes/multi-agent-protocol-state)
+- [Agent 上线不是把接口接通：超时、熔断和未知结果要先设计](/notes/agent-deployment-reliability)
 
 ## 资料来源
 
-- 《Agent 岗面试宝典 v3 · 精华版》（本地飞书资料整理）
+- AgentAlpha《Agent 岗面试宝典 v3 · 精华版》：多智能体交接章节（内部讲义，未公开）
 - [ARIS-in-AI-Offer](https://github.com/wanshuiyin/ARIS-in-AI-Offer)：吸收“基础知识—高频追问—从零实现”的三层组织方式

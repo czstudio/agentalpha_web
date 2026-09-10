@@ -238,7 +238,7 @@ Attention 让不同位置互相通信，FFN 则在每个位置独立处理。两
 1. **训练长序列很贵。** 一个 batch 中每条样本都要计算大量 token 两两关系。
 2. **生成阶段和训练阶段的瓶颈不同。** 生成一个新 token 时，当前 query 只需要和历史 key 做匹配，KV Cache 可以避免重复计算历史 K/V；但缓存会随上下文长度线性增长。
 
-因此，“长上下文支持”不只是把最大 token 数改大。还要一起考虑位置编码外推、显存、吞吐、延迟、缓存策略和注意力实现。下一篇会专门讲 Transformer 为什么能替代 RNN，后面再拆 KV Cache 和推理优化。
+因此，“长上下文支持”不只是把最大 token 数改大。还要一起考虑位置编码外推、显存、吞吐、延迟、缓存策略和注意力实现。
 
 ## §6 从零写一个可运行的 Causal Self-Attention
 
@@ -421,45 +421,6 @@ Prefill 一次处理整段输入，主要受 `T²` 计算和并行矩阵乘法�
 
 不同 head 学到的注意力模式可能高度相似，导致多头的多样性没有被充分利用。原因可能来自数据、初始化、正则化或架构设计，不能只看 attention heatmap 就断言模型学会了某种语义。
 
-## Attention 公式还要做一次形状审计
-
-把公式写对只是第一步，工程实现还要把每个张量的形状、广播规则和 mask 位置对上。设 batch 为 `B`、head 数为 `H`、序列长度为 `T`、每个 head 的维度为 `d_k`，则一轮 Scaled Dot-Product Attention 可以写成：
-
-\[
-S = \frac{QK^{\mathsf T}}{\sqrt{d_k}} + M,\qquad A = \operatorname{softmax}(S),\qquad O = AV
-\]
-
-其中 `Q、K、V` 的形状通常是 `[B, H, T, d_k]`，`S` 和 `A` 是 `[B, H, T, T]`，`M` 需要能广播到这个形状。Causal mask 应该在 softmax 之前把未来位置置为负无穷；如果在 softmax 之后再乘 0，归一化总和会被破坏。调试时不要只看最终文本，至少打印一次 `QKᵀ`、mask、attention row sum 和输出范数。
-
-```yaml
-attention_shape_audit: asa_20260820_95
-shapes:
-  q: [2, 16, 128, 64]
-  k: [2, 16, 128, 64]
-  v: [2, 16, 128, 64]
-  scores: [2, 16, 128, 128]
-checks:
-  mask_before_softmax: true
-  attention_row_sum_p99: 1.0000
-  future_attention_max: 0.0
-  output_norm_delta_pct: 0.7
-decision: shape_and_mask_aligned
-```
-
-![Attention 形状审计：Q、K、V、mask 与权重矩阵逐层对齐](/images/notes/llm-attention-context/attention-shape-audit-card.svg)
-
-### L5：为什么张量形状全对，模型输出仍然会错？
-
-形状只能证明矩阵能相乘，不能证明语义边界正确。常见问题包括 mask 方向反了、padding 没有屏蔽、KV 的 head 展开错位，或混合精度下 logits 溢出。要把 shape、mask 可见性、row sum 和一个小输入的手算结果一起放进回归测试。
-
-![上下文窗口与注意力预算的分层关系](/images/notes/agent-context-engineering/context-window.svg)
-
-![长文中的 needle 位置测试：注意力是否真的看到了中间信息](/images/notes/llm-long-context/needle-test.svg)
-
-![KV Cache 的容量准入：上下文长度、并发和显存一起决定可服务范围](/images/notes/llm-kv-cache/capacity-admission-card.svg)
-
-![Prefill 与 Decode 的注意力工作形态](/images/notes/llm-kv-cache/prefill-decode-cache.svg)
-
 ## 60 秒面试回答
 
 如果面试官只给你一分钟，可以这样说：
@@ -477,10 +438,8 @@ decision: shape_and_mask_aligned
 - `O(T²)` 是标准全连接 Attention 面对长文本的根本成本，后续的 KV Cache、FlashAttention、稀疏注意力和量化分别从不同方向缓解它。
 - Transformer 不是一个 Attention 函数，而是由 Attention、FFN、归一化和残差共同组成的可堆叠模块。
 
-下一篇会把问题往前推进一步：**为什么 Transformer 能替代 RNN？** 我们会从并行训练、序列依赖、位置编码和 Encoder/Decoder 结构讲起，再把 Attention 放回完整架构里。
-
 ## 参考资料
 
-1. AgentAlpha《Agent 岗面试宝典 v3》：LLM 基础章节与 Attention 专题（内部学习资料）。
+1. AgentAlpha《Agent 岗面试宝典 v3》：LLM 基础章节与 Attention 专题。
 2. [Attention Is All You Need](https://arxiv.org/abs/1706.03762)，Transformer 原论文。
-3. [ARIS in AI Offer](https://github.com/wanshuiyin/ARIS-in-AI-Offer)，参考其“TL;DR → 直觉与公式 → 从零代码 → 分层面试题”的学习组织方式。
+3. [ARIS in AI Offer](https://github.com/wanshuiyin/ARIS-in-AI-Offer)

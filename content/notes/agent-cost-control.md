@@ -193,7 +193,7 @@ quality_guardrails:
 
 ### 缓存没有权限和版本
 
-把一个租户的答案复给另一个租户，或者把旧制度缓存太久，成本省下来了，事故也省不掉。
+缓存键里没有租户和版本，一个租户的答案就可能复给另一个租户；旧制度缓存太久，用户会拿到已废止的条款。成本是省了，线上事故也跟着来了。
 
 ### 为了省钱取消验证
 
@@ -428,12 +428,12 @@ decision: compare_routes_by_validated_success
 
 ## 相关阅读
 
-- [工具调用失败后，Agent 应该重试、换工具还是停下来？](/notes/tool-retry-policy)
+- [工具调用失败后，Agent 该重试、换工具还是停下？](/notes/tool-retry-policy)
 - [工具返回一大段 JSON，为什么 Agent 反而更容易做错](/notes/tool-output-shaping)
-- [Agent 评测不能只看成功率](/notes/agent-eval-success-rate)
-- [一次 Agent 实验怎样算可复现？](/notes/agent-eval-reproducibility)
+- [Agent 评测不能只看成功率：从结果到轨迹的五层指标](/notes/agent-eval-success-rate)
+- [同一个 Agent 实验，怎样才能复现？](/notes/agent-eval-reproducibility)
 
 ## 资料来源
 
-- Agent 岗面试宝典 v3（AgentAlpha 飞书文档）
+- AgentAlpha《Agent 岗面试宝典 v3》：成本与路由章节（内部讲义，未公开）
 - ARIS in AI Offer：成本、路由、预算与指标的工程化写法

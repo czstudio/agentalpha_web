@@ -13,7 +13,7 @@
     "communities": "兄弟社区",
     "universities": "院校",
     "joinTraining": "加入训练营",
-    "noCommunities": "暂无兄弟社区（可在后台\"合作伙伴\"中添加）",
+    "noCommunities": "暂无兄弟社区信息",
     "menu": "菜单",
     "noCommunitiesShort": "暂无社区",
     "contactUs": "联系我们",
@@ -22,10 +22,10 @@
     "toggleLanguage": "切换语言"
   },
   "hero": {
-    "badge": "赋能每一人 · 决胜 Agent 十年",
+    "badge": "Agent 方向学习社区 · 论文精读 · 项目共创",
     "title_highlight": "AgentAlpha",
     "title_normal": "链接顶尖研究者、工程师与创业者",
-    "subtitle": "Agent 是通往 AGI 的必经之路。我们用深度实践、知识共享与项目协作，帮助你把握浪潮、积累作品、取得实绩。",
+    "subtitle": "读论文、做项目、练面试。成员来自高校、大厂和创业公司，新方向有人一起追，遇到卡点有人一起过。",
     "cta_primary": "加入训练营",
     "cta_secondary": "商务/合作"
   },
@@ -44,9 +44,9 @@
     "tag": "愿景与目标",
     "title": "Agent 时代的共赢社区",
     "vision_points": [
-      "真正的 AGI 还有十年，Agent 是必经之路，抓住浪潮才能不缺席。",
-      "通过深度实践、知识共享与项目协作，拆解技术壁垒，转化为个人优势与实际价值。",
-      "赋能每一人，决胜 Agent 十年。"
+      "Agent 是当前最活跃的方向，机会窗口还在，现在入场不晚。",
+      "读论文、写代码、做项目，把学到的东西变成拿得出手的作品。",
+      "与其观望，不如跟着社区一起动手做。"
     ],
     "offerings_title": "我们提供",
     "offerings": [
@@ -55,7 +55,7 @@
       "论文笔记、前沿 talk、案例共创",
       "作品集打磨、简历与面试辅导、内推"
     ],
-    "bottom_note": "我们通过「学习—实战—输出—共创」的飞轮，帮助成员将洞察转化为实绩。"
+    "bottom_note": "学习、实战、输出、共创，每个环节都有同伴和导师一起过。"
   },
   "advanced": {
     "tag": "高阶玩法",
@@ -90,7 +90,7 @@
   "resources": {
     "tag": "资源合集",
     "title": "学习与探索",
-    "subtitle": "精心整理的学习资源，助你快速掌握 Agent 核心技术",
+    "subtitle": "按主题整理的学习路径与开源项目，挑一个方向直接开始",
     "advanced_path": "进阶之路",
     "community_projects": "社区项目 / 论文",
     "featured_release": "重磅发布",
@@ -148,17 +148,17 @@
     "description": "共建社区 / 宣传合作 / AI 产品 / 培训辅导，或需要论文、项目、求职支持，扫码关注公众号了解更多。",
     "tags": ["共建社区", "宣传工作", "AI 产品", "培训辅导"],
     "no_contact": "暂无联系方式",
-    "add_contact_hint": "请在后台管理系统中添加社交平台"
+    "add_contact_hint": "联系方式整理中，可通过公众号 AgentAlpha 找到我们"
   },
   "universities": {
     "tag": "合作院校",
     "title": "顶尖学府携手共建",
-    "description": "与国内外顶尖高校建立深度合作，汇聚学术资源，推动 AI 研究与产业落地",
+    "description": "成员来自国内外多所高校，社区与部分院校保持研究交流和活动合作",
     "no_universities": "暂无合作院校信息",
-    "add_universities_hint": "请在后台管理系统中添加"
+    "add_universities_hint": "合作院校信息整理中"
   },
   "footer": {
-    "description": "链接顶尖研究者、工程师与创业者，赋能每一人决胜 Agent 十年。",
+    "description": "链接顶尖研究者、工程师与创业者，一起读论文、做项目、聊求职。",
     "quick_links": "快速链接",
     "contact_us": "联系我们",
     "follow_us": "关注我们",

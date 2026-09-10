@@ -33,20 +33,20 @@ export function JoinCommunity() {
             className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-cyan-500/20 to-purple-500/20 border border-cyan-500/50 backdrop-blur-xl mb-8"
           >
             <Sparkles className="w-4 h-4 text-cyan-400" />
-            <span className="text-sm font-medium text-cyan-400">限时开放</span>
+            <span className="text-sm font-medium text-cyan-400">开放报名中</span>
           </motion.div>
 
           {/* Heading */}
           <h2 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-white via-cyan-200 to-purple-400 bg-clip-text text-transparent leading-tight">
-            准备好开启你的
+            准备好做 Agent 方向的项目和面试了吗？
             <br />
-            AI 进阶之旅了吗？
+            来社区一起练。
           </h2>
 
           <p className="text-xl md:text-2xl text-gray-400 mb-12 leading-relaxed max-w-3xl mx-auto">
-            加入 AgentAlpha 社区，与志同道合的伙伴一起
+            加入 AgentAlpha，和正在做 Agent 的工程师、学生一起：
             <br />
-            探索 AI 的无限可能，打造属于你的技术影响力
+            跟项目、过代码、练面试、找内推
           </p>
 
           {/* CTA Buttons */}

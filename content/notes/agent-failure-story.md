@@ -105,7 +105,7 @@ minutes: 24
 
 演练记录至少包含注入条件、预期行为、实际行为、发现延迟和改进 owner。这样面试官追问“你怎么确定修复有效”时，你有运行证据，而不只是说“我们加了监控”。
 
-![从事故时间线到故障演练，修复才能沉淀成下一次可验证的护栏](/images/notes/agent-failure-story/incident-drill-ladder.svg)
+![从事故时间线到故障演练，修复才能转化为下一次可验证的护栏](/images/notes/agent-failure-story/incident-drill-ladder.svg)
 
 ## 复盘报告不要写成情绪作文
 
@@ -420,10 +420,10 @@ decision: guardrail_effect_isolatable
 
 - [项目讲不深，通常不是项目小而是证据链断了](/notes/agent-project-evidence)
 - [Agent 上线后怎么定位问题？从 trace 到可观测性和回放](/notes/agent-observability-replay)
-- [一次 Agent 实验怎样算可复现？从版本指纹到结果归因](/notes/agent-eval-reproducibility)
-- [Code Agent 跑到一半挂了，怎么恢复而且不重复执行？](/notes/code-agent-resume-exactly-once)
+- [同一个 Agent 实验，怎样才能复现？](/notes/agent-eval-reproducibility)
+- [Code Agent 跑到一半挂了，怎样恢复又不重复执行？](/notes/code-agent-resume-exactly-once)
 
 ## 资料来源
 
-- Agent 岗面试宝典 v3（AgentAlpha 飞书文档）
+- AgentAlpha《Agent 岗面试宝典 v3》：失败复盘章节（内部讲义，未公开）
 - ARIS in AI Offer：失败复盘与系统护栏结构

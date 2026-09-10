@@ -61,8 +61,8 @@ import re
 
 def normalize(text):
     text = text.lower()
-    text = re.sub(r"https?://\\S+", "<url>", text)
-    text = re.sub(r"\\s+", " ", text).strip()
+    text = re.sub(r"https?://\S+", "<url>", text)
+    text = re.sub(r"\s+", " ", text).strip()
     return text
 
 def exact_key(text):
@@ -319,11 +319,23 @@ decision: publish_manifest
 
 这张账本有两个好处。第一，采样权重不再被文件数误导；第二，下一轮可以针对损耗最大的桶做实验，而不是盲目把原始数据再扩大一倍。若某桶的 `raw_tokens` 很大但 `effective_tokens` 很小，它更像是清洗问题，不是“训练预算不够”。
 
+各桶的真实占比也可以用一个公式概括：
+
+$$
+E_i = \frac{p_i \times q_i \times w_i}{\sum_j p_j \times q_j \times w_j}
+$$
+
+其中 \(p_i\) 是采样比例，\(q_i\) 是过滤后保留率，\(w_i\) 是有效 token 权重。面试时不要只说“我把代码数据调到 20%”，要说明调的是 \(p_i\)，最终验收看的是 \(E_i\)。
+
 ![有效 token 账本把原始规模、过滤损耗和最终训练权重串起来](/images/notes/llm-data-mixture/effective-token-ledger-card.svg)
 
 ### L5：为什么要记录过滤损耗，而不是只记录最终配比？
 
 因为损耗本身就是数据质量信号。相同的最终权重，可能来自高质量小数据，也可能来自大量污染后勉强凑出的数据；没有损耗明细，就无法定位预算到底浪费在哪里。
+
+### L5：为什么总 token 一样，训练影响仍可能不同？
+
+因为长答案可能被截断，模板 token 可能不计 loss，低质量样本还会在过滤阶段消失。只报总 token 会把这些差异藏起来；有效 token 账本能说明每个桶真正参与了多少更新。
 
 ## 调 mixture 时要锁定总 token，避免“变好”只是因为吃得更多
 
@@ -379,33 +391,6 @@ decision: rebalance_sequence_packing
 
 序列长度、packing、梯度累积和重采样都会改变某个桶实际参与更新的次数。只看 token 百分比会漏掉这些竞争关系；要把 token、序列、step 和有效梯度一起回放，才能解释能力变化。
 
-## 配比要看“有效 token”，不是只看采样 token
-
-训练配置里写的 20% 代码、30% 数学，通常只是采样比例。经过质量过滤、去重、截断和 loss mask 之后，真正参与梯度更新的 token 已经变了。可以用一张简单的账本把这个变化显式化：
-
-$$
-E_i = \frac{p_i \times q_i \times w_i}{\sum_j p_j \times q_j \times w_j}
-$$
-
-其中 (p_i) 是采样比例，(q_i) 是过滤后保留率，(w_i) 是有效 token 权重。面试时不要只说“我把代码数据调到 20%”，要说明调的是 (p_i)，最终验收看的是 (E_i)。
-
-```yaml
-effective_token_ledger:
-  contract: etl_20260820_115
-  buckets:
-    code: {sample_ratio: 0.20, keep_rate: 0.62, loss_weight: 1.0}
-    math: {sample_ratio: 0.15, keep_rate: 0.88, loss_weight: 1.2}
-    dialogue: {sample_ratio: 0.35, keep_rate: 0.91, loss_weight: 0.8}
-  compare_by: effective_tokens_after_mask
-  fixed_total_tokens: true
-```
-
-![有效 token 配比：采样比例经过过滤保留率与 loss 权重后，才得到真正的训练贡献](/images/notes/llm-data-mixture/effective-token-ledger-card.svg)
-
-### L5：为什么总 token 一样，训练影响仍可能不同？
-
-因为长答案可能被截断，模板 token 可能不计 loss，低质量样本还会在过滤阶段消失。只报总 token 会把这些差异藏起来；有效 token 账本能说明每个桶真正参与了多少更新。
-
 ## 60 秒面试回答
 
 “预训练数据工程的目标是最大化有效信息，而不是最大化原始 token。我的流程会记录来源、版本和许可，先做安全/语言/格式过滤，再做 exact 与 near-duplicate 去重，按质量、领域、语言和任务目标分桶。mixture 先设一个可解释的预算，再用固定总 token 的 ablation 比较代码、数学、通用、长上下文和多语切片，同时观察污染、记忆、成本与遗忘风险。对于高价值但小规模的数据，优先使用可追踪的采样权重，不复制文件制造假规模。最终每个数据版本都用 manifest 固化，确保能力变化可以回溯到具体来源和配比。”
@@ -438,6 +423,4 @@ effective_token_ledger:
 
 LLM 训练这一组从 SFT 行为、RLHF/DPO 偏好，到稳定性和预训练数据配比，最终都回到一个问题：你能不能解释模型为什么获得某项能力，以及为此付出了什么代价。
 
-查看 AgentAlpha 大模型 Agent 训练营 (https://agentalpha.feishu.cn/wiki/TjZJwXw70ijEX6kkyKicgortnpb)
-
-下一轮继续进入更长的 Agent 训练链路，把模型能力接回工具、环境和可验收的真实任务。下篇见。
+[查看 AgentAlpha 大模型 Agent 训练营](https://agentalpha.feishu.cn/wiki/TjZJwXw70ijEX6kkyKicgortnpb)

@@ -175,7 +175,7 @@ DeepSeek-R1 的技术报告展示了结果奖励在数学推理上的强大效�
 
 奖励函数一旦改变，策略看到的世界就变了。每次调整都要留下版本、硬约束、权重变化和受影响任务，重新跑一组固定回放，再比较“高分低质”与真实结果，而不是只贴一张新曲线：
 
-\`\`\`yaml
+```yaml
 reward_contract: rw_20260820_09
 parent: rw_20260812_04
 hard_gates:
@@ -194,7 +194,7 @@ acceptance:
   true_task_success: ">= 0.88"
 owner: agent-platform
 rollback_to: rw_20260812_04
-\`\`\`
+```
 
 把硬门控和效率偏好分开，能让团队回答两个不同问题：哪些行为无论多快都不能接受，哪些行为在合格方案之间才值得优化。若改完奖励后总分上涨但隐藏任务下降，先回滚 contract，再查 verifier 和环境证据。
 
@@ -325,8 +325,8 @@ AgentAlpha 的路线从 RAG、记忆系统、单 Agent、多 Agent、DeepSearch�
 
 Agentic RL 阶段已经确认的内容包括 Search-R1、GRPO / PPO、奖励函数和搜索触发；阶段交付是一份小规模问答或推理任务上的 RL 微型实验报告。课程按周任务、作业检查、代码 Review 和项目验收推进，完成项目后再继续打磨 README、技术报告、简历项目段落和面试讲法。
 
-查看 AgentAlpha 大模型 Agent 训练营 (https://agentalpha.feishu.cn/wiki/TjZJwXw70ijEX6kkyKicgortnpb)
+[查看 AgentAlpha 大模型 Agent 训练营](https://agentalpha.feishu.cn/wiki/TjZJwXw70ijEX6kkyKicgortnpb)
 
-如果你只想先看路线图，发「路线」；想判断自己适合从哪个项目开始，发「项目」；正在准备面试，发「追问」。
+训练营的阶段路线、项目和面试追问安排，见训练营页面。
 
 奖励高只是提示灯，不是结案章。先确认任务真的完成，再让模型继续变强。

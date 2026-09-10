@@ -18,7 +18,7 @@ minutes: 18
 - Paged Attention 解决的是算力问题还是内存碎片？
 - prefix cache 命中后，哪些计算可以跳过？
 
-这篇不把 KV Cache 讲成一个“开关”，而是从一次生成请求的数据流开始，算清它到底省下了什么，又把成本挪到了哪里。
+KV Cache 不是一个打开就生效的开关。从一次生成请求的数据流开始，可以算清它省下了什么，又把成本挪到了哪里。
 
 ## §0 TL;DR：先把缓存说准确
 
@@ -421,9 +421,7 @@ decision: preserve_live_state_first
 
 ![KV Cache 回收策略：活跃序列不驱逐，可复用块按租户配额回收，未知分支保留对账状态](/images/notes/llm-kv-cache/kv-eviction-state-card.svg)
 
-### L5：为什么把 KV 迁到 CPU 也不能只看显存下降？
-
-CPU offload 会引入 PCIe/内存带宽和恢复延迟，还可能把不兼容的旧状态重新带回推理。必须把 restore latency、TTFT、兼容指纹和跨租户隔离纳入回归；显存省下来但 P99 和安全边界变差，不算优化。
+把 KV 迁到 CPU 或磁盘同样不能只看显存下降：offload 会引入 PCIe 带宽和恢复延迟，还可能把不兼容的旧状态带回推理。显存省下来但 P99 和隔离边界变差，不算优化。
 
 ## KV 显存公式要拆到 token、层和 KV head
 
@@ -468,11 +466,11 @@ decision: capacity_model_calibrated
 - Paged Attention 管理物理内存，Prefix Cache 复用逻辑前缀，二者不是同一件事。
 - 长上下文服务要同时设计显存公式、block 回收、缓存失效、权限隔离和尾延迟指标。
 
-下一篇会继续把“推理很慢”拆成一张工程账单：**量化、连续批处理、前缀缓存、投机解码和并行策略，分别改善哪一个指标？**
+“推理慢”还能继续拆成一张工程账单：量化、连续批处理、前缀缓存、投机解码和并行策略，分别改善哪一个指标，可以到系列里推理优化一篇接着看。
 
 ## 参考资料
 
-1. AgentAlpha《Agent 岗面试宝典 v3》：LLM 基础章节与 KV Cache、GQA/MQA、推理优化专题（内部学习资料）。
+1. AgentAlpha《Agent 岗面试宝典 v3》：KV Cache 章节与 GQA/MQA、推理优化专题。
 2. [Efficiently Scaling Transformer Inference](https://arxiv.org/abs/2211.05102)，关于推理阶段计算与内存的分析。
 3. [vLLM](https://github.com/vllm-project/vllm)，Paged Attention 与高吞吐推理服务的开源实现。
 4. [ARIS in AI Offer](https://github.com/wanshuiyin/ARIS-in-AI-Offer)，参考其先给结论、再推导公式和代码、最后分层追问的组织方式。

@@ -400,11 +400,11 @@ capability_handshake:
 
 ## 相关笔记
 
-- [Function Calling 不是让模型‘会调用函数’：参数、协议和验证](/notes/tool-function-contract)
+- [Function Calling 不是模型会调函数就完事：先把契约验清楚](/notes/tool-function-contract)
 - [工具返回一大段 JSON，为什么 Agent 反而更容易做错](/notes/tool-output-shaping)
 - [Agent 安全不是加一句提示词：权限、工具和数据边界怎么设计](/notes/agent-security-boundaries)
 
 ## 参考
 
-- [Agent 岗面试宝典 v3：工具调用章节（本地导入）](/content/imports/agent-interview-v3.feishu.md)
+- AgentAlpha《Agent 岗面试宝典 v3》：工具调用章节
 - [ARIS-in-AI-Offer](https://github.com/wanshuiyin/ARIS-in-AI-Offer)

@@ -371,7 +371,7 @@ decision: no_blind_replay
 
 同一个 timeout 可能发生在连接尚未建立，也可能发生在供应商已完成写入之后。重试决策要结合发送阶段、request_id、outbox 和幂等记录；异常只提供线索，不能单独作为副作用判断。
 
-## L5：为什么“重试次数”不能单独作为可靠性指标？
+### L5：为什么“重试次数”不能单独作为可靠性指标？
 
 重试可能掩盖了错误分类，也可能把一个已成功的写操作重复执行。可靠性要同时看未知结果率、对账成功率、重复副作用率、预算耗尽后的人工接管和最终任务成功，而不是只看重试后 200 了几次。
 
@@ -447,11 +447,11 @@ side_effect_budget:
 
 ## 相关笔记
 
-- [Function Calling 不是让模型‘会调用函数’：参数、协议和验证](/notes/tool-function-contract)
-- [Code Agent 跑到一半挂了，怎么恢复而且不重复执行？](/notes/code-agent-resume-exactly-once)
-- [如何给工具调用做权限控制和审计？](/notes/tool-permission-audit)
+- [Function Calling 不是模型会调函数就完事：先把契约验清楚](/notes/tool-function-contract)
+- [Code Agent 跑到一半挂了，怎样恢复又不重复执行？](/notes/code-agent-resume-exactly-once)
+- [工具调用怎么做权限控制和审计？](/notes/tool-permission-audit)
 
 ## 参考
 
-- [Agent 岗面试宝典 v3：工具调用章节（本地导入）](/content/imports/agent-interview-v3.feishu.md)
+- AgentAlpha《Agent 岗面试宝典 v3》：工具调用章节
 - [ARIS-in-AI-Offer](https://github.com/wanshuiyin/ARIS-in-AI-Offer)

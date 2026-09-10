@@ -382,9 +382,9 @@ decision: prioritize_critical_path
 - [规划与反思什么时候有用，什么时候只是让 Agent 多说废话](/notes/agent-planning-reflection)
 - [Agent 安全不是加一句提示词：权限、工具和数据边界怎么设计](/notes/agent-security-boundaries)
 - [Agent 上线后怎么定位问题？从 trace 到可观测性和回放](/notes/agent-observability-replay)
-- [代码 Agent 为什么总要先读仓库，再开始写代码？](/notes/code-agent-repo-context)
+- [代码 Agent 为什么总要先读仓库，再开始写？](/notes/code-agent-repo-context)
 
 ## 参考
 
-- [Agent 岗面试宝典 v3：多智能体章节（本地导入）](/content/imports/agent-interview-v3.feishu.md)
+- AgentAlpha《Agent 岗面试宝典 v3》：多智能体章节
 - [ARIS-in-AI-Offer](https://github.com/wanshuiyin/ARIS-in-AI-Offer)

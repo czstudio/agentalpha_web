@@ -49,7 +49,7 @@ vision_tokens = vision_encoder(patches)
 
 ### 从局部纹理到空间关系
 
-早期层更关注边缘、颜色和纹理，中间层建立局部形状，后期层才逐渐形成“这是一列金额”“这两个框属于同一行”的空间关系。对于文档问答，后期语义不够还不够，坐标和阅读顺序同样重要。
+早期层更关注边缘、颜色和纹理，中间层建立局部形状，后期层才逐渐形成“这是一列金额”“这两个框属于同一行”的空间关系。但只有高层语义还不够做文档问答，坐标和阅读顺序同样重要。
 
 一个常见的视觉编码过程可以抽象为：
 
@@ -392,11 +392,11 @@ cache_key: image_hash|bbox|policy_version
 
 ## 相关笔记
 
-- [图片问答答非所问，问题可能不在模型而在视觉切片](/notes/multimodal-vision-slicing)
-- [文档理解为什么要保留版面？从 OCR 到表格和图表解析](/notes/multimodal-document-layout)
-- [Embedding 到底把什么变成了向量？别把语义相似当成答案](/notes/rag-embedding-basics)
+- [图片问答答非所问，可能是模型根本没看清](/notes/multimodal-vision-slicing)
+- [文档理解为什么不能只做 OCR？版面关系才是线索](/notes/multimodal-document-layout)
+- [Embedding 到底把什么变成了向量？相似不等于正确](/notes/rag-embedding-basics)
 
 ## 参考
 
-- [Agent 岗面试宝典 v3：多模态章节（本地导入）](/content/imports/agent-interview-v3.feishu.md)
+- AgentAlpha《Agent 岗面试宝典 v3》：多模态章节
 - [ARIS-in-AI-Offer](https://github.com/wanshuiyin/ARIS-in-AI-Offer)

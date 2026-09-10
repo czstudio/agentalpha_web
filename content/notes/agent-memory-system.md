@@ -376,10 +376,10 @@ decision: write_versioned_memory
 
 ## 相关内容
 
-- [RAG 为什么不是“向量库 + 提示词”？](/notes/rag-retrieval-pipeline)
-- [Attention 不是“注意力”](/notes/llm-attention-context)
-- [代码 Agent 跑到一半挂了，怎么恢复](/notes/code-agent-resume-exactly-once)
-- [Agent 已经会 ReAct，为什么还要做 Agentic RL](/notes/agentic-rl-react)
+- [RAG 不只是“向量库 + 提示词”：证据怎样一路到答案？](/notes/rag-retrieval-pipeline)
+- [Attention 到底在算什么？从一行公式讲清上下文理解](/notes/llm-attention-context)
+- [Code Agent 跑到一半挂了，怎样恢复又不重复执行？](/notes/code-agent-resume-exactly-once)
+- [Agent 已经会 ReAct，为什么还要做 Agentic RL？](/notes/agentic-rl-react)
 
 ## 参考资料
 

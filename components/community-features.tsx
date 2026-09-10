@@ -7,7 +7,7 @@ const features = [
   {
     icon: Users,
     title: "精英网络",
-    description: "汇聚顶尖AI研究者、工程师和创业者，打造高质量人脉圈",
+    description: "研究者、工程师、创业者都在，提问有人接，讨论有质量",
     gradient: "from-cyan-500 to-blue-500",
   },
   {
@@ -18,26 +18,26 @@ const features = [
   },
   {
     icon: BookOpen,
-    title: "知识沉淀",
+    title: "笔记与教程",
     description: "系统化学习路径，从基础到前沿的完整技术体系",
     gradient: "from-green-500 to-emerald-500",
   },
   {
     icon: Trophy,
     title: "职业发展",
-    description: "大厂内推、职业辅导、面试准备，助力职业突破",
+    description: "大厂内推、职业辅导、面试准备，覆盖求职全流程",
     gradient: "from-orange-500 to-red-500",
   },
   {
     icon: MessageSquare,
     title: "深度交流",
-    description: "技术讨论、论文研读、经验分享，思想碰撞产生火花",
+    description: "技术讨论、论文研读、经验分享，问题发出来有人接",
     gradient: "from-indigo-500 to-violet-500",
   },
   {
     icon: Zap,
     title: "快速成长",
-    description: "导师指导、同伴学习、项目驱动，加速你的AI之路",
+    description: "导师答疑、同伴互评、项目驱动，进步体现在作品里",
     gradient: "from-yellow-500 to-amber-500",
   },
 ]
@@ -62,7 +62,7 @@ export function CommunityFeatures() {
             为什么选择 AgentAlpha
           </h2>
           <p className="text-xl text-gray-400 max-w-3xl mx-auto leading-relaxed">
-            不只是一个学习平台，更是一个AI领域的精英社区
+            不只是看内容，社区里能找到一起做项目的人
           </p>
         </motion.div>
 

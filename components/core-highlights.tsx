@@ -9,7 +9,7 @@ const highlights = [
   {
     icon: Users,
     title: "精英网络",
-    description: "汇聚顶尖AI研究者与工程师，打造高质量人脉圈",
+    description: "研究、工程、创业方向的人都在，提问有人接",
     gradient: "from-cyan-500 to-blue-500",
   },
   {
@@ -27,7 +27,7 @@ const highlights = [
   {
     icon: TrendingUp,
     title: "职业发展",
-    description: "大厂内推、职业辅导，助力职业突破",
+    description: "大厂内推、职业辅导，覆盖求职各环节",
     gradient: "from-pink-500 to-cyan-500",
   },
 ]
@@ -75,7 +75,7 @@ export function CoreHighlights() {
           className="mb-12 text-center"
         >
           <h2 className="text-4xl md:text-5xl font-bold premium-text-gradient mb-4">社区核心优势</h2>
-          <p className="text-lg text-foreground/70">在这里，你将获得</p>
+          <p className="text-lg text-foreground/70">加入后，你能用到这些</p>
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">

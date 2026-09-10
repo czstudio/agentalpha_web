@@ -28,14 +28,14 @@ export function CommunityNews() {
         >
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-cyan-500/20 to-purple-500/20 border border-cyan-500/50 backdrop-blur-xl mb-6">
             <Sparkles className="w-4 h-4 text-cyan-400" />
-            <span className="text-sm font-medium text-cyan-400">实时更新</span>
+            <span className="text-sm font-medium text-cyan-400">持续更新</span>
           </div>
 
           <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
             社区动态
           </h2>
           <p className="text-xl text-gray-400 max-w-3xl mx-auto leading-relaxed">
-            最新的技术分享、活动预告和成员动态，第一时间掌握社区信息
+            技术分享、活动预告和成员动态，更新都会发在这里
           </p>
         </motion.div>
 

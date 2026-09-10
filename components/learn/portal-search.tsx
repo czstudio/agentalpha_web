@@ -33,7 +33,7 @@ export function PortalSearch({ items }: { items: SearchItem[] }) {
               <strong>{item.title}</strong>
               <span>{item.summary}</span>
             </Link>
-          )) : <p>已批准内容中暂无匹配结果。</p>}
+          )) : <p>没有找到匹配的章节，换个关键词试试。</p>}
         </div>
       )}
     </div>

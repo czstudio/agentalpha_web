@@ -433,11 +433,11 @@ review_by: 2026-09-05
 ## 相关阅读
 
 - [不会的 Agent 面试题怎么答：先拆问题，再声明假设](/notes/agent-interview-unknown)
-- [项目里的指标是怎么来的？把 Demo 讲成可验证的工程系统](/notes/agent-metrics-baseline)
-- [LLM-as-a-Judge 为什么会偏？从评分 rubric 到校准](/notes/llm-judge-calibration)
-- [一次 Agent 实验怎样算可复现？从版本指纹到结果归因](/notes/agent-eval-reproducibility)
+- [项目里的指标怎么来的？别只报一个漂亮数字](/notes/agent-metrics-baseline)
+- [让 LLM 给答案打分，为什么也会偏？](/notes/llm-judge-calibration)
+- [同一个 Agent 实验，怎样才能复现？](/notes/agent-eval-reproducibility)
 
 ## 资料来源
 
-- Agent 岗面试宝典 v3（AgentAlpha 飞书文档）
+- AgentAlpha《Agent 岗面试宝典 v3》（未公开讲义）
 - ARIS in AI Offer：方案对比、实验设计与决策记录结构

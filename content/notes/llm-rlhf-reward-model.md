@@ -323,7 +323,7 @@ gates:
 
 ### L5：为什么 tie 太多也不一定说明标注员水平差？
 
-有些任务本来就缺少足够证据，强行二选一只会制造伪标签。应区分“标注不一致”和“问题不可判定”，把后者沉淀为补证据、澄清或 abstain 的训练信号。
+有些任务本来就缺少足够证据，强行二选一只会制造伪标签。应区分“标注不一致”和“问题不可判定”，把后者转成补证据、澄清或 abstain 的训练信号。
 
 ## 偏好数据还要做“反事实成对”审计
 
@@ -370,7 +370,7 @@ $$
 P(y^+ \succ y^-) = \sigma\left(\frac{r(y^+) - r(y^-)}{\tau}\right)
 $$
 
-这里的 (	au) 决定分数差异有多“尖锐”。如果换了训练集或标注员，分数尺度可能变化；不做温度校准就直接把 reward 喂给 PPO/GRPO，策略会把量尺漂移误当成偏好变强。
+这里的 \(\tau\) 决定分数差异有多“尖锐”。如果换了训练集或标注员，分数尺度可能变化；不做温度校准就直接把 reward 喂给 PPO/GRPO，策略会把量尺漂移误当成偏好变强。
 
 ```yaml
 reward_calibration:
@@ -383,10 +383,6 @@ reward_calibration:
 ```
 
 ![奖励模型校准：偏好对、温度参数、高风险切片和发布门槛被固定在同一张卡里](/images/notes/llm-rlhf-reward-model/reward-calibration-card.svg)
-
-### L5：为什么 pair accuracy 高，仍不能证明奖励模型可靠？
-
-总体 pair accuracy 可能被容易样本拉高，拒答、引用和长上下文切片却仍然错得厉害。奖励模型最终要影响策略行为，因此必须报告切片、校准区间和 tie/abstain，而不是只报一个总准确率。
 
 ## 60 秒面试回答
 
@@ -418,8 +414,6 @@ reward_calibration:
 
 ## AgentAlpha 大模型 Agent 训练营
 
-这篇负责把“偏好”拆成一条可复盘的训练链路。后续 DPO 会继续回答：如果不单独训练奖励模型，如何直接利用 chosen/rejected？再往后是训练稳定性和数据配比，解决“曲线好看但能力没交付”的问题。
+想把 RLHF、DPO、训练稳定性和数据配比这些专题系统练一遍，可以看 [AgentAlpha 大模型 Agent 训练营](https://agentalpha.feishu.cn/wiki/TjZJwXw70ijEX6kkyKicgortnpb)。
 
-查看 AgentAlpha 大模型 Agent 训练营 (https://agentalpha.feishu.cn/wiki/TjZJwXw70ijEX6kkyKicgortnpb)
-
-先把奖励函数写成验收标准，再把优化器交给模型。下篇见。
+一条可以带走的建议：先把奖励函数写成验收标准，再把优化器交给模型。

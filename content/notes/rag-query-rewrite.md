@@ -88,8 +88,6 @@ def merge(sub_answers: list[dict]) -> dict:
 
 因此第一轮只生成两个低风险候选：`华东仓 冷链 赔付 现行规则`、`华东仓 冷链 赔付 需要补充事件类型`。如果第一候选能命中制度目录，回答中仍要提示“请确认事件类型”；如果命中多个版本，则进入澄清，而不是让模型从标题猜结论。
 
-![查询改写中的字段缺口与澄清分支](/images/notes/rag-retrieval-pipeline/rag-pipeline.svg)
-
 ## 候选不是越多越好：给每个候选一张评分卡
 
 线上可以把候选控制在 1～3 个，并把评分拆成可解释的项：
@@ -118,8 +116,6 @@ def choose_candidate(original: str, candidates: list[dict], evidence: dict) -> d
 ```
 
 这段逻辑的关键不在权重是否刚好是 0.35，而在于候选、证据和回退结果都落到 trace 里。调参时可以替换权重，不能把“为什么选它”重新藏回不可观测的 Prompt。
-
-![改写候选的覆盖率、风险和回退阈值](/images/notes/rag-grounded-evidence/claim-ledger-card.svg)
 
 ## 失败分类：改写错了，还是检索错了
 
@@ -161,8 +157,6 @@ query_rewrite_eval:
 
 线上则增加三项成本：改写额外 token、额外一次检索的尾延迟、以及澄清率。只有“答案正确率上升”同时伴随“无依据回答下降或持平”，这次改写才值得保留。
 
-![改写评测从离线样本到线上回退](/images/notes/rag-rerank-and-hybrid/hybrid-retrieval.svg)
-
 ## 交接记录应该长什么样
 
 每次改写最后输出一张小型记录卡，便于面试讲项目，也便于线上追责：
@@ -194,8 +188,6 @@ query_rewrite_eval:
 | 并行 | 是否应该保留原问兜底 | 候选过多导致尾延迟 |
 
 并行结果可以用“证据并集但答案不重复”的方式合并：先按来源去重，再让生成器看到候选 query 的 lineage。不要把两组检索结果直接拼接，否则改写噪声会放大上下文长度。
-
-![原问、改写和混合检索的证据流](/images/notes/rag-retrieval-pipeline/rag-pipeline.svg)
 
 ## 领域术语表要有主人和版本
 
@@ -312,11 +304,11 @@ rewrite_review:
 
 ## 相关阅读
 
-- [RAG 检索流水线：从问题到证据](/notes/rag-retrieval-pipeline)
-- [RAG 的切片策略](/notes/rag-chunking-strategy)
-- [RAG 如何保住引用证据](/notes/rag-grounded-evidence)
+- [RAG 不只是“向量库 + 提示词”：证据怎样一路到答案？](/notes/rag-retrieval-pipeline)
+- [RAG 分块怎么定？先别急着争 256 还是 512](/notes/rag-chunking-strategy)
+- [RAG 答案看着对，怎样证明它有依据？](/notes/rag-grounded-evidence)
 
 ## 资料来源
 
-- 《Agent 岗面试宝典 v3 · 精华版》（本地飞书资料整理）
+- 《Agent 岗面试宝典 v3 · 精华版》
 - [ARIS-in-AI-Offer](https://github.com/wanshuiyin/ARIS-in-AI-Offer)

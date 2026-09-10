@@ -16,7 +16,7 @@ minutes: 19
 
 这类 Agent 看起来很有条理，其实只是把没想清楚的地方排版得更整齐。
 
-飞书文档里的规划题，常常会继续追问：工作流和 Agent 怎么选？ReAct、Plan-and-Execute、ReWOO、状态机分别适合什么？Planner 发现计划不可执行时如何 Replan？连续反思失败后什么时候降级？这些题都在考同一件事：你有没有把“想一想”变成可执行的控制系统。
+面试里的规划题，常常会继续追问：工作流和 Agent 怎么选？ReAct、Plan-and-Execute、ReWOO、状态机分别适合什么？Planner 发现计划不可执行时如何 Replan？连续反思失败后什么时候降级？这些题都在考同一件事：你有没有把“想一想”变成可执行的控制系统。
 
 ## 先给一个能复述的答案
 
@@ -358,10 +358,6 @@ plan_value_review:
 
 ![计划价值复核：预期收益、风险、工具成本和证据新鲜度决定是否重规划](/images/notes/agent-planning-reflection/plan-value-review-card.svg)
 
-### L5：为什么“再思考一次”不是 Reflection 成功？
-
-因为反思必须改变可执行计划或明确拒绝继续。若只是生成一段更长的解释，没有减少风险、补充证据或改变动作序列，那只是语言层面的重写，不是系统层面的纠错。
-
 ## 60 秒面试回答
 
 我会先判断任务的不确定性：固定路径和严格边界用工作流或状态机，只有需要基于工具观察动态决策时才引入 Agent。ReAct 适合边观察边行动，Plan-and-Execute 适合依赖相对清楚的多步骤任务，ReWOO 适合工具依赖能提前展开的链路。无论哪种模式，计划都用结构化数据表达目标、依赖、输入输出、验收和失败转移。Reflection 只在验收失败、假设冲突或预算越界时触发，每次必须改变计划、参数或策略；达到重试、时间或成本上限后明确降级。这样规划才是控制系统，不是让模型多写一段思考。
@@ -394,10 +390,10 @@ plan_value_review:
 
 ## 相关内容
 
-- [Agent 已经会 ReAct，为什么还要做 Agentic RL](/notes/agentic-rl-react)
-- [记忆系统不是聊天记录](/notes/agent-memory-system)
-- [代码 Agent 为什么总要先读仓库](/notes/code-agent-repo-context)
-- [Code Agent 如何做到 exactly-once 恢复](/notes/code-agent-resume-exactly-once)
+- [Agent 已经会 ReAct，为什么还要做 Agentic RL？](/notes/agentic-rl-react)
+- [记忆系统不是聊天记录：短期、长期和压缩到底怎么分工](/notes/agent-memory-system)
+- [代码 Agent 为什么总要先读仓库，再开始写？](/notes/code-agent-repo-context)
+- [Code Agent 跑到一半挂了，怎样恢复又不重复执行？](/notes/code-agent-resume-exactly-once)
 
 ## 参考资料
 

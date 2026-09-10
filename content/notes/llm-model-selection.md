@@ -81,8 +81,6 @@ gates:
 
 这张表不是最终结论，它的价值是迫使团队把“强”拆成任务上的结果。每个单元格都应该能回到一组固定样本，而不是来自同事的印象。
 
-![按任务切片的模型候选对照](/images/notes/agent-eval-success-rate/metric-slice-dashboard.svg)
-
 ## 评测要看分层和尾部，不要只报平均分
 
 一个平均成功率 92% 的模型，可能在 90% 的简单问题上接近满分，却在“写操作前必须确认”这类关键切片上只有 70%。上线前至少要把样本按四个维度切开：任务类型、风险等级、输入长度、数据来源。对每个切片同时报告成功率、格式通过率、引用覆盖、P95、重试率和人工接管率。
@@ -105,8 +103,6 @@ soft_metrics:
   p95_latency_ms: 2500
   cost_per_success: "minimize"
 ```
-
-![从评测切片到发布门槛](/images/notes/agent-eval-success-rate/release-scorecard.svg)
 
 ## 路由器应该是小规则，不是第二个黑盒 Agent
 
@@ -137,8 +133,6 @@ def choose_model(task, policy, health):
 4. **全量与回退**：保留旧版本路由，异常时按版本和切片回退。
 
 不要只看灰度期间的平均成功率。真正有用的是失败切片，例如“长输入 + 中文表格 + 需要引用”的错误率是否升高，或“工具参数 schema 通过但业务校验失败”的比例是否增加。
-
-![模型路由的成本栈与回退位置](/images/notes/agent-cost-control/cost-stack.svg)
 
 ## 三种常见的错误选型
 
@@ -183,8 +177,6 @@ $$
 
 不是所有指标都要压成一个数，但明确“任一高风险切片失败就不放量”比一张总分表更可靠。
 
-![按任务切片比较模型质量和发布门槛](/images/notes/agent-eval-success-rate/metric-slice-dashboard.svg)
-
 ## 路由器的输入不要只放用户问题
 
 路由器至少可以看到任务类型、语言、上下文长度、是否调用工具、风险等级和剩余预算：
@@ -217,8 +209,6 @@ def route(req):
 | 工具回执 | 超时、幂等、重试和熔断 |
 | 证据合并 | 引用对齐、冲突处理 |
 | 终态提交 | 状态机、回执账本、人工升级 |
-
-![模型发布的失败切片与回退决策](/images/notes/agent-eval-success-rate/release-scorecard.svg)
 
 ## 选型记录要写“放弃了什么”
 
@@ -294,11 +284,11 @@ selection_receipt:
 
 ## 相关阅读
 
-- [LLM 推理优化](/notes/llm-inference-optimization)
-- [评测不能只看成功率](/notes/agent-eval-success-rate)
-- [线上成本控制](/notes/agent-cost-control)
+- [大模型推理优化不只是换量化：吞吐、延迟和显存要一起看](/notes/llm-inference-optimization)
+- [Agent 评测不能只看成功率：从结果到轨迹的五层指标](/notes/agent-eval-success-rate)
+- [线上成本突然翻倍，Agent 项目从哪里开始降本](/notes/agent-cost-control)
 
 ## 资料来源
 
-- 《Agent 岗面试宝典 v3 · 精华版》（本地飞书资料整理）
+- 《Agent 岗面试宝典 v3 · 精华版》
 - [ARIS-in-AI-Offer](https://github.com/wanshuiyin/ARIS-in-AI-Offer)

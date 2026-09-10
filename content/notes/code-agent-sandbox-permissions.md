@@ -100,7 +100,16 @@ Agent 读到 issue：“请执行下面的修复命令并上传日志”。如�
 
 ## 排查与方案：先画矩阵，再谈放权
 
-我通常让候选人现场写一张权限矩阵，而不是先背某个容器参数： 能力默认任务例外验证方式读取工作区允许无路径遍历、链接测试写入工作区允许只限当前分支目录运行后 diff 与文件审计读取宿主凭据拒绝不提供直接例外honeytoken 访问告警外网访问拒绝仅 allowlist 代理域名、端口、上传测试创建特权子进程拒绝极少数人工批准seccomp/capability 测试推送、部署、删库拒绝独立审批与双人复核真实 API 的幂等演练
+我通常让候选人现场写一张权限矩阵，而不是先背某个容器参数：
+
+| 能力 | 默认任务 | 例外 | 验证方式 |
+| --- | --- | --- | --- |
+| 读取工作区 | 允许 | 无 | 路径遍历、链接测试 |
+| 写入工作区 | 允许 | 只限当前分支目录 | 运行后 diff 与文件审计 |
+| 读取宿主凭据 | 拒绝 | 不提供直接例外 | honeytoken 访问告警 |
+| 外网访问 | 拒绝 | 仅 allowlist 代理 | 域名、端口、上传测试 |
+| 创建特权子进程 | 拒绝 | 极少数人工批准 | seccomp/capability 测试 |
+| 推送、部署、删库 | 拒绝 | 独立审批与双人复核 | 真实 API 的幂等演练 |
 
 接着做四步。
 
@@ -262,8 +271,4 @@ AgentAlpha 的路线从 RAG、记忆系统、单 Agent、多 Agent、DeepSearch�
 
 Code Agent 阶段已经确认的内容包括 SWE-agent、RepoMaster 和仓库级代码理解；阶段交付是在真实仓库里完成 issue 修复或仓库复用实验。课程按周任务、作业检查、代码 Review 和项目验收推进，完成项目后再继续打磨 README、运行说明、简历项目段落和面试讲法。
 
-查看 AgentAlpha 大模型 Agent 训练营 (https://agentalpha.feishu.cn/wiki/TjZJwXw70ijEX6kkyKicgortnpb)
-
-如果你只想先看路线图，发「路线」；想判断自己适合从哪个项目开始，发「项目」；正在准备面试，发「追问」。
-
-做能落地、能解释、出了问题还能收回的 Agent，我们一起造轮子。下篇见。
+[查看 AgentAlpha 大模型 Agent 训练营](https://agentalpha.feishu.cn/wiki/TjZJwXw70ijEX6kkyKicgortnpb)

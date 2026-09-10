@@ -203,7 +203,7 @@ route: high_risk_only
 
 一个角色在当前样本上有边际收益，不等于它应该永久进入默认路由。评测报告还要声明什么情况会撤回：收益低于阈值、成本超预算、风险护栏触发，或下游根本没有消费它的产物。这样路由决策才是可逆的，而不是一次性的架构投票：
 
-\`\`\`yaml
+```yaml
 route_decision: role_routing_20260820_02
 role: citation-verifier
 baseline: planner-r17
@@ -222,15 +222,11 @@ rollback_if:
   - "task_success_delta < +1pp for 2 days"
   - "p95_latency > 1.5s"
   - "unsupported_claim_rate > 3%"
-\`\`\`
+```
 
 角色的价值要在“加入、消融、替换基线、真实下游消费”四个状态间反复检查。达不到默认开启条件时，可以保留在高风险任务或灰度流量里，而不是把它删掉或全量打开。
 
 ![角色路由回滚卡把收益、成本、护栏、灰度比例和撤回条件放在同一张决策单上](/images/notes/multi-agent-evaluation/role-routing-rollback-card.svg)
-
-## L5：为什么有收益的角色也可能不适合默认开启？
-
-因为默认路由面对的是所有任务，不是评测集里的平均任务。一个角色可能只在长文档任务上有效，却给短问答增加时延；只有把收益切片、成本预算和撤回条件一起写出，才能判断它应该在哪些路由上出现。
 
 ## L5：角色消融通过了，为什么仍可能不适合默认开启？
 
@@ -383,32 +379,6 @@ decision: keep_for_risky_slices
 
 因为它可能牺牲了低频但高风险的保护能力，或者让其他角色获得了额外预算。要先核对实验是否只改变一个变量，再看硬失败、切片风险和证据质量；平均分上升不能覆盖确定性的越权或错误副作用。
 
-## 角色消融要固定预算，不能只删一个名字
-
-多 Agent 的角色消融经常被做错：删掉一个角色后，剩下的 Agent 可能获得更多 token、更多工具次数或更长 deadline，最终分数上涨却无法说明这个角色没有价值。严谨的消融需要固定任务集、消息预算、工具额度、并发和评测器，只改变是否允许该角色产出；同时检查它原本负责的证据收集、冲突发现和失败兜底是否被其他角色偷偷接管。
-
-```yaml
-role_ablation_budget: rab_20260820_102
-role: evidence_checker
-fixed:
-  tasks: eval_v7
-  message_tokens: 48000
-  tool_calls: 12
-  deadline_ms: 90000
-  evaluator_revision: judge_3
-variants:
-  - {name: full, role_enabled: true}
-  - {name: ablated, role_enabled: false}
-checks: [hard_failures, evidence_coverage, takeover_tokens, p95_latency]
-decision: role_value_requires_slice_review
-```
-
-![角色消融预算：固定消息、工具和时间额度，才知道删掉的角色到底贡献了什么](/images/notes/multi-agent-evaluation/role-ablation-budget-card.svg)
-
-### L5：为什么删掉一个角色后总分上升，仍不能直接合并？
-
-因为它可能牺牲了低频但高风险的保护能力，或者让其他角色获得了额外预算。要看硬失败、证据覆盖、工具副作用和长尾切片；平均分上升不能抵消确定性的越权或错误写入。
-
 ## 60 秒面试回答
 
 多 Agent 不能只看最终答案。我会建立五层评测：任务结果、个体产物、消息和状态协作、资源效率、安全与恢复。测试集由任务加扰动组成，覆盖消息丢失、重复、乱序、角色失职、证据冲突、工具超时和预算耗尽。每次运行保存 trace、artifact 版本、模型和工具环境；用规则校验硬约束，程序复算客观指标，人审或盲评处理表达。上线前做离线回放、影子流量和受限 canary，重点看 P95/P99、重试放大、越权拦截和人工升级，而不是只看平均成功率。
@@ -424,12 +394,12 @@ decision: role_value_requires_slice_review
 
 ## 相关笔记
 
-- [多 Agent 互相甩锅怎么办？从监督者到仲裁器设计](/notes/multi-agent-supervisor-arbitrator)
-- [多 Agent 系统为什么越加人越慢？并发、上下文和预算控制](/notes/multi-agent-concurrency-budget)
+- [多 Agent 结论打架怎么办？监督者和仲裁器各管什么](/notes/multi-agent-supervisor-arbitrator)
+- [多 Agent 为什么越加人越慢？先管并发和预算](/notes/multi-agent-concurrency-budget)
 - [Agent 上线后怎么定位问题？从 trace 到可观测性和回放](/notes/agent-observability-replay)
-- [为什么检索到了正确文档，答案还是错？从召回到重排再到评测](/notes/rag-evaluation-practice)
+- [RAG 怎么评测才不自欺？把“答得像”拆开看](/notes/rag-evaluation-practice)
 
 ## 参考
 
-- [Agent 岗面试宝典 v3：多智能体评测考点（本地导入）](/content/imports/agent-interview-v3.feishu.md)
+- AgentAlpha《Agent 岗面试宝典 v3》：多智能体评测章节
 - [ARIS-in-AI-Offer](https://github.com/wanshuiyin/ARIS-in-AI-Offer)

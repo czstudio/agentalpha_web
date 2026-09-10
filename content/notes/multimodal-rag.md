@@ -424,11 +424,11 @@ spatial_transform:
 
 ## 相关笔记
 
-- [文档理解为什么要保留版面？从 OCR 到表格和图表解析](/notes/multimodal-document-layout)
-- [RAG 为什么不是“向量库 + 提示词”？一条检索链路到底经过什么](/notes/rag-retrieval-pipeline)
-- [为什么检索到了正确文档，答案还是错？从召回到重排再到评测](/notes/rag-rerank-and-hybrid)
+- [文档理解为什么不能只做 OCR？版面关系才是线索](/notes/multimodal-document-layout)
+- [RAG 不只是“向量库 + 提示词”：证据怎样一路到答案？](/notes/rag-retrieval-pipeline)
+- [混合检索和重排，分别在补 RAG 的什么漏洞？](/notes/rag-rerank-and-hybrid)
 
 ## 参考
 
-- [Agent 岗面试宝典 v3：多模态章节（本地导入）](/content/imports/agent-interview-v3.feishu.md)
+- AgentAlpha《Agent 岗面试宝典 v3》：多模态章节
 - [ARIS-in-AI-Offer](https://github.com/wanshuiyin/ARIS-in-AI-Offer)

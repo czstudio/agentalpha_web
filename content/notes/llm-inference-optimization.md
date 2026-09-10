@@ -28,7 +28,7 @@ minutes: 20
 
 ## 先给一个能复述的答案
 
-> 我会先把服务拆成排队、Prefill 和 Decode 三段，分别记录 TTFT、TPOT、端到端延迟、吞吐、显存水位和 P95/P99。权重量化主要减少模型占用与内存带宽，但要看硬件 kernel 和精度损失；KV Cache 优化关注上下文长度、GQA/MQA、分页和前缀复用；连续批处理提升动态并发下的 GPU 利用率；投机解码在小模型预测质量足够高时减少大模型的解码轮数；张量并行可以扩展模型规模，但要支付跨卡通信。每次优化都要用固定数据集和真实长度分布同时看质量、延迟和吞吐，不能只看单请求平均耗时。>
+> 我会先把服务拆成排队、Prefill 和 Decode 三段，分别记录 TTFT、TPOT、端到端延迟、吞吐、显存水位和 P95/P99。权重量化主要减少模型占用与内存带宽，但要看硬件 kernel 和精度损失；KV Cache 优化关注上下文长度、GQA/MQA、分页和前缀复用；连续批处理提升动态并发下的 GPU 利用率；投机解码在小模型预测质量足够高时减少大模型的解码轮数；张量并行可以扩展模型规模，但要支付跨卡通信。每次优化都要用固定数据集和真实长度分布同时看质量、延迟和吞吐，不能只看单请求平均耗时。
 
 ## §1 先建立指标地图：你说的“快”到底是什么
 
@@ -55,7 +55,7 @@ TPOT 受到 KV Cache 读取、Decode kernel、采样和调度影响。一个服�
 
 ### 1.3 吞吐：一次服务多少 token
 
-常见口径至少有三种：
+常见口径至少有四种：
 
 | 指标 | 适合回答什么 |
 | --- | --- |
@@ -66,7 +66,7 @@ TPOT 受到 KV Cache 读取、Decode kernel、采样和调度影响。一个服�
 
 比较两个版本时，必须写清口径和数据分布。一个版本可能 output tokens/s 提高了，但输出更短，requests/s 反而没有改善。
 
-### 1.4 P95/P99：平均值会藏住谁在等
+### 1.4 P95/P99：平均延迟会掩盖长尾请求
 
 平均延迟只告诉你“整体大概怎样”，不告诉你高峰期最慢的请求。Agent 系统常包含长工具描述、长上下文和不规则输出，尾延迟尤其容易被少数请求拉高。
 
@@ -438,8 +438,6 @@ next: compare_tp2_vs_tp4_under_same_traffic
 
 如果模型已经能放进单卡或通信链路较慢，跨卡同步会超过节省的计算时间；短输出和小 batch 尤其明显。要在相同长度分布下比较通信占比、P99 和单位成功成本，而不是只看多卡吞吐。
 
-![KV Cache 显存账本：把序列长度、层数和并发转成可估算的容量](/images/notes/llm-kv-cache/kv-memory-formula-card.svg)
-
 ## 60 秒面试回答
 
 > 我会先把推理拆成排队、Prefill 和 Decode，分别看 TTFT、TPOT、吞吐、显存和 P95/P99。权重量化减少参数显存和带宽，但速度收益取决于硬件 kernel、反量化和真实瓶颈；KV Cache、GQA/MQA、Paged Attention 主要解决长上下文状态成本；Prefix Cache 减少重复前缀的 Prefill；Continuous Batching 提升动态请求下的 GPU 利用率；Speculative Decoding 用小模型猜、大模型验证，目标是减少大模型解码轮数；多卡并行则用通信换模型容量。每次优化都要同时验证质量、延迟、吞吐、OOM 和成本，确保知道改善的是哪个阶段，并保留回滚条件。
@@ -453,11 +451,11 @@ next: compare_tp2_vs_tp4_under_same_traffic
 - Prefix Cache 的命中条件必须包含 token、模型、位置、adapter 和权限语义。
 - 优化不是一次换配置，而是可回归、可解释、可回滚的实验流程。
 
-LLM 基础这一章先到这里：Attention 解释“如何取上下文”，Transformer 解释“为什么能并行建模”，MoE 解释“如何扩大参数容量”，KV Cache 和推理优化解释“如何把它们跑起来”。下一章会沿着 RAG 的证据链继续：从分块、Embedding、混合检索到重排与评测。
+LLM 基础这一组笔记里：Attention 解释“如何取上下文”，Transformer 解释“为什么能并行建模”，MoE 解释“如何扩大参数容量”，KV Cache 和推理优化解释“如何把它们跑起来”。
 
 ## 参考资料
 
-1. AgentAlpha《Agent 岗面试宝典 v3》：LLM 基础章节与推理优化、量化、KV Cache 专题（内部学习资料）。
+1. AgentAlpha《Agent 岗面试宝典 v3》：LLM 基础章节与推理优化、量化、KV Cache 专题。
 2. [Efficiently Scaling Transformer Inference](https://arxiv.org/abs/2211.05102)，推理阶段性能分析。
 3. [vLLM](https://github.com/vllm-project/vllm)，高吞吐推理服务与 Paged Attention 实现。
-4. [ARIS in AI Offer](https://github.com/wanshuiyin/ARIS-in-AI-Offer)，参考其将指标、工程取舍和面试表达串成闭环的写法。
+4. [ARIS in AI Offer](https://github.com/wanshuiyin/ARIS-in-AI-Offer)

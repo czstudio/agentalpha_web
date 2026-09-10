@@ -394,11 +394,11 @@ decision: keep_graph_and_abstain_if_ambiguous
 
 ## 相关笔记
 
-- [图片问答答非所问，问题可能不在模型而在视觉切片](/notes/multimodal-vision-slicing)
-- [多模态 RAG 怎么检索图片、表格和文字](/notes/multimodal-rag)
-- [RAG 怎么评测才不自欺？把“答得像”拆成四层证据](/notes/rag-evaluation-practice)
+- [图片问答答非所问，可能是模型根本没看清](/notes/multimodal-vision-slicing)
+- [多模态 RAG 怎样把图片、表格和文字一起查出来？](/notes/multimodal-rag)
+- [RAG 怎么评测才不自欺？把“答得像”拆开看](/notes/rag-evaluation-practice)
 
 ## 参考
 
-- [Agent 岗面试宝典 v3：多模态章节（本地导入）](/content/imports/agent-interview-v3.feishu.md)
+- AgentAlpha《Agent 岗面试宝典 v3》：多模态章节
 - [ARIS-in-AI-Offer](https://github.com/wanshuiyin/ARIS-in-AI-Offer)

@@ -104,7 +104,7 @@ Answer → Audit：trace、版本、拒答原因
 
 ![文档导入、版本发布和删除回滚的生命周期](/images/notes/enterprise-knowledge-agent-design/knowledge-lifecycle.svg)
 
-图 4：知识库的“更新”是一次带回滚点的发布，不是简单上传文件。
+知识库的“更新”是一次带回滚点的发布，不是简单上传文件。
 
 如果检索结果为空，系统应把 `no_match`、`permission_filtered`、`index_pending` 和 `parser_failed` 区分开。它们对应的下一步分别是换问法、申请权限、等待索引或修复导入，而不是统一回复“没有找到”。
 
@@ -409,12 +409,12 @@ deletion_sla:
 
 ## 相关阅读
 
-- [RAG 为什么不是“向量库 + 提示词”？](/notes/rag-retrieval-pipeline)
-- [RAG 答案看着对，怎么证明它真的有依据？](/notes/rag-grounded-evidence)
-- [Agent 安全不是加一句提示词](/notes/agent-security-boundaries)
-- [离线评测高分，线上为什么还是翻车？](/notes/offline-eval-online-drift)
+- [RAG 不只是“向量库 + 提示词”：证据怎样一路到答案？](/notes/rag-retrieval-pipeline)
+- [RAG 答案看着对，怎样证明它有依据？](/notes/rag-grounded-evidence)
+- [Agent 安全不是加一句提示词：权限、工具和数据边界怎么设计](/notes/agent-security-boundaries)
+- [离线评测 95 分，线上为什么还是翻车？](/notes/offline-eval-online-drift)
 
 ## 资料来源
 
-- Agent 岗面试宝典 v3（AgentAlpha 飞书文档）
-- ARIS in AI Offer：系统设计、公式、代码和分层追问结构
+- AgentAlpha《Agent 岗面试宝典 v3》
+- [ARIS in AI Offer](https://github.com/wanshuiyin/ARIS-in-AI-Offer)

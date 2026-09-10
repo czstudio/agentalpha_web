@@ -135,8 +135,6 @@ fallback: "no evidence -> ask clarification; tool unknown -> reconcile"
 
 项目汇报时只展示最终答案，会让面试官无法判断“答对”是检索有效还是模型猜中。把三类证据串成一条 `trace_id`，再按任务切片看成功率，系统才具备改进入口。
 
-![从输入、过程到结果的项目证据链](/images/notes/agent-project-evidence/evidence-chain.svg)
-
 ## 规模题要把容量和责任说清楚
 
 假设 100 个租户、每租户 10 万份文档、峰值 60 QPS，P95 目标 3 秒。可先做一个粗略容量表：
@@ -304,12 +302,12 @@ Agent 系统有持续状态、工具动作、计划或路由、过程评测和�
 
 ## 相关阅读
 
-- [Agent 核心架构：目标、状态、行动与观察](/notes/agent-core-architecture)
-- [Workflow 还是 Agent](/notes/agent-workflow-vs-agent)
-- [Agent 线上可靠性](/notes/agent-deployment-reliability)
-- [项目讲不深，通常是证据链断了](/notes/agent-project-evidence)
+- [Agent 到底是什么：别把会调用模型的流程都叫 Agent](/notes/agent-core-architecture)
+- [Workflow 还是 Agent？先看这件事到底有多不确定](/notes/agent-workflow-vs-agent)
+- [Agent 上线不是把接口接通：超时、熔断和未知结果要先设计](/notes/agent-deployment-reliability)
+- [项目讲不深，通常不是项目小而是证据链断了](/notes/agent-project-evidence)
 
 ## 资料来源
 
-- 《Agent 岗面试宝典 v3 · 精华版》（本地飞书资料整理）
+- AgentAlpha《Agent 岗面试宝典 v3》（未公开讲义）
 - [ARIS-in-AI-Offer](https://github.com/wanshuiyin/ARIS-in-AI-Offer)：借鉴公式、实现、分层追问和可复习检查清单的组织方式

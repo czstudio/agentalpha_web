@@ -376,12 +376,12 @@ decision: cancel_with_reconciliation
 
 ## 相关笔记
 
-- [为什么一个 Agent 做不完的事，要拆成多个 Agent？](/notes/multi-agent-task-decomposition)
-- [多 Agent 互相甩锅怎么办？从监督者到仲裁器设计](/notes/multi-agent-supervisor-arbitrator)
+- [一个 Agent 做不完，什么时候该拆成多个？](/notes/multi-agent-task-decomposition)
+- [多 Agent 结论打架怎么办？监督者和仲裁器各管什么](/notes/multi-agent-supervisor-arbitrator)
 - [Agent 上线后怎么定位问题？从 trace 到可观测性和回放](/notes/agent-observability-replay)
-- [大模型推理优化不是只换量化：吞吐、延迟和显存怎么一起看](/notes/llm-inference-optimization)
+- [大模型推理优化不只是换量化：吞吐、延迟和显存要一起看](/notes/llm-inference-optimization)
 
 ## 参考
 
-- [Agent 岗面试宝典 v3：调度与资源管理考点（本地导入）](/content/imports/agent-interview-v3.feishu.md)
+- AgentAlpha《Agent 岗面试宝典 v3》：调度与资源管理考点
 - [ARIS-in-AI-Offer](https://github.com/wanshuiyin/ARIS-in-AI-Offer)

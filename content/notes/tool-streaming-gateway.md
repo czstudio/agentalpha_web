@@ -116,8 +116,6 @@ resume:
   snapshot_on_terminal: true
 ```
 
-![事件重放与终态快照的边界](/images/notes/multi-agent-protocol-state/event-replay-gate-card.svg)
-
 ## 安全边界：流式不等于可以把内部信息吐出去
 
 工具参数可能包含个人信息、访问令牌或内部路径，模型 token 也可能暴露系统提示和未授权证据。网关应该根据事件类型和用户 scope 做二次过滤，并为同一个 `run_id` 生成审计摘要。前端只收到能帮助用户判断“下一步是什么”的信息，不能把调试日志当作产品体验。
@@ -133,8 +131,6 @@ resume:
 | committed 先到 | 按序缓冲或以服务端终态校正 |
 | 网关重启 | 任务继续，连接可恢复 |
 | scope 变化 | 后续事件按新权限过滤 |
-
-![事件树与回放核对](/images/notes/agent-observability-replay/trace-tree.svg)
 
 ## 一个用户能感知的事件合同
 
@@ -180,8 +176,6 @@ resume:
 | `committed` | 已完成，报告可下载 | 下载或分享 |
 
 这样即使事件被降采样，用户仍然知道系统在做什么、自己能不能继续操作。
-
-![流式过程、结果和可下载产物的分层](/images/notes/tool-output-shaping/streaming-artifact.svg)
 
 ## 事件预算也要和任务预算绑定
 
@@ -283,11 +277,11 @@ function applyEvent(state: ViewState, event: UiEvent): ViewState {
 
 ## 相关阅读
 
-- [工具调用契约：先定义输入输出](/notes/tool-function-contract)
-- [工具失败与重试策略](/notes/tool-retry-policy)
-- [Agent 线上可靠性：成功、失败与未知结果](/notes/agent-deployment-reliability)
+- [Function Calling 不是模型会调函数就完事：先把契约验清楚](/notes/tool-function-contract)
+- [工具调用失败后，Agent 该重试、换工具还是停下？](/notes/tool-retry-policy)
+- [Agent 上线不是把接口接通：超时、熔断和未知结果要先设计](/notes/agent-deployment-reliability)
 
 ## 资料来源
 
-- 《Agent 岗面试宝典 v3 · 精华版》（本地飞书资料整理）
+- 《Agent 岗面试宝典 v3 · 精华版》
 - [ARIS-in-AI-Offer](https://github.com/wanshuiyin/ARIS-in-AI-Offer)

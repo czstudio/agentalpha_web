@@ -184,7 +184,7 @@ function CtaActions() {
   return (
     <div className="community-cta-actions">
       <a className="community-button" href="/#contact">加入社区</a>
-      <a className="community-button is-secondary" href={COMMUNITY_INTRO_URL} target="_blank" rel="noopener noreferrer">查看社区介绍 ↗</a>
+      <a className="community-button is-secondary" href={COMMUNITY_INTRO_URL} target="_blank" rel="noopener noreferrer">阅读社区介绍 ↗</a>
     </div>
   )
 }

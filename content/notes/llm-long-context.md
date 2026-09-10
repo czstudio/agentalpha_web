@@ -76,8 +76,6 @@ RAG 不是长上下文的对立面。检索负责减少无关内容，长上下�
 
 最后的答案可以很短，但每个数字都能回到“哪一份政策、哪一页、什么生效时间”。长上下文应该服务于证据之间的比较，而不是替代检索和版本管理。
 
-![长文证据从召回到引用的桥接](/images/notes/rag-grounded-evidence/grounding-coverage.svg)
-
 ## 两阶段打包比一次性拼接更容易解释
 
 第一阶段只做“选择哪些信息进入上下文”，第二阶段再做“如何组织这些信息”。选择阶段关注任务相关性、权限、时效、来源等级和 token 预算；组织阶段按实体、时间或问题小节排序，给每段带上稳定的 `evidence_id`。这样模型即使没有回答，也能指出是证据不足还是预算不足。
@@ -104,8 +102,6 @@ def build_context(question, evidence, max_tokens, reserve):
 ```
 
 这里的 `truncated` 要进入评测和用户体验。系统不能悄悄截断后仍用肯定语气回答；如果关键证据未被选中，应转为澄清、缩小问题或分阶段处理。
-
-![上下文容量与准入控制](/images/notes/llm-kv-cache/capacity-admission-card.svg)
 
 ## 冲突、重复和无答案要单独设计
 
@@ -175,8 +171,6 @@ quality=needle\_found\times citation\_match\times condition\_preserved
 $$
 
 三个因子中任意一个为零，最终质量就不应判为通过。尤其要抽查表格单元格、脚注、否定句和跨页标题，这些位置最容易在拼接或摘要时丢失。
-
-![长文档中的关键事实、位置和引用对齐](/images/notes/rag-grounded-evidence/grounding-coverage.svg)
 
 ## 压缩结果要有“原文回查”入口
 
@@ -294,11 +288,11 @@ def merge_summary(summary, new_events, facts):
 
 ## 相关阅读
 
-- [Tokenizer 与位置编码](/notes/llm-tokenizer-position-encoding)
-- [Attention 与上下文窗口](/notes/llm-attention-context)
-- [RAG 检索流水线](/notes/rag-retrieval-pipeline)
+- [Tokenizer 和位置编码：模型为什么不按你以为的词来读？](/notes/llm-tokenizer-position-encoding)
+- [Attention 到底在算什么？从一行公式讲清上下文理解](/notes/llm-attention-context)
+- [RAG 不只是“向量库 + 提示词”：证据怎样一路到答案？](/notes/rag-retrieval-pipeline)
 
 ## 资料来源
 
-- 《Agent 岗面试宝典 v3 · 精华版》（本地飞书资料整理）
+- 《Agent 岗面试宝典 v3 · 精华版》
 - [ARIS-in-AI-Offer](https://github.com/wanshuiyin/ARIS-in-AI-Offer)

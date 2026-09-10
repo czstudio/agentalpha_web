@@ -83,7 +83,14 @@ score = 任务词命中 + 符号/调用关系 + 测试关联 + 路径邻近 + �
 
 仓库文件不是圣旨。文档、注释、类型和运行结果出现冲突时，运行结果和当前代码通常更接近事实；但如果测试本身过时，仍要把矛盾记录下来。Agent 不应悄悄挑一个自己喜欢的版本。
 
-一个简单的做法是维护“事实表”： 事实证据可信度下一步分页参数在 resolver 入口校验`src/graphql/resolver.ts`高追调用链默认排序按 `created_at`现有测试 3 条高保持兼容文档说支持 `page` 参数`docs/api.md`中运行接口测试确认旧 service 仍在使用最近一次 grep低查 import 和 git log
+一个简单的做法是维护“事实表”：
+
+| 事实 | 证据 | 可信度 | 下一步 |
+| --- | --- | --- | --- |
+| 分页参数在 resolver 入口校验 | `src/graphql/resolver.ts` | 高 | 追调用链 |
+| 默认排序按 `created_at` | 现有测试 3 条 | 高 | 保持兼容 |
+| 文档说支持 `page` 参数 | `docs/api.md` | 中 | 运行接口测试确认 |
+| 旧 service 仍在使用 | 最近一次 grep | 低 | 查 import 和 git log |
 
 事实表不必暴露给用户，但要让 Agent 的计划能指出“我还缺哪条证据”。这比让它先写一版，再靠人找错，更省时间。
 
@@ -246,8 +253,6 @@ decision: handoff_replayable
 
 分支、生成文件或依赖版本变化都会让同一路径的行为不同。上下文包绑定快照后，恢复能先发现漂移，再决定哪些证据需要重读，避免把过期结论当成当前事实。
 
-![上下文路由：代码 Agent 先判断任务类型，再选择应读取的证据层](/images/notes/agent-context-engineering/context-routing.svg)
-
 ## 60 秒面试回答
 
 Repo context 不是把整个仓库塞进 prompt，而是为当前任务构建一组有优先级、可追溯、有限预算的证据。
@@ -264,11 +269,7 @@ AgentAlpha 的路线从 RAG、记忆系统、单 Agent、多 Agent、DeepSearch�
 
 Code Agent 阶段已经确认的内容包括 SWE-agent、RepoMaster 和仓库级代码理解；阶段交付是在真实仓库里完成 issue 修复或仓库复用实验。课程按周任务、作业检查、代码 Review 和项目验收推进，完成项目后再继续打磨 README、运行说明、简历项目段落和面试讲法。
 
-查看 AgentAlpha 大模型 Agent 训练营 (https://agentalpha.feishu.cn/wiki/TjZJwXw70ijEX6kkyKicgortnpb)
-
-如果你只想先看路线图，发「路线」；想判断自己适合从哪个项目开始，发「项目」；正在准备面试，发「追问」。
-
-做能落地的 Agent，我们一起造轮子。下一篇聊一个更容易被误判的问题：测试全绿，为什么补丁还是不能合并？
+[查看 AgentAlpha 大模型 Agent 训练营](https://agentalpha.feishu.cn/wiki/TjZJwXw70ijEX6kkyKicgortnpb)
 
 ## 参考资料
 

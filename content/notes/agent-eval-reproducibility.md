@@ -255,7 +255,7 @@ owner: eval-platform
 
 复现失败不是一个布尔值。打开包时，先区分样本缺失、工具 fixture 过期、环境不兼容、随机差异超阈值和真正的逻辑回归；不同原因对应的下一步完全不同。把拒绝原因写进验收卡，评测结论才不会被一句“跑不起来”吞掉：
 
-\`\`\`yaml
+```yaml
 replay_acceptance: ra_20260820_18
 bundle: replay-agent-r39-0042
 status: rejected
@@ -272,7 +272,7 @@ next:
   owner: platform-eval
   action: "刷新 fixture 后重跑同一 bundle"
   stop_if: "刷新后仍出现 first_divergence"
-\`\`\`
+```
 
 拒绝复现不能直接当作新版本失败，也不能当作通过。它应该进入单独的“不可判定”队列，保留原始版本与责任人，避免团队为了让报表变绿而删除难复现样本。
 
@@ -412,11 +412,11 @@ Agent 实验的可复现不是要求每个 token 完全一样，而是让同一�
 
 ## 相关笔记
 
-- [离线评测高分，线上为什么还是翻车？](/notes/offline-eval-online-drift)
-- [LLM-as-a-Judge 为什么会偏？从评分 rubric 到校准](/notes/llm-judge-calibration)
+- [离线评测 95 分，线上为什么还是翻车？](/notes/offline-eval-online-drift)
+- [让 LLM 给答案打分，为什么也会偏？](/notes/llm-judge-calibration)
 - [Agent 上线后怎么定位问题？从 trace 到可观测性和回放](/notes/agent-observability-replay)
 
 ## 参考
 
-- [Agent 岗面试宝典 v3：评测与实验设计考点（本地导入）](/content/imports/agent-interview-v3.feishu.md)
+- AgentAlpha《Agent 岗面试宝典 v3》：评测与实验设计考点（内部讲义，未公开）
 - [ARIS-in-AI-Offer](https://github.com/wanshuiyin/ARIS-in-AI-Offer)

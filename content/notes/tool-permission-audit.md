@@ -278,7 +278,7 @@ reconciled: true
 
 权限系统最容易被忽略的是“已经发出去的能力怎么办”。每次高风险权限变更，都要用演练确认：撤销后排队任务是否停止、已发出的 capability 是否失效、外部系统的未知结果如何对账。演练结果和正式授权一样要落审计：
 
-\`\`\`yaml
+```yaml
 revocation_drill: rd_20260820_06
 capability: contract.write
 grant_id: grant-8842
@@ -293,7 +293,7 @@ evidence:
   audit_events: [grant, dispatch, revoke, readback]
   owner: security-platform
 decision: pass
-\`\`\`
+```
 
 演练不能只测试“接口返回 403”。还要检查缓存、队列、重试器和下游服务是否继续接受旧凭证；否则前门撤销了，后门仍可能把同一个副作用送出去。
 
@@ -327,11 +327,13 @@ decision: binding_intact
 
 同一个工具名可以写不同租户、环境和资源版本。只绑定工具名，审批覆盖的具体动作就无法复核；绑定参数摘要和资源版本，才能在执行前发现 TOCTOU 或重放。
 
-## L5：为什么撤销成功也不能只看一个 403？
+## 高频追问
+
+### L5：为什么撤销成功也不能只看一个 403？
 
 因为 403 只证明某次请求被拒绝，不证明队列、缓存和已在途请求都停止。撤销验收要覆盖能力发放后的每个副作用入口，并保留事件时间线；只有这样，权限变化才真的能阻断下一次危险动作。
 
-## L5：为什么审计字段要包含“参数哈希”而不是只记工具名？
+### L5：为什么审计字段要包含“参数哈希”而不是只记工具名？
 
 同一个工具名可以操作不同租户、金额和环境；只记工具名无法证明审批覆盖了哪一次具体动作。参数先规范化再做 hash，结合资源版本和 approval_id，才能判断执行是否仍在授权范围内。
 
@@ -427,10 +429,10 @@ Agent 权限要落在每一次具体工具调用上，而不是给它一个万�
 ## 相关笔记
 
 - [Agent 安全不是加一句提示词：权限、工具和数据边界怎么设计](/notes/agent-security-boundaries)
-- [工具调用失败后，Agent 应该重试、换工具还是停下来？](/notes/tool-retry-policy)
-- [一次 Agent 实验怎样算可复现？从版本指纹到结果归因](/notes/agent-eval-reproducibility)
+- [工具调用失败后，Agent 该重试、换工具还是停下？](/notes/tool-retry-policy)
+- [同一个 Agent 实验，怎样才能复现？](/notes/agent-eval-reproducibility)
 
 ## 参考
 
-- [Agent 岗面试宝典 v3：工具调用章节（本地导入）](/content/imports/agent-interview-v3.feishu.md)
+- AgentAlpha《Agent 岗面试宝典 v3》：工具调用章节
 - [ARIS-in-AI-Offer](https://github.com/wanshuiyin/ARIS-in-AI-Offer)

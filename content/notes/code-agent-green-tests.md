@@ -94,7 +94,7 @@ minutes: 11
 
 一个缓存客户端被 mock 成“永远命中”，生产代码里的 key 拼错永远不会暴露；一个权限函数被 mock 成 True，越权路径就消失了。Agent 看到所有依赖都返回理想结果，补丁自然很漂亮。
 
-在验证报告里记录 mock 列表、未覆盖的真实交互和替代方案。关键边界至少需要一条使用真实序列化、真实权限策略或临时数据库的集成测试。若环境暂时无法提供，结果应标为风险未闭环，而不是写成通过。
+在验证报告里记录 mock 列表、未覆盖的真实交互和替代方案。关键边界至少需要一条使用真实序列化、真实权限策略或临时数据库的集成测试。若环境暂时无法提供，结果应标为风险未确认，而不是写成通过。
 
 ### 故障四：测试根本没有执行目标代码
 
@@ -177,7 +177,7 @@ GitHub 对 Copilot coding agent 的公开资料也把运行测试、检查变更
 
 这些资料都没有承诺“测试全绿就绝对正确”。它们更接近一个共识：Agent 的能力要用可重复的环境、清晰的失败信号和覆盖风险的验收标准来约束。绿色是信号，不是豁免证。
 
-## 绿灯之后还要做一次“被改松的断言”扫描
+## 绿灯之后还要做一次 oracle 变更审计
 
 测试全绿之后，我会再问一个不太舒服的问题：是不是为了得到绿色，测试本身被改得更宽松了？Code Agent 可能删除断言、扩大 mock 范围、把真实依赖换成永远成功的桩，甚至把高风险用例标成 skipped。它们都能让 CI 变绿，却不会让产品行为更可靠。
 
@@ -248,36 +248,6 @@ release_effect:
 
 普通测试通常验证某个输入对应的输出，不变量验证跨步骤、跨服务或跨租户的状态约束。比如“退款接口返回 200”不是不变量，“同一幂等键最多产生一次副作用”才是。两者要一起跑，才能同时看局部实现和系统边界。
 
-## 绿灯之外还要做一次 oracle 变更审计
-
-Code Agent 最容易制造的一类假绿灯，是为了让测试通过而改变测试本身、mock、fixture 或验收脚本。交付前应把被测代码和 oracle 分开做 diff，并为每个测试记录“谁提供断言、断言覆盖哪个不变量、这次是否被修改”。如果 oracle 发生变化，结果应先标记为 `unknown`，交给独立审阅，而不是直接沿用旧的通过结论。
-
-```yaml
-oracle_diff_audit: oda_20260820_96
-change_set:
-  production_files: 7
-  test_files: 2
-  fixture_files: 1
-checks:
-  assertion_count_delta: 0
-  weakened_matchers: 0
-  mock_boundary_changed: false
-  fixture_semantics_changed: false
-  hidden_invariant_sampled: true
-result:
-  execution: pass
-  oracle_integrity: pass
-  delivery_state: green_with_trace
-```
-
-![Oracle 变更审计：把生产代码、断言、mock 和 fixture 的变化拆开验收](/images/notes/code-agent-green-tests/oracle-diff-audit-card.svg)
-
-### L5：为什么“测试全绿”还要检查测试文件的 diff？
-
-因为测试是判定器，不是被测对象。放宽断言、替换真实依赖或改写 fixture 都可能让同一段错误代码得到绿色结果。独立保存变更前后的 oracle 摘要，并抽一小组隐藏不变量复核，才能证明绿灯仍然有意义。
-
-![测试失败切片：把绿灯、隐藏断言和业务不变量放在同一张复盘表里](/images/notes/agent-eval-success-rate/failure-slices.svg)
-
 ## 60 秒面试回答
 
 测试全绿只说明当前命令、环境和断言没有失败，不能直接等同于需求正确。Code Agent 里我会把验证拆成执行完整性、局部单测、集成/契约、静态检查和需求不变量五层，并记录实际运行的测试集合、mock、环境和退出码。
@@ -296,11 +266,7 @@ AgentAlpha 的路线从 RAG、记忆系统、单 Agent、多 Agent、DeepSearch�
 
 Code Agent 阶段已经确认的内容包括 SWE-agent、RepoMaster 和仓库级代码理解；阶段交付是在真实仓库里完成 issue 修复或仓库复用实验。课程按周任务、作业检查、代码 Review 和项目验收推进，完成项目后再继续打磨 README、运行说明、简历项目段落和面试讲法。
 
-查看 AgentAlpha 大模型 Agent 训练营 (https://agentalpha.feishu.cn/wiki/TjZJwXw70ijEX6kkyKicgortnpb)
-
-如果你只想先看路线图，发「路线」；想判断自己适合从哪个项目开始，发「项目」；正在准备面试，发「追问」。
-
-做能落地的 Agent，我们一起造轮子。下篇继续拆一个更现实的场景：当修复任务在长轨迹里反复失败，怎样区分策略问题和环境问题。
+[查看 AgentAlpha 大模型 Agent 训练营](https://agentalpha.feishu.cn/wiki/TjZJwXw70ijEX6kkyKicgortnpb)
 
 ## 参考资料
 

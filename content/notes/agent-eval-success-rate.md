@@ -163,7 +163,7 @@ release = hard_gates_pass
        && replay_bundle_complete
 ```
 
-## 八、把指标做成可追问的切片仪表盘
+## 七、把指标做成可追问的切片仪表盘
 
 发布会上不要只展示一个总分。每个切片至少要带样本量、硬失败数、结果质量、证据覆盖、P95 和版本元组：
 
@@ -210,7 +210,7 @@ candidate: release-42
 
 失败通常意味着系统确认没有完成；未知状态可能是回执丢失、异步处理中或外部已提交但尚未可读。两者的补救动作不同，混在一起会触发重复执行或错误回滚。应先对账，再决定重试、暂停还是人工接管。
 
-## 七、常见的评测陷阱
+## 八、常见的评测陷阱
 
 - **把“最终文本等于参考答案”当正确**：换一种说法就被误判，真实的状态却没验证。
 - **把工具 mock 得太完美**：离线永远成功，线上却遇到超时、空响应和未知提交结果。
@@ -436,11 +436,11 @@ Agent 评测不能只看最终成功率，因为它是一个会规划、调用�
 
 ## 相关笔记
 
-- [RAG 怎么评测才不自欺？把“答得像”拆成四层证据](/notes/rag-evaluation-practice)
-- [如何评测多 Agent 协作？不能只看最终答案](/notes/multi-agent-evaluation)
-- [一次 Agent 实验怎样算可复现？从版本指纹到结果归因](/notes/agent-eval-reproducibility)
+- [RAG 怎么评测才不自欺？把“答得像”拆开看](/notes/rag-evaluation-practice)
+- [多 Agent 协作怎么评测？不能只看最终答案](/notes/multi-agent-evaluation)
+- [同一个 Agent 实验，怎样才能复现？](/notes/agent-eval-reproducibility)
 
 ## 参考
 
-- [Agent 岗面试宝典 v3：评测章节（本地导入）](/content/imports/agent-interview-v3.feishu.md)
+- AgentAlpha《Agent 岗面试宝典 v3》：评测章节（内部讲义，未公开）
 - [ARIS-in-AI-Offer](https://github.com/wanshuiyin/ARIS-in-AI-Offer)

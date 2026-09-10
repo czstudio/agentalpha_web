@@ -236,6 +236,10 @@ if attempts >= 2 or crop_count >= 6:
 
 当目标区域持续不可读、图片来源不可信或答案会触发高风险写操作时，应请求原始文档、转结构化接口或人工复核。停止自动重试本身也是可靠性设计。
 
+### L5：定位框很准，为什么答案仍可能是错的？
+
+因为定位只证明“看到了这块”，不证明读懂了关系。表格数字还需要表头和单位，条款金额还需要条件和适用范围，跨页内容还需要前后文。验收时要分别测 region recall、文字读取、关系 grounding 和最终结论；任何一层不通过，都应返回缺口而不是把坐标当成正确性的替代品。
+
 ## 切片预算也要返回一张“定位—读取”回执
 
 动态切片不是越多越好。每次升级分辨率或扩大上下文，都要留下为什么升级、得到什么证据、还缺什么的回执，方便把成本和准确率放在一起比较：
@@ -314,11 +318,7 @@ if attempts >= 2 or crop_count >= 6:
 
 文字相同不代表坐标仍然有效。旋转、裁边、遮罩和版面解析版本都可能改变定位框；视觉证据必须绑定父图版本，而不是只绑定一段 OCR 文本。
 
-## L5：定位框很准，为什么答案仍可能是错的？
-
-因为定位只证明“看到了这块”，不证明读懂了关系。表格数字还需要表头和单位，条款金额还需要条件和适用范围，跨页内容还需要前后文。验收时要分别测 region recall、文字读取、关系 grounding 和最终结论；任何一层不通过，都应返回缺口而不是把坐标当成正确性的替代品。
-
-## 十一、切片策略要支持“拒答”和人工回看
+## 切片策略要支持“拒答”和人工回看
 
 切片不是越多越好。遇到低清扫描、透视严重、关键数字落在裁剪边缘时，系统应该能明确说“当前证据不足”，而不是继续放大并生成一个看似完整的答案。可以给每个目标设三档出口：自动通过、需要二次 crop、转人工复核。
 
@@ -388,11 +388,11 @@ decision: reusable_for_citation
 
 ## 相关笔记
 
-- [多模态模型不是给图片加一个输入框：图像如何进入 Transformer](/notes/multimodal-to-transformer)
-- [文档理解为什么要保留版面？从 OCR 到表格和图表解析](/notes/multimodal-document-layout)
-- [视频 Agent 如何处理百万级帧？采样、时间定位和证据回放](/notes/multimodal-video-agent)
+- [多模态模型不是给图片加个输入框：图像怎样进入 Transformer？](/notes/multimodal-to-transformer)
+- [文档理解为什么不能只做 OCR？版面关系才是线索](/notes/multimodal-document-layout)
+- [视频 Agent 怎样处理百万级帧？先把时间定位做好](/notes/multimodal-video-agent)
 
 ## 参考
 
-- [Agent 岗面试宝典 v3：多模态章节（本地导入）](/content/imports/agent-interview-v3.feishu.md)
+- AgentAlpha《Agent 岗面试宝典 v3》：多模态章节
 - [ARIS-in-AI-Offer](https://github.com/wanshuiyin/ARIS-in-AI-Offer)

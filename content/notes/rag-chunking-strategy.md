@@ -182,7 +182,7 @@ evidence_complete_rate = measured_on_golden_set
 duplicate_rate = measured_on_golden_set
 ```
 
-这里的数字只是报告字段示例，不是结论。真正上线前必须用当前知识库的实测值替换，不能为了让文章看起来专业而伪造 benchmark。
+这里的数字只是报告字段示例，不是实测结论。上线前必须用当前知识库的实测值替换。
 
 ## 十一、不同文档类型，分块策略不应该一把尺子
 

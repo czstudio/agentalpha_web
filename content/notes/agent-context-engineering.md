@@ -311,11 +311,11 @@ Prompt Engineering 更关注指令表达，Context Engineering 关注运行时�
 
 ## 相关阅读
 
-- [记忆系统不是聊天记录](/notes/agent-memory-system)
-- [RAG 答案如何证明有依据](/notes/rag-grounded-evidence)
-- [工具返回为什么要做输出整形](/notes/tool-output-shaping)
+- [记忆系统不是聊天记录：短期、长期和压缩到底怎么分工](/notes/agent-memory-system)
+- [RAG 答案看着对，怎样证明它有依据？](/notes/rag-grounded-evidence)
+- [工具返回一大段 JSON，为什么 Agent 反而更容易做错](/notes/tool-output-shaping)
 
 ## 资料来源
 
-- 《Agent 岗面试宝典 v3 · 精华版》（本地飞书资料整理）
+- AgentAlpha《Agent 岗面试宝典 v3 · 精华版》：上下文与记忆章节（内部讲义，未公开）
 - [ARIS-in-AI-Offer](https://github.com/wanshuiyin/ARIS-in-AI-Offer)：用基础、问答、实现三栏减少“只背名词”的学习断点

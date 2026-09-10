@@ -421,17 +421,17 @@ tool_contract:
 
 - [ ] 工具是否有明确的 schema、必填项、枚举和副作用说明？
 - [ ] 是否把提议、命令和真实结果分开？
-- [ ] 是否有语法、类型、业务、权限和风险五层验证？
+- [ ] 是否有语法、类型、业务和风险四层验证？
 - [ ] 身份、租户、审批和幂等键是否由服务端注入？
 - [ ] 错误码是否能指导下一步，而不是只返回一段异常文本？
 
 ## 相关笔记
 
-- [工具调用失败后，Agent 应该重试、换工具还是停下来？](/notes/tool-retry-policy)
-- [MCP 解决了什么问题？工具协议标准化之后仍有哪些坑](/notes/mcp-protocol-boundaries)
-- [如何给工具调用做权限控制和审计？](/notes/tool-permission-audit)
+- [工具调用失败后，Agent 该重试、换工具还是停下？](/notes/tool-retry-policy)
+- [MCP 统一了工具接入，为什么还有这么多坑？](/notes/mcp-protocol-boundaries)
+- [工具调用怎么做权限控制和审计？](/notes/tool-permission-audit)
 
 ## 参考
 
-- [Agent 岗面试宝典 v3：工具调用章节（本地导入）](/content/imports/agent-interview-v3.feishu.md)
+- AgentAlpha《Agent 岗面试宝典 v3》：工具调用章节
 - [ARIS-in-AI-Offer](https://github.com/wanshuiyin/ARIS-in-AI-Offer)

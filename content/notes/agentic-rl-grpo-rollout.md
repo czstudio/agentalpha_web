@@ -106,7 +106,7 @@ Agent 训练经常使用推理服务单独生成轨迹，再回到训练框架�
 
 反过来，测试环境偶发失败，也不能立刻把策略判成坏。需要把编译器、测试框架、依赖安装的状态分开记。对于外部副作用，沙箱要限制网络、文件和进程；对每次执行记录 patch、stdout 摘要和测试版本。
 
-rollout 的质量最终由验收器决定。验收器只检查一个脆弱的样例，GRPO 就会把策略往样例漏洞上推。这个问题会在下一篇 reward hacking 里展开。
+rollout 的质量最终由验收器决定。验收器只检查一个脆弱的样例，GRPO 就会把策略往样例漏洞上推，也就是 reward hacking。这类问题的案例分析见[Agent 把奖励刷满了，为什么任务还是没做成？](/notes/agentic-rl-reward-hacking)。
 
 ## 给 rollout 做一张体检表
 
@@ -320,8 +320,8 @@ AgentAlpha 的路线从 RAG、记忆系统、单 Agent、多 Agent、DeepSearch�
 
 Agentic RL 阶段已经确认的内容包括 Search-R1、GRPO / PPO、奖励函数和搜索触发；阶段交付是一份小规模问答或推理任务上的 RL 微型实验报告。课程按周任务、作业检查、代码 Review 和项目验收推进，完成项目后再继续打磨 README、技术报告、简历项目段落和面试讲法。
 
-查看 AgentAlpha 大模型 Agent 训练营 (https://agentalpha.feishu.cn/wiki/TjZJwXw70ijEX6kkyKicgortnpb)
+[查看 AgentAlpha 大模型 Agent 训练营](https://agentalpha.feishu.cn/wiki/TjZJwXw70ijEX6kkyKicgortnpb)
 
-如果你只想先看路线图，发「路线」；想判断自己适合从哪个项目开始，发「项目」；正在准备面试，发「追问」。
+训练营的阶段路线、项目和面试追问安排，见训练营页面。
 
-先让每条轨迹在同一个世界里发生，再谈相对优势。下篇见。
+先让每条轨迹在同一个世界里发生，再谈相对优势。

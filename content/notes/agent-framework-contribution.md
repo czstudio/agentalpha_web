@@ -104,7 +104,7 @@ minutes: 22
 
 配置级工作也可能重要，但不能把它包装成平台级能力。面试时先报自己的最高负责层，再用一项具体产物证明，例如“我负责策略级的工具网关，留下了权限决策日志和回放集”。
 
-![项目贡献从配置、适配到策略、评测和平台逐级沉淀](/images/notes/agent-framework-contribution/contribution-ladder.svg)
+![项目贡献从配置、适配到策略、评测和平台逐级累积](/images/notes/agent-framework-contribution/contribution-ladder.svg)
 
 ## 贡献要能被替换和复现
 
@@ -429,12 +429,12 @@ compatibility_budget:
 
 ## 相关阅读
 
-- [从需求到补丁：一个可靠 Code Agent 的任务分解、修改和验收](/notes/code-agent-delivery-loop)
-- [项目里的指标是怎么来的？](/notes/agent-metrics-baseline)
-- [Agent 安全不是加一句提示词](/notes/agent-security-boundaries)
-- [一次 Agent 实验怎样算可复现？](/notes/agent-eval-reproducibility)
+- [Code Agent 怎样把一句需求稳稳做成补丁？](/notes/code-agent-delivery-loop)
+- [项目里的指标怎么来的？别只报一个漂亮数字](/notes/agent-metrics-baseline)
+- [Agent 安全不是加一句提示词：权限、工具和数据边界怎么设计](/notes/agent-security-boundaries)
+- [同一个 Agent 实验，怎样才能复现？](/notes/agent-eval-reproducibility)
 
 ## 资料来源
 
-- Agent 岗面试宝典 v3（AgentAlpha 飞书文档）
+- AgentAlpha《Agent 岗面试宝典 v3》：项目贡献章节（内部讲义，未公开）
 - ARIS in AI Offer：系统设计题的决策、证据和分层回答结构

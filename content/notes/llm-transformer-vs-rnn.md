@@ -14,7 +14,7 @@ minutes: 20
 
 只回答“Transformer 可以并行，RNN 不能并行”，面试官很快会继续追问：推理时不是仍然要一个 token 一个 token 地生成吗？Transformer 没有循环，顺序信息从哪里来？长序列的 `O(T²)` 不也很贵吗？
 
-稳妥的回答，不是宣布 RNN 已经没用了，而是把**训练并行性、长距离依赖、位置信息、推理瓶颈和使用场景**放在一张图里比较。下面按这五个问题走一遍，也把 Feishu 面试资料里“为什么 Transformer 能捕捉长距离依赖”“位置编码怎么选”“Encoder 和 Decoder 怎么分工”这些追问接上。
+稳妥的回答，不是宣布 RNN 已经没用了，而是把**训练并行性、长距离依赖、位置信息、推理瓶颈和使用场景**放在一张图里比较。下面按这五个问题走一遍。
 
 ## §0 TL;DR：先把结论讲完整
 
@@ -422,10 +422,10 @@ decision: ship_with_long_context_watch
 - Encoder-only、Encoder-Decoder、Decoder-only 对应不同的信息可见性和任务目标。
 - 选择架构要看任务的上下文、流式性、设备、延迟和吞吐，而不是只问谁更新。
 
-下一篇继续问一个更“工程”的问题：**MoE 为什么能让模型参数变大，却不让每个 token 都经过所有参数？** 我们会把路由、Top-k、容量因子、负载均衡和专家塌缩拆开。
+更“工程”的下一个问题是：**MoE 为什么能让模型参数变大，却不让每个 token 都经过所有参数？** 路由、Top-k、容量因子、负载均衡和专家塌缩，在系列里 MoE 一篇里拆开讲。
 
 ## 参考资料
 
-1. AgentAlpha《Agent 岗面试宝典 v3》：LLM 基础章节与 Transformer、位置编码专题（内部学习资料）。
+1. AgentAlpha《Agent 岗面试宝典 v3》：Transformer 与位置编码专题。
 2. [Attention Is All You Need](https://arxiv.org/abs/1706.03762)，Transformer 原论文。
 3. [ARIS in AI Offer](https://github.com/wanshuiyin/ARIS-in-AI-Offer)，参考其按直觉、原理、代码和分层面试题组织内容的方式。

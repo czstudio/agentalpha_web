@@ -428,12 +428,12 @@ decision: bridge_old_and_new_for_14d
 
 ## 相关阅读
 
-- [Agent 评测不能只看成功率](/notes/agent-eval-success-rate)
-- [LLM-as-a-Judge 为什么会偏？](/notes/llm-judge-calibration)
-- [一次 Agent 实验怎样算可复现？](/notes/agent-eval-reproducibility)
-- [离线评测高分，线上为什么还是翻车？](/notes/offline-eval-online-drift)
+- [Agent 评测不能只看成功率：从结果到轨迹的五层指标](/notes/agent-eval-success-rate)
+- [让 LLM 给答案打分，为什么也会偏？](/notes/llm-judge-calibration)
+- [同一个 Agent 实验，怎样才能复现？](/notes/agent-eval-reproducibility)
+- [离线评测 95 分，线上为什么还是翻车？](/notes/offline-eval-online-drift)
 
 ## 资料来源
 
-- Agent 岗面试宝典 v3（AgentAlpha 飞书文档）
+- AgentAlpha《Agent 岗面试宝典 v3》（未公开讲义）
 - ARIS in AI Offer：指标、基线和实验设计的分层写法

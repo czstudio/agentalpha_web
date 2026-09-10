@@ -401,10 +401,9 @@ decision: execute_once_with_receipt
 
 ## 相关内容
 
-- [记忆系统不是聊天记录](/notes/agent-memory-system)
-- [Code Agent 为什么不能直接给 root 权限](/notes/code-agent-sandbox-permissions)
-- [代码 Agent 为什么不能直接给它 root 权限](/notes/code-agent-sandbox-permissions)
-- [RAG 为什么不是“向量库 + 提示词”](/notes/rag-retrieval-pipeline)
+- [记忆系统不是聊天记录：短期、长期和压缩到底怎么分工](/notes/agent-memory-system)
+- [Code Agent 为什么不能直接给 root 权限？](/notes/code-agent-sandbox-permissions)
+- [RAG 不只是“向量库 + 提示词”：证据怎样一路到答案？](/notes/rag-retrieval-pipeline)
 
 ## 参考资料
 

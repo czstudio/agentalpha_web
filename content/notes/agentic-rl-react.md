@@ -359,8 +359,8 @@ AgentAlpha 的路线不是把面试题背一遍，而是从 RAG、记忆系统�
 
 Agentic RL 阶段已经确认的内容包括 Search-R1、GRPO / PPO、奖励函数和搜索触发；阶段交付是一份小规模问答或推理任务上的 RL 微型实验报告。课程按周任务、作业检查、代码 Review 和项目验收推进，完成项目后再继续打磨 README、技术报告、简历项目段落和面试讲法。
 
-查看 AgentAlpha 大模型 Agent 训练营 (https://agentalpha.feishu.cn/wiki/TjZJwXw70ijEX6kkyKicgortnpb)
+[查看 AgentAlpha 大模型 Agent 训练营](https://agentalpha.feishu.cn/wiki/TjZJwXw70ijEX6kkyKicgortnpb)
 
-如果你只想先看路线图，发「路线」；想判断自己适合从哪个项目开始，发「项目」；正在准备面试，发「追问」。
+训练营的阶段路线、项目和面试追问安排，见训练营页面。
 
-做能落地的 Agent，我们一起造轮子。下篇见。
+做能落地的 Agent，我们一起造轮子。

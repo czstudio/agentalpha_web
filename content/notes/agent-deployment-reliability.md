@@ -313,11 +313,11 @@ unknown_watch:
 
 ## 相关阅读
 
-- [工具调用失败后如何恢复](/notes/tool-retry-policy)
-- [Code Agent 的 exactly-once 恢复](/notes/code-agent-resume-exactly-once)
-- [一次实验怎样算可复现](/notes/agent-eval-reproducibility)
+- [工具调用失败后，Agent 该重试、换工具还是停下？](/notes/tool-retry-policy)
+- [Code Agent 跑到一半挂了，怎样恢复又不重复执行？](/notes/code-agent-resume-exactly-once)
+- [同一个 Agent 实验，怎样才能复现？](/notes/agent-eval-reproducibility)
 
 ## 资料来源
 
-- 《Agent 岗面试宝典 v3 · 精华版》（本地飞书资料整理）
+- AgentAlpha《Agent 岗面试宝典 v3 · 精华版》：上线与可靠性章节（内部讲义，未公开）
 - [ARIS-in-AI-Offer](https://github.com/wanshuiyin/ARIS-in-AI-Offer)：把面试追问落到可运行、可复盘的实现

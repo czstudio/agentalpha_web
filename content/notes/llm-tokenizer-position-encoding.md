@@ -38,13 +38,13 @@ $$
 Attention(Q,K,V)=softmax\left(\frac{\phi(Q)\phi(K)^T}{\sqrt{d}}+B_{position}\right)V
 $$
 
-$B_{position}$ 可以表示相对位置偏置，$phi$ 也可以代表旋转后的表示。面试时不必把不同实现混为一谈，但要说清楚位置机制会影响长度外推、注意力距离和训练分布。
+$B_{position}$ 可以表示相对位置偏置，$\phi$ 也可以代表旋转后的表示。面试时不必把不同实现混为一谈，但要说清楚位置机制会影响长度外推、注意力距离和训练分布。
 
 ![位置距离影响注意力的示意](/images/notes/llm-tokenizer-position-encoding/position-distance.svg)
 
 ## 位置外推为什么会失效
 
-模型在训练时见过的长度有限。把最大长度从 4k 改成 32k，并不意味着模型学会了 32k 的依赖：远距离 token 可能被稀释，位置相位可能落在未训练区域，检索到的关键段也可能被“中间迷失”。扩展上下文应同时做位置策略、数据或微调、长文评测和系统级上下文压缩。
+模型在训练时见过的长度有限。把最大长度从 4k 改成 32k，并不意味着模型学会了 32k 的依赖：远距离 token 可能被稀释，位置相位可能落在未训练区域，关键段也可能因 lost-in-the-middle 被忽略。扩展上下文应同时做位置策略、数据或微调、长文评测和系统级上下文压缩。
 
 ## 分词效率如何影响产品
 
@@ -266,11 +266,11 @@ Tokenizer 把文本切成模型处理的 token，分词粒度直接影响上下�
 
 ## 相关阅读
 
-- [Attention 与上下文窗口](/notes/llm-attention-context)
-- [KV Cache 为什么影响推理延迟](/notes/llm-kv-cache)
-- [LLM 长上下文如何评测](/notes/llm-long-context)
+- [Attention 到底在算什么？从一行公式讲清上下文理解](/notes/llm-attention-context)
+- [KV Cache 缓存的到底是什么？为什么长对话越聊越贵](/notes/llm-kv-cache)
+- [上下文窗口变长了，为什么 Agent 还是会漏信息？](/notes/llm-long-context)
 
 ## 资料来源
 
-- 《Agent 岗面试宝典 v3 · 精华版》（本地飞书资料整理）
+- 《Agent 岗面试宝典 v3 · 精华版》
 - [ARIS-in-AI-Offer](https://github.com/wanshuiyin/ARIS-in-AI-Offer)

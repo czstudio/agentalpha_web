@@ -371,7 +371,7 @@ decision: ready_for_handoff
 
 ## 60 秒面试回答
 
-我不会让 Code Agent 直接从需求生成大补丁。先把需求改成任务合同，写清目标、不变式、未知项和验收；然后按入口、调用链、状态所有者和测试建立仓库上下文。实现时按契约、纯函数、副作用、恢复和交付拆成小步骤，每步限制可写范围并跑最短反馈测试。最后用验证矩阵检查权限、幂等、兼容和失败路径，报告已验证证据与未闭环风险。这样 Agent 负责加速实现，代码库和测试负责提供事实，人只在高风险边界上做最终判断。
+我不会让 Code Agent 直接从需求生成大补丁。先把需求改成任务合同，写清目标、不变式、未知项和验收；然后按入口、调用链、状态所有者和测试建立仓库上下文。实现时按契约、纯函数、副作用、恢复和交付拆成小步骤，每步限制可写范围并跑最短反馈测试。最后用验证矩阵检查权限、幂等、兼容和失败路径，报告已验证证据与未确认风险。这样 Agent 负责加速实现，代码库和测试负责提供事实，人只在高风险边界上做最终判断。
 
 ## 交付前检查清单
 
@@ -384,12 +384,12 @@ decision: ready_for_handoff
 
 ## 相关阅读
 
-- [代码 Agent 为什么总要先读仓库，再开始写代码？](/notes/code-agent-repo-context)
-- [代码 Agent 说测试全绿，为什么我还是不敢合并？](/notes/code-agent-green-tests)
-- [代码 Agent 跑到一半挂了，怎么恢复而且不重复执行？](/notes/code-agent-resume-exactly-once)
+- [代码 Agent 为什么总要先读仓库，再开始写？](/notes/code-agent-repo-context)
+- [面试官追问：代码 Agent 说测试全绿，为什么我还是不敢合并？](/notes/code-agent-green-tests)
+- [Code Agent 跑到一半挂了，怎样恢复又不重复执行？](/notes/code-agent-resume-exactly-once)
 - [Agent 评测不能只看成功率：从结果到轨迹的五层指标](/notes/agent-eval-success-rate)
 
 ## 资料来源
 
-- Agent 岗面试宝典 v3（AgentAlpha 飞书文档）
-- ARIS in AI Offer：Interview Cheatsheet 的长文、公式、代码和分层追问结构
+- AgentAlpha《Agent 岗面试宝典 v3》
+- ARIS in AI Offer

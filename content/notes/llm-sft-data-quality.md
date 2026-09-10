@@ -18,7 +18,7 @@ minutes: 18
 
 这几问其实都指向同一件事：SFT 不是把答案灌进参数里，也不是简单地让训练集上的 token 概率变高。它是在一批带条件的示例上，重塑模型“遇到什么输入、应该采取什么输出行为”的概率分布。
 
-下面只回答一个核心问题：**一条 SFT 样本从数据进入训练，再到最终验收，中间到底发生了什么？**
+核心问题只有一个：**一条 SFT 样本从数据进入训练，再到最终验收，中间到底发生了什么？**
 
 先给面试版结论：
 
@@ -58,13 +58,13 @@ minutes: 18
 
 ## 原理一：SFT 到底优化了什么
 
-给定输入 token (x) 和目标输出 token (y=(y_1,ldots,y_T))，自回归模型的训练目标通常是：
+给定输入 token \(x\) 和目标输出 token \(y=(y_1,\ldots,y_T)\)，自回归模型的训练目标通常是：
 
 \[
 \mathcal{L}_{SFT}=-\sum_{t=1}^{T}m_t\log p_\theta(y_t\mid x,y_{<t})
 \]
 
-其中 (m_t) 是 loss mask。对 user 和 system 部分，常见做法是令 (m_t=0)；对 assistant 目标部分令 (m_t=1)。这意味着模型把前面的指令当作条件，主要学习“在这个条件下，怎样生成目标答案”。
+其中 \(m_t\) 是 loss mask。对 user 和 system 部分，常见做法是令 \(m_t=0\)；对 assistant 目标部分令 \(m_t=1\)。这意味着模型把前面的指令当作条件，主要学习“在这个条件下，怎样生成目标答案”。
 
 如果把整段对话每个 token 都设成 1，会发生什么？模型也会被要求复现用户问题、角色标签和模板固定前缀。数据里一旦有明显格式偏置，loss 可能降得很漂亮，真实任务却不一定改善。
 
@@ -434,12 +434,6 @@ checks:
 
 ## AgentAlpha 大模型 Agent 训练营
 
-AgentAlpha 的路线从 RAG、记忆系统、单 Agent、多 Agent、DeepSearch、高效推理，推进到 Code Agent、自进化编码、Agentic RL 和综合项目。
+想按路线系统练 SFT、RLHF、DPO 和训练稳定性这些专题，可以看 [AgentAlpha 大模型 Agent 训练营](https://agentalpha.feishu.cn/wiki/TjZJwXw70ijEX6kkyKicgortnpb)。训练营的每个阶段都要求交出可复现的训练记录：数据版本、mask 检查、对照实验、bad case、回归结果和部署取舍。
 
-LLM 训练阶段先用 SFT 建立可控行为，再进入 RLHF、DPO、PPO 与训练稳定性专题。阶段交付不是“跑出一个 loss 曲线”，而是一份可复现的训练记录：数据版本、mask 检查、对照实验、bad case、回归结果和部署取舍都要能被复盘。
-
-查看 AgentAlpha 大模型 Agent 训练营 (https://agentalpha.feishu.cn/wiki/TjZJwXw70ijEX6kkyKicgortnpb)
-
-如果你只想先看路线图，发「路线」；想判断自己适合从哪个项目开始，发「项目」；正在准备面试，发「追问」。
-
-先把样本写清楚，再让模型学会负责。下篇见。
+一条可以带走的做法：先把样本写清楚，再让模型学会负责。

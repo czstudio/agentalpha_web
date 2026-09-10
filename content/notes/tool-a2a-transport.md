@@ -159,8 +159,6 @@ discover(capability=expense.validate)
 
 发现阶段只返回能力、版本、租户和可接受的输入输出；调用阶段绑定用户和 Agent 身份；结果阶段必须附带业务凭证或未知查询键。这样能力服务升级时，可以先拒绝不兼容的版本，而不会把协议错误伪装成业务失败。
 
-![A2A 能力发现、租约和结果回执的事件链](/images/notes/multi-agent-protocol-state/message-envelope.svg)
-
 ## 结果合同要比自然语言更窄
 
 财务 Agent 返回“看起来没问题”并不能让上游继续。建议把结果合同固定成：
@@ -195,8 +193,6 @@ delegation_budget:
 
 如果 child 的 lease 已过期，parent 不能因为自己还有时间就继续要求执行；否则下游可能在上游已经回退之后产生迟到副作用。
 
-![跨 Agent 的期限、租约与跳数预算](/images/notes/multi-agent-task-decomposition/handoff-acceptance-contract.svg)
-
 ## 兼容性测试要覆盖行为
 
 字段兼容只是第一关。更容易出事故的是旧客户端仍能发送，但新服务对状态、错误码或未知字段的理解发生变化。可以维护一张行为矩阵：
@@ -222,8 +218,6 @@ compatibility_tests:
 ```
 
 每个版本都要有 replay fixture，特别是 `unknown`、延迟到达和重复结果。协议升级不能只跑 schema validator。
-
-![协议字段与行为兼容的矩阵](/images/notes/mcp-protocol-boundaries/compatibility-matrix-card.svg)
 
 ## 安全授权要跟着每一跳走
 
@@ -296,11 +290,11 @@ A2A 调用不能套一个“失败就重试”的通用策略。发现阶段失�
 
 ## 相关阅读
 
-- [工具调用契约：先定义输入输出](/notes/tool-function-contract)
-- [多智能体交接合同](/notes/agent-handoff-contract)
-- [MCP 边界：协议接入不等于权限放开](/notes/mcp-protocol-boundaries)
+- [Function Calling 不是模型会调函数就完事：先把契约验清楚](/notes/tool-function-contract)
+- [多智能体交接不是把聊天记录转发过去：先把合同写清楚](/notes/agent-handoff-contract)
+- [MCP 统一了工具接入，为什么还有这么多坑？](/notes/mcp-protocol-boundaries)
 
 ## 资料来源
 
-- 《Agent 岗面试宝典 v3 · 精华版》（本地飞书资料整理）
+- 《Agent 岗面试宝典 v3 · 精华版》
 - [ARIS-in-AI-Offer](https://github.com/wanshuiyin/ARIS-in-AI-Offer)

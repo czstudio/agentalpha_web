@@ -5,7 +5,7 @@ import { communityDocument } from "@/lib/community/content"
 import "./community.css"
 
 export const metadata: Metadata = {
-  title: "社区介绍",
+  title: "AgentAlpha 社区介绍",
   description: communityDocument.description,
   alternates: { canonical: "/community" },
   openGraph: {

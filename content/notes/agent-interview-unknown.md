@@ -158,7 +158,7 @@ stop_if: "重复副作用 > 0 或高风险拒答率下降"
 
 ![陌生题回答证据包把假设、决策、证据、边界和退路放在同一张卡片里](/images/notes/agent-interview-unknown/answer-evidence-pack.svg)
 
-图 4：一页证据包让面试官能沿着“为什么这样做、怎么证明、失败怎么办”继续追问。
+一页证据包让面试官能沿着“为什么这样做、怎么证明、失败怎么办”继续追问。
 
 ## 面试现场的反事实练习
 
@@ -304,7 +304,7 @@ minimum_loop: "解析 → 检索 → 引用 → 审批 → 草稿"
 
 陌生题的回答不应该只留下“我会选某某架构”。更有用的是记录面试官改了哪条约束、哪条假设受到影响、你增加了什么验证。这样复盘时能分辨是知识缺口，还是现场没有把边界说清：
 
-\`\`\`yaml
+```yaml
 decision_record: dr_20260820_11
 question: "企业合同 Agent 是否允许自动写回？"
 initial_assumptions: [tenant_isolation, draft_only]
@@ -320,7 +320,7 @@ validation:
   dataset: "contract-fixtures-v2"
   stop_when: "unknown_write_result > 0"
 follow_up: "补偿策略与人工接管 SLA"
-\`\`\`
+```
 
 面试后只复盘三件事：哪条假设没有及时说出、哪条边界被追问打穿、哪个验证可以在项目里补出来。记录越具体，下次越不需要依赖模板记忆。
 
@@ -354,11 +354,11 @@ confidence: medium
 
 没有反例的假设只是背景描述，无法说明设计对条件变化的敏感点。用一个最小变化去跑模块影响和验证路径，才能把“我这样假设”变成“我知道改动会影响哪里”。
 
-## L5：为什么要记录“保留不变的边界”？
+### L5：为什么要记录“保留不变的边界”？
 
 因为优秀的调整不是推倒重来。面试官改一个约束时，如果你能说清哪些模块要变、哪些安全和证据边界仍然成立，就能证明方案是可演进的，而不是背了一张静态架构图。
 
-## L5：为什么先讲假设，反而显得更专业？
+### L5：为什么先讲假设，反而显得更专业？
 
 因为设计题的关键不是猜中面试官心里的唯一答案，而是让方案在条件变化时仍可局部修正。把假设、边界和验证方法说出来，才能区分“我暂时不知道”和“系统没有安全出口”；隐藏不确定性，才会让整套方案显得脆弱。
 
@@ -401,12 +401,12 @@ time_box:
 
 ## 相关阅读
 
-- [面试官让你从零设计企业知识库 Agent，先画哪张图](/notes/enterprise-knowledge-agent-design)
-- [从需求到补丁：一个可靠 Code Agent 的任务分解、修改和验收](/notes/code-agent-delivery-loop)
+- [从零设计企业知识库 Agent，第一张图该画什么？](/notes/enterprise-knowledge-agent-design)
+- [Code Agent 怎样把一句需求稳稳做成补丁？](/notes/code-agent-delivery-loop)
 - [项目被追问‘你做的和框架有什么区别’，怎样讲出自己的贡献](/notes/agent-framework-contribution)
 - [技术方案有争议怎么办？从不同意见到可验证实验](/notes/agent-technical-disagreement)
 
 ## 资料来源
 
-- Agent 岗面试宝典 v3（AgentAlpha 飞书文档）
+- AgentAlpha《Agent 岗面试宝典 v3》：系统设计题章节
 - ARIS in AI Offer：系统设计题的假设、分层与验证结构

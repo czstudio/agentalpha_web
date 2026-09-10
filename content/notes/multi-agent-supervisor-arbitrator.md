@@ -264,7 +264,7 @@ draft -> candidate_ready -> supervised
 
 ### L5：裁决撤销后，已经执行的副作用怎么办？
 
-撤销只改变后续状态，不会神奇地抹掉已发生的动作。裁决包应绑定补偿动作或人工复核入口，执行器发现 `revoke_if` 命中时停止后续步骤、对账现有回执，并按业务支持的方式退款、回滚或标记待处理。
+撤销只改变后续状态，并不能撤销已发生的动作。裁决包应绑定补偿动作或人工复核入口，执行器发现 `revoke_if` 命中时停止后续步骤、对账现有回执，并按业务支持的方式退款、回滚或标记待处理。
 
 ## 仲裁裁决还要留下“少数意见与撤销窗口”
 
@@ -407,12 +407,12 @@ side_effect: blocked
 
 ## 相关笔记
 
-- [多 Agent 不是群聊：角色分工、消息协议和状态同步怎么做](/notes/multi-agent-protocol-state)
-- [多 Agent 系统为什么越加人越慢？并发、上下文和预算控制](/notes/multi-agent-concurrency-budget)
+- [多 Agent 不是群聊：消息和状态到底怎么管？](/notes/multi-agent-protocol-state)
+- [多 Agent 为什么越加人越慢？先管并发和预算](/notes/multi-agent-concurrency-budget)
 - [Agent 安全不是加一句提示词：权限、工具和数据边界怎么设计](/notes/agent-security-boundaries)
 - [Agent 上线后怎么定位问题？从 trace 到可观测性和回放](/notes/agent-observability-replay)
 
 ## 参考
 
-- [Agent 岗面试宝典 v3：共识与冲突解决考点（本地导入）](/content/imports/agent-interview-v3.feishu.md)
+- AgentAlpha《Agent 岗面试宝典 v3》：共识与冲突解决章节
 - [ARIS-in-AI-Offer](https://github.com/wanshuiyin/ARIS-in-AI-Offer)
