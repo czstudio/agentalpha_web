@@ -1,14 +1,14 @@
 ---
 slug: llm-kv-cache
-title: KV Cache 到底缓存了什么？为什么长对话越聊越贵
-excerpt: KV Cache 不是把整段对话“存起来就不算了”。它缓存每一层历史 token 的 Key 和 Value，让解码阶段只计算新 token；代价是上下文越长，显存和带宽压力越大。
+title: KV Cache 缓存的到底是什么？为什么长对话越聊越贵
+excerpt: KV Cache 不是把整段对话“存起来就不算了”。它缓存每层历史 token 的 Key 和 Value，让解码阶段只算新 token；代价是上下文越长，显存和带宽压力越大。
 series: "LLM 基础"
 seriesNo: "04"
 number: "17"
 minutes: 18
 ---
 
-当用户说“模型怎么越聊越慢”，工程师通常不会先去调 temperature。更常见的根因是：历史上下文变长，KV Cache 已经把显存和带宽推到了瓶颈。
+用户说“模型怎么越聊越慢”时，工程师通常不会先去调 temperature。更常见的根因是历史上下文变长，KV Cache 把显存和带宽推到了瓶颈。
 
 面试官会把问题问得更细：
 

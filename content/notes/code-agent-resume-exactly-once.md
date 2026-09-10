@@ -1,14 +1,14 @@
 ---
 slug: "code-agent-resume-exactly-once"
-title: "面试官追问：Code Agent 跑到一半挂了，怎么恢复而且不重复执行？"
-excerpt: "恢复不是把聊天记录接着播一遍。要靠持久化状态、操作幂等键和未知结果对账，把重复副作用关在边界内。"
+title: "Code Agent 跑到一半挂了，怎样恢复又不重复执行？"
+excerpt: "恢复不是把聊天记录从头接着播一遍。要靠持久化状态、操作幂等键和未知结果对账，把重复副作用挡在边界外。"
 series: "Code Agent"
 seriesNo: "02"
 number: "08"
 minutes: 11
 ---
 
-Code Agent 接到一个看似普通的任务：升级依赖、跑迁移、创建 Pull Request，然后通知团队。
+Code Agent 接到一个看似普通的任务：升级依赖、跑迁移、创建 Pull Request，再通知团队。看起来是四步，真正恢复时每一步都可能已经发生。
 
 它已经把数据库迁移提交成功，调用 GitHub API 创建 PR 时网络超时。Agent 进程重启，看到最后一条日志是“正在创建 PR”，于是又发了一次请求。结果仓库里多了两个 PR，迁移脚本却不能再跑第二遍。
 

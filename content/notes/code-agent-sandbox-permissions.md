@@ -1,14 +1,14 @@
 ---
 slug: "code-agent-sandbox-permissions"
-title: "面试官追问：Code Agent 为什么不能直接给它 root 权限？"
-excerpt: "Code Agent 的权限不是一个开关，而是一套可验证的执行边界：文件、网络、进程、身份和审批都要分别设计。"
+title: "Code Agent 为什么不能直接给 root 权限？"
+excerpt: "Code Agent 的权限不是一个开关，而是一套可验证的执行边界：文件、网络、进程、身份和审批都要分别设限。"
 series: "Code Agent"
 seriesNo: "02"
 number: "07"
 minutes: 9
 ---
 
-你让 Code Agent 修一个测试。它先读仓库，再运行 `npm test`，发现缺包，顺手执行 `npm install`。半分钟后，测试通过了，`~/.ssh` 里的私钥也差点被一起打包上传。
+你让 Code Agent 修一个测试。它读完仓库，运行 `npm test`，发现缺包，顺手执行 `npm install`。半分钟后测试通过了，`~/.ssh` 里的私钥也差点被一起打包上传。
 
 这不是危言耸听的红队故事。依赖安装脚本、恶意仓库、网页里的提示注入、被污染的 issue，都可能把“请帮我修 bug”变成“请替我执行一段不该执行的命令”。模型未必想害你，它只是把上下文里最像指令的东西当成了下一步。
 

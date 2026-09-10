@@ -164,7 +164,7 @@
     },
     {
       "slug": "agent-failure-story",
-      "title": "面试官追问失败案例时，怎样讲得具体又不自毁",
+      "title": "面试官追问失败案例，怎样讲具体又不把自己说垮",
       "excerpt": "失败案例不是自我否定题，而是边界和复盘题。选择一个真实失败，按现象、影响、定位、修复和剩余风险讲清楚，既不甩锅，也不把所有责任都揽到自己身上。",
       "series": "通用与软实力",
       "seriesNo": "12",
@@ -236,7 +236,7 @@
     },
     {
       "slug": "code-agent-delivery-loop",
-      "title": "从需求到补丁：一个可靠 Code Agent 的任务分解、修改和验收",
+      "title": "Code Agent 怎样把一句需求稳稳做成补丁？",
       "excerpt": "可靠的 Code Agent 不把一句需求直接变成一大段代码，而是先拆成可验证的任务，再沿仓库证据做小步修改，最后用分层验收证明补丁真的能交付。",
       "series": "Code Agent",
       "seriesNo": "02",
@@ -263,7 +263,7 @@
     },
     {
       "slug": "mcp-protocol-boundaries",
-      "title": "MCP 解决了什么问题？工具协议标准化之后仍有哪些坑",
+      "title": "MCP 统一了工具接入，为什么还有这么多坑？",
       "excerpt": "MCP 把模型与外部工具、资源和提示模板的连接方式标准化了，但它没有自动解决身份、权限、版本、租户隔离和副作用控制。协议统一只是起点。",
       "series": "工具调用",
       "seriesNo": "10",
@@ -272,7 +272,7 @@
     },
     {
       "slug": "tool-retry-policy",
-      "title": "工具调用失败后，Agent 应该重试、换工具还是停下来？",
+      "title": "工具调用失败后，Agent 该重试、换工具还是停下？",
       "excerpt": "失败不是一个布尔值。先判断请求有没有到达、外部副作用是否未知、参数是否有问题，再决定重试、换工具、回退还是转人工。",
       "series": "工具调用",
       "seriesNo": "10",
@@ -344,7 +344,7 @@
     },
     {
       "slug": "multimodal-rag",
-      "title": "多模态 RAG 怎么检索图片、表格和文字",
+      "title": "多模态 RAG 怎样把图片、表格和文字一起查出来？",
       "excerpt": "多模态 RAG 不是给文本 RAG 再加一列 image_url，而是把文字、表格、图片和坐标组织成统一证据对象，再用跨模态召回、元数据过滤和引用回溯回答问题。",
       "series": "多模态",
       "seriesNo": "08",
@@ -515,7 +515,7 @@
     },
     {
       "slug": "llm-kv-cache",
-      "title": "KV Cache 到底缓存了什么？为什么长对话越聊越贵",
+      "title": "KV Cache 缓存的到底是什么？为什么长对话越聊越贵",
       "excerpt": "KV Cache 缓存每层历史 token 的 Key 和 Value，让 Decode 阶段只计算新 token；代价是上下文越长，显存和带宽压力越大。",
       "series": "LLM 基础",
       "seriesNo": "04",
@@ -578,7 +578,7 @@
     },
     {
       "slug": "rag-embedding-basics",
-      "title": "Embedding 到底把什么变成了向量？别把语义相似当成答案",
+      "title": "Embedding 到底把什么变成了向量？相似不等于正确",
       "excerpt": "Embedding 负责把文本放进可比较的语义空间，但它不理解权限、时间和业务优先级。RAG 的第一步，是知道它能做什么，也知道它做不到什么。",
       "series": "RAG",
       "seriesNo": "03",
@@ -632,7 +632,7 @@
     },
     {
       "slug": "code-agent-repo-context",
-      "title": "面试官追问：代码 Agent 为什么总要先读仓库，再开始写代码？",
+      "title": "代码 Agent 为什么总要先读仓库，再开始写？",
       "excerpt": "Repo context 不是把整个项目塞进上下文，而是把任务相关的约束、入口、依赖和验证路径按优先级交给 Agent。",
       "series": "Code Agent",
       "seriesNo": "02",
@@ -650,7 +650,7 @@
     },
     {
       "slug": "code-agent-sandbox-permissions",
-      "title": "面试官追问：Code Agent 为什么不能直接给它 root 权限？",
+      "title": "Code Agent 为什么不能直接给 root 权限？",
       "excerpt": "Code Agent 的权限不是一个开关，而是一套可验证的执行边界：文件、网络、进程、身份和审批都要分别设计。",
       "series": "Code Agent",
       "seriesNo": "02",
@@ -659,7 +659,7 @@
     },
     {
       "slug": "code-agent-resume-exactly-once",
-      "title": "面试官追问：Code Agent 跑到一半挂了，怎么恢复而且不重复执行？",
+      "title": "Code Agent 跑到一半挂了，怎样恢复又不重复执行？",
       "excerpt": "恢复不是把聊天记录接着播一遍。要靠持久化状态、操作幂等键和未知结果对账，把重复副作用关在边界内。",
       "series": "Code Agent",
       "seriesNo": "02",

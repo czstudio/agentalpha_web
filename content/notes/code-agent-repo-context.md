@@ -1,14 +1,14 @@
 ---
 slug: "code-agent-repo-context"
-title: "面试官追问：代码 Agent 为什么总要先读仓库，再开始写代码？"
-excerpt: "Repo context 不是把整个项目塞进上下文，而是把任务相关的约束、入口、依赖和验证路径按优先级交给 Agent。"
+title: "代码 Agent 为什么总要先读仓库，再开始写？"
+excerpt: "Repo context 不是把整个项目塞进上下文，而是按优先级交给 Agent：任务约束、代码入口、依赖关系和验证路径。读对内容，比读得多更重要。"
 series: "Code Agent"
 seriesNo: "02"
 number: "05"
 minutes: 11
 ---
 
-代码 Agent 的演示通常很顺：输入一句“给这个接口加分页”，它打开几个文件，改完，跑一下测试，最后说 done。
+代码 Agent 的演示通常很顺：输入一句“给这个接口加分页”，它打开几个文件，改完，跑个测试，最后说 done。真正接手仓库时，麻烦才开始。
 
 真正的面试现场没有这么客气。
 
