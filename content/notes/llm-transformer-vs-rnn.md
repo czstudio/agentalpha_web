@@ -1,14 +1,14 @@
 ---
 slug: llm-transformer-vs-rnn
-title: Transformer 为什么能替代 RNN？从并行训练到位置编码
-excerpt: RNN 不是突然“过时”了，而是它的顺序依赖在大规模训练和长上下文里越来越昂贵。把训练、推理、位置和工程取舍拆开，你就能回答 Transformer 为什么赢。
+title: Transformer 为什么跑赢 RNN？别只说“因为能并行”
+excerpt: RNN 不是突然“过时”了，而是顺序依赖在大规模训练和长上下文里越来越昂贵。把训练、推理、位置和工程取舍拆开，才讲得清 Transformer 为什么占上风。
 series: "LLM 基础"
 seriesNo: "04"
 number: "15"
 minutes: 20
 ---
 
-面试官经常把这道题问得很轻：
+面试官经常把这道题问得很轻，像是在等一句口号：
 
 > “Transformer 相比 RNN，到底好在哪里？”
 

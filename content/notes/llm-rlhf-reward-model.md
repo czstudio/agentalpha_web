@@ -1,14 +1,14 @@
 ---
 slug: "llm-rlhf-reward-model"
-title: "RLHF 为什么要奖励模型？从偏好数据到 PPO 的完整链路"
-excerpt: "RLHF 不是把‘人类喜欢’直接塞给语言模型，而是先把偏好变成可学习的奖励，再用策略优化把行为推向更高质量。把数据、奖励模型、KL 约束和 PPO 串起来，才能解释它为什么有效，也能说清它为什么会被 reward hacking 反噬。"
+title: "RLHF 为什么要奖励模型？从偏好到 PPO 怎么接起来"
+excerpt: "RLHF 不是把“人类喜欢”直接塞给语言模型，而是先把偏好变成可学习的奖励，再用策略优化把行为推向更高质量。把数据、奖励模型、KL 约束和 PPO 串起来，才讲得清它怎么工作、又怎么被 reward hacking 反噬。"
 series: "LLM 训练"
 seriesNo: "05"
 number: "20"
 minutes: 20
 ---
 
-“我们已经有一个会聊天的 Base Model，为什么还要再训练一个奖励模型？”
+“我们已经有一个会聊天的 Base Model，为什么还要再训练一个奖励模型？”这句话，正好问到了 RLHF 的关键分工。
 
 👔 面试官  如果人工更喜欢答案 A，不喜欢答案 B，直接把 A 当标签做 SFT 不行吗？
 

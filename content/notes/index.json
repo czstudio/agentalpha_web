@@ -38,7 +38,7 @@
     },
     {
       "slug": "llm-tokenizer-position-encoding",
-      "title": "Tokenizer 和位置编码：模型为什么看不懂你以为的一个词",
+      "title": "Tokenizer 和位置编码：模型为什么不按你以为的词来读？",
       "excerpt": "Token 不是字数，位置也不只是给每个词贴序号。面试回答要把分词粒度、上下文长度、位置外推和成本体验连起来，解释清楚为什么同一句话在不同语言和长度下表现不同。",
       "series": "LLM 基础",
       "seriesNo": "04",
@@ -308,7 +308,7 @@
     },
     {
       "slug": "offline-eval-online-drift",
-      "title": "离线评测高分，线上为什么还是翻车？",
+      "title": "离线评测 95 分，线上为什么还是翻车？",
       "excerpt": "离线集验证的是一组固定样本，线上面对的是变化的用户、工具和数据。把分布漂移、长尾失败、版本组合和副作用纳入评测，才能解释‘离线 95%，线上 70%’。",
       "series": "评测",
       "seriesNo": "09",
@@ -362,7 +362,7 @@
     },
     {
       "slug": "multimodal-vision-slicing",
-      "title": "图片问答答非所问，问题可能不在模型而在视觉切片",
+      "title": "图片问答答非所问，可能是模型根本没看清",
       "excerpt": "小字、表格和长截图经常不是模型能力不够，而是它根本没有以合适的分辨率看到目标。用全图定位、局部切片、OCR 和证据合并，才能把视觉问答做稳。",
       "series": "多模态",
       "seriesNo": "08",
@@ -371,7 +371,7 @@
     },
     {
       "slug": "multimodal-to-transformer",
-      "title": "多模态模型不是给图片加一个输入框：图像如何进入 Transformer",
+      "title": "多模态模型不是给图片加个输入框：图像怎样进入 Transformer？",
       "excerpt": "图片要被语言模型理解，必须先经过视觉编码、特征投影和跨模态融合。把像素、patch、视觉 token 和文本 token 串起来，才能解释模型到底看到了什么。",
       "series": "多模态",
       "seriesNo": "08",
@@ -461,7 +461,7 @@
     },
     {
       "slug": "llm-data-mixture",
-      "title": "预训练数据不是越多越好：清洗、去重和数据配比如何影响能力",
+      "title": "预训练数据不是越多越好：这批数据值得加吗？",
       "excerpt": "大模型吃下的 token 越多，不代表学到的能力越多。重复网页会放大偏见，模板化代码会挤占推理数据，低质量语料会让训练预算变成噪声。",
       "series": "LLM 训练",
       "seriesNo": "05",
@@ -470,7 +470,7 @@
     },
     {
       "slug": "llm-training-stability",
-      "title": "训练 loss 降了，模型为什么没变聪明？训练稳定性排查清单",
+      "title": "训练 loss 降了，模型为什么没变聪明？",
       "excerpt": "一条漂亮的 loss 曲线，只能说明优化器在当前目标上前进。用指标矩阵和可回滚的实验，才能把训练问题定位到可修复的环节。",
       "series": "LLM 训练",
       "seriesNo": "05",
@@ -488,7 +488,7 @@
     },
     {
       "slug": "llm-rlhf-reward-model",
-      "title": "RLHF 为什么要奖励模型？从偏好数据到 PPO 的完整链路",
+      "title": "RLHF 为什么要奖励模型？从偏好到 PPO 怎么接起来",
       "excerpt": "RLHF 不是把‘人类喜欢’直接塞给语言模型，而是先把偏好变成可学习的奖励，再用策略优化把行为推向更高质量。",
       "series": "LLM 训练",
       "seriesNo": "05",
@@ -533,7 +533,7 @@
     },
     {
       "slug": "llm-transformer-vs-rnn",
-      "title": "Transformer 为什么能替代 RNN？从并行训练到位置编码",
+      "title": "Transformer 为什么跑赢 RNN？别只说“因为能并行”",
       "excerpt": "RNN 不是突然过时，而是顺序依赖在大规模训练和长上下文里越来越昂贵。把训练、推理、位置和工程取舍拆开，你就能回答 Transformer 为什么赢。",
       "series": "LLM 基础",
       "seriesNo": "04",
@@ -551,7 +551,7 @@
     },
     {
       "slug": "rag-evaluation-practice",
-      "title": "RAG 怎么评测才不自欺？把“答得像”拆成四层证据",
+      "title": "RAG 怎么评测才不自欺？把“答得像”拆开看",
       "excerpt": "RAG 的评测不能只看最终答案。把数据、召回、引用和生成分层，才能知道系统到底在哪一环掉链子。",
       "series": "RAG",
       "seriesNo": "03",
@@ -569,7 +569,7 @@
     },
     {
       "slug": "rag-chunking-strategy",
-      "title": "RAG 分块怎么定？先别争 256 还是 512",
+      "title": "RAG 分块怎么定？先别急着争 256 还是 512",
       "excerpt": "分块的目标不是把文本切得整齐，而是让一个检索结果既能被准确找到，又能独立支撑一个回答。",
       "series": "RAG",
       "seriesNo": "03",
