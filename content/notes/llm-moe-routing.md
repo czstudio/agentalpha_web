@@ -1,14 +1,14 @@
 ---
 slug: llm-moe-routing
-title: MoE 为什么能少算一点还变大？路由、负载均衡与专家塌缩
-excerpt: MoE 不是把多个模型简单拼在一起。真正决定效果和成本的是 Router 如何给 token 选专家、容量如何限制拥堵，以及系统如何把 token 分发到不同设备。
+title: MoE 为什么参数更多，推理却不一定更贵？
+excerpt: MoE 不是把多个模型简单拼在一起。效果和成本取决于路由器给 token 选哪些专家、容量怎么避免拥堵，以及 token 怎样分发到不同设备。
 series: "LLM 基础"
 seriesNo: "04"
 number: "16"
 minutes: 20
 ---
 
-面试官问“你了解 MoE 吗”，通常不是想听到“Mixture of Experts 可以稀疏激活”。他更关心三个现实问题：
+面试官问“你了解 MoE 吗”，通常不是想听你背“Mixture of Experts 可以稀疏激活”。他更关心三个现实问题：
 
 - 一个 token 为什么只走少数几个专家？
 - 如果所有 token 都挤去同一个专家，模型会不会堵死？

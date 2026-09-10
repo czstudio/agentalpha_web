@@ -1,7 +1,7 @@
 ---
 slug: "agentic-rl-react"
-title: "面试官追问：Agent 已经会 ReAct，为什么还要做 Agentic RL？"
-excerpt: "会调工具只说明流程能跑。Agentic RL 真正要学的是，在不断变化的环境里，什么时候搜索、什么时候执行、什么时候停止，以及失败后该把责任分给哪一步。"
+title: "Agent 已经会 ReAct，为什么还要做 Agentic RL？"
+excerpt: "会调工具，只能说明流程跑得通。Agentic RL 要学的是环境变化时何时搜索、何时执行、何时停下，以及失败后哪一步真正影响了结果。"
 series: "Agentic RL"
 seriesNo: "01"
 number: "01"

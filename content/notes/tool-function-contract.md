@@ -1,7 +1,7 @@
 ---
 slug: "tool-function-contract"
-title: "Function Calling 不是让模型‘会调用函数’：参数、协议和验证"
-excerpt: "Function Calling 真正解决的是把自然语言决策变成可校验的动作请求。Schema、解析、权限和执行回执缺一环，模型就可能把一个看似漂亮的 JSON 变成线上事故。"
+title: "Function Calling 不是模型会调函数就完事：先把契约验清楚"
+excerpt: "Function Calling 要把自然语言决策变成可校验的动作请求。Schema、解析、权限和执行回执缺一环，漂亮的 JSON 也可能直接变成线上事故。"
 series: "工具调用"
 seriesNo: "10"
 number: "44"

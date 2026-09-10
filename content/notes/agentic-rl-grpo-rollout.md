@@ -1,14 +1,14 @@
 ---
 slug: "agentic-rl-grpo-rollout"
-title: "面试官追问：GRPO 不是调用一个函数，Agent rollout 为什么总把系统拖垮？"
-excerpt: "GRPO 的公式并不神秘，难的是把一组可比较、可复现、成本可控的 Agent 轨迹真正采出来。"
+title: "GRPO 训练 Agent，为什么 rollout 总把系统拖垮？"
+excerpt: "GRPO 公式不难，难的是把一批能比较、能复现、成本也扛得住的 Agent 轨迹采出来。工具、并发、超时和长短不一的轨迹，都会把训练系统拖垮。"
 series: "Agentic RL"
 seriesNo: "01"
 number: "03"
 minutes: 9
 ---
 
-“我们用 GRPO 训练了一个 Agent。”
+“我们用 GRPO 训练了一个 Agent。”这句话放在简历上很有气势，真正开跑时却常常先卡在 rollout。
 
 这句话放在简历上很有气势。面试官通常不会先问公式，而是问一句很朴素的话：
 

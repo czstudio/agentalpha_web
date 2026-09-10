@@ -65,8 +65,8 @@
     },
     {
       "slug": "rag-graph-retrieval",
-      "title": "Graph RAG 不是给知识库画一张图：关键是让证据沿关系可回溯",
-      "excerpt": "当问题需要跨文档、跨实体、多跳关系时，图结构能补足纯向量相似度的短板。设计时要把节点、边、来源、时间和路径评分一起纳入，而不是只展示一个漂亮的关系网络。",
+      "title": "Graph RAG 不只是画关系图：证据要能沿路径找回去",
+      "excerpt": "问题跨文档、跨实体、需要多跳关系时，图结构能补上纯向量相似度的短板。设计时要同时记录节点、边、来源、时间和路径评分，不能只做一张好看的关系网。",
       "series": "RAG",
       "seriesNo": "03",
       "number": "67",
@@ -119,8 +119,8 @@
     },
     {
       "slug": "agent-workflow-vs-agent",
-      "title": "Workflow 还是 Agent：先看不确定性，再决定要不要把方向盘交出去",
-      "excerpt": "面试里的 Workflow vs Agent 不是概念二选一，而是一次边界设计。把不确定性、风险、验证成本和回退方式放在同一张表里，答案才不会停在‘Agent 更灵活’。",
+      "title": "Workflow 还是 Agent？先看这件事到底有多不确定",
+      "excerpt": "Workflow 和 Agent 不是谁更先进的二选一。先看任务的不确定性、风险、验证成本和回退办法，再决定哪些步骤交给 Agent，哪些边界必须写死。",
       "series": "Agent 架构",
       "seriesNo": "06",
       "number": "61",
@@ -227,7 +227,7 @@
     },
     {
       "slug": "enterprise-knowledge-agent-design",
-      "title": "面试官让你从零设计企业知识库 Agent，先画哪张图",
+      "title": "从零设计企业知识库 Agent，第一张图该画什么？",
       "excerpt": "企业知识库 Agent 不是‘向量库加一个聊天框’。从内容接入、版本、租户权限、检索、编排到证据评测，都要在一张能落地的架构图里说清楚。",
       "series": "项目深挖",
       "seriesNo": "11",
@@ -281,8 +281,8 @@
     },
     {
       "slug": "tool-function-contract",
-      "title": "Function Calling 不是让模型‘会调用函数’：参数、协议和验证",
-      "excerpt": "Function Calling 真正解决的是把自然语言决策变成可校验的动作请求。Schema、解析、权限和执行回执缺一环，模型就可能把一个看似漂亮的 JSON 变成线上事故。",
+      "title": "Function Calling 不是模型会调函数就完事：先把契约验清楚",
+      "excerpt": "Function Calling 要把自然语言决策变成可校验的动作请求。Schema、解析、权限和执行回执缺一环，漂亮的 JSON 也可能直接变成线上事故。",
       "series": "工具调用",
       "seriesNo": "10",
       "number": "44",
@@ -299,8 +299,8 @@
     },
     {
       "slug": "llm-judge-calibration",
-      "title": "LLM-as-a-Judge 为什么会偏？从评分 rubric 到校准",
-      "excerpt": "让一个大模型给另一个模型打分很方便，但它会偏爱更长、更像自己、更有格式感的答案。可靠的 Judge 需要 rubric、盲评、程序规则和人工样本共同校准。",
+      "title": "让 LLM 给答案打分，为什么也会偏？",
+      "excerpt": "让一个大模型给另一个模型打分很方便，但它可能偏爱更长、更像自己或格式更整齐的答案。可靠的 Judge 要靠评分标准、盲评、程序规则和人工样本一起校准。",
       "series": "评测",
       "seriesNo": "09",
       "number": "42",
@@ -353,7 +353,7 @@
     },
     {
       "slug": "multimodal-document-layout",
-      "title": "文档理解为什么要保留版面？从 OCR 到表格和图表解析",
+      "title": "文档理解为什么不能只做 OCR？版面关系才是线索",
       "excerpt": "把 PDF 变成一串 OCR 文本，会丢掉栏、行、表头和脚注之间的关系。可靠的文档 Agent 要同时保存文字、坐标、块类型和跨页结构，才能回答“哪一列、哪一行、依据在哪”。",
       "series": "多模态",
       "seriesNo": "08",
@@ -416,8 +416,8 @@
     },
     {
       "slug": "multi-agent-task-decomposition",
-      "title": "为什么一个 Agent 做不完的事，要拆成多个 Agent？",
-      "excerpt": "多 Agent 的价值不在于把一个聊天窗口复制几份，而在于把互相牵制的目标拆成可验收的责任边界。先判断是否值得拆，再决定角色、交接和失败回退。",
+      "title": "一个 Agent 做不完，什么时候该拆成多个？",
+      "excerpt": "多 Agent 的价值不在于复制几个聊天窗口，而在于把互相牵制的目标拆成可验收的责任边界。先判断值不值得拆，再定角色、交接和失败回退。",
       "series": "多智能体",
       "seriesNo": "07",
       "number": "29",
@@ -524,7 +524,7 @@
     },
     {
       "slug": "llm-moe-routing",
-      "title": "MoE 为什么能少算一点还变大？路由、负载均衡与专家塌缩",
+      "title": "MoE 为什么参数更多，推理却不一定更贵？",
       "excerpt": "MoE 用稀疏路由把每个 token 的计算交给少数专家，真正的难点在 Router、容量、负载均衡和分布式通信。",
       "series": "LLM 基础",
       "seriesNo": "04",
@@ -596,8 +596,8 @@
     },
     {
       "slug": "agentic-rl-react",
-      "title": "面试官追问：Agent 已经会 ReAct，为什么还要做 Agentic RL？",
-      "excerpt": "会调工具只说明流程能跑。Agentic RL 真正要学的是，在不断变化的环境里，什么时候搜索、什么时候执行、什么时候停止，以及失败后该把责任分给哪一步。",
+      "title": "Agent 已经会 ReAct，为什么还要做 Agentic RL？",
+      "excerpt": "会调工具，只能说明流程跑得通。Agentic RL 要学的是环境变化时何时搜索、何时执行、何时停下，以及失败后哪一步真正影响了结果。",
       "series": "Agentic RL",
       "seriesNo": "01",
       "number": "01",
@@ -614,8 +614,8 @@
     },
     {
       "slug": "agentic-rl-grpo-rollout",
-      "title": "面试官追问：GRPO 不是调用一个函数，Agent rollout 为什么总把系统拖垮？",
-      "excerpt": "GRPO 的公式并不神秘，难的是把一组可比较、可复现、成本可控的 Agent 轨迹真正采出来。",
+      "title": "GRPO 训练 Agent，为什么 rollout 总把系统拖垮？",
+      "excerpt": "GRPO 公式不难，难的是把一批能比较、能复现、成本也扛得住的 Agent 轨迹采出来。工具、并发、超时和长短不一的轨迹，都会把训练系统拖垮。",
       "series": "Agentic RL",
       "seriesNo": "01",
       "number": "03",
