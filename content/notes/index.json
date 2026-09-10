@@ -137,7 +137,7 @@
     },
     {
       "slug": "bytedance-agent-interview",
-      "title": "字节高频 Agent 题：从 RAG 细节到线上性能，面试官在追什么",
+      "title": "字节常问的 Agent 题，面试官到底在追什么？",
       "excerpt": "字节类 Agent 面试题常把知识库、工具调用和线上指标串在一起追问。准备时不要背单点名词，要能从需求判断、检索证据、状态恢复一路讲到延迟、成本和灰度。",
       "series": "五厂高频题",
       "seriesNo": "13",
@@ -209,7 +209,7 @@
     },
     {
       "slug": "agent-metrics-baseline",
-      "title": "项目里的指标是怎么来的？把 Demo 讲成可验证的工程系统",
+      "title": "项目里的指标怎么来的？别只报一个漂亮数字",
       "excerpt": "一个漂亮的成功率不能证明 Agent 可靠。先定义任务结果、过程、证据安全、成本体验，再固定数据和版本指纹，指标才有比较和归因的意义。",
       "series": "项目深挖",
       "seriesNo": "11",
@@ -317,7 +317,7 @@
     },
     {
       "slug": "rag-grounded-evidence",
-      "title": "RAG 答案看着对，怎么证明它真的有依据？",
+      "title": "RAG 答案看着对，怎样证明它有依据？",
       "excerpt": "引用一个文档链接不等于有依据。要验证 RAG 的答案，必须把结论拆成可核查的 claim，再检查证据是否覆盖、是否矛盾、是否来自正确版本。",
       "series": "评测",
       "seriesNo": "09",
@@ -335,7 +335,7 @@
     },
     {
       "slug": "multimodal-video-agent",
-      "title": "视频 Agent 如何处理百万级帧？采样、时间定位和证据回放",
+      "title": "视频 Agent 怎样处理百万级帧？先把时间定位做好",
       "excerpt": "视频 Agent 不会把每一帧都塞给模型。它要先建立时间轴，用镜头切分、关键帧、语音和 OCR 做粗到细检索，再把答案落回可回放的时间区间。",
       "series": "多模态",
       "seriesNo": "08",
@@ -380,7 +380,7 @@
     },
     {
       "slug": "multi-agent-evaluation",
-      "title": "如何评测多 Agent 协作？不能只看最终答案",
+      "title": "多 Agent 协作怎么评测？不能只看最终答案",
       "excerpt": "最终答案正确，不代表协作过程可靠。多 Agent 评测要把个体能力、消息质量、协作效率、失败恢复和安全边界拆开看。",
       "series": "多智能体",
       "seriesNo": "07",
@@ -407,7 +407,7 @@
     },
     {
       "slug": "multi-agent-protocol-state",
-      "title": "多 Agent 不是群聊：角色分工、消息协议和状态同步怎么做",
+      "title": "多 Agent 不是群聊：消息和状态到底怎么管？",
       "excerpt": "让多个 Agent 协作的关键不是让它们互相发消息，而是约定谁能说什么、谁能改什么、状态何时提交，以及一条消息如何被确认。",
       "series": "多智能体",
       "seriesNo": "07",
@@ -479,7 +479,7 @@
     },
     {
       "slug": "llm-dpo-vs-ppo",
-      "title": "DPO 和 PPO 到底差在哪？什么时候不需要单独训练奖励模型",
+      "title": "DPO 和 PPO 到底差在哪？什么时候可以不要奖励模型",
       "excerpt": "DPO 把偏好优化改写成一个离线分类目标，省掉了 PPO 的在线 rollout 和显式奖励模型，但它并没有消除数据质量、参考策略和分布外风险。",
       "series": "LLM 训练",
       "seriesNo": "05",
@@ -497,7 +497,7 @@
     },
     {
       "slug": "llm-sft-data-quality",
-      "title": "SFT 不是把答案背下来：一条训练样本如何改变模型行为",
+      "title": "SFT 不是把答案背下来：一条样本怎样改变模型行为",
       "excerpt": "监督微调真正改变的是模型在特定输入下的行为分布。把数据构造、loss mask、质量分层和回归评测拆开，才能知道模型学会了什么。",
       "series": "LLM 训练",
       "seriesNo": "05",
@@ -506,7 +506,7 @@
     },
     {
       "slug": "llm-inference-optimization",
-      "title": "大模型推理优化不是只换量化：吞吐、延迟和显存怎么一起看",
+      "title": "大模型推理优化不只是换量化：吞吐、延迟和显存要一起看",
       "excerpt": "推理优化没有一个万能开关。先把 TTFT、TPOT、吞吐和显存分开，再选择量化、连续批处理、前缀缓存、投机解码与并行策略。",
       "series": "LLM 基础",
       "seriesNo": "04",
@@ -623,7 +623,7 @@
     },
     {
       "slug": "agentic-rl-reward-hacking",
-      "title": "面试官追问：Agent 把奖励刷满了，为什么任务还是没做成？",
+      "title": "Agent 把奖励刷满了，为什么任务还是没做成？",
       "excerpt": "Reward hacking 不是模型突然变坏，而是验收器允许了一个更容易的目标。Agent 越会用工具，越要把奖励和真实结果拆开。",
       "series": "Agentic RL",
       "seriesNo": "01",

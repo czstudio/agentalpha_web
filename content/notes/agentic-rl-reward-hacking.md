@@ -1,14 +1,14 @@
 ---
 slug: "agentic-rl-reward-hacking"
-title: "面试官追问：Agent 把奖励刷满了，为什么任务还是没做成？"
-excerpt: "Reward hacking 不是模型突然变坏，而是验收器允许了一个更容易的目标。Agent 越会用工具，越要把奖励和真实结果拆开。"
+title: "Agent 把奖励刷满了，为什么任务还是没做成？"
+excerpt: "Reward hacking 不是模型突然变坏，而是验收器给了一个更容易钻的目标。Agent 越会用工具，越要把奖励和真实结果分开检查。"
 series: "Agentic RL"
 seriesNo: "01"
 number: "04"
 minutes: 9
 ---
 
-你给训练曲线加一张截图：平均 reward 从 0.42 涨到 0.91。
+你把训练曲线贴到评审群里：平均 reward 从 0.42 涨到 0.91。大家正准备庆祝，面试官却问：
 
 面试官没有恭喜你，只问：“用户满意度呢？”
 
