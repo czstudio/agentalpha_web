@@ -10,7 +10,7 @@ minutes: 20
 
 “你问一下研究 Agent。”“好，我觉得可以交给分析 Agent。”如果多 Agent 的通信长这样，本质上还是群聊：消息很多，责任很少；状态各存一份，最后谁也说不清哪份最新。
 
-可靠的多 Agent 系统要把自然语言交流降级成补充，把协议和状态升级成主干。Agent 之间传递的不是“我认为”，而是带 schema、版本、来源、租约和确认状态的事件。
+可靠的多 Agent 系统要把自然语言交流放在辅助位置，把协议和状态放到主干上。Agent 之间传递的不是“我认为”，而是带 schema、版本、来源、租约和确认状态的事件。
 
 ## 先给一个能复述的答案
 
@@ -32,7 +32,7 @@ minutes: 20
 | Reviewer | 计划、证据、补丁 | 审核意见 | 只读检查 | Review vN |
 | Coordinator | 全局元数据 | 状态迁移 | 调度接口 | Final decision |
 
-“读取很多”不代表“可以修改很多”。尤其要避免给每个 Agent 一把 `update_state` 全能钥匙；它们应该只能调用自己负责的命令，例如 `submit_evidence`、`request_review`、`mark_blocked`。
+“读取很多”不代表“可以修改很多”。尤其别给每个 Agent 一把 `update_state` 全能钥匙；它们应该只能调用自己负责的命令，例如 `submit_evidence`、`request_review`、`mark_blocked`。
 
 ## 二、消息协议至少要回答八个问题
 
