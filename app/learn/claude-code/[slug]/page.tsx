@@ -69,7 +69,7 @@ export default async function ClaudeCodeChapterPage({ params }: ChapterPageProps
         <article className="aa-notes-shell aa-note-article learn-chapter-page">
           <nav className="aa-note-breadcrumb"><Link href="/learn/claude-code"><ArrowLeft aria-hidden /> 返回课程目录</Link></nav>
           <header className="learn-chapter-header">
-            <p className="aa-notes-kicker">CLAUDE CODE · 第 {entry.order} 章</p>
+            <p className="aa-notes-kicker">Claude Code · 第 {entry.order} 章</p>
             <h1>{chapter.title}</h1>
             <p>{chapter.summary}</p>
             <div className="learn-chapter-meta"><span>{chapter.difficulty}</span><span>{chapter.readingMinutes} 分钟</span>{chapter.tags.map((tag) => <span key={tag}>{tag}</span>)}</div>

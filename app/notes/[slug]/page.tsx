@@ -159,10 +159,10 @@ export default async function NoteDetailPage({ params }: NotePageProps) {
           <section className="aa-note-aris" aria-labelledby="aa-note-aris-title">
             <div className="aa-note-aris-head">
               <div>
-                <p className="aa-notes-kicker">ARIS READING CARD · THREE PASSES</p>
+                <p className="aa-notes-kicker">本篇阅读顺序 · 三遍读法</p>
                 <h2 id="aa-note-aris-title">一篇文章，读出三种能力。</h2>
               </div>
-              <p>先建立概念，再处理面试官的条件变化，最后把答案压成一段可以运行、可以复盘的实现。它不是额外的装饰，而是这篇文章的阅读顺序。</p>
+              <p>先弄懂它为什么这样工作，再把条件换一换，看方案还能不能站住，最后用代码和证据复盘一遍。顺序固定，读完才知道自己是真的会了，还是只记住了名词。</p>
             </div>
             <div className="aa-note-aris-grid">
               <article>
@@ -211,7 +211,7 @@ export default async function NoteDetailPage({ params }: NotePageProps) {
               <aside className="aa-note-promo">
                 <p className="aa-note-promo-kicker">AgentAlpha 大模型 Agent 训练营</p>
                 <p className="aa-note-promo-text">
-                  想把这道题真正讲透?和社区里的研究者、工程师一起,用实战项目把答案变成自己的系统直觉。
+                  想把这道题真正讲透？和社区里的研究者、工程师一起，用实战项目把答案变成自己的判断。
                 </p>
                 <Link href="/#join" className="aa-note-promo-cta">
                   了解训练营 <ArrowRight aria-hidden />

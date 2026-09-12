@@ -62,7 +62,7 @@ export function EnrollmentQrDialog({
         </button>
 
         <section className="enrollment-dialog-copy">
-          <span className="enrollment-dialog-index">ADMISSION / 01</span>
+          <span className="enrollment-dialog-index">报名方式 / 01</span>
           <div>
             <p className="enrollment-dialog-kicker">训练营报名通行证</p>
             <h2 id="enrollment-dialog-title">从一次扫码，<br />开始做出真实作品。</h2>

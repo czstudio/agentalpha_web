@@ -1,5 +1,56 @@
 # AgentAlpha 网站交接文档
 
+## 2026-09-11 当前交接记录
+
+这次交接把“正文重写、插图、课程入口和部署”放在同一个可核对的版本里。
+
+- GitHub 仓库：`https://github.com/czstudio/agentalpha_web`
+- 当前提交：`31e00cd`（基于 ZCode 正文提交 `c0620f4`）
+- 工作树：`/Users/cz/.codex/worktrees/agentalpha-web-snapshot-20260908`
+- 分支：`snapshot/satisfied-20260908`；推送生产前先确认 GitHub `master` 的远端 SHA，没有在有未提交改动的 `/Users/cz/code/agentalpha_web` 上直接操作。
+- 生产目标：`https://agentalpha.top`，Vercel 项目 `agent-alpha-community-website`。
+
+### 本次已经交接的内容
+
+1. 全站笔记正文完成一轮中文重写，共 74 篇；首页、笔记目录、笔记文章和课程入口又做了一轮“说人话”润色。可见文案主要在 `locales/zh.json`、`app/notes/page.tsx` 和 `app/notes/[slug]/page.tsx`。
+2. 增加 Claude Code 课程的安全目录和章节待发布页。课程清单仍是草稿状态，未通过审核的章节不会展示草稿正文。
+3. 用 UniKeyX 路由生成 6 张 1280×720、16:9 手绘图，结果和每张 SHA-256 在 `docs/illustrations/unikeyx/2026-09-10/receipt.json`；论文图、原文链接、图号和 SHA-256 在 `docs/illustrations/paper-evidence/index.json`。
+4. 新增 18 张论文图，按文章主题插入 12 篇笔记。论文图只作教育性引用，原作者权利不变；商业发布前要重新核对各论文许可。
+5. 社区 Feishu 源文件没有被改写；公众号没有发布动作。
+
+### 部署交接
+
+GitHub `master` 是生产发布入口。推送前后都要保留远端 SHA 和 Vercel 部署回执：
+
+```bash
+git fetch https://github.com/czstudio/agentalpha_web.git master
+git push https://github.com/czstudio/agentalpha_web.git HEAD:master
+vercel --prod --yes
+```
+
+如果 GitHub 集成已触发自动部署，不要重复提交第二次；只用 `vercel ls agent-alpha-community-website` 或 Vercel 控制台核对同一个部署的状态。部署成功后再访问 `https://agentalpha.top/notes`、`/notes/llm-attention-context` 和 `/community` 做线上回读。线上成功必须以 HTTP 回读和 Vercel 终态为准，不能把本地预览当成上线。
+
+### 每日笔记更新约定
+
+已建立 Codex 日更任务：`AgentAlpha 笔记日更`（automation id：`agentalpha-2`，每天一次）。它只在有实际变更、部署结果或阻塞时汇报。
+
+每天只推进一个明确主题，避免为了凑数量批量生成空文章：
+
+1. 先从 `content/notes/index.json` 找一个缺口，新增或修改 `content/notes/*.md`，标题和开头先写读者正在遇到的具体问题。
+2. 正文按“问题现场 → 原理 → 最小实现 → 失败边界 → 面试复述”推进；少用“赋能、闭环、全链路、体系化”等空话。
+3. 需要配图时，优先找原论文图并记录原文链接、图号、用途和许可说明；需要解释机制再走 UniKeyX 手绘图，沿用暖纸白、墨线、短中文标签的现有风格。
+4. 每次更新至少执行 `pnpm exec tsc --noEmit`、`pnpm run build` 和图片引用检查；通过后提交一笔可回滚的 Git commit，再推送 GitHub。
+5. 发现正文不自然时，先改读者看得到的句子，不改设计令牌和既有图片风格；不要把未审核课程草稿或未核验外部素材推到公开页面。
+
+### 当前验收证据
+
+- `pnpm exec tsc --noEmit`：通过
+- `pnpm run build`：通过，生成 116 条路由
+- `pnpm run community:verify`：通过
+- `COMMUNITY_URL=http://127.0.0.1:3101/community pnpm run community:page:verify`：桌面、平板、手机通过
+- 图片引用：593 个，缺失 0 个
+- 定向 ESLint：通过；全仓 ESLint 仍有既有问题（80 errors、45 warnings），不作为本次新增文件的通过依据
+
 ## 项目地址
 
 - 本地项目：`/Users/cz/code/agentalpha_web`
@@ -21,25 +72,27 @@
 ## 本地启动
 
 ```bash
-cd /Users/cz/code/agentalpha_web
+cd /Users/cz/.codex/worktrees/agentalpha-web-snapshot-20260908
 pnpm install
 pnpm dev
 ```
 
-本地地址：`http://localhost:3000`
+本地地址：`http://127.0.0.1:3101`（如果端口不同，以终端实际输出为准）。`/Users/cz/code/agentalpha_web` 可能有未提交的个人改动，未确认前不要用它做发布。
 
 ## 部署
 
-在项目目录执行：
+完成检查后，从干净工作树提交 GitHub，再发布 Vercel：
 
 ```bash
-cd /Users/cz/code/agentalpha_web
+cd /Users/cz/.codex/worktrees/agentalpha-web-snapshot-20260908
 pnpm install
 pnpm run build
+git fetch https://github.com/czstudio/agentalpha_web.git master
+git push https://github.com/czstudio/agentalpha_web.git HEAD:master
 vercel --prod --yes
 ```
 
-项目已经关联 Vercel，部署完成后会自动更新 `https://agentalpha.top`。
+项目已经关联 Vercel。GitHub 推送可能会自动触发部署；若已出现同一提交的部署，不要重复发布，核对该部署终态即可。部署完成后再回读 `https://agentalpha.top`。
 
 ## 常用验证
 
@@ -124,10 +177,10 @@ pnpm run build
 
 ## 交接入口
 
-接手后先进入项目目录：
+接手后先进入干净工作树：
 
 ```bash
-cd /Users/cz/code/agentalpha_web
+cd /Users/cz/.codex/worktrees/agentalpha-web-snapshot-20260908
 ```
 
 然后根据任务进入对应目录修改代码，完成后执行构建和 Vercel 部署命令即可。

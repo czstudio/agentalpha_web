@@ -7,12 +7,12 @@
     "vision": "愿景",
     "advanced": "高阶",
     "resources": "资源",
-    "talks": "Talk",
+    "talks": "分享",
     "join": "加入",
     "contact": "联系",
     "communities": "兄弟社区",
     "universities": "院校",
-    "joinTraining": "加入训练营",
+    "joinTraining": "了解训练营",
     "noCommunities": "暂无兄弟社区信息",
     "menu": "菜单",
     "noCommunitiesShort": "暂无社区",
@@ -22,143 +22,143 @@
     "toggleLanguage": "切换语言"
   },
   "hero": {
-    "badge": "Agent 方向学习社区 · 论文精读 · 项目共创",
+    "badge": "给想把 Agent 做出来的人",
     "title_highlight": "AgentAlpha",
-    "title_normal": "链接顶尖研究者、工程师与创业者",
-    "subtitle": "读论文、做项目、练面试。成员来自高校、大厂和创业公司，新方向有人一起追，遇到卡点有人一起过。",
-    "cta_primary": "加入训练营",
-    "cta_secondary": "商务/合作"
+    "title_normal": "一起把想法做成能跑的项目",
+    "subtitle": "这里不卖概念。我们把论文拆成能动手的步骤，把面试题带回项目里；遇到卡点，拿出来一起看。",
+    "cta_primary": "看看训练营",
+    "cta_secondary": "聊聊合作"
   },
   "stats": {
-    "stat1_label": "社群成员",
+    "stat1_label": "一起学习的人",
     "stat1_value": "5,000+",
-    "stat1_note": "覆盖高校 / 大厂 / 创业者",
-    "stat2_label": "技术 Talk",
+    "stat1_note": "来自高校、公司和创业团队",
+    "stat2_label": "技术分享",
     "stat2_value": "300+",
-    "stat2_note": "深度分享与论文精读",
-    "stat3_label": "项目共创",
+    "stat2_note": "有人讲，也有人把问题讲透",
+    "stat3_label": "一起做过的项目",
     "stat3_value": "150+",
-    "stat3_note": "Agent 与多模态落地案例"
+    "stat3_note": "从 Agent 到多模态的真实尝试"
   },
   "vision": {
-    "tag": "愿景与目标",
-    "title": "Agent 时代的共赢社区",
+    "tag": "我们为什么聚在这里",
+    "title": "别只收藏资料，做点真的出来",
     "vision_points": [
-      "Agent 是当前最活跃的方向，机会窗口还在，现在入场不晚。",
-      "读论文、写代码、做项目，把学到的东西变成拿得出手的作品。",
-      "与其观望，不如跟着社区一起动手做。"
+      "看懂一篇论文之后，能说出它解决了什么问题，怎么证明自己没说错。",
+      "学到的东西要落到代码、项目和复盘里，不能只停在收藏夹。",
+      "卡住了就把问题带进来，和做过的人一起把下一步找出来。"
     ],
-    "offerings_title": "我们提供",
+    "offerings_title": "你会在这里拿到什么",
     "offerings": [
-      "系统化学习路径与实践手册",
-      "技术导师与行业专家一对一指导",
-      "论文笔记、前沿 talk、案例共创",
-      "作品集打磨、简历与面试辅导、内推"
+      "一条能走下去的学习路线，不是资料堆",
+      "导师和同行的具体反馈，帮你少走弯路",
+      "论文笔记、技术分享和可以复盘的案例",
+      "项目、作品集和面试表达一起打磨"
     ],
-    "bottom_note": "学习、实战、输出、共创，每个环节都有同伴和导师一起过。"
+    "bottom_note": "从第一次提问到项目上线，每一步都尽量留下能复查的证据。"
   },
   "advanced": {
-    "tag": "高阶玩法",
-    "title": "深度共创 · 论文/项目/求职全链路",
+    "tag": "你现在最想解决哪件事",
+    "title": "按你的目标，选一条能走通的路",
     "offerings": [
       {
-        "title": "如果你想入门大模型 Agent",
+        "title": "我刚开始学 Agent",
         "bullets": [
-          "学习路径与开源仓库推荐",
-          "入门课 + 实战项目",
-          "志同道合的交流社区"
+          "先从基础和小项目开始",
+          "边做边补工具、记忆和评测",
+          "遇到不会的地方，有人可以问"
         ]
       },
       {
-        "title": "如果你想进一步合作 / 论文 / 求职",
+        "title": "我已经在做项目，想做得更稳",
         "bullets": [
-          "论文合作与实验共建",
-          "产业落地项目合作",
-          "大厂工作内推与面试辅导"
+          "一起拆架构、补实验和找边界",
+          "把线上问题变成可复现的案例",
+          "准备面试时，能讲清自己的取舍"
         ]
       },
       {
-        "title": "如果你希望寻求合作",
+        "title": "我想找人一起做点事",
         "bullets": [
-          "共建社区品牌",
-          "联合宣传与活动",
-          "AI 产品与培训辅导"
+          "一起做开源项目或研究",
+          "联合办分享、活动和实践课",
+          "把想法拿出来，找合适的伙伴"
         ]
       }
     ]
   },
   "resources": {
-    "tag": "资源合集",
-    "title": "学习与探索",
-    "subtitle": "按主题整理的学习路径与开源项目，挑一个方向直接开始",
-    "advanced_path": "进阶之路",
-    "community_projects": "社区项目 / 论文",
-    "featured_release": "重磅发布",
+    "tag": "公开资料",
+    "title": "从这里开始，先做一个小练习",
+    "subtitle": "把论文、开源项目和社区实践放在一起，挑一个现在用得上的。",
+    "advanced_path": "继续往下学",
+    "community_projects": "社区项目与论文",
+    "featured_release": "最近发布",
     "idea2story_desc": "从 idea 自动生成顶会级别论文叙事的 Agent 框架。基于上万篇顶会论文及其 Review 数据训练，让 AI 学会 \"Scientific Storytelling\"。",
     "idea2story_feature1_title": "万级论文数据",
     "idea2story_feature1_desc": "收集并清洗上万篇顶会论文及 Review 数据",
     "idea2story_feature2_title": "自动叙事构建",
     "idea2story_feature2_desc": "学习顶会套路，自动生成完整学术叙事",
-    "idea2story_contributors": "AgentAlpha 社区 BATman 们的重磅开源成果",
+    "idea2story_contributors": "AgentAlpha 社区成员一起做的开源项目",
     "view_paper": "查看论文",
-    "star_github": "Star on GitHub"
+    "star_github": "去 GitHub 看看"
   },
   "talks": {
-    "tag": "Talk & 圆桌会 · 论文精读",
-    "more_talks": "更多青稞Talk",
-    "from_qingke": "来自青稞社区",
-    "realtime_sync": "实时同步最新内容",
-    "videos_live": "视频 & 直播",
+    "tag": "分享、圆桌和论文精读",
+    "more_talks": "去看更多分享",
+    "from_qingke": "来自青稞社区的内容",
+    "realtime_sync": "有新内容会继续补上",
+    "videos_live": "视频和直播",
     "live": "直播",
     "video": "视频"
   },
   "training": {
-    "badge": "训练营 & 加入方式",
-    "title": "加入我们",
+    "badge": "训练营与加入方式",
+    "title": "一起做，不把问题留在收藏夹里",
     "modules": [
       {
-        "title": "基础掌握",
-        "desc": "LLM/多模态基石，代码能力强化与工程规范",
+        "title": "先把基础补齐",
+        "desc": "从 LLM、多模态和代码开始，知道每一步为什么这样做",
         "icon": "BookOpen"
       },
       {
-        "title": "Agent 架构",
-        "desc": "规划/记忆/工具调用与评测，真实业务案例拆解",
+        "title": "把 Agent 跑起来",
+        "desc": "规划、记忆、工具调用和评测，放进一个真实案例里",
         "icon": "Brain"
       },
       {
-        "title": "项目共创",
-        "desc": "实战项目组队，导师答疑与代码评审",
+        "title": "一起把项目做完",
+        "desc": "组队动手、每周复盘，有人帮你看代码和结果",
         "icon": "Cpu"
       },
       {
-        "title": "职业跃迁",
-        "desc": "作品集打磨、面试工作坊、导师推荐与内推",
+        "title": "把经历讲清楚",
+        "desc": "打磨作品集，练面试表达，知道自己的贡献在哪里",
         "icon": "Rocket"
       }
     ],
-    "headline": "深度实践 + 导师答疑 + 项目共创",
-    "description": "作品集打磨、代码评审、周会复盘、内推推荐。每期控制人数，保证互动质量。",
-    "cta_primary": "立即报名",
-    "cta_secondary": "咨询顾问"
+    "headline": "有人一起做，进步会快很多",
+    "description": "每周有小目标、代码评审和复盘。你不需要先把自己包装得很厉害，带着问题来就行。",
+    "cta_primary": "了解报名方式",
+    "cta_secondary": "先聊聊"
   },
   "contact": {
-    "tag": "合作 & 咨询",
-    "title": "公众号 AgentAlpha",
-    "description": "共建社区 / 宣传合作 / AI 产品 / 培训辅导，或需要论文、项目、求职支持，扫码关注公众号了解更多。",
-    "tags": ["共建社区", "宣传工作", "AI 产品", "培训辅导"],
+    "tag": "联系与合作",
+    "title": "有问题，直接来找我们",
+    "description": "想聊社区、项目、论文、课程或求职？扫码关注公众号，说明你正在做什么，以及卡在哪里。",
+    "tags": ["项目共创", "论文交流", "课程咨询", "社区合作"],
     "no_contact": "暂无联系方式",
     "add_contact_hint": "联系方式整理中，可通过公众号 AgentAlpha 找到我们"
   },
   "universities": {
-    "tag": "合作院校",
-    "title": "顶尖学府携手共建",
-    "description": "成员来自国内外多所高校，社区与部分院校保持研究交流和活动合作",
+    "tag": "一起学习的人",
+    "title": "来自不同地方，但都在认真做事",
+    "description": "成员来自高校、公司和创业团队，带着各自的项目和问题来交流。",
     "no_universities": "暂无合作院校信息",
     "add_universities_hint": "合作院校信息整理中"
   },
   "footer": {
-    "description": "链接顶尖研究者、工程师与创业者，一起读论文、做项目、聊求职。",
+    "description": "一起读论文、做项目，把问题讲清楚，也把事情做出来。",
     "quick_links": "快速链接",
     "contact_us": "联系我们",
     "follow_us": "关注我们",

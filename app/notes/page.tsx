@@ -63,18 +63,18 @@ export default function NotesIndexPage() {
         <header className="aa-notes-hero">
           <div className="aa-notes-shell">
             <p className="aa-notes-eyebrow">
-              <Sparkles aria-hidden /> AgentAlpha Notes · Vol. 01
+              <Sparkles aria-hidden /> AgentAlpha 笔记 · 第 1 辑
             </p>
             <div className="aa-notes-hero-grid">
               <div>
-                <h1>把 Agent 面试题，<br /><em>学成一套系统。</em></h1>
+                <h1>面试题别只背答案，<br /><em>顺着系统学会它。</em></h1>
             <p className="aa-notes-lede">
-              从基础概念到真实项目追问，沿着「理解 → 实现 → 评估 → 表达」四步走完。每篇笔记都给出原理、代码、边界和可复述的回答骨架。
+              这里把一堆看似零散的题，按“理解原理、动手实现、验证结果、讲清取舍”串起来。先挑一道眼前用得上的，读完拿自己的项目复述一遍。
             </p>
             <div className="aa-notes-stats">
-              <span>{notes.length} 篇深度笔记</span>
+              <span>{notes.length} 篇笔记</span>
               <span>{series.length} 个专题</span>
-              <span>{totalMinutes}+ 分钟内容</span>
+              <span>{totalMinutes}+ 分钟可读内容</span>
             </div>
               </div>
               <div className="aa-notes-map" aria-label="四步学习路线">
@@ -94,10 +94,10 @@ export default function NotesIndexPage() {
           <div className="aa-notes-shell">
             <div className="aa-notes-aris-head">
               <div>
-                <p className="aa-notes-kicker">THREE-COLUMN STUDY MAP · INSPIRED BY ARIS</p>
-                <h2 id="aa-notes-aris-title">一套题，拆成四条能互相喂养的主线。</h2>
+                <p className="aa-notes-kicker">四条学习主线 · 先看地图</p>
+                <h2 id="aa-notes-aris-title">别从头刷，先选你眼前要解决的问题。</h2>
               </div>
-            <p>每篇文章都先讲基础，再接面试官的追问，最后落到实现和项目。先按主线挑题，读完用自己的项目复述一遍。</p>
+            <p>每篇先把基础讲明白，再模拟面试官追问，最后给出实现和项目落点。挑一条主线走，别四处跳。</p>
             </div>
             <div className="aa-notes-aris-rails">
               {learningRails.map((rail) => (
@@ -113,7 +113,7 @@ export default function NotesIndexPage() {
           </div>
         </section>
 
-        <section className="aa-notes-index-strip"><div className="aa-notes-shell"><div><Search aria-hidden /><span>先选一个入口</span></div><a href="#series-01">专题目录</a><a href="#method">学习方法</a><a href="#faq">常见问题</a></div></section>
+        <section className="aa-notes-index-strip"><div className="aa-notes-shell"><div><Search aria-hidden /><span>找个入口开始</span></div><a href="#series-01">专题目录</a><a href="#method">怎么读</a><a href="#faq">常见问题</a></div></section>
 
         {series.map((s) => {
           const seriesNotes = notes.filter((note) => note.seriesNo === s.no)
@@ -127,7 +127,7 @@ export default function NotesIndexPage() {
                     <p className="aa-notes-series-name">{s.name}</p>
                     <h2>{s.title}</h2>
                     <p className="aa-notes-series-desc">{s.description}</p>
-                    <div className="aa-notes-series-meta"><span><Layers3 aria-hidden /> {seriesNotes.length} 篇</span><span><BookOpen aria-hidden /> 适合面试前系统复习</span></div>
+                    <div className="aa-notes-series-meta"><span><Layers3 aria-hidden /> {seriesNotes.length} 篇</span><span><BookOpen aria-hidden /> 适合面试前过一遍</span></div>
                     {s.no === "04" && <div className="aa-notes-series-route" aria-label="LLM 基础五步阅读路径"><span>Attention</span><i>→</i><span>Transformer</span><i>→</i><span>MoE</span><i>→</i><span>KV Cache</span><i>→</i><span>推理优化</span></div>}
                   </div>
                 </div>
@@ -156,15 +156,15 @@ export default function NotesIndexPage() {
         <section id="wechat-archive" className="aa-notes-wechat" aria-labelledby="wechat-archive-title">
           <div className="aa-notes-shell">
             <div className="aa-notes-wechat-head">
-              <div><p className="aa-notes-kicker">FROM AGENTALPHA · WECHAT ARCHIVE</p><h2 id="wechat-archive-title">公众号里的真实追问，继续读下去。</h2></div>
+              <div><p className="aa-notes-kicker">AgentAlpha 公众号 · 文章存档</p><h2 id="wechat-archive-title">公众号里的真实追问，继续读下去。</h2></div>
               <p>这里收录 AgentAlpha 已发表内容的公开入口；与站内笔记重复的主题会保持独立来源，不替换原文。</p>
             </div>
             <div className="aa-notes-wechat-grid">
               {publishedWechat.map((article) => <a className="aa-notes-wechat-card" href={article.url} target="_blank" rel="noreferrer" key={article.articleId}><span>{article.publishedAt} · 已发表</span><h3>{article.title}</h3><strong>打开原文 <ArrowUpRight aria-hidden /></strong></a>)}
             </div>
             <div className="aa-notes-cta-grid">
-              <a className="aa-notes-cta-card" href="/community#3-课程体系"><span>课程入口</span><strong>按路线练，把面试题做成项目 <ArrowRight aria-hidden /></strong><small>公开课程体系 · 具体安排以站内信息为准</small></a>
-              <a className="aa-notes-cta-card aa-notes-cta-card--dark" href="/#join"><span>社区入口</span><strong>加入 AgentAlpha，一起练习和复盘 <ArrowRight aria-hidden /></strong><small>社区与训练营信息 · 不承诺录取或结果</small></a>
+              <Link className="aa-notes-cta-card" href="/community#3-课程体系"><span>课程入口</span><strong>按路线练，把面试题做成项目 <ArrowRight aria-hidden /></strong><small>公开课程体系 · 具体安排以站内信息为准</small></Link>
+              <Link className="aa-notes-cta-card aa-notes-cta-card--dark" href="/#join"><span>社区入口</span><strong>加入 AgentAlpha，一起练习和复盘 <ArrowRight aria-hidden /></strong><small>社区与训练营信息 · 不承诺录取或结果</small></Link>
             </div>
           </div>
         </section>
@@ -172,7 +172,7 @@ export default function NotesIndexPage() {
         <section id="learn-directory" className="aa-learn-directory">
           <div className="aa-notes-shell">
             <div className="aa-learn-directory-head">
-              <div><p className="aa-notes-kicker">CLAUDE CODE · 逐章整理中</p><h2>{learn.title}</h2><p>{learn.description}</p></div>
+              <div><p className="aa-notes-kicker">Claude Code · 逐章整理中</p><h2>{learn.title}</h2><p>{learn.description}</p></div>
               <span className="aa-learn-directory-count">{learn.chapters.length} 章目录</span>
             </div>
             {learn.volumes.map((volume) => {
@@ -183,12 +183,12 @@ export default function NotesIndexPage() {
           </div>
         </section>
 
-        <section id="method" className="aa-notes-method"><div className="aa-notes-shell"><div><p className="aa-notes-kicker">HOW TO USE</p><h2>不要从第一篇开始硬啃。</h2><p>先看专题导读，再挑一篇能回答你当前问题的笔记。读完用右侧的追问清单复述一次，最后把答案映射到自己的项目。</p></div><div className="aa-notes-method-list"><div><CheckCircle2 aria-hidden /><span><b>第一次</b> 只看图和结论，建立地图</span></div><div><CheckCircle2 aria-hidden /><span><b>第二次</b> 跟着代码走，补齐机制</span></div><div><CheckCircle2 aria-hidden /><span><b>第三次</b> 用 STAR 讲给面试官听</span></div></div></div></section>
+        <section id="method" className="aa-notes-method"><div className="aa-notes-shell"><div><p className="aa-notes-kicker">怎么读这套笔记</p><h2>别从第一篇开始硬啃。</h2><p>先看专题导读，再挑一篇能回答你当前问题的笔记。读完用右侧的追问清单复述一次，最后把答案放回自己的项目里。</p></div><div className="aa-notes-method-list"><div><CheckCircle2 aria-hidden /><span><b>第一次</b> 先看图和结论，知道在讲什么</span></div><div><CheckCircle2 aria-hidden /><span><b>第二次</b> 跟着代码走，补齐关键机制</span></div><div><CheckCircle2 aria-hidden /><span><b>第三次</b> 用自己的项目讲给面试官听</span></div></div></div></section>
 
         <section id="faq" className="aa-notes-outro">
           <div className="aa-notes-shell">
-            <p>△ AgentAlpha Notes</p>
-            <h2>把复杂问题讲到可以推理，而不是背诵。</h2>
+            <p>△ AgentAlpha 笔记</p>
+            <h2>把复杂问题讲到能动手、能验证、能复述。</h2>
             <Link href="/#join" className="aa-notes-join">
               加入社区 <ArrowUpRight aria-hidden />
             </Link>

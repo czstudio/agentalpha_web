@@ -23,7 +23,7 @@ export default function ClaudeCodeCollectionPage() {
             <Link href="/notes"><ArrowLeft aria-hidden /> 返回面试笔记</Link>
           </nav>
           <header className="learn-collection-header">
-            <p className="aa-notes-kicker">CLAUDE CODE · 课程目录</p>
+            <p className="aa-notes-kicker">Claude Code · 课程目录</p>
             <h1>{claudeCodeManifest.title}</h1>
             <p>{claudeCodeManifest.description}</p>
           </header>
