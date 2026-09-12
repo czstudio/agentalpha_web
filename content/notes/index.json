@@ -1,6 +1,15 @@
 {
   "notes": [
     {
+      "slug": "agent-human-escalation",
+      "title": "Agent 什么时候该交给人？把人工接管设计成正常路径",
+      "excerpt": "Agent 卡住时，最危险的不是它停下来，而是它明明缺证据、权限或确认，却还在自信地往下做。把升级人工的条件、交接资料和恢复方式写清楚，人工接管才不是一句‘请联系客服’。",
+      "series": "Agent 架构",
+      "seriesNo": "06",
+      "number": "75",
+      "minutes": 21
+    },
+    {
       "slug": "agent-system-design-interview",
       "title": "系统设计题怎么答：先问用户，再画 Agent",
       "excerpt": "系统设计面试不是比谁先画出十几个服务。先问清用户、成功标准和不能碰的边界，再把状态、工具、证据、评测和上线风险一项项接起来。",
