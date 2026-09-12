@@ -1,11 +1,18 @@
-# Local-only review artifacts and the unpublished Claude Code portal.
+# Local-only review artifacts and unpublished Claude Code source material.
 .local/
 .impeccable.md
 reports/
 
-components/learn/
-content/learn/
-lib/learn/
+# The public route keeps only the manifest and approved snapshots. Drafts,
+# research notes and editorial work stay local and never enter a deployment.
+content/learn/claude-code/drafts/
+content/learn/claude-code/editorial/
+content/learn/claude-code/feishu/
+content/learn/claude-code/preparation/
+content/learn/claude-code/reports/
+content/learn/claude-code/research/
+content/learn/claude-code/approval-lock.json
+
 public/images/learn/
 
 scripts/finalize_editorial_metadata.py
