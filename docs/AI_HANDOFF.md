@@ -6,12 +6,11 @@
 
 - GitHub 仓库：`https://github.com/czstudio/agentalpha_web`
 - 内容与页面提交：`31e00cd`（基于 ZCode 正文提交 `c0620f4`）
-- 当前生产提交：`823be70`（包含本次中文文案、交接文档和 Vercel 忽略规则修复）
+- 交接与部署修复提交：`823be70`；之后的交接记录以 GitHub `master` 最新 SHA 为准。
 - 工作树：`/Users/cz/.codex/worktrees/agentalpha-web-snapshot-20260908`
 - 分支：`snapshot/satisfied-20260908`；推送生产前先确认 GitHub `master` 的远端 SHA，没有在有未提交改动的 `/Users/cz/code/agentalpha_web` 上直接操作。
 - 生产目标：`https://agentalpha.top`，Vercel 项目 `agent-alpha-community-website`。
-- 最近一次生产部署：`dpl_8NHPCijvrGbGFyf7L13NxH9Zf9Mb`，状态 `Ready`，别名已绑定 `https://agentalpha.top`。
-- 线上回读：`/`、`/notes`、两篇笔记、`/community`、课程目录和待发布章节均 HTTP 200；手绘图与论文图资源 HTTP 200。
+- 部署回执入口：在 Vercel 项目中按 GitHub `master` 当前 SHA 查找同一生产部署；线上回读至少检查 `/`、`/notes`、两篇笔记、`/community`、课程目录和待发布章节，以及一张手绘图和一张论文图。
 
 ### 本次已经交接的内容
 
@@ -161,9 +160,8 @@ pnpm run build
 
 ## 当前线上版本
 
-- 最新生产域名：https://agentalpha.top（生产提交 `823be70`）
+- 最新生产域名：https://agentalpha.top（以 GitHub `master` 当前 SHA 为准）
 - 最新社区页：https://agentalpha.top/community
-- 最新部署 ID：`dpl_8NHPCijvrGbGFyf7L13NxH9Zf9Mb`
 
 ## 视觉系统（2026-08 重构）
 
