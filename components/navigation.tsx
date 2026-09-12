@@ -31,6 +31,7 @@ export function Navigation() {
   const navItems = [
     { label: t.nav.community, href: "/community" },
     { label: t.nav.notes, href: "/notes" },
+    { label: t.nav.interview, href: "/interview" },
     { label: t.nav.talks, href: "/#talks" },
     { label: t.nav.resources, href: "/#resources" },
   ]

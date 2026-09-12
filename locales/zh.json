@@ -4,6 +4,7 @@
     "community": "社区",
     "communityIntro": "社区介绍",
     "notes": "笔记",
+    "interview": "面试题库",
     "vision": "愿景",
     "advanced": "高阶",
     "resources": "资源",
@@ -146,7 +147,12 @@
     "tag": "联系与合作",
     "title": "有问题，直接来找我们",
     "description": "想聊社区、项目、论文、课程或求职？扫码关注公众号，说明你正在做什么，以及卡在哪里。",
-    "tags": ["项目共创", "论文交流", "课程咨询", "社区合作"],
+    "tags": [
+      "项目共创",
+      "论文交流",
+      "课程咨询",
+      "社区合作"
+    ],
     "no_contact": "暂无联系方式",
     "add_contact_hint": "联系方式整理中，可通过公众号 AgentAlpha 找到我们"
   },

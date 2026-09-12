@@ -4,6 +4,7 @@
     "community": "Community",
     "communityIntro": "About AgentAlpha",
     "notes": "Notes",
+    "interview": "Interview",
     "vision": "Vision",
     "advanced": "Advanced",
     "resources": "Resources",
@@ -146,7 +147,12 @@
     "tag": "Partnership & Consultation",
     "title": "WeChat Official Account: AgentAlpha",
     "description": "Co-build community / Promotion partnerships / AI products / Training guidance, or need paper, project, career support, scan QR code to follow official account for more info.",
-    "tags": ["Co-build Community", "Promotion Work", "AI Products", "Training Guidance"],
+    "tags": [
+      "Co-build Community",
+      "Promotion Work",
+      "AI Products",
+      "Training Guidance"
+    ],
     "no_contact": "No contact info yet",
     "add_contact_hint": "Please add social platforms in admin system"
   },
