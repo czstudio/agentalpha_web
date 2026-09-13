@@ -23,10 +23,10 @@
     "toggleLanguage": "Switch Language"
   },
   "hero": {
-    "badge": "Empower Everyone · Win the Agent Decade",
+    "badge": "Learn by building real Agent projects",
     "title_highlight": "AgentAlpha",
     "title_normal": "Connecting Top Researchers, Engineers & Entrepreneurs",
-    "subtitle": "Agent is the essential path to AGI. Through deep practice, knowledge sharing, and project collaboration, we help you seize the wave, build your portfolio, and achieve real results.",
+    "subtitle": "AgentAlpha is a hands-on community for large-model Agent work: read papers, build projects, review each other's code, and get interview-ready.",
     "cta_primary": "Join Training",
     "cta_secondary": "Business/Partnership"
   },
@@ -56,11 +56,11 @@
       "Paper notes, cutting-edge talks, case co-creation",
       "Portfolio polishing, resume & interview coaching, referrals"
     ],
-    "bottom_note": "Through the 'Learn—Practice—Output—Co-create' flywheel, we help members transform insights into achievements."
+    "bottom_note": "Learn, build, present, iterate — then do it again on the next project."
   },
   "advanced": {
     "tag": "Advanced Play",
-    "title": "Deep Co-creation · Papers/Projects/Career Full Chain",
+    "title": "Papers, projects, and job hunting — with teammates",
     "offerings": [
       {
         "title": "If you want to get started with LLM Agents",

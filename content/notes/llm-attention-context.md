@@ -21,8 +21,6 @@ minutes: 18
 - Attention 为什么长文本会变慢？
 - 它明明能看全局，为什么还需要位置编码？
 
-下面把这些问题串成一条能复述、能推导、也能写出代码的链路。读完后，你不只知道公式长什么样，还能把一个 token 如何“找信息、拿信息、合并信息”讲清楚。
-
 ## §0 TL;DR：先把九句话背成自己的话
 
 1. **Self-Attention 的输入通常只有一个序列 `X`，Q、K、V 是同一个 `X` 经过三组线性投影得到的三份表示。**
@@ -35,7 +33,7 @@ minutes: 18
 8. 对长度为 `T` 的序列，标准全连接 Attention 的分数矩阵是 `T×T`，时间和显存开销都受到 `O(T²)` 影响。
 9. Transformer Block 不等于 Attention：一个完整 Block 还包含残差连接、LayerNorm 和前馈网络 FFN；KV Cache、量化、FlashAttention 属于后续的推理优化问题。
 
-如果只剩一分钟，至少要能说出第 2、3、4、5、8、9 句。它们正好覆盖 Feishu《Agent 岗面试宝典 v3》里 LLM 基础章节的高频追问，也是后面 Transformer、KV Cache 和推理优化的入口。
+如果只剩一分钟，把 Q/K/V 的分工、√d_k 的作用、mask 的位置、O(T²) 的代价这四件事说到条件反射，后面的追问才接得住。
 
 ## 先给一个能复述的答案
 
@@ -448,6 +446,4 @@ Prefill 一次处理整段输入，主要受 `T²` 计算和并行矩阵乘法�
 
 ## 参考资料
 
-1. AgentAlpha《Agent 岗面试宝典 v3》：LLM 基础章节与 Attention 专题。
-2. [Attention Is All You Need](https://arxiv.org/abs/1706.03762)，Transformer 原论文。
-3. [ARIS in AI Offer](https://github.com/wanshuiyin/ARIS-in-AI-Offer)
+1. Vaswani et al.，《Attention Is All You Need》，arXiv:1706.03762，2017。Transformer 原论文，本文所有公式出处。

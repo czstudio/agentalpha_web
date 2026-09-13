@@ -1,7 +1,7 @@
 ---
 slug: "code-agent-sandbox-permissions"
 title: "Code Agent 为什么不能直接给 root 权限？"
-excerpt: "Code Agent 的权限不是一个开关，而是一套可验证的执行边界：文件、网络、进程、身份和审批都要分别设限。"
+excerpt: "权限没有总开关：文件、网络、进程、身份、审批，五个口子得一个一个设卡，每个卡都要能验证。"
 series: "Code Agent"
 seriesNo: "02"
 number: "07"

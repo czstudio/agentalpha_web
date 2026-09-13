@@ -154,7 +154,7 @@ tool_total = api_gateway + query + permission + llm + review
 
 ## 把 RAG 选择写成一笔可回滚的账
 
-面试官追问“增益值不值得”时，可以把一次成功任务的成本拆开，而不是只报向量库价格：
+面试官追问“增益值不值得”时，可以把一次成功任务的成本拆开，而不是只报向量库价格。下表数字是演示口径，帮你对齐「该看哪几个指标」，不是实测：
 
 | 项目 | 无 RAG | RAG | 需要观察的证据 |
 | --- | ---: | ---: | --- |
@@ -396,5 +396,4 @@ decision: fix_projection_before_retraining
 
 ## 资料来源
 
-- AgentAlpha《Agent 岗面试宝典 v3》（未公开讲义）
-- ARIS in AI Offer：系统设计题的取舍、基线和分层追问结构
+- Lewis et al.，《Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks》，arXiv:2005.11401，2020。RAG 原论文。

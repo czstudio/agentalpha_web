@@ -1,7 +1,7 @@
 ---
 slug: "agentic-rl-credit-assignment"
 title: "Agent 做错了，二十步里到底哪一步该负责？"
-excerpt: "Agentic RL 难的不是把奖励写成一个数字，而是判断最终成败到底由哪几个动作造成。分不清责任，训练就只会给整条轨迹一张模糊的罚单。"
+excerpt: "二十步轨迹里，通常只有两三步真正改变了结果。credit assignment 做的就是把它们找出来，而不是给整条轨迹一张模糊的罚单。"
 series: "Agentic RL"
 seriesNo: "01"
 number: "02"

@@ -153,35 +153,7 @@ export default async function NoteDetailPage({ params }: NotePageProps) {
             </div>
             <h1>{note.title}</h1>
             <p className="aa-note-lede">{note.excerpt}</p>
-            <div className="aa-note-reading-path"><span><Check aria-hidden /> 原理</span><span><Check aria-hidden /> 实现</span><span><Check aria-hidden /> 边界</span><span><GitBranch aria-hidden /> 追问</span></div>
           </header>
-
-          <section className="aa-note-aris" aria-labelledby="aa-note-aris-title">
-            <div className="aa-note-aris-head">
-              <div>
-                <p className="aa-notes-kicker">本篇阅读顺序 · 三遍读法</p>
-                <h2 id="aa-note-aris-title">一篇文章，读出三种能力。</h2>
-              </div>
-              <p>先弄懂它为什么这样工作，再把条件换一换，看方案还能不能站住，最后用代码和证据复盘一遍。顺序固定，读完才知道自己是真的会了，还是只记住了名词。</p>
-            </div>
-            <div className="aa-note-aris-grid">
-              <article>
-                <span>01 / 基础知识</span>
-                <strong>先回答“它为什么这样工作”</strong>
-                <p>沿着直觉、公式和边界读正文，看到变量就问输入、状态、复杂度分别是什么。</p>
-              </article>
-              <article>
-                <span>02 / 高频追问</span>
-                <strong>再回答“条件变了怎么办”</strong>
-                <p>把面试官的追问当作小型设计评审：更大流量、更少上下文、外部失败或安全约束出现时，局部如何重算。</p>
-              </article>
-              <article>
-                <span>03 / 从零实现</span>
-                <strong>{implementationFocus}</strong>
-                <p>沿代码、表格和证据卡复盘，最后用文末的 60 秒回答确认自己没有只记住名词。</p>
-              </article>
-            </div>
-          </section>
 
           <div className="aa-note-reading-grid">
             <aside className="aa-note-toc" aria-label="本篇目录">
@@ -196,8 +168,6 @@ export default async function NoteDetailPage({ params }: NotePageProps) {
             </aside>
 
             <div className="aa-note-reading-main">
-              <div className="aa-note-diagram" aria-label="本篇阅读框架"><div><b>问题</b><span>面试官到底在判断什么</span></div><i>→</i><div><b>机制</b><span>系统如何工作</span></div><i>→</i><div><b>证据</b><span>代码、指标与取舍</span></div><i>→</i><div><b>表达</b><span>30 秒回答骨架</span></div></div>
-
               <div className="note-prose">
                 <ReactMarkdown
                   remarkPlugins={[remarkGfm, remarkMath]}
@@ -211,7 +181,7 @@ export default async function NoteDetailPage({ params }: NotePageProps) {
               <aside className="aa-note-promo">
                 <p className="aa-note-promo-kicker">AgentAlpha 大模型 Agent 训练营</p>
                 <p className="aa-note-promo-text">
-                  想把这道题真正讲透？和社区里的研究者、工程师一起，用实战项目把答案变成自己的判断。
+                  一个人刷题，容易停在「背下来了」。来社区把这道题做成项目，每周有人陪你互相追问。
                 </p>
                 <Link href="/#join" className="aa-note-promo-cta">
                   了解训练营 <ArrowRight aria-hidden />
