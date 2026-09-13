@@ -20,7 +20,7 @@ export default function InterviewLayout({ children }: { children: ReactNode }) {
       <div className="ivu-wide">
         <footer className="ivu-footer">
           <span>
-            面试题库 · 内容来自公众号「吴师兄学大模型」原创文章 · 由 AgentAlpha 整理上线
+            面试题库 · AgentAlpha 社区原创 · 题目来自社区成员真实面经
           </span>
           <span>
             <Link href="/notes">系统学习看笔记</Link> · <Link href="/learn">训练营</Link>

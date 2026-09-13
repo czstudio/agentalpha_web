@@ -178,9 +178,7 @@ export default async function InterviewDetailPage({ params }: PageProps) {
               {tag}
             </span>
           ))}
-          <span>
-            {post.author} · {post.source}
-          </span>
+          <span>{post.source}</span>
           <span>约 {post.minutes} 分钟</span>
         </div>
         <h1 className="ivu-h1">{post.title}</h1>

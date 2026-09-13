@@ -82,8 +82,8 @@ function toMeta(slug: string, data: Record<string, string>, papersBySlug: Record
     tags: parseTags(data.tags),
     minutes: Number(data.minutes) || 8,
     words: Number(data.words) || 0,
-    author: data.author || "吴师兄",
-    source: data.source || "公众号 吴师兄学大模型",
+    author: data.author || "AgentAlpha",
+    source: data.source || "AgentAlpha 社区",
     papers: papersBySlug[slug] || [],
   }
 }
