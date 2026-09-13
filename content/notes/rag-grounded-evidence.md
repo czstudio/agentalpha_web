@@ -274,7 +274,7 @@ owner: support-rag
 正向检索能找到支持句，却不一定能发现更新版本、限定条件或相反结论。比如一条政策说明写着“可以退款”，另一份同日生效的地区公告可能把范围缩到某些省份。为了避免把局部证据说成普遍事实，我会在关闭 claim 前发起一次反向探针：主动搜索否定词、版本号、适用范围和冲突来源。
 
 ~~~yaml
-inverse_grounding_receipt: igr_20260820_34
+inverse_grounding_receipt: igr_a38002
 claim_id: refund-window-cn
 answer_version: answer-184
 source_snapshot: policy-2026-07-01
@@ -329,7 +329,7 @@ claim_review:
 这张账本也能让生成阶段变得更保守。模型可以把多个已关闭 claim 组合成答案，但只要其中一个仍是 `open`，最终结论就不能写成确定语气。线上回放时记录 claim 的关闭时间和证据版本，文档更新后重新打开相关 claim，而不是继续使用旧答案缓存。
 
 ```yaml
-claim_ledger: clg_20260820_50
+claim_ledger: clg_6dd977
 answer_id: ans_8842
 claims:
   - id: c1
@@ -356,7 +356,7 @@ decision: answer_c1_only
 
 长引用往往同时包含规则、例外和不同版本，不能证明每个 claim 都被支持。把答案拆成 claim，逐条绑定定位和范围，才能发现某一句其实是模型自行外推；覆盖不了就保持开放或改成有条件的表达。
 
-## 60 秒面试回答
+## 压缩成 60 秒
 
 RAG 答案看着对，不代表有依据。我会把答案拆成 claim，分别评测检索召回、证据覆盖、引用定位和事实忠实度。每个证据带版本、时间、范围、权限和页码或表格单元格，先确认它支持的是哪一个 claim，再检查是否存在冲突或因果过度推断。数字和单位用规则、数据库或程序复算，语义蕴含用模型筛选并人工抽样校准。评测集必须包含证据缺失、旧版本、跨地域和互相矛盾的样本；在这些情况下，带理由的拒答比编一个看似完整的答案更可靠。
 
@@ -376,5 +376,4 @@ RAG 答案看着对，不代表有依据。我会把答案拆成 claim，分别�
 
 ## 参考
 
-- AgentAlpha《Agent 岗面试宝典 v3》：评测章节
 - [ARIS-in-AI-Offer](https://github.com/wanshuiyin/ARIS-in-AI-Offer)

@@ -309,5 +309,4 @@ Agent 系统有持续状态、工具动作、计划或路由、过程评测和�
 
 ## 资料来源
 
-- AgentAlpha《Agent 岗面试宝典 v3》（未公开讲义）
 - [ARIS-in-AI-Offer](https://github.com/wanshuiyin/ARIS-in-AI-Offer)：借鉴公式、实现、分层追问和可复习检查清单的组织方式

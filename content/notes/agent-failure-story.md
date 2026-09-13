@@ -12,7 +12,7 @@ minutes: 24
 
 有人回答“没有严重事故”，有人把所有问题归结为“模型幻觉”，还有人把自己说成唯一责任人。三种回答都没抓住重点：面试官想看你能否识别影响、建立证据、控制范围，并把一次事故变成系统改进。
 
-## 先给一个能复述的答案
+## 先把答案放桌上
 
 失败案例用五段讲：现象与影响、责任边界、定位证据、修复动作、长期护栏。先说用户或业务受到了什么影响，再说自己负责哪一段；不要用“模型不行”结束，要指出哪条契约、监控或回归没有覆盖。最后补充仍然存在的风险，可信度会比“已经彻底解决”更高。
 
@@ -141,7 +141,7 @@ owner：检索服务 @A
 
 ```json
 {
-  "incident": "inc_20260819_07",
+  "incident": "inc_4e7a25",
   "impact": {"tenant_slice": "pro", "tasks": 41, "side_effects": 2},
   "timeline": [{"at": "10:17", "event": "alert"}, {"at": "10:24", "event": "write_disabled"}],
   "evidence": ["trace/tr_91", "replay/rag-version-17", "state-diff/s_03"],
@@ -275,7 +275,7 @@ owner：检索服务 @A
 我会把事故结论压成一张映射卡，把每个事实连接到一个具体护栏：
 
 ```yaml
-incident_id: inc_20260812_03
+incident_id: inc_14d024
 symptom: 订单退款重复提交
 root_cause: timeout_after_side_effect_without_reconciliation
 guardrails:
@@ -313,7 +313,7 @@ residual_risk:
 最小的回归回执可以包含：
 
 ~~~yaml
-incident_regression_receipt: irr_20260820_25
+incident_regression_receipt: irr_559914
 incident_id: inc_2026_0819_07
 scenario: stale_deleted_document
 fixture:
@@ -344,8 +344,8 @@ release_gate: required
 “加了幂等键，所以问题解决了”仍然只是一个推断。为了确认护栏真的起作用，我会把同一条事故轨迹拆成三个版本：原始失败版本、只加入护栏的版本、同时改变其他变量的候选版本。三者都用同一个输入、环境快照和验收器回放，才能区分护栏效果和顺手升级带来的变化。
 
 ~~~yaml
-counterfactual_replay: cfr_20260820_19
-incident_id: inc_20260819_07
+counterfactual_replay: cfr_2c7b9a
+incident_id: inc_4e7a25
 fixture: refund-timeout-17
 runs:
   baseline:
@@ -382,8 +382,8 @@ decision: release_guardrail_then_observe_router
 事故复盘常见一个陷阱：为了证明修复有效，回放时同时换了模型、工具、知识库和样本，最后却不知道是哪一项起作用。反事实实验应先锁住原始 trace、输入证据和环境快照，只改变一个护栏或契约；如果必须替换外部依赖，要明确它是近似替身，并把结论降级为“在替身环境成立”。
 
 ```yaml
-counterfactual_scope: cfs_20260820_107
-incident: inc_20260819_04
+counterfactual_scope: cfs_bd367e
+incident: inc_7dcfb9
 frozen: [input_snapshot, tool_schema, kb_revision, concurrency, tenant_scope]
 changed:
   - "add idempotency gate before write"
@@ -403,7 +403,7 @@ decision: guardrail_effect_isolatable
 
 回放只能覆盖已经保存的输入和环境；真实流量可能有新的版本、并发和外部返回。应把回放结论与影子流量、灰度监控和人工对账组合起来，并明确还没有覆盖的条件。
 
-## 60 秒面试回答
+## 面试现场怎么答
 
 我会选择一个影响具体、证据完整的失败案例。先说用户看到什么、影响范围多大，再划清我负责的检索过滤和缓存边界，同时说明上游依赖。定位时按 trace、输入证据、缓存和回放集逐步排查，不把问题简单归结为模型幻觉。修复分为止血、改契约和补回归护栏三层，最后诚实说明人工录入等仍未覆盖的风险。这样讲失败，重点是系统学到了什么，而不是证明自己从没出错。
 
@@ -422,8 +422,3 @@ decision: guardrail_effect_isolatable
 - [Agent 上线后怎么定位问题？从 trace 到可观测性和回放](/notes/agent-observability-replay)
 - [同一个 Agent 实验，怎样才能复现？](/notes/agent-eval-reproducibility)
 - [Code Agent 跑到一半挂了，怎样恢复又不重复执行？](/notes/code-agent-resume-exactly-once)
-
-## 资料来源
-
-- AgentAlpha《Agent 岗面试宝典 v3》：失败复盘章节（内部讲义，未公开）
-- ARIS in AI Offer：失败复盘与系统护栏结构

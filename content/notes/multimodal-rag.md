@@ -10,7 +10,7 @@ minutes: 20
 
 设备维修 Agent 的知识库里有维修手册、接线图和参数表。用户问“这根蓝线接哪个端子”，纯文本只能找到“蓝线”，找不到图里的端子编号；只做图片向量检索，又带不回参数表里的额定电压。
 
-## 先给一个能复述的答案
+## 能背走的版本
 
 多模态 RAG 的核心，是先把不同模态转成可追溯的证据对象，而不是把图片只当成附件。文本段落、表格、图片区域和图表数据各自保留原始内容、坐标、来源页和语义摘要，再建立文本索引、向量索引和关系/元数据索引。查询时先判断问题需要哪类证据，再跨模态召回候选，按来源、时间、权限和空间关系过滤，最后组装带引用的证据包交给模型。答案必须能回到原文、原图或表格单元格，检索不到时明确拒答。
 
@@ -254,7 +254,7 @@ action: abstain_and_request_model_number
 一条引用链接仍然太粗。对于接线图、发票和仪表盘，真正支持结论的往往只是页面的一小块区域；如果只保存 page=42，审阅者还得在整页里猜模型看到了什么。可以把空间范围直接写进证据契约：
 
 ~~~yaml
-multimodal_grounding_contract: mgc_20260820_12
+multimodal_grounding_contract: mgc_85ea6b
 question_id: q_voltage_204
 evidence:
   - evidence_id: E1
@@ -294,7 +294,7 @@ decision: grounded
 跨模态问答最危险的错误，不是完全找不到证据，而是图片和表格各自“看起来都对”，模型却把它们拼成了错误关系。例如接线图标的是旧型号，表格行是新型号；或者图片写 `24 V DC`，表格列却是 `24 kV`。这类样本不能靠一个总相似度解决，要把版本、单位、设备和空间关系拆出来校验。
 
 ```yaml
-conflict_case: cm_20260820_07
+conflict_case: cm_580f3f
 question: "X3 端子额定电压是多少？"
 evidence:
   - id: E1
@@ -329,7 +329,7 @@ decision: refuse_and_request_model
 图片区域、表格单元格和文本段落即使语义相关，也不应该无限期共享。证据包需要记录 ACL 快照、来源版本和过期时间，生成前再由服务端过滤一次；不能只在向量库写入时检查权限。尤其是工单截图、合同扫描件和内部仪表盘，权限变化后旧 embedding 仍可能被命中。
 
 ```yaml
-evidence_bundle: eb_20260820_39
+evidence_bundle: eb_8ea5ae
 items:
   - id: img_77_bbox_03
     parent: contract-8842
@@ -360,7 +360,7 @@ decision: eligible_for_generation
 引用也要保留跨模态链路：回答中的金额可以来自表格单元格，但单位来自图片脚注，规则解释来自正文段落。证据包记录这些关系，前端才能让用户从一句话跳到具体区域；如果只展示一条“来源文档”，审阅者无法发现模型把单位或版本拼错了。
 
 ```yaml
-cross_modal_alignment: cma_20260820_46
+cross_modal_alignment: cma_040409
 claim: "订单含税金额为 1280.50 CNY"
 evidence:
   - {id: table_cell_r3c2, role: value, parent: invoice-07, version: v4}
@@ -394,7 +394,7 @@ $$
 
 ```yaml
 spatial_transform:
-  contract: str_20260820_120
+  contract: str_a1e576
   source_version: manual-v7
   page: 12
   original_bbox: [842, 316, 1260, 558]
@@ -410,7 +410,7 @@ spatial_transform:
 
 链接只能证明“引用了哪张图”，不能证明“引用的是哪一块”。同一页可能有多个表格、脚注和图例；没有 bbox、变换和版本，复核者仍然要靠猜。
 
-## 60 秒面试回答
+## 60 秒怎么说
 
 多模态 RAG 的第一步是统一证据对象，而不是给文本 RAG 加一个图片字段。文本、表格、图片区域和图表都保存稳定 ID、父文档、页码或坐标、版本和权限。索引分成关键词、语义向量、关系和空间几层；查询先路由需要的证据类型，再做跨模态召回和服务端过滤。生成时组装带 Evidence ID 的证据包，答案必须能回到原文、原图或表格单元格。评测同时看各模态召回、跨模态对齐、引用准确、版本权限错误和端到端成本。
 
@@ -430,5 +430,4 @@ spatial_transform:
 
 ## 参考
 
-- AgentAlpha《Agent 岗面试宝典 v3》：多模态章节
 - [ARIS-in-AI-Offer](https://github.com/wanshuiyin/ARIS-in-AI-Offer)

@@ -202,7 +202,6 @@ capacity = ceil(c × T / N)
 import torch
 from torch import nn
 
-
 class Expert(nn.Module):
     def __init__(self, d_model: int, d_ff: int):
         super().__init__()
@@ -214,7 +213,6 @@ class Expert(nn.Module):
 
     def forward(self, x: torch.Tensor) -> torch.Tensor:
         return self.net(x)
-
 
 class TopKMoE(nn.Module):
     def __init__(self, d_model: int, d_ff: int, num_experts: int, top_k: int = 2):
@@ -251,7 +249,6 @@ class TopKMoE(nn.Module):
             )
 
         return output.reshape(batch, seq, d_model), top_indices
-
 
 torch.manual_seed(7)
 moe = TopKMoE(d_model=32, d_ff=128, num_experts=4, top_k=2)
@@ -348,7 +345,7 @@ Top-1 每个 token 只走一个专家，计算和通信更省，但路由错误�
 只保存每个专家的平均负载，会把真正的热点抹平：同一批里可能有少数 token 被集中路由到一个专家，导致某个 rank 的 all-to-all 排队。路由回放至少保留 token 级 Top-k、capacity 截断、dispatch 顺序和设备队列时间；这样才能区分是 Router 学坏了，还是通信拓扑拖慢了本来合理的路由。
 
 ```yaml
-router_replay: mrx_20260820_47
+router_replay: mrx_e58606
 layer: 18
 batch: 256
 token_routes:
@@ -379,7 +376,7 @@ decision: tune_capacity_and_placement
 动态容量必须和路由回放绑定，不能只看平均 dropped ratio。每次调整记录 Top-k、每专家实际 token、空槽、drop 的 token 类型和最终质量；如果某一类 token 总被丢弃，优先查 Router 偏置或专家容量，而不是继续增加全局容量。
 
 ```yaml
-capacity_policy: cap_20260820_51
+capacity_policy: cap_7e6777
 tiers:
   high_risk_tool:
     capacity_factor: 1.35
@@ -411,7 +408,7 @@ decision: dynamic_capacity_enabled
 负载均衡损失下降，只能说明 Router 的概率分布更平均，不能证明实际 token 已经均匀落到设备上。训练和部署之间还隔着 Top-k 截断、capacity、padding、dispatch 顺序和 all-to-all 队列。一个更稳的健康探针会同时记录概率熵、实际 token count、dropped ratio、专家输出相似度和每个 rank 的通信 P99，并按 token 类型切片；否则一批简单 token 的平均值可能掩盖代码或工具调用 token 的热点。
 
 ```yaml
-router_health_probe: rhp_20260820_97
+router_health_probe: rhp_021736
 layer: 24
 signals:
   router_entropy: 1.42
@@ -448,6 +445,4 @@ Router 可能为了平均概率而增加跨卡 dispatch，或者把 token 分散
 
 ## 参考资料
 
-1. AgentAlpha《Agent 岗面试宝典 v3》：MoE、专家路由与负载均衡专题。
-2. [Switch Transformers](https://arxiv.org/abs/2101.03961)，稀疏专家路由的代表性工作。
-3. [ARIS in AI Offer](https://github.com/wanshuiyin/ARIS-in-AI-Offer)，参考其将原理、工程取舍和分层面试题放在同一篇文章中的方式。
+1. [Switch Transformers](https://arxiv.org/abs/2101.03961)，稀疏专家路由的代表性工作。

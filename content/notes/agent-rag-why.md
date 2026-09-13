@@ -12,7 +12,7 @@ minutes: 26
 
 如果只回答“因为模型有幻觉”，追问很快就来了：提示词不能解决吗？微调不行吗？知识量不大为什么还要向量库？检索错了怎么办？
 
-## 先给一个能复述的答案
+## 答案先行
 
 RAG 适合解决“知识在模型参数之外、会变化、需要按权限取用并且要给出处”的问题。它不是所有 Agent 的必选项：稳定的通用知识可以直接交给模型，严格结构化查询应优先走数据库或 API，实时状态应调用工具。判断标准是知识变化速度、私有性、引用要求、查询结构和可接受延迟，而不是“行业都在用”。
 
@@ -257,7 +257,7 @@ RAG 先筛选外部证据，适合知识多、变化快和需要权限；长上�
 
 ```json
 {
-  "route_id": "route_20260819_55",
+  "route_id": "route_e308ab",
   "question_type": "current_order_status",
   "candidates": ["rag", "orders_api", "clarify"],
   "selected": "orders_api",
@@ -266,7 +266,7 @@ RAG 先筛选外部证据，适合知识多、变化快和需要权限；长上�
   "evidence": ["intent=order_status", "api_health=green"],
   "fallback": "rag_with_citation",
   "outcome": {"status": "verified", "latency_ms": 210},
-  "replay": "artifact://router/route_20260819_55"
+  "replay": "artifact://router/route_e308ab"
 }
 ```
 
@@ -281,8 +281,8 @@ RAG 先筛选外部证据，适合知识多、变化快和需要权限；长上�
 选择 API 还是 RAG，不只看数据类型，还要看这次请求允许多旧的数据。订单状态可能只容忍 5 分钟，产品手册可以接受一周，合同条款则要绑定生效版本。如果路由器只记录“选了 API”，却没有记录 freshness budget，线上就无法解释一次看似正确、实际已经过期的回答。
 
 ~~~yaml
-freshness_gate_receipt: fgr_20260820_37
-route_id: route_20260820_61
+freshness_gate_receipt: fgr_915dc5
+route_id: route_3f2e1a
 intent: current_order_status
 freshness_budget_min: 5
 candidates:
@@ -317,7 +317,7 @@ decision: pass_with_api
 回放结果不能只保留最终分数，还要保留“如果换路径会发生什么”的反事实证据：
 
 ```yaml
-route_shadow_replay: rsr_20260820_44
+route_shadow_replay: rsr_bff308
 replay_set: route-cases-v6
 cases: 480
 candidate_paths: [direct, rag, api, clarify]
@@ -354,7 +354,7 @@ decision: route_by_slice
 同一个失败答案可能有三种完全不同的原因：路由根本没选对源，源选对但检索没召回，或者证据已到上下文却被生成模型忽略。如果只记最终 `route=rag`，修复很容易落错层。我会在路由回执里预留责任字段，把缺口拆成 `selection`、`retrieval`、`projection` 和 `generation`，并为每类缺口绑定下一步诊断动作。
 
 ```yaml
-evidence_gap_attribution: ega_20260820_80
+evidence_gap_attribution: ega_6a27db
 request_id: req_781
 selected: rag
 checks:

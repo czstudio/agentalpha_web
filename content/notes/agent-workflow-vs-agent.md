@@ -287,5 +287,4 @@ Workflow 在设计时决定路径，Agent 在运行时根据状态和观察选�
 
 ## 资料来源
 
-- AgentAlpha《Agent 岗面试宝典 v3》（未公开讲义）
 - [ARIS-in-AI-Offer](https://github.com/wanshuiyin/ARIS-in-AI-Offer)：以基础、追问、实现三层组织面试学习

@@ -289,7 +289,7 @@ T_{e2e}=T_{rewrite}+T_{retrieve}+T_{filter}+T_{rerank}+T_{assemble}+T_{generate}
 一个候选片段进入上下文前，最好能回答它从哪份原文来、经过了哪些变换、为什么被选中。只保存最终 chunk 文本，会让后续排查无法区分清洗、分块、查询改写、过滤还是重排造成了变化。为每个证据保留来源链，换索引或解析器后还能做版本对照。
 
 ```yaml
-evidence_lineage: ev_20260820_52
+evidence_lineage: ev_c216b4
 source:
   document_id: handbook-17
   source_version: v12
@@ -323,7 +323,7 @@ filters: {tenant: pass, acl: pass, version: pass}
 我会把停止条件写成可观测的状态：是否覆盖了问题中的关键实体，候选之间是否存在版本冲突，当前证据是否能支持所有将要输出的 claim，以及继续一次检索的预期收益是否超过成本。达到软门槛可以先生成草稿，发现引用缺口时再做一次定向补召回；触及硬预算则返回缺口和下一步，而不是假装已经找全。
 
 ~~~yaml
-retrieval_stop_policy: rsp_20260820_72
+retrieval_stop_policy: rsp_a0b7a4
 query: policy-version-migration
 budget: {max_rounds: 3, max_chunks: 18, max_ms: 900}
 rounds:
@@ -350,7 +350,7 @@ decision: grounded_with_budget
 
 更多候选可能带来重复、旧版本和互相冲突的证据，挤占上下文并增加重排成本。真正要优化的是关键 claim 的支持率和冲突处理；当新增候选不再提高支持率时，继续扩大 top-k 只是在增加噪声。
 
-## 60 秒面试回答
+## 一分钟版本
 
 RAG 是一条从知识准备到检索生成的完整链路。离线阶段清洗文档、按结构分块、生成 Embedding 并建索引；在线阶段对问题做必要改写，通过关键词和向量混合召回，再用重排模型选出有限的证据，和问题一起交给大模型。工程上我会把数据、召回、重排、生成和系统指标分开评测。答案错时先检查 top-k 有没有证据，再判断是排序、上下文组装还是模型引用问题，而不是先改提示词。这样 RAG 才是可诊断、可回放、可持续优化的系统。
 
@@ -372,8 +372,7 @@ RAG 是一条从知识准备到检索生成的完整链路。离线阶段清洗�
 
 ## 参考资料
 
-1. AgentAlpha《Agent 岗面试宝典 v3》：RAG 章节（检索、Embedding、分块、向量数据库、重排与评测）。
-2. Lewis et al., *Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks*（2020）。
-3. Robertson & Zaragoza, *The Probabilistic Relevance Framework: BM25 and Beyond*（2009）。
+1. Lewis et al., *Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks*（2020）。
+2. Robertson & Zaragoza, *The Probabilistic Relevance Framework: BM25 and Beyond*（2009）。
 
 下一篇读这篇：[Embedding 到底把什么变成了向量？相似不等于正确](/notes/rag-embedding-basics)

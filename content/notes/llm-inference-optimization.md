@@ -26,7 +26,7 @@ minutes: 20
 
 一句话版：**推理优化的目标不是让一个数字变小，而是在质量、TTFT、TPOT、吞吐、显存和 P99 之间找到可解释的平衡。**
 
-## 先给一个能复述的答案
+## 一版能复述的答案
 
 > 我会先把服务拆成排队、Prefill 和 Decode 三段，分别记录 TTFT、TPOT、端到端延迟、吞吐、显存水位和 P95/P99。权重量化主要减少模型占用与内存带宽，但要看硬件 kernel 和精度损失；KV Cache 优化关注上下文长度、GQA/MQA、分页和前缀复用；连续批处理提升动态并发下的 GPU 利用率；投机解码在小模型预测质量足够高时减少大模型的解码轮数；张量并行可以扩展模型规模，但要支付跨卡通信。每次优化都要用固定数据集和真实长度分布同时看质量、延迟和吞吐，不能只看单请求平均耗时。
 
@@ -386,7 +386,7 @@ optimization_ticket:
 回放报告把 Prefill 和 Decode 分开，并列出排队时间、TTFT、TPOT、P95/P99、显存水位、OOM/超时、拒答和单位成功成本。若优化只在单请求有效、在突发流量下 P99 变差，就应限制到适合的路由，而不是用平均吞吐覆盖长尾。
 
 ```yaml
-inference_benchmark: ib_20260820_47
+inference_benchmark: ib_19c95d
 traffic:
   concurrency: [1, 8, 32, 64]
   arrival: poisson_with_burst
@@ -423,7 +423,7 @@ T_{total}=T_{queue}+T_{compute}+T_{communication}+T_{sampling}
 并在 benchmark 中记录每个并行阶段的通信时间、同步次数、链路利用率和等待的空洞。若 `communication / total` 已经超过预算，优先考虑减少同步、调整并行维度或改变 batch，而不是继续堆卡。
 
 ```yaml
-parallel_comm_budget: pcb_20260820_91
+parallel_comm_budget: pcb_b24d11
 topology: 4xa100_nvlink
 phase: decode
 before:
@@ -463,7 +463,5 @@ LLM 基础这一组笔记里：Attention 解释“如何取上下文”，Transf
 
 ## 参考资料
 
-1. AgentAlpha《Agent 岗面试宝典 v3》：LLM 基础章节与推理优化、量化、KV Cache 专题。
-2. [Efficiently Scaling Transformer Inference](https://arxiv.org/abs/2211.05102)，推理阶段性能分析。
-3. [vLLM](https://github.com/vllm-project/vllm)，高吞吐推理服务与 Paged Attention 实现。
-4. [ARIS in AI Offer](https://github.com/wanshuiyin/ARIS-in-AI-Offer)
+1. [Efficiently Scaling Transformer Inference](https://arxiv.org/abs/2211.05102)，推理阶段性能分析。
+2. [vLLM](https://github.com/vllm-project/vllm)，高吞吐推理服务与 Paged Attention 实现。

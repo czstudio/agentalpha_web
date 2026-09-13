@@ -300,7 +300,7 @@ scorecard 还要按任务风险、租户、工具和失败类型切片。总成�
 我会在发布回执里固定记录任务状态和分母构成：
 
 ~~~yaml
-denominator_reconciliation: dmr_20260820_21
+denominator_reconciliation: dmr_b0be5d
 eval_set: agent-release-2026w34
 total_tasks: 1200
 status_counts:
@@ -332,7 +332,7 @@ decision: hold
 `unknown` 不是一个方便丢数据的垃圾桶。它可能代表工具超时、回执未对账、人工接管或评测器无法判定。发布前要从未知桶抽样回放，尽量把它归为成功、失败、拒答或环境异常；不能归类的样本则保留 owner、复查时间和对放量的影响。
 
 ```yaml
-unknown_replay: ur_20260820_09
+unknown_replay: ur_9b3be2
 source: candidate-v5
 unknown_n: 37
 sampled: 20
@@ -364,7 +364,7 @@ owner: eval-oncall
 我会把“切片太小”和“切片真的变差”分开记录：小于门槛的切片只作为观察信号，不能被合并进一个漂亮的平均数；高风险切片即使样本少，也保留硬失败零容忍。这样既避免几十条样本左右摇摆，也不会让低频但高代价的动作被总体流量淹没。
 
 ~~~yaml
-slice_floor: sf_20260820_60
+slice_floor: sf_c5bd6d
 eval_set: agent-release-2026w34
 slices:
   - name: refund_write
@@ -405,7 +405,7 @@ $$
 
 ```yaml
 slice_release_gate:
-  contract: srg_20260820_122
+  contract: srg_372da9
   slice: refusal_with_citation
   successes: 46
   total: 60
@@ -422,7 +422,7 @@ slice_release_gate:
 
 因为点估计没有表达不确定性。样本量小、切片难度高或失败代价大时，必须让置信下界和硬失败门槛共同约束发布，避免把一次幸运抽样当成稳定能力。
 
-## 60 秒面试回答
+## 60 秒怎么说
 
 Agent 评测不能只看最终成功率，因为它是一个会规划、调用工具并修改状态的过程系统。我会先把目标写成验收契约，区分必须满足的硬约束和可以比较的软质量，再从任务结果、步骤轨迹、工具与证据、资源效率、安全体验五层打分。评测集包含正常样本和工具超时、消息重复、权限变化、证据缺失等扰动，每次运行保存 trace、状态变化、版本、成本和环境指纹。上线前用单元、离线、回放、影子和灰度逐级验证，任何越权或错误副作用都直接失败，不让平均分把风险冲掉。
 
@@ -442,5 +442,4 @@ Agent 评测不能只看最终成功率，因为它是一个会规划、调用�
 
 ## 参考
 
-- AgentAlpha《Agent 岗面试宝典 v3》：评测章节（内部讲义，未公开）
 - [ARIS-in-AI-Offer](https://github.com/wanshuiyin/ARIS-in-AI-Offer)

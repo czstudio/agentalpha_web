@@ -192,7 +192,7 @@ def relative_advantage(rewards, eps=1e-6):
 GRPO 的组内相对优势依赖样本来自可比的策略和环境。入 batch 前，我会给每组轨迹发一张新鲜度回执，把采样版本、环境版本、等待时间、奖励状态和是否允许更新写清楚：
 
 ```yaml
-rollout_receipt: rr_20260820_14
+rollout_receipt: rr_fb7dc0
 group_id: q_0187_g04
 policy_sampled: policy-12
 policy_current: policy-13
@@ -219,7 +219,7 @@ admission:
 GRPO 的相对优势依赖同一 prompt 下的一组可比轨迹。如果组内样本用了不同的策略版本、环境快照或 verifier，奖励差异就不再只反映动作好坏，可能只是基础设施或任务版本变了。于是我会在入批前生成 group comparability 回执，先过滤掉过期、环境失败和配置不一致的成员。
 
 ~~~yaml
-group_comparability_receipt: gcr_20260820_36
+group_comparability_receipt: gcr_6615e4
 group_id: g-1842
 prompts_hash: sha256:8b2f...
 policy_version: policy-2026-08-20.3
@@ -278,7 +278,7 @@ rollout_bucket:
 一条总 reward 很难告诉你模型为什么被选中。Agent 任务里，成功可能来自工具调用正确、最终答案完整，也可能只是 verifier 对格式宽松。入批前我会把奖励拆成可审计的分量，并标记哪些分量来自环境事实、哪些来自启发式规则；如果某个桶的总分上涨只是格式分上涨，就不能把它当成能力提升。
 
 ```yaml
-reward_decomposition: rd_20260820_78
+reward_decomposition: rd_6f1f80
 group_id: q_0187_g04
 components:
   task_success: 0.60
@@ -301,7 +301,7 @@ decision: admit
 
 如果提升只来自容易钻空子的奖励分量，模型会学会讨好 verifier，而不是解决任务。要固定分量上限、做独立事实回读，并按任务难度切片看收益；否则训练曲线好看，线上可靠性却可能下降。
 
-## 60 秒面试回答
+## 一分钟版本
 
 GRPO 的核心是同一输入采样一组轨迹，用组内奖励计算相对优势，避免单独训练 value model。Agent 场景中，一条轨迹包含模型动作、工具观察和终止结果，所以 rollout 首先是数据生产问题。
 

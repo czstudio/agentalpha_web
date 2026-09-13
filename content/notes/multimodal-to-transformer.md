@@ -10,7 +10,7 @@ minutes: 19
 
 做一个“看发票并生成报销摘要”的 Agent，最容易犯的错，是把图片当成长字符串塞进 prompt。模型认出了公司名，却把金额、日期和表格列对错了。问题不在中文能力，而在图片还没变成 Transformer 能处理的表示。
 
-## 先给一个能复述的答案
+## 答案先行
 
 多模态模型通常先用视觉编码器把图片切成 patch 或区域，再把每个区域编码成视觉向量；随后通过线性层、Query Resampler 或其他投影模块，把视觉向量映射到语言模型能接受的隐藏空间，最后与文本 token 一起进入 Transformer。关键不是“图片接在文本前面”，而是视觉 token 的数量、顺序、位置和训练对齐方式。面试时要继续说明：高分辨率会增加 token 和显存，压缩过度又会丢掉小字与版面，所以视觉编码、投影和上下文预算必须一起设计。
 
@@ -230,7 +230,7 @@ def choose_view(question, image_meta):
 我会给每次视觉推理发一张预算账本，把画布、视图和证据放在一起：
 
 ```yaml
-vision_run: vr_20260819_018
+vision_run: vr_fccbde
 image_id: invoice-77
 image_sha256: sha256:ab3...
 question_type: locate_total
@@ -272,7 +272,7 @@ fallback: ask_for_clearer_image
 我会在同一张图片上做全图、裁剪、压缩和遮挡对照，并保存可复现的回执：
 
 ~~~yaml
-visual_ablation_receipt: var_20260820_19
+visual_ablation_receipt: var_789911
 image_id: contract-layout-07
 routes:
   full:
@@ -333,7 +333,7 @@ decision: keep_crop_for_text_and_full_for_layout
 同一张图片的不同 crop 可能因为缩放、压缩或 OCR 误差读出两个金额。若把它们直接拼进上下文，语言模型通常会挑一个看起来更顺的答案，而不会主动指出冲突。我会把重叠区域的 token 做一致性检查，保留坐标、缩放和 OCR 版本；冲突未解决时，把任务降级为请求更清晰图片或要求人工确认。
 
 ```yaml
-crop_consistency_probe: ccp_20260820_87
+crop_consistency_probe: ccp_0c352b
 image_hash: sha256:img-44...
 regions:
   - {id: crop_01, bbox: [0.40,0.30,0.80,0.55], value: "1280.50", ocr: 0.94}
@@ -357,7 +357,7 @@ generation: blocked_until_resolved
 实践中可以把预算写成可回放的 policy，并给每个区域一个最小保真门槛。若 OCR 置信度低于门槛，系统应请求二次 crop 或直接返回“无法确认”，而不是让语言模型在模糊 token 上补全。跨模态缓存也要绑定图片 hash、crop 坐标和策略版本，避免同一文件换了切片规则却复用旧 token。
 
 ```yaml
-vision_token_policy: vtp_20260820_39
+vision_token_policy: vtp_17df07
 routes:
   text_exact:
     when: query_has_amount_or_id
@@ -383,7 +383,7 @@ cache_key: image_hash|bbox|policy_version
 
 模型可以提出观察计划，但不能无限扩大图片、绕过敏感区域策略或把延迟成本隐藏起来。服务端预算和区域 ACL 先限定可用 token，模型只在这个范围内选择；超出预算就走降级或人工，而不是无限追加观察。
 
-## 60 秒面试回答
+## 面试现场怎么答
 
 多模态模型不会直接把像素交给语言模型。它先用视觉编码器把图片切成 patch 或区域，再编码成带空间信息的视觉 token；之后通过投影层把视觉隐藏维度映射到语言模型的隐藏空间，和文本 token 一起进入 Transformer。工程上最关键的是 token 预算和信息保真度：分辨率太低会丢小字和布局，分辨率太高又会拖慢推理，所以我会先用全图定位，再对相关区域做高分辨率 crop，并要求输出结构化证据。最后用遮挡、区域定位和图文问答回归集确认模型真的看到了图片。
 
@@ -403,5 +403,4 @@ cache_key: image_hash|bbox|policy_version
 
 ## 参考
 
-- AgentAlpha《Agent 岗面试宝典 v3》：多模态章节
 - [ARIS-in-AI-Offer](https://github.com/wanshuiyin/ARIS-in-AI-Offer)

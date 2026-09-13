@@ -165,7 +165,7 @@ return store.commit_result(op, result)
 即使 operation_id 已经幂等，两个 worker 仍可能同时拿到 UNKNOWN 任务：一个在网络分区前拿到旧租约，另一个在租约过期后接管。恢复流程要给每次接管发短租约和递增 fencing token；状态存储只接受最新 token，旧 worker 即使晚到，也只能读到“已被接管”，不能继续提交 checkpoint 或补偿动作。
 
 ~~~yaml
-resume_lease_receipt: rlr_20260820_43
+resume_lease_receipt: rlr_8d9795
 operation_id: op-refund-8848
 lease_id: lease-71
 owner: worker-2
@@ -236,7 +236,7 @@ recovery_probe:
 我会给每个 checkpoint 保存 schema 版本、迁移脚本版本和当时的工具契约摘要。恢复前先做只读 migration preview，列出新增默认值、枚举映射和无法迁移的字段；只有旧状态被明确映射，且回放不变量通过，才允许 worker 获取新的 fencing token。无法证明语义等价时，进入人工复核，而不是让模型“猜这个字段大概是什么意思”。
 
 ~~~yaml
-checkpoint_compatibility: cpc_20260820_70
+checkpoint_compatibility: cpc_9278d5
 checkpoint: wf-8848-step-17
 stored_schema: agent-state-v3
 runtime_schema: agent-state-v4

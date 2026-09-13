@@ -34,8 +34,8 @@ Agent 实验的可复现，不是要求每个 token 都完全一样，而是要�
 ## 二、实验 manifest 要记录什么
 
 ```yaml
-experiment_id: exp_20260819_07
-parent: exp_20260818_04
+experiment_id: exp_13a71e
+parent: exp_6638a2
 task_set: agent-eval@sha256:abc123
 model:
   name: model-x
@@ -84,7 +84,7 @@ temperature、top_p、seed 影响 token 选择。即使提供 seed，不同硬�
 ```json
 {
   "run_id": "run_104",
-  "experiment_id": "exp_20260819_07",
+  "experiment_id": "exp_13a71e",
   "input_snapshot": "tasks@sha256:abc123",
   "trace_digest": "trace@sha256:92de",
   "outcome": {"success": 84, "total": 100},
@@ -256,7 +256,7 @@ owner: eval-platform
 复现失败不是一个布尔值。打开包时，先区分样本缺失、工具 fixture 过期、环境不兼容、随机差异超阈值和真正的逻辑回归；不同原因对应的下一步完全不同。把拒绝原因写进验收卡，评测结论才不会被一句“跑不起来”吞掉：
 
 ```yaml
-replay_acceptance: ra_20260820_18
+replay_acceptance: ra_fced4d
 bundle: replay-agent-r39-0042
 status: rejected
 reason:
@@ -283,7 +283,7 @@ next:
 manifest 完整不等于运行环境真的一致。镜像标签可能指向了新 digest，GPU 驱动、时区或工具 fixture 也可能在不知不觉中变化。打开 replay bundle 时，我会先扫运行时指纹，再决定是直接比较结果，还是降级为“只能做方向性参考”。
 
 ~~~yaml
-environment_drift_receipt: edr_20260820_42
+environment_drift_receipt: edr_2a3ccc
 bundle_id: replay-bundle-184
 expected:
   image_digest: sha256:11ac...
@@ -347,7 +347,7 @@ decision:
 重复实验不是把所有轨迹强行做成一致：先定义允许的差异预算，再判断任务级结论是否稳定。若平均成功率不变但 unknown 或安全拒绝波动很大，仍应阻断发布；若只有措辞变化而 claim、工具参数和最终状态一致，可以把它归入可接受表面差异。
 
 ```yaml
-repro_stats: rs_20260820_57
+repro_stats: rs_3fbb0f
 manifest: exp_8842_v7
 replications:
   low_risk: 3
@@ -375,8 +375,8 @@ decision: stable_enough_for_canary
 一份 manifest 能说明“应该使用哪些版本”，但还不能告诉你两次运行从哪里开始变得不同。对 Agent 轨迹，可以把每个 step 的输入摘要、工具请求、返回摘要、状态哈希和随机性来源串成有序 digest；比较两次运行时找到第一处分叉，再按模型、工具、知识库、并发和外部时间逐层归因。这样复现失败也有结果，而不是只得到一句“这次不一样”。
 
 ```yaml
-trace_divergence_pack: tdp_20260820_104
-run_a: exp_20260820_31
+trace_divergence_pack: tdp_a2c4dd
+run_a: exp_b71afd
 run_b: exp_20260820_31_replay
 first_divergence:
   step: 7
@@ -398,7 +398,7 @@ decision: classify_as_environment_drift
 
 manifest 只描述预期配置，外部工具返回、时区、并发交错和隐式缓存仍可能改变轨迹。要把这些动态输入也做快照或显式标记；无法锁定时，结论应降级为统计复现或环境漂移观察。
 
-## 60 秒面试回答
+## 60 秒怎么说
 
 Agent 实验的可复现不是要求每个 token 完全一样，而是让同一结论在约定误差内稳定，并能解释差异来源。我会生成一份不可变 manifest，锁住任务和数据快照、模型与采样、Prompt 和代码、工具 schema 与返回、知识库、并发时区、评测器和统计方法。每次运行保存 trace digest、状态、副作用、成本和硬失败。改动采用任务级配对实验，报告均值、置信区间、切片结果和风险变化；如果分数变化，再用单变量对照和 trace diff 找第一处分叉。这样结果才可回放、可归因、可审计。
 
@@ -418,5 +418,4 @@ Agent 实验的可复现不是要求每个 token 完全一样，而是让同一�
 
 ## 参考
 
-- AgentAlpha《Agent 岗面试宝典 v3》：评测与实验设计考点（内部讲义，未公开）
 - [ARIS-in-AI-Offer](https://github.com/wanshuiyin/ARIS-in-AI-Offer)

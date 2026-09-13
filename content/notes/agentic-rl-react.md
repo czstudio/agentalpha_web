@@ -241,7 +241,7 @@ Agent 项目能跑，不等于该训。
 多步任务失败时，最后只留一个 reward=-1，会把两类完全不同的问题混在一起：模型可能真的选错了工具，也可能只是搜索服务 500、容器启动超时或观测被截断。训练前先为每一步保留归因字段：
 
 ~~~yaml
-rollout_attribution: ra_20260820_13
+rollout_attribution: ra_9bfbe4
 episode_id: ep_771
 step: 4
 action:
@@ -285,7 +285,7 @@ Agentic RL 的 rollout 不是“让模型多试几次”这么简单。每次工
 
 ```json
 {
-  "rollout_id": "ro_20260820_44",
+  "rollout_id": "ro_4ba93e",
   "task": "refund_policy_lookup",
   "budgets": {"steps": 8, "tool_calls": 4, "vision_tokens": 12000, "write_actions": 0},
   "events": [
@@ -311,7 +311,7 @@ Agentic RL 的 rollout 不是“让模型多试几次”这么简单。每次工
 如果模型把全部步数和工具额度用在探索上，最后可能没有预算整理证据、提交结果或安全收尾。预算策略应预留一个最小终止余量：当剩余步数不足以完成提交或澄清时，提前停止继续搜索，转入总结、拒答或人工接管。这样“探索很积极”不会变成“永远交不出结果”。
 
 ```yaml
-terminal_reserve_policy: trp_20260820_89
+terminal_reserve_policy: trp_db0a6b
 budgets:
   max_steps: 8
   max_tool_calls: 4

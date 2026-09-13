@@ -213,7 +213,7 @@ GraphGPO 又往前走了一步。它不只把 rollout 当成几条独立长文�
 一张最小回执可以这样写：
 
 ~~~yaml
-credit_split_receipt: csr_20260820_23
+credit_split_receipt: csr_63cc53
 episode_id: ep_7741
 steps: 18
 policy_fault:
@@ -248,7 +248,7 @@ decision: replay_with_fixed_environment
 责任三分账能告诉我们“这一步属于哪类事件”，但还不能证明某个动作真的造成了结果。对可重放的状态，我会保留原动作，再替换成一个安全的候选动作，比较后续状态和最终 reward。这样得到的不是绝对真理，却比把整条轨迹的结果平均分配给每个 token 更接近可学习信号。
 
 ~~~yaml
-counterfactual_credit: cfc_20260820_27
+counterfactual_credit: cfc_720058
 episode_id: ep_7741
 state_step: 7
 original_action:
@@ -284,7 +284,7 @@ training_action: add_pairwise_preference
 反事实替换常常比原轨迹多走一步或少一次重试，若不控制预算，reward 差异里就混进了成本和机会差。比较动作时，我会锁住可用步数、工具额度、超时和随机种子；如果候选动作需要额外预算，先把它标成不可比，不直接把更长的搜索当成更好的决策。
 
 ```yaml
-counterfactual_budget_match: cbm_20260820_88
+counterfactual_budget_match: cbm_795f6a
 episode_id: ep_7741
 original: {steps: 8, tool_calls: 3, timeout_ms: 2400, seed: 17}
 counterfactual: {steps: 8, tool_calls: 3, timeout_ms: 2400, seed: 17}
@@ -304,7 +304,7 @@ training_action: keep_pairwise_signal
 
 ![反事实轨迹的归因回放：把动作、观察和结果放回同一条证据链](/images/notes/agentic-rl-react/rollout-attribution-card.svg)
 
-## 60 秒面试回答
+## 一分钟版本
 
 Agentic RL 的 credit assignment 难在长轨迹和延迟奖励。一个回合里既有搜索、代码、规划等动作，也有工具返回的观察；最终失败不代表每一步都错。
 

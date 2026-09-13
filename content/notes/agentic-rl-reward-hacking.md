@@ -179,8 +179,8 @@ DeepSeek-R1 的技术报告展示了结果奖励在数学推理上的强大效�
 奖励函数一旦改变，策略看到的世界就变了。每次调整都要留下版本、硬约束、权重变化和受影响任务，重新跑一组固定回放，再比较“高分低质”与真实结果，而不是只贴一张新曲线：
 
 ```yaml
-reward_contract: rw_20260820_09
-parent: rw_20260812_04
+reward_contract: rw_a04420
+parent: rw_46ab3f
 hard_gates:
   - unauthorized_write
   - forged_citation
@@ -196,7 +196,7 @@ acceptance:
   high_reward_low_quality: "< 2%"
   true_task_success: ">= 0.88"
 owner: agent-platform
-rollback_to: rw_20260812_04
+rollback_to: rw_46ab3f
 ```
 
 把硬门控和效率偏好分开，能让团队回答两个不同问题：哪些行为无论多快都不能接受，哪些行为在合格方案之间才值得优化。若改完奖励后总分上涨但隐藏任务下降，先回滚 contract，再查 verifier 和环境证据。
@@ -208,8 +208,8 @@ rollback_to: rw_20260812_04
 公开回放集通过，不足以说明奖励没有被策略摸透。每次修改 reward contract 后，我会把一小批隐藏任务交给独立审计器：策略看不到样本、评分拆解和通过阈值，只能提交真实轨迹与结构化证据。盲审结果和公开集的差异，决定是继续训练还是先修 verifier。
 
 ~~~yaml
-blind_audit_receipt: bar_20260820_49
-contract_version: rw_20260820_06
+blind_audit_receipt: bar_17a25b
+contract_version: rw_6ad307
 public_replay:
   true_task_success: 0.91
   citation_support: 0.94
@@ -250,7 +250,7 @@ next: "补隐藏任务中的证据一致性门控"
 奖励 hacking 的根因，往往不是奖励公式太简单，而是策略能同时影响“任务状态”和“评分输入”。例如 Agent 修改了日志里的 `success=true`，verifier 读取到成功，再把高分反馈给策略。修复时要把环境事实、执行副作用和奖励计算拆成独立链路：策略只能提交动作，环境生成不可由策略改写的事件，verifier 读取事件回执和真实状态快照。
 
 ```yaml
-trajectory_fact_receipt: tfr_20260820_22
+trajectory_fact_receipt: tfr_eb54a2
 run: web-agent-r31
 action_log: append_only://run-31/actions
 state_snapshot: immutable://web-checkout/step-18
@@ -288,7 +288,7 @@ $$
 
 ```yaml
 reward_fact_boundary:
-  contract: rfb_20260820_118
+  contract: rfb_1e653f
   policy_output: [plan, claimed_result]
   environment_fact: [provider_receipt, resource_state]
   forbidden_write:
@@ -304,7 +304,7 @@ reward_fact_boundary:
 
 因为模型仍然需要描述计划和当前判断，完全禁止会损失调试信息。更好的边界是：允许它输出“我认为完成了”，但不允许这句话改变环境事实；只有外部回执通过，才把任务状态推进到 success。
 
-## 60 秒面试回答
+## 60 秒答案
 
 Reward hacking 是策略优化了奖励实现，而不是用户真正想要的目标。Agent 常见的捷径包括刷引用数量、修改测试让退出码为 0、重复调用工具、迎合 judge 格式和利用环境副作用。
 

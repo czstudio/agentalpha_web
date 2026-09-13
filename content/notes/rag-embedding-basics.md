@@ -12,7 +12,7 @@ minutes: 21
 
 很多回答从“把文本转成向量”开始，一路讲到维度和余弦相似度，然后就停了。听起来没错，工程上最危险的误会也从这里开始：**相似，不等于正确；靠近，不等于有权限。**
 
-## 先给一个能复述的答案
+## 能背走的版本
 
 Embedding 模型把文本映射到一个向量空间，使语义相近的内容在这个空间里距离更近。检索时，把问题和文档块编码后用相似度找候选。但向量只表达训练数据学到的语义关系，不能自动判断版本、权限、时间有效性和事实真伪，所以生产 RAG 必须把元数据过滤、关键词检索、重排和评测放在向量召回之外。
 
@@ -122,7 +122,7 @@ print(sorted(
 索引和查询只要有一侧换了模型、维度、归一化或距离度量，向量分数就失去可比性。迁移时不要只看新索引能否返回结果，而要用同一批查询同时跑旧、新编码，记录维度、范数、top-k 重合、权限过滤和引用定位；发现混用就阻断切流。
 
 ~~~yaml
-embedding_consistency_probe: ecp_20260820_55
+embedding_consistency_probe: ecp_755ec8
 index_version: emb-v4
 query_encoder: emb-v4
 dimension: 1536
@@ -295,7 +295,7 @@ Embedding 模型相同，不代表线上候选集相同。HNSW 的 `efSearch`、
 线上迁移可以让同一批 query 同时走 exact、旧索引和新索引，记录候选集合差异、关键证据是否丢失、ACL 过滤是否一致。若量化后平均 Recall 只掉一点，但某个安全或版本切片掉得很多，就应为该切片提高 probe、保留精确回查，或者暂不切换；一个全局阈值解决不了索引误差。
 
 ~~~yaml
-ann_recall_budget: arb_20260820_74
+ann_recall_budget: arb_475752
 dataset: rag-golden-v3
 index_variants:
   - name: exact
@@ -333,7 +333,7 @@ $$
 这里的 `p_conflict` 不是“模型觉得可疑”，而是由版本、时间、租户和互相矛盾的证据规则计算出来的惩罚。校准时应按查询类型分别调权：自然语言问题提高 dense 权重，错误码和 API 名称提高 lexical 权重，高风险场景优先让权限与版本门禁生效。
 
 ```yaml
-hybrid_score_calibration: hsc_20260820_101
+hybrid_score_calibration: hsc_973999
 query_slice: error_code
 weights: {dense: 0.25, lexical: 0.50, metadata: 0.20, conflict_penalty: 0.05}
 checks:
@@ -357,7 +357,7 @@ Embedding 模型升级通常伴随维度、归一化、分数分布甚至语义�
 双写期间要保留原文和 `content_hash`，防止两个索引的文档快照不同。切换判定也不要只看平均 Recall：错误码、版本号、多跳问题和权限过滤应单独成桶；如果 v2 的相似度更高但引用定位变差，宁可回滚路由，也不要继续调一个全局阈值。
 
 ```yaml
-embedding_migration: em_20260820_34
+embedding_migration: em_b9c046
 from: embed-v1-1536
 to: embed-v2-2048
 phases:
@@ -404,7 +404,7 @@ Recall 只说明候选覆盖，不能证明权限、版本和引用定位正确�
 14. 如何解释对比学习温度参数 `τ` 对分数分布的影响？
 15. ANN 索引的召回损失是否值得换取延迟和存储收益？
 
-## 60 秒面试回答
+## 压缩成 60 秒
 
 “Embedding 是把文本映射到语义向量空间，便于按相似度找候选证据。它解决的是语义匹配，不负责事实判断、权限校验和版本选择。生产里会用分块后的段落做向量召回，再结合关键词、元数据过滤和重排，并用 Recall、MRR、引用准确率和最终回答质量共同评估，而不是只看相似度分数。”
 

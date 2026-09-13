@@ -234,7 +234,7 @@ def summarize(rows):
 清洗后的样本数变多、loss 变低，都不能证明训练集可以发布。上线前至少做一次来源、去重、评测集重叠和答案边界的对账，把“看起来干净”变成可以签字的发布回执：
 
 ~~~yaml
-sft_release_receipt: sft_20260820_08
+sft_release_receipt: sft_807c84
 source_window: "2026-07-01/2026-08-15"
 counts:
   raw: 182400
@@ -312,7 +312,7 @@ decision: blocked_until_gates_pass
 同一条问答改几个字，仍然可能把评测答案泄漏进训练集；按字符串去重抓不到这种污染。更稳妥的做法是以任务或事件为单位建立指纹，把问题、证据片段、工具参数和最终答案一起比对，再对近邻样本做人工抽检。发现 train 与 dev 共享同一业务事件时，优先把整组事件隔离，而不是只删掉一个字符串相同的样本。
 
 ```yaml
-contamination_probe: cp_20260820_33
+contamination_probe: cp_8182e9
 unit: task_event
 fingerprints:
   prompt_semantic: sha256:...
@@ -346,7 +346,7 @@ SFT 数据看起来是多轮对话，送进训练器后却常被拼成一个长�
 多轮样本还要按任务事件切分，不能为了提高吞吐把两个不同用户或不同权限上下文拼到同一条序列。packing 的边界信息要进入 manifest，训练后用一小批可读样本反解 token，确认模型学到的是“如何回答”，而不是“如何复述输入”。
 
 ```yaml
-conversation_pack_probe: cpp_20260820_40
+conversation_pack_probe: cpp_4c38f3
 sample: task_event_8842
 turns:
   - {role: system, span: [0, 41], loss: 0}
@@ -385,7 +385,7 @@ coverage_b=
 它不是质量分数，而是监督预算的可见账本。覆盖率过低时，先检查 packing、截断和模板边界，再决定是否重采样；覆盖率过高也要警惕某类简单模板把梯度占满。
 
 ```yaml
-supervision_coverage_audit: sca_20260820_92
+supervision_coverage_audit: sca_0cbca3
 run: sft-v12
 buckets:
   tool_call: {samples: 4200, loss_tokens: 0.18, target: [0.15, 0.25]}

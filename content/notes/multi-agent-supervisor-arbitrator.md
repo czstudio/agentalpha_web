@@ -12,7 +12,7 @@ minutes: 19
 
 这不是协作，只是把不确定性包装得更长。多 Agent 需要监督者和仲裁器，不是为了给某个角色更高的模型温度，而是要把冲突变成可检查的证据、约束和下一步实验。
 
-## 先给一个能复述的答案
+## 能背走的版本
 
 监督者负责检查任务是否按计划推进、产物是否满足 schema、风险动作是否越界；仲裁器只在候选结果冲突或无法自动合并时介入。它不应该只按多数票选答案，而要比较证据来源、独立性、时间范围、假设和验证结果。冲突处理顺序通常是：先分类冲突，再尝试规则合并；不能合并时设计最小区分实验；实验仍不能判定时升级人工。每次裁决都保留候选、理由、证据和责任链，方便回放。
 
@@ -242,7 +242,7 @@ draft -> candidate_ready -> supervised
 
 ```json
 {
-  "ruling_id": "rule_20260819_18",
+  "ruling_id": "rule_70d926",
   "claim": "订单可以按现行政策退款",
   "selected": "agent-policy-v4",
   "alternatives": ["agent-policy-v3"],
@@ -273,7 +273,7 @@ draft -> candidate_ready -> supervised
 一份可回放的裁决回执可以包含：
 
 ~~~yaml
-minority_opinion_receipt: mor_20260820_30
+minority_opinion_receipt: mor_32affc
 case_id: case_449
 candidates:
   - id: plan_a
@@ -306,7 +306,7 @@ decision: selected_with_watch
 仲裁器选出一个候选，并不等于可以立刻写数据库、发消息或修改权限。高风险场景要把裁决和执行拆开：第一阶段只生成带版本和撤销条件的 `prepared ruling`，监督者检查 schema、权限、预算和证据；第二阶段执行器根据批准的 ruling 调用工具，拿到真实回执后再把状态提交为 `committed`。任何一方失败，都停在可重试或人工升级的状态。
 
 ```yaml
-ruling_commit_receipt: rcr_20260820_17
+ruling_commit_receipt: rcr_b31c2d
 ruling_id: arb_204
 phase_1:
   selected: refund_plan_a
@@ -340,7 +340,7 @@ revoke_after_commit: compensate_or_human_review
 仲裁结果还要保存被淘汰候选和淘汰理由。这样新证据到来时可以增量重算，也能判断系统是在稳定选择，还是长期偏爱某个角色的措辞。人工接管不是失败，而是一个带上下文的状态：交给谁、需要补哪份证据、何时重新评估，都要写进 ruling。
 
 ```yaml
-arbitration_gate: ag_20260820_38
+arbitration_gate: ag_429e84
 case: refund_881
 hard_gates:
   evidence_version_match: pass
@@ -369,7 +369,7 @@ decision: selected_with_human_review
 裁决通过时的证据、权限和预算，可能在真正执行前已经变化：文档版本更新、票据被撤销、预算被前一个任务消耗。于是执行器不能只相信 `ruling_id`，而要在提交前重新比较裁决快照和当前状态；若发生漂移，就把裁决标成 stale，回到澄清、重算或人工复核。
 
 ```yaml
-post_ruling_drift_probe: prd_20260820_86
+post_ruling_drift_probe: prd_d7ddec
 ruling_id: arb_204
 prepared_snapshot:
   evidence_version: docs-v12
@@ -414,5 +414,4 @@ side_effect: blocked
 
 ## 参考
 
-- AgentAlpha《Agent 岗面试宝典 v3》：共识与冲突解决章节
 - [ARIS-in-AI-Offer](https://github.com/wanshuiyin/ARIS-in-AI-Offer)

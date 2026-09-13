@@ -24,7 +24,7 @@ request finished
 
 面试往深里问，通常是这几道：怎样设计全链路 Trace？如何做离线评测、回放评测、灰度评测和线上指标闭环？一次升级让成功率下降 3%，如何止损和定位？这些问题的共同答案是：不要只记录最终文本，要记录每一次决策和状态变化，并让它们可以被安全地重放。
 
-## 先给一个能复述的答案
+## 一版能复述的答案
 
 Agent 可观测性要把一次任务建模成带版本和因果关系的 Trace：根 Span 表示任务，子 Span 分别记录规划、模型生成、检索、工具调用、状态更新和验收。每个 Span 至少带输入摘要、输出摘要、耗时、模型/Prompt/工具版本、token 与成本、错误类型和证据引用；敏感内容要脱敏或只存哈希。线上问题定位按任务、步骤、工具、检索和生成分层归因，而不是把所有失败归给模型。回放使用原始环境快照和工具结果，在隔离沙箱里重建当时状态；对外部副作用使用 dry-run、幂等键和回执，禁止直接重放扣款、发货等动作。
 
@@ -212,7 +212,7 @@ Agent Trace 要记录一条多步决策链，包含规划、模型动作、环�
 
 ```yaml
 trace_contract: trace-v5
-trace_id: tr_20260820_91
+trace_id: tr_1a12a6
 fields:
   user_prompt: {class: pii_possible, action: redact, replay: synthetic}
   tool_args: {class: sensitive, action: hash_selected, replay: fixture_ref}
@@ -240,8 +240,8 @@ replay_gate:
 排查线上 Bad Case 时，完整日志往往太大，只有输入输出又太少。更实用的做法是生成一个最小复现包：保留会影响决策的版本、事件顺序、工具观察和策略结果，把无关的大段文本替换成 digest 或脱敏 fixture。复现包可以在本地、CI 和灰度环境复用，且默认不会触发真实副作用。
 
 ```yaml
-replay_fixture: fx_20260820_91
-source_trace: tr_20260820_91
+replay_fixture: fx_8aeb65
+source_trace: tr_1a12a6
 keep:
   - prompt_slots
   - plan_edges
@@ -273,8 +273,8 @@ assertions:
 把线上坏案例存成 fixture 还不够；没有断言，回放只能输出两份文本，无法判断修复是否真的有效。我会给每个 fixture 写最小可验证断言：首个失败 Span、拒答边界、引用集合、工具副作用数和最终状态。允许模型版本变化带来的表面差异，但对安全策略、工具参数和事实支持设硬门槛，超过差异预算就阻断发布。
 
 ```yaml
-replay_assertion_matrix: ram_20260820_42
-fixture: fx_20260820_91
+replay_assertion_matrix: ram_e16306
+fixture: fx_8aeb65
 assertions:
   first_failed_span: tool.call_3
   policy_decision: deny
@@ -305,7 +305,7 @@ result:
 脱敏后要做一致性校验：同一个用户、任务和工具请求在不同 Span 中应保持稳定 pseudonym，参数结构和数组长度不应被改写；否则回放会把原本一次调用拼成两次，或误判幂等。密钥、token 和个人信息即使在测试 fixture 中也不应直接出现，使用格式保持但不可用的替身更安全。
 
 ```yaml
-trace_redaction: tr_20260820_43
+trace_redaction: tr_8285f0
 fields:
   user_id: {public: stable_pseudonym, raw: restricted_artifact}
   api_key: {public: masked_shape, raw: never_store}
@@ -331,8 +331,8 @@ hash 适合判断两个值是否相同，却无法恢复参数结构、证据位
 同一条 fixture 在新版本上失败，至少有两种解释：模型或 Prompt 的策略变了，或者工具、知识库、权限和时间窗口等环境状态变了。如果把两者混在一起，修复会变成盲目换模型。我会在回放报告里同时运行两条路径：冻结原始 Observation 的 `closed_world` 回放，用来判断策略漂移；允许更新后的工具 fixture 但固定模型版本的 `environment_refresh` 回放，用来判断状态漂移。
 
 ```yaml
-drift_split_probe: dsp_20260820_94
-fixture: fx_20260820_91
+drift_split_probe: dsp_7eb39d
+fixture: fx_8aeb65
 closed_world:
   model: router-v4
   observations: recorded
@@ -353,7 +353,7 @@ next: pin_fixture_and_add_policy_regression
 
 模型相同不代表环境相同。检索索引、权限、时间、工具版本、排序和外部库存都可能改变 Observation；回放必须说明哪些输入冻结、哪些允许刷新，才能判断失败责任。
 
-## 60 秒面试回答
+## 压缩成 60 秒
 
 我会把一次 Agent 任务建模成带版本和因果关系的 Trace：根层是任务，下面是规划、模型动作、检索、工具、状态和验收 Span。模型生成的 Action 与环境返回的 Observation 分开记录，长文本脱敏或存摘要，但保留证据 ID、版本、耗时、成本和失败类型。指标按任务、步骤、工具、检索、生成和安全分层，失败先归因输入、策略、工具、环境或评测。回放使用冻结 fixture 和 dry-run，不重新执行扣款、发货等副作用。线上异常先止损和切片，再找第一个异常节点，用回放验证并加入回归集。
 
@@ -392,6 +392,5 @@ next: pin_fixture_and_add_policy_regression
 
 ## 参考资料
 
-1. AgentAlpha《Agent 岗面试宝典 v3》第 4 章：Agent 调试与可观测性题群。
-2. OpenTelemetry, *Traces and Spans*（官方文档）。
-3. Sculley et al., *Hidden Technical Debt in Machine Learning Systems*（2015）。
+1. OpenTelemetry, *Traces and Spans*（官方文档）。
+2. Sculley et al., *Hidden Technical Debt in Machine Learning Systems*（2015）。

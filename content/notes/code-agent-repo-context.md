@@ -167,7 +167,7 @@ GitHub 对 Copilot 的公开说明，则把“当前文件、选中代码、工�
 Agent 读到多少文件不是效率指标，能否在证据闭合时停下来才是。每次任务结束时保存停止原因、覆盖的调用链和仍未解决的问题，下一轮恢复就不会重复扫描：
 
 ~~~yaml
-context_stop_receipt: csr_20260820_07
+context_stop_receipt: csr_e14d9b
 task_id: issue_csv_export
 closed_by:
   - target_symbol
@@ -199,7 +199,7 @@ status: closed_with_open_question
 仓库级 Agent 很容易把“读得更多”误当作“理解得更深”。每次任务结束时，建议保存一个上下文包：入口、调用链、直接依赖、测试和验收命令属于已闭合证据；未读取的文件、冲突文档和待验证假设单独列出。下一轮恢复时，Agent 可以从开放问题继续，而不是重新扫描整个仓库。
 
 ```yaml
-context_pack: cp_20260820_14
+context_pack: cp_c4ada1
 task: add_csv_export
 closed_evidence:
   - src/api/export.ts
@@ -230,7 +230,7 @@ next_action: "verify feature_flag before widening patch"
 同一条路径在不同分支、工作树或生成代码版本里可能不是同一个事实。只写 `src/service/exporter.ts` 还不够，交接包应绑定 commit、工作树状态和依赖锁文件摘要；恢复时先比对快照，发现代码已经变化就重新验证入口和测试，不要把旧结论直接套到新代码上。
 
 ```yaml
-context_snapshot: cxs_20260820_83
+context_snapshot: cxs_3b0e84
 task: add_csv_export
 git:
   commit: 9b7e1d2
@@ -253,7 +253,7 @@ decision: handoff_replayable
 
 分支、生成文件或依赖版本变化都会让同一路径的行为不同。上下文包绑定快照后，恢复能先发现漂移，再决定哪些证据需要重读，避免把过期结论当成当前事实。
 
-## 60 秒面试回答
+## 60 秒怎么说
 
 Repo context 不是把整个仓库塞进 prompt，而是为当前任务构建一组有优先级、可追溯、有限预算的证据。
 

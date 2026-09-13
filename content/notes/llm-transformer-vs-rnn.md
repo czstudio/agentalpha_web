@@ -223,7 +223,6 @@ q_i' · k_j'  与  (i - j) 的相对距离有关
 import torch
 from torch import nn
 
-
 class FeedForward(nn.Module):
     def __init__(self, d_model: int, d_ff: int):
         super().__init__()
@@ -235,7 +234,6 @@ class FeedForward(nn.Module):
 
     def forward(self, x: torch.Tensor) -> torch.Tensor:
         return self.net(x)
-
 
 class TinyTransformerBlock(nn.Module):
     def __init__(self, d_model: int, n_heads: int, d_ff: int):
@@ -270,7 +268,6 @@ class TinyTransformerBlock(nn.Module):
         # FFN 对每个位置独立做非线性变换。
         x = x + self.ffn(self.norm2(x))
         return x
-
 
 torch.manual_seed(7)
 block = TinyTransformerBlock(d_model=64, n_heads=4, d_ff=256)
@@ -354,7 +351,7 @@ RoPE 将位置信息作用到 Q、K，使注意力分数携带相对距离关系
 可以用一条最小 profile 把 prefill 和 decode 分开：prefill 记录输入长度、吞吐和峰值显存；decode 记录每 token 延迟、KV cache bytes、batch 中有效序列数和 padding 比例。若长上下文下算力利用率下降而显存带宽接近上限，优先考虑 GQA/MQA、分页 KV 或更合理的 batch，而不是只换更大的矩阵乘单元。
 
 ~~~yaml
-decode_memory_profile: dmp_20260820_69
+decode_memory_profile: dmp_164d27
 model: decoder-v4
 context_tokens: 8192
 prefill:
@@ -387,7 +384,7 @@ decision: gqa_for_long_context_route
 只报告 TTFT、ITL 或吞吐，容易把一个“更快但答错更多”的版本误判成优化。对 Transformer、RNN 或不同 Attention 实现做对照时，至少固定同一批输入和输出长度，并把 prefill、decode、峰值显存、KV 读流量与任务质量放在同一张表里。长上下文、短上下文、流式输出和需要精确引用的任务应分别切片；否则平均延迟会掩盖某一类请求的退化。
 
 ```yaml
-decode_quality_probe: dqp_20260820_99
+decode_quality_probe: dqp_eea089
 matrix:
   short_context: {ttft_ms: 42, itl_ms: 18, grounded_rate: 0.96}
   long_context: {ttft_ms: 311, itl_ms: 34, grounded_rate: 0.94}
@@ -409,7 +406,7 @@ decision: ship_with_long_context_watch
 
 ![Prefill 与 Decode 的服务形态对照](/images/notes/llm-kv-cache/prefill-decode-cache.svg)
 
-## 60 秒面试回答
+## 压缩成 60 秒
 
 > RNN 的每个时间步依赖上一步隐藏状态，训练时存在串行等待，长距离信息也要经过很多次状态传递。Transformer 用 Self-Attention 让每个位置直接读取其他位置，整段输入可以组织成批量矩阵运算，因此训练并行性和长距离建模都更好。它的代价是 Attention 对序列长度有 `O(T²)` 成本，而且没有递归状态，所以需要位置编码或 RoPE。自回归生成仍然逐 token 进行，只是 KV Cache 避免重复计算历史 K/V。换句话说，Transformer 把“时间步串行”换成“全局关系计算”，更适合大规模训练，但并不代表 RNN 在流式和小模型场景里没有价值。
 
@@ -426,6 +423,4 @@ decision: ship_with_long_context_watch
 
 ## 参考资料
 
-1. AgentAlpha《Agent 岗面试宝典 v3》：Transformer 与位置编码专题。
-2. [Attention Is All You Need](https://arxiv.org/abs/1706.03762)，Transformer 原论文。
-3. [ARIS in AI Offer](https://github.com/wanshuiyin/ARIS-in-AI-Offer)，参考其按直觉、原理、代码和分层面试题组织内容的方式。
+1. [Attention Is All You Need](https://arxiv.org/abs/1706.03762)，Transformer 原论文。

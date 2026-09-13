@@ -10,7 +10,7 @@ minutes: 21
 
 做知识库第一天，大家最容易争的就是 chunk size：256、512，还是 1024？数字排得很整齐，问题却没有因此变简单。
 
-## 先给一个能复述的答案
+## 一版能复述的答案
 
 分块要同时满足结构完整、检索可区分和上下文可用三个条件。优先沿标题、段落、列表、表格和代码边界切分，再用 token 上限兜底；必要时用重叠窗口和父子块补上下文。最终方案要由真实问题集回放决定，不能脱离任务只比较块长度。
 
@@ -106,7 +106,7 @@ def expand_children(hits, max_parents=3):
 命中率上升，不代表 chunk 边界真的合理。有些配置只是把更多相邻文本塞进上下文，碰巧把答案盖住了。验收时把一个问题的关键前提移到相邻段落、表格下一行或代码块外，再比较证据完整率、无关内容比例和引用定位是否仍然稳定。
 
 ~~~yaml
-boundary_counterfactual: bcf_20260820_50
+boundary_counterfactual: bcf_b2d39c
 question: "租户配置变化后，哪些缓存需要清理？"
 base:
   required_evidence: [version_rule, cache_scope, invalidation_action]
@@ -341,7 +341,7 @@ def split_markdown(text, max_chars=900):
 知识库更新时，直接覆盖向量记录会留下一个隐蔽问题：旧 chunk 可能已经被缓存、倒排索引或父子块引用，短时间内仍会被召回。如果没有删除标记，回答会把旧规则和新规则混在一起。我的做法是先写新版本，再给旧 chunk 写 tombstone，检索和回放都按 `effective_at`、版本和 tombstone 过滤；等所有下游确认后再做物理清理。
 
 ```yaml
-chunk_rollout: chr_20260820_36
+chunk_rollout: chr_f9a2db
 document: refund-policy
 old_version: v7
 new_version: v8
@@ -372,7 +372,7 @@ decision: safe_cutover_after_replay
 边界理由还可以驱动检索策略：命中 `table_row_boundary` 的 child 时补表头，命中 `code_block_boundary` 时补函数签名和依赖 import，命中 `token_limit_fallback` 时提高父块权重或触发二次查询。把结构信息留在 chunk lineage 里，比盲目增大 overlap 更节省上下文。
 
 ```yaml
-chunk_lineage: cl_20260820_48
+chunk_lineage: cl_2fb10a
 chunk_id: refund-policy-v8-c17
 parent: refund-policy-v8-s04
 boundary:
@@ -403,7 +403,7 @@ overlap 只能复制相邻文本，不能告诉系统哪些内容是表头、函
 这样调参才有方向：前一类回到解析和分块，第二类看 embedding、混合检索与 rerank，第三类检查父块补上下文和边界 metadata。不要用一次增大 chunk 或 top-k 同时掩盖三种问题。
 
 ```yaml
-boundary_error_replay: ber_20260820_90
+boundary_error_replay: ber_26ee10
 query_id: refund-q-184
 gold_span: [policy-v8-s04-p3, policy-v8-s04-p4]
 retrieved: [policy-v8-s04-c17, faq-v6-c02, policy-v7-c09]

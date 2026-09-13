@@ -319,5 +319,4 @@ unknown_watch:
 
 ## 资料来源
 
-- AgentAlpha《Agent 岗面试宝典 v3 · 精华版》：上线与可靠性章节（内部讲义，未公开）
 - [ARIS-in-AI-Offer](https://github.com/wanshuiyin/ARIS-in-AI-Offer)：把面试追问落到可运行、可复盘的实现

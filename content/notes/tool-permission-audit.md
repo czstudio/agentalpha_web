@@ -12,7 +12,7 @@ minutes: 25
 
 如果这些问题只能靠 Prompt 里的“请谨慎操作”，那就不是权限控制，只是在赌模型今天心情不错。
 
-## 先给一个能复述的答案
+## 先把答案放桌上
 
 工具权限要围绕一次具体调用判断，而不是给 Agent 一个长期万能身份。调用上下文至少包含主体、租户、环境、资源、动作、参数摘要、风险级别和审批状态；policy gateway 按最小权限做 allow/deny，写操作绑定参数哈希和幂等键，高风险动作需要人工确认。所有决策、工具输入、外部回执和状态变化写入不可抵赖的审计记录，敏感字段脱敏但不能丢失追责所需的引用。
 
@@ -279,7 +279,7 @@ reconciled: true
 权限系统最容易被忽略的是“已经发出去的能力怎么办”。每次高风险权限变更，都要用演练确认：撤销后排队任务是否停止、已发出的 capability 是否失效、外部系统的未知结果如何对账。演练结果和正式授权一样要落审计：
 
 ```yaml
-revocation_drill: rd_20260820_06
+revocation_drill: rd_ace896
 capability: contract.write
 grant_id: grant-8842
 issued_to: agent-run-17
@@ -304,7 +304,7 @@ decision: pass
 撤销演练通过，只能说明旧票据失效；它还没有证明新发的票据不会被拿去操作另一份资源。用同一 capability 先提交原始参数，再替换 tenant、resource_version 或金额，确认参数哈希、资源版本和审批义务一起变化，任何一项不一致都重新走策略，而不是沿用旧的 allow。
 
 ~~~yaml
-capability_rebind_probe: crp_20260820_52
+capability_rebind_probe: crp_55edc3
 capability: contract.write
 grant_id: grant-8842
 baseline:
@@ -367,7 +367,7 @@ replay_probe:
 我会给高风险能力设置 revocation epoch。执行器每次提交都带上签发时的 epoch，若当前 epoch 已前进，哪怕票据未到期也必须拒绝；对已经发生的外部动作则进入对账或补偿流程，不能用撤销事件伪造“动作没有发生”。
 
 ```yaml
-revocation_drill: rd_20260820_37
+revocation_drill: rd_360ee5
 capability: crm.update_customer
 issued_epoch: 41
 timeline:
@@ -394,7 +394,7 @@ assertions:
 阻断旧票据只能保证后续提交不再执行，不能把撤销前已经成功的动作抹掉。一次完整的撤销回放要把请求分成三类：已提交且有外部回执、已到执行器但状态未知、只在队列里尚未提交。前两类进入对账或补偿，最后一类才可以安全丢弃；所有类别都要关联原始 `request_id`，避免人工复核时把未执行误报成已完成。
 
 ```yaml
-revocation_reconciliation: rrc_20260820_82
+revocation_reconciliation: rrc_29d003
 capability: crm.update_customer
 request_id: req-8842
 states:
@@ -414,7 +414,7 @@ decision: close_after_reconciliation
 
 队列里可能混着已经发到执行器但尚未回执的请求，直接清空会丢失对账线索。先按提交状态分类，已发生的外部动作做回读，真正未提交的意图才允许丢弃并留下审计记录。
 
-## 60 秒面试回答
+## 一分钟版本
 
 Agent 权限要落在每一次具体工具调用上，而不是给它一个万能身份。我会把主体、租户、环境、资源、动作、参数摘要和风险放进调用上下文，由 policy gateway 默认拒绝并签发短期 capability。写操作绑定参数哈希、资源版本和幂等键，高风险动作需要一次性人工审批。执行前后记录策略决定、审批、外部 request_id、回执和状态变化，敏感内容脱敏但保留引用。未知结果、参数变化或版本冲突都转人工或重新审批，不能靠 Prompt 自我约束。
 
@@ -434,5 +434,4 @@ Agent 权限要落在每一次具体工具调用上，而不是给它一个万�
 
 ## 参考
 
-- AgentAlpha《Agent 岗面试宝典 v3》：工具调用章节
 - [ARIS-in-AI-Offer](https://github.com/wanshuiyin/ARIS-in-AI-Offer)

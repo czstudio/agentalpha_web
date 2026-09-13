@@ -10,7 +10,7 @@ minutes: 25
 
 很多人把学习路线排成一张长清单：Transformer、RAG、LangChain、论文、面试题，一个都不想落下。结果每个词都见过，遇到真实需求还是不知道先问什么、怎么验证、出问题看哪条日志。
 
-## 先给一个能复述的答案
+## 能背走的版本
 
 Agent 学习应该沿四条线循环：基础负责解释机制，项目负责制造真实约束，论文负责提供更好的假设，面试负责检查能否在有限时间复述。每一轮只选一个可交付问题，把“读懂”变成代码、实验、故障复盘或一段 60 秒回答，而不是继续往收藏夹里塞资料。
 
@@ -303,7 +303,7 @@ next: "补一组跨租户和旧版本样本"
 学习路线最容易失控的地方，不是开始，而是没有结束条件：同一个主题不断补资料，却没有证据说明它已经足够支撑当前目标。每轮结束时发一张退出回执，把“继续深挖”变成一个需要证据支持的决定：
 
 ```yaml
-route_exit: re_20260820_03
+route_exit: re_ac0b78
 topic: "检索版本变化与引用失效"
 target_capability: "能定位首处分叉，并给出安全回滚"
 evidence:
@@ -328,7 +328,7 @@ next_review: 2026-09-03
 路线回执写了 `replayable=true`，只能说明样本按原路径跑通；它还没有证明你掌握的是机制，而不是记住了某个样本。退出前再做一条反证任务：保持目标不变，替换数据、工具返回顺序或版本号，要求你先预测会在哪一层分叉，再用实验验证。预测错了，路线不应直接进入 `pause`。
 
 ~~~yaml
-capability_counterexample: cex_20260820_47
+capability_counterexample: cex_fdc7c8
 topic: "检索版本变化与引用失效"
 hold_constant: [task_goal, acceptance_rule]
 perturb: [tenant_id, tool_order, snapshot_version]
@@ -388,7 +388,7 @@ skill_card:
 同一主题堆了十篇资料，却没有最小实现、失败样本或可复述答案，实际上是在累积证据债务。路线卡可以给每个主题记一个债务分数：缺少关键实验、没有回放、无法解释边界、只看过文章却没动手，都会增加债务；完成可验证产物后再偿还。这样“继续学习”不再等于继续收藏，而是优先补最影响项目和面试的缺口。
 
 ```yaml
-route_evidence_debt: red_20260820_105
+route_evidence_debt: red_440a76
 topic: "RAG 证据闭环"
 debt:
   missing_minimal_impl: 1
@@ -429,8 +429,3 @@ decision: continue_with_targeted_probe
 - [技术方案有争议怎么办？从不同意见到可验证实验](/notes/agent-technical-disagreement)
 - [Agent 评测不能只看成功率：从结果到轨迹的五层指标](/notes/agent-eval-success-rate)
 - [项目讲不深，通常不是项目小而是证据链断了](/notes/agent-project-evidence)
-
-## 资料来源
-
-- AgentAlpha《Agent 岗面试宝典 v3》：学习方法与路线章节（内部讲义，未公开）
-- ARIS in AI Offer：学习闭环、项目产物与面试复述结构

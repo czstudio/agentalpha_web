@@ -290,7 +290,7 @@ forbidden: blind_replay
 `UNKNOWN` 不是“失败但再试一次”，而是外部世界可能已经发生变化。恢复器应该先发对账回执，证明查到了什么、仍然缺什么，以及哪些动作被明确禁止：
 
 ```yaml
-reconcile_receipt: rec_20260820_22
+reconcile_receipt: rec_919434
 request_id: refund_042
 observed: sent_timeout
 provider_query:
@@ -314,7 +314,7 @@ evidence: [request-log-42, provider-response-19]
 查到供应商状态并不代表本地幂等链路没有漏洞。实际事故里，第一次请求已经成功，状态查询也返回 `COMMITTED`，但重试入口仍可能在读到旧缓存后再次提交。对账结束后，我会用原来的幂等键做一次受控的 duplicate probe，并同时看业务账本和幂等记录，确认第二次请求没有新增效果。
 
 ~~~yaml
-duplicate_probe_receipt: dpr_20260820_33
+duplicate_probe_receipt: dpr_852b65
 tool: refund.create
 operation: order-8848
 idempotency_key: refund-order-8848-v3
@@ -344,7 +344,7 @@ decision: retry_path_safe
 “网络错误就重试”这个规则太粗。一次调用在发送前、发送中、发送后，风险完全不同：发送前通常没有外部副作用，发送后超时则可能已经写成功。恢复器应该把阶段写入回执，并为每个阶段指定允许动作：
 
 ~~~yaml
-retry_stage_policy: rsp_20260820_41
+retry_stage_policy: rsp_a9ed73
 tool: order.create
 stages:
   before_send:
@@ -382,7 +382,7 @@ decision: no_blind_replay
 这能避免“主操作失败，所以补偿一定成功”的危险假设。若补偿请求本身进入 UNKNOWN，系统应暂停后续自动动作并把原操作与补偿操作放在同一条恢复链上；若补偿只完成了一部分，则状态必须是 `PARTIAL_COMPENSATED`，而不是把整个任务标记为成功。恢复器只推进明确的状态，不靠异常栈推断业务事实。
 
 ~~~yaml
-compensation_ledger: cl_20260820_62
+compensation_ledger: cl_171acf
 workflow: shipment-cancel-8848
 original:
   operation_id: ship-create-19
@@ -413,7 +413,7 @@ decision: compensated
 
 ```yaml
 side_effect_budget:
-  contract: seb_20260820_112
+  contract: seb_1ff859
   action: grant_workspace_access
   idempotency_key: req_8f2c
   max_business_effects: 1
@@ -433,7 +433,7 @@ side_effect_budget:
 
 “允许出现一个未知状态”并不等于系统更健壮。对于权限、扣款等高风险动作，未知状态本身就是阻断信号：在外部状态未对账之前，不允许继续重试，也不允许向用户报成功。预算的作用，是提前把“什么时候必须停”写清楚。
 
-## 60 秒面试回答
+## 压缩成 60 秒
 
 我不会把工具失败简单处理成再试一次，而会先区分参数、权限、瞬时网络、执行失败和结果未知。可证明未发送的瞬时错误，在预算内用相同幂等键指数退避；超时发生在发送之后，就先按 request_id 对账。状态机要显式记录 SENT、COMMITTED、FAILED 和 UNKNOWN，未知状态不允许直接重放。工具不可用时可以降级或换工具，但要重新验证结果和副作用，预算耗尽就转人工并保留补偿记录。
 
@@ -453,5 +453,4 @@ side_effect_budget:
 
 ## 参考
 
-- AgentAlpha《Agent 岗面试宝典 v3》：工具调用章节
 - [ARIS-in-AI-Offer](https://github.com/wanshuiyin/ARIS-in-AI-Offer)

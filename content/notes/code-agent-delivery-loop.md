@@ -12,7 +12,7 @@ minutes: 27
 
 如果 Agent 立刻打开 `export.ts` 开始写，通常会卡在三个问题上：“批量”是同步还是异步？权限在中间件还是业务层？验收看文件下载、任务状态还是审计记录？最后补丁也许能编译，人却不敢合并。
 
-## 先给一个能复述的答案
+## 先把答案放桌上
 
 一个可靠的 Code Agent 要把交付拆成五段：理解需求并声明假设、建立仓库上下文、拆成可回滚的小任务、逐步修改并运行最短反馈测试、用验证矩阵和 diff 交接。模型负责提出实现，仓库和测试负责提供事实，人负责高风险边界的最终判断。关键不是让 Agent 一次写更多，而是让每一个中间状态都能被检查。
 
@@ -238,7 +238,7 @@ handoff:
 smoke replay 证明补丁能在干净工作区跑通，却没有证明 Agent 只改了交接单里允许的文件。交接前再开一轮最小权限回放：给 worker 只读的仓库上下文、限定的写入目录和明确的命令白名单，故意加入一次越界写入和一次越界测试命令，确认沙箱会拒绝并留下审计记录。
 
 ~~~yaml
-least_privilege_replay: lpr_20260820_44
+least_privilege_replay: lpr_b1b452
 workspace: /repo/checkout
 allowed_paths: [src/agent, tests/agent]
 denied_paths: [infra/prod, secrets, .git/hooks]
@@ -347,7 +347,7 @@ handoff:
 如果 replay 结果不同，报告要区分代码 diff、依赖漂移、数据 fixture 变化和权限差异。不能用“重新装一下依赖”掩盖环境不一致，也不能让接手者直接拿生产凭证重跑。交接的目标是让另一个人能安全复现结论，而不是让他拥有更多权限。
 
 ~~~yaml
-handoff_replay_manifest: hrm_20260820_66
+handoff_replay_manifest: hrm_f5b43b
 commit: 4c91e2
 runtime:
   node: 22.14.0
@@ -369,7 +369,7 @@ decision: ready_for_handoff
 
 ![交接回放卡：运行时、fixture、flag 和输出 hash 组成可执行的交付证据](/images/notes/code-agent-delivery-loop/handoff-replay-manifest-card.svg)
 
-## 60 秒面试回答
+## 60 秒答案
 
 我不会让 Code Agent 直接从需求生成大补丁。先把需求改成任务合同，写清目标、不变式、未知项和验收；然后按入口、调用链、状态所有者和测试建立仓库上下文。实现时按契约、纯函数、副作用、恢复和交付拆成小步骤，每步限制可写范围并跑最短反馈测试。最后用验证矩阵检查权限、幂等、兼容和失败路径，报告已验证证据与未确认风险。这样 Agent 负责加速实现，代码库和测试负责提供事实，人只在高风险边界上做最终判断。
 
@@ -388,8 +388,3 @@ decision: ready_for_handoff
 - [面试官追问：代码 Agent 说测试全绿，为什么我还是不敢合并？](/notes/code-agent-green-tests)
 - [Code Agent 跑到一半挂了，怎样恢复又不重复执行？](/notes/code-agent-resume-exactly-once)
 - [Agent 评测不能只看成功率：从结果到轨迹的五层指标](/notes/agent-eval-success-rate)
-
-## 资料来源
-
-- AgentAlpha《Agent 岗面试宝典 v3》
-- ARIS in AI Offer

@@ -12,7 +12,7 @@ minutes: 27
 
 如果回答“离线 92%”，下一句通常是：“准确率怎么算的？谁标的？和什么相比？线上是多少？失败时成本和延迟有没有变？”
 
-## 先给一个能复述的答案
+## 能背走的版本
 
 Agent 指标要从任务不变量出发，不能只从模型日志里捡一个漂亮数字。先定义成功标准和失败分类，再建立无 Agent 或旧版本基线，固定数据、模型、工具和评测器，最后用分层指标解释结果：任务成功、步骤与工具、证据与安全、成本与体验。每次上线都要保留实验配置和可回放轨迹，避免把一次 Demo 当成普遍结论。
 
@@ -300,7 +300,7 @@ owner: agent-platform
 指标变好有时只是 eligible 条件变严、超时样本被排除，或者某个高风险租户不再进入统计。发布前可以生成一张分母对账卡，把被纳入、被排除和未知的数量并列出来：
 
 ~~~yaml
-metric_denominator_reconciliation: mdr_20260820_09
+metric_denominator_reconciliation: mdr_e2191f
 metric: completed_task_rate
 counts:
   total_requests: 12000
@@ -332,7 +332,7 @@ decision:
 指标字典解决“怎么算”，但发布还要解决“这次为什么变”。候选版本的 scorecard 应该把变化拆成数据、模型、工具、评测器和流量切片五类，并明确哪些变量没有变、哪些变量无法隔离。这样业务方看到成功率上涨时，团队不会把索引更新或样本筛选误说成模型能力提升。
 
 ```yaml
-metric_diff: md_20260820_05
+metric_diff: md_88ab3d
 baseline: {version: prod-v4, dataset: golden-v3, n: 800}
 candidate: {version: prod-v5, dataset: golden-v3, n: 800}
 changed:
@@ -364,7 +364,7 @@ decision: canary_with_long_tail_watch
 发布候选版本时，分数差异要绑定指标版本。若新口径成功率下降，但真实状态成功率不变，可能只是把未知从成功里移出来；这不是模型退化，也不能用旧口径把风险抹掉。双跑期间把每个样本映射到两个 decision，保留无法映射的原因，下一轮再决定是否迁移历史报表。
 
 ```yaml
-metric_contract: mc_20260820_56
+metric_contract: mc_90e885
 name: task_success
 v1:
   numerator: http_2xx
@@ -395,7 +395,7 @@ decision: publish_v2_with_bridge
 同一个“成功率”如果换了分母，趋势图就不再连续：有的版本把 unknown 排除，有的版本把人工接管算成功，还有的版本只统计完成写入的任务。每个指标应保存定义版本、纳入/排除规则、切片字段、统计窗口和 break marker；版本切换时先并行计算一段时间，桥接完成后再决定能否连接趋势线。
 
 ```yaml
-metric_contract_version: mcv_20260820_103
+metric_contract_version: mcv_8d0fbe
 metric: task_success_rate
 version: v3
 numerator: [state_validated, user_acceptance]
@@ -413,7 +413,7 @@ decision: bridge_old_and_new_for_14d
 
 可能是分母缩小、unknown 被排除，或高风险任务流量下降。先核对 metric contract、流量构成和硬失败，再看置信区间与切片；没有同口径基线，单点上涨只是一条相关性信号。
 
-## 60 秒面试回答
+## 一分钟版本
 
 我会先定义任务成功和不能违反的硬门槛，再建立无 Agent、当前线上和候选版本三条基线。实验指纹锁住数据、模型、工具、Judge 和随机种子；指标分成任务结果、过程工具、证据安全、成本体验四层，报告分母、长尾和失败分桶。上线后保留轨迹与版本，遇到漂移先按失败类型归因。这样指标不是一张宣传表，而是能复算、能解释、能指导下一轮改动的工程证据。
 
@@ -432,8 +432,3 @@ decision: bridge_old_and_new_for_14d
 - [让 LLM 给答案打分，为什么也会偏？](/notes/llm-judge-calibration)
 - [同一个 Agent 实验，怎样才能复现？](/notes/agent-eval-reproducibility)
 - [离线评测 95 分，线上为什么还是翻车？](/notes/offline-eval-online-drift)
-
-## 资料来源
-
-- AgentAlpha《Agent 岗面试宝典 v3》（未公开讲义）
-- ARIS in AI Offer：指标、基线和实验设计的分层写法

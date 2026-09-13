@@ -240,7 +240,7 @@ rollback: route read-only queries to previous index_version
 我会把删除建模成一个有状态的生命周期任务，而不是一个数据库按钮：
 
 ```yaml
-deletion_job: del_20260819_77
+deletion_job: del_849119
 tenant: team-alpha
 document_id: contract-2024-11
 target_version: v12
@@ -276,7 +276,7 @@ verify:
 我会为删除回执增加一组固定探针，并把预期结果写在执行前：
 
 ~~~yaml
-deletion_probe_receipt: dpr_20260820_18
+deletion_probe_receipt: dpr_2b3e9c
 document_id: contract-2024-11
 version: v12
 tenant: team-alpha
@@ -310,7 +310,7 @@ decision: accepted
 知识库更新时，最危险的不是新文档完全不可用，而是新旧版本同时被召回，答案把两个时间点拼在一起。只看新版本入库数量，无法说明旧版本是否已经降权、引用是否切换、缓存是否刷新。更新回执应该把版本、有效时间和回答证据放在同一张对照单里：
 
 ~~~yaml
-knowledge_rollout_receipt: krr_20260820_34
+knowledge_rollout_receipt: krr_4f9250
 document_id: policy-2026-08
 tenant: team-alpha
 versions:
@@ -344,7 +344,7 @@ rollback: restore-v11-if-mixed_answer_gt_0
 检索、重排、生成和缓存都要带租户上下文；只在入口过滤一次是不够的。回放时比较 evidence_ids、引用坐标和答案 claim，确保模型没有从一份允许文档推断出另一租户的敏感字段。权限撤销后要重复跑原问题和缓存命中路径，直到旧 evidence 清零。
 
 ```yaml
-tenant_isolation_probe: tip_20260820_58
+tenant_isolation_probe: tip_5b2166
 tenant: team-alpha
 cases:
   same_title_allowed: {expect: cite_allowed_doc}
@@ -372,7 +372,7 @@ decision: tenant_boundary_verified
 
 ```yaml
 deletion_sla:
-  contract: dsl_20260820_111
+  contract: dsl_f0e6ed
   source_id: policy-2026-08-17
   deadline_minutes: 15
   stages:
@@ -394,7 +394,7 @@ deletion_sla:
 
 因为用户看见的是最终回答，不是后台任务状态。只要有一条旧片段仍能被召回，系统就可能把已撤销内容重新说出来。拒答会牺牲短期可用性，却把“删除已经生效”这件事变成可证明的安全边界。
 
-## 60 秒面试回答
+## 一分钟版本
 
 我会先画数据、身份和证据三条线，而不是先画 LLM。数据线负责来源、解析、版本和删除；身份线把租户、组织、资源和动作带到检索边界，先做权限过滤；证据线把每个 claim 绑定到文档版本、页码和结构路径。系统分 ingestion、index、retrieval、policy、orchestration、answer 和 evaluation 七层，评测同时覆盖召回、越权、引用、新鲜度和应拒答问题。这样项目才从“能回答”变成“答得对、看得到依据、出了问题能追溯”。
 
@@ -413,8 +413,3 @@ deletion_sla:
 - [RAG 答案看着对，怎样证明它有依据？](/notes/rag-grounded-evidence)
 - [Agent 安全不是加一句提示词：权限、工具和数据边界怎么设计](/notes/agent-security-boundaries)
 - [离线评测 95 分，线上为什么还是翻车？](/notes/offline-eval-online-drift)
-
-## 资料来源
-
-- AgentAlpha《Agent 岗面试宝典 v3》
-- [ARIS in AI Offer](https://github.com/wanshuiyin/ARIS-in-AI-Offer)

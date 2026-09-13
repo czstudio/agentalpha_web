@@ -235,7 +235,7 @@ MCP 的能力发现很容易被讲成“列出工具名称和参数”。真正�
 
 ```json
 {
-  "discovery_id": "disc_20260819_0142",
+  "discovery_id": "disc_aac566",
   "server": "billing-mcp",
   "tenant": "team-alpha",
   "transport": "https",
@@ -268,8 +268,8 @@ MCP 的能力发现很容易被讲成“列出工具名称和参数”。真正�
 
 ~~~json
 {
-  "mcp_preflight_receipt": "mpr_20260820_17",
-  "discovery_id": "disc_20260819_0142",
+  "mcp_preflight_receipt": "mpr_9d9dbf",
+  "discovery_id": "disc_aac566",
   "current_schema_hash": "sha256:8e1...",
   "policy_snapshot": "policy-2026-08-20.2",
   "lease": {
@@ -302,7 +302,7 @@ MCP 的协议边界不只发生在“能不能连上”。Server 升级后，工
 
 ~~~json
 {
-  "compatibility_matrix": "mcp_20260820_08",
+  "compatibility_matrix": "mcp_86ab22",
   "client": "host-2.4",
   "server": "billing-mcp-3.1",
   "tool": "billing.refund",
@@ -333,7 +333,7 @@ MCP 里三类能力看起来都能被 Host 发现，但生命周期和风险不�
 对 Resource，可以缓存稳定的只读元数据，但正文仍要按版本和 ACL 取回；对 Tool，只缓存描述和 schema，不缓存执行授权；对 Prompt，要记录来源、模板版本和注入边界，防止旧模板把过期规则带进新任务。发现回执只是“现在看到了什么”，不是永久许可。
 
 ```yaml
-mcp_lifecycle_matrix: mlm_20260820_53
+mcp_lifecycle_matrix: mlm_c8a700
 resource:
   cache: metadata_only
   refresh: version_or_ttl
@@ -365,7 +365,7 @@ Resource 缓存的是可重新校验的描述或只读事实；Tool 授权绑定
 
 ```yaml
 capability_handshake:
-  contract: mch_20260820_119
+  contract: mch_4d24d2
   discovery:
     server: files.example
     tool: delete_document
@@ -406,5 +406,4 @@ capability_handshake:
 
 ## 参考
 
-- AgentAlpha《Agent 岗面试宝典 v3》：工具调用章节
 - [ARIS-in-AI-Offer](https://github.com/wanshuiyin/ARIS-in-AI-Offer)

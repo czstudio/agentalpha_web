@@ -193,7 +193,7 @@ GitHub 对 Copilot coding agent 的公开资料也把运行测试、检查变更
 因此交付回执要同时记录测试 oracle 的变化，而不只是运行结果：
 
 ~~~yaml
-oracle_integrity_receipt: oir_20260820_06
+oracle_integrity_receipt: oir_a23833
 changed_files:
   - src/checkout/retry.ts
   - tests/checkout/retry.test.ts
@@ -225,7 +225,7 @@ decision: accepted
 我会把需求不变量写成与实现解耦的回执，交给独立脚本或隐藏 fixture 执行：
 
 ~~~yaml
-invariant_probe: ip_20260820_12
+invariant_probe: ip_85b1b6
 patch: pr_1842
 invariants:
   - id: payment.single_effect

@@ -291,7 +291,7 @@ sunset:
 
 ~~~json
 {
-  "cursor_probe_receipt": "cpr_20260820_45",
+  "cursor_probe_receipt": "cpr_d9b48e",
   "stream_id": "s-2048",
   "events_before_disconnect": [41, 42, 43],
   "resume_cursor": 42,
@@ -382,7 +382,7 @@ offset 只描述位置，不描述当时的排序和数据集合。前面的记�
 把大结果压成摘要时，最容易压掉的恰好是回答所需的边界。比如订单列表只保留总金额，却丢了退款状态和时间范围，模型虽然拿到一个漂亮的数字，却无法证明它覆盖了哪批订单。我会给压缩器设一条证据闭包规则：凡是进入结论的字段，必须能回指原始 artifact、过滤条件和完整性标记；压缩失败就返回 `needs_expand`，不静默截断。
 
 ```yaml
-evidence_closure: ec_20260820_76
+evidence_closure: ec_6a3a5c
 artifact: orders.snapshot.881
 summary_fields: [total_amount, order_count, as_of]
 required_refs:
@@ -425,5 +425,4 @@ decision: safe_to_answer
 
 ## 参考
 
-- AgentAlpha《Agent 岗面试宝典 v3》：工具调用章节
 - [ARIS-in-AI-Offer](https://github.com/wanshuiyin/ARIS-in-AI-Offer)

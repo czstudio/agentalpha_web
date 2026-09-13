@@ -12,7 +12,7 @@ minutes: 22
 
 这句话不一定是在否定项目。面试官想知道的是：如果把框架换掉，哪些能力仍属于你？你解决了哪条业务约束？做过什么实验，结果怎样？
 
-## 先给一个能复述的答案
+## 答案先行
 
 框架提供通用的消息、工具和流程抽象；项目贡献体现在具体业务约束下的路由、数据契约、权限、评测、成本和故障恢复。回答时不要从组件清单开始，而要按“问题—决策—证据—取舍—结果”讲一条闭环，并明确哪些能力依赖框架、哪些是自己实现和验证的。
 
@@ -202,7 +202,7 @@ minutes: 22
 迁移探针通过，只能说明方案没有完全绑死在当前框架；还需要把哪些能力由项目负责、哪些仍由框架提供写成边界回执。否则面试时很容易把框架默认的 tracing、重试或 memory 误说成自己的设计。
 
 ~~~yaml
-contribution_boundary_receipt: cbr_20260820_41
+contribution_boundary_receipt: cbr_53d260
 framework_removed: [default_retry, builtin_memory]
 project_invariants:
   - idempotent_write
@@ -231,7 +231,7 @@ decision: contribution_isolated
 迁移探针能说明能力是否脱离框架成立，但交付给团队时还要说明“哪些可以复用、哪些仍依赖当前环境”。我会把贡献包整理成发布清单：
 
 ```yaml
-contribution_release: cr_20260820_06
+contribution_release: cr_b5adb7
 capabilities:
   - name: tenant_acl
     owner: platform-auth
@@ -352,7 +352,7 @@ Prompt 调整可能有效，但要说明是否稳定、是否跨任务、是否�
 迁移讨论最常见的误区，是把“这个模块能不能搬”当成唯一问题。真正影响交付的是责任边界：框架默认的循环、项目自定义的权限和幂等、平台提供的模型适配，分别由谁维护，出现回归时谁能修。为此，我会给每个关键能力标 owner、契约、替换点和验证方式：
 
 ```yaml
-ownership_map: om_20260820_18
+ownership_map: om_ad3694
 capabilities:
   - name: message_loop
     owner: framework
@@ -393,7 +393,7 @@ handoff:
 
 ```yaml
 compatibility_budget:
-  contract: cb_20260820_110
+  contract: cb_6a3943
   runtimes: [local, worker, serverless]
   adapters: [openai_compatible, anthropic_like, mock]
   must_hold:
@@ -414,7 +414,7 @@ compatibility_budget:
 
 因为兼容性不是一个布尔值。接口能不能调用、取消是否可观测、错误能不能被上层识别，往往分别落在不同适配器里。预算把这些隐含条件变成矩阵；一旦某个后端让 payload 膨胀、把取消吞掉，贡献者能知道是哪个维度超标，而不是等用户报一个模糊的“升级后不好用了”。
 
-## 60 秒面试回答
+## 一分钟版本
 
 我会先把项目分成框架、项目和验证三层。框架提供消息循环、工具注册和模型适配；我负责的是业务数据契约、租户权限、检索与工具路由、幂等恢复和评测回放。讲每个贡献时都用问题—决策—证据—取舍—结果的结构，比如为什么从纯向量改成混合检索、指标提升多少、代价是什么。这样即使换掉框架，真正解决业务约束的部分仍然可迁移、可复盘。
 
@@ -433,8 +433,3 @@ compatibility_budget:
 - [项目里的指标怎么来的？别只报一个漂亮数字](/notes/agent-metrics-baseline)
 - [Agent 安全不是加一句提示词：权限、工具和数据边界怎么设计](/notes/agent-security-boundaries)
 - [同一个 Agent 实验，怎样才能复现？](/notes/agent-eval-reproducibility)
-
-## 资料来源
-
-- AgentAlpha《Agent 岗面试宝典 v3》：项目贡献章节（内部讲义，未公开）
-- ARIS in AI Offer：系统设计题的决策、证据和分层回答结构

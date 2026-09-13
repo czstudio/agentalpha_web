@@ -1,6 +1,6 @@
 import type { Metadata } from "next"
 import Link from "next/link"
-import { ArrowRight, ArrowUpRight, BookOpen, Clock3, Layers3, Search, Sparkles } from "lucide-react"
+import { ArrowRight, ArrowUpRight, Clock3, Layers3, Search, Sparkles } from "lucide-react"
 import { Navigation } from "@/components/navigation"
 import { getAllNotes, getSeries } from "@/lib/notes"
 import { getLearnDirectory } from "@/lib/learn-directory"
@@ -118,7 +118,7 @@ export default function NotesIndexPage() {
                     <p className="aa-notes-series-name">{s.name}</p>
                     <h2>{s.title}</h2>
                     <p className="aa-notes-series-desc">{s.description}</p>
-                    <div className="aa-notes-series-meta"><span><Layers3 aria-hidden /> {seriesNotes.length} 篇</span><span><BookOpen aria-hidden /> 适合面试前过一遍</span></div>
+                    <div className="aa-notes-series-meta"><span><Layers3 aria-hidden /> {seriesNotes.length} 篇</span><span><Clock3 aria-hidden /> 约 {seriesNotes.reduce((sum, note) => sum + note.minutes, 0)} 分钟</span></div>
                     {s.no === "04" && <div className="aa-notes-series-route" aria-label="LLM 基础五步阅读路径"><span>Attention</span><i>→</i><span>Transformer</span><i>→</i><span>MoE</span><i>→</i><span>KV Cache</span><i>→</i><span>推理优化</span></div>}
                   </div>
                 </div>
@@ -154,8 +154,8 @@ export default function NotesIndexPage() {
               {publishedWechat.map((article) => <a className="aa-notes-wechat-card" href={article.url} target="_blank" rel="noreferrer" key={article.articleId}><span>{article.publishedAt} · 已发表</span><h3>{article.title}</h3><strong>打开原文 <ArrowUpRight aria-hidden /></strong></a>)}
             </div>
             <div className="aa-notes-cta-grid">
-              <Link className="aa-notes-cta-card" href="/community#3-课程体系"><span>课程入口</span><strong>按路线练，把面试题做成项目 <ArrowRight aria-hidden /></strong><small>公开课程体系 · 具体安排以站内信息为准</small></Link>
-              <Link className="aa-notes-cta-card aa-notes-cta-card--dark" href="/#join"><span>社区入口</span><strong>加入 AgentAlpha，一起练习和复盘 <ArrowRight aria-hidden /></strong><small>社区与训练营信息 · 不承诺录取或结果</small></Link>
+              <Link className="aa-notes-cta-card" href="/community#3-课程体系"><span>课程入口</span><strong>按路线练，把面试题做成项目 <ArrowRight aria-hidden /></strong><small>课程体系全部公开，怎么教一看便知</small></Link>
+              <Link className="aa-notes-cta-card aa-notes-cta-card--dark" href="/#join"><span>社区入口</span><strong>加入 AgentAlpha，一起练习和复盘 <ArrowRight aria-hidden /></strong><small>我们不保证 offer，保证每周有人陪你过代码和结果</small></Link>
             </div>
           </div>
         </section>

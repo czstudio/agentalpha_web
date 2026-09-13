@@ -12,7 +12,7 @@ minutes: 18
 
 多 Agent 不是把一个模型复制成五个窗口，而是把任务拆成几条能独立验收的责任链。拆得好，专业能力可以并行，风险动作有闸门；拆得不好，只会多出五份上下文、五次网络调用，最后互相甩锅。
 
-## 先给一个能复述的答案
+## 先说结论
 
 是否拆成多个 Agent，先看任务是否同时存在不同专业边界、不同权限边界或可并行的子任务。如果只是同一目标下的连续步骤，单 Agent 加工作流通常更简单；如果研究、计算、写作和发布需要不同工具与验收标准，再考虑拆分。每个 Agent 都要有明确输入、输出、禁止事项和完成条件，协调器只负责路由、状态和预算，不替子 Agent 猜结果。拆分后的收益要用端到端成功率、延迟、成本和错误隔离来证明。
 
@@ -276,7 +276,7 @@ on_failure: return_no_evidence
 回执至少记录三种拓扑和局部失败恢复：
 
 ~~~yaml
-topology_ablation_receipt: tar_20260820_24
+topology_ablation_receipt: tar_6fbc60
 eval_set: support-triage-v2
 routes:
   single_agent:
@@ -308,7 +308,7 @@ decision: keep_multi_agent_for_high_risk_only
 多 Agent 的问题不只在于某个角色答错，也在于交接过程中关键约束被截断。比如研究 Agent 找到了带租户和版本的证据，写作 Agent 却只收到一段摘要；执行 Agent 得到“建议退款”，却没收到审批范围和幂等键。交接验收不能只看消息送达，要主动删掉一项字段，确认协调器会拒绝不完整的包：
 
 ~~~yaml
-handoff_boundary_probe: hbp_20260820_38
+handoff_boundary_probe: hbp_2b2b84
 handoff_id: h_8842
 required_fields:
   - trace_id
@@ -343,7 +343,7 @@ decision: contract_passed
 我会把每个子任务的预算、最晚交付时间和降级动作写进 handoff。只读研究 Agent 超时可以缩小候选集或交一份带缺口的证据包；写入 Agent 超时则不能用“部分完成”替代真实回执。最终报告同时列出并行节省的时间、额外 token 和局部恢复率，避免只看总成功率。
 
 ```yaml
-critical_path_budget: cpb_20260820_44
+critical_path_budget: cpb_a5252c
 task: enterprise_refund_review
 deadline_ms: 1800
 branches:
@@ -386,5 +386,4 @@ decision: prioritize_critical_path
 
 ## 参考
 
-- AgentAlpha《Agent 岗面试宝典 v3》：多智能体章节
 - [ARIS-in-AI-Offer](https://github.com/wanshuiyin/ARIS-in-AI-Offer)

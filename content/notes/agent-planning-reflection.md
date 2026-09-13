@@ -18,7 +18,7 @@ minutes: 19
 
 面试里的规划题，常常会继续追问：工作流和 Agent 怎么选？ReAct、Plan-and-Execute、ReWOO、状态机分别适合什么？Planner 发现计划不可执行时如何 Replan？连续反思失败后什么时候降级？这些题都在考同一件事：你有没有把“想一想”变成可执行的控制系统。
 
-## 先给一个能复述的答案
+## 先说结论
 
 规划的价值不在于生成一段更长的思考，而在于把目标、约束、依赖、验收标准和下一步动作显式化。固定流程优先用工作流或状态机；任务路径不确定、需要根据工具反馈调整时才引入 Agent。Plan-and-Execute 适合先有全局路线再执行，ReAct 适合边观察边决定，ReWOO 适合工具依赖能提前展开的任务。Reflection 只应在出现可验证的失败信号、假设冲突或验收未通过时触发，并且每次反思必须改变计划、参数或策略；没有新证据的“再想一遍”只是成本。
 
@@ -218,7 +218,7 @@ Executor 要返回结构化失败类型、缺失输入、新证据和已完成�
 我会让 Planner 输出一张可消费的计划回执：
 
 ```yaml
-plan_run: plan_20260820_07
+plan_run: plan_af7023
 goal: 核对订单退款资格并提交申请
 steps:
   - id: check_policy
@@ -250,7 +250,7 @@ reflection:
 Reflection 能改变计划，但不能偷偷改变任务的硬约束。每次 replan 都保存旧版和新版计划，抽出不能变的 tenant、预算、禁止动作、审批要求和截止时间，分别在新计划上做一次 dry-run；如果约束消失或被改写，直接把计划打回人工，而不是继续执行一个“更聪明但不再合规”的方案。
 
 ~~~yaml
-replan_invariant_receipt: rir_20260820_54
+replan_invariant_receipt: rir_015f0f
 plan_before: plan_07
 plan_after: plan_08
 invariants:
@@ -281,7 +281,7 @@ decision: replan_allowed
 计划不是生成出来就永久有效。工具观察、库存、权限和用户意图都可能在执行中变化；如果 Planner 拿着十分钟前的证据继续提交写操作，计划本身再漂亮也已经过期。每个计划要带 `plan_version`、证据快照和短租约，执行器在关键副作用前重新读回；租约过期只允许重新规划，不允许直接沿用旧步骤。
 
 ```yaml
-plan_lease: pl_20260820_61
+plan_lease: pl_1d42ef
 plan_version: 08
 evidence_snapshot:
   order_state: ev_441
@@ -309,7 +309,7 @@ decision: lease_valid
 把 Reflection 分成诊断和重规划两步也更容易回放。诊断只读取失败 trace 和当前证据，不能写外部状态；重规划输出新版本计划和差异摘要，再由 policy gate 判断是否允许继续。这样既能复盘“为什么重规划”，又能防止模型把反思当成无约束的长篇自言自语。
 
 ```yaml
-reflection_contract: rc_20260820_59
+reflection_contract: rc_ff07be
 trigger: tool_timeout_after_policy_pass
 budget: {tokens: 1200, wall_ms: 500}
 hypotheses: [provider_slow, stale_cursor, wrong_retry_scope]
@@ -344,7 +344,7 @@ $$
 
 ```yaml
 plan_value_review:
-  contract: pvr_20260820_123
+  contract: pvr_4bc729
   horizon: 5
   expected_utility: 0.82
   risk: 0.18
@@ -397,6 +397,5 @@ plan_value_review:
 
 ## 参考资料
 
-1. AgentAlpha《Agent 岗面试宝典 v3》第 4 章：Agent 与规划题群。
-2. Yao et al., *ReAct: Synergizing Reasoning and Acting in Language Models*（2022）。
-3. Xu et al., *ReWOO: Decoupling Reasoning from Observations for Efficient Augmented Language Models*（2023）。
+1. Yao et al., *ReAct: Synergizing Reasoning and Acting in Language Models*（2022）。
+2. Xu et al., *ReWOO: Decoupling Reasoning from Observations for Efficient Augmented Language Models*（2023）。

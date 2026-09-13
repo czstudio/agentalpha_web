@@ -32,7 +32,7 @@ KV Cache 不是一个打开就生效的开关。从一次生成请求的数据�
 
 一句话版：**KV Cache 用显存换重复计算，把历史 token 的 K/V 留下来，让每次 Decode 只新增当前 Q、K、V；当上下文、并发或输出长度增加时，缓存的容量和读取带宽就会成为主要账单。**
 
-## 先给一个能复述的答案
+## 先把答案放桌上
 
 > Decoder-only 模型生成第 `t` 个 token 时，会用当前 token 的 Query 去查询从第 0 到第 `t-1` 个 token 的 Key 和 Value。历史 token 的 K/V 在后续步骤不会改变，因此可以缓存；历史 Q 不会再次使用，所以不缓存。Prefill 阶段一次计算 prompt 的全部 K/V，Decode 阶段每轮只计算新 token 的 Q/K/V，再把新 K/V 追加到缓存。KV Cache 的显存近似与层数、序列长度、batch、KV head 数和 head_dim 成正比，MQA/GQA 可以减少 KV head 数。生产系统还要处理分页分配、前缀复用、请求淘汰、长度上限和多租户隔离。
 
@@ -242,7 +242,6 @@ prefix_key = hash(model_id, tokenizer_id, adapter_id, token_ids[:n], position_co
 ```python
 import torch
 
-
 def decode_attention(
     q_new: torch.Tensor,          # [B, H, 1, D]
     k_new: torch.Tensor,          # [B, H, 1, D]
@@ -262,7 +261,6 @@ def decode_attention(
     weights = torch.softmax(scores, dim=-1)
     output = torch.matmul(weights, values)
     return output, keys, values
-
 
 torch.manual_seed(7)
 B, H, D = 2, 4, 16
@@ -335,7 +333,7 @@ Prefill 一次处理完整 prompt，能并行算出前缀的 K/V；Decode 每次
 知道公式不等于能上线。服务同时接收长短不一的请求时，真正的问题是：在显存只剩一部分的情况下，哪些请求可以进入、哪些请求需要截断或排队、哪些前缀值得共享。容量预算应把权重、激活、KV、运行时余量和安全水位分开，不要把所有显存都承诺给 cache。
 
 ```yaml
-kv_capacity_plan: kvp_20260820_14
+kv_capacity_plan: kvp_62e534
 gpu_memory_gb: 80
 reserved:
   weights: 42
@@ -367,7 +365,7 @@ metrics: [kv_hit_rate, block_fragmentation, tpot_p95, rejected_context_rate]
 前缀相同不等于可以共享。只要模型权重、tokenizer、位置编码、system prompt 或租户权限不同，复用旧 KV 都可能把上一条会话的上下文带进来。缓存条目要记录可验证的兼容指纹，命中时由服务端重算并比对；权限不兼容时宁可重新 prefill，也不能为了 TTFT 把隔离边界打穿。
 
 ```yaml
-prefix_cache_receipt: pcr_20260820_22
+prefix_cache_receipt: pcr_72a959
 key: sha256:...
 compatibility:
   model_revision: same
@@ -400,7 +398,7 @@ decision: safe_reuse
 分层缓存也要绑定同一兼容指纹。GPU、CPU 和磁盘上的 KV 不能只靠 key 相同就互相搬运，迁移时要检查模型 revision、位置编码、adapter、tenant scope 和压缩格式。搬运失败或指纹不一致时，宁可重新 prefill；这点比一张漂亮的 hit-rate 曲线更重要。
 
 ```yaml
-kv_eviction_policy: kep_20260820_45
+kv_eviction_policy: kep_5ad686
 states:
   active: {evict: false, min_blocks: 8}
   reusable: {evict: lru_with_tenant_quota}
@@ -434,7 +432,7 @@ M_{KV} \approx 2 \times L \times B \times T \times H_{KV} \times d_h \times b
 `2` 代表 K 和 V，`L` 是层数，`B` 是活跃序列数，`T` 是每条序列的 token 数，`H_KV` 是 KV head 数，`d_h` 是 head_dim，`b` 是每个元素的字节数。MHA、GQA、MQA 的容量差异主要就落在 `H_KV`；但公式仍只是容量上限，分页碎片、padding、临时 workspace 和跨层对齐会继续抬高真实水位。容量回归应固定一组 `(B,T)` 网格，而不是只测一条长对话。
 
 ```yaml
-kv_memory_formula_audit: kfa_20260820_98
+kv_memory_formula_audit: kfa_d4cd25
 model: decoder-v4
 config: {layers: 32, batch: 8, context: 8192, kv_heads: 8, head_dim: 128, bytes: 2}
 estimate_gb: 1.00
@@ -453,7 +451,7 @@ decision: capacity_model_calibrated
 
 公式只算有效 K/V 元素，线上还会有 block 对齐、padding、临时 workspace 和碎片。只要误差在固定阈值内并能由这些项解释，就应把它们纳入容量模型；如果误差随序列长度突然放大，通常要查分页或 batch 调度，而不是简单提高预算。
 
-## 60 秒面试回答
+## 60 秒答案
 
 > KV Cache 缓存的是每一层历史 token 的 Key 和 Value。生成新 token 时，当前 Query 需要和所有历史 Key 做匹配，并读取对应 Value；历史 K/V 不会改变，所以可以复用。历史 Q 不会在后续步骤再次查询未来，因此不缓存。Prefill 一次计算 prompt 的缓存，Decode 每轮只追加新 token 的 K/V，但仍需读取不断变长的 cache。缓存显存大致与层数、上下文长度、batch、KV head 数和 head_dim 成正比，所以长对话和高并发会很贵。GQA/MQA 减少 KV head，Paged Attention 管理动态 block，Prefix Cache 复用相同前缀；这些优化解决的是不同层面的容量、带宽和内存管理问题。
 
@@ -470,7 +468,5 @@ decision: capacity_model_calibrated
 
 ## 参考资料
 
-1. AgentAlpha《Agent 岗面试宝典 v3》：KV Cache 章节与 GQA/MQA、推理优化专题。
-2. [Efficiently Scaling Transformer Inference](https://arxiv.org/abs/2211.05102)，关于推理阶段计算与内存的分析。
-3. [vLLM](https://github.com/vllm-project/vllm)，Paged Attention 与高吞吐推理服务的开源实现。
-4. [ARIS in AI Offer](https://github.com/wanshuiyin/ARIS-in-AI-Offer)，参考其先给结论、再推导公式和代码、最后分层追问的组织方式。
+1. [Efficiently Scaling Transformer Inference](https://arxiv.org/abs/2211.05102)，关于推理阶段计算与内存的分析。
+2. [vLLM](https://github.com/vllm-project/vllm)，Paged Attention 与高吞吐推理服务的开源实现。

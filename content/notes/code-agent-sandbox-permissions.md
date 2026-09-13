@@ -205,9 +205,9 @@ audit: [command-17, process-91, proxy-44]
 最小探针回执可以这样记录：
 
 ~~~yaml
-capability_residue_probe: crp_20260820_29
+capability_residue_probe: crp_dbd4b7
 run_id: run_8812
-revocation_receipt: rev_20260820_04
+revocation_receipt: rev_bba93c
 probes:
   filesystem_write:
     expected: denied

@@ -199,7 +199,7 @@ reason: "tool_result slice below gate"
 一组 chosen/rejected 可能只是标注者当时的措辞偏好，换个表达、缩短答案或补上工具结果后，偏好就翻转。DPO 会把这种翻转当成强监督信号，所以数据发布前要抽样做 paraphrase、盲评和结果复核，测出偏好到底来自任务质量，还是来自长度、格式和语气。
 
 ~~~yaml
-preference_stability_receipt: psr_20260820_40
+preference_stability_receipt: psr_bfa17d
 pair_id: pair-4481
 annotator_agreement: 0.82
 paraphrase_flip_rate: 0.06
@@ -226,7 +226,7 @@ decision: admit_with_slice_monitoring
 偏好对在训练集上稳定，不代表它能迁移到新任务。模型可能学会“拒绝得更有礼貌”“答案更长”“格式更像 chosen”，但在工具参数、事实引用或长上下文里仍然失败。因此我会把每轮 DPO 分成同分布、近邻迁移和环境任务三组，分别记录偏好胜率与真实结果：
 
 ~~~yaml
-preference_transfer_receipt: ptr_20260820_44
+preference_transfer_receipt: ptr_5155ac
 checkpoint: dpo-v7
 sets:
   in_distribution:
@@ -272,7 +272,7 @@ SFT 让模型提高 chosen 答案的 token 概率；DPO 同时比较 chosen 和 
 偏好标注最容易把“看起来更像好答案”误当成“真的更能完成任务”。尤其是 Agent 场景，chosen 可能只是语气更顺，却没有执行工具、引用证据或处理失败。发布前我会把答案顺序随机化、隐藏模型版本，并对关键 pair 做反事实改写：只替换一个工具结果、事实引用或拒答边界，再看标注是否仍然稳定。
 
 ```yaml
-preference_blind_audit: pba_20260820_27
+preference_blind_audit: pba_34631a
 pair: task_1842
 blind:
   answer_order: shuffled
@@ -304,7 +304,7 @@ decision: accept_for_dpo
 每个 pair 都要保留可验证的 outcome，而不是只存两段字符串。若 chosen 的事实来自过期文档，或者 rejected 虽然语气差但完成了正确动作，应该进入人工复核或 tie，而不是强行喂给 DPO。训练集的长度、模型来源和主题也要做分层抽样，避免一个高频模板贡献大多数梯度。
 
 ```yaml
-preference_buckets: pbf_20260820_35
+preference_buckets: pbf_15f63a
 buckets:
   text_quality: {weight: 0.20, verify: style_and_fact}
   tool_outcome: {weight: 0.30, verify: receipt_and_state}
@@ -333,7 +333,7 @@ decision: train_only_after_outcome_closure
 分桶只是报告层，如果训练采样仍让高频文本题贡献了 80% 的梯度，工具和拒答 bucket 还是会被淹没。我会在每轮训练记录各 bucket 的有效 pair 数、token 数和 loss 权重，区分“数据很多”和“真正影响参数更新”两件事。发现某个关键 bucket 贡献过低时，优先调整采样或权重，并用固定验证集检查是否出现过拟合。
 
 ```yaml
-gradient_share_audit: gsa_20260820_81
+gradient_share_audit: gsa_983285
 checkpoint: dpo-v8
 buckets:
   text_quality: {pairs: 12000, tokens: 1.8e6, gradient_share: 0.48}
@@ -353,7 +353,7 @@ decision: keep_sampling_mix
 
 长文本会贡献更多 token，重复模板也可能因为权重累积占据梯度。必须同时看 pair、token 和 gradient share；只有关键任务 bucket 在更新中有足够质量与权重，偏好迁移才有机会改善。
 
-## 60 秒面试回答
+## 60 秒怎么说
 
 “PPO 是在线方法：先训练奖励模型，再采样轨迹，用 advantage 更新策略，并通过 reference KL 控制漂移。DPO 则利用 KL 偏好优化的闭式关系，直接在 chosen/rejected 离线数据上比较当前策略和 reference 的相对 log-prob，不显式训练 reward/value model，也没有在线 rollout。DPO 更适合可提前比较的文本偏好，PPO 更适合工具、代码、游戏等需要环境反馈和探索的任务。实际选型我会先看反馈是否可离线获得，再看数据覆盖、在线成本和失败代价，并用事实、安全、任务结果和长度分桶评测，而不只看 DPO loss 或 pair win rate。”
 

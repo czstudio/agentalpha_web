@@ -298,5 +298,4 @@ coverage:
 
 ## 资料来源
 
-- 《Agent 岗面试宝典 v3 · 精华版》
 - [ARIS-in-AI-Offer](https://github.com/wanshuiyin/ARIS-in-AI-Offer)

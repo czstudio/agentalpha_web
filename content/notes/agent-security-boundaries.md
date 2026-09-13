@@ -18,7 +18,7 @@ Agent 并没有真的“相信网页”，只是把网页文本和用户指令�
 
 这就是 Agent 安全题的核心：提示词可以表达意图，却不能替代权限、隔离、审批和审计。
 
-## 先给一个能复述的答案
+## 答案先行
 
 Agent 安全要把模型、工具、数据和副作用放在不同信任边界里。用户指令、检索文档和工具返回都属于不同来源，不能因为都在上下文里就拥有同样的权威。工具调用前由策略层做身份、租户、资源、动作和参数校验；高风险或不可逆操作需要人工确认；执行环境使用最小权限、网络与文件隔离、配额和超时。Prompt Injection 只能通过分离不可信内容、结构化工具协议和独立策略检查降低，不能指望模型自己识别所有攻击。每次决策和副作用都要留下可追踪审计记录，并且支持撤销、回滚或补偿。
 
@@ -253,7 +253,7 @@ evidence: [acl_91, data-classification-v7]
 审批通过不代表风险已经消失。用户改了参数、权限被收回、任务在队列里等待太久时，短时授权必须能被撤销；否则审批只是一次性的绿灯，执行器仍可能沿用旧决定：
 
 ~~~yaml
-revocation_drill: rd_20260820_14
+revocation_drill: rd_6ebdaf
 decision_id: dec_7f91
 approved_scope:
   resource: payroll.export
@@ -287,7 +287,7 @@ status: passed
 审批通过只说明某个意图在某个时刻被允许，不代表执行时仍然安全。高风险动作可以发一张短时授权票据，把主体、租户、资源版本、允许动作、额度和参数摘要绑定在一起；工具执行前重新核对票据，任何字段变化都转人工或拒绝。
 
 ```yaml
-capability_grant: cg_20260820_31
+capability_grant: cg_e02ba4
 subject: agent:refund-assistant
 tenant: tenant-a
 resource: order:8842
@@ -317,7 +317,7 @@ execute_check:
 我会在工具适配层做一次内容遏制：字段按 allowlist 映射，HTML、Markdown、日志和代码块默认转成不可执行文本；发现外部内容包含工具调用格式、系统指令或秘密索取时，记录告警并把该片段送入攻击回放集。模型可以引用它解释“页面写了什么”，但不能把它当成“系统允许做什么”。
 
 ~~~yaml
-tool_output_containment: toc_20260820_64
+tool_output_containment: toc_592446
 tool: web.fetch
 source: https://vendor.example/manual
 trust: untrusted_observation
@@ -348,7 +348,7 @@ decision: contained_and_cited
 审批通过并不代表几秒后的执行仍然安全：租户可能切换，权限可能撤销，工具版本可能变化，模型也可能把资源 ID 改写。执行器应在真正产生副作用前重新绑定 `principal + resource + action + policy_revision + approval_id`，并把这份绑定写入不可变回执。任何字段不一致都应阻断，而不是沿用早先的“已批准”状态。
 
 ```yaml
-exec_auth_binding: eab_20260820_106
+exec_auth_binding: eab_298da4
 principal: user_a
 resource: invoice_2026_08_17
 action: refund
@@ -407,6 +407,5 @@ decision: execute_once_with_receipt
 
 ## 参考资料
 
-1. AgentAlpha《Agent 岗面试宝典 v3》第 4 章：Agent 安全与对齐题群。
-2. OWASP, *Top 10 for LLM Applications*（2025 版）。
-3. NIST, *AI Risk Management Framework*（AI RMF 1.0）。
+1. OWASP, *Top 10 for LLM Applications*（2025 版）。
+2. NIST, *AI Risk Management Framework*（AI RMF 1.0）。

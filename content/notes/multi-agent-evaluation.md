@@ -12,7 +12,7 @@ minutes: 19
 
 只看最终答案，这些故障都会被藏起来。多 Agent 的评测对象不是一张结果表，而是一条带着角色、消息、状态、成本和风险的协作轨迹。
 
-## 先给一个能复述的答案
+## 先说结论
 
 多 Agent 评测至少分五层：任务结果、个体产物、协作过程、资源效率、安全与恢复。测试集除了正常任务，还要包含消息丢失、重复、乱序、角色失职、证据冲突、工具超时和预算耗尽。每次运行保留完整 trace、artifact 版本和环境指纹，才能把最终错误归因到拆分、通信、执行、合并还是仲裁。线上指标不能替代离线回归，离线高分也不能证明线上稳定。
 
@@ -124,7 +124,7 @@ S_i = 0.4Q_i + 0.25C_i + 0.2V_i + 0.15E_i
 
 ```json
 {
-  "run_id": "run_20260819_0041",
+  "run_id": "run_65a9f9",
   "task_id": "ma_041",
   "system_revision": "router_12 + model_7",
   "trace_id": "tr_9ab",
@@ -279,7 +279,7 @@ rollback_if:
 角色消融通过，并不等于可以把它接进默认路由。真正要发布的是一条“在什么任务上启用、出了什么问题如何撤回”的路由规则。建议把评测结果按任务风险、证据缺口和资源预算切成几组，再对每组做加入角色、去掉角色、替换角色三种配对回放。
 
 ```yaml
-route_replay: rr_20260820_17
+route_replay: rr_1c7af8
 role: citation_verifier
 baseline: single_writer
 candidate: writer_plus_verifier
@@ -318,7 +318,7 @@ rollback:
 同一题集在角色 prompt、工具 schema 或评测器升级后，分数不再是同一把尺子。评测报告除了总分和切片，还要记录每个角色版本、路由规则、证据来源和 artifact lineage；出现回归时先判断是能力变化，还是评测链变了。没有 lineage 的高分不能进入发布单。
 
 ```yaml
-eval_lineage: el_20260820_72
+eval_lineage: el_5a26c6
 suite: agent-role-v5
 role_versions:
   planner: p-12
@@ -350,7 +350,7 @@ decision: publishable_with_canary
 角色价值也不一定体现在总分上。一个仲裁器可能只减少 0.5% 的平均错误，却挡住了所有越权样本；一个检索角色可能不提高答案分，但能把引用覆盖率从 0.6 提到 0.9。报告应把贡献、成本和被消除后的风险变化放在同一张卡里，再决定默认开启、按切片开启还是只保留人工诊断。
 
 ~~~yaml
-role_ablation: ra_20260820_67
+role_ablation: ra_3aef45
 suite: multi-agent-v5
 fixed:
   seed: 17
@@ -379,7 +379,7 @@ decision: keep_for_risky_slices
 
 因为它可能牺牲了低频但高风险的保护能力，或者让其他角色获得了额外预算。要先核对实验是否只改变一个变量，再看硬失败、切片风险和证据质量；平均分上升不能覆盖确定性的越权或错误副作用。
 
-## 60 秒面试回答
+## 60 秒答案
 
 多 Agent 不能只看最终答案。我会建立五层评测：任务结果、个体产物、消息和状态协作、资源效率、安全与恢复。测试集由任务加扰动组成，覆盖消息丢失、重复、乱序、角色失职、证据冲突、工具超时和预算耗尽。每次运行保存 trace、artifact 版本、模型和工具环境；用规则校验硬约束，程序复算客观指标，人审或盲评处理表达。上线前做离线回放、影子流量和受限 canary，重点看 P95/P99、重试放大、越权拦截和人工升级，而不是只看平均成功率。
 
@@ -401,5 +401,4 @@ decision: keep_for_risky_slices
 
 ## 参考
 
-- AgentAlpha《Agent 岗面试宝典 v3》：多智能体评测章节
 - [ARIS-in-AI-Offer](https://github.com/wanshuiyin/ARIS-in-AI-Offer)

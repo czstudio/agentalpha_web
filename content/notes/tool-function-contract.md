@@ -196,7 +196,7 @@ def migrate_args(args, from_version, to_version):
 
 ~~~json
 {
-  "contract_diff_receipt": "cdr_20260820_56",
+  "contract_diff_receipt": "cdr_57c2d1",
   "replay_set": "tool-traces-v12",
   "from_version": "1.0",
   "to_version": "2.0",
@@ -237,7 +237,7 @@ dry-run 的价值是把“兼容”拆成可解释的差异：字段迁移可以
 
 ```json
 {
-  "trace_id": "tr_20260819_001",
+  "trace_id": "tr_863f3b",
   "call_id": "call_07",
   "proposal": {"tool": "crm.create_refund_request", "args_hash": "sha256:..."},
   "validation": ["schema_ok", "resource_ok", "approval_ok"],
@@ -309,7 +309,7 @@ Schema 只能证明格式和部分类型正确，不能证明资源属于当前�
 工具 schema 一旦升级，最容易漏掉的不是字段名，而是旧版本调用在新服务端上会不会被悄悄解释成另一种语义。我的做法是把每次契约变更做成一张 diff 卡：旧请求用旧 schema 回放，新请求走新 schema；对删除字段、枚举收窄、默认值变化和副作用字段逐项给出结果。兼容只代表能解析，不代表可以执行，写操作仍要重新通过当前权限和业务校验。
 
 ```yaml
-contract_diff: cdf_20260820_12
+contract_diff: cdf_015b5d
 tool: crm.create_refund_request
 from: v3
 to: v4
@@ -339,7 +339,7 @@ diff 只说明结构变化，没有覆盖默认值、权限语义、幂等键和
 我会让适配器先把供应商错误归一成内部状态，再交给策略层决定 `retry`、`clarify`、`reconcile` 或 `stop`。例如创建退款单超时，不能直接重试；先拿 `request_id` 查当前状态，若已创建就返回原单号，若仍未知就挂起并通知人工。这样模型看到的是稳定的动作边界，而不是每家 API 各说各话。
 
 ```yaml
-contract_probe: ctp_20260820_31
+contract_probe: ctp_2e45e0
 tool: billing.create_refund
 cases:
   permission_denied: {provider: 403, internal: rejected, next: clarify}
@@ -365,7 +365,7 @@ release: sandbox_only_until_all_cases_pass
 字段没删、类型没变，也不代表契约真的兼容。最隐蔽的回归往往来自默认值：旧客户端省略 `dry_run` 时，v3 默认是 `true`，v4 却改成了 `false`；schema diff 看起来很干净，真实调用却从预览变成了写入。于是我会把“字段缺失时的默认路径”单独列为回放维度，并把是否产生副作用作为硬断言。
 
 ```yaml
-default_drift_probe: ddp_20260820_75
+default_drift_probe: ddp_acbc00
 tool: crm.create_refund
 cases:
   omitted_dry_run:
@@ -393,7 +393,7 @@ JSON Schema 能检查类型，却不能说明 `delete` 是否幂等、`dry_run` 
 
 ```yaml
 tool_contract:
-  contract: tfc_20260820_124
+  contract: tfc_5093bb
   name: archive_project
   input_schema_version: 4
   semantics:
@@ -433,5 +433,4 @@ tool_contract:
 
 ## 参考
 
-- AgentAlpha《Agent 岗面试宝典 v3》：工具调用章节
 - [ARIS-in-AI-Offer](https://github.com/wanshuiyin/ARIS-in-AI-Offer)

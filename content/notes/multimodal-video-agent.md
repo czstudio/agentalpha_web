@@ -254,7 +254,7 @@ score(frame)=w_1\Delta scene+w_2\Delta object+w_3\,keyword+w_4\,blur^{-1}
 
 ```json
 {
-  "answer_id": "ans_20260819_44",
+  "answer_id": "ans_fa0a0f",
   "video_id": "demo-17",
   "video_sha256": "sha256:91b...",
   "query": "红色按钮什么时候被按下？",
@@ -267,7 +267,7 @@ score(frame)=w_1\Delta scene+w_2\Delta object+w_3\,keyword+w_4\,blur^{-1}
   }],
   "index_version": "video-index-v6",
   "time_calibration": "offset:+180ms",
-  "replay": "artifact://video/ans_20260819_44"
+  "replay": "artifact://video/ans_fa0a0f"
 }
 ```
 
@@ -286,7 +286,7 @@ score(frame)=w_1\Delta scene+w_2\Delta object+w_3\,keyword+w_4\,blur^{-1}
 “用了更多帧所以答对了”不是完整结论。视频 Agent 需要记录每个时间窗为什么升级采样、用了多少视觉 token、最终是否带来证据收益；否则成本上涨很难定位到问题路由：
 
 ~~~yaml
-video_budget_receipt: vbr_20260820_11
+video_budget_receipt: vbr_3b12be
 query_id: q_button_press_44
 route: coarse_to_fine
 windows:
@@ -320,7 +320,7 @@ decision: within_budget
 视频 Agent 给出一个时间点，并不意味着它真的定位到了事件。镜头切换、变速转码和字幕延迟都可能让 `start/end` 看起来差不多却无法复现。对边界敏感的事件，应该固定一组人工标注窗，分别替换 ASR、OCR、关键帧和镜头边界，观察哪类信号让时间误差变化。
 
 ```yaml
-window_replay: vw_20260820_12
+window_replay: vw_fee3ca
 source_sha256: "sha256:video-demo-v3"
 gold: {start_ms: 412000, end_ms: 428000}
 variants:
@@ -352,7 +352,7 @@ decision:
 视频被重新转码、剪辑或替换后，旧的帧索引和 ASR 时间戳可能仍然命中，但已经指向另一段画面。缓存键不能只用 `video_id`，还要带源文件 hash、时长、帧率和时间轴校准版本；发现 hash 变化时，旧窗口标为 stale，禁止继续给答案引用。
 
 ```yaml
-video_evidence_cache: vec_20260820_63
+video_evidence_cache: vec_3d97c0
 video_id: demo-17
 source_sha256: sha256:video-v3
 duration_ms: 184200
@@ -382,7 +382,7 @@ decision: cache_versioned
 对“出现某个按钮”“有人举手”“一句话开始”这类事件，标注集要保存 `gold_start`、`gold_end` 和允许误差。系统返回候选窗时，先判断是否与金标准有足够交集，再计算 start/end 的偏差；如果只命中相邻镜头或凭字幕猜到主题，证据支持率仍然不能算通过。这样优化采样策略时，才能知道需要增加帧、修正 ASR 对齐，还是改镜头切分。
 
 ~~~yaml
-event_metric_contract: emc_20260820_61
+event_metric_contract: emc_5959bd
 dataset: video-events-v2
 events:
   - type: short_action
@@ -423,7 +423,7 @@ $$
 
 ```yaml
 temporal_boundary_score:
-  contract: tbs_20260820_121
+  contract: tbs_5bded5
   event: forklift_enter_zone
   predicted: [122.4, 139.8]
   gold: [126.0, 134.0]
@@ -459,5 +459,4 @@ temporal_boundary_score:
 
 ## 参考
 
-- AgentAlpha《Agent 岗面试宝典 v3》：多模态章节
 - [ARIS-in-AI-Offer](https://github.com/wanshuiyin/ARIS-in-AI-Offer)

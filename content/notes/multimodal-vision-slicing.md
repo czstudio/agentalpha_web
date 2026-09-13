@@ -10,7 +10,7 @@ minutes: 25
 
 用户上传一张 3000 像素宽的合同截图，问“第二页违约金是多少”。模型回答“未约定”，换更大的模型也没用。打开视觉输入日志才发现，整张图被压成 768 像素，违约金那一行只剩几根模糊横线。
 
-## 先给一个能复述的答案
+## 答案先行
 
 视觉问答的第一步不是换模型，而是确认目标区域有没有以足够分辨率进入上下文。长图和文档通常采用“低分辨率全图定位 + 高分辨率局部切片 + OCR/版面信息补充”的两阶段策略。切片要记录原图坐标、缩放比例和来源页码，重叠区域要去重，多个切片的结果要按证据位置合并。最终评测不能只看答案对不对，还要看目标区域召回率、坐标误差、数字读取准确率和切片带来的延迟。
 
@@ -246,7 +246,7 @@ if attempts >= 2 or crop_count >= 6:
 
 ```json
 {
-  "slice_receipt": "sr_20260820_18",
+  "slice_receipt": "sr_2209e9",
   "image_hash": "sha256:...",
   "question_type": "contract_amount",
   "attempts": [
@@ -299,7 +299,7 @@ if attempts >= 2 or crop_count >= 6:
 
 ~~~json
 {
-  "cache_version_receipt": "cvr_20260820_38",
+  "cache_version_receipt": "cvr_445cd8",
   "parent_sha256": "sha256:7a91...",
   "cached_parent_sha256": "sha256:7a91...",
   "preprocess_version": "deskew-v3",
@@ -353,7 +353,7 @@ slice_decision:
 对重叠 crop，缓存还要保留目标字段的 `evidence_role`，区分“定位用缩略图”和“最终引用用高清 crop”。这样即便定位模型换版，也不会把低清预览误当作可引用证据。高风险字段的缓存生命周期应短于文档权限和保留期限，避免旧图片长期留在可检索层。
 
 ```yaml
-crop_cache_receipt: ccr_20260820_52
+crop_cache_receipt: ccr_015333
 parent_hash: sha256:9b3...
 preprocess: [deskew-v2, redact-v1, resize-2x]
 coordinate_frame: normalized_after_deskew
@@ -374,7 +374,7 @@ decision: reusable_for_citation
 
 文字相同只能说明识别结果相同，不能证明它仍来自正确字段。旋转、裁边和遮罩都可能让 bbox 偏移；回投影能验证引用区域是否还落在原始证据上，失败就应重新切片或转人工。
 
-## 60 秒面试回答
+## 压缩成 60 秒
 
 图片问答答错时，我先确认模型实际看到的视图，而不是马上换模型。长图通常采用两阶段流程：低分辨率全图只负责定位目标区域，再根据目标文字的像素高度做局部高分辨率 crop，同时用 OCR 提供文字和坐标。每个切片都记录父图、页码、归一化坐标和缩放比例，重叠结果按坐标去重。最终评测会拆成区域召回、数字读取、证据定位和系统延迟四层；如果两个切片对同一数字冲突，就重新读取或人工复核，而不是让生成模型凭概率选一个。
 
@@ -394,5 +394,4 @@ decision: reusable_for_citation
 
 ## 参考
 
-- AgentAlpha《Agent 岗面试宝典 v3》：多模态章节
 - [ARIS-in-AI-Offer](https://github.com/wanshuiyin/ARIS-in-AI-Offer)

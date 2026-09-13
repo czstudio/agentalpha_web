@@ -12,7 +12,7 @@ minutes: 21
 
 纯向量检索可能找到一篇讲“登录失败”的长文，却把错误码排在后面。纯关键词检索又可能只找到一行错误码，没有处理步骤。混合检索和重排，正好各补一个漏洞。
 
-## 先给一个能复述的答案
+## 先把答案放桌上
 
 混合检索并行使用语义召回和关键词召回，兼顾同义表达与精确词项；重排模型再对候选片段做更细粒度的相关性判断。前者扩大“找得到”的概率，后者提高“排得对”的概率。它们都不能替代权限过滤、版本过滤和离线评测。
 
@@ -211,7 +211,7 @@ print(rrf([vector, keyword])[:3])
 把 reranker 接到所有请求上很容易，解释为什么这一单需要它却不容易。更稳妥的做法是为每次升级生成一张触发原因卡，既能复盘成本，也能防止阈值被一次改动后悄悄放大：
 
 ~~~yaml
-rerank_trigger_card: rtc_20260820_05
+rerank_trigger_card: rtc_f3b5d6
 query_id: q_api_error_812
 route: hybrid_to_rerank
 candidates: 40
@@ -304,11 +304,11 @@ tiers:
 我会在 trace 中同时记录 `retrieved_before_acl`、`candidate_after_acl` 和 `reranked_ids`，这样 bad case 能回答三个问题：正确片段是否被召回、是否被权限过滤误删、还是被重排挤掉。多租户缓存的 key 也必须包含策略版本和 ACL fingerprint，不能只用 query hash。
 
 ```yaml
-rerank_filter_order: rfo_20260820_33
+rerank_filter_order: rfo_cb3bc9
 query: "退款接口的超时处理"
 hard_filters:
   tenant: t_07
-  acl_snapshot: acl_20260820_09
+  acl_snapshot: acl_451dda
   deleted: false
   valid_until: "2026-08-20T18:00:00Z"
 soft_features: [bm25_rank, dense_rank, freshness, source_trust]
@@ -333,7 +333,7 @@ assertions:
 候选集里如果十个片段都来自同一篇旧文档，reranker 可能把它们排得很靠前，表面分数很高，实际却没有增加证据覆盖。对需要多角度确认的问题，我会在重排后增加一个轻量多样性约束：同一 source、同一段落链或同一更新时间窗口只能占一个配额，其余位置留给独立来源或反例。这个约束不替代相关性排序，而是防止重复证据把上下文预算吃光。
 
 ```yaml
-source_diversity_guard: sdg_20260820_77
+source_diversity_guard: sdg_dd070e
 query: "退款接口超时后是否会重复扣款"
 reranked_candidates: 24
 quotas:

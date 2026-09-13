@@ -205,7 +205,7 @@ rejected:
 两个 checkpoint 都过了硬门槛，仍可能在工具调用、拒答边界或回答长度上产生不同风险。进入 canary 前，我会固定一组代表性任务做行为差异卡：
 
 ```yaml
-behavior_diff: bd_20260820_05
+behavior_diff: bd_e700d3
 baseline: step-1800
 candidate: step-2400
 replay_set: agent-hardcases-v6
@@ -234,7 +234,7 @@ reason: "安全边界虽提升，但重复调用和过度拒答超限"
 训练遇到 overflow、异常梯度或标签错位时，直接 `skip` 会让曲线看起来恢复，却把问题样本从实验记录里抹掉。我会把触发异常的 batch 放进隔离区，保存数据版本、mask 摘要、梯度统计和复现命令；后续只有在修复数据或数值配置后，才允许带着新的回执重新放行。
 
 ~~~yaml
-anomaly_quarantine_receipt: aqr_20260820_39
+anomaly_quarantine_receipt: aqr_4e6f3a
 run_id: sft-20260820-12
 batch_id: shard-04-batch-188
 signals:
@@ -283,7 +283,7 @@ resolution: pending_data_review
 训练发布不是在一串 checkpoint 里挑最高分，而是一个带回滚能力的晋级流程。候选 checkpoint 先进入离线 replay，过硬门槛后进入小流量 canary；canary 期间比较工具调用、拒答和成本等行为差异，只有没有新增不可逆风险，才允许扩大流量。若回归触发，系统应能回到上一个已验收版本，并保留这次拒绝的证据。
 
 ```yaml
-checkpoint_promotion: cpp_20260820_52
+checkpoint_promotion: cpp_36668a
 candidate: step-2400
 previous_good: step-1800
 stages:
@@ -319,7 +319,7 @@ reason: duplicate_tool_call_above_gate
 只把模型权重退回上一个 checkpoint，不一定能真正回到上一个行为。Adam 的动量、学习率调度器、混合精度 scaler 和数据游标都会影响下一步更新；如果这些状态错位，回滚后可能再次撞上同一异常，或者比较实验时混入不同数据顺序。发布卡里要把可恢复状态一起固化，并先做 smoke replay 再继续训练。
 
 ```yaml
-rollback_bundle: rb_20260820_68
+rollback_bundle: rb_b4acfe
 checkpoint: step-1800
 files:
   weights: sha256:weights-1800
@@ -347,7 +347,7 @@ decision: rollback_reproducible
 隔离不等于静默丢弃。异常 batch 进入 quarantine 后，训练主线可以先跳过，但回放任务要在相同 seed、相同 tokenizer 和相同 loss 配置下重跑；如果重跑仍然异常，就把它归到数据或标签缺陷，如果只在混合精度下异常，则优先检查 scaler、溢出和算子稳定性。每个分类都要保留下一步动作，避免团队只盯着红色曲线争论。
 
 ~~~yaml
-anomaly_batch_fingerprint: abf_20260820_63
+anomaly_batch_fingerprint: abf_94bf63
 run: sft-agent-v3
 step: 1864
 batch_hash: sha256:batch-1864
@@ -386,7 +386,7 @@ $$
 
 ```yaml
 stability_checkpoint:
-  contract: gns_20260820_116
+  contract: gns_1162b2
   checkpoint: step_184000
   optimizer_state: sha256:opt-9f21
   data_cursor: shard-07/offset-18320
@@ -403,7 +403,7 @@ stability_checkpoint:
 
 Adam 的动量、学习率调度器和下一个数据 shard 都会影响下一步更新。只恢复模型权重，相当于换了优化器和数据顺序；这不是“偶尔有一点差异”，而是恢复契约不完整。
 
-## 60 秒面试回答
+## 60 秒答案
 
 “训练稳定性不能只看 loss，要把数据、监督目标、优化器和行为回归放在同一时间轴。我的第一步是做 tiny overfit 和 batch 可视化，确认 tokenizer、mask、标签和切分没问题；第二步记录有效 token batch、学习率、grad norm、overflow 和 checkpoint；第三步用固定的目标能力、边界、安全和通用回归集判断行为是否真的改善。loss 降但任务不涨，优先查目标错位和评测漂移；目标涨但通用能力跌，则按 checkpoint 做 replay、降学习率、减少 epochs 和早停对照。每次只改一个变量，并保留完整实验元数据。”
 

@@ -323,7 +323,7 @@ reviewer: security-owner
 当一个项目同时改了模型、检索和工具权限，最终成功率上涨并不能自动归因给某一个人。证据包里应把无法拆分的部分明确标成 unknown，并保存能继续验证的开关：
 
 ~~~yaml
-contribution_attribution: ca_20260820_21
+contribution_attribution: ca_393272
 claim: "租户过滤降低越权召回"
 change_set:
   - acl_prefilter
@@ -355,7 +355,7 @@ next_check:
 面试中最容易被追问的不是“你用了什么框架”，而是“这个 12% 是怎么来的”。把数字口径单独列成一张卡：分子、分母、样本切片、时间窗口、基线版本和是否包含人工接管都写清楚。数字暂时不完整时，卡片也可以明确标记 `partial`，避免把方向性观察说成线上结论。
 
 ```yaml
-metric_card: mc_20260820_08
+metric_card: mc_67019f
 metric: citation_support_rate
 definition: "被授权证据直接支持的 claim / 全部可判定 claim"
 baseline: {version: v4, value: 0.74, n_claims: 420}
@@ -380,7 +380,7 @@ next_step: "replay_missing_trace_before_external_claim"
 有 commit、截图和一串指标，不等于别人能复核你的结论。项目交接时我会把证据压缩成一个最小可复现包：固定输入切片、配置与依赖摘要、运行命令、预期断言、输出 artifact 和责任人。包里不放生产密钥，外部服务用冻结 fixture 或 dry-run 替代；如果缺少关键依赖，就明确标为 `partial`，不要把“理论上可以复现”写成已验证。
 
 ```yaml
-minimal_repro_pack: mrp_20260820_93
+minimal_repro_pack: mrp_7f40b1
 claim: tenant_filter_reduces_unauthorized_recall
 inputs:
   replay_set: acl-redteam-v2
@@ -405,7 +405,7 @@ owner: security-owner
 
 commit 只能定位代码，不能保证数据快照、依赖、模型路由、工具回执和评测器相同。最小复现包要把这些外部状态显式化；无法冻结的部分就写清楚边界和替代 fixture。
 
-## 60 秒面试回答
+## 面试现场怎么答
 
 我讲项目时会先给业务问题和原方案的失败现象，再说明自己负责的具体边界。然后用一条前后对照讲关键改动，比如把检索前的租户和版本过滤补上，把引用片段写进答案契约。结果不会只报一个成功率，而会同时给数据集、基线、延迟、成本和安全回归。最后补一个失败样本和剩余风险，让面试官看到这不是组件清单，而是一条有证据、有取舍、能复盘的工程链路。
 
@@ -424,8 +424,3 @@ commit 只能定位代码，不能保证数据快照、依赖、模型路由、�
 - [项目被追问‘你做的和框架有什么区别’，怎样讲出自己的贡献](/notes/agent-framework-contribution)
 - [离线评测 95 分，线上为什么还是翻车？](/notes/offline-eval-online-drift)
 - [同一个 Agent 实验，怎样才能复现？](/notes/agent-eval-reproducibility)
-
-## 资料来源
-
-- AgentAlpha《Agent 岗面试宝典 v3》（未公开讲义）
-- ARIS in AI Offer：项目叙事、证据卡与结果归因结构

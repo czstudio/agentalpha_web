@@ -243,7 +243,7 @@ def compress(state, old_summary):
 从向量索引删掉一条记录，只能证明主路径做过删除，不能证明缓存、异步队列、摘要和备份都已经忘记它。删除请求落地后，我会发出带版本号的 tombstone，等待各层确认，再用原始 id 和语义改写各查一次；如果任一层仍命中，就把状态留在 `DELETION_PENDING`，不对外宣称删除完成。
 
 ~~~yaml
-tombstone_probe_receipt: tpr_20260820_46
+tombstone_probe_receipt: tpr_cf9f97
 memory_id: mem-8848
 tenant_id: team-alpha
 tombstone_version: 7
@@ -299,7 +299,7 @@ memory_record:
 新鲜度租约不是简单按时间删数据，而是把“多久可以直接引用”和“多久必须回查”写成字段。租约到期后，记忆仍可作为线索展示，但不能直接驱动写操作；如果新的权威来源与旧记忆冲突，要产生 tombstone 或 supersede 事件，保证后续召回不会又把旧版本带回来。
 
 ~~~yaml
-memory_freshness_lease: mfl_20260820_71
+memory_freshness_lease: mfl_680deb
 memory_id: mem-8848
 scope: tenant-a/user-17
 claim: billing_contact_is_alice
@@ -325,12 +325,12 @@ decision: no_write_from_memory
 长期记忆不是“对话里出现过就保存”。一次用户陈述可能是猜测、临时偏好或来自没有权限的材料；如果直接写入，后续每次召回都会把它伪装成稳定事实。写入前应保存来源类型、原文定位、主体范围、有效期、置信度和撤销方式；读取时再按任务、时间和权限过滤。记忆条目最好能回到一条可审计的 evidence，而不是只留下模型改写后的句子。
 
 ```yaml
-memory_provenance_gate: mpg_20260820_100
+memory_provenance_gate: mpg_be9e4a
 candidate:
   subject: user_a
   claim: "偏好使用轻量模型做草稿"
   source: explicit_user_statement
-  source_ref: chat_20260820_17#8
+  source_ref: chat_893e68#8
   confidence: 0.96
 scope: user_a
 valid_until: 2026-12-31
@@ -344,7 +344,7 @@ decision: write_versioned_memory
 
 用户可能在角色扮演、临时任务或过期上下文中说出一句话。没有 scope 和有效期，临时偏好会污染未来任务；没有撤销路径，错误事实会越积越深。记忆系统要把“曾经出现”与“当前可用”分成两个状态。
 
-## 60 秒面试回答
+## 60 秒怎么说
 
 我不会把 Agent Memory 设计成一个“所有聊天记录都进向量库”的大桶。当前任务的目标、约束和未决事项放在 Working Memory；具体经历、稳定事实和可复用流程分别放进 Episodic、Semantic 和 Procedural Memory。写入长期记忆前先做来源、敏感信息、置信度和冲突检查；读取时先做租户、权限和版本过滤，再按相关性、重要性、时间和置信度重排。上下文压缩只解决窗口容量，不替代长期记忆。评测时要做无记忆和分层记忆的对照，除了成功率还看错误写入、冲突、删除生效时间和 token 成本。
 
@@ -383,6 +383,5 @@ decision: write_versioned_memory
 
 ## 参考资料
 
-1. AgentAlpha《Agent 岗面试宝典 v3》第 4 章：Memory 与上下文题群。
-2. Packer et al., *MemGPT: Towards LLMs as Operating Systems*（2023）。
-3. Park et al., *Generative Agents: Interactive Simulacra of Human Behavior*（2023）。
+1. Packer et al., *MemGPT: Towards LLMs as Operating Systems*（2023）。
+2. Park et al., *Generative Agents: Interactive Simulacra of Human Behavior*（2023）。

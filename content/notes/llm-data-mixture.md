@@ -227,7 +227,7 @@ for name, weights in mixtures.items():
 “代码数据占 20%，网页数据占 60%”听起来很具体，仍然回答不了三个问题：样本有没有重复，训练预算是否按 token 而不是文件数分配，评测集里有没有混入同源文本。配比实验应当带一张可审计的实验卡：
 
 ```yaml
-mixture_run: mix_20260819_06
+mixture_run: mix_f2c21f
 sources:
   - name: web-clean
     token_weight: 0.55
@@ -267,7 +267,7 @@ ablation: [web-clean, code-curated, reasoning-dialogue]
 回溯回执可以把配比结果和污染审计绑在一起：
 
 ~~~yaml
-mixture_contamination_receipt: mcr_20260820_28
+mixture_contamination_receipt: mcr_393744
 experiment: code_plus_dialogue-v3
 eval_set: coding-hidden-2026q3
 sampled_eval_cases: 1200
@@ -299,7 +299,7 @@ decision: accept_with_quarantine
 我会在每个 epoch 结束时生成一张账本，把原始 token、各道处置损耗和最终 token 放在一起：
 
 ```yaml
-effective_token_ledger: etl_20260820_07
+effective_token_ledger: etl_bae411
 run: pretrain-mix-v12
 sources:
   - name: web-clean
@@ -352,7 +352,7 @@ $$
 配比变更还需要保留“旧 mix 继续可复现”的入口。线上发现通用能力或安全回归时，能够迅速回到上一个 manifest，比重新猜一个权重更重要。评测报告按领域、语言、代码、长上下文和污染切片展示，避免一个总体分数掩盖某个桶被过采样。
 
 ```yaml
-mixture_ablation: ma_20260820_41
+mixture_ablation: ma_111be9
 fixed:
   effective_tokens: 5.5B
   optimizer: adamw_v3
@@ -380,7 +380,7 @@ decision: compare_by_slice
 即使每个桶都有自己的有效 token，混合后仍可能出现一个桶抢走另一个桶的训练机会：长代码样本占用更多序列位置，短对话样本虽然条数多，却在 token 预算里几乎没有声音；高损耗桶不断重采样，也会挤压本来稳定的通用数据。我会在 manifest 里同时记录序列占用、token 占用和 optimizer step 占用，按阶段观察桶之间的实际竞争。
 
 ```yaml
-mixture_competition_audit: mca_20260820_85
+mixture_competition_audit: mca_604239
 run: pretrain-mix-v13
 buckets:
   code: {token_share: 0.31, sequence_share: 0.18, step_share: 0.34}
@@ -399,7 +399,7 @@ decision: rebalance_sequence_packing
 
 序列长度、packing、梯度累积和重采样都会改变某个桶实际参与更新的次数。只看 token 百分比会漏掉这些竞争关系；要把 token、序列、step 和有效梯度一起回放，才能解释能力变化。
 
-## 60 秒面试回答
+## 一分钟版本
 
 “预训练数据工程的目标是最大化有效信息，而不是最大化原始 token。我的流程会记录来源、版本和许可，先做安全/语言/格式过滤，再做 exact 与 near-duplicate 去重，按质量、领域、语言和任务目标分桶。mixture 先设一个可解释的预算，再用固定总 token 的 ablation 比较代码、数学、通用、长上下文和多语切片，同时观察污染、记忆、成本与遗忘风险。对于高价值但小规模的数据，优先使用可追踪的采样权重，不复制文件制造假规模。最终每个数据版本都用 manifest 固化，确保能力变化可以回溯到具体来源和配比。”
 

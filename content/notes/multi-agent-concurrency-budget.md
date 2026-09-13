@@ -245,7 +245,7 @@ fallback: "交付带缺口的草稿并标记 needs_review"
 预算到顶不等于任务失败，更不等于可以把半截结果包装成成功。协调器应该返回一张回执，明确已经完成什么、还缺什么、哪些副作用状态未知，以及用户下一步能否安全恢复：
 
 ```yaml
-budget_receipt: br_20260820_11
+budget_receipt: br_465cc2
 run_id: run_501
 limits:
   global_ms: 3000
@@ -276,7 +276,7 @@ response_contract:
 我会给每次降级补一张 branch closeout 回执。先按 `branch_id` 列出 `completed`、`cancelled` 和 `unknown`，再分别查工具日志、供应商状态和幂等账本。`unknown` 分支在对账完成前保持冻结，禁止自动重放写操作；如果已经产生副作用，就走补偿或人工接管，而不是把它从 DAG 里抹掉。
 
 ~~~yaml
-branch_closeout_receipt: bcr_20260820_32
+branch_closeout_receipt: bcr_0260db
 task_id: refund-review-20260820-17
 run_id: run-7f31
 branches:
@@ -308,7 +308,7 @@ decision: freeze_unknown_then_resume
 调度器把所有 token 和工具调用用完，往往就没有资源处理取消分支的对账、补偿和最终回执。生产预算不能只写 happy path，还要单独预留 recovery reserve：当主流程触发降级时，保留一小段时间和调用额度给未知副作用查询、幂等确认和用户可读的收口。否则系统会在最需要收尾的时候再次超时。
 
 ```yaml
-budget_ledger: bl_20260820_28
+budget_ledger: bl_5ca09e
 task: refund-review-20260820-17
 planned:
   main_tokens: 42000
@@ -341,7 +341,7 @@ decision: degrade_with_reserve
 这套语义也适用于 deadline：超时不等于失败，超时后的写操作不能自动重试；只读分支可以丢弃结果，副作用分支必须进入对账。汇聚器要知道哪些分支是必需的、哪些可以降级，不能因为一个可选研究分支取消就把整个任务标成成功。
 
 ```yaml
-cancel_protocol: cap_20260820_49
+cancel_protocol: cap_4971e5
 branch: order_lookup
 steps:
   - {seq: 1, action: stop_new_work, state: draining}
@@ -383,5 +383,4 @@ decision: cancel_with_reconciliation
 
 ## 参考
 
-- AgentAlpha《Agent 岗面试宝典 v3》：调度与资源管理考点
 - [ARIS-in-AI-Offer](https://github.com/wanshuiyin/ARIS-in-AI-Offer)

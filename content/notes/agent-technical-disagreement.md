@@ -295,7 +295,7 @@ owner: "@search-team"
 争论收口后，不能只留下“方案 A 胜出”这句结论。把问题、候选方案、收益、代价、证据和重新打开条件放在同一张卡上，后来的人才能知道当时为什么这样选：
 
 ```yaml
-decision_diff: dd_20260820_04
+decision_diff: dd_4397d6
 question: 是否把检索重排放到模型前
 winner: pre_ranker
 comparison:
@@ -331,8 +331,8 @@ owner: retrieval-team
 我会把触发器变成可执行的回执：
 
 ~~~yaml
-decision_reopen_receipt: drr_20260820_31
-decision_id: dec_20260819_12
+decision_reopen_receipt: drr_451e04
+decision_id: dec_fb5f00
 chosen_path: hybrid_rerank
 reopen_triggers:
   - metric: p95_latency_ms
@@ -361,8 +361,8 @@ status: armed
 有些技术分歧不是一次实验就能结束：样本还不够、线上分布没有覆盖、成本只在高峰期暴露，或者两种方案都过了当前门槛。此时不要把不确定性藏进一句“暂定采用”，而是把它单独登记成未决假设，说明它会影响哪个决策、还缺什么证据、什么时候复查。
 
 ```yaml
-uncertainty_register: ur_20260820_12
-decision_id: dec_20260819_12
+uncertainty_register: ur_9da67f
+decision_id: dec_fb5f00
 assumptions:
   - id: long_query_gain
     statement: hybrid 在长问题上提升引用覆盖
@@ -395,7 +395,7 @@ status: canary_with_unknowns
 决策记录不能只写“采用方案 A”。还要写明哪些新证据会让它重新打开：高风险切片超过阈值、外部依赖版本变化、成本预算连续越界，或出现原方案无法解释的新失败。触发后先冻结扩量、保留当前版本和评测包，再由 owner 在固定期限内复跑对照；没有触发器的决策，往往只能等事故来提醒团队。
 
 ```yaml
-decision_reopen_trigger: drt_20260820_109
+decision_reopen_trigger: drt_7eda53
 decision_id: dec_rag_017
 chosen: hybrid_retrieval
 triggers:
@@ -436,8 +436,3 @@ review_by: 2026-09-05
 - [项目里的指标怎么来的？别只报一个漂亮数字](/notes/agent-metrics-baseline)
 - [让 LLM 给答案打分，为什么也会偏？](/notes/llm-judge-calibration)
 - [同一个 Agent 实验，怎样才能复现？](/notes/agent-eval-reproducibility)
-
-## 资料来源
-
-- AgentAlpha《Agent 岗面试宝典 v3》（未公开讲义）
-- ARIS in AI Offer：方案对比、实验设计与决策记录结构

@@ -12,7 +12,7 @@ minutes: 26
 
 LLM-as-a-Judge 是有用的放大器，不是天然公正的裁判。它会受位置、长度、文风、品牌名、提示词和上下文顺序影响。要把它用在面试题、RAG 或 Agent 评测里，先定义可观察的 rubric，再用盲评、成对比较、程序断言和人工标注校准。
 
-## 先给一个能复述的答案
+## 能背走的版本
 
 LLM Judge 适合评估开放式质量，但不应独自决定硬事实和安全结果。我会把指标拆成可观察维度，明确“满分答案长什么样、哪些错误直接失败”，对候选答案做匿名化和随机顺序，采用成对比较或分维度评分，并测位置偏差、长度偏差、模型自偏好和提示词敏感性。先用人工金样估计 Judge 与人类的一致性，再固定 Judge 版本、rubric、温度和阈值；低置信或高风险样本自动转人工。
 
@@ -226,7 +226,7 @@ fingerprint: judge-model@2025-08|groundedness-v4|temp=0
 Judge 和人工评审意见不一致时，不要直接把人工标签覆盖掉模型分数。保留两者的观察、冲突维度和后续动作，才能判断是 rubric 漏项、样本含糊，还是 Judge 的系统性偏差：
 
 ```yaml
-calibration_diff: cd_20260820_09
+calibration_diff: cd_fc3cdc
 sample_id: qa-184
 judge:
   score: 3
@@ -309,7 +309,7 @@ Judge 的平均分很漂亮，不代表它在所有切片上都可靠。它可�
 我会给每轮放行保留一张分歧采样回执：
 
 ~~~yaml
-judge_slice_audit: jsa_20260820_27
+judge_slice_audit: jsa_f02265
 judge_version: judge-v5
 human_sample:
   size: 180
@@ -344,7 +344,7 @@ decision: recalibrate_refusal_and_citation_rubric
 我会保留一组跨版本的重叠金样，用旧 Judge、新 Judge 和人工结论同时回放：
 
 ~~~yaml
-judge_bridge_receipt: jbr_20260820_36
+judge_bridge_receipt: jbr_88ea03
 old_judge: judge-v4
 new_judge: judge-v5
 overlap_set: golden-2026q3
@@ -370,7 +370,7 @@ decision: publish_new_series_with_break_marker
 成对比较时，先做答案顺序交换，再让 Judge 输出结构化理由：硬失败、证据支持、任务结果、表达质量和不确定性。若两次顺序交换结果冲突，或 Judge 置信度低于门槛，样本进入人工队列，不参与自动发布分数；这比让评分器“猜一个”更能保护回归信号。
 
 ```yaml
-judge_abstain_gate: jag_20260820_54
+judge_abstain_gate: jag_c39885
 pair: task_1842
 rubric:
   hard_failure: [unsafe_action, unsupported_claim, wrong_tool_state]
@@ -399,7 +399,7 @@ gates:
 
 ```yaml
 judge_comparability:
-  contract: jcp_20260820_114
+  contract: jcp_e2b1f1
   overlap_set: eval_overlap_v3
   pairwise_agreement: 0.84
   confidence_interval: [0.79, 0.88]
@@ -418,7 +418,7 @@ judge_comparability:
 
 平均分把不同难度、不同风险的样本压成了一个数字。只要长上下文或拒答切片出现系统性分歧，整体均值就可能掩盖真实退化。可比较区间把“这两个分数能不能放在一起比”先说清楚，避免把量尺变化误判成模型进步。
 
-## 60 秒面试回答
+## 60 秒答案
 
 LLM-as-a-Judge 适合扩大开放式质量评测，但不是天然公正的裁判。我会先把 rubric 写成可观察行为，硬事实、金额、权限和副作用由程序或状态断言完成，Judge 只评清晰、取舍、解释和引用质量。候选答案匿名化并随机顺序，用单项评分或带平局的成对比较，同时做 A/B 与 B/A 对照，测位置、长度和自偏好。再用人工金样校准，报告一致性、排序相关和高风险漏判率，固定模型与提示词版本，低置信或高风险样本自动转人工。
 
@@ -438,5 +438,4 @@ LLM-as-a-Judge 适合扩大开放式质量评测，但不是天然公正的裁�
 
 ## 参考
 
-- AgentAlpha《Agent 岗面试宝典 v3》：LLM-as-a-Judge 章节
 - [ARIS-in-AI-Offer](https://github.com/wanshuiyin/ARIS-in-AI-Offer)

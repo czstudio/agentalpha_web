@@ -235,7 +235,7 @@ SFT 提供一个能遵循指令、能生成合理答案的初始策略，降低�
 我会在发布前把长度、格式和真实任务结果放在同一张审计卡里：
 
 ~~~yaml
-reward_shortcut_receipt: rsr_20260820_26
+reward_shortcut_receipt: rsr_d45def
 model: rm-v7
 pair_accuracy: 0.874
 correlations:
@@ -267,7 +267,7 @@ decision: reject_and_relabel
 发布前我会固定一批跨切片 anchor，对每个切片记录 pair accuracy、margin、长度相关性和校准误差，并把分数转换成可比较的 z-score 或分位数。重点不是追求所有切片同一个数字，而是确认“分数高”与“实际更值得选”之间的排序在不同长度、语言和任务上都稳定：
 
 ```yaml
-reward_calibration_receipt: rcr_20260820_31
+reward_calibration_receipt: rcr_429b50
 model: rm-v8
 anchor_set: preference-anchor-v5
 slices:
@@ -304,7 +304,7 @@ decision: canary
 很多 pair 并没有清晰 winner：两份答案都缺证据、工具结果未知，或者安全要求与任务完成发生冲突。若奖励模型被迫给出确定分数，PPO 会把噪声放大。发布前应保留 `tie`/`abstain` 标签，并在低置信度时让策略走人工、补证据或拒答路径，而不是把微小 margin 当成可靠奖励。
 
 ```yaml
-reward_abstain_gate: rag_20260820_74
+reward_abstain_gate: rag_575b75
 pair: task-1842
 scores: {chosen: 0.42, rejected: 0.40}
 margin: 0.02
@@ -332,7 +332,7 @@ gates:
 反事实审计还要加入安全和拒答边界。对于一个事实正确但越权的回答，奖励模型不能因为更完整、更有帮助就给高分；对于证据不足的问题，合理 abstain 应与胡编的详细回答拉开距离。最终发布的不是一个平均 pair accuracy，而是一组能说明“哪些变化应该不影响分数、哪些变化必须影响分数”的回放证据。
 
 ~~~yaml
-counterfactual_pair_audit: cpa_20260820_68
+counterfactual_pair_audit: cpa_dbd4e6
 model: reward-v4
 base_pair: pair-8848
 variants:
@@ -374,7 +374,7 @@ $$
 
 ```yaml
 reward_calibration:
-  contract: rmc_20260820_117
+  contract: rmc_4e9e6c
   model: reward-v4
   calibration_set: preference-overlap-v2
   temperature: 0.83
@@ -384,7 +384,7 @@ reward_calibration:
 
 ![奖励模型校准：偏好对、温度参数、高风险切片和发布门槛被固定在同一张卡里](/images/notes/llm-rlhf-reward-model/reward-calibration-card.svg)
 
-## 60 秒面试回答
+## 60 秒怎么说
 
 “RLHF 先用 SFT 得到可用的初始策略，再用人类偏好对训练奖励模型，最后用 PPO 让策略在奖励模型上优化。奖励模型通常学习 chosen 比 rejected 得分高，而不是学习绝对真理；PPO 用 advantage 更新策略，同时用 reference model 的 KL 惩罚限制策略漂移。工程上我会重点看偏好一致性、奖励与长度的相关性、KL、clip fraction、hidden set 和真实任务成功率。若 reward 上涨但业务下降，我会把它当成 reward hacking 信号，回放完整轨迹，拆开事实、任务完成、安全和成本奖励，确认优化目标是否真的代表交付目标。”
 

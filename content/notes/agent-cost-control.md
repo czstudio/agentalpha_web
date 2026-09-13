@@ -12,7 +12,7 @@ minutes: 22
 
 但 Agent 的成本不只来自一次模型调用：上下文变长会增加输入 token，工具重试会增加请求次数，检索和 OCR 也要收费，人工接管和失败补偿同样是真成本。小模型如果更容易走错工具，最终账单可能更高。
 
-## 先给一个能复述的答案
+## 能背走的版本
 
 降本要先建立端到端成本账本，再按任务风险做模型路由、上下文压缩、缓存和工具预算。每次优化都要用同一评测集比较任务成功、证据覆盖、P95 延迟和总成本；高风险写操作不能因为便宜就绕过审批和验证。目标不是每个 token 最便宜，而是单位成功任务成本下降。
 
@@ -161,7 +161,7 @@ total_cost = model + retrieval + tools + storage + human + recovery
 
 ```yaml
 experiment: route-v2
-trace_id: tr_20260819_042
+trace_id: tr_44199c
 units:
   model: 0.18
   retrieval: 0.02
@@ -262,7 +262,7 @@ quality_guardrails:
 成本优化最容易出现“调用价格下降了，业务却更贵了”的错觉。比如把模型换成便宜版本后，重试次数增加，人工复核变多，最后每个成功完成的订单反而多花钱。所以我会把成本和结果放进同一张账单，按成功任务而不是单次请求核算：
 
 ```yaml
-cost_ticket: ct_20260819_09
+cost_ticket: ct_252a04
 experiment: route-simple-questions-to-small-model
 scope: 10000 requests / 24h
 spend:
@@ -300,7 +300,7 @@ guardrails:
 所以每次降本实验都要补一张成本转移回执，和原来的成功率、延迟一起对账：
 
 ~~~yaml
-cost_shift_receipt: csr_20260820_15
+cost_shift_receipt: csr_1e0f3b
 experiment: small-model-first-v4
 window: 2026-08-20T09:00:00Z/2026-08-20T18:00:00Z
 model_cost:
@@ -329,7 +329,7 @@ decision: hold
 单看一条请求的 token 费用，最容易漏掉的是“任务还没结束”。一个工具请求超时后，系统可能进入重试、人工接管或待对账；这几种状态都消耗了资源，却不能都算作成功。成本看板应该先把任务按生命周期分桶，再计算单位成功成本：
 
 ~~~yaml
-cost_ledger: cl_20260820_31
+cost_ledger: cl_9feea0
 window: 2026-08-20T09:00:00Z/2026-08-20T18:00:00Z
 states:
   succeeded: 8120
@@ -363,7 +363,7 @@ decision: keep_route_for_low_risk_only
 预算账本还要记录拒绝、缓存命中和空转 token。缓存命中不是“免费”，它可能增加索引维护和失效检查；被策略拒绝的工具调用也消耗了规划和评估成本。只有把这些状态放在同一条 trace 上，才能区分“模型变便宜了”和“系统少做了无效工作”。
 
 ~~~yaml
-budget_scope: bs_20260820_65
+budget_scope: bs_15abb3
 task: invoice-audit-8848
 budgets:
   planning: {soft_tokens: 1800, hard_tokens: 2600}
@@ -398,7 +398,7 @@ $$
 分母必须是经过状态或人工验收的成功任务，而不是“返回了文本”的请求。`C_recovery` 包括重复副作用的补偿、人工接管和失败重跑；把它们记进同一条 trace，才能比较“便宜但常失败”的路由和“贵一点但一次成功”的路由。
 
 ```yaml
-unit_success_cost_formula: usc_20260820_108
+unit_success_cost_formula: usc_013049
 window: 2026-08-20
 cost: {model: 0.18, retrieval: 0.03, tool: 0.11, storage: 0.02, human: 0.24, recovery: 0.06}
 validated_success: 1000
@@ -413,7 +413,7 @@ decision: compare_routes_by_validated_success
 
 它可能需要更多重试、人工接管或补偿动作。分子如果漏掉恢复成本，分母又把未验证的返回算成成功，路由就会被错误激励；先按 trace 完成成本归集，再谈降本。
 
-## 60 秒面试回答
+## 一分钟版本
 
 我会先按 trace 建立端到端成本账本，把 token、检索、工具、存储、人工和失败恢复都算进去，然后优化无效工作、上下文预算、风险路由和缓存。简单任务走小模型，复杂规划和写操作走强模型，但所有升级都受任务预算和安全护栏约束。每次优化用同一评测集比较单位成功任务成本、成功率、证据覆盖、P95 延迟和人工接管率，避免得到一个便宜但不可靠的 Agent。
 
@@ -432,8 +432,3 @@ decision: compare_routes_by_validated_success
 - [工具返回一大段 JSON，为什么 Agent 反而更容易做错](/notes/tool-output-shaping)
 - [Agent 评测不能只看成功率：从结果到轨迹的五层指标](/notes/agent-eval-success-rate)
 - [同一个 Agent 实验，怎样才能复现？](/notes/agent-eval-reproducibility)
-
-## 资料来源
-
-- AgentAlpha《Agent 岗面试宝典 v3》：成本与路由章节（内部讲义，未公开）
-- ARIS in AI Offer：成本、路由、预算与指标的工程化写法

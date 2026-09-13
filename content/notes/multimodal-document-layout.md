@@ -10,7 +10,7 @@ minutes: 26
 
 财务同学问：“2025 年第二季度的毛利率是多少？”文档里有利润表、脚注和折线图。纯 OCR 把三栏文字从上到下拼在一起，模型找到了“毛利率”，引用的却是上一季度。它不是不会算，而是版面关系在输入阶段就没了。
 
-## 先给一个能复述的答案
+## 先把答案放桌上
 
 文档理解不能停在 OCR 文本。完整链路要保留文字内容、页面坐标、块类型、阅读顺序和表格/图表结构，再把这些对象组织成可检索的文档图。段落可以按语义切块，表格要保留行列和合并单元格，图表要保存标题、坐标轴、图例和数据点，跨页内容要用稳定的 `document_id` 与 `block_id` 连接。这样 RAG 或 Agent 才能回答“这个数字来自哪一页哪一列”，并在证据不足时拒答。
 
@@ -303,7 +303,7 @@ chart_summary:
 解析器字段兼容，不代表页面坐标仍然落在正确的字上。升级后把归一化 bbox 回投影到原始像素尺寸、缩放预览和裁剪视图，分别检查文本、表格和图表的命中区域；任一尺寸偏移，都先阻断引用高亮，不让错误坐标流进答案。
 
 ~~~yaml
-bbox_roundtrip_probe: brp_20260820_53
+bbox_roundtrip_probe: brp_705dce
 document_version: layout-v8
 samples: [invoice-07, table-12, chart-03]
 projections:
@@ -359,7 +359,7 @@ schema_migration:
 证据图还要把不确定性留出来。解析器无法确认一个跨栏标题属于哪一列时，输出两个候选关系和置信度，检索阶段可以选择保守切块或请求人工复核；直接强行归类会让错误关系一路传到答案。图的节点和原始像素、文档版本、schema 版本都要有稳定引用，才能做回放。
 
 ```yaml
-layout_evidence_graph: leg_20260820_42
+layout_evidence_graph: leg_756c12
 document: invoice-07
 nodes:
   - {id: cell_r3c2, type: table_cell, bbox: [0.42,0.31,0.58,0.36], text: "1280.50"}
@@ -400,5 +400,4 @@ decision: keep_graph_and_abstain_if_ambiguous
 
 ## 参考
 
-- AgentAlpha《Agent 岗面试宝典 v3》：多模态章节
 - [ARIS-in-AI-Offer](https://github.com/wanshuiyin/ARIS-in-AI-Offer)

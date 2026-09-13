@@ -223,7 +223,7 @@ prepared --commit(v7)--> committed(v8)
 多 Agent 之间传递的提交回执不是永久通行证。它应当带版本、过期时间、调用方和幂等键；消费方先检查是否仍在有效窗口，再决定接受、查询当前状态还是转入人工。这样旧消息即使重新到达，也不会把已经提交的结果覆盖掉：
 
 ```yaml
-commit_receipt: cr_20260820_31
+commit_receipt: cr_b4388e
 operation: update_contract_status
 producer: contract-agent-r7
 consumer: audit-agent-r3
@@ -247,7 +247,7 @@ replay_policy:
 回执过期的危险不只是一条旧消息被拒绝，也可能是同一个 envelope 在网络恢复后重复到达。验收时用相同幂等键投递两次，再用旧版本、错消费者和乱序状态各投一次，确认系统分别去重、读回、拒绝或转人工；不能把所有异常都归结为“重试就好”。
 
 ~~~yaml
-duplicate_delivery_probe: ddp_20260820_51
+duplicate_delivery_probe: ddp_b21c9d
 envelope_id: env-8848
 idempotency_key: contract-8842-status-approved
 cases:
@@ -280,7 +280,7 @@ decision: protocol_boundary_intact
 协议回放的目标是复现状态转移，不是把历史消息重新投递到真实工具。事件可以重放，命令必须先转成 dry-run 或经过新的幂等闸门；否则一次“排查”就可能再次发货、扣款或修改权限。实践中把 envelope 的 `kind` 明确分成 `event`、`command` 和 `receipt`，回放器只消费事件和回执，遇到命令就生成预期差异报告。
 
 ```yaml
-replay_gate: rpg_20260820_18
+replay_gate: rpg_1641cb
 stream: contract-8842
 events:
   - {seq: 41, kind: event, type: approval_granted}
@@ -311,7 +311,7 @@ decision: replay_safe
 这条规则把“谁最后写入”改成“谁持有最新租约谁能写入”。旧 worker 的结果仍可留在 trace 里用于诊断，但不能改变共享状态；新 worker 也不能只凭队列消息判断自己是 owner，而要先读回任务版本和租约。
 
 ```yaml
-lease_fence: lf_20260820_22
+lease_fence: lf_edd9eb
 task: deploy_agent_8842
 owner: worker-b
 lease_version: 19
@@ -363,7 +363,7 @@ decision: rollout_with_v3_guard
 
 普通展示字段不影响状态语义，旧消费者可以保留并审计；权限、金额、租户和资源版本会改变副作用边界，忽略它就可能产生越权或错误写入。高风险字段缺失或版本不兼容时，应拒绝提交并转人工。
 
-## 60 秒面试回答
+## 一分钟版本
 
 我不会把多 Agent 设计成群聊，而会先定义角色的读写边界，再定义消息 envelope 和共享状态 owner。消息至少带任务 ID、发送者、接收者、意图、schema 版本、因果 ID、状态版本、产物引用、TTL 和幂等键。状态更新采用单写者或乐观锁，基于旧版本提交就返回冲突。命令和事件分开，回放只消费事件，带副作用的命令经过幂等与权限检查。通信故障要区分超时、重复、乱序和内容无效，分别重试、去重、拒绝旧版本或返工。
 
@@ -385,5 +385,4 @@ decision: rollout_with_v3_guard
 
 ## 参考
 
-- AgentAlpha《Agent 岗面试宝典 v3》：通信与协作章节
 - [ARIS-in-AI-Offer](https://github.com/wanshuiyin/ARIS-in-AI-Offer)

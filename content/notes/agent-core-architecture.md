@@ -10,7 +10,7 @@ minutes: 24
 
 “我们这个系统用了 Agent。”这句话在项目介绍里很常见。面试官接着问：“如果把模型换成规则引擎，它还是 Agent 吗？”很多人就开始解释框架名词，却没有先说明系统到底在什么地方做了决策。
 
-## 先给一个能复述的答案
+## 先说结论
 
 Agent 不是“接了大模型的工作流”，而是一个围绕目标运行的闭环：它读取当前状态，选择下一步行动，通过工具或环境获得观察，再根据结果更新状态，直到满足完成条件或触发停止策略。模型可以负责选择，也可以只负责局部判断；真正决定系统是不是 Agent 的，是**行动会不会改变后续状态，以及系统有没有明确的反馈和退出边界**。
 
@@ -129,7 +129,7 @@ def run_agent(goal: str, search, compose) -> RunState:
 ## 一张可复查的运行证据卡
 
 ```yaml
-run_id: agt_20260822_024
+run_id: agt_c30782
 goal: "核对一份制度是否已更新并给出引用"
 state_schema: agent-state.v2
 policy: read_only_knowledge
@@ -168,7 +168,7 @@ review: "引用覆盖所有结论，未触发写入权限"
 
 ```json
 {
-  "run_id": "agt_20260822_024",
+  "run_id": "agt_c30782",
   "goal": {"text": "查政策并准备报销", "source": "user"},
   "phase": "ready_for_submit",
   "facts": [{"key": "hotel_limit", "value": 800, "source": "policy-v4#p2"}],
@@ -227,7 +227,7 @@ def terminal_reason(state) -> str | None:
 
 ```yaml
 trace_event:
-  run_id: agt_20260822_024
+  run_id: agt_c30782
   seq: 4
   state_before: retrieving
   candidates: [retrieve_policy, ask_missing, handoff]
@@ -292,7 +292,7 @@ Prompt 不是强约束。预算、权限、次数和高风险动作应由程序�
 
 当步骤、权限和输出都能稳定枚举，动态选择带来的收益小于测试、审计和成本时，应退回固定工作流，把不确定性留在少数节点。
 
-## 60 秒面试回答
+## 压缩成 60 秒
 
 我理解的 Agent 不是“调用了大模型的流程”，而是一个围绕目标运行的状态闭环：读取状态，选择动作，调用工具或环境，拿到观察后更新状态，直到完成、失败、预算耗尽或升级人工。设计时我会先把目标、状态 schema、动作契约和终态写出来，再决定哪些节点需要模型，哪些节点必须由程序和权限控制。项目里我会用运行 trace 记录决策输入、工具回执、预算和证据引用，这样既能解释为什么选了某个动作，也能在长尾失败时回放和修复。能用固定工作流解决的问题，我不会为了“像 Agent”而增加自由循环。
 
@@ -312,5 +312,4 @@ Prompt 不是强约束。预算、权限、次数和高风险动作应由程序�
 
 ## 资料来源
 
-- AgentAlpha《Agent 岗面试宝典 v3 · 精华版》：Agent 架构章节（内部讲义，未公开）
 - [ARIS-in-AI-Offer](https://github.com/wanshuiyin/ARIS-in-AI-Offer)：基础知识、面试追问、从零实现的三栏组织方式

@@ -239,7 +239,7 @@ CI 里要同时保存新旧版本的逐题结果，而不是只保存均值。�
 很多评测集只有一个标准答案，默认模型必须回答。但企业知识库里有些问题本来就应该拒答、澄清或等待权限；如果不把这些分支写进 golden case，系统会因为“答得像”而得到高分：
 
 ~~~yaml
-golden_case_contract: gc_20260820_16
+golden_case_contract: gc_fc898d
 question_id: q_policy_ambiguous_07
 question: "新旧报销制度冲突时，差旅补贴按哪一版？"
 expected:
@@ -328,7 +328,7 @@ decision:
 新增 case 先进入 shadow 集，经过双人复核或事实回读后再晋升为 blocking 集；删除 case 不做物理删除，而是标记失效原因。这样既能保留历史报告，又能避免过期事实继续阻断发布。
 
 ```yaml
-golden_case_change: gcc_20260820_36
+golden_case_change: gcc_3011d2
 case_id: rag-0172
 from: v3
 to: v4
@@ -358,7 +358,7 @@ baseline: keep_v3_for_regression
 如果 golden case 的答案、引用片段或标准拒答理由已经被写进 prompt 模板、缓存或训练样本，离线分数会提前告诉模型该怎么答。这个问题很像数据泄漏：不是模型真的检索到了证据，而是评测资产已经变成了暗示。我的做法是给 case 做 provenance 扫描，检查 prompt、缓存、训练集和索引快照的交集；发现泄漏就把该题降为诊断集，不能继续作为 blocking 指标。
 
 ```yaml
-eval_leakage_scan: els_20260820_79
+eval_leakage_scan: els_8c8240
 case_id: rag-0172
 sources:
   prompt_templates: pass

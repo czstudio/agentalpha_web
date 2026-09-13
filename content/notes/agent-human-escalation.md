@@ -49,7 +49,7 @@ minutes: 21
 
 ```json
 {
-  "task_id": "refund_20260912_0187",
+  "task_id": "refund_c7625e",
   "status": "needs_human",
   "reason": "multiple_orders_match",
   "user_goal": "退掉昨天重复扣款的那一笔",
@@ -117,7 +117,7 @@ human_processing
 
 ```json
 {
-  "task_id": "refund_20260912_0187",
+  "task_id": "refund_c7625e",
   "decision": "ask_user",
   "message": "请确认要退款的订单号：781 还是 794？",
   "actor_id": "support_42",
