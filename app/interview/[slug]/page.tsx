@@ -309,7 +309,7 @@ export default async function InterviewDetailPage({ params }: PageProps) {
 
         <div className="ivu-cta">
           <p className="ivu-cta-text">
-            <b>把题练成肌肉记忆。</b>公众号「吴师兄学大模型」每周更新面试真题拆解；想系统上手 Agent 工程，看 AgentAlpha 训练营。
+            <b>把题练成肌肉记忆。</b>AgentAlpha 面试题库持续更新真实面经拆解；想系统上手 Agent 工程，看 AgentAlpha 训练营。
           </p>
           <div className="ivu-cta-actions">
             <Link href="/learn" className="ivu-btn ivu-btn-primary">
