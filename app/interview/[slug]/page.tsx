@@ -65,6 +65,25 @@ function createMarkdownComponents(): Components {
         </h2>
       )
     },
+    p({ children, ...props }) {
+      // 图片段落：段落里只有一张图 + 一句图注时，渲染成 白卡 + 卡内图注（design-spec 4.1）
+      const arr = Array.isArray(children) ? [...children] : [children]
+      const imgIdx = arr.findIndex(
+        (c) => isValidElement(c) && (c as { props?: { className?: string } }).props?.className === "ivu-fig",
+      )
+      if (imgIdx !== -1) {
+        const rest = arr.filter((c, i) => i !== imgIdx && typeof c === "string" && c.trim())
+        if (rest.length === 1 && typeof rest[0] === "string") {
+          return (
+            <span className="ivu-fig">
+              {arr[imgIdx]}
+              <span className="ivu-figcap">{rest[0].trim()}</span>
+            </span>
+          )
+        }
+      }
+      return <p {...props}>{children}</p>
+    },
     img({ src, alt }) {
       if (typeof src !== "string") return null
       // eslint-disable-next-line @next/next/no-img-element
@@ -116,7 +135,12 @@ export default async function InterviewDetailPage({ params }: PageProps) {
   const post = getInterview(slug)
   if (!post) notFound()
   const { previous, next } = getAdjacentInterview(slug)
-  const headings = getInterviewHeadings(post.content)
+  // 「60 秒回答骨架」章节拆出为结论卡，目录只统计主文
+  const ANSWER_MARK = "## 60 秒回答骨架"
+  const answerIdx0 = post.content.lastIndexOf(ANSWER_MARK)
+  const headings = getInterviewHeadings(
+    answerIdx0 === -1 ? post.content : post.content.slice(0, answerIdx0),
+  )
   const cover = hasCover(post.slug)
   // 非面试体文章（AgentAlpha 特稿）question 兜底成了标题，此时不渲染题卡
   const showQuestion = post.question && post.question !== post.title
@@ -125,6 +149,15 @@ export default async function InterviewDetailPage({ params }: PageProps) {
     post.excerpt && !post.content.slice(0, 600).includes(post.excerpt.slice(0, 24))
       ? post.excerpt
       : null
+  const mainContent =
+    answerIdx0 === -1 ? post.content : post.content.slice(0, answerIdx0).trim()
+  const answerContent =
+    answerIdx0 === -1
+      ? null
+      : post.content
+          .slice(answerIdx0 + ANSWER_MARK.length)
+          .replace(/^\s*>?\s*先给一句话结论[^\n]*\n/, "")
+          .trim()
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -166,7 +199,7 @@ export default async function InterviewDetailPage({ params }: PageProps) {
       {cover ? (
         <figure className="ivu-hero" style={{ margin: 0 }}>
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src={`/images/interview/${post.slug}/cover.png`} alt="" />
+          <img src={`/images/interview/${post.slug}/cover-1600.webp`} alt="" />
         </figure>
       ) : null}
 
@@ -208,8 +241,24 @@ export default async function InterviewDetailPage({ params }: PageProps) {
             rehypePlugins={[rehypeKatex]}
             components={createMarkdownComponents()}
           >
-            {post.content}
+            {mainContent}
           </ReactMarkdown>
+
+          {answerContent !== null ? (
+            <div className="ivu-answer">
+              <h2 className="ivu-answer-t" id="answer">
+                参考答案要点
+              </h2>
+              <div className="ivu-answer-body">
+                <ReactMarkdown
+                  remarkPlugins={[remarkGfm, remarkMath]}
+                  rehypePlugins={[rehypeKatex]}
+                >
+                  {answerContent}
+                </ReactMarkdown>
+              </div>
+            </div>
+          ) : null}
 
           {post.papers.length ? (
             <section aria-label="延伸阅读 · 论文原文">

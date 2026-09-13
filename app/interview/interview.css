@@ -22,8 +22,8 @@
   --line: #e7decc;
   --line-strong: #26211a;
   /* 字体 */
-  --font-sans: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "MiSans",
-    "Microsoft YaHei", "Segoe UI", sans-serif;
+  --font-sans: "MiSans", -apple-system, BlinkMacSystemFont, "PingFang SC",
+    "Hiragino Sans GB", "Microsoft YaHei", "Segoe UI", sans-serif;
   --font-serif: Georgia, "Times New Roman", "Songti SC", "Noto Serif CJK SC", "SimSun", serif;
   --font-mono: ui-monospace, "SF Mono", Consolas, "Courier New", monospace;
   /* 版心 */
@@ -37,6 +37,7 @@
   font-family: var(--font-sans);
   font-size: 18px;
   line-height: 1.85;
+  letter-spacing: 0.01em;
   min-height: 100vh;
   -webkit-font-smoothing: antialiased;
   -webkit-text-size-adjust: 100%;
@@ -105,8 +106,9 @@
 }
 .ivu-list-title {
   font-family: var(--font-serif);
-  font-size: 40px;
-  font-weight: 700;
+  font-size: 42px;
+  font-weight: 400;
+  letter-spacing: 0.04em;
   margin: 0 0 12px;
   line-height: 1.3;
 }
@@ -354,7 +356,9 @@
   text-underline-offset: 3px;
 }
 .ivu-prose a:hover { text-decoration-color: currentColor; }
-.ivu-prose ul, .ivu-prose ol { margin: 0 0 18px; padding-left: 24px; }
+.ivu-prose ul, .ivu-prose ol { margin: 0 0 18px; padding-left: 28px; }
+.ivu-prose ul { list-style: disc; }
+.ivu-prose ol { list-style: decimal; }
 .ivu-prose li { margin: 7px 0; }
 .ivu-prose li::marker { color: var(--ink-3); }
 .ivu-prose blockquote {
@@ -415,11 +419,21 @@
   padding: 14px;
   margin: 24px 0;
 }
+.ivu-figcap {
+  display: block;
+  font-size: 13px;
+  color: var(--ink-3);
+  margin-top: 10px;
+  line-height: 1.7;
+}
 .ivu-fig img {
   display: block;
   margin: 0 auto;
-  max-width: 100%;
-  height: auto;
+  width: 100%;
+  max-width: 640px;
+  aspect-ratio: 3 / 2;
+  object-fit: contain;
+  background: var(--card);
   border-radius: 6px;
 }
 
@@ -463,7 +477,14 @@
 }
 .ivu-paper-fig { font-family: var(--font-mono); font-size: 12px; color: var(--ink-3); flex: none; }
 .ivu-paper-img { background: var(--card); padding: 20px 24px; }
-.ivu-paper-img img { display: block; margin: 0 auto; max-width: 100%; height: auto; }
+.ivu-paper-img img {
+  display: block;
+  margin: 0 auto;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: contain;
+  background: var(--card);
+}
 .ivu-paper-body { padding: 12px 20px 14px; }
 .ivu-paper-why { font-size: 14px; color: var(--ink-2); margin: 0; }
 .ivu-paper-link {
@@ -501,6 +522,33 @@
   line-height: 1.5;
 }
 .ivu-toc a:hover { color: var(--brand-deep); border-left-color: var(--brand); }
+
+/* ── 参考答案要点（紫底结论卡） ─────────────── */
+.ivu-answer {
+  background: var(--brand-tint);
+  border: 1px solid rgba(110, 34, 240, 0.18);
+  border-radius: var(--radius);
+  padding: 22px 24px;
+  margin: 40px 0 0;
+}
+.ivu-answer-t {
+  font-family: var(--font-serif);
+  font-size: 18px;
+  color: var(--brand-deep);
+  margin: 0 0 12px;
+}
+.ivu-answer-body { font-size: 16px; }
+.ivu-answer-body p { margin: 8px 0; }
+.ivu-answer-body blockquote {
+  margin: 10px 0;
+  padding: 4px 0 4px 14px;
+  border-left: 3px solid var(--brand);
+  color: var(--ink-2);
+  font-size: 15px;
+}
+.ivu-answer-body ul { margin: 8px 0 0; padding-left: 22px; }
+.ivu-answer-body li { margin: 6px 0; }
+.ivu-answer-body li::marker { color: var(--brand); }
 
 /* ── 上下篇 / 尾部 ────────────────────────── */
 .ivu-endmark {
@@ -590,7 +638,7 @@
   overflow-wrap: anywhere;
   word-break: break-word;
 }
-@media (max-width: 1100px) {
+@media (max-width: 1024px) {
   .ivu-grid { grid-template-columns: repeat(2, 1fr); }
 }
 @media (max-width: 640px) {
@@ -598,7 +646,7 @@
   .ivu-list-head { padding-top: 44px; }
   .ivu-list-title { font-size: 32px; }
   .ivu-grid { grid-template-columns: 1fr; }
-  .ivu-hero img { aspect-ratio: 16 / 10; }
+  .ivu-hero img { aspect-ratio: 16 / 9; }
   .ivu-head { padding-top: 30px; }
   .ivu-h1 { font-size: 24px; }
   .ivu-lede { font-size: 16px; }
@@ -616,5 +664,9 @@
   .ivu-pn .next { text-align: left; }
   .ivu-fig { padding: 10px; margin: 20px -4px; }
   .ivu-paper-img { padding: 12px 14px; }
+  .ivu-paper-title { white-space: normal; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; }
   .ivu-cta { padding: 18px; }
+  .ivu-tag { padding: 9px 16px; }
+  .ivu-back { padding: 10px 6px; }
+  .ivu-btn { padding: 12px 20px; }
 }

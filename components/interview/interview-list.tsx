@@ -17,7 +17,7 @@ function InterviewCard({ post, hasCover }: { post: InterviewMeta; hasCover: bool
       <div className="ivu-card-cover">
         {hasCover ? (
           // eslint-disable-next-line @next/next/no-img-element
-          <img src={`/images/interview/${post.slug}/cover.png`} alt="" loading="lazy" />
+          <img src={`/images/interview/${post.slug}/cover-800.webp`} alt="" loading="lazy" />
         ) : null}
       </div>
       <span className="ivu-card-no">No.{post.no}</span>

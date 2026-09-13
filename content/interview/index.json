@@ -3,14 +3,14 @@
     {
       "slug": "llm-vs-agent",
       "no": "01",
-      "title": "面试官问：LLM 和 Agent 到底有什么本质区别？",
+      "title": "LLM 和 Agent 的本质区别：从“会答”到“会做”差了哪几件事",
       "question": "说说 LLM 和 Agent 的核心区别？为什么现在大家都在从 LLM 迈向 Agent？",
-      "excerpt": "这一两年，很多同学在简历上写了“做过 LLM 应用”“做过智能问答系统”，但一到现场面试，面试官往往会抛出一个看似基础、实则非常杀伤力的问题：",
+      "excerpt": "LLM 是被动的文本生成器，缺手、缺眼、缺长期状态；Agent 是 LLM 加规划、记忆、工具的工程框架。本文从四模块清单讲起，拆开每件“器官”的收益与代价，帮你在面试里答出工程视角，而不是背定义。",
       "tags": [
         "规划",
         "Memory"
       ],
-      "minutes": 5,
+      "minutes": 6,
       "papers": [
         {
           "arxiv": "2308.11432",
@@ -23,13 +23,13 @@
     {
       "slug": "react-over-cot",
       "no": "02",
-      "title": "面试官问：为什么 ReAct 是现代 Agent 的底层逻辑？单靠 CoT 根本不够？",
+      "title": "只有 CoT 为什么做不出 Agent？ReAct 补上了哪一块",
       "question": "为什么 ReAct 是现代 Agent 的底层逻辑？单靠 CoT 根本不够？",
-      "excerpt": "在面试大模型工程岗、Agent 岗时，经常有同学被问懵：  “你能解释一下 ReAct 框架吗？为什么现在主流 Agent 都采用 ReAct？",
+      "excerpt": "CoT 只能把推理写在纸面上，不能执行动作，也拿不到环境反馈。ReAct 用 Thought、Action、Observation 的交替循环把推理接上真实世界。本文用一个工单任务对比两种方案，并讲清循环失控与成本这两个代价。",
       "tags": [
         "ReAct"
       ],
-      "minutes": 5,
+      "minutes": 6,
       "papers": [
         {
           "arxiv": "2210.03629",
@@ -48,13 +48,13 @@
     {
       "slug": "functioncall-unstable",
       "no": "03",
-      "title": "面试官问：为什么 Agent 的 Function Call 一直不稳？",
-      "question": "为什么 Function Calling 不稳定？",
-      "excerpt": "做 Agent 应用的团队都会提到一个共同的痛点：  “模型经常调用错工具、少传参数、瞎补字段、乱猜意图，Function Call",
+      "title": "Agent 的 Function Call 为什么一直不稳？把不确定性拆开看",
+      "question": "为什么 Agent 的 Function Call 一直不稳定？",
+      "excerpt": "Function Call 时好时坏不是玄学：一个概率模型在不确定的上下文里被迫做确定的选择。本文把不确定性拆成 Schema 含糊、上下文污染、缺少校验三个来源，并给出校验层、带反馈重试和 Reflection 的运行时防御方案。",
       "tags": [
         "FunctionCall"
       ],
-      "minutes": 6,
+      "minutes": 8,
       "papers": [
         {
           "arxiv": "2303.11366",
@@ -67,92 +67,59 @@
     {
       "slug": "functioncall-accuracy",
       "no": "04",
-      "title": "面试官问：Agent 的 Function Call 准确率怎么提升？",
+      "title": "Function Call 准确率怎么提升？从 Schema、路由到校验的完整链路",
       "question": "Agent 的 Function Call 准确率怎么提升？",
-      "excerpt": "真实项目里，一个 Agent 系统的可靠性，70% 卡在工具调用的对错上。 你想让模型更聪明，首先得让它“别犯低级错误”。",
-      "tags": [
-        "FunctionCall"
-      ],
-      "minutes": 8,
-      "papers": [
-        {
-          "arxiv": "2305.15334",
-          "title": "Gorilla: Large Language Model Connected with Massive APIs",
-          "why": "文章讲的 FC 错工具/参数幻觉，这篇是提升 API 调用准确率、抑制幻觉的代表作",
-          "figure": "Figure 1"
-        },
-        {
-          "arxiv": "2210.03629",
-          "title": "ReAct: Synergizing Reasoning and Acting in Language Models",
-          "why": "文章用 ReAct 把 API 报错带回给模型做自我纠错，该闭环出自这篇",
-          "figure": "Figure 1"
-        }
-      ]
-    },
-    {
-      "slug": "functioncall-training-data",
-      "no": "05",
-      "title": "面试官问：Function Call 的训练数据怎么构建？",
-      "question": "Function Call 的训练数据怎么构建？",
-      "excerpt": "因为 真实落地的 Agent 系统，一定绕不开训练数据： 如果没有自己的数据集，就只能依赖模型的“自然能力”， 但自然能力只在 demo",
+      "excerpt": "提升准确率不是「把 Prompt 再调调」：先给错误分类，再逐层对症下药。本文按选错工具、参数幻觉、格式错误三类失败，梳理 Schema 设计、动态函数路由、先想再做、结果校验与日志驱动调优的对应手段，并强调分层度量才能定位真正拖后腿的环节。",
       "tags": [
         "FunctionCall"
       ],
       "minutes": 7,
-      "papers": [
-        {
-          "arxiv": "2307.16789",
-          "title": "ToolLLM: Facilitating Large Language Models to Master 16000+ Real-world APIs",
-          "why": "文章强调用模板/LLM 合成工具调用训练数据，这篇是大规模合成 FC 数据（ToolBench）的代表作",
-          "figure": "Figure 1"
-        }
-      ]
+      "papers": []
+    },
+    {
+      "slug": "functioncall-training-data",
+      "no": "05",
+      "title": "Function Call 的训练数据怎么构建：正样本、难例与合成数据",
+      "question": "Function Call 的训练数据怎么构建？",
+      "excerpt": "Function Call 的训练数据不是「问题加正确调用」的集合，而是围绕会选、会填、会排格式、会修正四个目标构造的轨迹集。本文讲清正样本之外的负样本与难例怎么造、合成数据与真实日志怎么取舍，以及 LoRA 轻训与 SFT 加 DPO 重训的边界。",
+      "tags": [
+        "FunctionCall"
+      ],
+      "minutes": 6,
+      "papers": []
     },
     {
       "slug": "dynamic-function-routing",
       "no": "06",
-      "title": "面试官问：为什么要给 Agent 加“动态函数路由”？",
-      "question": "为什么要给 Agent 加“动态函数路由”？",
-      "excerpt": "在真实 Agent 开发里，调用工具不稳、选错函数、参数瞎填，是最常见、也最折磨工程师的问题。",
+      "title": "为什么要给 Agent 加动态函数路由",
+      "question": "为什么要给 Agent 加动态函数路由？",
+      "excerpt": "工具过百之后，把全部工具描述塞进上下文，成本、噪声、权限三头不讨好。动态函数路由先按请求召回 top-k 候选工具，再让模型在小集合里选择。本文讲清路由器的两种实现、失败兜底设计，以及它和 RAG 共享的同一个底层思想。",
       "tags": [
         "FunctionCall",
         "规划"
       ],
-      "minutes": 5,
+      "minutes": 6,
       "papers": []
     },
     {
       "slug": "cot-plan-execute",
       "no": "07",
-      "title": "面试官问：为什么 CoT + Plan-Execute 能显著提升 Agent 的 Function Call 稳定性？",
+      "title": "CoT + Plan-Execute：把复杂任务拆成 Function Call 能接住的步骤",
       "question": "为什么 CoT + Plan-Execute 能显著提升 Agent 的 Function Call 稳定性？",
-      "excerpt": "最近在做 Agent 系统的同学，非常容易遇到一个现实问题： 模型会调用工具，但常常“用不对”。",
+      "excerpt": "单步 Function Call 再准，长任务也会输在错误累积、依赖断裂、目标漂移上。CoT 让模型动手前把思路写清，Plan-Execute 把长任务切成可验证的短步骤并配套 Replan。本文讲清机制、对比三种范式，并给出「什么时候是过度设计」的判断清单。",
       "tags": [
         "规划",
         "FunctionCall"
       ],
-      "minutes": 5,
-      "papers": [
-        {
-          "arxiv": "2201.11903",
-          "title": "Chain-of-Thought Prompting Elicits Reasoning in Large Language Models",
-          "why": "文章说 CoT 让模型先写草稿再决策，思维链概念最早出自这篇",
-          "figure": "Figure 1"
-        },
-        {
-          "arxiv": "2210.03629",
-          "title": "ReAct: Synergizing Reasoning and Acting in Language Models",
-          "why": "文章的 Plan→Execute→Observe→修正 循环正是 ReAct 提出的推理-行动范式",
-          "figure": "Figure 1"
-        }
-      ]
+      "minutes": 7,
+      "papers": []
     },
     {
       "slug": "rag-first-token-latency",
       "no": "08",
-      "title": "面试官问：RAG 的首字响应速度应该怎么优化？",
-      "question": "RAG 的首字响应速度应该怎么优化？",
-      "excerpt": "如果只会回答“并发调用”“缓存 embedding”“加 GPU”，这种答法只会让面试官觉得： “看过几篇文章，但没做过真系统。",
+      "title": "RAG 首字响应慢？把延迟拆到链路每一层去找",
+      "question": "你们的 RAG 首字延迟（TTFT）怎么优化？",
+      "excerpt": "被问「RAG 首字延迟怎么优化」，答加缓存、加 GPU 只会暴露没做过真系统。把 TTFT 拆成 Embedding、检索、重排、生成首 token 四段，分段埋点找大头，再逐段给手段，才是能落地的答法。",
       "tags": [
         "RAG"
       ],
@@ -169,13 +136,13 @@
     {
       "slug": "rag-data-quality",
       "no": "09",
-      "title": "面试官问：动态 RAG 的数据质量怎么评估？",
+      "title": "动态 RAG 的数据质量怎么评估：别让脏知识污染答案",
       "question": "动态 RAG 的数据质量怎么评估？",
-      "excerpt": "昨天更新“动态增量 RAG 如何保证召回准度”那篇文章之后，有学员在群里又问了一个延伸问题：",
+      "excerpt": "检索相似度分很高，答案却引用了废止的旧规则——动态 RAG 的数据质量问题，链路指标看不出来。入库前去重、打质量分、标权威度，入库后看引用命中和答案归因，评测集还要跟着数据持续更新。",
       "tags": [
         "RAG"
       ],
-      "minutes": 5,
+      "minutes": 6,
       "papers": [
         {
           "arxiv": "2107.06499",
@@ -188,25 +155,25 @@
     {
       "slug": "rag-cache-design",
       "no": "10",
-      "title": "面试官问：动态 RAG 的缓存体系怎么设计？",
+      "title": "动态 RAG 的缓存体系怎么设计",
       "question": "动态 RAG 的缓存体系怎么设计？",
-      "excerpt": "在前几篇动态 RAG 的文章里，我讲过一个非常关键的事实： 动态 RAG 最大的成本，不是模型，是 I/O 和检索链路。",
+      "excerpt": "缓存是 RAG 里收益最高也最容易出事故的组件：key 漏了权限维度就是越权事故，漏了版本号就是陈旧内容。本文按缓存什么、key 怎么定、何时失效三问，给出一套三层缓存设计。",
       "tags": [
         "RAG"
       ],
-      "minutes": 5,
+      "minutes": 6,
       "papers": []
     },
     {
       "slug": "rag-degradation-tuning",
       "no": "11",
-      "title": "面试官问：为什么 RAG 越用越慢？如何反向调优？",
+      "title": "RAG 为什么越用越慢？反向调优的排查顺序",
       "question": "为什么 RAG 越用越慢？如何反向调优？",
-      "excerpt": "如果你长期维护过一个真正上线的 RAG 系统，就一定遇到过一个非常真实的问题： 系统上线越久，回答速度越慢 。",
+      "excerpt": "上线时很快的 RAG，一年后高峰期开始超时，期间没人改过代码。慢不是单一 bug，是索引膨胀、数据倾斜、缓存退化、重排加码接力恶化的结果，排查要按固定顺序逐段归因。",
       "tags": [
         "RAG"
       ],
-      "minutes": 5,
+      "minutes": 6,
       "papers": [
         {
           "arxiv": "1603.09320",
@@ -219,13 +186,13 @@
     {
       "slug": "why-multiagent",
       "no": "12",
-      "title": "面试官问：单 Agent 已经不够用了？为什么现在都在做 Multi-Agent？",
-      "question": "为什么需要独立的 Planner Agent？",
-      "excerpt": "最近在大模型工程岗、Agent 岗面试里，一个出现频率越来越高的问题是：  “为什么业界都在从单 Agent 转向 Multi-Agent？",
+      "title": "单 Agent 明明能跑，为什么还要拆成 Multi-Agent？",
+      "question": "单 Agent 已经够用了，为什么现在都在做 Multi-Agent？",
+      "excerpt": "拆 Multi-Agent 不是“人多力量大”，而是上下文稀缺和角色混乱这两个工程约束逼出来的。本文讲清 Planner、Executor、Checker 的职责切分，消息协议怎么设计，以及多 Agent 引入的新成本和不该拆的边界。",
       "tags": [
         "MultiAgent"
       ],
-      "minutes": 7,
+      "minutes": 6,
       "papers": [
         {
           "arxiv": "2308.08155",
@@ -244,13 +211,13 @@
     {
       "slug": "self-build-agents",
       "no": "13",
-      "title": "面试官问：为什么企业宁愿自建 Agent 系统，也不直接用 ChatGPT？",
+      "title": "有 ChatGPT 为什么还要自建 Agent 系统",
       "question": "为什么企业宁愿自建 Agent 系统，也不直接用 ChatGPT？",
-      "excerpt": "今天就以训练营里面原创项目库中的 银行行业咨询 Agent（拓业智询） 为例，讲清楚企业为什么一定要做 ",
+      "excerpt": "通用对话产品解决“人跟模型聊”，企业要的是“权限内、可审计地完成业务动作”，中间隔着私有知识、权限边界、可审计、业务集成、成本可控五件事。自建大多不是训模型，而是编排层工程；有些场景直接用 SaaS 反而正确。",
       "tags": [
         "企业级"
       ],
-      "minutes": 4,
+      "minutes": 6,
       "papers": [
         {
           "arxiv": "2210.03629",
@@ -263,13 +230,13 @@
     {
       "slug": "enterprise-agent-gaps",
       "no": "14",
-      "title": "面试官问：为什么很多人做不出企业级 Agent？核心问题是哪几个？",
+      "title": "为什么很多人做不出企业级 Agent：卡住的从来不是模型",
       "question": "为什么很多人做不出企业级 Agent？核心问题是哪几个？",
-      "excerpt": "甚至我们团队在接一些甲方企业项目（尤其是银行、保险、能源行业那种复杂链路）时，也看过不少“看起来像 Agent，实际能做事的部分几乎为 0 ”的方案。",
+      "excerpt": "Demo 顺畅、上线翻车，卡住的从来不是模型：记忆缺位、评测缺位、权限缺失、可观测性不足、集成太浅，五个高频卡点各配一个最小补法。补齐这五件事，系统才从“能演示”变成“能上生产”。",
       "tags": [
         "企业级"
       ],
-      "minutes": 5,
+      "minutes": 6,
       "papers": [
         {
           "arxiv": "2310.08560",
@@ -282,14 +249,14 @@
     {
       "slug": "agent-memory-vs-rag",
       "no": "15",
-      "title": "高中生也能看懂：Agent Memory ——为何超越 RAG ?",
-      "question": "高中生也能看懂：Agent Memory ——为何超越 RAG ?",
-      "excerpt": "在构建 AI Agent 时，初学者常犯的一个致命错误，就是试图用 RAG 来代替 Memory。",
+      "title": "Agent Memory 和 RAG 什么关系？别再把记忆当成检索",
+      "question": "Agent 的记忆系统和 RAG 有什么本质区别？",
+      "excerpt": "「Memory 为什么淘汰 RAG」是个带坑的问法：两者不是替代关系。RAG 是空间检索，Memory 还要管写入决策、时间、重要性与遗忘。检索是记忆的地基，但只有检索，撑不起跨会话的 Agent。",
       "tags": [
         "Memory",
         "RAG"
       ],
-      "minutes": 13,
+      "minutes": 6,
       "papers": [
         {
           "arxiv": "2304.03442",
