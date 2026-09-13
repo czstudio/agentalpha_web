@@ -54,7 +54,7 @@ Reranker 通常用交叉编码器（Cross-Encoder，把查询和文档拼在一�
 
 AgentAlpha 面试题库 · 腾讯篇的 RAG 部分直接问了这道题：「Reranker 放在召回链路的什么位置，候选数量如何确定？」答题思路是「位置在粗排之后、生成之前，数量由评测集按精度收益和延迟预算共同决定」，而不是拍脑袋给个整数。
 
-![小 A 拿着秒表站在赛道起点，一封回执信已经沿虚线跑道远远飞在前面](/images/interview/rag-first-token-latency/spot-1.png)
+![小 A 拿着秒表站在赛道起点，一封回执信已经沿虚线跑道远远飞在前面](/images/interview/rag-first-token-latency/spot-1.webp)
 图：首字延迟是一场分段接力——Embedding、检索、重排、生成首 token，哪一段慢了都会拖住最后一棒。优化前先分段计时。
 
 ## 四、生成段：首 token 之前，模型在干什么

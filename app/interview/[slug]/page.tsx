@@ -66,6 +66,22 @@ function createMarkdownComponents(): Components {
       )
     },
     p({ children, ...props }) {
+      // 笔录体对话：👔 面试官 / 🙋 候选人 → 面试官竖线 / 候选人缩进
+      const arr0 = Array.isArray(children) ? [...children] : [children]
+      const head = arr0[0]
+      if (typeof head === "string") {
+        const m = head.match(/^(👔|🙋(?:‍♂️)?)\s*(?:\*\*)?(面试官|我)(\*\*)?[：:、]?\s*([\s\S]*)$/)
+        if (m) {
+          const isInterviewer = m[1].startsWith("👔")
+          const cls = isInterviewer ? "ivu-u" : "ivu-c"
+          return (
+            <p className={cls}>
+              <span className="ivu-role">{isInterviewer ? "面试官" : "候选人"}</span>
+              {[m[4], ...arr0.slice(1)]}
+            </p>
+          )
+        }
+      }
       // 图片段落：段落里只有一张图 + 一句图注时，渲染成 白卡 + 卡内图注（design-spec 4.1）
       const arr = Array.isArray(children) ? [...children] : [children]
       const imgIdx = arr.findIndex(
