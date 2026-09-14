@@ -9,7 +9,7 @@ import publishedWechat from "@/content/notes/published-wechat.json"
 export const metadata: Metadata = {
   title: "Agent 面试笔记",
   description:
-    "每篇从面试官的一个真实追问开始，到一段你能自己讲出来的答案结束。按问题挑着读，不用从头刷。",
+    "每篇从面试官的一个真实追问开始，到一段你能自己讲出来的分析结束。按问题挑着读，不用从头刷。",
   alternates: { canonical: "/notes" },
 }
 
@@ -69,7 +69,7 @@ export default function NotesIndexPage() {
               <div>
                 <h1>面试题别只背答案，<br /><em>练到能自己讲出来。</em></h1>
             <p className="aa-notes-lede">
-              每篇都从一个真实追问开始，到一段你能当着面试官讲出来的答案结束。挑眼前用得上的读，读完拿自己的项目过一遍。
+              每篇都从一个真实追问开始，到一轮你能当着面试官接得住的分析结束。挑眼前用得上的读，读完拿自己的项目过一遍。
             </p>
             <div className="aa-notes-stats">
               <span>{notes.length} 篇笔记</span>

@@ -32,7 +32,7 @@ KV Cache 不是一个打开就生效的开关。从一次生成请求的数据�
 
 一句话版：**KV Cache 用显存换重复计算，把历史 token 的 K/V 留下来，让每次 Decode 只新增当前 Q、K、V；当上下文、并发或输出长度增加时，缓存的容量和读取带宽就会成为主要账单。**
 
-## 先把答案放桌上
+## 拆完先给结论
 
 > Decoder-only 模型生成第 `t` 个 token 时，会用当前 token 的 Query 去查询从第 0 到第 `t-1` 个 token 的 Key 和 Value。历史 token 的 K/V 在后续步骤不会改变，因此可以缓存；历史 Q 不会再次使用，所以不缓存。Prefill 阶段一次计算 prompt 的全部 K/V，Decode 阶段每轮只计算新 token 的 Q/K/V，再把新 K/V 追加到缓存。KV Cache 的显存近似与层数、序列长度、batch、KV head 数和 head_dim 成正比，MQA/GQA 可以减少 KV head 数。生产系统还要处理分页分配、前缀复用、请求淘汰、长度上限和多租户隔离。
 
@@ -451,7 +451,7 @@ decision: capacity_model_calibrated
 
 公式只算有效 K/V 元素，线上还会有 block 对齐、padding、临时 workspace 和碎片。只要误差在固定阈值内并能由这些项解释，就应把它们纳入容量模型；如果误差随序列长度突然放大，通常要查分页或 batch 调度，而不是简单提高预算。
 
-## 60 秒答案
+## 最后，把它讲清楚
 
 > KV Cache 缓存的是每一层历史 token 的 Key 和 Value。生成新 token 时，当前 Query 需要和所有历史 Key 做匹配，并读取对应 Value；历史 K/V 不会改变，所以可以复用。历史 Q 不会在后续步骤再次查询未来，因此不缓存。Prefill 一次计算 prompt 的缓存，Decode 每轮只追加新 token 的 K/V，但仍需读取不断变长的 cache。缓存显存大致与层数、上下文长度、batch、KV head 数和 head_dim 成正比，所以长对话和高并发会很贵。GQA/MQA 减少 KV head，Paged Attention 管理动态 block，Prefix Cache 复用相同前缀；这些优化解决的是不同层面的容量、带宽和内存管理问题。
 

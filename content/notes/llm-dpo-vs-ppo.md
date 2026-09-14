@@ -353,7 +353,7 @@ decision: keep_sampling_mix
 
 长文本会贡献更多 token，重复模板也可能因为权重累积占据梯度。必须同时看 pair、token 和 gradient share；只有关键任务 bucket 在更新中有足够质量与权重，偏好迁移才有机会改善。
 
-## 60 秒怎么说
+## 和面试官把话题聊开
 
 “PPO 是在线方法：先训练奖励模型，再采样轨迹，用 advantage 更新策略，并通过 reference KL 控制漂移。DPO 则利用 KL 偏好优化的闭式关系，直接在 chosen/rejected 离线数据上比较当前策略和 reference 的相对 log-prob，不显式训练 reward/value model，也没有在线 rollout。DPO 更适合可提前比较的文本偏好，PPO 更适合工具、代码、游戏等需要环境反馈和探索的任务。实际选型我会先看反馈是否可离线获得，再看数据覆盖、在线成本和失败代价，并用事实、安全、任务结果和长度分桶评测，而不只看 DPO loss 或 pair win rate。”
 

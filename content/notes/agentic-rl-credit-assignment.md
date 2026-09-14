@@ -304,7 +304,7 @@ training_action: keep_pairwise_signal
 
 ![反事实轨迹的归因回放：把动作、观察和结果放回同一条证据链](/images/notes/agentic-rl-react/rollout-attribution-card.svg)
 
-## 一分钟版本
+## 和面试官把话题聊开
 
 Agentic RL 的 credit assignment 难在长轨迹和延迟奖励。一个回合里既有搜索、代码、规划等动作，也有工具返回的观察；最终失败不代表每一步都错。
 

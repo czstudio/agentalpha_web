@@ -384,7 +384,7 @@ reward_calibration:
 
 ![奖励模型校准：偏好对、温度参数、高风险切片和发布门槛被固定在同一张卡里](/images/notes/llm-rlhf-reward-model/reward-calibration-card.svg)
 
-## 60 秒怎么说
+## 面试官追问时怎么接
 
 “RLHF 先用 SFT 得到可用的初始策略，再用人类偏好对训练奖励模型，最后用 PPO 让策略在奖励模型上优化。奖励模型通常学习 chosen 比 rejected 得分高，而不是学习绝对真理；PPO 用 advantage 更新策略，同时用 reference model 的 KL 惩罚限制策略漂移。工程上我会重点看偏好一致性、奖励与长度的相关性、KL、clip fraction、hidden set 和真实任务成功率。若 reward 上涨但业务下降，我会把它当成 reward hacking 信号，回放完整轨迹，拆开事实、任务完成、安全和成本奖励，确认优化目标是否真的代表交付目标。”
 
