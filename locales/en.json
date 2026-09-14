@@ -119,27 +119,27 @@
     "modules": [
       {
         "title": "Foundation Mastery",
-        "desc": "LLM/Multimodal fundamentals, code skills enhancement and engineering standards",
+        "desc": "Start from LLM, multimodal and code: read papers, reproduce experiments, understand every step",
         "icon": "BookOpen"
       },
       {
         "title": "Agent Architecture",
-        "desc": "Planning/Memory/Tool calling and evaluation, real business case breakdown",
+        "desc": "Planning, memory, tool calls and evaluation — run the full loop on one real case",
         "icon": "Brain"
       },
       {
         "title": "Project Co-creation",
-        "desc": "Hands-on project teaming, mentor Q&A and code review",
+        "desc": "Ship an open-source project as a team — something you can put on a resume and defend under questioning",
         "icon": "Cpu"
       },
       {
         "title": "Career Leap",
-        "desc": "Portfolio polishing, interview workshops, mentor recommendations and referrals",
+        "desc": "Push the project to GitHub, submit the paper — polish portfolio and interview story together",
         "icon": "Rocket"
       }
     ],
-    "headline": "Deep Practice + Mentor Q&A + Project Co-creation",
-    "description": "Portfolio polishing, code review, weekly retrospectives, referral recommendations. Limited spots per cohort to ensure interaction quality.",
+    "headline": "The open-source projects and papers you ship here are the deliverable",
+    "description": "From your first line of code to a GitHub repo, from an idea to a submitted paper — someone is with you at every step. Idea2Paper, InkOS and Submarine AI all started as community projects.",
     "cta_primary": "Sign Up Now",
     "cta_secondary": "Consult Advisor"
   },
