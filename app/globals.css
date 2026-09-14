@@ -1019,6 +1019,9 @@ html.enrollment-dialog-open { overflow: hidden; }
 .aa-join-cta { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 20px 28px; margin-top: clamp(36px, 5vw, 56px); padding-top: clamp(28px, 4vw, 40px); border-top: 1px solid var(--aa-rule); }
 .aa-join-copy h3 { margin: 0 0 10px; font-size: clamp(1.35rem, 2.2vw, 1.8rem); font-weight: 700; }
 .aa-join-copy p { margin: 0; max-width: 52ch; color: var(--aa-muted); font-size: .96rem; line-height: 1.75; }
+.aa-join-note { margin: 10px 0 0; max-width: 52ch; color: var(--aa-muted); font-size: .9rem; line-height: 1.7; }
+.aa-join-outline { margin-top: 14px; }
+.aa-contact-doclink { margin-top: 10px; }
 .aa-join-actions { display: flex; flex-wrap: wrap; gap: 10px; }
 
 /* Contact */

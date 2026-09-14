@@ -9,7 +9,7 @@ import publishedWechat from "@/content/notes/published-wechat.json"
 export const metadata: Metadata = {
   title: "Agent 面试笔记",
   description:
-    "每篇从面试官的一个真实追问开始，到一段你能自己讲出来的分析结束。按问题挑着读，不用从头刷。",
+    "每篇笔记从面试官的一个真实追问开始，讲清楚问题怎么拆、结论怎么推出来的。挑用得上的先读。",
   alternates: { canonical: "/notes" },
 }
 
@@ -26,7 +26,7 @@ export default function NotesIndexPage() {
       no: "01",
       label: "系统骨架",
       title: "先把 Agent 画成一张能运行的图",
-      description: "从 Agentic RL、架构、Code Agent 到多智能体，沿着状态、行动、交接和恢复，把一套 Agent 系统讲明白。",
+      description: "从 Agentic RL、架构、Code Agent 到多智能体，把状态、行动、交接、恢复这几块挨个讲透。",
       count: seriesCount(["Agentic RL", "Agent 架构", "Code Agent", "多智能体"]),
       href: "#series-01",
     },
@@ -34,14 +34,14 @@ export default function NotesIndexPage() {
       no: "02",
       label: "知识与多模态",
       title: "答案要有依据，图片和文档也要看得懂",
-      description: "从 RAG、Embedding、重排到文档版面和视频时间轴，练习处理知识更新、空间关系和引用边界。",
+      description: "更新知识库、看懂图里的空间关系、搞清楚引用到哪算越界，都在这条线里练。",
       count: seriesCount(["RAG", "多模态"]),
       href: "#series-03",
     },
     {
       no: "03",
       label: "工具与治理",
-      title: "每次调用都要留得下回执",
+      title: "工具调用老出错？先把这几关过了",
       description: "契约、MCP、重试、权限和评测，决定 Agent 在外部系统里会不会越帮越忙。",
       count: seriesCount(["工具调用", "评测"]),
       href: "#series-09",
@@ -50,7 +50,7 @@ export default function NotesIndexPage() {
       no: "04",
       label: "模型与表达",
       title: "公式要会推，项目也要讲得清",
-      description: "LLM 基础和训练负责打底，项目复盘和面试表达负责把机制、取舍和证据说清楚。",
+      description: "前半段打底子，后半段练怎么把项目讲清楚——机制是什么、当时怎么取舍、证据在哪。",
       count: seriesCount(["LLM 基础", "LLM 训练", "项目深挖", "通用与软实力", "五厂高频题"]),
       href: "#series-04",
     },
@@ -69,7 +69,7 @@ export default function NotesIndexPage() {
               <div>
                 <h1>面试题别只背答案，<br /><em>练到能自己讲出来。</em></h1>
             <p className="aa-notes-lede">
-              每篇都从一个真实追问开始，到一轮你能当着面试官接得住的分析结束。挑眼前用得上的读，读完拿自己的项目过一遍。
+              每篇都从面试官的一个真实追问开始，读完你自己就能讲出来。不用从头刷，哪篇用得上就先看哪篇。
             </p>
             <div className="aa-notes-stats">
               <span>{notes.length} 篇笔记</span>
@@ -88,7 +88,7 @@ export default function NotesIndexPage() {
                 <p className="aa-notes-kicker">按问题挑</p>
                 <h2 id="aa-notes-aris-title">别从头刷，先解决眼前这道题。</h2>
               </div>
-            <p>每条主线是一组解决同一类问题的笔记。挑一条和你当下问题最近的开始，读完就能用。</p>
+            <p>每条主线是一组解决同一类问题的笔记。挑一条跟你眼前这道题最像的，从它开始，读完就能用。</p>
             </div>
             <div className="aa-notes-aris-rails">
               {learningRails.map((rail) => (
@@ -104,7 +104,7 @@ export default function NotesIndexPage() {
           </div>
         </section>
 
-        <section className="aa-notes-index-strip"><div className="aa-notes-shell"><div><Search aria-hidden /><span>找个入口开始</span></div><a href="#series-01">专题目录</a><a href="#wechat-archive">公众号文章</a><a href="#faq">常见问题</a></div></section>
+        <section className="aa-notes-index-strip"><div className="aa-notes-shell"><div><Search aria-hidden /><span>找个入口开始</span></div><a href="#series-01">专题目录</a><a href="#wechat-archive">公众号文章</a><a href="https://agentalpha.feishu.cn/wiki/LKPMwJz7GiMUMUkt6P0cFQqun0d" target="_blank" rel="noreferrer">完整面试题合集 ↗</a><a href="#faq">常见问题</a></div></section>
 
         {series.map((s) => {
           const seriesNotes = notes.filter((note) => note.seriesNo === s.no)
@@ -155,7 +155,7 @@ export default function NotesIndexPage() {
             </div>
             <div className="aa-notes-cta-grid">
               <Link className="aa-notes-cta-card" href="/community#3-课程体系"><span>课程入口</span><strong>训练营的作业是开源项目和论文 <ArrowRight aria-hidden /></strong><small>课程体系全部公开，成品看社区项目页</small></Link>
-              <Link className="aa-notes-cta-card aa-notes-cta-card--dark" href="/#join"><span>社区入口</span><strong>加入 AgentAlpha，一起练习和复盘 <ArrowRight aria-hidden /></strong><small>我们不保证 offer，保证每周有人陪你过代码和结果</small></Link>
+              <Link className="aa-notes-cta-card aa-notes-cta-card--dark" href="/#join"><span>社区入口</span><strong>加入 AgentAlpha，一起练习和复盘 <ArrowRight aria-hidden /></strong><small>我们不保证 offer，只保证每周有人陪你过代码、看结果</small></Link>
             </div>
           </div>
         </section>
