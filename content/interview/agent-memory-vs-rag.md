@@ -5,6 +5,7 @@ title: "Agent Memory 和 RAG 什么关系？别再把记忆当成检索"
 question: "Agent 的记忆系统和 RAG 有什么本质区别？"
 excerpt: "「Memory 为什么淘汰 RAG」是个带坑的问法：两者不是替代关系。RAG 是空间检索，Memory 还要管写入决策、时间、重要性与遗忘。检索是记忆的地基，但只有检索，撑不起跨会话的 Agent。"
 tags: ["Memory", "RAG"]
+category: "memory"
 author: "AgentAlpha"
 source: "AgentAlpha 社区"
 minutes: 6

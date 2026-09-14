@@ -5,6 +5,7 @@ title: "阿里 Agent 岗三面：评测体系怎么做，怎么防止裁判被�
 question: "Agent 系统的评测怎么做？你怎么确定 Agent 没糊弄你的裁判？"
 excerpt: "非确定性输出没法断言精确值：断言性质、多次运行看分布、Golden Set 当基线；LLM 裁判要先校准；最容易被忽略的是锁死评估通道，别让 Agent 改自己的分数。"
 tags: ["评测"]
+category: "eval"
 author: "AgentAlpha"
 source: "AgentAlpha 社区"
 minutes: 8

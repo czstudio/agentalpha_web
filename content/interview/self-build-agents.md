@@ -5,6 +5,7 @@ title: "有 ChatGPT 为什么还要自建 Agent 系统"
 question: "为什么企业宁愿自建 Agent 系统，也不直接用 ChatGPT？"
 excerpt: "通用对话产品解决“人跟模型聊”，企业要的是“权限内、可审计地完成业务动作”，中间隔着私有知识、权限边界、可审计、业务集成、成本可控五件事。自建大多不是训模型，而是编排层工程；有些场景直接用 SaaS 反而正确。"
 tags: ["企业级"]
+category: "enterprise"
 author: "AgentAlpha"
 source: "AgentAlpha 社区"
 minutes: 8

@@ -5,6 +5,7 @@ title: "2026 年 Agent 岗面试变天了：从「你用过什么」到「你能
 question: "2026 年 Agent 岗的面试筛选逻辑变成了什么样？"
 excerpt: "面试官筛的已经不是「会用工具的人」，而是「跟得上领域演化速度的人」。基础功、评估闭环、工程深度、前沿视野，四层追问逐层拆解，附每一层的准备方法。"
 tags: ["企业级", "规划"]
+category: "enterprise"
 author: "AgentAlpha"
 source: "AgentAlpha 社区"
 minutes: 25

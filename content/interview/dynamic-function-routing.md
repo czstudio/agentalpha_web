@@ -5,6 +5,7 @@ title: "为什么要给 Agent 加动态函数路由"
 question: "为什么要给 Agent 加动态函数路由？"
 excerpt: "工具过百之后，把全部工具描述塞进上下文，成本、噪声、权限三头不讨好。动态函数路由先按请求召回 top-k 候选工具，再让模型在小集合里选择。本文讲清路由器的两种实现、失败兜底设计，以及它和 RAG 共享的同一个底层思想。"
 tags: ["FunctionCall", "规划"]
+category: "tooluse"
 author: "AgentAlpha"
 source: "AgentAlpha 社区"
 minutes: 6

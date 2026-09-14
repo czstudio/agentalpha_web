@@ -16,12 +16,31 @@ export interface InterviewMeta {
   title: string
   question: string
   excerpt: string
+  category: string
   tags: string[]
   minutes: number
   words: number
   author: string
   source: string
   papers: InterviewPaper[]
+}
+
+/** 分类词表与元数据，来源 content/interview/categories.json（唯一来源） */
+export interface InterviewCategory {
+  /** 路由与 frontmatter 用的固定值，如 "rag" */
+  cat: string
+  /** 分类名，如 "RAG 检索增强" */
+  name: string
+  intro: string
+  kbChapter: string
+  /** 规划篇数（第一批完成后），用于「N/M 篇」进度文案 */
+  planned: number
+}
+
+/** 分类 + 实时篇数，列表页与分类页共用 */
+export interface InterviewCategoryWithCount extends InterviewCategory {
+  count: number
+  posts: InterviewMeta[]
 }
 
 export interface InterviewArticle extends InterviewMeta {
@@ -79,6 +98,7 @@ function toMeta(slug: string, data: Record<string, string>, papersBySlug: Record
     title: data.title || slug,
     question: data.question || "",
     excerpt: data.excerpt || "",
+    category: data.category || "",
     tags: parseTags(data.tags),
     minutes: Number(data.minutes) || 8,
     words: Number(data.words) || 0,
@@ -131,6 +151,58 @@ export function getInterview(slug: string): InterviewArticle | null {
   const papersBySlug = loadIndex()
   const { data, body } = parseFrontmatter(fs.readFileSync(file, "utf8"))
   return { ...toMeta(slug, data, papersBySlug), content: body }
+}
+
+/** 分类词表定义（顺序即展示顺序）。categories.json 缺失时返回空数组，页面按「无分类」降级。 */
+export function getCategories(): InterviewCategory[] {
+  const file = path.join(interviewRoot, "categories.json")
+  if (!fs.existsSync(file)) return []
+  try {
+    const parsed = JSON.parse(fs.readFileSync(file, "utf8"))
+    return (parsed.categories || []).filter((c: InterviewCategory) => c && c.cat)
+  } catch {
+    return []
+  }
+}
+
+/** 单个分类的定义；cat 不在词表内返回 null（调用方据此 notFound） */
+export function getCategory(cat: string): InterviewCategory | null {
+  return getCategories().find((c) => c.cat === cat) || null
+}
+
+/**
+ * 分类 + 该分类下的文章（按 no 序）。
+ * includeEmpty=false 时剔除「有定义但暂无文章」的分类——列表页分类卡用这个，
+ * 避免 B 类真题集上线前出现 8 个空分类。
+ */
+export function getCategoriesWithPosts(includeEmpty = true): InterviewCategoryWithCount[] {
+  const posts = getAllInterview()
+  const grouped = new Map<string, InterviewMeta[]>()
+  for (const post of posts) {
+    if (!post.category) continue
+    const bucket = grouped.get(post.category)
+    if (bucket) bucket.push(post)
+    else grouped.set(post.category, [post])
+  }
+  return getCategories()
+    .map((category) => {
+      const list = grouped.get(category.cat) || []
+      return { ...category, posts: list, count: list.length }
+    })
+    .filter((category) => includeEmpty || category.count > 0)
+}
+
+/** 某分类下的文章；cat 未知时返回空数组 */
+export function getCategoryPosts(cat: string): InterviewMeta[] {
+  return getAllInterview().filter((post) => post.category === cat)
+}
+
+/** 同分类文章（按 no 序，排除自身）。详情页右栏用，limit 默认 6。 */
+export function getRelatedByCategory(slug: string, limit = 6): InterviewMeta[] {
+  const posts = getAllInterview()
+  const current = posts.find((post) => post.slug === slug)
+  if (!current || !current.category) return []
+  return posts.filter((post) => post.category === current.category && post.slug !== slug).slice(0, limit)
 }
 
 export function getAdjacentInterview(slug: string): {

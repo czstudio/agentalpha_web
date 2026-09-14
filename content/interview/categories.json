@@ -1,0 +1,61 @@
+{
+  "_note": "面试间分类词表与元数据。cat 值是固定词表（见 docs/plan.md §3.1），新增分类必须先改 plan.md。posts 篇数由 lib/interview.ts 实时统计，此处不写死。",
+  "categories": [
+    {
+      "cat": "rag",
+      "name": "RAG 检索增强",
+      "intro": "从文档到答案的整条链路：Embedding、分块、多路召回、重排、缓存与权限。答这类题要先说清链路分层，再讲每一层你踩过的坑。",
+      "kbChapter": "第 1 章 · RAG",
+      "planned": 8
+    },
+    {
+      "cat": "agent",
+      "name": "Agent 架构",
+      "intro": "ReAct 循环、规划与反思、记忆系统、整体设计。面试官最想看的是你能不能说出「为什么这么拆」，而不是背框架名字。",
+      "kbChapter": "第 4 章 · Agent 架构",
+      "planned": 8
+    },
+    {
+      "cat": "tooluse",
+      "name": "工具调用",
+      "intro": "Function Call、MCP、A2A、Skills，以及工具过百之后的注册、发现、路由与 Schema 设计。落点永远在「准确率抓在哪个环节」。",
+      "kbChapter": "第 8 章 · 工具调用",
+      "planned": 9
+    },
+    {
+      "cat": "multiagent",
+      "name": "多智能体",
+      "intro": "角色切分、消息协议、状态同步、冲突仲裁。拆多 Agent 不是人多力量大，是上下文稀缺和角色混乱逼出来的工程选择。",
+      "kbChapter": "第 5 章 · 多智能体",
+      "planned": 4
+    },
+    {
+      "cat": "memory",
+      "name": "记忆系统",
+      "intro": "工作记忆、情景记忆、语义记忆、程序性记忆怎么分，什么信息值得写入，冲突怎么覆盖合并，遗忘怎么设计。",
+      "kbChapter": "第 4 章 · Agent 架构（记忆系统）",
+      "planned": 3
+    },
+    {
+      "cat": "eval",
+      "name": "评测与可观测",
+      "intro": "非确定系统的回归测试、Golden Set、LLM 裁判校准、trace 埋点与可观测性。核心是别让被测者改自己的分数。",
+      "kbChapter": "第 7 章 · 评测",
+      "planned": 4
+    },
+    {
+      "cat": "enterprise",
+      "name": "项目实战与企业级",
+      "intro": "从 demo 到生产的差距：私有知识、权限边界、可审计、业务集成、成本可控。项目题八成问的是这五件事。",
+      "kbChapter": "第 10 章 · 项目深挖",
+      "planned": 6
+    },
+    {
+      "cat": "jingchang",
+      "name": "五厂面经真题集",
+      "intro": "字节、阿里、腾讯、美团、百度各 100 题，按考点分组整理成一份带锚点的速览。题目本身可以背，答题骨架要自己长出来。",
+      "kbChapter": "第 12 章 · 五厂高频面试题",
+      "planned": 8
+    }
+  ]
+}

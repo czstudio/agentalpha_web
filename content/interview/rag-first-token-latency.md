@@ -5,6 +5,7 @@ title: "RAG 首字响应慢？把延迟拆到链路每一层去找"
 question: "你们的 RAG 首字延迟（TTFT）怎么优化？"
 excerpt: "被问「RAG 首字延迟怎么优化」，答加缓存、加 GPU 只会暴露没做过真系统。把 TTFT 拆成 Embedding、检索、重排、生成首 token 四段，分段埋点找大头，再逐段给手段，才是能落地的答法。"
 tags: ["RAG"]
+category: "rag"
 author: "AgentAlpha"
 source: "AgentAlpha 社区"
 minutes: 6

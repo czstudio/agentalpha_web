@@ -5,6 +5,7 @@ title: "LLM 和 Agent 的本质区别：从“会答”到“会做”差了哪�
 question: "说说 LLM 和 Agent 的核心区别？为什么现在大家都在从 LLM 迈向 Agent？"
 excerpt: "LLM 是被动的文本生成器，缺手、缺眼、缺长期状态；Agent 是 LLM 加规划、记忆、工具的工程框架。本文从四模块清单讲起，拆开每件“器官”的收益与代价，帮你在面试里答出工程视角，而不是背定义。"
 tags: ["规划", "Memory"]
+category: "agent"
 author: "AgentAlpha"
 source: "AgentAlpha 社区"
 minutes: 8

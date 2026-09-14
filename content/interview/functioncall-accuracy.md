@@ -5,6 +5,7 @@ title: "Function Call 准确率怎么提升？从 Schema、路由到校验的完
 question: "Agent 的 Function Call 准确率怎么提升？"
 excerpt: "提升准确率不是「把 Prompt 再调调」：先给错误分类，再逐层对症下药。本文按选错工具、参数幻觉、格式错误三类失败，梳理 Schema 设计、动态函数路由、先想再做、结果校验与日志驱动调优的对应手段，并强调分层度量才能定位真正拖后腿的环节。"
 tags: ["FunctionCall"]
+category: "tooluse"
 author: "AgentAlpha"
 source: "AgentAlpha 社区"
 minutes: 7

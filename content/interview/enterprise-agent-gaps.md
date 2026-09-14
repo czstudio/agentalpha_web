@@ -5,6 +5,7 @@ title: "为什么很多人做不出企业级 Agent：卡住的从来不是模型
 question: "为什么很多人做不出企业级 Agent？核心问题是哪几个？"
 excerpt: "Demo 顺畅、上线翻车，卡住的从来不是模型：记忆缺位、评测缺位、权限缺失、可观测性不足、集成太浅，五个高频卡点各配一个最小补法。补齐这五件事，系统才从“能演示”变成“能上生产”。"
 tags: ["企业级"]
+category: "enterprise"
 author: "AgentAlpha"
 source: "AgentAlpha 社区"
 minutes: 8

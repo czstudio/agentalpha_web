@@ -5,6 +5,7 @@ title: "动态 RAG 的缓存体系怎么设计"
 question: "动态 RAG 的缓存体系怎么设计？"
 excerpt: "缓存是 RAG 里收益最高也最容易出事故的组件：key 漏了权限维度就是越权事故，漏了版本号就是陈旧内容。本文按缓存什么、key 怎么定、何时失效三问，给出一套三层缓存设计。"
 tags: ["RAG"]
+category: "rag"
 author: "AgentAlpha"
 source: "AgentAlpha 社区"
 minutes: 6

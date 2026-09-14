@@ -5,6 +5,7 @@ title: "动态 RAG 的数据质量怎么评估：别让脏知识污染答案"
 question: "动态 RAG 的数据质量怎么评估？"
 excerpt: "检索相似度分很高，答案却引用了废止的旧规则——动态 RAG 的数据质量问题，链路指标看不出来。入库前去重、打质量分、标权威度，入库后看引用命中和答案归因，评测集还要跟着数据持续更新。"
 tags: ["RAG"]
+category: "rag"
 author: "AgentAlpha"
 source: "AgentAlpha 社区"
 minutes: 6

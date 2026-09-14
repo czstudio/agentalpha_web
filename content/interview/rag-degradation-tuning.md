@@ -5,6 +5,7 @@ title: "RAG 为什么越用越慢？反向调优的排查顺序"
 question: "为什么 RAG 越用越慢？如何反向调优？"
 excerpt: "上线时很快的 RAG，一年后高峰期开始超时，期间没人改过代码。慢不是单一 bug，是索引膨胀、数据倾斜、缓存退化、重排加码接力恶化的结果，排查要按固定顺序逐段归因。"
 tags: ["RAG"]
+category: "rag"
 author: "AgentAlpha"
 source: "AgentAlpha 社区"
 minutes: 6

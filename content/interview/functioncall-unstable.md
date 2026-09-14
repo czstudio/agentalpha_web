@@ -5,6 +5,7 @@ title: "Agent 的 Function Call 为什么一直不稳？把不确定性拆开看
 question: "为什么 Agent 的 Function Call 一直不稳定？"
 excerpt: "Function Call 时好时坏不是玄学：一个概率模型在不确定的上下文里被迫做确定的选择。本文把不确定性拆成 Schema 含糊、上下文污染、缺少校验三个来源，并给出校验层、带反馈重试和 Reflection 的运行时防御方案。"
 tags: ["FunctionCall"]
+category: "tooluse"
 author: "AgentAlpha"
 source: "AgentAlpha 社区"
 minutes: 7

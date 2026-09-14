@@ -5,6 +5,7 @@ title: "CoT + Plan-Execute：把复杂任务拆成 Function Call 能接住的步
 question: "为什么 CoT + Plan-Execute 能显著提升 Agent 的 Function Call 稳定性？"
 excerpt: "单步 Function Call 再准，长任务也会输在错误累积、依赖断裂、目标漂移上。CoT 让模型动手前把思路写清，Plan-Execute 把长任务切成可验证的短步骤并配套 Replan。本文讲清机制、对比三种范式，并给出「什么时候是过度设计」的判断清单。"
 tags: ["规划", "FunctionCall"]
+category: "agent"
 author: "AgentAlpha"
 source: "AgentAlpha 社区"
 minutes: 7

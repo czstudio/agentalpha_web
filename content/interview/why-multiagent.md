@@ -5,6 +5,7 @@ title: "单 Agent 明明能跑，为什么还要拆成 Multi-Agent？"
 question: "单 Agent 已经够用了，为什么现在都在做 Multi-Agent？"
 excerpt: "拆 Multi-Agent 不是“人多力量大”，而是上下文稀缺和角色混乱这两个工程约束逼出来的。本文讲清 Planner、Executor、Checker 的职责切分，消息协议怎么设计，以及多 Agent 引入的新成本和不该拆的边界。"
 tags: ["MultiAgent"]
+category: "multiagent"
 author: "AgentAlpha"
 source: "AgentAlpha 社区"
 minutes: 8

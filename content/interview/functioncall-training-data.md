@@ -5,6 +5,7 @@ title: "Function Call 的训练数据怎么构建：正样本、难例与合成�
 question: "Function Call 的训练数据怎么构建？"
 excerpt: "Function Call 的训练数据不是「问题加正确调用」的集合，而是围绕会选、会填、会排格式、会修正四个目标构造的轨迹集。本文讲清正样本之外的负样本与难例怎么造、合成数据与真实日志怎么取舍，以及 LoRA 轻训与 SFT 加 DPO 重训的边界。"
 tags: ["FunctionCall"]
+category: "tooluse"
 author: "AgentAlpha"
 source: "AgentAlpha 社区"
 minutes: 6

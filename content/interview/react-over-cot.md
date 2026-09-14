@@ -5,6 +5,7 @@ title: "只有 CoT 为什么做不出 Agent？ReAct 补上了哪一块"
 question: "为什么 ReAct 是现代 Agent 的底层逻辑？单靠 CoT 根本不够？"
 excerpt: "CoT 只能把推理写在纸面上，不能执行动作，也拿不到环境反馈。ReAct 用 Thought、Action、Observation 的交替循环把推理接上真实世界。本文用一个工单任务对比两种方案，并讲清循环失控与成本这两个代价。"
 tags: ["ReAct"]
+category: "agent"
 author: "AgentAlpha"
 source: "AgentAlpha 社区"
 minutes: 8
