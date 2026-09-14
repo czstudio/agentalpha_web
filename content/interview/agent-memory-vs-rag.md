@@ -10,6 +10,7 @@ author: "AgentAlpha"
 source: "AgentAlpha 社区"
 minutes: 6
 words: 2919
+updated: "2026-09-14"
 ---
 
 AgentAlpha 面试题库 · 字节篇 Memory 部分的第一题是这么问的：「解释一下 Agent 的记忆机制，为什么主流 Agent 要淘汰传统 RAG？」

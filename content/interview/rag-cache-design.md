@@ -10,6 +10,7 @@ author: "AgentAlpha"
 source: "AgentAlpha 社区"
 minutes: 6
 words: 2795
+updated: "2026-09-14"
 ---
 
 给知识库系统加缓存的第一周，延迟指标好看到让人怀疑是不是哪里做错了。第二周，事故来了：A 部门的用户在检索结果里看到了 B 部门才该看到的内部文档片段。

@@ -10,6 +10,7 @@ author: "AgentAlpha"
 source: "AgentAlpha 社区"
 minutes: 8
 words: 2739
+updated: "2026-09-14"
 ---
 
 「我们把模型换到最新版了，为什么这系统还是像个聊天机器人？」——不少团队做智能助手项目时都撞过这堵墙。面试里它换了个问法。AgentAlpha 面试题库 · 腾讯篇里有一道高频题：「智能回答（传统大模型）与 AI Agent 的核心区别是什么？AI Agent 的核心要素有哪些？」很多人答成“Agent 更聪明”，面试官基本就停笔了。

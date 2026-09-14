@@ -20,6 +20,8 @@ export interface InterviewMeta {
   tags: string[]
   minutes: number
   words: number
+  /** 最后更新日期（frontmatter `updated`，YYYY-MM-DD）；未填为空串 */
+  updated: string
   author: string
   source: string
   papers: InterviewPaper[]
@@ -35,6 +37,8 @@ export interface InterviewCategory {
   kbChapter: string
   /** 规划篇数（第一批完成后），用于「N/M 篇」进度文案 */
   planned: number
+  /** 详情页置顶的真题集 slug（B 类篇目上线后填） */
+  flagship?: string
 }
 
 /** 分类 + 实时篇数，列表页与分类页共用 */
@@ -102,6 +106,7 @@ function toMeta(slug: string, data: Record<string, string>, papersBySlug: Record
     tags: parseTags(data.tags),
     minutes: Number(data.minutes) || 8,
     words: Number(data.words) || 0,
+    updated: data.updated || "",
     author: data.author || "AgentAlpha",
     source: data.source || "AgentAlpha 社区",
     papers: papersBySlug[slug] || [],

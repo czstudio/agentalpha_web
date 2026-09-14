@@ -10,6 +10,7 @@ author: "AgentAlpha"
 source: "AgentAlpha 社区"
 minutes: 6
 words: 2867
+updated: "2026-09-14"
 ---
 
 「Function call 怎么训练的？怎么微调的？」——这道题最常见的答案是「准备一批问答对，做 SFT」。答到这里就断了：数据从哪来、除了正样本还要什么、合成数据和真实日志怎么选，一个都接不上。

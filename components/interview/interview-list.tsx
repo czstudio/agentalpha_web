@@ -2,7 +2,8 @@
 
 import Link from "next/link"
 import { useMemo, useState } from "react"
-import type { InterviewMeta } from "@/lib/interview"
+import type { InterviewCategoryWithCount, InterviewMeta } from "@/lib/interview"
+import { CategoryCard } from "@/components/interview/category-card"
 
 const ALL = "全部"
 
@@ -40,9 +41,13 @@ function InterviewCard({ post, hasCover }: { post: InterviewMeta; hasCover: bool
 export function InterviewList({
   posts,
   covers,
+  categories,
+  totalPlanned,
 }: {
   posts: InterviewMeta[]
   covers: Record<string, boolean>
+  categories: InterviewCategoryWithCount[]
+  totalPlanned: number
 }) {
   const tags = useMemo(() => {
     const set = new Set<string>()
@@ -59,9 +64,31 @@ export function InterviewList({
         <div className="ivu-list-kicker">AGENTALPHA INTERVIEW ROOM</div>
         <h1 className="ivu-list-title">面试间</h1>
         <p className="ivu-list-sub">
-          {posts.length} 道真实面试场上的 Agent 题。每道题都允许翻书——题干来自面试官原话，解法附论文原文。
+          {posts.length} 道真实面试场上的 Agent 题，按 {categories.length} 个主题分类组织。
+          每道题都允许翻书——题干来自面试官原话，解法附论文原文。
         </p>
       </header>
+
+      {categories.length ? (
+        <>
+          <div className="ivu-sec">
+            <h2 className="ivu-sec-t">按主题找题</h2>
+            <p className="ivu-sec-sub">
+              {posts.length} / {totalPlanned} 篇
+            </p>
+          </div>
+          <div className="ivu-catgrid">
+            {categories.map((category) => (
+              <CategoryCard key={category.cat} category={category} />
+            ))}
+          </div>
+        </>
+      ) : null}
+
+      <div className="ivu-sec">
+        <h2 className="ivu-sec-t">最新更新</h2>
+        <p className="ivu-sec-sub">按题号排序</p>
+      </div>
 
       <div className="ivu-tags" role="tablist" aria-label="按概念筛选">
         {tags.map((tag) => (

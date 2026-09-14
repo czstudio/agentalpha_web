@@ -10,8 +10,10 @@ import { isValidElement, type ReactNode } from "react"
 import {
   getAdjacentInterview,
   getAllInterview,
+  getCategory,
   getInterview,
   getInterviewHeadings,
+  getRelatedByCategory,
   hasCover,
   paperFigure,
 } from "@/lib/interview"
@@ -120,6 +122,44 @@ function createMarkdownComponents(): Components {
   }
 }
 
+/** 站内 / 官方文档延伸阅读卡（E3）。slug → [{name, href, why, kind}] */
+interface ExtLink {
+  name: string
+  href: string
+  why: string
+  kind: "站内" | "DOC"
+}
+const EXT_LINKS: Record<string, ExtLink[]> = {}
+
+function ExtLinkCard({ link }: { link: ExtLink }) {
+  const external = /^https?:/.test(link.href)
+  return (
+    <aside className="ivu-link">
+      <a
+        className="ivu-link-head"
+        href={link.href}
+        target={external ? "_blank" : undefined}
+        rel={external ? "noopener" : undefined}
+      >
+        <span className="ivu-link-badge">{link.kind}</span>
+        <span className="ivu-link-title">{link.name}</span>
+      </a>
+      <div className="ivu-link-body">
+        <p className="ivu-link-why">{link.why}</p>
+        {external ? (
+          <a className="ivu-link-go" href={link.href} target="_blank" rel="noopener">
+            打开原文 ↗
+          </a>
+        ) : (
+          <Link className="ivu-link-go" href={link.href}>
+            站内阅读 →
+          </Link>
+        )}
+      </div>
+    </aside>
+  )
+}
+
 function PaperCard({ slug, paper }: { slug: string; paper: { arxiv: string; title: string; why: string; figure?: string } }) {
   const figure = paperFigure(slug, paper.arxiv)
   const absUrl = `https://arxiv.org/abs/${paper.arxiv}`
@@ -151,6 +191,9 @@ export default async function InterviewDetailPage({ params }: PageProps) {
   const post = getInterview(slug)
   if (!post) notFound()
   const { previous, next } = getAdjacentInterview(slug)
+  const category = post.category ? getCategory(post.category) : null
+  const siblings = getRelatedByCategory(slug, 6)
+  const extLinks = EXT_LINKS[slug] || []
   // 「60 秒回答骨架」章节拆出为结论卡，目录只统计主文
   const ANSWER_MARK = "## 60 秒回答骨架"
   const answerIdx0 = post.content.lastIndexOf(ANSWER_MARK)
@@ -191,10 +234,20 @@ export default async function InterviewDetailPage({ params }: PageProps) {
     "@type": "BreadcrumbList",
     itemListElement: [
       { "@type": "ListItem", position: 1, name: "首页", item: "https://agentalpha.top" },
-      { "@type": "ListItem", position: 2, name: "面试题库", item: "https://agentalpha.top/interview" },
+      { "@type": "ListItem", position: 2, name: "面试间", item: "https://agentalpha.top/interview" },
+      ...(category
+        ? [
+            {
+              "@type": "ListItem",
+              position: 3,
+              name: category.name,
+              item: `https://agentalpha.top/interview/category/${category.cat}`,
+            },
+          ]
+        : []),
       {
         "@type": "ListItem",
-        position: 3,
+        position: category ? 4 : 3,
         name: post.title,
         item: `https://agentalpha.top/interview/${post.slug}`,
       },
@@ -219,9 +272,38 @@ export default async function InterviewDetailPage({ params }: PageProps) {
         </figure>
       ) : null}
 
+      <div className="ivu-measure">
+        <nav className="ivu-crumb" aria-label="面包屑">
+          <Link href="/">首页</Link>
+          <span className="sep">/</span>
+          <Link href="/interview">面试间</Link>
+          {category ? (
+            <>
+              <span className="sep">/</span>
+              <Link href={`/interview/category/${category.cat}`}>{category.name}</Link>
+            </>
+          ) : null}
+          <span className="sep">/</span>
+          <span className="cur">Q{post.no}</span>
+        </nav>
+      </div>
+
       <div className="ivu-measure ivu-head">
         <div className="ivu-meta">
           <span className="qno">Q{post.no}</span>
+          {category ? (
+            <Link
+              href={`/interview/category/${category.cat}`}
+              className="ivu-chip"
+              style={{
+                background: "var(--brand-tint)",
+                color: "var(--brand-deep)",
+                textDecoration: "none",
+              }}
+            >
+              {category.name}
+            </Link>
+          ) : null}
           {post.tags.map((tag) => (
             <span key={tag} className="ivu-chip">
               {tag}
@@ -229,6 +311,7 @@ export default async function InterviewDetailPage({ params }: PageProps) {
           ))}
           <span>{post.source}</span>
           <span>约 {post.minutes} 分钟</span>
+          {post.updated ? <span className="ivu-updated">更新 {post.updated}</span> : null}
         </div>
         <h1 className="ivu-h1">{post.title}</h1>
         {lede ? <p className="ivu-lede">{lede}</p> : null}
@@ -284,17 +367,55 @@ export default async function InterviewDetailPage({ params }: PageProps) {
             </section>
           ) : null}
 
+          {extLinks.length ? (
+            <>
+              <div className="ivu-links-label">ALSO READ / 延伸阅读</div>
+              <section aria-label="延伸阅读 · 站内与文档">
+                {extLinks.map((link) => (
+                  <ExtLinkCard key={link.href} link={link} />
+                ))}
+              </section>
+            </>
+          ) : null}
+
           <div className="ivu-endmark">—— 本场面试完 ——</div>
         </article>
 
-        {headings.length >= 3 ? (
-          <aside className="ivu-toc" aria-label="本篇目录">
-            <div className="ivu-toc-t">本篇目录</div>
-            {headings.map((heading) => (
-              <a key={heading.id} href={`#${heading.id}`}>
-                {heading.title}
-              </a>
-            ))}
+        {headings.length >= 3 || siblings.length ? (
+          <aside className="ivu-rail">
+            {headings.length >= 3 ? (
+              <div className="ivu-toc" aria-label="本篇目录">
+                <div className="ivu-toc-t">本篇目录</div>
+                {headings.map((heading) => (
+                  <a key={heading.id} href={`#${heading.id}`}>
+                    {heading.title}
+                  </a>
+                ))}
+              </div>
+            ) : null}
+
+            {siblings.length ? (
+              <div className="ivu-sib" aria-label="同分类文章">
+                <div className="ivu-sib-t">
+                  <span>{category ? category.name : "同分类"}</span>
+                  {category ? (
+                    <Link href={`/interview/category/${category.cat}`}>全部 →</Link>
+                  ) : null}
+                </div>
+                <div className="ivu-sib-list">
+                  {siblings.map((item) => (
+                    <Link
+                      key={item.slug}
+                      href={`/interview/${item.slug}`}
+                      className="ivu-sib-item"
+                    >
+                      <span className="q">{item.no}</span>
+                      <span>{item.title}</span>
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            ) : null}
           </aside>
         ) : null}
       </div>

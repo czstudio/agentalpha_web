@@ -10,6 +10,7 @@ author: "AgentAlpha"
 source: "AgentAlpha 社区"
 minutes: 7
 words: 3300
+updated: "2026-09-14"
 ---
 
 同一条用户请求，上午跑通了，下午就少传一个参数。换个说法问同一个问题，模型挑了另一个看起来差不多的工具。demo 阶段一切正常，接上真实流量之后，错误像开盲盒——几乎每个做过 Agent 的团队，都被 Function Call 的「时好时坏」折磨过。

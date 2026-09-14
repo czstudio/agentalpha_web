@@ -10,6 +10,7 @@ author: "AgentAlpha"
 source: "AgentAlpha 社区"
 minutes: 6
 words: 2778
+updated: "2026-09-14"
 ---
 
 面试进行到系统设计环节，面试官问：「你们的 RAG 首字延迟怎么优化的？」

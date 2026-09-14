@@ -10,6 +10,7 @@ author: "AgentAlpha"
 source: "AgentAlpha 社区"
 minutes: 7
 words: 3066
+updated: "2026-09-14"
 ---
 
 你的 Agent 上线了，Function Call 偶尔出错：有时挑了个功能相近但不对的工具，有时参数里编了个不存在的订单号，有时输出的 JSON 干脆少个括号。例会上这些错误被笼统归因成「模型还不稳」，然后不了了之。

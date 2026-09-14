@@ -10,6 +10,7 @@ author: "AgentAlpha"
 source: "AgentAlpha 社区"
 minutes: 8
 words: 3612
+updated: "2026-09-14"
 ---
 
 👔面试官：你们线上跑着 Agent，模型输出是非确定的，同一个输入每次结果都不一样。这种系统的回归测试你怎么做？

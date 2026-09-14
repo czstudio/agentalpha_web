@@ -10,6 +10,7 @@ author: "AgentAlpha"
 source: "AgentAlpha 社区"
 minutes: 8
 words: 2758
+updated: "2026-09-14"
 ---
 
 演示环境里，一个 Agent 挂着几十个工具，问答如流。接到真实需求后开始变味：上下文越长越记不住事，检索结果和自己写的草稿混在一起，规划到一半突然自己去执行，执行完又忘了汇报。这不是模型不行，是把所有角色塞进了同一个上下文。面试里对应的考法是：「单 Agent、Supervisor-Worker、层级式与去中心化多 Agent 架构如何选型？」（AgentAlpha 面试题库 · 字节篇）——选型之前，你得先说清拆分的动因。

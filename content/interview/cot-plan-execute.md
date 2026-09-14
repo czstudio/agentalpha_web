@@ -10,6 +10,7 @@ author: "AgentAlpha"
 source: "AgentAlpha 社区"
 minutes: 7
 words: 3048
+updated: "2026-09-14"
 ---
 
 单步任务上你的 Agent 很稳：查天气、查订单，一调一个准。直到第一个多步任务进来——「统计上季度各渠道退款率，做成表格发我」——模型查完数据开始编列名，或者给第三步猜了一个参数。你反复检查每一步的 Function Call，单看都对不上哪里坏了。
