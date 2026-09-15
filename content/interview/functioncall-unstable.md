@@ -21,7 +21,7 @@ updated: "2026-09-14"
 
 Function Call 不稳定的根源，是一个概率模型在不确定的上下文里被迫做确定的选择。不确定性主要有三个来源：**Schema 没写清，模型只能靠猜**；**上下文被污染，历史信息带偏判断**；**缺少校验和重试，错误直接落进执行器**。所以稳定性首先是工程问题：给每一处不确定加约束——规范 Schema、治理上下文、加校验层和带上限的重试——而不是指望换一个更贵的模型一步到位。
 
-![Function Call 不稳的三个来源与三道防线](/images/interview/functioncall-unstable/fig-1.png)
+![Function Call 不稳的三个来源与三道防线](/images/interview/functioncall-unstable/fig-1.webp)
 图：小蓝图解——Function Call 不稳的三个来源与三道防线。
 ## 一次调用里藏着四次概率选择
 

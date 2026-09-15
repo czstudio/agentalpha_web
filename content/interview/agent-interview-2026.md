@@ -41,7 +41,7 @@ updated: "2026-09-14"
 
 下面把这场变革讲透。先看热点，再逐层拆面试。
 
-![四层追问：基础、评估、工程、前沿](/images/interview/agent-interview-2026/fig-1.png)
+![四层追问：基础、评估、工程、前沿](/images/interview/agent-interview-2026/fig-1.webp)
 图：小蓝图解——四层追问：基础、评估、工程、前沿。
 ## 💡 简要回答
 

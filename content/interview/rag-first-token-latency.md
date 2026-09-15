@@ -23,7 +23,7 @@ updated: "2026-09-14"
 
 TTFT（Time To First Token，从用户发出请求到屏幕上出现第一个字的等待时间）由四段组成：查询 Embedding、向量检索、重排、生成端吐出首 token。优化顺序应该是：先分段埋点，找出占比最大的那一段，再对症处理——Embedding 做批处理与异步并发，检索调索引参数、做分区路由，重排裁剪候选数量，生成端上流式输出和 Prefix Cache。先测量再优化，否则大概率白干。
 
-![首字延迟的四段赛道，找到最慢的一段](/images/interview/rag-first-token-latency/fig-1.png)
+![首字延迟的四段赛道，找到最慢的一段](/images/interview/rag-first-token-latency/fig-1.webp)
 图：小蓝图解——首字延迟的四段赛道，找到最慢的一段。
 ## 一、把 TTFT 拆成四段，每段单独埋点
 

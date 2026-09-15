@@ -23,7 +23,7 @@ updated: "2026-09-14"
 
 下面按这条链路从入口到出口走一遍。
 
-![FC 准确率链路：Schema、路由、校验](/images/interview/functioncall-accuracy/fig-1.png)
+![FC 准确率链路：Schema、路由、校验](/images/interview/functioncall-accuracy/fig-1.webp)
 图：小蓝图解——FC 准确率链路：Schema、路由、校验。
 ## 三类错误，三张不同的处方
 
