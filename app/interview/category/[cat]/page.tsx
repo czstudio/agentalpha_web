@@ -166,7 +166,7 @@ export default async function CategoryPage({ params }: PageProps) {
         <div style={{ maxWidth: "var(--measure)", margin: "0 auto" }}>
           <div className="ivu-cta">
             <p className="ivu-cta-text">
-              <b>这里的题目从不停更。</b>一道一道，都是真实面经里长出来的拆解；想成体系地上手 Agent 工程，就去 AgentAlpha 训练营看看。
+              <b>题目常更常新，全部拆自真实面经。</b>想系统上手 Agent 工程，训练营有路线、有项目、有人带。
             </p>
             <div className="ivu-cta-actions">
               <Link href="/learn" className="ivu-btn ivu-btn-primary">
