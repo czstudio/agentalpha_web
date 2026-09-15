@@ -37,7 +37,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     openGraph: {
       title: post.title,
       description,
-      images: hasCover(post.slug) ? [`/images/interview/${post.slug}/cover.png`] : undefined,
+      images: hasCover(post.slug) ? [`/images/interview/${post.slug}/cover-og.jpg`] : undefined,
     },
   }
 }
@@ -215,7 +215,7 @@ export default async function InterviewDetailPage({ params }: PageProps) {
     "@type": "Article",
     headline: post.title,
     description: post.excerpt,
-    image: cover ? [`https://agentalpha.top/images/interview/${post.slug}/cover.png`] : undefined,
+    image: cover ? [`https://agentalpha.top/images/interview/${post.slug}/cover-og.jpg`] : undefined,
     author: { "@type": "Person", name: post.author },
     ...(post.papers.length
       ? { about: post.papers.map((p) => ({ "@type": "ScholarlyArticle", name: p.title })) }
