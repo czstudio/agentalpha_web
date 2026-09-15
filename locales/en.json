@@ -26,7 +26,7 @@
     "badge": "Learn by building real Agent projects",
     "title_highlight": "AgentAlpha",
     "title_normal": "Connecting Top Researchers, Engineers & Entrepreneurs",
-    "subtitle": "Took plenty of courses but still have nothing real to show? Toy demos don't count. Work on real projects: read the paper properly, build the agent, put the code on GitHub.",
+    "subtitle": "AgentAlpha is a hands-on community for large-model Agent work: read papers, build projects, review each other's code, and get interview-ready.",
     "cta_primary": "Join Training",
     "cta_secondary": "Business/Partnership"
   },
@@ -36,7 +36,7 @@
     "stat1_note": "Covering Universities / Big Tech / Startups",
     "stat2_label": "Tech Talks",
     "stat2_value": "300+",
-    "stat2_note": "some cover ideas, others dig down to the source",
+    "stat2_note": "Deep Sharing & Paper Reading",
     "stat3_label": "Project Co-creation",
     "stat3_value": "150+",
     "stat3_note": "Agent & Multimodal Landing Cases"
@@ -45,18 +45,18 @@
     "tag": "Vision & Goals",
     "title": "Win-Win Community in the Agent Era",
     "vision_points": [
-      "Reading a paper means more than highlighting: what problem it solves, how solid the evidence is, where it breaks down — and you can explain all that to someone else.",
-      "What you learn has to land in code. It only counts once you have run it yourself and hit the snags.",
-      "When stuck, bring the problem to the community — someone has usually hit the same wall."
+      "True AGI is still a decade away. Agent is the essential path. Seize the wave to stay relevant.",
+      "Through deep practice, knowledge sharing, and project collaboration, break down technical barriers and transform them into personal advantages and real value.",
+      "Empower everyone, win the Agent decade."
     ],
     "offerings_title": "What We Offer",
     "offerings": [
-      "A full Agent curriculum: from RAG and memory to multi-agent and Code Agent, ten stages in a row",
-      "Weekly code review and retros — someone goes through your project with you, every week",
-      "A growing interview question collection: what gets asked, how to approach it, where the traps are",
-      "Every project on your resume is something you actually built"
+      "Systematic learning paths and practice manuals",
+      "One-on-one guidance from technical mentors and industry experts",
+      "Paper notes, cutting-edge talks, case co-creation",
+      "Portfolio polishing, resume & interview coaching, referrals"
     ],
-    "bottom_note": "When the round is done, the GitHub repo, the paper and the retro notes are all there to show."
+    "bottom_note": "Learn, build, present, iterate — then do it again on the next project."
   },
   "advanced": {
     "tag": "Advanced Play",
@@ -73,7 +73,7 @@
       {
         "title": "If you want further collaboration / papers / career",
         "bullets": [
-          "Take the architecture apart together, fill in the missing experiments",
+          "Paper collaboration and experiment co-building",
           "Industry landing project cooperation",
           "Big tech job referrals and interview coaching"
         ]
@@ -81,7 +81,7 @@
       {
         "title": "If you seek partnerships",
         "bullets": [
-          "There is usually a team forming for open source or research",
+          "Co-build community brand",
           "Joint promotion and events",
           "AI product and training guidance"
         ]
@@ -115,40 +115,38 @@
   },
   "training": {
     "badge": "Training Camp & How to Join",
-    "title": "Build together, resolve questions as they come",
+    "title": "Join Us",
     "modules": [
       {
-        "title": "Build the foundations",
-        "desc": "RAG, memory systems, model basics — by reading papers, running code, writing retros, not by watching videos",
+        "title": "Foundation Mastery",
+        "desc": "LLM/Multimodal fundamentals, code skills enhancement and engineering standards",
         "icon": "BookOpen"
       },
       {
-        "title": "Get agents running",
-        "desc": "Single agent, multi-agent collaboration, DeepSearch — each module runs completely on a real project",
+        "title": "Agent Architecture",
+        "desc": "Planning/Memory/Tool calling and evaluation, real business case breakdown",
         "icon": "Brain"
       },
       {
-        "title": "Crack the hard parts",
-        "desc": "Code Agent and Agentic RL — reproduce the core ideas behind work like Search-R1 and AlphaEvolve",
+        "title": "Project Co-creation",
+        "desc": "Hands-on project teaming, mentor Q&A and code review",
         "icon": "Cpu"
       },
       {
-        "title": "Tell the story",
-        "desc": "A final capstone project: open-source on GitHub, a paper submitted, and the story told well in interviews",
+        "title": "Career Leap",
+        "desc": "Portfolio polishing, interview workshops, mentor recommendations and referrals",
         "icon": "Rocket"
       }
     ],
-    "headline": "The open-source projects and papers you build are yours to show",
-    "description": "Idea2Paper, built in this community, reached 1,400+ GitHub stars and hit #1 on the Hugging Face daily papers leaderboard. InkOS and Submarine AI grew here too.",
+    "headline": "Deep Practice + Mentor Q&A + Project Co-creation",
+    "description": "Portfolio polishing, code review, weekly retrospectives, referral recommendations. Limited spots per cohort to ensure interaction quality.",
     "cta_primary": "Sign Up Now",
-    "cta_secondary": "Consult Advisor",
-    "outline_link": "What each stage covers and what you build — it is all in this course overview",
-    "no_promise": "We don't promise offers — we promise someone goes through your code and results with you, every week."
+    "cta_secondary": "Consult Advisor"
   },
   "contact": {
     "tag": "Partnership & Consultation",
     "title": "WeChat Official Account: AgentAlpha",
-    "description": "Want to talk courses, or stuck on a project? Scan the QR code and tell us what you are working on.",
+    "description": "Co-build community / Promotion partnerships / AI products / Training guidance, or need paper, project, career support, scan QR code to follow official account for more info.",
     "tags": [
       "Co-build Community",
       "Promotion Work",
@@ -156,8 +154,7 @@
       "Training Guidance"
     ],
     "no_contact": "No contact info yet",
-    "add_contact_hint": "Please add social platforms in admin system",
-    "intro_link": "Want to see what the community is like first? Who is in it, what they built, who teaches — this introduction covers it all"
+    "add_contact_hint": "Please add social platforms in admin system"
   },
   "universities": {
     "tag": "Partner Universities",

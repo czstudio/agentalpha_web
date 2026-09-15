@@ -323,15 +323,6 @@ export function HomeContent({ data }: HomeContentProps) {
             <div className="aa-join-copy">
               <h3>{t.training.headline}</h3>
               <p>{t.training.description}</p>
-              <p className="aa-join-note">{t.training.no_promise}</p>
-              <a
-                href="https://agentalpha.feishu.cn/wiki/TjZJwXw70ijEX6kkyKicgortnpb"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="aa-btn-link aa-join-outline"
-              >
-                {t.training.outline_link} ↗
-              </a>
             </div>
             <div className="aa-join-actions">
               <button
@@ -357,14 +348,6 @@ export function HomeContent({ data }: HomeContentProps) {
             </p>
             <h2>{t.contact.title}</h2>
             <p className="aa-section-desc">{t.contact.description}</p>
-            <a
-              href="https://agentalpha.feishu.cn/docx/QtYQddrAFoLIb9xFe7PckJnmn1b"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="aa-btn-link aa-contact-doclink"
-            >
-              {t.contact.intro_link} ↗
-            </a>
           </div>
           {data.socialPlatforms && data.socialPlatforms.length > 0 ? (
             <div className="aa-contact-list">
