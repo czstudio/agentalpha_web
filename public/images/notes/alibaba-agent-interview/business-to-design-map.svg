@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 640" role="img" aria-labelledby="title desc">
+  <title id="title">业务语到技术语的五步翻译</title>
+  <desc id="desc">口径、边界、契约、事实对齐和上线验证五步，每一步都产出一个可以被验收的东西。</desc>
+  <rect width="1200" height="640" fill="#fbfaf7"/>
+  <text x="72" y="72" font-family="Arial, sans-serif" font-size="28" font-weight="700" fill="#17221b">业务语要翻译成技术语，五步都不能跳</text>
+  <text x="72" y="106" font-family="Arial, sans-serif" font-size="16" fill="#627066">每一步都要产出一个可以被验收的东西，而不是一句听起来正确的话。</text>
+  <g font-family="Arial, sans-serif">
+    <rect x="50" y="170" width="200" height="310" rx="16" fill="#e9edf4" stroke="#7f93b0" stroke-width="2"/>
+    <text x="66" y="202" font-size="13" font-weight="700" fill="#627066">业务语</text>
+    <text x="66" y="230" font-size="15" font-weight="700" fill="#334b6a">把成本降三成</text>
+    <line x1="66" y1="246" x2="234" y2="246" stroke="#7f93b0" stroke-width="1" opacity="0.45"/>
+    <text x="66" y="272" font-size="13" fill="#627066">技术翻译</text>
+    <text x="66" y="298" font-size="14" fill="#3e4a5a">口径：单位成功</text>
+    <text x="66" y="320" font-size="14" fill="#3e4a5a">任务成本</text>
+    <line x1="66" y1="340" x2="234" y2="340" stroke="#7f93b0" stroke-width="1" opacity="0.45"/>
+    <text x="66" y="366" font-size="13" fill="#627066">产出物</text>
+    <text x="66" y="392" font-size="14" font-weight="700" fill="#334b6a">目标函数声明</text>
+    <text x="66" y="414" font-size="14" fill="#3e4a5a">北极星 + 代理 + 门控</text>
+  </g>
+  <g font-family="Arial, sans-serif">
+    <rect x="275" y="170" width="200" height="310" rx="16" fill="#f3ead9" stroke="#c39b55" stroke-width="2"/>
+    <text x="291" y="202" font-size="13" font-weight="700" fill="#627066">业务语</text>
+    <text x="291" y="230" font-size="15" font-weight="700" fill="#705426">这事能不能做</text>
+    <line x1="291" y1="246" x2="459" y2="246" stroke="#c39b55" stroke-width="1" opacity="0.45"/>
+    <text x="291" y="272" font-size="13" fill="#627066">技术翻译</text>
+    <text x="291" y="298" font-size="14" fill="#53472f">形态：workflow /</text>
+    <text x="291" y="320" font-size="14" fill="#53472f">受限 Agent / 转人工</text>
+    <line x1="291" y1="340" x2="459" y2="340" stroke="#c39b55" stroke-width="1" opacity="0.45"/>
+    <text x="291" y="366" font-size="13" fill="#627066">产出物</text>
+    <text x="291" y="392" font-size="14" font-weight="700" fill="#705426">边界清单</text>
+    <text x="291" y="414" font-size="14" fill="#53472f">scope_out 优先</text>
+  </g>
+  <g font-family="Arial, sans-serif">
+    <rect x="500" y="170" width="200" height="310" rx="16" fill="#e7f1e8" stroke="#7ca587" stroke-width="2"/>
+    <text x="516" y="202" font-size="13" font-weight="700" fill="#627066">业务语</text>
+    <text x="516" y="230" font-size="15" font-weight="700" fill="#285339">帮他改个地址</text>
+    <line x1="516" y1="246" x2="684" y2="246" stroke="#7ca587" stroke-width="1" opacity="0.45"/>
+    <text x="516" y="272" font-size="13" fill="#627066">技术翻译</text>
+    <text x="516" y="298" font-size="14" fill="#35443b">契约：读写、幂等、</text>
+    <text x="516" y="320" font-size="14" fill="#35443b">审批、对账</text>
+    <line x1="516" y1="340" x2="684" y2="340" stroke="#7ca587" stroke-width="1" opacity="0.45"/>
+    <text x="516" y="366" font-size="13" fill="#627066">产出物</text>
+    <text x="516" y="392" font-size="14" font-weight="700" fill="#285339">工具 schema</text>
+    <text x="516" y="414" font-size="14" fill="#35443b">读 / 写 分权</text>
+  </g>
+  <g font-family="Arial, sans-serif">
+    <rect x="725" y="170" width="200" height="310" rx="16" fill="#f2e6e5" stroke="#ba7a73" stroke-width="2"/>
+    <text x="741" y="202" font-size="13" font-weight="700" fill="#627066">业务语</text>
+    <text x="741" y="230" font-size="15" font-weight="700" fill="#703e39">政策怎么算</text>
+    <line x1="741" y1="246" x2="909" y2="246" stroke="#ba7a73" stroke-width="1" opacity="0.45"/>
+    <text x="741" y="272" font-size="13" fill="#627066">技术翻译</text>
+    <text x="741" y="298" font-size="14" fill="#5c4140">对齐：系统、版本、</text>
+    <text x="741" y="320" font-size="14" fill="#5c4140">生效时刻</text>
+    <line x1="741" y1="340" x2="909" y2="340" stroke="#ba7a73" stroke-width="1" opacity="0.45"/>
+    <text x="741" y="366" font-size="13" fill="#627066">产出物</text>
+    <text x="741" y="392" font-size="14" font-weight="700" fill="#703e39">事实源对照表</text>
+    <text x="741" y="414" font-size="14" fill="#5c4140">谁权威、哪一版</text>
+  </g>
+  <g font-family="Arial, sans-serif">
+    <rect x="950" y="170" width="200" height="310" rx="16" fill="#e9edf4" stroke="#7f93b0" stroke-width="2"/>
+    <text x="966" y="202" font-size="13" font-weight="700" fill="#627066">业务语</text>
+    <text x="966" y="230" font-size="15" font-weight="700" fill="#334b6a">上线有没有用</text>
+    <line x1="966" y1="246" x2="1134" y2="246" stroke="#7f93b0" stroke-width="1" opacity="0.45"/>
+    <text x="966" y="272" font-size="13" fill="#627066">技术翻译</text>
+    <text x="966" y="298" font-size="14" fill="#3e4a5a">验证：业务指标 +</text>
+    <text x="966" y="320" font-size="14" fill="#3e4a5a">门控护栏</text>
+    <line x1="966" y1="340" x2="1134" y2="340" stroke="#7f93b0" stroke-width="1" opacity="0.45"/>
+    <text x="966" y="366" font-size="13" fill="#627066">产出物</text>
+    <text x="966" y="392" font-size="14" font-weight="700" fill="#334b6a">灰度与护栏看板</text>
+    <text x="966" y="414" font-size="14" fill="#3e4a5a">切片对照，不只整体</text>
+  </g>
+  <g stroke="#51645a" stroke-width="3" fill="none" stroke-linecap="round">
+    <path d="M253 325 L265 325"/>
+    <path d="M478 325 L490 325"/>
+    <path d="M703 325 L715 325"/>
+    <path d="M928 325 L940 325"/>
+  </g>
+  <g fill="#51645a">
+    <path d="M267 325 l-12 -5 0 10z"/>
+    <path d="M492 325 l-12 -5 0 10z"/>
+    <path d="M717 325 l-12 -5 0 10z"/>
+    <path d="M942 325 l-12 -5 0 10z"/>
+  </g>
+  <rect x="50" y="530" width="1100" height="50" rx="10" fill="#17221b"/>
+  <text x="80" y="561" font-family="Arial, sans-serif" font-size="16" font-weight="700" fill="#f7f4ee">翻译的产物不是架构图，而是一张「业务承诺 → 可观测证据」对照表</text>
+</svg>

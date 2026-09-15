@@ -212,6 +212,58 @@ export function HomeContent({ data }: HomeContentProps) {
                 </a>
               </div>
             </article>
+
+            <article className="aa-feature-band">
+              <div className="aa-feature-copy">
+                <h3 className="aa-feature-title">{t.resources.metarsi_title}</h3>
+                <p className="aa-feature-desc">{t.resources.metarsi_desc}</p>
+                <p className="aa-feature-meta">{t.resources.metarsi_contributors}</p>
+              </div>
+              <div className="aa-feature-actions">
+                <a
+                  href="https://www.cosmosmind.ai/research/metarsi-v1.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="aa-btn-link"
+                >
+                  {t.resources.metarsi_paper} ↗
+                </a>
+                <a
+                  href="https://github.com/CosmosMind-ai/RSI-Harness"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="aa-btn-link"
+                >
+                  {t.resources.metarsi_github} ↗
+                </a>
+              </div>
+            </article>
+
+            <article className="aa-feature-band">
+              <div className="aa-feature-copy">
+                <h3 className="aa-feature-title">{t.resources.s2p_title}</h3>
+                <p className="aa-feature-desc">{t.resources.s2p_desc}</p>
+                <p className="aa-feature-meta">{t.resources.s2p_contributors}</p>
+              </div>
+              <div className="aa-feature-actions">
+                <a
+                  href="https://huggingface.co/papers/2603.27065"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="aa-btn-link"
+                >
+                  {t.resources.s2p_paper} ↗
+                </a>
+                <a
+                  href="https://paperbuild.cn/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="aa-btn-link"
+                >
+                  {t.resources.s2p_demo} ↗
+                </a>
+              </div>
+            </article>
           </div>
         </section>
 

@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 660" role="img" aria-labelledby="title desc">
+  <title id="title">业务动作翻译成工具契约</title>
+  <desc id="desc">业务方说的动作要落成带权限、前提、幂等和失败处理的工具契约。</desc>
+  <rect width="1200" height="660" fill="#fbfaf7"/>
+  <text x="72" y="72" font-family="Arial, sans-serif" font-size="28" font-weight="700" fill="#17221b">业务动作要翻译成工具契约</text>
+  <text x="72" y="106" font-family="Arial, sans-serif" font-size="16" fill="#627066">契约不是函数名加参数，而是权限、前提、幂等和失败处理的总和。</text>
+  <text x="80" y="152" font-family="Arial, sans-serif" font-size="14" font-weight="700" fill="#627066">业务方说的动作</text>
+  <g font-family="Arial, sans-serif">
+    <rect x="80" y="175" width="330" height="52" rx="12" fill="#f3ead9" stroke="#c39b55" stroke-width="2"/>
+    <text x="104" y="208" font-size="16" fill="#705426">查一下物流</text>
+    <rect x="80" y="240" width="330" height="52" rx="12" fill="#f3ead9" stroke="#c39b55" stroke-width="2"/>
+    <text x="104" y="273" font-size="16" fill="#705426">帮他改个地址</text>
+    <rect x="80" y="305" width="330" height="52" rx="12" fill="#f3ead9" stroke="#c39b55" stroke-width="2"/>
+    <text x="104" y="338" font-size="16" fill="#705426">发张优惠券</text>
+    <rect x="80" y="370" width="330" height="52" rx="12" fill="#f3ead9" stroke="#c39b55" stroke-width="2"/>
+    <text x="104" y="403" font-size="16" fill="#705426">催一下物流</text>
+  </g>
+  <g stroke="#51645a" stroke-width="3" fill="none" stroke-linecap="round">
+    <path d="M432 300 L488 300"/>
+  </g>
+  <path d="M492 300 l-13 -5 0 10z" fill="#51645a"/>
+  <text x="520" y="152" font-family="Arial, sans-serif" font-size="14" font-weight="700" fill="#627066">契约必须写清</text>
+  <g font-family="Arial, sans-serif">
+    <rect x="520" y="175" width="600" height="56" rx="10" fill="#e9edf4" stroke="#7f93b0" stroke-width="2"/>
+    <text x="544" y="199" font-size="15" font-weight="700" fill="#334b6a">actor</text>
+    <text x="544" y="221" font-size="13" fill="#3e4a5a">谁可以调用：agent / human / 内部服务</text>
+    <rect x="520" y="239" width="600" height="56" rx="10" fill="#e9edf4" stroke="#7f93b0" stroke-width="2"/>
+    <text x="544" y="263" font-size="15" font-weight="700" fill="#334b6a">preconditions</text>
+    <text x="544" y="285" font-size="13" fill="#3e4a5a">前提：订单状态、租户一致、额度足够</text>
+    <rect x="520" y="303" width="600" height="56" rx="10" fill="#e9edf4" stroke="#7f93b0" stroke-width="2"/>
+    <text x="544" y="327" font-size="15" font-weight="700" fill="#334b6a">idempotency_key</text>
+    <text x="544" y="349" font-size="13" fill="#3e4a5a">幂等键：重复提交必须被系统挡下，不靠提示词</text>
+    <rect x="520" y="367" width="600" height="56" rx="10" fill="#e9edf4" stroke="#7f93b0" stroke-width="2"/>
+    <text x="544" y="391" font-size="15" font-weight="700" fill="#334b6a">result</text>
+    <text x="544" y="413" font-size="13" fill="#3e4a5a">状态：accepted | rejected | unknown</text>
+    <rect x="520" y="431" width="600" height="56" rx="10" fill="#e9edf4" stroke="#7f93b0" stroke-width="2"/>
+    <text x="544" y="455" font-size="15" font-weight="700" fill="#334b6a">side_effect</text>
+    <text x="544" y="477" font-size="13" fill="#3e4a5a">是否有副作用，决定要不要走审批</text>
+    <rect x="520" y="495" width="600" height="56" rx="10" fill="#f2e6e5" stroke="#ba7a73" stroke-width="2"/>
+    <text x="544" y="519" font-size="15" font-weight="700" fill="#703e39">on_unknown</text>
+    <text x="544" y="541" font-size="13" fill="#5c4140">未知结果先对账，禁止自动重放写操作</text>
+  </g>
+  <rect x="80" y="580" width="1040" height="50" rx="10" fill="#17221b"/>
+  <text x="108" y="611" font-family="Arial, sans-serif" font-size="16" font-weight="700" fill="#f7f4ee">读写真分开 · 业务系统是唯一事实源 · unknown 不等于 failed</text>
+</svg>

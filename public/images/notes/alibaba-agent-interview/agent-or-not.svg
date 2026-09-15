@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 640" role="img" aria-labelledby="title desc">
+  <title id="title">该不该用 Agent 的三个判断轴</title>
+  <desc id="desc">流程确定性、输入开放度和动作副作用，决定用 workflow、受限 Agent 还是审批执行。</desc>
+  <rect width="1200" height="640" fill="#fbfaf7"/>
+  <text x="72" y="72" font-family="Arial, sans-serif" font-size="28" font-weight="700" fill="#17221b">该不该用 Agent，先问三件事</text>
+  <text x="72" y="106" font-family="Arial, sans-serif" font-size="16" fill="#627066">确定性处别让模型决定分支，不确定处才用模型的判断力。</text>
+  <g font-family="Arial, sans-serif">
+    <rect x="90" y="160" width="400" height="105" rx="14" fill="#e9edf4" stroke="#7f93b0" stroke-width="2"/>
+    <text x="118" y="200" font-size="18" font-weight="700" fill="#334b6a">流程完全确定吗？</text>
+    <text x="118" y="232" font-size="15" fill="#3e4a5a">固定字段、固定步骤、固定阈值</text>
+    <rect x="570" y="160" width="540" height="105" rx="14" fill="#e7f1e8" stroke="#7ca587" stroke-width="2"/>
+    <text x="598" y="200" font-size="18" font-weight="700" fill="#285339">是 → Workflow + 规则</text>
+    <text x="598" y="232" font-size="15" fill="#35443b">可测、可审计，而且更便宜</text>
+    <rect x="90" y="290" width="400" height="105" rx="14" fill="#e9edf4" stroke="#7f93b0" stroke-width="2"/>
+    <text x="118" y="330" font-size="18" font-weight="700" fill="#334b6a">输入开放、要判断吗？</text>
+    <text x="118" y="362" font-size="15" fill="#3e4a5a">自然语言、图片、多轮澄清</text>
+    <rect x="570" y="290" width="540" height="105" rx="14" fill="#f3ead9" stroke="#c39b55" stroke-width="2"/>
+    <text x="598" y="330" font-size="18" font-weight="700" fill="#705426">是 → Workflow 骨架 + 受限 Agent</text>
+    <text x="598" y="362" font-size="15" fill="#53472f">只在不确定处把决定权交给模型</text>
+    <rect x="90" y="420" width="400" height="105" rx="14" fill="#e9edf4" stroke="#7f93b0" stroke-width="2"/>
+    <text x="118" y="460" font-size="18" font-weight="700" fill="#334b6a">动作有副作用吗？</text>
+    <text x="118" y="492" font-size="15" fill="#3e4a5a">扣款、改合同、发券等写操作</text>
+    <rect x="570" y="420" width="540" height="105" rx="14" fill="#f2e6e5" stroke="#ba7a73" stroke-width="2"/>
+    <text x="598" y="460" font-size="18" font-weight="700" fill="#703e39">是 → Agent 起草 + 审批执行</text>
+    <text x="598" y="492" font-size="15" fill="#5c4140">写操作不直接落库，默认人来按最后一步</text>
+  </g>
+  <g stroke="#51645a" stroke-width="3" fill="none" stroke-linecap="round">
+    <path d="M500 212 L548 212"/>
+    <path d="M500 342 L548 342"/>
+    <path d="M500 472 L548 472"/>
+  </g>
+  <g fill="#51645a">
+    <path d="M552 212 l-13 -5 0 10z"/>
+    <path d="M552 342 l-13 -5 0 10z"/>
+    <path d="M552 472 l-13 -5 0 10z"/>
+  </g>
+  <rect x="90" y="550" width="1020" height="56" rx="12" fill="#f2e6e5" stroke="#ba7a73" stroke-width="2"/>
+  <text x="118" y="585" font-family="Arial, sans-serif" font-size="15" font-weight="700" fill="#703e39">自动化偏置：有默认值的确认弹窗，人往往照着点通过 ——「有人兜底」不等于安全</text>
+</svg>

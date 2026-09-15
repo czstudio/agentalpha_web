@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 650" role="img" aria-labelledby="title desc">
+  <title id="title">事实来源对齐</title>
+  <desc id="desc">业务口径、系统事实和检索证据三层，检索证据必须带来源系统、版本和生效时刻。</desc>
+  <rect width="1200" height="650" fill="#fbfaf7"/>
+  <text x="72" y="72" font-family="Arial, sans-serif" font-size="28" font-weight="700" fill="#17221b">事实要能被追溯：系统、版本、时刻</text>
+  <text x="72" y="106" font-family="Arial, sans-serif" font-size="16" fill="#627066">答错很多时候不是模型问题，是它拿到的「事实」和业务口径不一致。</text>
+  <g font-family="Arial, sans-serif">
+    <rect x="90" y="155" width="1020" height="110" rx="14" fill="#f3ead9" stroke="#c39b55" stroke-width="2"/>
+    <text x="118" y="190" font-size="15" font-weight="700" fill="#705426">业务口径（模糊）</text>
+    <text x="118" y="226" font-size="15" fill="#53472f">优惠含不含今日 · 时效按自然日还是工作日 · 账期按哪一天切</text>
+    <rect x="90" y="295" width="1020" height="110" rx="14" fill="#e9edf4" stroke="#7f93b0" stroke-width="2"/>
+    <text x="118" y="330" font-size="15" font-weight="700" fill="#334b6a">系统事实（可能互相冲突）</text>
+    <rect x="118" y="348" width="290" height="44" rx="10" fill="#fbfaf7" stroke="#7f93b0" stroke-width="2"/>
+    <text x="263" y="376" font-size="15" fill="#334b6a" text-anchor="middle">客服系统</text>
+    <rect x="430" y="348" width="290" height="44" rx="10" fill="#fbfaf7" stroke="#7f93b0" stroke-width="2"/>
+    <text x="575" y="376" font-size="15" fill="#334b6a" text-anchor="middle">交易系统</text>
+    <rect x="742" y="348" width="290" height="44" rx="10" fill="#fbfaf7" stroke="#7f93b0" stroke-width="2"/>
+    <text x="887" y="376" font-size="15" fill="#334b6a" text-anchor="middle">物流系统</text>
+    <rect x="90" y="435" width="1020" height="110" rx="14" fill="#e7f1e8" stroke="#7ca587" stroke-width="2"/>
+    <text x="118" y="470" font-size="15" font-weight="700" fill="#285339">检索证据（可追溯）</text>
+    <rect x="118" y="488" width="290" height="44" rx="10" fill="#fbfaf7" stroke="#7ca587" stroke-width="2"/>
+    <text x="263" y="516" font-size="15" fill="#285339" text-anchor="middle">来源系统</text>
+    <rect x="430" y="488" width="290" height="44" rx="10" fill="#fbfaf7" stroke="#7ca587" stroke-width="2"/>
+    <text x="575" y="516" font-size="15" fill="#285339" text-anchor="middle">数据版本</text>
+    <rect x="742" y="488" width="290" height="44" rx="10" fill="#fbfaf7" stroke="#7ca587" stroke-width="2"/>
+    <text x="887" y="516" font-size="15" fill="#285339" text-anchor="middle">生效时刻</text>
+  </g>
+  <g stroke="#51645a" stroke-width="3" fill="none" stroke-linecap="round">
+    <path d="M600 269 L600 289"/>
+    <path d="M600 409 L600 429"/>
+  </g>
+  <g fill="#51645a">
+    <path d="M600 292 l-6 -13 12 0z"/>
+    <path d="M600 432 l-6 -13 12 0z"/>
+  </g>
+  <text x="1088" y="424" font-family="Arial, sans-serif" font-size="15" font-weight="700" fill="#703e39" text-anchor="end">冲突时，谁说了算？</text>
+  <rect x="90" y="580" width="1020" height="50" rx="10" fill="#17221b"/>
+  <text x="118" y="611" font-family="Arial, sans-serif" font-size="16" font-weight="700" fill="#f7f4ee">这三问答不上来，用户就没法依据你的回答去做决定 —— 先别上线</text>
+</svg>

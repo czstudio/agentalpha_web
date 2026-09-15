@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 650" role="img" aria-labelledby="title desc">
+  <title id="title">模型指标到业务指标的桥接</title>
+  <desc id="desc">四组模型指标与业务指标的对应关系、观测方式，以及护栏先于优化的原则。</desc>
+  <rect width="1200" height="650" fill="#fbfaf7"/>
+  <text x="72" y="72" font-family="Arial, sans-serif" font-size="28" font-weight="700" fill="#17221b">模型指标要能桥接到业务指标</text>
+  <text x="72" y="106" font-family="Arial, sans-serif" font-size="16" fill="#627066">桥接不上，上线就是玄学；门控要先于优化。</text>
+  <text x="90" y="155" font-family="Arial, sans-serif" font-size="14" font-weight="700" fill="#627066">模型 / 系统指标</text>
+  <text x="740" y="155" font-family="Arial, sans-serif" font-size="14" font-weight="700" fill="#627066">业务指标</text>
+  <g font-family="Arial, sans-serif">
+    <rect x="90" y="175" width="370" height="56" rx="10" fill="#e9edf4" stroke="#7f93b0" stroke-width="2"/>
+    <text x="112" y="210" font-size="16" font-weight="700" fill="#334b6a">首次解决率</text>
+    <rect x="740" y="175" width="370" height="56" rx="10" fill="#e7f1e8" stroke="#7ca587" stroke-width="2"/>
+    <text x="762" y="210" font-size="16" font-weight="700" fill="#285339">人工介入率</text>
+    <rect x="90" y="250" width="370" height="56" rx="10" fill="#e9edf4" stroke="#7f93b0" stroke-width="2"/>
+    <text x="112" y="285" font-size="16" font-weight="700" fill="#334b6a">引用覆盖率</text>
+    <rect x="740" y="250" width="370" height="56" rx="10" fill="#e7f1e8" stroke="#7ca587" stroke-width="2"/>
+    <text x="762" y="285" font-size="16" font-weight="700" fill="#285339">错误承诺率</text>
+    <rect x="90" y="325" width="370" height="56" rx="10" fill="#e9edf4" stroke="#7f93b0" stroke-width="2"/>
+    <text x="112" y="360" font-size="16" font-weight="700" fill="#334b6a">工具成功率</text>
+    <rect x="740" y="325" width="370" height="56" rx="10" fill="#e7f1e8" stroke="#7ca587" stroke-width="2"/>
+    <text x="762" y="360" font-size="16" font-weight="700" fill="#285339">平均处理时长</text>
+    <rect x="90" y="400" width="370" height="56" rx="10" fill="#e9edf4" stroke="#7f93b0" stroke-width="2"/>
+    <text x="112" y="435" font-size="16" font-weight="700" fill="#334b6a">P95 时延</text>
+    <rect x="740" y="400" width="370" height="56" rx="10" fill="#e7f1e8" stroke="#7ca587" stroke-width="2"/>
+    <text x="762" y="435" font-size="16" font-weight="700" fill="#285339">用户放弃率</text>
+    <text x="600" y="195" font-size="13" fill="#627066" text-anchor="middle">灰度对照</text>
+    <text x="600" y="270" font-size="13" fill="#627066" text-anchor="middle">抽检 + 投诉</text>
+    <text x="600" y="345" font-size="13" fill="#627066" text-anchor="middle">trace 分解</text>
+    <text x="600" y="420" font-size="13" fill="#627066" text-anchor="middle">前端埋点</text>
+  </g>
+  <g stroke="#51645a" stroke-width="3" fill="none" stroke-linecap="round">
+    <path d="M470 203 L718 203"/>
+    <path d="M470 278 L718 278"/>
+    <path d="M470 353 L718 353"/>
+    <path d="M470 428 L718 428"/>
+  </g>
+  <g fill="#51645a">
+    <path d="M722 203 l-13 -5 0 10z"/>
+    <path d="M722 278 l-13 -5 0 10z"/>
+    <path d="M722 353 l-13 -5 0 10z"/>
+    <path d="M722 428 l-13 -5 0 10z"/>
+  </g>
+  <rect x="90" y="492" width="1020" height="76" rx="12" fill="#f2e6e5" stroke="#ba7a73" stroke-width="2"/>
+  <text x="118" y="524" font-family="Arial, sans-serif" font-size="15" font-weight="700" fill="#703e39">护栏先于优化：越权率与资损不能被平均成功率抵消。</text>
+  <text x="118" y="550" font-family="Arial, sans-serif" font-size="15" fill="#5c4140">灰度按切片看，长尾查询往往就是事故来源。</text>
+  <rect x="90" y="586" width="1020" height="48" rx="10" fill="#17221b"/>
+  <text x="118" y="616" font-family="Arial, sans-serif" font-size="16" font-weight="700" fill="#f7f4ee">模型指标是过程，业务指标才是结果</text>
+</svg>

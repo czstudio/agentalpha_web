@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 640" role="img" aria-labelledby="title desc">
+  <title id="title">目标函数三层结构</title>
+  <desc id="desc">北极星、代理指标和硬约束门控三层，以及门控不能被平均值抵消的原因。</desc>
+  <rect width="1200" height="640" fill="#fbfaf7"/>
+  <text x="72" y="72" font-family="Arial, sans-serif" font-size="28" font-weight="700" fill="#17221b">目标函数不是一个数，是三层</text>
+  <text x="72" y="106" font-family="Arial, sans-serif" font-size="16" fill="#627066">北极星决定方向，代理指标负责可测，门控负责不被平均掉。</text>
+  <g font-family="Arial, sans-serif">
+    <rect x="100" y="165" width="740" height="95" rx="14" fill="#17221b"/>
+    <text x="130" y="203" font-size="20" font-weight="700" fill="#f7f4ee">北极星</text>
+    <text x="130" y="235" font-size="15" fill="#cbd7ce">单位被解决工单成本 —— 业务真正付钱买的结果</text>
+    <rect x="100" y="285" width="740" height="95" rx="14" fill="#e9edf4" stroke="#7f93b0" stroke-width="2"/>
+    <text x="130" y="323" font-size="20" font-weight="700" fill="#334b6a">代理指标</text>
+    <text x="130" y="355" font-size="15" fill="#3e4a5a">首次解决率 · 自动处理率 · 工具成功率 —— 高频、可低成本观测</text>
+    <rect x="100" y="405" width="740" height="95" rx="14" fill="#f2e6e5" stroke="#ba7a73" stroke-width="2"/>
+    <text x="130" y="443" font-size="20" font-weight="700" fill="#703e39">硬约束门控</text>
+    <text x="130" y="475" font-size="15" fill="#5c4140">越权率 = 0 · 错误承诺率 ≤ 0.2% · 资损事件 = 0</text>
+  </g>
+  <g stroke="#51645a" stroke-width="3" fill="none" stroke-linecap="round">
+    <path d="M846 300 L846 224"/>
+  </g>
+  <path d="M846 220 l-6 14 12 0z" fill="#51645a"/>
+  <text x="858" y="268" font-family="Arial, sans-serif" font-size="14" font-weight="700" fill="#285339">必须同向</text>
+  <g font-family="Arial, sans-serif">
+    <text x="918" y="204" font-size="17" font-weight="700" fill="#285339">要最大化</text>
+    <text x="918" y="232" font-size="14" fill="#627066">业务方看这个数</text>
+    <text x="918" y="324" font-size="17" font-weight="700" fill="#285339">可以涨</text>
+    <text x="918" y="352" font-size="14" fill="#627066">但涨了不代表业务变好</text>
+    <text x="918" y="444" font-size="17" font-weight="700" fill="#703e39">一票否决</text>
+    <text x="918" y="472" font-size="14" fill="#627066">不参与平均值计算</text>
+  </g>
+  <rect x="72" y="540" width="1056" height="52" rx="10" fill="#17221b"/>
+  <text x="100" y="572" font-family="Arial, sans-serif" font-size="16" font-weight="700" fill="#f7f4ee">代理指标可以涨，门控不能被换掉 —— 用平均值把一次资损平均掉，是最常见的翻车方式</text>
+</svg>

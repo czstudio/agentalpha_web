@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 650" role="img" aria-labelledby="title desc">
+  <title id="title">单位成功任务成本</title>
+  <desc id="desc">分子包含模型、工具、人工和返工，分母只算正确完成的业务任务，并按业务价值分档路由。</desc>
+  <rect width="1200" height="650" fill="#fbfaf7"/>
+  <text x="72" y="72" font-family="Arial, sans-serif" font-size="28" font-weight="700" fill="#17221b">成本要算单位成功任务，不是单次调用</text>
+  <text x="72" y="106" font-family="Arial, sans-serif" font-size="16" fill="#627066">分子里的人工复核和返工，才是把便宜方案变贵的地方。</text>
+  <text x="100" y="150" font-family="Arial, sans-serif" font-size="14" font-weight="700" fill="#627066">分子：全都算进去</text>
+  <g font-family="Arial, sans-serif">
+    <rect x="100" y="165" width="180" height="80" rx="12" fill="#e9edf4" stroke="#7f93b0" stroke-width="2"/>
+    <text x="190" y="200" font-size="16" font-weight="700" fill="#334b6a" text-anchor="middle">模型调用</text>
+    <text x="190" y="226" font-size="14" fill="#3e4a5a" text-anchor="middle">C_model</text>
+    <rect x="296" y="165" width="180" height="80" rx="12" fill="#e9edf4" stroke="#7f93b0" stroke-width="2"/>
+    <text x="386" y="200" font-size="16" font-weight="700" fill="#334b6a" text-anchor="middle">工具成本</text>
+    <text x="386" y="226" font-size="14" fill="#3e4a5a" text-anchor="middle">C_tool</text>
+    <rect x="492" y="165" width="180" height="80" rx="12" fill="#f2e6e5" stroke="#ba7a73" stroke-width="2"/>
+    <text x="582" y="200" font-size="16" font-weight="700" fill="#703e39" text-anchor="middle">人工复核</text>
+    <text x="582" y="226" font-size="14" fill="#5c4140" text-anchor="middle">C_human</text>
+    <rect x="688" y="165" width="180" height="80" rx="12" fill="#e9edf4" stroke="#7f93b0" stroke-width="2"/>
+    <text x="778" y="200" font-size="16" font-weight="700" fill="#334b6a" text-anchor="middle">返工与基础设施</text>
+    <text x="778" y="226" font-size="14" fill="#3e4a5a" text-anchor="middle">C_infra</text>
+    <text x="288" y="212" font-size="22" font-weight="700" fill="#627066" text-anchor="middle">+</text>
+    <text x="484" y="212" font-size="22" font-weight="700" fill="#627066" text-anchor="middle">+</text>
+    <text x="680" y="212" font-size="22" font-weight="700" fill="#627066" text-anchor="middle">+</text>
+    <line x1="100" y1="275" x2="868" y2="275" stroke="#17221b" stroke-width="3"/>
+    <rect x="100" y="295" width="768" height="80" rx="12" fill="#e7f1e8" stroke="#7ca587" stroke-width="2"/>
+    <text x="484" y="330" font-size="18" font-weight="700" fill="#285339" text-anchor="middle">正确完成的业务任务数</text>
+    <text x="484" y="356" font-size="14" fill="#35443b" text-anchor="middle">N_success —— 是正确完成，不是调用次数</text>
+    <text x="888" y="288" font-size="36" font-weight="700" fill="#17221b" text-anchor="middle">=</text>
+    <rect x="908" y="165" width="242" height="210" rx="14" fill="#17221b"/>
+    <text x="1029" y="262" font-size="17" font-weight="700" fill="#f7f4ee" text-anchor="middle">单位成功任务成本</text>
+    <text x="1029" y="294" font-size="14" fill="#cbd7ce" text-anchor="middle">C_success</text>
+  </g>
+  <text x="100" y="420" font-family="Arial, sans-serif" font-size="14" font-weight="700" fill="#627066">按业务价值分档，便宜的地方尽量便宜</text>
+  <g font-family="Arial, sans-serif">
+    <rect x="100" y="435" width="325" height="110" rx="12" fill="#e7f1e8" stroke="#7ca587" stroke-width="2"/>
+    <text x="124" y="470" font-size="16" font-weight="700" fill="#285339">低价值</text>
+    <text x="124" y="498" font-size="14" fill="#35443b">查物流、改地址</text>
+    <text x="124" y="524" font-size="14" fill="#35443b">小模型 + 规则 + 缓存</text>
+    <rect x="460" y="435" width="325" height="110" rx="12" fill="#f3ead9" stroke="#c39b55" stroke-width="2"/>
+    <text x="484" y="470" font-size="16" font-weight="700" fill="#705426">中价值</text>
+    <text x="484" y="498" font-size="14" fill="#53472f">退换引导、补偿咨询</text>
+    <text x="484" y="524" font-size="14" fill="#53472f">中模型 + 检索 + 审批</text>
+    <rect x="820" y="435" width="325" height="110" rx="12" fill="#f2e6e5" stroke="#ba7a73" stroke-width="2"/>
+    <text x="844" y="470" font-size="16" font-weight="700" fill="#703e39">高价值</text>
+    <text x="844" y="498" font-size="14" fill="#5c4140">大额赔付、合同变更</text>
+    <text x="844" y="524" font-size="14" fill="#5c4140">强模型 + 多人复核 + 留痕</text>
+  </g>
+  <rect x="100" y="578" width="1045" height="48" rx="10" fill="#17221b"/>
+  <text x="126" y="608" font-family="Arial, sans-serif" font-size="16" font-weight="700" fill="#f7f4ee">加上人工和返工，很多看起来便宜的方案会变贵</text>
+</svg>
