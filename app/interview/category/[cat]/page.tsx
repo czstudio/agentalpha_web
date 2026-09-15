@@ -166,7 +166,7 @@ export default async function CategoryPage({ params }: PageProps) {
         <div style={{ maxWidth: "var(--measure)", margin: "0 auto" }}>
           <div className="ivu-cta">
             <p className="ivu-cta-text">
-              <b>把题练成肌肉记忆。</b>AgentAlpha 面试题库持续更新真实面经拆解；想系统上手 Agent 工程，看 AgentAlpha 训练营。
+              <b>这里的题目从不停更。</b>一道一道，都是真实面经里长出来的拆解；想成体系地上手 Agent 工程，就去 AgentAlpha 训练营看看。
             </p>
             <div className="ivu-cta-actions">
               <Link href="/learn" className="ivu-btn ivu-btn-primary">

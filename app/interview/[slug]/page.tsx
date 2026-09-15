@@ -462,7 +462,7 @@ export default async function InterviewDetailPage({ params }: PageProps) {
 
         <div className="ivu-cta">
           <p className="ivu-cta-text">
-            <b>把题练成肌肉记忆。</b>训练营的作业是开源项目和论文——来社区，有人陪你把这道题做到能拿出手。
+            <b>训练营的作业，是开源项目，也是论文。</b>来社区坐坐，总有人陪你，把一道题慢慢做到心里踏实。
           </p>
           <div className="ivu-cta-actions">
             <Link href="/learn" className="ivu-btn ivu-btn-primary">
