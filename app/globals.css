@@ -1903,3 +1903,115 @@ html.enrollment-dialog-open { overflow: hidden; }
 }
 .dark .note-code-card { background: oklch(0.13 0.02 265); }
 .dark .note-code-card summary { background: oklch(0.16 0.02 265); }
+
+/* ═══ 面经 · 面试笔记（feishu-paper-note 骨架 × kami.tw93.fun 暖纸吸收）═══ */
+.mj-page {
+  --mj-paper: #faf9f5;
+  --mj-card: #fffefb;
+  --mj-warm-line: #e8e6dc;
+  --mj-warm-code: #f0eee6;
+  --mj-brand: #1b365d;
+  background: var(--mj-paper);
+}
+.mj-page .aa-note-article { max-width: 1180px; }
+.mj-header { padding-top: 8px; }
+.mj-page .aa-note-header h1 {
+  font-size: clamp(1.7rem, 3vw, 2.45rem);
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  color: #141413;
+}
+.mj-company-pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 3px 10px;
+  border-radius: 999px;
+  background: var(--mj-brand);
+  color: #fffefb;
+  font-size: 0.82rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+.mj-round { color: var(--aa-muted); font-size: 0.86rem; }
+.mj-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 18px; }
+.mj-tag {
+  padding: 2px 10px;
+  border-radius: 999px;
+  border: 1px solid var(--mj-warm-line);
+  background: var(--mj-warm-code);
+  color: #504e49;
+  font-size: 0.78rem;
+}
+/* 飞书式 h2 蓝条（覆盖 notes 的上边线样式） */
+.mj-page .note-prose h2 {
+  border-top: 0;
+  padding: 0 0 0 14px;
+  border-left: 4px solid #3370ff;
+  letter-spacing: 0.01em;
+}
+.mj-page .note-prose { font-size: 1rem; line-height: 1.95; color: #26211a; }
+/* 表格：kami 暖调 */
+.mj-page .note-table-wrap table { font-size: 0.86rem; }
+.mj-page .note-table-wrap th {
+  background: var(--mj-warm-code);
+  border-color: var(--mj-warm-line);
+}
+.mj-page .note-table-wrap td { border-color: var(--mj-warm-line); }
+/* 引用块 → 暖调 callout */
+.mj-callout {
+  margin: 1.4em 0;
+  padding: 14px 18px;
+  background: var(--mj-warm-code);
+  border-left: 3px solid var(--mj-brand);
+  border-radius: 0 10px 10px 0;
+  color: #3d3d3a;
+}
+.mj-callout p { margin: 0.35em 0; }
+.mj-page .note-prose blockquote {
+  margin: 1.4em 0;
+  padding: 12px 18px;
+  background: var(--mj-warm-code);
+  border-left: 3px solid var(--mj-brand);
+  border-radius: 0 10px 10px 0;
+  color: #3d3d3a;
+}
+.mj-pager-more { opacity: 0.72; }
+
+/* 索引页 */
+.mj-index { min-height: 100vh; padding-top: 60px; background: var(--mj-paper); font-family: var(--font-body); color: #26211a; }
+.mj-index-hero { padding: clamp(48px, 8vw, 96px) 0 clamp(28px, 4vw, 48px); }
+.mj-index-kicker { color: #6b6a64; font-size: 0.88rem; letter-spacing: 0.12em; margin: 0 0 14px; }
+.mj-index-hero h1 {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(2rem, 4vw, 3.1rem);
+  line-height: 1.18;
+  color: #141413;
+}
+.mj-index-hero h1 em { font-style: normal; color: #1b365d; }
+.mj-index-lede { max-width: 560px; margin: 20px 0 0; color: #504e49; line-height: 1.85; font-size: 1.02rem; }
+.mj-list { display: grid; gap: 22px; padding-bottom: clamp(56px, 8vw, 96px); }
+.mj-card {
+  display: block;
+  background: var(--mj-card);
+  border: 1px solid var(--mj-warm-line);
+  border-radius: 14px;
+  padding: 26px 30px 24px;
+  color: inherit;
+  text-decoration: none;
+  transition: border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+.mj-card:hover {
+  border-color: #1b365d;
+  transform: translateY(-2px);
+  box-shadow: 0 18px 44px -30px rgb(20 20 19 / 0.3);
+}
+.mj-card-top { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 14px; }
+.mj-card h2 { margin: 0 0 6px; font-family: var(--font-display); font-weight: 600; font-size: 1.28rem; line-height: 1.35; color: #141413; letter-spacing: 0.01em; }
+.mj-card-role { margin: 0 0 10px; color: #6b6a64; font-size: 0.88rem; }
+.mj-card-excerpt { margin: 0 0 16px; color: #3d3d3a; line-height: 1.8; font-size: 0.94rem; }
+.mj-card-foot { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 14px; }
+.mj-card-date { color: #9a9082; font-size: 0.82rem; }
+.mj-card-cta { display: inline-flex; align-items: center; gap: 6px; color: #1b365d; font-weight: 500; font-size: 0.92rem; }
+.mj-outro { background: transparent; }
