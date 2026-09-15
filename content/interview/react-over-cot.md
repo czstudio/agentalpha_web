@@ -23,13 +23,13 @@ updated: "2026-09-14"
 
 ![标准提示与思维链提示的推理链对比](/images/interview/react-over-cot/paper-2201.11903.png)
 图：标准提示与思维链提示的推理链对比（论文 CoT Figure 1，图片来源：arXiv:2201.11903）
-![会想 ≠ 会做：CoT 与 ReAct 的差别就在这条循环](/images/interview/react-over-cot/meme-1.webp)
+![会想 ≠ 会做：CoT 与 ReAct 的差别就在这条循环](/images/interview/react-over-cot/meme-1.png)
 梗图：会想 ≠ 会做：CoT 与 ReAct 的差别就在这条循环。
 ## 先说结论
 
 **CoT 只让模型“把推理写出来”，推理停留在纸面：不能执行动作，也拿不到环境的真实反馈，前提错了就一路错到底。ReAct 在推理和行动之间加了交替循环——想一步、做一步、看结果、再想——推理由此落地，错误能被环境当场纠正**。Agent 的底层逻辑就是这个循环，而不只是“会推理”。
 
-![ReAct 循环：想一步、做一步、看反馈](/images/interview/react-over-cot/fig-1.webp)
+![ReAct 循环：想一步、做一步、看反馈](/images/interview/react-over-cot/fig-1.png)
 图：小蓝图解——ReAct 循环：想一步、做一步、看反馈。
 ## CoT：纸面推演的天花板
 

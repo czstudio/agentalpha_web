@@ -37,7 +37,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     openGraph: {
       title: post.title,
       description,
-      images: hasCover(post.slug) ? [`/images/interview/${post.slug}/cover-og.jpg`] : undefined,
+      images: hasCover(post.slug) ? [`/images/interview/${post.slug}/cover.png`] : undefined,
     },
   }
 }
@@ -215,7 +215,7 @@ export default async function InterviewDetailPage({ params }: PageProps) {
     "@type": "Article",
     headline: post.title,
     description: post.excerpt,
-    image: cover ? [`https://agentalpha.top/images/interview/${post.slug}/cover-og.jpg`] : undefined,
+    image: cover ? [`https://agentalpha.top/images/interview/${post.slug}/cover.png`] : undefined,
     author: { "@type": "Person", name: post.author },
     ...(post.papers.length
       ? { about: post.papers.map((p) => ({ "@type": "ScholarlyArticle", name: p.title })) }
@@ -355,25 +355,6 @@ export default async function InterviewDetailPage({ params }: PageProps) {
             <section aria-label="延伸阅读 · 论文原文">
               {post.papers.map((paper) => (
                 <PaperCard key={paper.arxiv} slug={post.slug} paper={paper} />
-              ))}
-            </section>
-          ) : null}
-
-          {post.works.length ? (
-            <section aria-label="社区成果 · 开源与论文">
-              {post.works.map((work) => (
-                <aside className="ivu-work" key={work.url}>
-                  <a className="ivu-work-head" href={work.url} target="_blank" rel="noopener noreferrer">
-                    <span className="ivu-work-badge">{work.badge}</span>
-                    <span className="ivu-work-name">{work.name}</span>
-                  </a>
-                  <div className="ivu-work-body">
-                    <p className="ivu-work-desc">{work.desc}</p>
-                    <a className="ivu-work-link" href={work.url} target="_blank" rel="noopener noreferrer">
-                      前往查看 ↗
-                    </a>
-                  </div>
-                </aside>
               ))}
             </section>
           ) : null}

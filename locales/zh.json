@@ -102,17 +102,7 @@
     "idea2story_feature2_desc": "学习顶会套路，自动生成完整学术叙事",
     "idea2story_contributors": "AgentAlpha 社区成员一起做的开源项目",
     "view_paper": "查看论文",
-    "star_github": "去 GitHub 看看",
-    "metarsi_title": "MetaRSI-v1",
-    "metarsi_desc": "首个元递归自我改进架构：不改权重也能让系统在 Data、Harness、Model 三个算子上持续自我进化。AgentAlpha 是参与单位之一。",
-    "metarsi_contributors": "CosmosMind 牵头，清华、北大、斯坦福、MIT 等联合，AgentAlpha 参与共建",
-    "metarsi_github": "GitHub 开源",
-    "metarsi_paper": "技术报告 PDF",
-    "s2p_title": "Story2Proposal",
-    "s2p_desc": "多智能体协同生成长篇学术文档的框架：架构师、撰写者、评估者、润色者闭环协作，视觉契约机制保证图文对齐。",
-    "s2p_contributors": "AgentAlpha 社区新作，长文生成的一致性方案",
-    "s2p_paper": "查看论文",
-    "s2p_demo": "在线体验 PaperBuild"
+    "star_github": "去 GitHub 看看"
   },
   "talks": {
     "tag": "分享、圆桌和论文精读",

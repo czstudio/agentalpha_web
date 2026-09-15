@@ -23,7 +23,7 @@ AgentAlpha 面试题库 · 字节篇 Memory 部分的第一题是这么问的：
 
 RAG 解决「去哪找知识」：对语料做相似度检索，把相关内容送进上下文。Memory 解决「什么该记住、什么时候该忘」：包含写入决策、时间与重要性排序、冲突处理、遗忘机制。两者是包含关系——语义检索是 Memory 取回内容的一种手段；RAG 系统可以没有记忆，Memory 系统几乎离不开检索。判断标准：知识是共享的、无个人状态的，RAG 够用；要跨会话记住用户、跟踪状态、处理新旧冲突，必须上 Memory。
 
-![Memory vs RAG：查资料 vs 记得你](/images/interview/agent-memory-vs-rag/fig-1.webp)
+![Memory vs RAG：查资料 vs 记得你](/images/interview/agent-memory-vs-rag/fig-1.png)
 图：小蓝图解——Memory vs RAG：查资料 vs 记得你。
 ## 一、同一个对话里的两句话，命运应该不同
 

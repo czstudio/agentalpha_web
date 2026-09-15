@@ -102,17 +102,7 @@
     "idea2story_feature2_desc": "Learn top conference patterns, automatically generate complete academic narratives",
     "idea2story_contributors": "AgentAlpha Community BATman's major open-source achievement",
     "view_paper": "View Paper",
-    "star_github": "Star on GitHub",
-    "metarsi_title": "MetaRSI-v1",
-    "metarsi_desc": "The first meta-recursive self-improving architecture: keep evolving across Data, Harness and Model operators without touching weights. AgentAlpha is a contributing unit.",
-    "metarsi_contributors": "Led by CosmosMind with Tsinghua, PKU, Stanford, MIT and more; built with AgentAlpha",
-    "metarsi_github": "GitHub repo",
-    "metarsi_paper": "Technical report PDF",
-    "s2p_title": "Story2Proposal",
-    "s2p_desc": "A multi-agent framework for long-form academic documents: architect, writer, evaluators and refiner in a closed loop, with a Visual Contract mechanism for text-figure alignment.",
-    "s2p_contributors": "New work from the AgentAlpha community",
-    "s2p_paper": "Read paper",
-    "s2p_demo": "Try PaperBuild"
+    "star_github": "Star on GitHub"
   },
   "talks": {
     "tag": "Talks & Roundtables · Paper Reading",
