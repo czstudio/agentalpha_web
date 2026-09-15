@@ -462,7 +462,7 @@ export default async function InterviewDetailPage({ params }: PageProps) {
 
         <div className="ivu-cta">
           <p className="ivu-cta-text">
-            <b>把看过的题，变成简历上的项目。</b>训练营的作业是开源项目和论文，社区有人陪你从方案改到代码。
+            <b>我们不做玩具级 Demo 教学。</b>训练营的作业是开源项目和论文——我们想陪伴你，做出能改变生活、最后改变世界的项目。
           </p>
           <div className="ivu-cta-actions">
             <Link href="/learn" className="ivu-btn ivu-btn-primary">
