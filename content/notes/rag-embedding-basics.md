@@ -1,7 +1,7 @@
 ---
 slug: "rag-embedding-basics"
 title: "Embedding 到底把什么变成了向量？相似不等于正确"
-excerpt: "Embedding 把文本放进可比较的语义空间，但不理解权限、时间和业务优先级。做 RAG 的第一步，是先知道它能做什么，也知道它做不到什么。"
+excerpt: "Embedding 把文本放进能比较的语义空间，可它不懂权限、时间和业务上的轻重。上手 RAG，先弄清它能干什么、干不了什么。"
 series: "RAG"
 seriesNo: "03"
 number: "10"

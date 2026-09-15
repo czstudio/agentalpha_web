@@ -1,7 +1,7 @@
 ---
 slug: "multi-agent-evaluation"
 title: "多 Agent 协作怎么评测？不能只看最终答案"
-excerpt: "最终答案正确，不代表协作过程可靠。评测多 Agent，要把个体能力、消息质量、协作效率、失败恢复和安全边界拆开看。"
+excerpt: "最终答案对了，不代表协作过程靠得住。评多 Agent，得把个体能力、消息质量、协作效率、失败恢复、安全边界分开，一项一项看。"
 series: "多智能体"
 seriesNo: "07"
 number: "33"

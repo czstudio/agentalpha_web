@@ -1,7 +1,7 @@
 ---
 slug: "rag-evaluation-practice"
 title: "RAG 怎么评测才不自欺？把“答得像”拆开看"
-excerpt: "RAG 评测不能只看最终答案。把数据、召回、证据引用和生成分层，才能知道系统究竟在哪一环掉链子。"
+excerpt: "RAG 评测只盯最终答案，看不出门道。数据、召回、证据引用、生成，一层层分开查，才知道系统到底掉链子在哪一环。"
 series: "RAG"
 seriesNo: "03"
 number: "13"

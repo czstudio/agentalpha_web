@@ -1,7 +1,7 @@
 ---
 slug: "rag-grounded-evidence"
 title: "RAG 答案看着对，怎样证明它有依据？"
-excerpt: "引用一个文档链接不等于有依据。验证 RAG 答案时，要把结论拆成可核查的 claim，再检查证据是否覆盖、矛盾，以及是否来自正确版本。"
+excerpt: "贴一个文档链接，不等于答案有依据。验证 RAG 答案，得把结论拆成能核查的 claim，再对着证据看：覆盖没有、矛盾没有、版本对不对。"
 series: "评测"
 seriesNo: "09"
 number: "40"

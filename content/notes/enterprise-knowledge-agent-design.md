@@ -1,7 +1,7 @@
 ---
 slug: "enterprise-knowledge-agent-design"
 title: "从零设计企业知识库 Agent，第一张图该画什么？"
-excerpt: "企业知识库 Agent 第一张图不该只有模型调用，而要先画证据和权限：谁属于哪个租户、能查哪些版本、答案怎样引用、出错后怎么追溯。"
+excerpt: "画企业知识库 Agent 的第一张图，别只画模型调用。证据和权限要先落上去：谁属于哪个租户、能查哪些版本、答案怎么引用、出了错往哪追。"
 series: "项目深挖"
 seriesNo: "11"
 number: "50"

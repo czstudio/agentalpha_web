@@ -1,7 +1,7 @@
 ---
 slug: llm-moe-routing
 title: MoE 为什么参数更多，推理却不一定更贵？
-excerpt: MoE 不是把多个模型简单拼在一起。效果和成本取决于路由器给 token 选哪些专家、容量怎么避免拥堵，以及 token 怎样分发到不同设备。
+excerpt: 几个模型简单拼一起，不叫 MoE。效果和成本，看路由器替 token 挑哪些专家、容量怎么才不堵、token 又怎么分到不同设备上。
 series: "LLM 基础"
 seriesNo: "04"
 number: "16"

@@ -1,7 +1,7 @@
 ---
 slug: "multi-agent-supervisor-arbitrator"
 title: "多 Agent 结论打架怎么办？监督者和仲裁器各管什么"
-excerpt: "多个 Agent 给出冲突结论时，继续让它们自由辩论，通常只会多出几页文字。监督者要查过程和边界，仲裁器要比证据和责任，不能只靠投票。"
+excerpt: "几个 Agent 结论打架，再让它们自由辩论，多半只多出几页字。监督者查过程和边界，仲裁器比证据和责任，别只靠投票。"
 series: "多智能体"
 seriesNo: "07"
 number: "31"

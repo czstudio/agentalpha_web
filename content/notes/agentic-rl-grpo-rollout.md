@@ -1,7 +1,7 @@
 ---
 slug: "agentic-rl-grpo-rollout"
 title: "GRPO 训练 Agent，为什么 rollout 总把系统拖垮？"
-excerpt: "GRPO 公式不难，难的是把一批能比较、能复现、成本也扛得住的 Agent 轨迹采出来。工具、并发、超时和长短不一的轨迹，都会把训练系统拖垮。"
+excerpt: "GRPO 的公式不难，难的是采出一批比得了、复现得了、成本也扛得住的 Agent 轨迹。工具、并发、超时，加上轨迹长短不齐，随时能把训练系统拖垮。"
 series: "Agentic RL"
 seriesNo: "01"
 number: "03"

@@ -25,7 +25,7 @@ export default function NotesIndexPage() {
     {
       no: "01",
       label: "系统骨架",
-      title: "先把 Agent 画成一张能运行的图",
+      title: "先把 Agent 画成一张跑得通的图",
       description: "从 Agentic RL、架构、Code Agent 到多智能体，把状态、行动、交接、恢复这几块挨个讲透。",
       count: seriesCount(["Agentic RL", "Agent 架构", "Code Agent", "多智能体"]),
       href: "#series-01",
@@ -147,15 +147,15 @@ export default function NotesIndexPage() {
         <section id="wechat-archive" className="aa-notes-wechat" aria-labelledby="wechat-archive-title">
           <div className="aa-notes-shell">
             <div className="aa-notes-wechat-head">
-              <div><p className="aa-notes-kicker">AgentAlpha 公众号 · 已发表文章</p><h2 id="wechat-archive-title">公众号里发过的，原文收录在这里。</h2></div>
-              <p>主题和站内笔记重叠的，两边各自保留，互不替换。</p>
+              <div><p className="aa-notes-kicker">AgentAlpha 公众号 · 已发表文章</p><h2 id="wechat-archive-title">公众号发过的内容，原文都收在这里。</h2></div>
+              <p>主题跟站内笔记有重叠的，两边都留着，不互相替换。</p>
             </div>
             <div className="aa-notes-wechat-grid">
               {publishedWechat.map((article) => <a className="aa-notes-wechat-card" href={article.url} target="_blank" rel="noreferrer" key={article.articleId}><span>{article.publishedAt} · 已发表</span><h3>{article.title}</h3><strong>打开原文 <ArrowUpRight aria-hidden /></strong></a>)}
             </div>
             <div className="aa-notes-cta-grid">
-              <Link className="aa-notes-cta-card" href="/community#3-课程体系"><span>课程入口</span><strong>训练营的作业是开源项目和论文 <ArrowRight aria-hidden /></strong><small>课程体系全部公开，成品看社区项目页</small></Link>
-              <Link className="aa-notes-cta-card aa-notes-cta-card--dark" href="/#join"><span>社区入口</span><strong>加入 AgentAlpha，一起练习和复盘 <ArrowRight aria-hidden /></strong><small>我们不保证 offer，只保证每周有人陪你过代码、看结果</small></Link>
+              <Link className="aa-notes-cta-card" href="/community#3-课程体系"><span>课程入口</span><strong>训练营要交的作业是开源项目和论文 <ArrowRight aria-hidden /></strong><small>课程体系全部公开，成品去社区项目页看</small></Link>
+              <Link className="aa-notes-cta-card aa-notes-cta-card--dark" href="/#join"><span>社区入口</span><strong>来 AgentAlpha，一起练习和复盘 <ArrowRight aria-hidden /></strong><small>offer 我们不敢保证，能保证的是每周有人陪你过代码、看结果</small></Link>
             </div>
           </div>
         </section>

@@ -1,7 +1,7 @@
 ---
 slug: "multimodal-video-agent"
 title: "视频 Agent 怎样处理百万级帧？先把时间定位做好"
-excerpt: "视频 Agent 不会把每一帧都塞给模型。它先建立时间轴，用镜头切分、关键帧、语音和 OCR 做粗到细检索，再把答案落回能回放的时间区间。"
+excerpt: "视频 Agent 不会逐帧塞给模型。先建时间轴，用镜头切分、关键帧、语音、OCR 做粗到细检索，再把答案落回能回放的时间区间。"
 series: "多模态"
 seriesNo: "08"
 number: "38"

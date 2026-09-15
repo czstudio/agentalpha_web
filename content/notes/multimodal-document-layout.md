@@ -1,7 +1,7 @@
 ---
 slug: "multimodal-document-layout"
 title: "文档理解为什么不能只做 OCR？版面关系才是线索"
-excerpt: "把 PDF 变成一串 OCR 文本，会丢掉栏、行、表头和脚注之间的关系。可靠的文档 Agent 还要保存文字、坐标、块类型和跨页结构，才能回答‘哪一列、哪一行、依据在哪’。"
+excerpt: "PDF 压成一串 OCR 文本，栏、行、表头、脚注之间的关系就没了。文档 Agent 想可靠，得把文字、坐标、块类型、跨页结构一起存下来，才答得出“哪一列、哪一行、依据在哪”。"
 series: "多模态"
 seriesNo: "08"
 number: "36"

@@ -1,7 +1,7 @@
 ---
 slug: llm-transformer-vs-rnn
 title: Transformer 为什么跑赢 RNN？别只说“因为能并行”
-excerpt: RNN 不是突然“过时”了，而是顺序依赖在大规模训练和长上下文里越来越昂贵。把训练、推理、位置和工程取舍拆开，才讲得清 Transformer 为什么占上风。
+excerpt: RNN 不是突然就过时了，是顺序依赖在大规模训练和长上下文里越来越贵。把训练、推理、位置、工程取舍分开算，才讲得清 Transformer 为什么占上风。
 series: "LLM 基础"
 seriesNo: "04"
 number: "15"

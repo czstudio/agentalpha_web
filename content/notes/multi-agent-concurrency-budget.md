@@ -1,7 +1,7 @@
 ---
 slug: "multi-agent-concurrency-budget"
 title: "多 Agent 为什么越加人越慢？先管并发和预算"
-excerpt: "并发不是把 Agent 数量直接乘上去。共享资源、复制上下文和尾延迟，都会让协作越多越慢；真正要管的是任务拓扑、扇出、token 和失败重试。"
+excerpt: "并发不是 Agent 数量直接相乘。共享资源、复制上下文、尾延迟，都会让协作越多越慢；真正要管的是任务拓扑、扇出、token 和失败重试。"
 series: "多智能体"
 seriesNo: "07"
 number: "32"

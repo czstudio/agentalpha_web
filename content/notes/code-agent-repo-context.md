@@ -1,7 +1,7 @@
 ---
 slug: "code-agent-repo-context"
 title: "代码 Agent 为什么总要先读仓库，再开始写？"
-excerpt: "把任务约束、代码入口、依赖关系和验证路径按优先级交给 Agent。读对内容，比读得多更重要。"
+excerpt: "给 Agent 喂仓库，要讲优先级：任务约束、代码入口、依赖关系、验证路径。读对地方，比读得多更要紧。"
 series: "Code Agent"
 seriesNo: "02"
 number: "05"

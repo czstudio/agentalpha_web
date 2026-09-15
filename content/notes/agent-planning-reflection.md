@@ -1,7 +1,7 @@
 ---
 slug: "agent-planning-reflection"
 title: "规划与反思什么时候有用，什么时候只是让 Agent 多说废话"
-excerpt: "Planner 不是拆得越细越聪明，Reflection 也不是再问一句‘你确定吗’。计划要能执行，反馈要能改方向，什么时候停也得提前说清。"
+excerpt: "Planner 不是拆得越细越聪明，Reflection 也不是补一句“你确定吗”。计划得能落地执行，反馈得真能改方向，什么时候收手也要提前定好。"
 series: "Agent 架构"
 seriesNo: "06"
 number: "26"

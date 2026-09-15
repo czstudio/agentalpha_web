@@ -1,7 +1,7 @@
 ---
 slug: "agent-workflow-vs-agent"
 title: "Workflow 还是 Agent？先看这件事到底有多不确定"
-excerpt: "Workflow 和 Agent 不是谁更先进的二选一。先看任务的不确定性、风险、验证成本和回退办法，再决定哪些步骤交给 Agent，哪些边界必须写死。"
+excerpt: "Workflow 和 Agent 不是谁更先进的二选一。先看任务不确定性、风险、验证成本、回退办法，再定哪些步骤交给 Agent，哪些边界写死。"
 series: "Agent 架构"
 seriesNo: "06"
 number: "61"

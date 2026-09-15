@@ -1,7 +1,7 @@
 ---
 slug: llm-attention-context
 title: Attention 到底在算什么？从一行公式讲清上下文理解
-excerpt: 面试别只背 Q、K、V。把 Attention 拆成“找谁相关、取哪些信息、按多大权重合并”，再接上 mask、多头和复杂度，Transformer 为什么能处理上下文就清楚了。
+excerpt: 面试别只背 Q、K、V。把 Attention 拆成找谁相关、取哪些信息、按多大权重合并，再连上 mask、多头和复杂度，Transformer 为什么读得懂上下文就清楚了。
 series: "LLM 基础"
 seriesNo: "04"
 number: "14"

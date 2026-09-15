@@ -1,7 +1,7 @@
 ---
 slug: "llm-tokenizer-position-encoding"
 title: "Tokenizer 和位置编码：模型为什么不按你以为的词来读？"
-excerpt: "Token 不是字数，位置也不只是给每个词贴序号。要把分词粒度、上下文长度、位置外推和成本体验连起来，才解释得清同一句话换种语言或变长后为什么表现不同。"
+excerpt: "Token 不是字数，位置也不是给每个词贴个序号就完了。分词粒度、上下文长度、位置外推、成本体验要连起来看，才解释得了同一句话换个语言、变长之后表现为什么不一样。"
 series: "LLM 基础"
 seriesNo: "04"
 number: "70"

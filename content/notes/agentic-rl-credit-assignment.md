@@ -1,7 +1,7 @@
 ---
 slug: "agentic-rl-credit-assignment"
 title: "Agent 做错了，二十步里到底哪一步该负责？"
-excerpt: "二十步轨迹里，通常只有两三步真正改变了结果。credit assignment 做的就是把它们找出来，而不是给整条轨迹一张模糊的罚单。"
+excerpt: "一条二十步的轨迹，真正改变结果的可能就两三步。credit assignment 要做的就是把这几步挑出来，而不是给整条轨迹开一张糊涂罚单。"
 series: "Agentic RL"
 seriesNo: "01"
 number: "02"

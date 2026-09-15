@@ -1,7 +1,7 @@
 ---
 slug: "multi-agent-protocol-state"
 title: "多 Agent 不是群聊：消息和状态到底怎么管？"
-excerpt: "多 Agent 协作的关键不是让它们互相发消息，而是约定谁能说什么、谁能改什么、状态何时提交，以及消息怎样被确认。"
+excerpt: "让多个 Agent 互相发消息不难，难的是事先约好：谁能动嘴、谁能动状态、什么时候提交、消息怎么算确认。"
 series: "多智能体"
 seriesNo: "07"
 number: "30"

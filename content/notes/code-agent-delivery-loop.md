@@ -1,7 +1,7 @@
 ---
 slug: "code-agent-delivery-loop"
 title: "Code Agent 怎样把一句需求稳稳做成补丁？"
-excerpt: "可靠的 Code Agent 不会把一句需求直接变成一大段代码，而是先拆成可验证的任务，沿仓库证据小步修改，最后分层验收，证明补丁真的能交付。"
+excerpt: "靠谱的 Code Agent 不会拿一句需求直接换一大段代码，先拆成可验证的任务，照着仓库里的证据小步改，最后分层验收，证明补丁真能交付。"
 series: "Code Agent"
 seriesNo: "02"
 number: "49"

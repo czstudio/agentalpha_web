@@ -1,7 +1,7 @@
 ---
 slug: "llm-dpo-vs-ppo"
 title: "DPO 和 PPO 到底差在哪？什么时候可以不要奖励模型"
-excerpt: "DPO 把偏好优化改成离线分类目标，省掉 PPO 的在线 rollout 和显式奖励模型，但没有消除数据质量、参考策略和分布外风险。把训练目标、链路和选型边界放一起，才讲得清差异。"
+excerpt: "DPO 把偏好优化改成离线分类目标，省掉 PPO 的在线 rollout 和显式奖励模型；但数据质量、参考策略、分布外风险还在。训练目标、链路、选型边界放一起，差异才清楚。"
 series: "LLM 训练"
 seriesNo: "05"
 number: "21"

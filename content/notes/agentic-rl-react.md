@@ -1,7 +1,7 @@
 ---
 slug: "agentic-rl-react"
 title: "Agent 已经会 ReAct，为什么还要做 Agentic RL？"
-excerpt: "会调工具，只能说明流程跑得通。Agentic RL 要学的是环境变化时何时搜索、何时执行、何时停下，以及失败后哪一步真正影响了结果。"
+excerpt: "会调工具只说明流程跑得通。Agentic RL 真正要练的是环境变了怎么办：何时搜索、何时执行、何时停，失败后哪一步真正左右结果。"
 series: "Agentic RL"
 seriesNo: "01"
 number: "01"

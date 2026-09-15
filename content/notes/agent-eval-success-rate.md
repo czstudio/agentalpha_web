@@ -1,7 +1,7 @@
 ---
 slug: "agent-eval-success-rate"
 title: "Agent 评测不能只看成功率：从结果到轨迹的五层指标"
-excerpt: "Agent 报告成功，不等于任务真的完成。把结果、步骤、工具调用、成本和安全约束分开检查，才能看出它哪里稳定，哪里只是碰巧答对。"
+excerpt: "Agent 自报成功，任务未必真的完成。结果、步骤、工具调用、成本、安全约束分开查，才看得清它哪里稳，哪里只是碰巧答对。"
 series: "评测"
 seriesNo: "09"
 number: "39"

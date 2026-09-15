@@ -1,7 +1,7 @@
 ---
 slug: "code-agent-resume-exactly-once"
 title: "Code Agent 跑到一半挂了，怎样恢复又不重复执行？"
-excerpt: "恢复不是把聊天记录从头接着播一遍。要靠持久化状态、操作幂等键和未知结果对账，把重复副作用挡在边界外。"
+excerpt: "恢复不是把聊天记录从头再播一遍，得靠持久化状态、操作幂等键，再加上对未知结果的对账，把重复副作用挡在外面。"
 series: "Code Agent"
 seriesNo: "02"
 number: "08"
