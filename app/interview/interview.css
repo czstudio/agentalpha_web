@@ -37,7 +37,7 @@
   --font-serif: Georgia, "Times New Roman", "Songti SC", "Noto Serif CJK SC", "SimSun", serif;
   --font-mono: ui-monospace, "SF Mono", Consolas, "Courier New", monospace;
   /* 版心 */
-  --measure: 720px;
+  --measure: 740px;
   --wide: 1120px;
   --radius: 12px;
   --shadow: 0 10px 30px -18px rgba(38, 33, 26, 0.25);
@@ -45,8 +45,8 @@
   background: var(--paper);
   color: var(--ink);
   font-family: var(--font-sans);
-  font-size: 18px;
-  line-height: 1.85;
+  font-size: 16px;
+  line-height: 1.78;
   letter-spacing: 0.01em;
   min-height: 100vh;
   -webkit-font-smoothing: antialiased;
@@ -116,7 +116,7 @@
 }
 .ivu-list-title {
   font-family: var(--font-serif);
-  font-size: 42px;
+  font-size: 34px;
   font-weight: 400;
   letter-spacing: 0.04em;
   margin: 0 0 12px;
@@ -501,7 +501,7 @@
 }
 .ivu-card-body { padding: 18px 20px 20px; display: flex; flex-direction: column; gap: 8px; flex: 1; }
 .ivu-card-title {
-  font-size: 17px;
+  font-size: 16px;
   font-weight: 700;
   line-height: 1.5;
   margin: 0;
@@ -545,14 +545,15 @@
   width: 100%;
   max-width: var(--measure);
   margin: 0 auto;
-  aspect-ratio: 21 / 9;
-  object-fit: cover;
+  aspect-ratio: 3 / 2;
+  object-fit: contain;
   border: 1px solid var(--line);
   border-radius: var(--radius);
+  background: var(--paper-2);
 }
 @media (max-width: 640px) {
   .ivu-hero { padding: 16px 20px 0; }
-  .ivu-hero img { aspect-ratio: 2 / 1; }
+  .ivu-hero img { aspect-ratio: 3 / 2; }
 }
 
 /* ── 详情页：卷头 ─────────────────────────── */
@@ -572,13 +573,13 @@
   color: var(--brand-deep);
 }
 .ivu-h1 {
-  font-size: 30px;
+  font-size: 26px;
   line-height: 1.45;
   font-weight: 700;
   margin: 0 0 14px;
   letter-spacing: 0.01em;
 }
-.ivu-lede { color: var(--ink-2); font-size: 17px; margin: 0 0 26px; }
+.ivu-lede { color: var(--ink-2); font-size: 15.5px; margin: 0 0 24px; }
 .ivu-rule {
   height: 7px;
   border-top: 2px solid var(--line-strong);
@@ -597,7 +598,7 @@
 }
 .ivu-question-no {
   font-family: var(--font-serif);
-  font-size: 54px;
+  font-size: 44px;
   line-height: 1;
   color: var(--brand);
   flex: none;
@@ -612,7 +613,7 @@
   margin-bottom: 8px;
 }
 .ivu-question-text {
-  font-size: 21px;
+  font-size: 19px;
   font-weight: 600;
   line-height: 1.7;
   margin: 0;
@@ -1120,21 +1121,21 @@
   .ivu-catgrid { grid-template-columns: repeat(2, 1fr); }
 }
 @media (max-width: 640px) {
-  .ivu-root { font-size: 17px; }
+  .ivu-root { font-size: 16px; }
   .ivu-list-head { padding-top: 44px; }
   .ivu-list-title { font-size: 32px; }
   .ivu-grid { grid-template-columns: 1fr; }
   .ivu-head { padding-top: 30px; }
-  .ivu-h1 { font-size: 24px; }
-  .ivu-lede { font-size: 16px; }
+  .ivu-h1 { font-size: 22px; }
+  .ivu-lede { font-size: 15px; }
   .ivu-question { flex-direction: column; gap: 12px; padding: 20px 2px; }
   .ivu-question-no {
-    font-size: 36px;
+    font-size: 32px;
     border-right: none;
     padding-right: 0;
     line-height: 1.1;
   }
-  .ivu-question-text { font-size: 19px; }
+  .ivu-question-text { font-size: 17px; }
   .ivu-measure, .ivu-wide { padding: 0 20px; }
   .ivu-prose h2 { margin-top: 44px; }
   .ivu-pn { grid-template-columns: 1fr; }

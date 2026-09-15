@@ -18,7 +18,7 @@ updated: "2026-09-14"
 
 
 ![LLM 自主 Agent 的统一架构：profile / memory / pl](/images/interview/llm-vs-agent/paper-2308.11432.png)
-图：LLM 自主 Agent 的统一架构：profile / memory / planning / action（论文 Agent 综述 Figure 2，图片来源：arXiv:2308.11432）
+图：LLM 自主 Agent 的统一架构（profile 定义角色、memory 管理上下文、planning 拆解子目标、action 执行工具调用——主流 Agent 框架的四个公共模块）
 ## 先说结论
 
 **LLM 是一个被动的文本生成器：输入文本，输出文本，到此为止。Agent 是以 LLM 为大脑，配上规划、记忆和工具的工程框架，能围绕目标自主行动、观察结果、修正方向**。区别不在模型聪不聪明，而在系统有没有“行动、观察、修正”的执行结构。

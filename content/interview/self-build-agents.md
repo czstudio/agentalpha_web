@@ -44,7 +44,7 @@ updated: "2026-09-14"
 
 
 ![四种提示方法对比：标准 / CoT / 只行动 / ReAct](/images/interview/self-build-agents/paper-2210.03629.svg)
-图：四种提示方法对比：标准 / CoT / 只行动 / ReAct（论文 ReAct Figure 1，图片来源：arXiv:2210.03629）
+图：四种提示方法的对比实验（同一组任务上：Standard 直接答题、CoT 先写推理再答、Act-only 只执行不思考、ReAct 想一步做一步再看观察结果；带环境反馈的 ReAct 在 HotpotQA 与 ALFWorld 上成功率都明显更高）
 ## 自建的最小起步
 
 “自建”听起来吓人，起步其实很轻，常见路径分三步。

@@ -91,7 +91,7 @@ Reflexion（arXiv:2303.11366）把「反馈驱动修正」推得更远：它让 
 
 
 ![Reflexion 的 Actor–Evaluator–自我反思架构](/images/interview/functioncall-unstable/paper-2303.11366.png)
-图：Reflexion 的 Actor–Evaluator–自我反思架构（论文 Reflexion Figure 2，图片来源：arXiv:2303.11366）
+图：Reflexion 的自我反思架构（Actor 负责生成动作，Evaluator 给结果打分，反思模型把失败原因写成文字反馈存进记忆，下一轮 Actor 带着教训重试）
 ## 把稳定性当成系统属性来验收
 
 说完三层来源，给一个面试和工程里都实用的收束：**稳定性不是模型属性，是系统属性**。一条可验收的工具调用链路至少要有四件套：规范的 Schema（约束输入）、干净的上下文（约束判断）、校验层与带反馈的重试（拦输出）、错误分类与降级（兜失败）。
