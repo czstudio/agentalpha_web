@@ -3,6 +3,13 @@ import path from "node:path"
 
 const interviewRoot = path.join(process.cwd(), "content", "interview")
 
+export interface InterviewWork {
+  name: string
+  desc: string
+  url: string
+  badge: string
+}
+
 export interface InterviewPaper {
   arxiv: string
   title: string
@@ -25,6 +32,7 @@ export interface InterviewMeta {
   author: string
   source: string
   papers: InterviewPaper[]
+  works: InterviewWork[]
 }
 
 /** 分类词表与元数据，来源 content/interview/categories.json（唯一来源） */
@@ -80,6 +88,21 @@ function parseTags(raw: string | undefined): string[] {
     .filter(Boolean)
 }
 
+function loadWorks(): Record<string, InterviewWork[]> {
+  const indexPath = path.join(interviewRoot, "index.json")
+  if (!fs.existsSync(indexPath)) return {}
+  try {
+    const parsed = JSON.parse(fs.readFileSync(indexPath, "utf8"))
+    const works: Record<string, InterviewWork[]> = {}
+    for (const post of parsed.posts || []) {
+      if (Array.isArray(post.works) && post.works.length) works[post.slug] = post.works
+    }
+    return works
+  } catch {
+    return {}
+  }
+}
+
 function loadIndex(): Record<string, InterviewPaper[]> {
   const indexPath = path.join(interviewRoot, "index.json")
   if (!fs.existsSync(indexPath)) return {}
@@ -95,7 +118,12 @@ function loadIndex(): Record<string, InterviewPaper[]> {
   }
 }
 
-function toMeta(slug: string, data: Record<string, string>, papersBySlug: Record<string, InterviewPaper[]>): InterviewMeta {
+function toMeta(
+  slug: string,
+  data: Record<string, string>,
+  papersBySlug: Record<string, InterviewPaper[]>,
+  worksBySlug: Record<string, InterviewWork[]>,
+): InterviewMeta {
   return {
     slug: data.slug || slug,
     no: data.no || "00",
@@ -110,6 +138,7 @@ function toMeta(slug: string, data: Record<string, string>, papersBySlug: Record
     author: data.author || "AgentAlpha",
     source: data.source || "AgentAlpha 社区",
     papers: papersBySlug[slug] || [],
+    works: worksBySlug[slug] || [],
   }
 }
 
@@ -139,13 +168,14 @@ export function getInterviewHeadings(content: string): InterviewHeading[] {
 export function getAllInterview(): InterviewMeta[] {
   if (!fs.existsSync(interviewRoot)) return []
   const papersBySlug = loadIndex()
+  const worksBySlug = loadWorks()
   return fs
     .readdirSync(interviewRoot)
     .filter((file) => file.endsWith(".md"))
     .map((file) => {
       const raw = fs.readFileSync(path.join(interviewRoot, file), "utf8")
       const { data } = parseFrontmatter(raw)
-      return toMeta(file.replace(/\.md$/, ""), data, papersBySlug)
+      return toMeta(file.replace(/\.md$/, ""), data, papersBySlug, worksBySlug)
     })
     .sort((a, b) => a.no.localeCompare(b.no))
 }
@@ -154,8 +184,9 @@ export function getInterview(slug: string): InterviewArticle | null {
   const file = path.join(interviewRoot, `${slug}.md`)
   if (!fs.existsSync(file)) return null
   const papersBySlug = loadIndex()
+  const worksBySlug = loadWorks()
   const { data, body } = parseFrontmatter(fs.readFileSync(file, "utf8"))
-  return { ...toMeta(slug, data, papersBySlug), content: body }
+  return { ...toMeta(slug, data, papersBySlug, worksBySlug), works: worksBySlug[slug] || [], content: body }
 }
 
 /** 分类词表定义（顺序即展示顺序）。categories.json 缺失时返回空数组，页面按「无分类」降级。 */

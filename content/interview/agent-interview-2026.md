@@ -181,6 +181,9 @@ DeepMind 的 AlphaEvolve 把进化计算搬进了 LLM 时代：LLM 负责生成�
 
 对面试的价值在于：哪怕只是在一个小任务上跑通一次完整进化流程——画出性能曲线、分析哪一代种群开始退化、评估器怎么防作弊——也足以证明你对 Agent 的理解在「会用」之上。因为**评估器和筛选策略怎么设计，只有真跑过的人才有的谈**。
 
+![MetaRSI-v1 技术报告首页，参与机构一栏可以看到 AgentAlpha](/images/interview/agent-interview-2026/metarsi-report.jpg)
+图：MetaRSI-v1 技术报告——元递归自我改进，AgentAlpha 是参与单位之一，代码已开源。
+
 **4. 多智能体：从「架构展示」回到「按需使用」**
 
 多智能体系统被 Gartner 列入 2026 年度战略技术趋势，但一线工程社区这两年反而变得更冷静了。多智能体的真实代价：每个 Agent 都有自己的上下文，通信本身消耗 token；角色越多，错误传播链越长；调试难度指数级上升。
@@ -206,6 +209,12 @@ DeepMind 的 AlphaEvolve 把进化计算搬进了 LLM 时代：LLM 负责生成�
 - **InkOS**：一个 AI 长篇小说创作系统，十个协作 Agent 组成写作流水线，光连续性审计就做了 33 个维度，防止几十万字长篇里人物设定崩坏。GitHub 7800+ star，社区用户的 150 多部作品签约番茄、七猫等平台。它验证了一个重要理念：**用确定性的工程约束驯服概率性的模型生成**——这句话本身就是一道可以讲十分钟的面试题。
 
 注意共同点：它们先是「真的有人在用的东西」，然后才是简历上的项目。顺序反过来，第二层追问就塌。
+
+![Idea2Story 冲上 Hugging Face Daily Papers 日榜第一](/images/interview/agent-interview-2026/idea2story-hfdaily.jpg)
+图：Idea2Story 登上 Hugging Face Daily Papers 日榜第一（103 ▲），压过阿里、美团、千问同日上榜的工作。
+
+![Hugging Face Daily Papers 网格页，Idea2Story 以 114 分位列第一，机构标签是 AgentAlpha](/images/interview/agent-interview-2026/idea2story-hfgrid.jpg)
+图：Daily Papers 网格页——Idea2Story 以 114 分登顶，机构一栏写着 AgentAlpha。这个项目从定题到上线，就是社区带学员按真实项目流程做出来的。
 
 ## 🎯 面试总结
 

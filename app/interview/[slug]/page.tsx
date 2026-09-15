@@ -359,6 +359,25 @@ export default async function InterviewDetailPage({ params }: PageProps) {
             </section>
           ) : null}
 
+          {post.works.length ? (
+            <section aria-label="社区成果 · 开源与论文">
+              {post.works.map((work) => (
+                <aside className="ivu-work" key={work.url}>
+                  <a className="ivu-work-head" href={work.url} target="_blank" rel="noopener noreferrer">
+                    <span className="ivu-work-badge">{work.badge}</span>
+                    <span className="ivu-work-name">{work.name}</span>
+                  </a>
+                  <div className="ivu-work-body">
+                    <p className="ivu-work-desc">{work.desc}</p>
+                    <a className="ivu-work-link" href={work.url} target="_blank" rel="noopener noreferrer">
+                      前往查看 ↗
+                    </a>
+                  </div>
+                </aside>
+              ))}
+            </section>
+          ) : null}
+
           {extLinks.length ? (
             <>
               <div className="ivu-links-label">ALSO READ / 延伸阅读</div>

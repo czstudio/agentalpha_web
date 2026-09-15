@@ -230,6 +230,14 @@
           "why": "文章讲角色分工+自然语言协作，这篇是角色扮演式多 Agent 通信的开创工作",
           "figure": "Figure 1"
         }
+      ],
+      "works": [
+        {
+          "name": "Story2Proposal",
+          "desc": "多智能体协同生成长篇学术文档：架构师 / 撰写者 / 评估者 / 润色者闭环 + 视觉契约",
+          "url": "https://huggingface.co/papers/2603.27065",
+          "badge": "HF Papers"
+        }
       ]
     },
     {
@@ -250,6 +258,14 @@
           "title": "ReAct: Synergizing Reasoning and Acting in Language Models",
           "why": "文章把 ReAct 任务拆解列为企业 Agent 与 ChatGPT 的核心差异，出自这篇",
           "figure": "Figure 1"
+        }
+      ],
+      "works": [
+        {
+          "name": "MetaRSI-v1（开源）",
+          "desc": "Harness 路线的自我改进：不动权重，改五槽脚手架",
+          "url": "https://github.com/CosmosMind-ai/RSI-Harness",
+          "badge": "GitHub"
         }
       ]
     },
@@ -327,6 +343,20 @@
           "title": "Agentic Context Engineering: Evolving Contexts for Self-Improving Language Models",
           "why": "上下文工程取代提示词工程的代表作：把上下文当成可进化的剧本",
           "figure": ""
+        }
+      ],
+      "works": [
+        {
+          "name": "MetaRSI-v1（开源）",
+          "desc": "元递归自我改进系统：Data / Harness / Model 三算子，AgentAlpha 参与单位",
+          "url": "https://github.com/CosmosMind-ai/RSI-Harness",
+          "badge": "GitHub"
+        },
+        {
+          "name": "Idea2Story（HF Daily #1）",
+          "desc": "从一个 Idea 自动生成顶会级论文叙事，日榜登顶",
+          "url": "https://arxiv.org/abs/2601.20833",
+          "badge": "arXiv"
         }
       ]
     },
