@@ -539,12 +539,20 @@
 .ivu-empty { color: var(--ink-2); padding: 30px 0 60px; }
 
 /* ── 详情页：题图 ─────────────────────────── */
-.ivu-hero { background: var(--paper-2); }
+.ivu-hero { padding: 26px 20px 0; }
 .ivu-hero img {
-  width: 100%;
-  aspect-ratio: 16 / 9;
-  object-fit: cover;
   display: block;
+  width: 100%;
+  max-width: var(--measure);
+  margin: 0 auto;
+  aspect-ratio: 21 / 9;
+  object-fit: cover;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+}
+@media (max-width: 640px) {
+  .ivu-hero { padding: 16px 20px 0; }
+  .ivu-hero img { aspect-ratio: 2 / 1; }
 }
 
 /* ── 详情页：卷头 ─────────────────────────── */
@@ -1116,7 +1124,6 @@
   .ivu-list-head { padding-top: 44px; }
   .ivu-list-title { font-size: 32px; }
   .ivu-grid { grid-template-columns: 1fr; }
-  .ivu-hero img { aspect-ratio: 16 / 9; }
   .ivu-head { padding-top: 30px; }
   .ivu-h1 { font-size: 24px; }
   .ivu-lede { font-size: 16px; }

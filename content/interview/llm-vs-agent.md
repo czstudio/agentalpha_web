@@ -15,10 +15,16 @@ updated: "2026-09-14"
 
 「我们把模型换到最新版了，为什么这系统还是像个聊天机器人？」——不少团队做智能助手项目时都撞过这堵墙。面试里它换了个问法。AgentAlpha 面试题库 · 腾讯篇里有一道高频题：「智能回答（传统大模型）与 AI Agent 的核心区别是什么？AI Agent 的核心要素有哪些？」很多人答成“Agent 更聪明”，面试官基本就停笔了。
 
+
+
+![LLM 自主 Agent 的统一架构：profile / memory / pl](/images/interview/llm-vs-agent/paper-2308.11432.png)
+图：LLM 自主 Agent 的统一架构：profile / memory / planning / action（论文 Agent 综述 Figure 2，图片来源：arXiv:2308.11432）
 ## 先说结论
 
 **LLM 是一个被动的文本生成器：输入文本，输出文本，到此为止。Agent 是以 LLM 为大脑，配上规划、记忆和工具的工程框架，能围绕目标自主行动、观察结果、修正方向**。区别不在模型聪不聪明，而在系统有没有“行动、观察、修正”的执行结构。
 
+![LLM 和 Agent 的分界：从「会答」到「会做」](/images/interview/llm-vs-agent/fig-1.png)
+图：小蓝图解——LLM 和 Agent 的分界：从「会答」到「会做」。
 ## LLM 缺的三样东西
 
 把 LLM 当一名员工看，它缺三样东西。

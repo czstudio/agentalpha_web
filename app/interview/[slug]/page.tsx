@@ -15,7 +15,6 @@ import {
   getInterviewHeadings,
   getRelatedByCategory,
   hasCover,
-  paperFigure,
 } from "@/lib/interview"
 
 interface PageProps {
@@ -161,7 +160,6 @@ function ExtLinkCard({ link }: { link: ExtLink }) {
 }
 
 function PaperCard({ slug, paper }: { slug: string; paper: { arxiv: string; title: string; why: string; figure?: string } }) {
-  const figure = paperFigure(slug, paper.arxiv)
   const absUrl = `https://arxiv.org/abs/${paper.arxiv}`
   return (
     <aside className="ivu-paper">
@@ -170,12 +168,6 @@ function PaperCard({ slug, paper }: { slug: string; paper: { arxiv: string; titl
         <span className="ivu-paper-title">{paper.title}</span>
         {paper.figure ? <span className="ivu-paper-fig">{paper.figure}</span> : null}
       </a>
-      {figure ? (
-        <div className="ivu-paper-img">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src={figure} alt={`${paper.title} ${paper.figure || ""}`} loading="lazy" />
-        </div>
-      ) : null}
       <div className="ivu-paper-body">
         <p className="ivu-paper-why">{paper.why}</p>
         <a className="ivu-paper-link" href={absUrl} target="_blank" rel="noopener">
@@ -268,7 +260,7 @@ export default async function InterviewDetailPage({ params }: PageProps) {
       {cover ? (
         <figure className="ivu-hero" style={{ margin: 0 }}>
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src={`/images/interview/${post.slug}/cover-1600.webp`} alt="" />
+          <img src={`/images/interview/${post.slug}/cover-800.webp`} alt="" />
         </figure>
       ) : null}
 

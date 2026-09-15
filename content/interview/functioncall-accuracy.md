@@ -23,6 +23,8 @@ updated: "2026-09-14"
 
 下面按这条链路从入口到出口走一遍。
 
+![FC 准确率链路：Schema、路由、校验](/images/interview/functioncall-accuracy/fig-1.png)
+图：小蓝图解——FC 准确率链路：Schema、路由、校验。
 ## 三类错误，三张不同的处方
 
 一次 Function Call 是模型连续做的三个决定：挑哪个工具、参数填什么、输出排成什么格式。三个决定独立会错，混在一起看就是一团乱。
