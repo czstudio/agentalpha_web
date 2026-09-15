@@ -253,9 +253,9 @@ export function getAdjacentInterview(slug: string): {
   }
 }
 
-/** 题图按约定路径存放：public/images/interview/<slug>/cover.png */
+/** 题图按约定路径存放：public/images/interview/<slug>/cover-og.jpg（OG/分享卡用，≤300KB） */
 export function hasCover(slug: string): boolean {
-  return fs.existsSync(path.join(process.cwd(), "public", "images", "interview", slug, "cover.png"))
+  return fs.existsSync(path.join(process.cwd(), "public", "images", "interview", slug, "cover-og.jpg"))
 }
 
 /** 论文原图约定：public/images/interview/<slug>/paper-<arxiv>.<ext> */

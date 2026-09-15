@@ -760,6 +760,28 @@
   border-radius: 6px;
 }
 
+/* 梗图贴纸：小图居中，去白卡框，保持原比例（方形） */
+.ivu-meme {
+  background: transparent;
+  border: none;
+  padding: 0;
+  max-width: 400px;
+  margin: 28px auto;
+  text-align: center;
+}
+.ivu-meme img {
+  width: auto;
+  max-width: 100%;
+  aspect-ratio: auto;
+  background: transparent;
+  border-radius: 0;
+}
+.ivu-meme .ivu-figcap {
+  max-width: 380px;
+  margin-inline: auto;
+  text-align: center;
+}
+
 /* ── 论文出处卡（红顶条） ─────────────────── */
 .ivu-paper {
   background: var(--card);
@@ -1141,6 +1163,7 @@
   .ivu-pn { grid-template-columns: 1fr; }
   .ivu-pn .next { text-align: left; }
   .ivu-fig { padding: 10px; margin: 20px -4px; }
+  .ivu-meme { padding: 0; margin: 20px auto; max-width: 320px; }
   .ivu-paper-img { padding: 12px 14px; }
   .ivu-paper-title { white-space: normal; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; }
   .ivu-link-title { white-space: normal; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; }

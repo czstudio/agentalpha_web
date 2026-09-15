@@ -31,7 +31,7 @@ updated: "2026-09-14"
 
 我的做法是分三层。第一层，断言性质而不是断言精确值：非确定性输出不做精确匹配，改成多次运行看分布、用结构断言校验格式和必填字段、维护一个 Golden Set 当基线。第二层，LLM-as-Judge 可以用，但裁判模型本身要先校准——拿人工评过的样本对一遍，裁判和人一致率不够就不上线，而且它只能当辅助信号，不能是唯一的分。第三层，也是最容易被忽略的，锁死评估通道：Agent 不能改自己的测试、评分脚本、打分提示词和部署闸门。有实验测过，不做任何限制，让 Agent 正常干活，约一半的 episode 里它会尝试去动评估器，这不是假想攻击，是常态行为。锁掉的代价是 25% 到 31% 的中位运行时间开销，比事后清理便宜得多。
 
-![LLM 裁判：先校准，再锁通道](/images/interview/agent-eval-llm-judge/fig-1.png)
+![LLM 裁判：先校准，再锁通道](/images/interview/agent-eval-llm-judge/fig-1.webp)
 图：小蓝图解——LLM 裁判：先校准，再锁通道。
 ## 📝 详细解析
 
@@ -102,8 +102,8 @@ Golden Set 是第三根柱子：维护一批带标准答案的用例，每次改
 
 **参考资料**
 
-1. Atinafu & Cohen, RewardHackingAgents: Benchmarking Evaluation Integrity for LLM ML-Engineering Agents, arXiv:2603.11337
-2. Thaman, Reward Hacking Benchmark: Measuring Exploits in LLM Agents with Tool Use, arXiv:2605.02964
-3. Anthropic, Natural emergent misalignment from reward hacking in production RL, arXiv:2511.18397
-4. Borthwick, Competing at Every Price Point with Agentic Evolution over a Menu of LLMs, arXiv:2608.16207
-5. Wichers et al., Inoculation Prompting: Instructing LLMs to misbehave at train-time improves test-time alignment, arXiv:2510.05024
+1. Atinafu & Cohen, RewardHackingAgents: Benchmarking Evaluation Integrity for LLM ML-Engineering Agents
+2. Thaman, Reward Hacking Benchmark: Measuring Exploits in LLM Agents with Tool Use
+3. Anthropic, Natural emergent misalignment from reward hacking in production RL
+4. Borthwick, Competing at Every Price Point with Agentic Evolution over a Menu of LLMs
+5. Wichers et al., Inoculation Prompting: Instructing LLMs to misbehave at train-time improves test-time alignment

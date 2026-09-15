@@ -37,7 +37,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     openGraph: {
       title: post.title,
       description,
-      images: hasCover(post.slug) ? [`/images/interview/${post.slug}/cover.png`] : undefined,
+      images: hasCover(post.slug) ? [`/images/interview/${post.slug}/cover-og.jpg`] : undefined,
     },
   }
 }
@@ -86,13 +86,17 @@ function createMarkdownComponents(): Components {
       // 图片段落：段落里只有一张图 + 一句图注时，渲染成 白卡 + 卡内图注（design-spec 4.1）
       const arr = Array.isArray(children) ? [...children] : [children]
       const imgIdx = arr.findIndex(
-        (c) => isValidElement(c) && (c as { props?: { className?: string } }).props?.className === "ivu-fig",
+        (c) =>
+          isValidElement(c) &&
+          typeof (c as { props?: { className?: string } }).props?.className === "string" &&
+          ((c as { props?: { className?: string } }).props?.className ?? "").includes("ivu-fig"),
       )
       if (imgIdx !== -1) {
         const rest = arr.filter((c, i) => i !== imgIdx && typeof c === "string" && c.trim())
         if (rest.length === 1 && typeof rest[0] === "string") {
+          const isMeme = ((arr[imgIdx] as { props?: { className?: string } }).props?.className ?? "").includes("ivu-meme")
           return (
-            <span className="ivu-fig">
+            <span className={isMeme ? "ivu-fig ivu-meme" : "ivu-fig"}>
               {arr[imgIdx]}
               <span className="ivu-figcap">{rest[0].trim()}</span>
             </span>
@@ -103,9 +107,10 @@ function createMarkdownComponents(): Components {
     },
     img({ src, alt }) {
       if (typeof src !== "string") return null
+      const isMeme = src.includes("/meme-")
       // eslint-disable-next-line @next/next/no-img-element
       return (
-        <span className="ivu-fig">
+        <span className={isMeme ? "ivu-fig ivu-meme" : "ivu-fig"}>
           <img src={src} alt={alt || ""} loading="lazy" />
         </span>
       )
@@ -215,7 +220,7 @@ export default async function InterviewDetailPage({ params }: PageProps) {
     "@type": "Article",
     headline: post.title,
     description: post.excerpt,
-    image: cover ? [`https://agentalpha.top/images/interview/${post.slug}/cover.png`] : undefined,
+    image: cover ? [`https://agentalpha.top/images/interview/${post.slug}/cover-og.jpg`] : undefined,
     author: { "@type": "Person", name: post.author },
     ...(post.papers.length
       ? { about: post.papers.map((p) => ({ "@type": "ScholarlyArticle", name: p.title })) }
