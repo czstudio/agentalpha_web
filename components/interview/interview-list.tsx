@@ -108,6 +108,20 @@ export function InterviewList({
         ))}
         {shown.length === 0 ? <p className="ivu-empty">这个标签下还没有题。</p> : null}
       </div>
+
+      <div className="ivu-cta" style={{ maxWidth: "var(--measure)", margin: "48px auto 0" }}>
+        <p className="ivu-cta-text">
+          <b>AgentAlpha，立志打造 AI 界的黄埔军校。</b>题库陪你练面试，训练营陪你做出能改变生活、最后改变世界的项目。
+        </p>
+        <div className="ivu-cta-actions">
+          <Link href="/learn" className="ivu-btn ivu-btn-primary">
+            看训练营的项目安排
+          </Link>
+          <Link href="/notes" className="ivu-btn ivu-btn-ghost">
+            先看免费笔记
+          </Link>
+        </div>
+      </div>
     </div>
   )
 }

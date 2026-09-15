@@ -166,7 +166,7 @@ export default async function CategoryPage({ params }: PageProps) {
         <div style={{ maxWidth: "var(--measure)", margin: "0 auto" }}>
           <div className="ivu-cta">
             <p className="ivu-cta-text">
-              <b>AgentAlpha，立志打造 AI 界的黄埔军校。</b>在这里，题库陪你练面试，训练营陪你做出能改变生活、最后改变世界的项目。
+              <b>培养能解决真实问题、能落地的 AI 人才。</b>训练营以实战为核心——面试题里的答案，在开源项目和论文里亲手做出来。
             </p>
             <div className="ivu-cta-actions">
               <Link href="/learn" className="ivu-btn ivu-btn-primary">
