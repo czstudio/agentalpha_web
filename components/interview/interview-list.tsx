@@ -43,11 +43,14 @@ export function InterviewList({
   covers,
   categories,
   totalPlanned,
+  variant = "full",
 }: {
   posts: InterviewMeta[]
   covers: Record<string, boolean>
   categories: InterviewCategoryWithCount[]
   totalPlanned: number
+  /** full=完整列表页；archive=只渲染「全部题目」筛选与网格（专栏页尾部的档案区） */
+  variant?: "full" | "archive"
 }) {
   const tags = useMemo(() => {
     const set = new Set<string>()
@@ -60,16 +63,18 @@ export function InterviewList({
 
   return (
     <div className="ivu-wide">
-      <header className="ivu-list-head">
-        <div className="ivu-list-kicker">AGENTALPHA INTERVIEW ROOM</div>
-        <h1 className="ivu-list-title">面试间</h1>
-        <p className="ivu-list-sub">
-          {posts.length} 道真实面试场上的 Agent 题，按 {categories.length} 个主题分类组织。
-          每道题都允许翻书——题干来自面试官原话，解法附论文原文。
-        </p>
-      </header>
+      {variant === "full" ? (
+        <header className="ivu-list-head">
+          <div className="ivu-list-kicker">AGENTALPHA INTERVIEW ROOM</div>
+          <h1 className="ivu-list-title">面试间</h1>
+          <p className="ivu-list-sub">
+            {posts.length} 道真实面试场上的 Agent 题，按 {categories.length} 个主题分类组织。
+            每道题都允许翻书——题干来自面试官原话，解法附论文原文。
+          </p>
+        </header>
+      ) : null}
 
-      {categories.length ? (
+      {variant === "full" && categories.length ? (
         <>
           <div className="ivu-sec">
             <h2 className="ivu-sec-t">按主题找题</h2>
@@ -85,8 +90,8 @@ export function InterviewList({
         </>
       ) : null}
 
-      <div className="ivu-sec">
-        <h2 className="ivu-sec-t">最新更新</h2>
+      <div className="ivu-sec" style={variant === "archive" ? { marginTop: 0 } : undefined}>
+        <h2 className="ivu-sec-t" id="archive">全部题目</h2>
         <p className="ivu-sec-sub">按题号排序</p>
       </div>
 
@@ -109,19 +114,21 @@ export function InterviewList({
         {shown.length === 0 ? <p className="ivu-empty">这个标签下还没有题。</p> : null}
       </div>
 
-      <div className="ivu-cta" style={{ maxWidth: "var(--measure)", margin: "48px auto 0" }}>
-        <p className="ivu-cta-text">
-          <b>AgentAlpha，立志打造 AI 界的黄埔军校。</b>题库陪你练面试，训练营陪你做出能改变生活、最后改变世界的项目。
-        </p>
-        <div className="ivu-cta-actions">
-          <Link href="/learn" className="ivu-btn ivu-btn-primary">
-            看训练营的项目安排
-          </Link>
-          <Link href="/notes" className="ivu-btn ivu-btn-ghost">
-            先看免费笔记
-          </Link>
+      {variant === "full" ? (
+        <div className="ivu-cta" style={{ maxWidth: "var(--measure)", margin: "48px auto 0" }}>
+          <p className="ivu-cta-text">
+            <b>AgentAlpha，立志打造 AI 界的黄埔军校。</b>题库陪你练面试，训练营陪你做出能改变生活、最后改变世界的项目。
+          </p>
+          <div className="ivu-cta-actions">
+            <Link href="/learn" className="ivu-btn ivu-btn-primary">
+              看训练营的项目安排
+            </Link>
+            <Link href="/notes" className="ivu-btn ivu-btn-ghost">
+              先看免费笔记
+            </Link>
+          </div>
         </div>
-      </div>
+      ) : null}
     </div>
   )
 }
