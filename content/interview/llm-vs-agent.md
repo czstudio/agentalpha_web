@@ -18,7 +18,7 @@ updated: "2026-09-14"
 
 
 ![输出像结果 ≠ 真结果（气泡里「已为您订好机票」说得笃定，砖红印章「并未发生」——LLM 只生成像结果的文本，没有对真实世界的改动）](/images/interview/llm-vs-agent/meme-1.webp)
-梗图：输出像结果 ≠ 真结果（气泡里「已为您订好机票」说得笃定，砖红印章「并未发生」——LLM 只生成像结果的文本，没有对真实世界的改动）。
+输出像结果 ≠ 真结果（气泡里「已为您订好机票」说得笃定，砖红印章「并未发生」——LLM 只生成像结果的文本，没有对真实世界的改动）。
 
 ![LLM 自主 Agent 的统一架构：profile / memory / pl](/images/interview/llm-vs-agent/paper-2308.11432.png)
 图：LLM 自主 Agent 的统一架构（profile 定义角色、memory 管理上下文、planning 拆解子目标、action 执行工具调用——主流 Agent 框架的四个公共模块）
