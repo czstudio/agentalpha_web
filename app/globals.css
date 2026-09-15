@@ -28,6 +28,15 @@ html {
   font-style: normal;
   font-display: swap;
 }
+/* 展示衬线：标题/品牌字标用（参考 atria-asi.ai 的 Cormorant+Inter 打法，
+   中文等价物为思源宋体；单文件覆盖 600-700 字重，正文仍用 MiSans） */
+@font-face {
+  font-family: "Noto Serif SC";
+  src: url("/fonts/NotoSerifSC-600-subset.woff2") format("woff2");
+  font-weight: 600 700;
+  font-style: normal;
+  font-display: swap;
+}
 
 /*
  * AgentAlpha 统一视觉系统
@@ -60,7 +69,7 @@ html {
   --chart-4: oklch(0.6 0.12 220);
   --chart-5: oklch(0.68 0.12 320);
   --radius: 10px;
-  --font-display: "MiSans", "PingFang SC", "Hiragino Sans GB", sans-serif;
+  --font-display: "Noto Serif SC", "Songti SC", "STSong", Georgia, serif;
   --font-body: "MiSans", "PingFang SC", "Hiragino Sans GB", sans-serif;
   --text-caption: 0.8rem;
   --text-body: 1rem;
@@ -183,12 +192,13 @@ html {
   h1, h2, h3 {
     font-family: var(--font-display);
     font-weight: 700;
-    letter-spacing: -0.02em;
+    /* 中文衬线标题不宜负字距，改用微加字距更有杂志感 */
+    letter-spacing: 0.01em;
     text-wrap: balance;
     overflow-wrap: anywhere;
   }
   h1 {
-    letter-spacing: -0.03em;
+    letter-spacing: 0.01em;
   }
 }
 
