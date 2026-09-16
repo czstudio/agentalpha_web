@@ -31,7 +31,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   if (!post) return {}
   const description = `「${post.question}」怎么答？本文按面试官视角拆解：${post.excerpt}`.slice(0, 140)
   return {
-    title: `${post.title} | AgentAlpha 面试题库`,
+    title: `${post.title} · 面试题库`,
     description,
     alternates: { canonical: `/interview/${post.slug}` },
     openGraph: {

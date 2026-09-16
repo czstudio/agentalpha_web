@@ -33,7 +33,8 @@ export default function InterviewLayout({ children }: { children: ReactNode }) {
             面试题库 · AgentAlpha 社区原创 · 题目来自社区成员真实面经
           </span>
           <span>
-            <Link href="/notes">系统学习看笔记</Link> · <Link href="/learn">训练营</Link>
+            <Link href="/interview/qa">面试题大全</Link> · <Link href="/notes">系统学习看笔记</Link> ·{" "}
+            <Link href="/learn">训练营</Link>
           </span>
         </footer>
       </div>

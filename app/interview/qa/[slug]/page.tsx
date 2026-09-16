@@ -30,7 +30,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     "大模型面试题",
   ].filter(Boolean)
   return {
-    title: `${item.question}（附答案） | AgentAlpha 面试题库`,
+    title: `${item.question}（附答案）· 面试题库`,
     description,
     keywords,
     alternates: { canonical: `/interview/qa/${item.slug}` },

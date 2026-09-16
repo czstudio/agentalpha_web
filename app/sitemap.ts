@@ -2,6 +2,7 @@ import type { MetadataRoute } from "next"
 import { communityDocument } from "@/lib/community/content"
 import { getAllNotes } from "@/lib/notes"
 import { getAllInterview } from "@/lib/interview"
+import { getAllQa } from "@/lib/qa"
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const notes = getAllNotes().map((note) => ({
@@ -16,6 +17,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     lastModified: new Date(),
     changeFrequency: "monthly" as const,
     priority: 0.8,
+  }))
+
+  const qa = getAllQa().map((item) => ({
+    url: `https://agentalpha.top/interview/qa/${item.slug}`,
+    lastModified: item.updated ? new Date(item.updated) : new Date(),
+    changeFrequency: "monthly" as const,
+    priority: 0.75,
   }))
 
   return [
@@ -43,7 +51,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "weekly",
       priority: 0.85,
     },
+    {
+      url: "https://agentalpha.top/interview/qa",
+      lastModified: new Date(),
+      changeFrequency: "weekly",
+      priority: 0.85,
+    },
     ...notes,
     ...interview,
+    ...qa,
   ]
 }

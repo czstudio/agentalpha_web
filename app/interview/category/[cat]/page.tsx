@@ -26,7 +26,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const posts = getCategoriesWithPosts(true).find((item) => item.cat === cat)
   const count = posts?.count || 0
   return {
-    title: `${category.name}｜Agent 面试题库 · AgentAlpha 面试间`,
+    title: `${category.name} · Agent 面试题库`,
     description: `${category.intro}已上线 ${count} 篇。`.slice(0, 150),
     alternates: { canonical: `/interview/category/${category.cat}` },
   }

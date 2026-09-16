@@ -6,7 +6,7 @@ import { getCategories } from "@/lib/interview"
 const SITE = "https://agentalpha.top"
 
 export const metadata: Metadata = {
-  title: "Agent 面试题大全（含答案，持续更新） | AgentAlpha 面试题库",
+  title: "Agent 面试题大全（含答案，持续更新）",
   description:
     "大模型 Agent 岗高频面试题大全：RAG、Agent 架构、Function Calling 与 MCP、多智能体、记忆系统、评测、企业落地，一题一页给出口语化参考答案，面试前速刷。",
   keywords: [

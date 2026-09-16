@@ -1,6 +1,7 @@
 import type { Metadata } from "next"
 import Link from "next/link"
 import { getAllInterview, getCategoriesWithPosts, hasCover } from "@/lib/interview"
+import { getAllQa } from "@/lib/qa"
 import { InterviewList } from "@/components/interview/interview-list"
 import {
   CHAPTERS,
@@ -14,7 +15,7 @@ import {
 } from "@/lib/column"
 
 export const metadata: Metadata = {
-  title: "Agent 岗面试学习路线 · AgentAlpha 面试间",
+  title: "Agent 岗面试学习路线 · 面试间",
   description:
     "12 章面试专栏：RAG、LLM 基础、Agent 架构、工具调用、评测、五厂真题。1500+ 题来自社区真实面经，附 2582 道真题的考点地图，按章复习、项目反推、公司追问三条路径使用。",
   alternates: { canonical: "/interview" },
@@ -261,6 +262,47 @@ function Factories() {
   )
 }
 
+/** 速答区精选的题目 slug，覆盖不同分类的高搜索量问题 */
+const QA_FEATURED = [
+  "mcp-vs-function-calling",
+  "rag-vs-finetune",
+  "what-is-agent",
+  "what-is-react",
+  "agent-memory-design",
+  "what-is-multi-agent",
+  "what-is-hallucination",
+  "function-calling-accuracy",
+]
+
+function QaTeaser() {
+  const all = getAllQa()
+  const featured = QA_FEATURED.map((slug) => all.find((item) => item.slug === slug)).filter(
+    (item): item is NonNullable<typeof item> => Boolean(item),
+  )
+  return (
+    <section className="ivc-sec-block" aria-label="高频题速答">
+      <div className="ivc-sec-head">
+        <h2 className="ivc-sec-title">高频题速答</h2>
+        <p className="ivc-sec-lede">
+          {all.length} 道大家真实在搜的题，一题一页：先给一句能直接说出口的结论，再补追问点和常见的坑。面试前速刷用。
+        </p>
+      </div>
+      <div className="ivq-grid">
+        {featured.map((item) => (
+          <Link key={item.slug} href={`/interview/qa/${item.slug}`} className="ivq-card">
+            <span className="ivq-card-q">Q · {item.question}</span>
+            <span className="ivq-card-a">{item.oneLine}</span>
+            <span className="ivq-card-go">看答案 →</span>
+          </Link>
+        ))}
+      </div>
+      <p className="ivq-all">
+        <Link href="/interview/qa">看全部 {all.length} 道：Agent 面试题大全 →</Link>
+      </p>
+    </section>
+  )
+}
+
 function Updates() {
   return (
     <section className="ivc-sec-block" aria-label="更新动态">
@@ -305,6 +347,7 @@ export default function InterviewPage() {
       <ExamMap />
       <Chapters />
       <Factories />
+      <QaTeaser />
       <Updates />
       <InterviewList
         posts={posts}
