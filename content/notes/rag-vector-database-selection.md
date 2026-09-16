@@ -1,7 +1,7 @@
 ---
 slug: "rag-vector-database-selection"
 title: "RAG 选向量库，先别看排行榜：把检索目标算清楚"
-excerpt: "向量库不是 RAG 的魔法核心。先定语料规模、过滤条件、更新频率、召回目标、尾延迟，再比较 HNSW、倒排、混合检索和托管服务。"
+excerpt: "先定语料规模、过滤条件、更新频率、召回目标、尾延迟，再比较 HNSW、倒排、混合检索和托管服务。"
 series: "RAG"
 seriesNo: "03"
 number: "65"

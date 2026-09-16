@@ -1,6 +1,6 @@
 ---
 slug: "rag-graph-retrieval"
-title: "Graph RAG 不只是画关系图：证据要能沿路径找回去"
+title: "Graph RAG：证据要能沿关系路径找回去"
 excerpt: "遇到跨文档、跨实体、要多跳关系的问题，图结构能补上纯向量相似度的短板。节点、边、来源、时间、路径评分都得记下来，不能只织一张好看的关系网。"
 series: "RAG"
 seriesNo: "03"

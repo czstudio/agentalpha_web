@@ -1,7 +1,7 @@
 ---
 slug: "multi-agent-task-decomposition"
 title: "一个 Agent 做不完，什么时候该拆成多个？"
-excerpt: "多 Agent 的价值不是复制几个聊天窗口，而是把互相牵制的目标拆成可验收的责任边界。先判断值不值得拆，再定角色、交接和失败回退。"
+excerpt: "多 Agent 的价值在于把互相牵制的目标拆成可验收的责任边界。先判断值不值得拆，再定角色、交接和失败回退。"
 series: "多智能体"
 seriesNo: "07"
 number: "29"

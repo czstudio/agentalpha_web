@@ -1,6 +1,6 @@
 ---
 slug: "llm-sft-data-quality"
-title: "SFT 不是把答案背下来：一条样本怎样改变模型行为"
+title: "一条 SFT 样本怎样改变模型行为"
 excerpt: "监督微调改的是模型在特定输入下的行为分布。数据构造、loss mask、质量分层、回归评测拆开看，才知道它到底学会了什么。"
 series: "LLM 训练"
 seriesNo: "05"

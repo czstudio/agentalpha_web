@@ -276,4 +276,3 @@ DeepMind 的 AlphaEvolve 把进化计算搬进了 LLM 时代：LLM 负责生成�
 
 **学员成果**：字节 Seed、腾讯、京东 TGT、蚂蚁 PLAN-A、华为天才少年等录用结果；ICLR、KDD、ICML、NeurIPS、EMNLP、AAAI 等论文录用；USC、杜克、港科大等博士录取。
 
-如果你想要导师带教、代码 Review、真实项目历练和内推通道，欢迎来聊：加微信 **aistudioyes**（备注「公众号」），先发你的背景、目标、基础和可投入时间，我们帮你判断适合哪种参与深度——不适合的，我们会直说。

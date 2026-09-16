@@ -1,6 +1,6 @@
 ---
 slug: llm-inference-optimization
-title: 大模型推理优化不只是换量化：吞吐、延迟和显存要一起看
+title: 大模型推理优化：吞吐、延迟和显存要一起看
 excerpt: 推理优化没有万能开关。先把 TTFT、TPOT、吞吐、显存分开看，再挑量化、连续批处理、Prefix Cache、投机解码或并行策略，才知道自己到底改善了哪一项。
 series: "LLM 基础"
 seriesNo: "04"

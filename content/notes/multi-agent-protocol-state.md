@@ -1,6 +1,6 @@
 ---
 slug: "multi-agent-protocol-state"
-title: "多 Agent 不是群聊：消息和状态到底怎么管？"
+title: "多 Agent 的消息和状态到底怎么管？"
 excerpt: "让多个 Agent 互相发消息不难，难的是事先约好：谁能动嘴、谁能动状态、什么时候提交、消息怎么算确认。"
 series: "多智能体"
 seriesNo: "07"

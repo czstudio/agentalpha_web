@@ -1,7 +1,7 @@
 ---
 slug: llm-kv-cache
 title: KV Cache 缓存的到底是什么？为什么长对话越聊越贵
-excerpt: KV Cache 不是把对话存起来就不算了。它缓存每层历史 token 的 Key 和 Value，解码只算新 token；代价是上下文越长，显存和带宽越吃紧。
+excerpt: KV Cache 缓存每层历史 token 的 Key 和 Value，解码只算新 token；代价是上下文越长，显存和带宽越吃紧。
 series: "LLM 基础"
 seriesNo: "04"
 number: "17"

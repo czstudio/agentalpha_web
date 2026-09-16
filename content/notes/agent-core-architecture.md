@@ -1,7 +1,7 @@
 ---
 slug: "agent-core-architecture"
 title: "Agent 到底是什么：别把会调用模型的流程都叫 Agent"
-excerpt: "面试官问 Agent 有哪些核心组件，不是等你背清单。他要看的是你能不能把目标、状态、行动、观察、停止条件串成一条真跑得起来的流程。"
+excerpt: "面试官问 Agent 有哪些核心组件，看的是你能不能把目标、状态、行动、观察、停止条件串成一条真跑得起来的流程。"
 series: "Agent 架构"
 seriesNo: "06"
 number: "24"

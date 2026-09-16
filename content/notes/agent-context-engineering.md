@@ -1,7 +1,7 @@
 ---
 slug: "agent-context-engineering"
 title: "上下文越塞越满，Agent 为什么反而变笨？"
-excerpt: "Agent 变笨，多数不是模型小了，而是上下文里混进旧状态、没用的工具结果、没人核过的指令。先筛，再压缩、排序、标注，模型才看得见重点。"
+excerpt: "Agent 变笨，多数是上下文里混进旧状态、没用的工具结果、没人核过的指令。先筛，再压缩、排序、标注，模型才看得见重点。"
 series: "Agent 架构"
 seriesNo: "06"
 number: "62"

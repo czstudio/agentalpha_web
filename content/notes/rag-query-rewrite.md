@@ -1,7 +1,7 @@
 ---
 slug: "rag-query-rewrite"
-title: "RAG 查询改写不是把问题说长：别替用户补条件"
-excerpt: "Query rewrite、问题拆解、假设文档，都是把用户的话翻成知识库听得懂的说法，不是让模型另起一个问题。每次改写都要能回到原问，必要时能撤回。"
+title: "RAG 查询改写：别替用户补条件"
+excerpt: "Query rewrite、问题拆解、假设文档，都是把用户的话翻成知识库听得懂的说法。每次改写都要能回到原问，必要时能撤回。"
 series: "RAG"
 seriesNo: "03"
 number: "66"

@@ -9,7 +9,7 @@ import publishedWechat from "@/content/notes/published-wechat.json"
 export const metadata: Metadata = {
   title: "Agent 面试笔记",
   description:
-    "每篇笔记从面试官的一个真实追问开始，讲清楚问题怎么拆、结论怎么推出来的。挑用得上的先读。",
+    "AgentAlpha 面试笔记库：题目来自大厂 Agent 岗位的真实面试，每篇把一个追问从拆解写到能落地的答案。",
   alternates: { canonical: "/notes" },
 }
 
@@ -26,7 +26,7 @@ export default function NotesIndexPage() {
       no: "01",
       label: "系统骨架",
       title: "先把 Agent 画成一张跑得通的图",
-      description: "从 Agentic RL、架构、Code Agent 到多智能体，把状态、行动、交接、恢复这几块挨个讲透。",
+      description: "从 Agentic RL、架构、Code Agent 到多智能体，讲状态、行动、交接、恢复这几块怎么做。",
       count: seriesCount(["Agentic RL", "Agent 架构", "Code Agent", "多智能体"]),
       href: "#series-01",
     },
@@ -34,7 +34,7 @@ export default function NotesIndexPage() {
       no: "02",
       label: "知识与多模态",
       title: "答案要有依据，图片和文档也要看得懂",
-      description: "更新知识库、看懂图里的空间关系、搞清楚引用到哪算越界，都在这条线里练。",
+      description: "更新知识库、看懂图里的空间关系、判断引用到哪算越界，都在这条线里练。",
       count: seriesCount(["RAG", "多模态"]),
       href: "#series-03",
     },
@@ -50,7 +50,7 @@ export default function NotesIndexPage() {
       no: "04",
       label: "模型与表达",
       title: "公式要会推，项目也要讲得清",
-      description: "前半段打底子，后半段练怎么把项目讲清楚——机制是什么、当时怎么取舍、证据在哪。",
+      description: "前半段打底子，后半段练怎么把项目讲清楚：机制是什么、当时怎么取舍、证据在哪。",
       count: seriesCount(["LLM 基础", "LLM 训练", "项目深挖", "通用与软实力", "五厂高频题"]),
       href: "#series-04",
     },
@@ -67,9 +67,9 @@ export default function NotesIndexPage() {
             </p>
             <div className="aa-notes-hero-grid">
               <div>
-                <h1>面试题别只背答案，<br /><em>练到能自己讲出来。</em></h1>
+                <h1>Agent 面试都问什么，<br /><em>我们一篇篇拆过。</em></h1>
             <p className="aa-notes-lede">
-              每篇都从面试官的一个真实追问开始，读完你自己就能讲出来。不用从头刷，哪篇用得上就先看哪篇。
+              题目来自大厂 Agent 岗位的真实面试，每篇把一个追问从拆解写到能落地的答案。
             </p>
             <div className="aa-notes-stats">
               <span>{notes.length} 篇笔记</span>
@@ -86,9 +86,9 @@ export default function NotesIndexPage() {
             <div className="aa-notes-aris-head">
               <div>
                 <p className="aa-notes-kicker">按问题挑</p>
-                <h2 id="aa-notes-aris-title">别从头刷，先解决眼前这道题。</h2>
+                <h2 id="aa-notes-aris-title">四条主线，按问题分组。</h2>
               </div>
-            <p>每条主线是一组解决同一类问题的笔记。挑一条跟你眼前这道题最像的，从它开始，读完就能用。</p>
+            <p>每条主线收的是解决同一类问题的笔记。对上你手头的题，就从那条进。</p>
             </div>
             <div className="aa-notes-aris-rails">
               {learningRails.map((rail) => (
@@ -148,7 +148,7 @@ export default function NotesIndexPage() {
           <div className="aa-notes-shell">
             <div className="aa-notes-wechat-head">
               <div><p className="aa-notes-kicker">AgentAlpha 公众号 · 已发表文章</p><h2 id="wechat-archive-title">公众号发过的内容，原文都收在这里。</h2></div>
-              <p>主题跟站内笔记有重叠的，两边都留着，不互相替换。</p>
+              <p>共 {publishedWechat.length} 篇，原文照收。</p>
             </div>
             <div className="aa-notes-wechat-grid">
               {publishedWechat.map((article) => <a className="aa-notes-wechat-card" href={article.url} target="_blank" rel="noreferrer" key={article.articleId}><span>{article.publishedAt} · 已发表</span><h3>{article.title}</h3><strong>打开原文 <ArrowUpRight aria-hidden /></strong></a>)}
@@ -179,7 +179,7 @@ export default function NotesIndexPage() {
         <section id="faq" className="aa-notes-outro">
           <div className="aa-notes-shell">
             <p>△ AgentAlpha 笔记</p>
-            <h2>讲推理，不背答案。</h2>
+            <h2>题库跟着真实面试持续更新。</h2>
             <Link href="/#join" className="aa-notes-join">
               加入社区 <ArrowUpRight aria-hidden />
             </Link>

@@ -1,7 +1,7 @@
 ---
 slug: "agent-rag-why"
 title: "你的 Agent 项目为什么要用 RAG？不用会怎样"
-excerpt: "RAG 不是 Agent 标配。知识会更新、数据不能公开、答案必须带出处、上下文装不下时，检索才值得加。"
+excerpt: "知识会更新、数据不能公开、答案必须带出处、上下文装不下时，检索才值得加。"
 series: "项目深挖"
 seriesNo: "11"
 number: "51"

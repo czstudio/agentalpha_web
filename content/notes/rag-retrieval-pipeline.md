@@ -1,6 +1,6 @@
 ---
 slug: "rag-retrieval-pipeline"
-title: "RAG 不只是“向量库 + 提示词”：证据怎样一路到答案？"
+title: "RAG 的证据怎样一路到答案？"
 excerpt: "把文档塞进向量库不算难。难的是对的证据能找回来、排到前面、真的被模型用上，每一环还得拿评测证明没掉链子。"
 series: "RAG"
 seriesNo: "03"

@@ -1,7 +1,7 @@
 ---
 slug: "agentic-rl-reward-hacking"
 title: "Agent 把奖励刷满了，为什么任务还是没做成？"
-excerpt: "Reward hacking 不是模型学坏了，是验收器给了个更好钻的空子。Agent 越擅长用工具，越得把奖励和真实结果分开核对。"
+excerpt: "Reward hacking，是验收器给了个更好钻的空子。Agent 越擅长用工具，越得把奖励和真实结果分开核对。"
 series: "Agentic RL"
 seriesNo: "01"
 number: "04"

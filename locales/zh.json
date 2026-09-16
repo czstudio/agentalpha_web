@@ -115,7 +115,7 @@
     "video": "视频"
   },
   "training": {
-    "badge": "训练营与加入方式",
+    "badge": "一起学习 · 一起做项目",
     "title": "跟着项目走，每周都有东西交",
     "modules": [
       {
@@ -141,7 +141,7 @@
     ],
     "headline": "有人一起做，进步会快很多",
     "description": "每周有小目标、代码评审和复盘。你不需要先把自己包装得很厉害，带着问题来就行。",
-    "cta_primary": "了解报名方式",
+    "cta_primary": "加入方式",
     "cta_secondary": "先聊聊"
   },
   "contact": {

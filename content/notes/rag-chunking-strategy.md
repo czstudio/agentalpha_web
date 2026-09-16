@@ -1,7 +1,7 @@
 ---
 slug: "rag-chunking-strategy"
 title: "RAG 分块怎么定？先别急着争 256 还是 512"
-excerpt: "分块不是切得整齐就行。每一块都得两头兼顾：检索时能被准确定位，单独拎出来也撑得住一个回答。"
+excerpt: "每一块都得两头兼顾：检索时能被准确定位，单独拎出来也撑得住一个回答。"
 series: "RAG"
 seriesNo: "03"
 number: "11"

@@ -1,7 +1,7 @@
 ---
 slug: "llm-rlhf-reward-model"
 title: "RLHF 为什么要奖励模型？从偏好到 PPO 怎么接起来"
-excerpt: "RLHF 不是喂“人类喜欢”，而是把偏好学成奖励，再用策略优化推高质量。数据、奖励模型、KL 约束、PPO 串起来，才讲得清它怎么工作、怎么被 reward hacking 反噬。"
+excerpt: "RLHF 先把偏好学成奖励，再用策略优化推高质量。数据、奖励模型、KL 约束、PPO 串起来，才讲得清它怎么工作、怎么被 reward hacking 反噬。"
 series: "LLM 训练"
 seriesNo: "05"
 number: "20"

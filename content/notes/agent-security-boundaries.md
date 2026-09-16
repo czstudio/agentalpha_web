@@ -1,6 +1,6 @@
 ---
 slug: "agent-security-boundaries"
-title: "Agent 安全不是加一句提示词：权限、工具和数据边界怎么设计"
+title: "Agent 安全怎么设计：权限、工具和数据边界"
 excerpt: "Agent 的风险不只是说错话，还在它能看哪些数据、动哪些工具、改什么东西。把自然语言里的意图落成权限和审批，边界才查得住。"
 series: "Agent 架构"
 seriesNo: "06"

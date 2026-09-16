@@ -1,6 +1,6 @@
 ---
 slug: "multimodal-to-transformer"
-title: "多模态模型不是给图片加个输入框：图像怎样进入 Transformer？"
+title: "图像怎样进入 Transformer？"
 excerpt: "图片要被语言模型理解，得先过视觉编码、特征投影、跨模态融合。把像素、patch、视觉 token、文本 token 串起来，才知道模型看见了什么。"
 series: "多模态"
 seriesNo: "08"

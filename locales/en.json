@@ -115,7 +115,7 @@
     "video": "Video"
   },
   "training": {
-    "badge": "Training Camp & How to Join",
+    "badge": "Learn and Build Together",
     "title": "Join Us",
     "modules": [
       {
@@ -140,9 +140,9 @@
       }
     ],
     "headline": "Deep Practice + Mentor Q&A + Project Co-creation",
-    "description": "Portfolio polishing, code review, weekly retrospectives, referral recommendations. Limited spots per cohort to ensure interaction quality.",
-    "cta_primary": "Sign Up Now",
-    "cta_secondary": "Consult Advisor"
+    "description": "Weekly goals, code review and retrospectives. Bring your questions — we figure things out and build projects together.",
+    "cta_primary": "Join Us",
+    "cta_secondary": "Say Hello"
   },
   "contact": {
     "tag": "Partnership & Consultation",
