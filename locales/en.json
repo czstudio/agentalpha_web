@@ -21,26 +21,27 @@
     "toggleTheme": "Toggle theme",
     "toggleMenu": "Toggle menu",
     "toggleLanguage": "Switch Language",
-    "mianjing": "Mianjing"
+    "mianjing": "Mianjing",
+    "learn": "Training"
   },
   "hero": {
-    "badge": "Learn by building real Agent projects",
+    "badge": "Hands-on LLM Agent community · No toy demos",
     "title_highlight": "AgentAlpha",
-    "title_normal": "Connecting Top Researchers, Engineers & Entrepreneurs",
-    "subtitle": "AgentAlpha is a hands-on community for large-model Agent work: read papers, build projects, review each other's code, and get interview-ready.",
-    "cta_primary": "Join Training",
-    "cta_secondary": "Business/Partnership"
+    "title_normal": "Build real, verifiable Agent projects",
+    "subtitle": "Ship three open-source projects with the community: code, data and retrospectives all live on GitHub, open for anyone to check. What you build is what you present in interviews.",
+    "cta_primary": "Join the community",
+    "cta_secondary": "See what we built"
   },
   "stats": {
-    "stat1_label": "Community Members",
-    "stat1_value": "5,000+",
-    "stat1_note": "Covering Universities / Big Tech / Startups",
-    "stat2_label": "Tech Talks",
-    "stat2_value": "300+",
-    "stat2_note": "Deep Sharing & Paper Reading",
-    "stat3_label": "Project Co-creation",
+    "stat1_label": "GitHub Stars",
+    "stat1_value": "7,800+",
+    "stat1_note": "InkOS · among Kimi's first open-source partners",
+    "stat2_label": "Hugging Face daily rank",
+    "stat2_value": "#1",
+    "stat2_note": "Idea2Paper topped Daily Papers, 1.4k stars",
+    "stat3_label": "Signed member works",
     "stat3_value": "150+",
-    "stat3_note": "Agent & Multimodal Landing Cases"
+    "stat3_note": "Published on Fanqie & Qimao platforms"
   },
   "vision": {
     "tag": "Vision & Goals",
@@ -170,5 +171,45 @@
     "contact_us": "Contact Us",
     "follow_us": "Follow Us",
     "copyright": "© 2025 AgentAlpha Community. All rights reserved."
+  },
+  "proof": {
+    "tag": "先自证，再谈教学",
+    "title": "社区做出来的三个项目",
+    "desc": "下面的数字都能点开核验：仓库是公开的，榜单是第三方的，产品在线上运行。",
+    "projects": [
+      {
+        "name": "InkOS · AI 小说创作智能体",
+        "desc": "十个 Agent 分工的工程化写作管线：世界观、情节、伏笔和连续性审计全自动衔接。",
+        "points": [
+          "GitHub 7,800+ stars、1,500+ forks",
+          "kimi 首批开源合作伙伴",
+          "学员作品 150+ 部签约番茄、七猫"
+        ],
+        "href": "https://github.com/Narcooo/inkos",
+        "href_label": "查看 GitHub 仓库"
+      },
+      {
+        "name": "Idea2Paper · AI 科研智能体",
+        "desc": "从想法到论文的全流程科研 Agent，内置 10 万+ 顶会论文知识库和多智能体评审机制。",
+        "points": [
+          "Hugging Face Daily Papers 日榜第 1",
+          "GitHub 1.4k stars",
+          "自动生成论文 1,800+ 篇"
+        ],
+        "href": "https://github.com/AgentAlphaAGI/Idea2Paper",
+        "href_label": "查看 GitHub 仓库"
+      },
+      {
+        "name": "潜艇 AI · 跨境电商视频工具",
+        "desc": "社区成员的创业项目：商品链接一键生成带货短视频，社区从 0 到 1 全程带教。",
+        "points": [
+          "3 人团队 20 天上线",
+          "30 天用户破万",
+          "帮卖家创造营收 300 万+"
+        ],
+        "href": "https://qiantingai.com",
+        "href_label": "访问产品官网"
+      }
+    ]
   }
 }

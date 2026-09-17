@@ -57,7 +57,7 @@ const StatCard = memo(({ label, value }: { label: string; value: string; note: s
 ))
 StatCard.displayName = "StatCard"
 
-const ADVANCED_HREFS = ["/#resources", "/#join", "/#contact"]
+const ADVANCED_HREFS = ["/interview", "/#proof", "/#contact"]
 
 export function HomeContent({ data }: HomeContentProps) {
   const { t } = useLanguage()
@@ -74,14 +74,11 @@ export function HomeContent({ data }: HomeContentProps) {
 
   const c = data.siteContent || {}
 
-  const stats = c.stats ? [
-    { label: t.stats.stat1_label, value: c.stats.stat1_value || "5,000+", note: t.stats.stat1_note },
-    { label: t.stats.stat2_label, value: c.stats.stat2_value || "300+", note: t.stats.stat2_note },
-    { label: t.stats.stat3_label, value: c.stats.stat3_value || "150+", note: t.stats.stat3_note },
-  ] : [
-    { label: t.stats.stat1_label, value: "5,000+", note: t.stats.stat1_note },
-    { label: t.stats.stat2_label, value: "300+", note: t.stats.stat2_note },
-    { label: t.stats.stat3_label, value: "150+", note: t.stats.stat3_note },
+  // 数据条只放可点开核验的战绩（数字与出处由 zh/en 文案维护），不再读后台可改的 siteContent
+  const stats = [
+    { label: t.stats.stat1_label, value: t.stats.stat1_value, note: t.stats.stat1_note },
+    { label: t.stats.stat2_label, value: t.stats.stat2_value, note: t.stats.stat2_note },
+    { label: t.stats.stat3_label, value: t.stats.stat3_value, note: t.stats.stat3_note },
   ]
 
   return (
@@ -104,7 +101,7 @@ export function HomeContent({ data }: HomeContentProps) {
               >
                 <span>{t.hero.cta_primary}</span>
               </button>
-              <a href="#contact" className="aa-btn-ghost">{t.hero.cta_secondary}</a>
+              <a href="#proof" className="aa-btn-ghost">{t.hero.cta_secondary}</a>
             </div>
           </div>
           <BrandLogoReel className="aa-hero-reel" />
@@ -113,6 +110,33 @@ export function HomeContent({ data }: HomeContentProps) {
               <StatCard key={item.label} label={item.label} value={item.value} note={item.note} />
             ))}
           </dl>
+        </div>
+      </section>
+
+      <section id="proof" className="aa-section">
+        <div className="section-shell">
+          <SectionHead icon={ShieldCheck} kicker={t.proof.tag} title={t.proof.title} desc={t.proof.desc} />
+          <div className="aa-proof-grid">
+            {t.proof.projects.map((project: any) => (
+              <article key={project.name} className="aa-proof-card">
+                <h3>{project.name}</h3>
+                <p className="aa-proof-desc">{project.desc}</p>
+                <ul>
+                  {project.points.map((point: string) => (
+                    <li key={point}>{point}</li>
+                  ))}
+                </ul>
+                <a
+                  className="aa-btn-link"
+                  href={project.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {project.href_label} ↗
+                </a>
+              </article>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -318,6 +342,15 @@ export function HomeContent({ data }: HomeContentProps) {
                 <p>{module.desc}</p>
               </article>
             ))}
+          </div>
+          <div className="aa-evidence">
+            <h3 className="aa-evidence-t">{t.training.evidence_title}</h3>
+            <p className="aa-evidence-note">{t.training.evidence_note}</p>
+            <ul className="aa-evidence-cases">
+              {t.training.cases.map((caseItem: string) => (
+                <li key={caseItem}>{caseItem}</li>
+              ))}
+            </ul>
           </div>
           <div className="aa-join-cta">
             <div className="aa-join-copy">

@@ -2015,3 +2015,150 @@ html.enrollment-dialog-open { overflow: hidden; }
 .mj-card-date { color: #9a9082; font-size: 0.82rem; }
 .mj-card-cta { display: inline-flex; align-items: center; gap: 6px; color: #1b365d; font-weight: 500; font-size: 0.92rem; }
 .mj-outro { background: transparent; }
+
+/* ── 首页 · 开源战绩区（proof）与训练营证据条 ── */
+.aa-proof-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+.aa-proof-card {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  border: 1px solid var(--border, #e5e1d8);
+  border-radius: 14px;
+  background: var(--card, #fffdf8);
+  padding: 22px 22px 20px;
+}
+.aa-proof-card h3 {
+  font-size: 16.5px;
+  font-weight: 700;
+  margin: 0;
+}
+.aa-proof-desc {
+  color: var(--muted, #6b6557);
+  font-size: 13.5px;
+  line-height: 1.7;
+  margin: 0;
+}
+.aa-proof-card ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 6px;
+}
+.aa-proof-card li {
+  font-size: 13.5px;
+  line-height: 1.6;
+  padding-left: 16px;
+  position: relative;
+}
+.aa-proof-card li::before {
+  content: "";
+  position: absolute;
+  left: 2px;
+  top: 0.62em;
+  width: 6px;
+  height: 6px;
+  border-radius: 2px;
+  background: var(--brand, #6e22f0);
+}
+.aa-proof-card .aa-btn-link {
+  margin-top: auto;
+  align-self: flex-start;
+}
+.aa-evidence {
+  margin-top: 28px;
+  border-top: 1px dashed var(--border, #e5e1d8);
+  padding-top: 22px;
+}
+.aa-evidence-t {
+  font-size: 15px;
+  font-weight: 700;
+  margin: 0 0 6px;
+}
+.aa-evidence-note {
+  color: var(--muted, #6b6557);
+  font-size: 13.5px;
+  margin: 0 0 10px;
+}
+.aa-evidence-cases {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 6px;
+}
+.aa-evidence-cases li {
+  font-size: 13.5px;
+  line-height: 1.7;
+  padding-left: 16px;
+  position: relative;
+}
+.aa-evidence-cases li::before {
+  content: "";
+  position: absolute;
+  left: 2px;
+  top: 0.62em;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--brand, #6e22f0);
+}
+@media (max-width: 900px) {
+  .aa-proof-grid { grid-template-columns: 1fr; }
+}
+
+/* ── /learn 训练营索引页 ── */
+.learn-home-shell { padding-top: 24px; padding-bottom: 64px; }
+.learn-home-hero { padding: 26px 0 8px; border-bottom: 1px solid var(--border, #e5e1d8); }
+.learn-home-kicker { font-size: 12px; letter-spacing: 0.12em; color: var(--muted, #6b6557); margin: 0 0 10px; }
+.learn-home-hero h1 { font-size: 34px; font-weight: 800; margin: 0 0 14px; }
+.learn-home-lede { color: var(--muted, #6b6557); font-size: 15px; line-height: 1.85; max-width: 640px; margin: 0 0 24px; }
+.learn-home-lede a { color: var(--brand, #6e22f0); text-decoration: underline; text-underline-offset: 3px; }
+
+.learn-home-block { margin-top: 40px; }
+.learn-home-block > h2 { font-size: 22px; font-weight: 700; margin: 0 0 16px; }
+
+.learn-home-principles { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
+.learn-home-principle { border: 1px solid var(--border, #e5e1d8); border-radius: 12px; padding: 18px 20px; background: var(--card, #fffdf8); }
+.learn-home-principle h3 { font-size: 15.5px; font-weight: 700; margin: 0 0 8px; }
+.learn-home-principle p { font-size: 13.5px; line-height: 1.7; margin: 0 0 6px; color: var(--foreground, #26211a); }
+.learn-home-against, .learn-home-insist { display: inline-block; font-size: 12px; font-weight: 700; border-radius: 4px; padding: 0 6px; margin-right: 6px; }
+.learn-home-against { color: #8a4b12; background: #fbf1dc; }
+.learn-home-insist { color: var(--brand, #6e22f0); background: rgba(110, 34, 240, 0.08); }
+
+.learn-home-courses { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+.learn-home-course { border: 1px solid var(--border, #e5e1d8); border-radius: 12px; padding: 18px 20px; position: relative; }
+.learn-home-course-no { font-size: 26px; font-weight: 800; color: var(--brand, #6e22f0); opacity: 0.5; }
+.learn-home-course h3 { font-size: 16px; font-weight: 700; margin: 4px 0 8px; }
+.learn-home-course p { font-size: 13px; color: var(--muted, #6b6557); line-height: 1.7; margin: 0 0 10px; }
+.learn-home-course ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 5px; }
+.learn-home-course li { font-size: 13px; line-height: 1.6; padding-left: 14px; position: relative; }
+.learn-home-course li::before { content: ""; position: absolute; left: 0; top: 0.6em; width: 5px; height: 5px; border-radius: 50%; background: var(--brand, #6e22f0); }
+
+.learn-home-part { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+.learn-home-part-card { border: 1px solid var(--border, #e5e1d8); border-radius: 12px; padding: 18px 20px; }
+.learn-home-part-card h3 { font-size: 15.5px; font-weight: 700; margin: 0 0 8px; }
+.learn-home-part-who { font-size: 13px; color: var(--muted, #6b6557); line-height: 1.7; margin: 0 0 8px; }
+.learn-home-part-support { font-size: 13px; line-height: 1.7; margin: 0; }
+
+.learn-home-open { display: flex; align-items: center; justify-content: space-between; gap: 16px; border: 1px solid var(--border, #e5e1d8); border-radius: 12px; padding: 18px 22px; text-decoration: none; color: inherit; transition: border-color 0.15s ease; }
+.learn-home-open:hover { border-color: var(--brand, #6e22f0); }
+.learn-home-open h3 { font-size: 15.5px; font-weight: 700; margin: 0 0 6px; }
+.learn-home-open p { font-size: 13px; color: var(--muted, #6b6557); line-height: 1.7; margin: 0; }
+.learn-home-open-go { flex: none; font-size: 13.5px; font-weight: 600; color: var(--brand, #6e22f0); display: inline-flex; align-items: center; gap: 4px; }
+
+.learn-home-cta { margin-top: 44px; background: #17141f; color: #fff; border-radius: 16px; padding: 28px 30px; display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
+.learn-home-cta h2 { font-size: 19px; font-weight: 700; margin: 0 0 8px; color: #fff; }
+.learn-home-cta p { font-size: 13.5px; color: rgba(255, 255, 255, 0.72); line-height: 1.75; margin: 0; max-width: 480px; }
+.learn-home-cta-btn { flex: none; display: inline-flex; align-items: center; gap: 6px; background: var(--brand, #6e22f0); color: #fff; font-size: 14px; font-weight: 600; border-radius: 10px; padding: 12px 20px; text-decoration: none; }
+.learn-home-cta-btn:hover { background: #4c15ac; }
+
+@media (max-width: 900px) {
+  .learn-home-principles { grid-template-columns: 1fr; }
+  .learn-home-courses, .learn-home-part { grid-template-columns: 1fr; }
+  .learn-home-hero h1 { font-size: 26px; }
+}

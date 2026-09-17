@@ -21,70 +21,71 @@
     "toggleTheme": "切换主题",
     "toggleMenu": "打开菜单",
     "toggleLanguage": "切换语言",
-    "mianjing": "面经"
+    "mianjing": "面经",
+    "learn": "训练营"
   },
   "hero": {
-    "badge": "给想把 Agent 做出来的人",
+    "badge": "大模型 Agent 实战社区 · 不做玩具 Demo",
     "title_highlight": "AgentAlpha",
-    "title_normal": "一起把想法做成能跑的项目",
-    "subtitle": "跟着真实项目学 Agent：读论文、做产品、互相改简历。做完的东西都挂在 GitHub 上，面试时直接讲。",
-    "cta_primary": "看看训练营",
-    "cta_secondary": "聊聊合作"
+    "title_normal": "把 Agent 做成能查证的真项目",
+    "subtitle": "跟着社区做完三个已上线的开源项目：代码、数据、复盘全挂在 GitHub，点开就能核验。面试时讲的，就是你亲手做过的东西。",
+    "cta_primary": "加入社区，一起做项目",
+    "cta_secondary": "先看做出来的东西"
   },
   "stats": {
-    "stat1_label": "一起学习的人",
-    "stat1_value": "5,000+",
-    "stat1_note": "来自高校、公司和创业团队",
-    "stat2_label": "技术分享",
-    "stat2_value": "300+",
-    "stat2_note": "从入门分享到源码级拆解都有",
-    "stat3_label": "一起做过的项目",
-    "stat3_value": "150+",
-    "stat3_note": "从 Agent 到多模态的真实尝试"
+    "stat1_label": "GitHub Stars",
+    "stat1_value": "7,800+",
+    "stat1_note": "开源项目 InkOS · kimi 首批开源合作伙伴",
+    "stat2_label": "Hugging Face 日榜",
+    "stat2_value": "第 1",
+    "stat2_note": "Idea2Paper 登 Daily Papers 日榜，1.4k stars",
+    "stat3_label": "学员作品签约",
+    "stat3_value": "150+ 部",
+    "stat3_note": "上架番茄、七猫，头部作者月入超 3 万"
   },
   "vision": {
-    "tag": "我们为什么聚在这里",
-    "title": "别只收藏资料，做点真的出来",
+    "tag": "社区的方法",
+    "title": "做了什么，比收藏了什么重要",
     "vision_points": [
-      "论文读完要能讲出来：它解决了什么问题、证据在哪、边界在哪。",
-      "学的东西最后要变成能跑的代码。收藏夹里存一百篇，不算学过。",
-      "卡住就说出来。社区里多半有人踩过同一个坑，能告诉你下一步在哪。"
+      "不做玩具 Demo：在真实项目里拆需求、写代码、做评估、复盘结果。",
+      "不只听课：每个阶段都留下可检查、可展示、可讲解的作品。",
+      "不承诺速成：能力成长需要周期，训练按阶段来，成果按阶段验收。"
     ],
     "offerings_title": "你会在这里拿到什么",
     "offerings": [
-      "一条能走完的学习路线，不靠资料堆",
-      "每周的代码评审，导师和同行给的都是具体意见",
-      "论文笔记和技术分享，随时翻回去复盘",
+      "一条按阶段推进的学习路线，每个阶段有验收",
+      "每周代码评审，意见具体到代码行",
+      "论文笔记和技术分享，做完可以翻回去查",
       "简历和面试表达，最后一程一起磨"
     ],
-    "bottom_note": "做完的项目都挂在 GitHub 上，什么时候都能翻回去看。"
+    "bottom_note": "所有项目产出都挂在 GitHub，随时可以翻回去看。"
   },
   "advanced": {
     "tag": "你现在最想解决哪件事",
-    "title": "按你的目标，选一条能走通的路",
+    "title": "按目标选方向，练的底层能力是一样的",
     "offerings": [
       {
-        "title": "我刚开始学 Agent",
+        "title": "我想转 Agent 岗",
         "bullets": [
-          "先从基础和小项目开始",
-          "边做边补工具、记忆和评测",
-          "遇到不会的地方，有人可以问"
+          "围绕求职做能写进简历的项目",
+          "系统设计、项目表达、高频追问逐项过",
+          "站内面试题库和真实面经配套练"
         ]
       },
       {
-        "title": "我已经在做项目，想做得更稳",
+        "title": "我想发论文、申博",
         "bullets": [
-          "一起把架构拆开看，把缺的实验补上",
-          "把线上问题变成可复现的案例",
-          "准备面试时，能讲清自己的取舍"
+          "以科研 Agent 方向为主线做项目",
+          "从文献综述到论文产出全流程走一遍",
+          "往期成员有 ICLR、AAAI、NeurIPS 录用"
         ]
       },
       {
-        "title": "我想找人一起做点事",
+        "title": "我想把产品做出来",
         "bullets": [
-          "社区里常年有组队做开源和研究的",
-          "联合办分享、活动和实践课",
-          "把想法拿出来，找合适的伙伴"
+          "从 MVP 做到真实用户和收入",
+          "潜艇 AI 就是社区带教出来的项目",
+          "导师跟到上线为止"
         ]
       }
     ]
@@ -115,7 +116,7 @@
     "video": "视频"
   },
   "training": {
-    "badge": "一起学习 · 一起做项目",
+    "badge": "训练营 · 项目驱动",
     "title": "跟着项目走，每周都有东西交",
     "modules": [
       {
@@ -142,7 +143,14 @@
     "headline": "有人一起做，进步会快很多",
     "description": "每周有小目标、代码评审和复盘。你不需要先把自己包装得很厉害，带着问题来就行。",
     "cta_primary": "加入方式",
-    "cta_secondary": "先聊聊"
+    "cta_secondary": "先聊聊",
+    "evidence_title": "往期学员的结果",
+    "evidence_note": "腾讯、字节、蚂蚁、华为天才少年等 offer；ICLR、KDD、AAAI、NeurIPS 等论文录用。",
+    "cases": [
+      "专科出身、做了 8 年后端，靠 Idea2Paper 项目转行 Agent 方向，拿到 56w offer",
+      "985 硕士主攻多模态 Memory，顶会论文录用，拿到 Qwen offer",
+      "在职工程师把 Memory 项目做进述职，获得晋升和年终调薪"
+    ]
   },
   "contact": {
     "tag": "联系与合作",
@@ -170,5 +178,45 @@
     "contact_us": "联系我们",
     "follow_us": "关注我们",
     "copyright": "© 2025 AgentAlpha 社区。保留所有权利。"
+  },
+  "proof": {
+    "tag": "先自证，再谈教学",
+    "title": "社区做出来的三个项目",
+    "desc": "下面的数字都能点开核验：仓库是公开的，榜单是第三方的，产品在线上运行。",
+    "projects": [
+      {
+        "name": "InkOS · AI 小说创作智能体",
+        "desc": "十个 Agent 分工的工程化写作管线：世界观、情节、伏笔和连续性审计全自动衔接。",
+        "points": [
+          "GitHub 7,800+ stars、1,500+ forks",
+          "kimi 首批开源合作伙伴",
+          "学员作品 150+ 部签约番茄、七猫"
+        ],
+        "href": "https://github.com/Narcooo/inkos",
+        "href_label": "查看 GitHub 仓库"
+      },
+      {
+        "name": "Idea2Paper · AI 科研智能体",
+        "desc": "从想法到论文的全流程科研 Agent，内置 10 万+ 顶会论文知识库和多智能体评审机制。",
+        "points": [
+          "Hugging Face Daily Papers 日榜第 1",
+          "GitHub 1.4k stars",
+          "自动生成论文 1,800+ 篇"
+        ],
+        "href": "https://github.com/AgentAlphaAGI/Idea2Paper",
+        "href_label": "查看 GitHub 仓库"
+      },
+      {
+        "name": "潜艇 AI · 跨境电商视频工具",
+        "desc": "社区成员的创业项目：商品链接一键生成带货短视频，社区从 0 到 1 全程带教。",
+        "points": [
+          "3 人团队 20 天上线",
+          "30 天用户破万",
+          "帮卖家创造营收 300 万+"
+        ],
+        "href": "https://qiantingai.com",
+        "href_label": "访问产品官网"
+      }
+    ]
   }
 }
