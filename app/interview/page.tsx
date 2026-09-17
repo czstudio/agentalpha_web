@@ -31,7 +31,7 @@ function Hero() {
       <div className="ivc-hero-kicker">AGENTALPHA INTERVIEW ROOM · COLUMN</div>
       <h1 className="ivc-hero-title">Agent 岗面试学习路线</h1>
       <p className="ivc-hero-sub">
-        12 章题库从 RAG 一路排到五厂真题，每章标好考点、题量和考频——你知道从哪儿开始，刷到哪儿算完。
+        12 章题库从 RAG 一路排到五厂真题，每章标好考点、题量和考频，你知道从哪儿开始，刷到哪儿算完。
         题干来自面试官原话，解法附论文原文，这里的每场面试都允许翻书。
       </p>
       <div className="ivc-hero-stats">

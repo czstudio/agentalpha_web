@@ -67,7 +67,7 @@ export default function QaHubPage() {
         <p className="ivc-hero-kicker">高频题速答 · QUICK ANSWERS</p>
         <h1 className="ivc-hero-title">Agent 面试题大全</h1>
         <p className="ivc-hero-sub">
-          {all.length} 道真实高频题，一题一页。每页先给一句能直接说出口的结论，再补追问点和常见的坑——面试前速刷，面试中救场。
+          {all.length} 道真实高频题，一题一页。每页先给一句能直接说出口的结论，再补追问点和常见的坑。面试前速刷，面试中救场。
         </p>
         <p className="ivq-hero-note">
           题目来自社区成员的真实面经与公开面经汇总，按大家实际会搜的说法组织。
