@@ -74,6 +74,33 @@ export function HomeContent({ data }: HomeContentProps) {
     return () => window.removeEventListener(ENROLLMENT_DIALOG_EVENT, openEnrollment)
   }, [])
 
+  // 3D 倾斜跟随鼠标 + 光标位置高光（触屏设备自动跳过）
+  useEffect(() => {
+    if (!window.matchMedia("(pointer: fine)").matches) return
+    const cards = Array.from(document.querySelectorAll<HTMLElement>("[data-tilt]"))
+    const cleanups: Array<() => void> = []
+    for (const card of cards) {
+      const onMove = (event: MouseEvent) => {
+        const rect = card.getBoundingClientRect()
+        const x = (event.clientX - rect.left) / rect.width - 0.5
+        const y = (event.clientY - rect.top) / rect.height - 0.5
+        card.style.transform = `perspective(900px) rotateY(${x * 10}deg) rotateX(${-y * 9}deg) translateY(-3px)`
+        card.style.setProperty("--mx", `${((x + 0.5) * 100).toFixed(1)}%`)
+        card.style.setProperty("--my", `${((y + 0.5) * 100).toFixed(1)}%`)
+      }
+      const onLeave = () => {
+        card.style.transform = ""
+      }
+      card.addEventListener("mousemove", onMove)
+      card.addEventListener("mouseleave", onLeave)
+      cleanups.push(() => {
+        card.removeEventListener("mousemove", onMove)
+        card.removeEventListener("mouseleave", onLeave)
+      })
+    }
+    return () => cleanups.forEach((fn) => fn())
+  }, [])
+
   const c = data.siteContent || {}
 
   // 数据条只放可点开核验的战绩（数字与出处由 zh/en 文案维护），不再读后台可改的 siteContent
@@ -120,22 +147,23 @@ export function HomeContent({ data }: HomeContentProps) {
           <SectionHead icon={ShieldCheck} kicker={t.proof.tag} title={t.proof.title} desc={t.proof.desc} />
           <div className="aa-proof-grid">
             {t.proof.projects.map((project: any) => (
-              <article key={project.name} className="aa-proof-card">
-                <h3>{project.name}</h3>
-                <p className="aa-proof-desc">{project.desc}</p>
-                <ul>
-                  {project.points.map((point: string) => (
-                    <li key={point}>{point}</li>
-                  ))}
-                </ul>
-                <a
-                  className="aa-btn-link"
-                  href={project.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  {project.href_label} ↗
-                </a>
+              <article key={project.name} className={`aa-proof-card aa-pg ${project.tone}`} data-tilt>
+                <span className="aa-pg-glow" aria-hidden />
+                <span className="aa-pg-noise" aria-hidden />
+                <span className="aa-pg-ghost" aria-hidden>{project.ghost}</span>
+                <div className="aa-pg-body">
+                  <span className="aa-pg-kicker">{project.kicker}</span>
+                  <h3>{project.name}</h3>
+                  <p className="aa-pg-desc">{project.desc}</p>
+                  <ul>
+                    {project.points.map((point: string) => (
+                      <li key={point}>{point}</li>
+                    ))}
+                  </ul>
+                  <a className="aa-pg-go" href={project.href} target="_blank" rel="noopener noreferrer">
+                    {project.href_label} ↗
+                  </a>
+                </div>
               </article>
             ))}
           </div>
@@ -144,17 +172,20 @@ export function HomeContent({ data }: HomeContentProps) {
             <p className="aa-paper-strip-t">{t.proof.papers_title}</p>
             <div className="aa-paper-strip-list">
               {t.proof.papers.map((paper: any) => (
-                <a
-                  key={paper.name}
-                  className="aa-paper-chip"
-                  href={paper.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <span className="aa-paper-chip-name">{paper.name}</span>
-                  <span className="aa-paper-chip-title">{paper.title}</span>
-                  <span className="aa-paper-chip-meta">{paper.meta} ↗</span>
-                </a>
+                <article key={paper.name} className="aa-proof-card aa-pg aa-pg--paper" data-tilt>
+                  <span className="aa-pg-glow" aria-hidden />
+                  <span className="aa-pg-noise" aria-hidden />
+                  <span className="aa-pg-ghost" aria-hidden>{paper.ghost}</span>
+                  <div className="aa-pg-body">
+                    <span className="aa-pg-kicker">{paper.kicker}</span>
+                    <h3>{paper.name}</h3>
+                    <p className="aa-pg-desc">{paper.desc}</p>
+                    <p className="aa-pg-title">{paper.title}</p>
+                    <a className="aa-pg-go" href={paper.href} target="_blank" rel="noopener noreferrer">
+                      {paper.meta} · {paper.href_label} ↗
+                    </a>
+                  </div>
+                </article>
               ))}
             </div>
           </div>

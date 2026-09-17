@@ -186,7 +186,10 @@
           "Agent 自动迭代出 1,800+ 篇论文，正推进约 300 万天使轮合作"
         ],
         "href": "https://github.com/AgentAlphaAGI/Idea2Paper",
-        "href_label": "查看 GitHub 仓库"
+        "href_label": "查看 GitHub 仓库",
+        "tone": "g1",
+        "kicker": "RESEARCH · 学术",
+        "ghost": "№1"
       },
       {
         "name": "InkOS · AI 小说创作智能体",
@@ -197,7 +200,10 @@
           "150+ 部作品签约番茄、七猫，累计产出 10 亿字，头部作者月入 3-5 万"
         ],
         "href": "https://github.com/Narcooo/inkos",
-        "href_label": "查看 GitHub 仓库"
+        "href_label": "查看 GitHub 仓库",
+        "tone": "g2",
+        "kicker": "CREATION · 小说",
+        "ghost": "文"
       },
       {
         "name": "潜艇 AI · TikTok 跨境电商 AI 引擎",
@@ -208,7 +214,10 @@
           "成员由此掌握工程、产品、运营变现全流程"
         ],
         "href": "https://qiantingai.com",
-        "href_label": "访问产品官网"
+        "href_label": "访问产品官网",
+        "tone": "g3",
+        "kicker": "COMMERCE · 跨境电商",
+        "ghost": "▲"
       },
       {
         "name": "SellAI Pro · 跨境电商 AI 运营中枢",
@@ -219,7 +228,10 @@
           "企业定制落地案例"
         ],
         "href": "https://sellaipro.fly.dev/",
-        "href_label": "访问产品官网"
+        "href_label": "访问产品官网",
+        "tone": "g4",
+        "kicker": "ENTERPRISE · 企业定制",
+        "ghost": "◆"
       },
       {
         "name": "火花数据 API · 专业数据接入",
@@ -230,28 +242,46 @@
           "可直接分享到 Agent 使用"
         ],
         "href": "https://agentalpha.feishu.cn/docx/QtYQddrAFoLIb9xFe7PckJnmn1b",
-        "href_label": "查看项目介绍"
+        "href_label": "查看项目介绍",
+        "tone": "g5",
+        "kicker": "DATA · 数据服务",
+        "ghost": "✦"
       }
     ],
-    "papers_title": "Research papers",
+    "papers_title": "社区论文成果",
     "papers": [
       {
         "name": "Idea2Story",
         "title": "An Automated Pipeline for Transforming Research Concepts into Complete Scientific Narratives",
         "meta": "arXiv:2601.20833",
-        "href": "https://arxiv.org/abs/2601.20833"
+        "href": "https://arxiv.org/abs/2601.20833",
+        "desc": "自动科研管线：把研究概念自动转化为完整科学叙事，用预构建的方法论知识图谱替代运行时海量文献推理。",
+        "tone": "gp",
+        "kicker": "PAPER · arXiv",
+        "ghost": "¶",
+        "href_label": "阅读论文"
       },
       {
         "name": "Story2Proposal",
         "title": "A Scaffold for Structured Scientific Paper Writing",
         "meta": "arXiv:2603.27065 · Hugging Face Daily Papers",
-        "href": "https://arxiv.org/abs/2603.27065"
+        "href": "https://arxiv.org/abs/2603.27065",
+        "desc": "契约治理的多智能体写作框架：把研究故事转化为结构化论文手稿，评审得分优于直接生成基线。",
+        "tone": "gp",
+        "kicker": "PAPER · arXiv",
+        "ghost": "¶",
+        "href_label": "阅读论文"
       },
       {
         "name": "MetaRSI",
         "title": "A Meta-Recursive Self-Improving System",
         "meta": "arXiv:2609.06396",
-        "href": "https://arxiv.org/abs/2609.06396"
+        "href": "https://arxiv.org/abs/2609.06396",
+        "desc": "元递归自改进系统：让改进「改进器本身」的流程，在可机器验证的环节上自动迭代。",
+        "tone": "gp",
+        "kicker": "PAPER · arXiv",
+        "ghost": "¶",
+        "href_label": "阅读论文"
       }
     ]
   },
