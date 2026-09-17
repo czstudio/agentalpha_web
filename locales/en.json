@@ -28,7 +28,7 @@
     "badge": "Top LLM Agent builder community in China",
     "title_highlight": "AgentAlpha",
     "title_normal": "Building the Whampoa Academy of AI",
-    "subtitle": "No toy demos, no theory-only talk, no course-selling. We train AI talent through real, shippable projects — technology in production, people who can deliver, and ventures built together.",
+    "subtitle": "No theory-only talk, no chasing trends. Built on technology in production, talent development, and ventures created together — we train AI talent who solve real problems and ship real results.",
     "cta_primary": "Join the community",
     "cta_secondary": "See what we built"
   },
@@ -62,7 +62,7 @@
   },
   "advanced": {
     "tag": "三类成长方向",
-    "title": "目标不一样，训练的底层是相通的",
+    "title": "",
     "offerings": [
       {
         "title": "职场实战",
@@ -160,7 +160,7 @@
   },
   "universities": {
     "tag": "Partner Universities",
-    "title": "Top Universities Join Forces",
+    "title": "Global top universities and labs",
     "description": "Establish deep partnerships with top domestic and international universities, gather academic resources, and promote AI research and industry landing",
     "no_universities": "No partner university info yet",
     "add_universities_hint": "Please add in admin system"
@@ -231,6 +231,27 @@
         ],
         "href": "https://agentalpha.feishu.cn/docx/QtYQddrAFoLIb9xFe7PckJnmn1b",
         "href_label": "查看项目介绍"
+      }
+    ],
+    "papers_title": "Research papers",
+    "papers": [
+      {
+        "name": "Idea2Story",
+        "title": "An Automated Pipeline for Transforming Research Concepts into Complete Scientific Narratives",
+        "meta": "arXiv:2601.20833",
+        "href": "https://arxiv.org/abs/2601.20833"
+      },
+      {
+        "name": "Story2Proposal",
+        "title": "A Scaffold for Structured Scientific Paper Writing",
+        "meta": "arXiv:2603.27065 · Hugging Face Daily Papers",
+        "href": "https://arxiv.org/abs/2603.27065"
+      },
+      {
+        "name": "MetaRSI",
+        "title": "A Meta-Recursive Self-Improving System",
+        "meta": "arXiv:2609.06396",
+        "href": "https://arxiv.org/abs/2609.06396"
       }
     ]
   },

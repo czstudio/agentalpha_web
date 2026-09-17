@@ -28,7 +28,7 @@
     "badge": "国内顶尖大模型 Agent 实战社区",
     "title_highlight": "AgentAlpha",
     "title_normal": "立志打造 AI 界的黄埔军校",
-    "subtitle": "不空谈理论、不追热点、不以卖课为核心，不做玩具级 Demo 教学。以「技术落地、人才培养、商业共创」为核心，培养能解决真实问题、能落地、能产出的 AI 人才。",
+    "subtitle": "不空谈理论、不追热点。以「技术落地、人才培养、商业共创」为核心，培养能解决真实问题、能落地、能产出的 AI 人才。",
     "cta_primary": "加入社区，一起做项目",
     "cta_secondary": "先看做出来的东西"
   },
@@ -62,7 +62,7 @@
   },
   "advanced": {
     "tag": "三类成长方向",
-    "title": "目标不一样，训练的底层是相通的",
+    "title": "",
     "offerings": [
       {
         "title": "职场实战",
@@ -160,7 +160,7 @@
   },
   "universities": {
     "tag": "一起学习的人",
-    "title": "来自不同地方，但都在认真做事",
+    "title": "全球顶级高校和实验室",
     "description": "成员来自高校、公司和创业团队，带着各自的项目和问题来交流。",
     "no_universities": "暂无合作院校信息",
     "add_universities_hint": "合作院校信息整理中"
@@ -231,6 +231,27 @@
         ],
         "href": "https://agentalpha.feishu.cn/docx/QtYQddrAFoLIb9xFe7PckJnmn1b",
         "href_label": "查看项目介绍"
+      }
+    ],
+    "papers_title": "社区论文成果",
+    "papers": [
+      {
+        "name": "Idea2Story",
+        "title": "An Automated Pipeline for Transforming Research Concepts into Complete Scientific Narratives",
+        "meta": "arXiv:2601.20833",
+        "href": "https://arxiv.org/abs/2601.20833"
+      },
+      {
+        "name": "Story2Proposal",
+        "title": "A Scaffold for Structured Scientific Paper Writing",
+        "meta": "arXiv:2603.27065 · Hugging Face Daily Papers",
+        "href": "https://arxiv.org/abs/2603.27065"
+      },
+      {
+        "name": "MetaRSI",
+        "title": "A Meta-Recursive Self-Improving System",
+        "meta": "arXiv:2609.06396",
+        "href": "https://arxiv.org/abs/2609.06396"
       }
     ]
   },

@@ -35,7 +35,6 @@ export function Navigation() {
     { label: t.nav.mianjing, href: "/mianjing" },
     { label: t.nav.learn, href: "/learn" },
     { label: t.nav.talks, href: "/#talks" },
-    { label: t.nav.resources, href: "/#resources" },
   ]
 
   const clickCountRef = useRef(0)

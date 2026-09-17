@@ -36,25 +36,48 @@ const PRINCIPLES: { name: string; against: string; insist: string }[] = [
   },
 ]
 
-const COURSE_BLOCKS: { name: string; desc: string; items: string[] }[] = [
+const COURSES: { name: string; tag: string; desc: string; href: string; href_label: string }[] = [
   {
     name: "基础课",
+    tag: "入门",
     desc: "从 Python 到 Agent 入门，把动手前要补的基础一次补齐。",
-    items: ["LLM 与多模态基础", "Python 工程能力", "Agent 最小可用系统"],
+    href: "https://agentalpha.feishu.cn/wiki/VtFawIdrAiLd80kmkF1c57onnIg",
+    href_label: "查看课程",
   },
   {
-    name: "大模型专项课",
-    desc: "按深度分三层，按自己的目标选层进入。",
-    items: ["入门级：两个月搞定 LLM", "论文级：多模态大模型小班课", "Offer 级：多模态统一模型"],
+    name: "大模型入门到入行",
+    tag: "入门级",
+    desc: "两个月搞定 LLM：从原理到工程，面向转岗与就业的第一门主线课。",
+    href: "https://agentalpha.feishu.cn/docx/VjP3djEdCoJgjtxTLAPcmm1Lntc",
+    href_label: "查看课程",
   },
   {
     name: "Agent 系列课",
-    desc: "十个阶段，从单 Agent 一直到 Agentic RL。",
-    items: [
-      "RAG · Memory · Single Agent",
-      "Multi Agent · Deep Research",
-      "Coding Agent · 自进化 Agent · Agentic RL",
-    ],
+    tag: "十个阶段",
+    desc: "RAG、Memory、Single/Multi Agent、Deep-Research、Coding Agent、自进化 Agent、Agentic RL。",
+    href: "https://agentalpha.feishu.cn/wiki/TjZJwXw70ijEX6kkyKicgortnpb",
+    href_label: "查看课程",
+  },
+  {
+    name: "多模态大模型论文课",
+    tag: "论文级 · 小班课",
+    desc: "面向论文产出的多模态专项：跟着做研究、写论文、投稿。",
+    href: "https://appjtakvrjf8935.h5.xiaoe-live.com/p/course/ecourse/course_2smnCZOJQAgrzg1qjqPvJALrb4a?sub_course_list_mode=0",
+    href_label: "查看课程",
+  },
+  {
+    name: "多模态大模型深度课",
+    tag: "Offer 级",
+    desc: "Unified Model 多模态统一模型：为顶尖人才计划和大厂核心岗准备。",
+    href: "https://agentalpha.feishu.cn/docx/DFPPdFYbmoTF9nxsCwqcadpgnph",
+    href_label: "查看课程",
+  },
+  {
+    name: "具身智能 VLA",
+    tag: "前沿方向",
+    desc: "视觉-语言-动作模型与具身智能：和青稞实验室共建的前沿课。",
+    href: "https://qingkelab.feishu.cn/wiki/EWlEwqyOIirxOEktJGgc86YnnMf",
+    href_label: "查看课程",
   },
 ]
 
@@ -125,17 +148,22 @@ export default function LearnIndexPage() {
           <section className="learn-home-block">
             <h2>课程体系</h2>
             <div className="learn-home-courses">
-              {COURSE_BLOCKS.map((block, index) => (
-                <div key={block.name} className="learn-home-course">
-                  <span className="learn-home-course-no">{String(index + 1).padStart(2, "0")}</span>
-                  <h3>{block.name}</h3>
-                  <p>{block.desc}</p>
-                  <ul>
-                    {block.items.map((item) => (
-                      <li key={item}>{item}</li>
-                    ))}
-                  </ul>
-                </div>
+              {COURSES.map((course, index) => (
+                <a
+                  key={course.name}
+                  className="learn-home-course learn-home-course--link"
+                  href={course.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <span className="learn-home-course-top">
+                    <span className="learn-home-course-no">{String(index + 1).padStart(2, "0")}</span>
+                    <span className="learn-home-course-tag">{course.tag}</span>
+                  </span>
+                  <h3>{course.name}</h3>
+                  <p>{course.desc}</p>
+                  <span className="learn-home-course-go">{course.href_label} ↗</span>
+                </a>
               ))}
             </div>
           </section>

@@ -139,6 +139,25 @@ export function HomeContent({ data }: HomeContentProps) {
               </article>
             ))}
           </div>
+
+          <div className="aa-paper-strip">
+            <p className="aa-paper-strip-t">{t.proof.papers_title}</p>
+            <div className="aa-paper-strip-list">
+              {t.proof.papers.map((paper: any) => (
+                <a
+                  key={paper.name}
+                  className="aa-paper-chip"
+                  href={paper.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <span className="aa-paper-chip-name">{paper.name}</span>
+                  <span className="aa-paper-chip-title">{paper.title}</span>
+                  <span className="aa-paper-chip-meta">{paper.meta} ↗</span>
+                </a>
+              ))}
+            </div>
+          </div>
         </div>
       </section>
 
@@ -235,62 +254,6 @@ export function HomeContent({ data }: HomeContentProps) {
         </div>
       </section>
 
-      <section id="resources" className="aa-section">
-          <div className="section-shell">
-            <SectionHead
-              icon={BookOpen}
-              kicker={t.resources.tag}
-              title={t.resources.title}
-              desc={t.resources.subtitle}
-            />
-            {data.resources && data.resources.length > 0 ? (
-            <div className="aa-resource-list">
-              <h3 className="aa-subhead">{t.resources.advanced_path}</h3>
-              {data.resources.map((item: any) => (
-                <a
-                  key={item.id}
-                  href={item.link || "#"}
-                  target={item.link ? "_blank" : undefined}
-                  rel={item.link ? "noopener noreferrer" : undefined}
-                  className="aa-resource-row"
-                >
-                  <span className="aa-resource-body">
-                    <span className="aa-resource-title">{item.title}</span>
-                    <span className="aa-resource-desc">{item.description}</span>
-                  </span>
-                  <span className="aa-row-arrow" aria-hidden>↗</span>
-                </a>
-              ))}
-            </div>
-            ) : null}
-
-            <article className="aa-feature-band">
-              <div className="aa-feature-copy">
-                <h3 className="aa-feature-title">Idea2Story</h3>
-                <p className="aa-feature-desc">{t.resources.idea2story_desc}</p>
-                <p className="aa-feature-meta">{t.resources.idea2story_contributors}</p>
-              </div>
-              <div className="aa-feature-actions">
-                <a
-                  href="https://huggingface.co/papers/2601.20833"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="aa-btn-link"
-                >
-                  {t.resources.view_paper} ↗
-                </a>
-                <a
-                  href="https://github.com/AgentAlphaAGI/Idea2Paper"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="aa-btn-link"
-                >
-                  {t.resources.star_github} ↗
-                </a>
-              </div>
-            </article>
-          </div>
-        </section>
 
       <section id="talks" className="aa-section">
         <div className="section-shell">
