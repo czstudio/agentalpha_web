@@ -95,6 +95,12 @@ export default function LearnIndexPage() {
               围绕真实项目训练：从基础能力到工程能力，从工具使用到系统设计，每个阶段都有可检查、可展示、可讲解的产出。
               社区的项目战绩和学员结果，见<a href="/#proof">首页开源战绩区</a>。
             </p>
+            <ul className="learn-home-aims">
+              <li>零基础学员：做出可展示、可落地、可商用的项目成果</li>
+              <li>高校学员：发论文、申博、升学更有竞争力</li>
+              <li>职场学员：进大厂、跳槽、晋升更有硬实力</li>
+              <li>创业者：做项目、做产品、做变现更有方向感</li>
+            </ul>
           </header>
 
           <section className="learn-home-block">

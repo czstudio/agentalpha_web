@@ -25,67 +25,67 @@
     "learn": "Training"
   },
   "hero": {
-    "badge": "Hands-on LLM Agent community · No toy demos",
+    "badge": "Top LLM Agent builder community in China",
     "title_highlight": "AgentAlpha",
-    "title_normal": "Build real, verifiable Agent projects",
-    "subtitle": "Ship three open-source projects with the community: code, data and retrospectives all live on GitHub, open for anyone to check. What you build is what you present in interviews.",
+    "title_normal": "Building the Whampoa Academy of AI",
+    "subtitle": "No toy demos, no theory-only talk, no course-selling. We train AI talent through real, shippable projects — technology in production, people who can deliver, and ventures built together.",
     "cta_primary": "Join the community",
     "cta_secondary": "See what we built"
   },
   "stats": {
-    "stat1_label": "GitHub Stars",
+    "stat1_label": "GitHub Stars · InkOS",
     "stat1_value": "7,800+",
-    "stat1_note": "InkOS · among Kimi's first open-source partners",
-    "stat2_label": "Hugging Face daily rank",
-    "stat2_value": "#1",
-    "stat2_note": "Idea2Paper topped Daily Papers, 1.4k stars",
-    "stat3_label": "Signed member works",
-    "stat3_value": "150+",
-    "stat3_note": "Published on Fanqie & Qimao platforms"
+    "stat1_note": "kimi 首批开源合作伙伴，1,500+ forks",
+    "stat2_label": "Hugging Face 日榜 · Idea2Paper",
+    "stat2_value": "第 1",
+    "stat2_note": "超越阿里、美团、千问等大厂成果，1.4k stars",
+    "stat3_label": "学员作品签约 · 番茄 / 七猫",
+    "stat3_value": "150+ 部",
+    "stat3_note": "累计产出 10 亿字，头部作者月入超 3 万"
   },
   "vision": {
-    "tag": "Vision & Goals",
-    "title": "Win-Win Community in the Agent Era",
+    "tag": "我们的方法",
+    "title": "我们反对什么，我们坚持什么",
     "vision_points": [
-      "True AGI is still a decade away. Agent is the essential path. Seize the wave to stay relevant.",
-      "Through deep practice, knowledge sharing, and project collaboration, break down technical barriers and transform them into personal advantages and real value.",
-      "Empower everyone, win the Agent decade."
+      "实战为王：反对只看课、只跑示例、只记概念；坚持围绕真实项目拆需求、写代码、做评估、复盘结果。",
+      "产学研结合：反对科研只讲论文、工程只讲框架、产业只讲变现；坚持把三者放进同一个项目里训练。",
+      "项目驱动：反对学完没有作品、简历和申请材料仍然是空的；坚持每个阶段都留下可检查、可展示、可讲解的产出。",
+      "长期主义：反对用焦虑和速成承诺制造冲动；坚持承认能力成长需要周期，用扎实训练代替短期幻觉。"
     ],
-    "offerings_title": "What We Offer",
+    "offerings_title": "一个训练场，三条线",
     "offerings": [
-      "Systematic learning paths and practice manuals",
-      "One-on-one guidance from technical mentors and industry experts",
-      "Paper notes, cutting-edge talks, case co-creation",
-      "Portfolio polishing, resume & interview coaching, referrals"
+      "学术研究：把 Agent 用到文献检索、论文生成、学术评审和科研工具里",
+      "工程实现：从 Demo 走向系统，架构、代码、评估、异常处理都要经得起检查",
+      "产业落地：让 Agent 进入业务流程，关注真实用户、成本、交付和迭代"
     ],
-    "bottom_note": "Learn, build, present, iterate — then do it again on the next project."
+    "bottom_note": "我们不把学习、科研、工程和商业拆开讲：真正有价值的 Agent 项目，往往同时包含研究问题、工程难点和真实场景。"
   },
   "advanced": {
-    "tag": "Advanced Play",
-    "title": "Papers, projects, and job hunting — with teammates",
+    "tag": "三类成长方向",
+    "title": "目标不一样，训练的底层是相通的",
     "offerings": [
       {
-        "title": "If you want to get started with LLM Agents",
+        "title": "职场实战",
         "bullets": [
-          "Learning paths and open-source repo recommendations",
-          "Intro courses + hands-on projects",
-          "Like-minded exchange community"
+          "适合：学生、转岗者、想进大模型 / Agent 岗的人",
+          "核心训练：系统拆解、代码实现、工程规范、项目表达、面试追问",
+          "最终留下：多个能写进简历、能演示、能讲清楚的 Agent 项目"
         ]
       },
       {
-        "title": "If you want further collaboration / papers / career",
+        "title": "学术科研",
         "bullets": [
-          "Paper collaboration and experiment co-building",
-          "Industry landing project cooperation",
-          "Big tech job referrals and interview coaching"
+          "适合：研究生、博士、申博者、想把 AI 用进科研流程的人",
+          "核心训练：文献检索、科研 Agent、自动科研系统、论文与 Proposal 写作",
+          "最终留下：面向科研场景的 Agent 项目，论文与申博履历和内推机会"
         ]
       },
       {
-        "title": "If you seek partnerships",
+        "title": "产业落地",
         "bullets": [
-          "Co-build community brand",
-          "Joint promotion and events",
-          "AI product and training guidance"
+          "适合：创业者、产品经理、电商从业者、企业团队",
+          "核心训练：MVP 设计、可落地工作流、用户反馈、产品迭代",
+          "最终留下：有真实用户反馈、能实现盈利的 Agent 产品"
         ]
       }
     ]
@@ -116,34 +116,34 @@
     "video": "Video"
   },
   "training": {
-    "badge": "Learn and Build Together",
-    "title": "Join Us",
+    "badge": "课程体系 · 产学研结合",
+    "title": "三层课程 + 实战训练营，从基础到 Agentic RL",
     "modules": [
       {
-        "title": "Foundation Mastery",
-        "desc": "LLM/Multimodal fundamentals, code skills enhancement and engineering standards",
+        "title": "基础课",
+        "desc": "从 Python 到 Agent 入门，把动手前要补的基础一次补齐",
         "icon": "BookOpen"
       },
       {
-        "title": "Agent Architecture",
-        "desc": "Planning/Memory/Tool calling and evaluation, real business case breakdown",
+        "title": "大模型专项课",
+        "desc": "入门级、论文级、Offer 级三层深度分级，按自己的目标选层进入",
         "icon": "Brain"
       },
       {
-        "title": "Project Co-creation",
-        "desc": "Hands-on project teaming, mentor Q&A and code review",
+        "title": "Agent 系列课",
+        "desc": "十个阶段：RAG、Memory、Single/Multi Agent、Deep-Research、Coding Agent、自进化 Agent、Agentic RL",
         "icon": "Cpu"
       },
       {
-        "title": "Career Leap",
-        "desc": "Portfolio polishing, interview workshops, mentor recommendations and referrals",
+        "title": "实战训练营",
+        "desc": "项目驱动、导师带教、实战落地，从个人作战到团队协作，阶段成果全部验收",
         "icon": "Rocket"
       }
     ],
-    "headline": "Deep Practice + Mentor Q&A + Project Co-creation",
-    "description": "Weekly goals, code review and retrospectives. Bring your questions — we figure things out and build projects together.",
-    "cta_primary": "Join Us",
-    "cta_secondary": "Say Hello"
+    "headline": "产学研结合、实战为王、项目驱动、长期主义",
+    "description": "让零基础学员做出可展示、可落地、可商用的项目成果；让高校学员发论文、申博更有竞争力；让职场学员进大厂、跳槽、晋升更有硬实力；让创业者做项目、做产品、做变现更有方向感。",
+    "cta_primary": "查看训练营详情",
+    "cta_secondary": "加入社区"
   },
   "contact": {
     "tag": "Partnership & Consultation",
@@ -173,43 +173,103 @@
     "copyright": "© 2025 AgentAlpha Community. All rights reserved."
   },
   "proof": {
-    "tag": "先自证，再谈教学",
-    "title": "社区做出来的三个项目",
-    "desc": "下面的数字都能点开核验：仓库是公开的，榜单是第三方的，产品在线上运行。",
+    "tag": "真带 · 真教 · 真落地",
+    "title": "五个代表项目与成员成果",
+    "desc": "技术研发、项目实战、人才培养融为一体。下面每个项目都可以点开核验。",
     "projects": [
       {
-        "name": "InkOS · AI 小说创作智能体",
-        "desc": "十个 Agent 分工的工程化写作管线：世界观、情节、伏笔和连续性审计全自动衔接。",
-        "points": [
-          "GitHub 7,800+ stars、1,500+ forks",
-          "kimi 首批开源合作伙伴",
-          "学员作品 150+ 部签约番茄、七猫"
-        ],
-        "href": "https://github.com/Narcooo/inkos",
-        "href_label": "查看 GitHub 仓库"
-      },
-      {
         "name": "Idea2Paper · AI 科研智能体",
-        "desc": "从想法到论文的全流程科研 Agent，内置 10 万+ 顶会论文知识库和多智能体评审机制。",
+        "desc": "从想法到论文的全流程 auto research，内置 10 万+ 顶会论文向量知识库和多智能体评审，解决「想法好、写不出、投不中」的科研痛点。",
         "points": [
-          "Hugging Face Daily Papers 日榜第 1",
-          "GitHub 1.4k stars",
-          "自动生成论文 1,800+ 篇"
+          "Hugging Face Daily Paper 日榜第 1",
+          "GitHub 1.4k stars，1,000+ 内测用户、200+ 付费用户",
+          "Agent 自动迭代出 1,800+ 篇论文，正推进约 300 万天使轮合作"
         ],
         "href": "https://github.com/AgentAlphaAGI/Idea2Paper",
         "href_label": "查看 GitHub 仓库"
       },
       {
-        "name": "潜艇 AI · 跨境电商视频工具",
-        "desc": "社区成员的创业项目：商品链接一键生成带货短视频，社区从 0 到 1 全程带教。",
+        "name": "InkOS · AI 小说创作智能体",
+        "desc": "10 个协作 Agent 的工程化写作管线：世界观搭建、情节编排、伏笔追踪、33 维连续性审计与自动修订，内置反 AIGC 检测。",
         "points": [
-          "3 人团队 20 天上线",
-          "30 天用户破万",
-          "帮卖家创造营收 300 万+"
+          "GitHub 7,800+ stars、1,500+ forks，npm 下载 3.6 万+",
+          "kimi 首批开源合作伙伴",
+          "150+ 部作品签约番茄、七猫，累计产出 10 亿字，头部作者月入 3-5 万"
+        ],
+        "href": "https://github.com/Narcooo/inkos",
+        "href_label": "查看 GitHub 仓库"
+      },
+      {
+        "name": "潜艇 AI · TikTok 跨境电商 AI 引擎",
+        "desc": "社区成员真实创业项目，从 0 到 1 全程带教：一键成片、智能脚本、素材生成、合规优化全流程。",
+        "points": [
+          "3 人团队 20 天上线，30 天用户破万",
+          "帮卖家创造营收 300 万-350 万",
+          "成员由此掌握工程、产品、运营变现全流程"
         ],
         "href": "https://qiantingai.com",
         "href_label": "访问产品官网"
+      },
+      {
+        "name": "SellAI Pro · 跨境电商 AI 运营中枢",
+        "desc": "企业定制电商项目：选品判断、竞品雷达、Listing 转化、货源与利润、风险门禁，把跨境增长变成可迭代的经营系统。",
+        "points": [
+          "10 大核心功能矩阵，覆盖机会发现到运营复盘",
+          "Goal 执行中心 + 多 Agent 协作",
+          "企业定制落地案例"
+        ],
+        "href": "https://sellaipro.fly.dev/",
+        "href_label": "访问产品官网"
+      },
+      {
+        "name": "火花数据 API · 专业数据接入",
+        "desc": "把专业数据与主流模型接入 AI Agent：13 个专业数据库，覆盖研报、投融事件、高考真题、社交搜索等场景。",
+        "points": [
+          "17.3 万研报数据库",
+          "31.8 万投融事件数据库",
+          "可直接分享到 Agent 使用"
+        ],
+        "href": "https://agentalpha.feishu.cn/docx/QtYQddrAFoLIb9xFe7PckJnmn1b",
+        "href_label": "查看项目介绍"
       }
+    ]
+  },
+  "mentors": {
+    "tag": "导师与社区成员",
+    "title": "产业界与学术界的核心成员",
+    "industry_title": "产业界核心成员",
+    "industry": [
+      "原大厂 AI 大模型算法负责人：10+ 篇 Agent、RL 方向顶会论文和 SOTA 开源项目，多段大厂跳槽涨薪 80% 经历",
+      "MIT 博士、985 青年教授：多次斩获 CVPR、ECCV 等顶会 Workshop Challenge 全球冠军，12 篇顶会",
+      "港科大计算机博士后：NeurIPS（含 Spotlight）、ICML、COLM、ACL、ICLR 等 80+ 篇论文，NeurIPS 2024 Top Reviewer",
+      "中科院博士：2025 年面试超 80 场，国内 LLM 大厂通过率 100%，拿到多个大厂顶尖人才计划 offer"
+    ],
+    "academia_title": "学术界核心成员",
+    "academia": [
+      "MIT 博士（大模型与多智能体方向）",
+      "北大 / 港科博士后（具身智能方向）",
+      "中科院研究员（AI 工程化落地方向）",
+      "国内顶尖高校 AI lab 讲师、博后，顶会顶刊一作 20+ 篇"
+    ],
+    "note": "社群里还有字节 Seed、Meta、Google、Apple、阿里 P7 等在职成员。"
+  },
+  "results": {
+    "tag": "真实结果与学员案例",
+    "title": "Offer、论文和升学，都是可核验的",
+    "offer_title": "大厂 Offer 与录用",
+    "offer_value": "腾讯 · 字节跳动 · 京东 TGT（Tech Genius Team）· 蚂蚁集团 Plan A · 华为天才少年计划",
+    "paper_title": "顶会论文录用",
+    "paper_value": "ICLR · KDD 2025 · ICCV 2025 · ICML 2024 · EMNLP 2025 · AAAI · NeurIPS 2024 · IEEE TIT",
+    "phd_title": "升学结果",
+    "phd_value": "南加州大学博士录取（四年资助）· 杜克大学博士录取 · 香港科技大学入学奖学金",
+    "cases_title": "部分学员案例",
+    "cases": [
+      "双非本科：社区内推 3 个实习，补了 5 个有含金量的项目（GitHub 1300 star），拿 3 个中厂 offer，最终选杭州初创 64k",
+      "985 硕士：主推 Memory 模块，多模态 Memory 发顶会，拿到 Qwen Memory offer，另有百度文心基模和微信的 offer",
+      "双非本、211 硕：多对一陪跑拿到多家大厂实习，选择美团，参与自进化 Agent 方向 NeurIPS 合作论文（二作）",
+      "大厂在职：靠课程的 Agent Memory 项目拿下年终大礼包，述职被大领导看中",
+      "专科出身、8 年后端：参与 Idea2Paper 项目后转行 Agent 开发，拿到 56w offer，现公司准备上市",
+      "进步最快学员：学习两个月，除 DeepSeek、字节 Seed 外，头部大厂 offer 拿了一遍"
     ]
   }
 }

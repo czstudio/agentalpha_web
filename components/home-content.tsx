@@ -13,6 +13,8 @@ import {
   ShieldCheck,
   Building2,
   GraduationCap,
+  Users,
+  Award,
 } from "lucide-react"
 import { memo, useEffect, useState, type ComponentType, type ReactNode } from "react"
 import { ENROLLMENT_DIALOG_EVENT } from "@/lib/enrollment-event"
@@ -182,6 +184,57 @@ export function HomeContent({ data }: HomeContentProps) {
         </div>
       </section>
 
+      <section id="mentors" className="aa-section">
+        <div className="section-shell">
+          <SectionHead icon={Users} kicker={t.mentors.tag} title={t.mentors.title} />
+          <div className="aa-mentor-grid">
+            <div className="aa-mentor-col">
+              <h3>{t.mentors.industry_title}</h3>
+              <ul>
+                {t.mentors.industry.map((item: string) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+            </div>
+            <div className="aa-mentor-col">
+              <h3>{t.mentors.academia_title}</h3>
+              <ul>
+                {t.mentors.academia.map((item: string) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+            </div>
+          </div>
+          <p className="aa-mentor-note">{t.mentors.note}</p>
+        </div>
+      </section>
+
+      <section id="results" className="aa-section">
+        <div className="section-shell">
+          <SectionHead icon={Award} kicker={t.results.tag} title={t.results.title} />
+          <div className="aa-result-rows">
+            <div className="aa-result-row">
+              <dt>{t.results.offer_title}</dt>
+              <dd>{t.results.offer_value}</dd>
+            </div>
+            <div className="aa-result-row">
+              <dt>{t.results.paper_title}</dt>
+              <dd>{t.results.paper_value}</dd>
+            </div>
+            <div className="aa-result-row">
+              <dt>{t.results.phd_title}</dt>
+              <dd>{t.results.phd_value}</dd>
+            </div>
+          </div>
+          <h3 className="aa-subhead">{t.results.cases_title}</h3>
+          <ul className="aa-case-grid">
+            {t.results.cases.map((caseItem: string) => (
+              <li key={caseItem}>{caseItem}</li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
       <section id="resources" className="aa-section">
           <div className="section-shell">
             <SectionHead
@@ -343,30 +396,21 @@ export function HomeContent({ data }: HomeContentProps) {
               </article>
             ))}
           </div>
-          <div className="aa-evidence">
-            <h3 className="aa-evidence-t">{t.training.evidence_title}</h3>
-            <p className="aa-evidence-note">{t.training.evidence_note}</p>
-            <ul className="aa-evidence-cases">
-              {t.training.cases.map((caseItem: string) => (
-                <li key={caseItem}>{caseItem}</li>
-              ))}
-            </ul>
-          </div>
           <div className="aa-join-cta">
             <div className="aa-join-copy">
               <h3>{t.training.headline}</h3>
               <p>{t.training.description}</p>
             </div>
             <div className="aa-join-actions">
+              <a href="/learn" className="aa-btn-primary">{t.training.cta_primary}</a>
               <button
                 type="button"
-                className="aa-btn-primary"
+                className="aa-btn-ghost"
                 onClick={() => setEnrollmentOpen(true)}
                 aria-haspopup="dialog"
               >
-                {t.training.cta_primary}
+                {t.training.cta_secondary}
               </button>
-              <a href="#contact" className="aa-btn-ghost">{t.training.cta_secondary}</a>
             </div>
           </div>
         </div>

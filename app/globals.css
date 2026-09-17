@@ -2162,3 +2162,28 @@ html.enrollment-dialog-open { overflow: hidden; }
   .learn-home-courses, .learn-home-part { grid-template-columns: 1fr; }
   .learn-home-hero h1 { font-size: 26px; }
 }
+
+/* ── 首页 · 导师与学员结果区 ── */
+.aa-mentor-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+.aa-mentor-col { border: 1px solid var(--aa-rule, #e5e1d8); border-radius: 14px; padding: 22px 24px; background: var(--card, #fffdf8); }
+.aa-mentor-col h3 { font-size: 15.5px; font-weight: 700; margin: 0 0 12px; }
+.aa-mentor-col ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 10px; }
+.aa-mentor-col li { font-size: 13.5px; line-height: 1.75; padding-left: 16px; position: relative; }
+.aa-mentor-col li::before { content: ""; position: absolute; left: 2px; top: 0.6em; width: 6px; height: 6px; border-radius: 2px; background: var(--brand, #6e22f0); }
+.aa-mentor-note { margin: 14px 2px 0; font-size: 13.5px; color: var(--aa-muted, #6b6557); }
+
+.aa-result-rows { display: grid; gap: 0; border-top: 1px solid var(--aa-rule, #e5e1d8); }
+.aa-result-row { display: grid; grid-template-columns: 150px 1fr; gap: 14px; padding: 14px 2px; border-bottom: 1px solid var(--aa-rule, #e5e1d8); }
+.aa-result-row dt { font-size: 13.5px; font-weight: 700; }
+.aa-result-row dd { margin: 0; font-size: 13.5px; line-height: 1.75; color: var(--aa-muted, #6b6557); }
+
+.aa-case-grid { margin: 0; padding: 0; list-style: none; display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+.aa-case-grid li { border: 1px dashed var(--aa-rule, #e5e1d8); border-radius: 10px; padding: 14px 18px; font-size: 13.5px; line-height: 1.75; }
+@media (max-width: 900px) {
+  .aa-mentor-grid, .aa-case-grid { grid-template-columns: 1fr; }
+  .aa-result-row { grid-template-columns: 1fr; gap: 4px; }
+}
+
+.learn-home-aims { margin: 0 0 8px; padding: 0; list-style: none; display: grid; gap: 6px; }
+.learn-home-aims li { font-size: 14px; line-height: 1.75; padding-left: 16px; position: relative; }
+.learn-home-aims li::before { content: ""; position: absolute; left: 2px; top: 0.62em; width: 6px; height: 6px; border-radius: 50%; background: var(--brand, #6e22f0); }
