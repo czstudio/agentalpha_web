@@ -300,6 +300,7 @@ export function HomeContent({ data }: HomeContentProps) {
       </section>
 
 
+      {(data.qingkeTalks?.length > 0 || data.qingkeVideos?.length > 0) && (
       <section id="talks" className="aa-section">
         <div className="section-shell">
           <SectionHead
@@ -391,6 +392,7 @@ export function HomeContent({ data }: HomeContentProps) {
           )}
         </div>
       </section>
+      )}
 
       <section id="join" className="aa-section">
         <div className="section-shell">

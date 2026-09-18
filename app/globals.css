@@ -2194,6 +2194,17 @@ html.enrollment-dialog-open { overflow: hidden; }
 .aa-join-cta h3 {
   text-wrap: balance;
 }
+/* 中文词组不拆行（如「跨境电商」「黄埔军校」），长词整体换行 */
+.aa-section-head h2,
+.aa-pg h3,
+.aa-hero h1,
+.aa-vision-point p,
+.aa-case-grid li,
+.aa-mentor-col li,
+.aa-adv-row h3 {
+  word-break: keep-all;
+  overflow-wrap: break-word;
+}
 .aa-section-head h2 { max-width: 24em; }
 .aa-hero h1 .aa-hero-line { display: block; }
 
