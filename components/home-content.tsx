@@ -61,6 +61,17 @@ StatCard.displayName = "StatCard"
 
 const ADVANCED_HREFS = ["/interview", "/#proof", "/#contact"]
 
+/** 院校播放栏兜底：public/logos 下的静态素材，数据库 partner 表为空时也能显示 */
+const FALLBACK_UNIVERSITIES = [
+  { name: "清华大学", logo: "/logos/tsinghua.svg", website: "https://www.tsinghua.edu.cn" },
+  { name: "北京大学", logo: "/logos/pku.svg", website: "https://www.pku.edu.cn" },
+  { name: "复旦大学", logo: "/logos/fudan.svg", website: "https://www.fudan.edu.cn" },
+  { name: "上海交通大学", logo: "/logos/sjtu.svg", website: "https://www.sjtu.edu.cn" },
+  { name: "上海财经大学", logo: "/logos/sufe.svg", website: "https://www.sufe.edu.cn" },
+  { name: "南方科技大学", logo: "/logos/sustech.svg", website: "https://www.sustech.edu.cn" },
+  { name: "BGD", logo: "/logos/bgd.svg", website: "#" },
+]
+
 export function HomeContent({ data }: HomeContentProps) {
   const { t } = useLanguage()
   const [enrollmentOpen, setEnrollmentOpen] = useState(false)
@@ -102,6 +113,9 @@ export function HomeContent({ data }: HomeContentProps) {
   }, [])
 
   const c = data.siteContent || {}
+
+  // 院校播放栏：数据库为空时回落到静态 logo 列表
+  const universities = data.universities?.length > 0 ? data.universities : FALLBACK_UNIVERSITIES
 
   // 数据条只放可点开核验的战绩（数字与出处由 zh/en 文案维护），不再读后台可改的 siteContent
   const stats = [
@@ -455,12 +469,12 @@ export function HomeContent({ data }: HomeContentProps) {
             desc={t.universities.description}
           />
 
-          {data.universities.length > 0 ? (
+          {universities.length > 0 ? (
             <div className="aa-marquee">
               <div className="aa-marquee-track aa-uni-track animate-scroll">
-                {[...data.universities, ...data.universities].map((university: any, index: number) => (
+                {[...universities, ...universities].map((university: any, index: number) => (
                   <a
-                    key={`${university.id}-${index}`}
+                    key={`${university.name}-${index}`}
                     href={university.website}
                     target="_blank"
                     rel="noopener noreferrer"

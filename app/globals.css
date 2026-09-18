@@ -1044,19 +1044,19 @@ html.enrollment-dialog-open { overflow: hidden; }
 .aa-empty p + p { font-size: .85rem; opacity: .8; }
 
 /* Universities */
-.aa-uni-track { gap: 48px; align-items: center; }
+.aa-uni-track { gap: 72px; align-items: center; }
 .aa-uni-mark { flex: 0 0 auto; display: grid; place-items: center; text-decoration: none; }
 .aa-uni-mark img {
   display: block;
   width: auto;
-  max-width: 140px;
-  height: 26px;
+  max-width: 250px;
+  height: 56px;
   object-fit: contain;
   filter: grayscale(1);
-  opacity: .55;
-  transition: filter .25s ease, opacity .25s ease;
+  opacity: .72;
+  transition: filter .25s ease, opacity .25s ease, transform .25s ease;
 }
-.aa-uni-mark:hover img { filter: none; opacity: 1; }
+.aa-uni-mark:hover img { filter: none; opacity: 1; transform: scale(1.06); }
 
 @media (min-width: 640px) {
   .aa-talks-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
