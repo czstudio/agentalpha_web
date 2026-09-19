@@ -22,7 +22,8 @@
     "toggleMenu": "Toggle menu",
     "toggleLanguage": "Switch Language",
     "mianjing": "Mianjing",
-    "learn": "Training"
+    "learn": "Training",
+    "articles": "Articles"
   },
   "hero": {
     "badge": "Top LLM Agent builder community in China",

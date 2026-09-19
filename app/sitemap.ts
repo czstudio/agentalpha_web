@@ -3,6 +3,7 @@ import { communityDocument } from "@/lib/community/content"
 import { getAllNotes } from "@/lib/notes"
 import { getAllInterview } from "@/lib/interview"
 import { getAllQa } from "@/lib/qa"
+import { getAllArticles } from "@/lib/articles"
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const notes = getAllNotes().map((note) => ({
@@ -19,7 +20,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.8,
   }))
 
-  const qa = getAllQa().map((item) => ({
+  const articles = getAllArticles().map((a) => ({
+    url: `https://agentalpha.top/articles/${a.slug}`,
+    lastModified: new Date(),
+    changeFrequency: "weekly" as const,
+    priority: 0.85,
+  }))
+
+    const qa = getAllQa().map((item) => ({
     url: `https://agentalpha.top/interview/qa/${item.slug}`,
     lastModified: item.updated ? new Date(item.updated) : new Date(),
     changeFrequency: "monthly" as const,
@@ -64,6 +72,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.85,
     },
     ...notes,
+    ...articles,
     ...interview,
     ...qa,
   ]

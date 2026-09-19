@@ -22,7 +22,8 @@
     "toggleMenu": "打开菜单",
     "toggleLanguage": "切换语言",
     "mianjing": "面经",
-    "learn": "训练营"
+    "learn": "训练营",
+    "articles": "文章"
   },
   "hero": {
     "badge": "国内顶尖大模型 Agent 实战社区",
