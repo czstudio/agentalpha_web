@@ -1,0 +1,428 @@
+[
+  {
+    "title": "恭喜社区老弟转正[爆竹]阿里～嘎多",
+    "url": "https://mp.weixin.qq.com/s/MLjQxYR_U6Ek2kD3pbYZaQ",
+    "date": "2026-09-13 12:29",
+    "digest": "阿里的队伍越来越壮大了，社区现在大厂的人数突破两位数了，之前idea2paper确实也帮助了不少人上岸（不管是论文还是offer）哈哈，希望后续升级版 2.0 也能让大家满意，taste is all u need 离心力"
+  },
+  {
+    "title": "面试官困惑：\"你的multi-agent 跑一轮任务，Token 都花在哪了？账单怎么控制？\"",
+    "url": "https://mp.weixin.qq.com/s/bPHwI-2MxO-MKCxfj6oExA",
+    "date": "2026-09-09 20:41",
+    "digest": "用户输入只是冰山一角。固定前缀、历史重发和工具结果每轮全量重发，循环一长，一句话就能烧成几十M Token。"
+  },
+  {
+    "title": "26年值得加入的大模型agent社区交流群",
+    "url": "https://mp.weixin.qq.com/s/zjX3AuCnXpfaIIF2dmHumA",
+    "date": "2026-09-02 10:31",
+    "digest": "做Agent这么久，你有没有这种感觉： 自媒体天天吹概念，self-evo、meta evo、agentic RL… 说起来都很高大上，真到落地的时候全是坑： 评测一做就过拟合，换个bench直接失效； 改个自进化逻辑，和基模轨迹直接打架； 讲了一堆架构故事，工业界最后还是靠洗数"
+  },
+  {
+    "title": "大厂Agentic RL 面试，背完 GRPO 只是刚入门",
+    "url": "https://mp.weixin.qq.com/s/F8bQWU_t4UjL0pzQ2MslKQ",
+    "date": "2026-09-01 10:44",
+    "digest": "一条连续追问串起 Agentic RL：轨迹、掩码、信用分配、reward hacking 与 GRPO rollout。"
+  },
+  {
+    "title": "恭喜学弟拿下小红书offer",
+    "url": "https://mp.weixin.qq.com/s/XC7BtEV2-ZbjZCViNAMhAw",
+    "date": "2026-08-30 23:05",
+    "digest": "我记得 2 月份刚加入社区还是基础比较薄弱，基本没咋看过论文更别说跑过项目了，直接参与auto research项目，练中学进步很快，后面实习也都很顺利，面试前还约着开了个会突袭了下，没想到都用上了，自进化目前阶段还是很吃香的哈哈，最后放张去年的薪资爆料，一浪更比一浪高啊 #ag"
+  },
+  {
+    "title": "阿里面试官追问：Code Agent 跑到一半挂了，怎么恢复而且不重复执行？",
+    "url": "https://mp.weixin.qq.com/s/ZEnLKeBzcPEi4aozwqgrJg",
+    "date": "2026-08-23 10:54",
+    "digest": "恢复不是把聊天记录接着播一遍。要靠持久化状态、操作幂等键和未知结果对账，把重复副作用关在边界内。"
+  },
+  {
+    "title": "拿了一圈大厂offer的学弟最后竟然选了…",
+    "url": "https://mp.weixin.qq.com/s/1RPpmUTn5lLltUZ2-MPwXg",
+    "date": "2026-08-22 19:21",
+    "digest": "哈哈哈选了qwen，其他龙猫和混元也不错啦，seed没面也确实有些可惜，不过老弟的self-envoling agent项目确实贼到位，投的十几个大厂全都很顺利，基本面的都逮着这个在聊，所以如果项目简历到位，面经就不用担心了~(¯▽¯~)~ 之前给老弟推荐了qwen ，不管是方向"
+  },
+  {
+    "title": "阿里一面：“Agent 已经会 ReAct 了，为什么还要做 Agentic RL？拿成功轨迹做 SFT 不就行了？”",
+    "url": "https://mp.weixin.qq.com/s/vSDZmuE6PhZ2RP9NjVQXtQ",
+    "date": "2026-08-20 23:06",
+    "digest": "ReAct 让 Agent 能做多步任务，Agentic RL 让它学会在复杂环境里做更好的决策；真正的难点在动作与观察隔离、信用分配和异步 Rollout。"
+  },
+  {
+    "title": "阿里面试官追问：Code Agent 为什么不能直接给它 root 权限？",
+    "url": "https://mp.weixin.qq.com/s/zjcDUcA00S8d7y_KZmSiLg",
+    "date": "2026-08-16 21:34",
+    "digest": "Code Agent 的权限不是一个开关，而是一套可验证的执行边界：文件、网络、进程、身份和审批都要分别设计。"
+  },
+  {
+    "title": "面试官疑惑：你的 Agent 跑了二十轮对话，上下文爆了怎么办？",
+    "url": "https://mp.weixin.qq.com/s/4ZRDvL_j-xDP0liOVzJcjA",
+    "date": "2026-08-09 22:19",
+    "digest": "截断会丢硬约束，粗暴摘要会精度坍缩；上下文管理是三层蒸馏+四策略叠用。"
+  },
+  {
+    "title": "面试官反问：Agent 为什么必须学会遗忘？ 你回答不上来",
+    "url": "https://mp.weixin.qq.com/s/csB31enPpGwj1ogQBc56JQ",
+    "date": "2026-08-07 22:13",
+    "digest": "面试官问这道题，真正想听到的不是你会不会背\"时间衰减、访问频率、重要性评分\"这些词。 他想知道你有没有意识到： 记忆是带状态、带时效、带来源、带适用条件的。 长期记忆不是越多越好，检索也不是越相似越好。"
+  },
+  {
+    "title": "看下还有没有想拼团大模型agent课程的友友，一起优惠下",
+    "url": "https://mp.weixin.qq.com/s/PKveW5bhyibZ26Csi_pWPg",
+    "date": "2026-08-06 20:27",
+    "digest": "看下还有没有想拼团大模型agent课程的友友，一起优惠下"
+  },
+  {
+    "title": "社区学员刚面完：长期记忆全塞向量库？",
+    "url": "https://mp.weixin.qq.com/s/YO8ok7dpVDV7EnX8u-nrFg",
+    "date": "2026-08-01 22:38",
+    "digest": "社区学员面试题复盘：用一条报销政策讲透长期记忆的分层存储、版本冲突、双时间与后台整理。"
+  },
+  {
+    "title": "问的最多的大模型 Agent 算法面试题：设计Agent 记忆系统？",
+    "url": "https://mp.weixin.qq.com/s/un7kxtWpzn3uuon7MZu29A",
+    "date": "2026-07-30 23:39",
+    "digest": "社区学员遇到的字节 Agent 二面题拆解： 你是怎么设计 Agent 的记忆系统？"
+  },
+  {
+    "title": "字节招实习生",
+    "url": "https://mp.weixin.qq.com/s/l2Px0t0O_hXQXh2JDdbykQ",
+    "date": "2026-07-29 11:29",
+    "digest": "帮朋友发下招实习生 职位描述 ByteIntern：面向2027届毕业生（2026年9月-2027年8月期间毕业），为符合岗位要求的同学提供转正机会。 团队介绍：AI数据与安全团队为Seed基座模型及AI原生应用提供跨模态数据服务，覆盖数据生产全流程，包含模型评估标准的制定、数据"
+  },
+  {
+    "title": "字节二面面经：用户反馈怎么被 Agent“吃掉”？",
+    "url": "http://mp.weixin.qq.com/s?__biz=MzU3MDcwMjgxMQ==&tempkey=MTM5MV9hNFBQNjlIUFZ1ekhHSXdwMXBoMVhaWWJNU3VvZGQxSWlVWkRDQWVyNFl5ZzRyMXNrSUxHQkt3ZEFKSTJLSnoydTV5Nl95N25WbzJKbzU4RDRESjBXN2tvQjIwNGFVYTNsT2JUb0VGRVZxbmJsVzd6bjVkeXd4RlFKaHpjME1WcWVncFhJRGU1cGo1T3lUQWhORkE3d1V6MkNZbmlMY2xMQ3Zfdm5Bfn4%3D&chksm=fcea2a77cb9da3615f55abdd4ef3e0efedd3cff3f6b91604183fa8c496916516a43c6d61100b#rd",
+    "date": "2026-07-28 19:23",
+    "digest": "写进 Memory 就算学会了吗？这道公开面经原题，真正追问的是一次反馈如何变成可验证、可回滚的下一版能力。"
+  },
+  {
+    "title": "阿里 Agent 岗二面：Agentic RL 到底在训什么？",
+    "url": "https://mp.weixin.qq.com/s/F5ryKJU1e3pNQKxL6YXxeg",
+    "date": "2026-07-26 21:01",
+    "digest": "Agentic RL 不是训练模型更会调用工具，而是训练模型在环境里进行多步决策，并最终对任务结果负责。"
+  },
+  {
+    "title": "字节 Agent 岗二面：RAG 的 Top-K 是不是越大越好？",
+    "url": "https://mp.weixin.qq.com/s/J8JfTyQ0cf95vZ_WoOk4PA",
+    "date": "2026-07-25 22:04",
+    "digest": "Top-K 不是越大越好，而是要根据问题类型、检索质量、Rerank 分数和上下文预算动态决定。"
+  },
+  {
+    "title": "一周学会Agent Memory，实现自动科研助手项目",
+    "url": "https://mp.weixin.qq.com/s/VWa-fI75OUy9xvt1D9b1Qg",
+    "date": "2026-07-24 20:21",
+    "digest": "Agent训练营 一周掌握Memory系统"
+  },
+  {
+    "title": "面试官问：什么时候工作流就够了，什么时候才该上 Agent？",
+    "url": "https://mp.weixin.qq.com/s/3UR1gXMgtKBXX9_7qcyPxA",
+    "date": "2026-07-22 12:52",
+    "digest": "最近在大模型工程岗面试里，一个让人很难答漂亮的题目出现了："
+  },
+  {
+    "title": "面试官：CoT和Planning 这俩有啥区别？不都是让模型先想步骤再执行吗",
+    "url": "https://mp.weixin.qq.com/s/U1LIfFSYzxDFt91y9jnyDQ",
+    "date": "2026-07-21 17:17",
+    "digest": "100 道高频大模型 agent 面试题精讲系列"
+  },
+  {
+    "title": "企业做 Agent，最先改变的不是工具，是谁来负责结果",
+    "url": "https://mp.weixin.qq.com/s/Ax42o6adQKv0mRZuucSq3A",
+    "date": "2026-05-15 00:00",
+    "digest": "企业做 Agent，应该用奥卡姆剃刀原则！"
+  },
+  {
+    "title": "Agent 面试最容易挂的 10 个深水题：规划、记忆、检索、工具调用",
+    "url": "https://mp.weixin.qq.com/s/0EqnuDrIgjdcWfKF0lezKg",
+    "date": "2026-05-13 08:00",
+    "digest": "面试官问：“你怎么设计一个复杂 Agent 的规划、记忆和工具调用系统？”"
+  },
+  {
+    "title": "淘天一面最高频：多Agent怎么协作？99%的人答错了第一步",
+    "url": "https://mp.weixin.qq.com/s/2pVa6s1hZu5NoUPyJfySSA",
+    "date": "2026-05-12 09:02",
+    "digest": "淘天agent 面经精选细讲"
+  },
+  {
+    "title": "秋招大模型agent算法面经整理",
+    "url": "https://mp.weixin.qq.com/s/vVAkHo6SlAc1uHgkhInAJw",
+    "date": "2026-05-09 20:13",
+    "digest": "秋招实习算法面经，涵盖了llm的原理、结构、训练任务及应用，还涉及大模型训练、微调、推理加速等方面，大厂高频面试题专项练习。包括： 大模型基础：列举流行大模型架构，对比prefix LM和causal LM，介绍RLHF流程、instruction tuning和prompt l"
+  },
+  {
+    "title": "预告下，AgentAlpha社区创客星球继 ai科研、ai电商之后的下个项目是：AI金融💰",
+    "url": "https://mp.weixin.qq.com/s/Su8SmyKFx4ShYAprK6xn_A",
+    "date": "2026-04-30 14:03",
+    "digest": "预告下，AgentAlpha社区创客星球继 ai科研、ai电商之后的下个项目是：AI金融💰"
+  },
+  {
+    "title": "ai电商运营项目，你的数字员工",
+    "url": "https://mp.weixin.qq.com/s/R6nmF9oxHNr2IrfeB_EtgQ",
+    "date": "2026-04-26 11:16",
+    "digest": "SellAI Pro产品介绍 一、项目背景与设计思路 1. 项目起源 本工具为 AgentAlpha 创客星球 社区自研项目，最初为杭州亚马逊跨境电商卖家定制开发，解决中小卖家三大核心痛点： - 选品凭感觉、看不懂市场，入场即踩坑 - Listing 撰写慢、广告投放乱、效率低 "
+  },
+  {
+    "title": "每日opc落地商业项目分享",
+    "url": "https://mp.weixin.qq.com/s/DrVszyhoNnOf075wZsbS5g",
+    "date": "2026-04-23 19:15",
+    "digest": ""
+  },
+  {
+    "title": "面试官问：为什么不能直接拿HotpotQA训练DeepResearch",
+    "url": "https://mp.weixin.qq.com/s/Iy-WPE08_XsS_DC0cQ0ZyA",
+    "date": "2026-04-20 17:57",
+    "digest": "面试官问：如果让你训一个 Deep Research，数据从哪来？”"
+  },
+  {
+    "title": "AI时代，真正值钱的不是技术，而是“能动性”",
+    "url": "https://mp.weixin.qq.com/s/x8HeKXAeCxgsWvA0OSWAqg",
+    "date": "2026-04-18 10:48",
+    "digest": "AI时代真正拉开差距的，不是skill和coding熟练度，而是agency。用3个认知和5步训练法，讲清普通人为什么总想躺平、为什么AI越强主动性越贵，以及如何把能动性练成可复利的底层能力。"
+  },
+  {
+    "title": "AI咨询每日推",
+    "url": "https://mp.weixin.qq.com/s/-ai4u_C3oM-fVmMXtWbiVA",
+    "date": "2026-04-17 11:21",
+    "digest": ""
+  },
+  {
+    "title": "为什么 ReAct 已经不够了？从 Plan-Then-Act 到 ToT、LATS 讲透 Agent 规划三条路",
+    "url": "https://mp.weixin.qq.com/s/TSBzgfyg4W9tfqLwDtGweQ",
+    "date": "2026-04-09 09:00",
+    "digest": "面试官问：为什么 ReAct 已经不够了？"
+  },
+  {
+    "title": "字节面试官问Agent工具调用失败怎么办时，大模型agent面试精选题库",
+    "url": "https://mp.weixin.qq.com/s/1k2oMdYW8kIh_gwvnuHEgw",
+    "date": "2026-03-30 16:22",
+    "digest": "面试官问Agent工具调用失败怎么办时，如果你只会说“重试一下”，基本已经暴露没做过系统"
+  },
+  {
+    "title": "Skills vs Coze vs N8N：谁才是下一代AI工作流的终极答案？",
+    "url": "https://mp.weixin.qq.com/s/wH3RDm7AD4CYoTWh-w95_A",
+    "date": "2026-01-16 23:23",
+    "digest": "Claude Skills 全面解析：原理、用法与对比"
+  },
+  {
+    "title": "英伟达提出GDPO多奖励强化学习算法在多项任务上超越GRPO！",
+    "url": "https://mp.weixin.qq.com/s/uuyGFlP2lJkJ5wrhlEYTBw",
+    "date": "2026-01-12 10:03",
+    "digest": "多奖励强化学习（RL）中广泛使用的 GRPO 存在一个严重缺陷——它直接对聚合奖励进行归一化，导致不同的奖励组合坍塌成相同的价值，丢失了关键的训练信号。NVIDIA 提出的 GDPO 通过解耦归一化（先对每个奖励单独归一化，再聚合）完美解决了这个问题"
+  },
+  {
+    "title": "KnowMe-Bench：中科院联合清北提出让Agent 成为真正的“终身数字伴侣”",
+    "url": "https://mp.weixin.qq.com/s/lGeogVc5-KuXu_u8UMG3kw",
+    "date": "2026-01-10 10:52",
+    "digest": "让 Agent Memory 从“检索记忆”走向真正“理解你”"
+  },
+  {
+    "title": "炸裂！LeCun亲揭Meta AI黑幕：Llama 4确实刷榜造假，痛批AI负责人\"不懂研究\"",
+    "url": "https://mp.weixin.qq.com/s/zPxEeZADqEPGMEChVTbWpg",
+    "date": "2026-01-06 16:36",
+    "digest": "❝离职的LeCun，反手就给Meta一记重锤——Llama 4的基准测试？确实造假了。28岁的AI负责人亚历山大王？"
+  },
+  {
+    "title": "RL不是大模型最终解？清华NeurIPS最佳论文：大模型推理能力早被基座\"锁死\"！",
+    "url": "https://mp.weixin.qq.com/s/CHyM4ZSwfSSJcYSCWeyb0Q",
+    "date": "2026-01-05 20:02",
+    "digest": "❝一句话概括：强化学习（RLVR）只是让大模型\"做题更熟练\"，而非\"变得更聪明\"——模型的推理天花板，早在预训"
+  },
+  {
+    "title": "【大模型基础01】面试官：讲讲Transformer 架构",
+    "url": "https://mp.weixin.qq.com/s/YiG7KNq0ZXWsjq9FxFrXSA",
+    "date": "2026-01-03 22:04",
+    "digest": "从今天开始更新部分AgentAlpha社区优秀学员的笔记内容，欢迎大家一起交流学习~~"
+  },
+  {
+    "title": "高中生也能看懂：AI Agent 的“灵魂”觉醒——从 RAG 到自主意识的进化实录",
+    "url": "https://mp.weixin.qq.com/s/kPPwCFPFp2pEUBOtqUM22g",
+    "date": "2025-12-28 17:20",
+    "digest": "现在的 AI 圈子很浮躁。 昨天流行 RAG（检索增强），今天吹爆 Agent（智能体），明天又是 Multi-Agent（多智能体）。"
+  },
+  {
+    "title": "大模型agent圆桌会，讲讲百万年薪",
+    "url": "https://mp.weixin.qq.com/s/tt9UqdiJPl-48fzjF08Hmw",
+    "date": "2025-12-26 09:45",
+    "digest": "联合offershow一起做圆桌会➕答疑会，欢迎感兴趣的报名，主题：大模型agent求职规划，code agent，AI coding，顶会发表等 普通人如何抓住agent风口，打造技术护城河 时间：12.28 19:00"
+  },
+  {
+    "title": "大模型agent答疑会 RAG专题",
+    "url": "https://mp.weixin.qq.com/s/3D51wXxrUsd3-4XTp7sSrw",
+    "date": "2025-12-20 20:53",
+    "digest": "第一次答疑会的精华总结一部分，完整版可以留dd"
+  },
+  {
+    "title": "Agent memory 来打造钢铁侠管家“贾维斯”：讲故事让你学懂智能体记忆机制",
+    "url": "https://mp.weixin.qq.com/s/Kct4To-xKfcGMhRPWAozYA",
+    "date": "2025-12-12 22:54",
+    "digest": "AI架构师的视角，用“全知管家贾维斯”的故事线讲清楚25年最火的Agent Memory"
+  },
+  {
+    "title": "大模型agent学习第三模块",
+    "url": "https://mp.weixin.qq.com/s/8cuQ4A5J1_9AuPezt3i2Lw",
+    "date": "2025-12-09 16:25",
+    "digest": "AI Agent 学习笔记涵盖其本质、架构组件、工具调用、记忆系统、框架应用、自我反思能力构建及多 Agent 协作等内容，并给出了相应代码实践。关键要点包括： 1. Agent 本质：Agent 是能自主完成任务的智能系统，通过「思考 - 行动 - 观察」（T - A - O）"
+  },
+  {
+    "title": "大厂面试RLHF：从PPO，DPO，GRPO…",
+    "url": "https://mp.weixin.qq.com/s/o42oy8SCH7fhrpW537Hs4g",
+    "date": "2025-12-05 23:53",
+    "digest": "大模型RLHF面试，一篇笔记帮你搞定 大模型RLHF面试，一文梳理强化学习RLHF全家桶： PPO：经典基石 核心：四模型协同（策略 + 参考 + 奖励 + 价值）+ clip 安全绳特点：通过概率比限制策略更新幅度，保证训练稳定适用：通用场景，资源充足时首选复杂度：⭐⭐⭐⭐ D"
+  },
+  {
+    "title": "一周学会Agent Memory，实现自动科研助手项目",
+    "url": "https://mp.weixin.qq.com/s/9nea0_D6c7TUENrxmlj88w",
+    "date": "2025-12-04 16:36",
+    "digest": "Agent训练营 一周掌握Memory系统"
+  },
+  {
+    "title": "高中生也能看懂：Agent Memory ——为何超越 RAG ?",
+    "url": "https://mp.weixin.qq.com/s/Klk6CkI0RuTCUufAhKYOnw",
+    "date": "2025-12-03 17:02",
+    "digest": "agent memory和 RAG（检索增强生成）到底有什么区别？"
+  },
+  {
+    "title": "挑战两个月拿下大模型agent大厂offer",
+    "url": "https://mp.weixin.qq.com/s/73l6htr_8DyRJqS91U7T0g",
+    "date": "2025-11-17 15:11",
+    "digest": "我们AgentAlpha社区推出了挑战：两个月拿下大模型agent，第一模块顺利完成：一周学完agent rag，并做完一个独角兽企业实战项目 ！ 这周AgentAlpha社区大家的收获都很多，首先是： 1.Rag基础的学完之后 大部分学员都关注了Agentic Rag，其实是一"
+  },
+  {
+    "title": "中国电信研究院推出首个操作级记忆系统幻觉评估基准",
+    "url": "https://mp.weixin.qq.com/s/6IIQWdmo4oEcgZe28pwumA",
+    "date": "2025-11-12 08:55",
+    "digest": "【中国电信研究院推出首个操作级记忆系统幻觉评估基准】🧠 为什么记忆系统会\"说谎\"？AI长期交互的致命伤被破解！"
+  },
+  {
+    "title": "深度解析Agent Memory，下一代智能体的决胜关键",
+    "url": "https://mp.weixin.qq.com/s/e4bkF5Loqpy4bKRxtql_Gg",
+    "date": "2025-11-08 23:17",
+    "digest": "每次对话都从零开始，刚说过的话转头就忘，你有没有被AI的“健忘症”逼疯？"
+  },
+  {
+    "title": "如何给智能体打造一个像人类一样灵活、会学习的“记忆系统” （Agent memory第二期）",
+    "url": "https://mp.weixin.qq.com/s/9Bkq20_lYD5Q_AgMBkfM2g",
+    "date": "2025-11-04 10:17",
+    "digest": "让AI智能体告别七秒钟的记忆！"
+  },
+  {
+    "title": "聊聊智能体的记忆机制（Agent Memory）",
+    "url": "https://mp.weixin.qq.com/s/QI7UIlh7asd7NNgW3UMkHA",
+    "date": "2025-10-30 16:45",
+    "digest": "今天我们要聊的主题是智能体的记忆机制，特别是新加坡国立大学提出的MemGen技术。"
+  },
+  {
+    "title": "SVD让AI模型合并不再\"翻车\"，中科院北大提出无需额外训练和数据的RobustMerge!",
+    "url": "http://mp.weixin.qq.com/s?__biz=MzU3MDcwMjgxMQ==&tempkey=MTM5MV9YekJWbE9OVVFqK04zdGtRMXBoMVhaWWJNU3VvZGQxSWlVWkRDQWVyNFl5ZzRyMXNrSUxHQkt3ZEFKTHU0NEtBVVprODlCcEFUelVYcHZzV0J5Z1NlZm43NUZmamNya0QtU2JZTzl0bkg1LWc3czM3M2FDQkRNRnR1ZUNQNkFoV2VPRHJJT3pNalZnOFhtcXE1eXhIU0lVSjMtazd3UXNQdUhWMmNRfn4%3D&chksm=fcea2fd4cb9da6c24e374221253bb75fce5b6afbebb9b31da7abd3c1f6bd19791a97931f112a#rd",
+    "date": "2025-10-27 13:24",
+    "digest": "RobustMerge：SVD让AI模型合并不再\"翻车\"！"
+  },
+  {
+    "title": "让大模型自己去google！杜绝瞎编乱造",
+    "url": "https://mp.weixin.qq.com/s/F8hEuEgq2w56Lwo1R0Ejgg",
+    "date": "2025-10-24 19:05",
+    "digest": "🚀 大模型推理能力再进化！人大高瓴AI学院推出Search-o1，让模型学会自己“上网查资料”！"
+  },
+  {
+    "title": "多模态大模型真的“看图说话”了吗？一篇颠覆性论文告诉你真相！",
+    "url": "https://mp.weixin.qq.com/s/hZt1xgBwhnm-x8r_rt9edw",
+    "date": "2025-10-14 10:56",
+    "digest": "🎯 多模态大模型真的“看图说话”了吗？See What You Are Told！"
+  },
+  {
+    "title": "OpenAI最新发布会都讲了什么？",
+    "url": "http://mp.weixin.qq.com/s?__biz=MzU3MDcwMjgxMQ==&tempkey=MTM5MV9lRWEyV1J3N2dkRVhlMWJTMXBoMVhaWWJNU3VvZGQxSWlVWkRDQWVyNFl5ZzRyMXNrSUxHQkt3ZEFKS1dGeVdrSjJObERUOEQzY0YwNUFZN2loLTk4My1HclNyUXpHUTlzWlNDZU1Hb0R3a1NodEpsQ2VFMmpWbHJLY3JZa2gzUDVyUjF1dy1GdVRaQ1l6UzZ0bHRHM2V5Y3J6YjZFRWNydXMyZjhnfn4%3D&chksm=fcea2ff4cb9da6e28b5fcde576423293235b3d93ffc9762ed2377ab7c1b4108475f9d26e60c3#rd",
+    "date": "2025-10-07 18:02",
+    "digest": "如今的 OpenAI，商业帝国的轮廓愈发清晰，甚至已经隐隐盖住了通用人工智能（AGI）的远景图景。"
+  },
+  {
+    "title": "普林斯顿大学提出扩散大模型的强化学习新突破！",
+    "url": "https://mp.weixin.qq.com/s/zPE_4bOAopTwgE5qNQhJ8Q",
+    "date": "2025-09-14 16:56",
+    "digest": "为什么小模型能打败大模型？——扩散大模型的强化学习新突破 大模型论文解读第一期"
+  },
+  {
+    "title": "顶会论文写作的三重境界：从技术到艺术",
+    "url": "https://mp.weixin.qq.com/s/9eWgy85BdRAhAMVwiYGdLw",
+    "date": "2024-12-25 11:18",
+    "digest": "顶会论文写作的三重境界：从技术到艺术"
+  },
+  {
+    "title": "三分钟看完NeurIPS 2024最佳论文！",
+    "url": "https://mp.weixin.qq.com/s/JC81ykyw62GGPKpUzndvpg",
+    "date": "2024-12-11 23:36",
+    "digest": "NeurIPS 2024最佳论文揭晓：北大字节联合NUS夺冠，Ilya Sutskever连续三年获奖[强][强][强] 在人工智能领域最具影响力的会议之一——NeurIPS 2024上，来自北京大学、字节跳动以及新加坡国立大学等机构的团队荣获此殊荣。本文将为您详细解读[玫瑰] "
+  },
+  {
+    "title": "今天，和想回国找工作的留学生同学们聊聊",
+    "url": "http://mp.weixin.qq.com/s?__biz=MzU3MDcwMjgxMQ==&tempkey=MTM5MV93QXdpdlVxL0ZyWG96Lzd5MXBoMVhaWWJNU3VvZGQxSWlVWkRDQWVyNFl5ZzRyMXNrSUxHQkt3ZEFKSXQtRF84emZHYlBBVEpfMV80c2RJT29GcFBHNU9RanRQeGlpOVVYb3FwNGhqbGlLQ1NwYnFpclo0eUMzVUxSNDY4dk5WSkdkRXdoNDhLS3h3eG1rRU9nWks0LXB2SEFGZUtXUTVkb3J4WVN3fn4%3D&chksm=fcea2fa0cb9da6b6a29b89efe310b61a985aab92c6f70f3b37a1596639ee40f1de8d9053d7f7#rd",
+    "date": "2024-12-10 12:34",
+    "digest": "时不可待"
+  },
+  {
+    "title": "海外申博必看！！如何脱颖而出提升背景？",
+    "url": "https://mp.weixin.qq.com/s/sLJhKxRIbvy_qUrD81cluw",
+    "date": "2024-12-09 19:25",
+    "digest": "一、2024Fall 博士申请 （一）仍在上学 / 上班者 😊 1. 高GPA，名校且英语成绩已出但无科研经历 🏫 - 利用学校资源或中介等关系进入实验室参与项目。关键在于熟悉学术环境和术语，为简历增添学术色彩。即便没有显著的科研成果，这段经历也能展示你的学习能力和团队合作精神。"
+  },
+  {
+    "title": "网页版auto resesrch在路上了！",
+    "url": "https://mp.weixin.qq.com/s/xIMN01G93pjnBZtAVXKnjg",
+    "date": "",
+    "digest": "idea2Paper经历了 3 个月的蛰伏，现在全链路真正打通了，测试效果也不错，EMNLP三中一（这次录用率确实太低） 每个模块基本上都精心打磨后从调研到idea的产出都花了一个多月的时间来优化，然后自动跑实验就比较简单了，从idea树里挑出几个好的根据时间段和其他指标loop"
+  },
+  {
+    "title": "大厂面试，自进化 agent 正在成为主流！",
+    "url": "https://mp.weixin.qq.com/s/jIU73_CpsxYIsBtk-kP-Zw",
+    "date": "",
+    "digest": "自进化 agent 已成为大厂最注重的研究方向。现在的面试官，看的是你能不能解决复杂工程问题，能不能让Agent具备“自我进化”的能力。"
+  },
+  {
+    "title": "英伟达创始人黄仁勋第一帖支持 kimi！开源万岁",
+    "url": "http://mp.weixin.qq.com/s?__biz=MzU3MDcwMjgxMQ==&tempkey=MTM5MV9rempKeDZKL0VLWHhsR0dJMXBoMVhaWWJNU3VvZGQxSWlVWkRDQWVyNFl5ZzRyMXNrSUxHQkt3ZEFKSklfU2gtRFFxZkI1enllek1WeWUzbmdxX1hRbUdSRTVUYTAtMTVCWG55anJjNms4aVhCLXREMFZNZ19GRnJaM29WYlNFUU5GTFYycWI5eEJVSk40c0lhaC1RYVFIMHpSRDh1dzFkWmhHXzlRfn4%3D&chksm=fcea2a20cb9da3367cb97818b1742ce4a69f76529035e0616b27a41d555aa87f41f78693ed84#rd",
+    "date": "",
+    "digest": "英伟达创始人黄仁勋第一帖支持 kimi！"
+  },
+  {
+    "title": "蚂蚁二面：Agent 记忆的写入流程要做哪些处理？直接存对话不行吗？",
+    "url": "https://mp.weixin.qq.com/s/OlHKXHOtNEr5AgdTG_4c7A",
+    "date": "",
+    "digest": "蚂蚁二面面试题：Agent 记忆写入流程怎么做？从降噪清洗到元数据标注完整拆解。"
+  },
+  {
+    "title": "字节 Agent 三面：讲讲 Agent 的记忆系统怎么设计？",
+    "url": "https://mp.weixin.qq.com/s/uyfAK9omqxwWoU92e1EACw",
+    "date": "",
+    "digest": "字节 Agent 岗三面面试题：Agent 的记忆系统怎么设计？从分层架构到工程落地完整拆解。"
+  },
+  {
+    "title": "如何学习Claude Code——从小白到高手的 Agent Harness 学习之路",
+    "url": "https://mp.weixin.qq.com/s/faQmfJARYIHbTr5wUKW9tQ",
+    "date": "",
+    "digest": "学 Claude Code，真正要学什么？"
+  },
+  {
+    "title": "企业 Agent 落地，这些错误是大忌！",
+    "url": "https://mp.weixin.qq.com/s/JuV-DLa24nDx8yPlLD6tng",
+    "date": "",
+    "digest": "企业 Agent 第一版不要做聊天框，要先补齐输入、知识、工具、日志、评估、人工接管和回滚。"
+  },
+  {
+    "title": "强化学习跌落神坛？清华NeurIPS最佳论文：大模型推理能力早被基座\"锁死\"！",
+    "url": "https://mp.weixin.qq.com/s/k03l8zooNFimD64zXIPkuw",
+    "date": "",
+    "digest": "清华NeurIPS最佳论文：重新审视强化学习，你应该试试蒸馏了！"
+  },
+  {
+    "title": "SVD让AI模型合并不再\"翻车\"，中科院北大提出无需额外训练和数据的RobustMerge!",
+    "url": "https://mp.weixin.qq.com/s/tls_FDXUcaKrl6b77LrGFA",
+    "date": "",
+    "digest": "RobustMerge：SVD让AI模型合并不再\"翻车\"！"
+  },
+  {
+    "title": "12.6K Star！Docling：AI 开发者的文档解析利器",
+    "url": "https://mp.weixin.qq.com/s/BGBBLZgTNqBYB809umpQVA",
+    "date": "",
+    "digest": "在信息爆炸的时代，海量文档资料如潮水般涌来，你是否常深陷其中，为难以迅速精准获取关键信息、将复杂文档转化为易用格式而烦恼？别担心，Docling 这款 AI 驱动的开源文档解析神器将为你排忧解难。 一、Docling 的崛起 Docling 在 GitHub 开源社区大放异彩，短"
+  }
+]

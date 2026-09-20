@@ -1,26 +1,33 @@
 {
-  "_note": "面试间分类词表与元数据。cat 值是固定词表（见 docs/plan.md §3.1），新增分类必须先改 plan.md。posts 篇数由 lib/interview.ts 实时统计，此处不写死。",
+  "_note": "面试间分类词表与元数据（唯一来源，lib/interview.ts 直接读取）。cat 值是固定词表；2026-09-19 新增 basics / finetune / inference / multimodal / prompt / safety 六类，与专栏章节（lib/column.ts）的 cats 一一对应。posts 篇数由 lib/interview.ts 实时统计，此处不写死。",
   "categories": [
+    {
+      "cat": "basics",
+      "name": "LLM 基础概念",
+      "intro": "Transformer、Token、上下文窗口、采样参数、MoE 这些地基题。看起来简单，答得干净利落反而最能体现基本功。",
+      "kbChapter": "第 2 章 · LLM 基础",
+      "planned": 12
+    },
     {
       "cat": "rag",
       "name": "RAG 检索增强",
       "intro": "从文档到答案的整条链路：Embedding、分块、多路召回、重排、缓存与权限。答这类题要先说清链路分层，再讲每一层你踩过的坑。",
       "kbChapter": "第 1 章 · RAG",
-      "planned": 8
+      "planned": 10
     },
     {
       "cat": "agent",
       "name": "Agent 架构",
       "intro": "ReAct 循环、规划与反思、记忆系统、整体设计。面试官最想看的是你能不能说出「为什么这么拆」，而不是背框架名字。",
       "kbChapter": "第 4 章 · Agent 架构",
-      "planned": 8
+      "planned": 10
     },
     {
       "cat": "tooluse",
       "name": "工具调用",
       "intro": "Function Call、MCP、A2A、Skills，以及工具过百之后的注册、发现、路由与 Schema 设计。落点永远在「准确率抓在哪个环节」。",
       "kbChapter": "第 8 章 · 工具调用",
-      "planned": 9
+      "planned": 10
     },
     {
       "cat": "multiagent",
@@ -41,14 +48,49 @@
       "name": "评测与可观测",
       "intro": "非确定系统的回归测试、Golden Set、LLM 裁判校准、trace 埋点与可观测性。核心是别让被测者改自己的分数。",
       "kbChapter": "第 7 章 · 评测",
-      "planned": 4
+      "planned": 5
     },
     {
       "cat": "enterprise",
       "name": "项目实战与企业级",
       "intro": "从 demo 到生产的差距：私有知识、权限边界、可审计、业务集成、成本可控。项目题八成问的是这五件事。",
       "kbChapter": "第 10 章 · 项目深挖",
+      "planned": 7
+    },
+    {
+      "cat": "finetune",
+      "name": "训练与微调",
+      "intro": "SFT、LoRA、RLHF、DPO、GRPO、蒸馏与数据工程。答这类题的关键是讲清楚每一步在优化什么、数据从哪来。",
+      "kbChapter": "第 3 章 · LLM 训练",
+      "planned": 11
+    },
+    {
+      "cat": "inference",
+      "name": "推理与部署",
+      "intro": "KV Cache、vLLM、量化、批处理、并行策略与显存估算。面试官用这些题判断你是只调过 API，还是真部署过模型。",
+      "kbChapter": "第 2 章 · LLM 基础（推理优化）",
+      "planned": 11
+    },
+    {
+      "cat": "multimodal",
+      "name": "多模态",
+      "intro": "VLM 怎么看图、视觉 Token 的开销、文档解析与视频理解。专项岗的重点，应用岗的加分项。",
+      "kbChapter": "第 6 章 · 多模态",
       "planned": 6
+    },
+    {
+      "cat": "prompt",
+      "name": "提示工程",
+      "intro": "CoT、Few-shot、结构化输出、系统提示词与注入防护。不是玄学，是可以拆解、可以回归测试的工程方法。",
+      "kbChapter": "第 4 章 · Agent 架构（提示工程）",
+      "planned": 6
+    },
+    {
+      "cat": "safety",
+      "name": "安全与合规",
+      "intro": "内容安全、提示词泄露、数据合规与自动执行防护。企业落地必问，很多人答不出体系。",
+      "kbChapter": "第 4 章 · Agent 安全与对齐",
+      "planned": 4
     },
     {
       "cat": "jingchang",

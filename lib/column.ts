@@ -78,7 +78,7 @@ export const CHAPTERS: ColumnChapter[] = [
     count: "60+",
     days: "2-3 天",
     freq: "core",
-    cats: [],
+    cats: ["basics", "inference"],
     docs: [
       { label: "章节导读", href: "https://www.feishu.cn/docx/EBnOdAXtJoO17jx985ZcKwvqnDd" },
       { label: "真题 · Attention", href: "https://www.feishu.cn/docx/D3IpdiBJZoPcFWxgrKacNg3Qnbf" },
@@ -98,7 +98,7 @@ export const CHAPTERS: ColumnChapter[] = [
     count: "35+",
     days: "2-3 天",
     freq: "high",
-    cats: [],
+    cats: ["finetune"],
     docs: [
       { label: "章节导读", href: "https://www.feishu.cn/docx/H9N3dazDcovEdyxJJyQcZuMpnrg" },
       { label: "真题 · RLHF", href: "https://www.feishu.cn/docx/SHc5dIJC1oQd80xoOW3cKiQQnTd" },
@@ -117,7 +117,7 @@ export const CHAPTERS: ColumnChapter[] = [
     count: "75+",
     days: "3-4 天",
     freq: "core",
-    cats: ["agent", "memory"],
+    cats: ["agent", "memory", "prompt", "safety"],
     docs: [
       { label: "章节导读", href: "https://www.feishu.cn/docx/XRh1dOuaMoFhB4x4kRJcsnINnJg" },
       { label: "真题 · ReAct", href: "https://www.feishu.cn/docx/DfQyd8vkDo5Om2xWwIscxpGAnod" },
@@ -164,7 +164,7 @@ export const CHAPTERS: ColumnChapter[] = [
     count: "85+",
     days: "1-2 天",
     freq: "deep",
-    cats: [],
+    cats: ["multimodal"],
     docs: [
       { label: "章节导读", href: "https://www.feishu.cn/docx/N1QMd5TuvoSgNPxpSeYculS7njf" },
       { label: "真题汇总", href: "https://www.feishu.cn/docx/WuYKd1KDboOlRhxiCjQcRZzsndb" },
