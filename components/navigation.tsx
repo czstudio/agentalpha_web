@@ -34,6 +34,7 @@ export function Navigation() {
     { label: t.nav.articles, href: "/articles" },
     { label: t.nav.interview, href: "/interview" },
     { label: t.nav.mianjing, href: "/mianjing" },
+    { label: t.nav.gzh, href: "/gzh" },
     { label: t.nav.learn, href: "/learn" },
     { label: t.nav.talks, href: "/#talks" },
   ]

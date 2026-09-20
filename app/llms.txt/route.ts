@@ -53,6 +53,7 @@ export function GET() {
     "- [完整版站点内容](https://agentalpha.top/llms-full.txt)",
     "- [技术笔记](https://agentalpha.top/notes)：Agent 工程与大模型的系统学习笔记",
     "- [面经实录](https://agentalpha.top/mianjing)：真实面试轮次的完整复盘",
+    "- [公众号文章](https://agentalpha.top/gzh)：公众号发布的面试长文、社区动态与学员案例，附 mp.weixin 原文链接",
     "- [训练营](https://agentalpha.top/learn)：从零到拿 offer 的 Agent 项目实战课程",
     "",
   )

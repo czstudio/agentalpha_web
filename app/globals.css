@@ -2322,3 +2322,62 @@ html.enrollment-dialog-open { overflow: hidden; }
   .aa-paper-strip-list { grid-template-columns: 1fr; }
   .aa-pg { min-height: 0; }
 }
+
+/* ═══ /gzh 公众号文章索引（暖纸体系，与面经页同族）═══ */
+.gzh-month { margin-bottom: clamp(28px, 5vw, 44px); }
+.gzh-month-name {
+  margin: 0 0 14px;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.05rem;
+  color: #1b365d;
+  letter-spacing: 0.04em;
+}
+.gzh-list { display: grid; gap: 12px; }
+.gzh-item {
+  display: block;
+  padding: 18px 22px 15px;
+  background: #fffefb;
+  border: 1px solid #e8e6dc;
+  border-radius: 14px;
+  color: inherit;
+  transition: border-color .18s ease, box-shadow .18s ease, transform .18s ease;
+}
+.gzh-item:hover {
+  border-color: #c8d2e8;
+  box-shadow: 0 8px 26px rgb(27 54 93 / 0.08);
+  transform: translateY(-1px);
+}
+.gzh-item-top { display: flex; align-items: baseline; justify-content: space-between; gap: 14px; }
+.gzh-item-title { font-weight: 600; font-size: 0.98rem; line-height: 1.5; color: #141413; }
+.gzh-fresh {
+  display: inline-block;
+  margin-left: 8px;
+  padding: 1px 8px;
+  border-radius: 999px;
+  background: #1b365d;
+  color: #f5f3ec;
+  font-size: 0.68rem;
+  font-weight: 600;
+  vertical-align: 2px;
+  letter-spacing: 0.08em;
+}
+.gzh-item-date { color: #9a9082; font-size: 0.8rem; white-space: nowrap; }
+.gzh-item-digest {
+  margin: 7px 0 10px;
+  color: #504e49;
+  font-size: 0.88rem;
+  line-height: 1.75;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.gzh-item-go {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  color: #1b365d;
+  font-size: 0.86rem;
+  font-weight: 500;
+}

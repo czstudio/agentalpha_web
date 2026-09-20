@@ -8,13 +8,17 @@ const SITE = "https://agentalpha.top"
 export const metadata: Metadata = {
   title: "Agent 面试题大全（含答案，持续更新）",
   description:
-    "大模型 Agent 岗高频面试题大全：RAG、Agent 架构、Function Calling 与 MCP、多智能体、记忆系统、评测、企业落地，一题一页给出口语化参考答案，面试前速刷。",
+    "大模型 Agent 岗高频面试题大全：LLM 基础、RAG、Agent 架构、训练与微调（LoRA/RLHF/DPO）、推理与部署（KV Cache/量化）、工具调用与 MCP、多智能体、记忆系统、提示工程、多模态、评测、企业落地，一题一页给出口语化参考答案，面试前速刷。",
   keywords: [
     "Agent 面试题",
     "大模型面试题",
     "LLM 面试题及答案",
     "RAG 面试题",
     "Agent 面试",
+    "LoRA 面试题",
+    "RLHF 面试题",
+    "vLLM 面试题",
+    "大模型八股文",
     "AI 产品经理面试题",
     "大模型岗面试",
     "Agent 八股文",
