@@ -313,7 +313,7 @@
         "企业级",
         "规划"
       ],
-      "minutes": 25,
+      "minutes": 24,
       "updated": "2026-09-14",
       "papers": [
         {
@@ -342,6 +342,21 @@
       ],
       "minutes": 8,
       "updated": "2026-09-14",
+      "papers": []
+    },
+    {
+      "slug": "agent-knowledge-poisoning",
+      "no": "18",
+      "title": "京东 Agent 岗二面：攻击者把假情报写进知识库，你的研判 Agent 会信多久？",
+      "question": "安全私有知识库被投毒了怎么防？如果投毒的是 Agent 自己的研判结论呢？",
+      "excerpt": "提示注入抢的是这一次执行，知识投毒改的是以后每一次判断。PoisonedRAG 用 5 条恶意文本打穿百万级知识库、成功率 90%；ConfusedPilot 证明原文删掉之后缓存还在生效。安全场景最危险的一条是回流口——Agent 自己的研判结论写进历史处置记录，攻击者不用碰知识库就能把它永久弄脏。",
+      "category": "safety",
+      "tags": [
+        "安全",
+        "企业级"
+      ],
+      "minutes": 10,
+      "updated": "2026-09-20",
       "papers": []
     }
   ]
