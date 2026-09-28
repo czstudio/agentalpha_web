@@ -6,7 +6,7 @@ category: memory
 company: baidu,bytedance
 tags: [Agent, Memory]
 minutes: 6
-order: 6
+order: 8
 updated: 2026-09-28
 deep: 
 ---

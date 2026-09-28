@@ -6,7 +6,7 @@ category: finetune
 company: tencent,bytedance
 tags: [强化学习, Agent, 奖励设计]
 minutes: 6
-order: 18
+order: 19
 updated: 2026-09-28
 deep: 
 ---

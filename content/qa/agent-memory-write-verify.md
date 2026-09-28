@@ -6,7 +6,7 @@ category: memory
 company: baidu
 tags: [Agent, 记忆机制, 效果评估]
 minutes: 6
-order: 7
+order: 9
 updated: 2026-09-28
 deep: 
 ---
