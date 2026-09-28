@@ -29,8 +29,10 @@ export const COMPANIES: Company[] = [
   { slug: "minimax", name: "MiniMax", aliases: ["MiniMax", "海螺"], note: "多模态与助手产品并行，语音、视频与 Agent 工程题都可能出现。" },
   { slug: "zhipu", name: "智谱", aliases: ["智谱", "智谱 AI", "GLM", "ChatGLM"], note: "GLM 系列开放平台与 AutoGLM，工具调用与 Agent 基座能力考查多。" },
   { slug: "bilibili", name: "B站", aliases: ["B站", "bilibili", "哔哩哔哩"], note: "AI Agent 开发岗笔试面试题以 RAG 全流程、LangChain 组件、多轮 Agent 设计为主，工程题密度高。" },
-  { slug: "pdd", name: "拼多多", aliases: ["拼多多"], note: "Agent 研发社招面试强度大，MCP 交互细节、内部数据安全与上下文压缩是高频方向。" },
-  { slug: "antgroup", name: "蚂蚁集团", aliases: ["蚂蚁", "蚂蚁集团", "支付宝"], note: "Agent 交付风险与回滚机制、Harness 上下文管理等生产化考题常见。" },
+  { slug: "pdd", name: "拼多多", aliases: ["拼多多"], note: "Agent 研发社招面试强度大，MCP 交互细节、内部数据安全与上下文压缩是高频方向；大模型算法岗的推理与 RL 追问链业内最深。" },
+  { slug: "antgroup", name: "蚂蚁集团", aliases: ["蚂蚁", "蚂蚁集团", "支付宝"], note: "Agent 交付风险与回滚机制、Harness 上下文管理等生产化考题常见；大模型算法岗反复考 PPO 四模型与量化选型。" },
+  { slug: "didi", name: "滴滴", aliases: ["滴滴"], note: "大模型算法岗以 GRPO 全家桶著称：损失函数手写、KL 估计、熵坍塌、训练监控指标层层下钻。" },
+  { slug: "kuaishou", name: "快手", aliases: ["快手"], note: "大模型应用开发岗考 RAG 全链路十连问与手写公式（GAE、重要性采样），GenAI 岗另考量化与推理成本。" },
 ]
 
 export function getCompany(slug: string): Company | null {
