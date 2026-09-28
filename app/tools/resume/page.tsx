@@ -9,7 +9,7 @@ const SITE = "https://agentalpha.top"
 export const metadata: Metadata = {
   title: "AI/Agent 岗简历体检 · 免费在线简历分析",
   description:
-    "粘贴简历文本，本地分析不出浏览器：Agent 岗能力覆盖证据评级、逐条经历批注、基于真实面经的追问预演与翻车风险。免费、无注册、不上传。",
+    "粘贴简历文本和目标 JD，本地分析不出浏览器：JD 逐词对比、Agent 岗能力覆盖证据评级、逐条经历批注、基于真实面经的追问预演与翻车风险。免费、无注册、不上传。",
   keywords: ["Agent 简历优化", "大模型简历", "AI 岗简历修改", "简历诊断", "面试追问预演"],
   alternates: { canonical: "/tools/resume" },
 }
@@ -33,7 +33,7 @@ export default function ResumeToolPage() {
           <p className="rt-kicker">免费工具 · RESUME CHECK</p>
           <h1>AI / Agent 岗简历体检</h1>
           <p className="rt-lede">
-            把简历文本粘进来，在浏览器本地完成分析：能力覆盖评级、逐条批注、以及每条经历会招来什么追问。
+            把简历文本和目标岗位 JD 粘进来，在浏览器本地完成分析：JD 逐词对比、能力覆盖评级、逐条批注、以及每条经历会招来什么追问。
             不注册、不上传，文本不出你的浏览器。
           </p>
         </header>

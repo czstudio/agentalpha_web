@@ -91,6 +91,12 @@
   border-color: #6b5bd6;
 }
 
+.rt-jd {
+  margin-top: 10px;
+  min-height: 120px;
+  font-size: 13.5px;
+}
+
 .rt-input-actions {
   display: flex;
   justify-content: space-between;

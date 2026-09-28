@@ -167,6 +167,51 @@ const QUANT_PATTERNS = [/\d+(\.\d+)?\s*%/, /\d+(\.\d+)?\s*(万|亿|k|K|M|ms|QPS|
 const ACTION_VERBS = /(实现|开发|搭建|设计|优化|上线|落地|重构|主导|提出|对比|选型|调优|解决|定位)/
 const RESULT_WORDS = /(提升|提高|降低|减少|缩短|下降|覆盖|达到|稳定|支持|替换|节省|增收)/
 
+/** 中文简历红旗：过度声称与复刻项目（吸收自 wyh0626/resume-optimizer 的红旗审计思路） */
+const OVERCLAIM_WORDS = ["精通"]
+const REPLICA_MARKS = ["仿写", "复刻", "克隆", "clone", "高仿", "仿照"]
+
+/** JD 解析时忽略的英文停用词 */
+const JD_STOPWORDS = new Set([
+  "the", "and", "for", "with", "you", "your", "our", "are", "will", "have", "has",
+  "from", "that", "this", "who", "not", "all", "any", "can", "must", "should",
+  "job", "work", "team", "role", "plus", "etc", "us", "we", "or", "in", "on",
+  "to", "of", "a", "an", "is", "as", "by", "at", "be", "it", "its",
+])
+
+export interface JdReport {
+  /** JD 里出现的所有考察词（词表命中 + 英文技术词） */
+  keywords: string[]
+  hits: string[]
+  missing: string[]
+  /** 命中率 0-100 */
+  score: number
+}
+
+/** 从 JD 文本抽取考察词并与简历对比（Resume-Matcher 的 resume-vs-JD 思路的纯前端版） */
+export function analyzeJd(jdText: string, resumeText: string, profileSlug: string): JdReport {
+  const profile = JOB_PROFILES.find((p) => p.slug === profileSlug) || JOB_PROFILES[0]
+  const jdLower = jdText.toLowerCase()
+  const resumeLower = resumeText.toLowerCase()
+
+  // 1) 词表命中：岗位画像 + 能力雷达的全部词，出现在 JD 里的都算考察词
+  const lexicon = new Set<string>([...profile.core, ...profile.plus, ...RADAR_AXES.flatMap((a) => a.words)])
+  const tabled = [...lexicon].filter((w) => jdLower.includes(w.trim().toLowerCase()))
+
+  // 2) 英文技术词：连续字母数字串（vLLM、LangChain、Python3、C++ 等），去停用词、去纯数字
+  const latin = Array.from(jdText.matchAll(/[A-Za-z][A-Za-z0-9+#./-]{1,}/g))
+    .map((m) => m[0].replace(/[.\/-]+$/, ""))
+    .filter((w) => w.length >= 2 && !JD_STOPWORDS.has(w.toLowerCase()) && !/^\d+$/.test(w))
+  const latinSet = Array.from(new Set(latin))
+
+  // 合并去重（词表词优先，英文词里去掉与词表重复的大小写变体）
+  const keywords = Array.from(new Set([...tabled, ...latinSet])).slice(0, 60)
+  const hits = keywords.filter((w) => resumeLower.includes(w.trim().toLowerCase()))
+  const missing = keywords.filter((w) => !resumeLower.includes(w.trim().toLowerCase()))
+  const score = keywords.length > 0 ? Math.round((hits.length / keywords.length) * 100) : 0
+  return { keywords, hits, missing, score }
+}
+
 export interface BulletFinding {
   /** 原文截断 */
   text: string
@@ -301,6 +346,10 @@ export function analyzeResume(text: string, profileSlug: string): ResumeReport {
   if (!/(技能|技术栈|技术专长|工具)/.test(text)) structure.push("缺技能板块")
   if (bulletTotal < 5) structure.push("条目太少：项目与经历加起来不足 5 条")
   if (bulletTotal > 28) structure.push("条目过多：超过 28 行，重点被稀释，砍到一页以内")
+  const overclaims = OVERCLAIM_WORDS.reduce((n, w) => n + (text.split(w).length - 1), 0)
+  if (overclaims > 0) structure.push(`「${OVERCLAIM_WORDS[0]}」出现 ${overclaims} 次：写「精通」的每一项都会被面试官往死里问，只留你真能接住的那几个`)
+  const replicas = bullets.filter((b) => REPLICA_MARKS.some((m) => b.toLowerCase().includes(m)))
+  if (replicas.length > 0) structure.push(`复刻型项目 ${replicas.length} 条（仿写/复刻/克隆）：可以写，但要写清你的增量改动，否则追问「和原版的区别」就见底`)
   const fluff = FLUFF_WORDS.filter((w) => text.includes(w))
   if (fluff.length > 0) structure.push(`空话词 ${fluff.length} 处：面试官看到这些词不加分，具体做的事才加分`)
 
