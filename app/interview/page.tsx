@@ -40,6 +40,14 @@ function Hero() {
         <span><b>52</b> 个考点</span>
         <span><b>2582</b> 道真题图谱</span>
       </div>
+      <div className="ivc-hero-actions">
+        <Link className="ivc-hero-btn" href="/interview/quiz">
+          模拟面试 · 抽题自测
+        </Link>
+        <Link className="ivc-hero-btn ivc-hero-btn--ghost" href="/interview/qa">
+          速答题库一键直达
+        </Link>
+      </div>
     </header>
   )
 }
