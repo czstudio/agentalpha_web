@@ -2,6 +2,8 @@ import type { Metadata } from "next"
 import Link from "next/link"
 import { getAllQa, getQaGrouped } from "@/lib/qa"
 import { getCategories } from "@/lib/interview"
+import { QaRows, type QaRowGroup } from "@/components/interview/qa-rows"
+import { DailyQuestion, type DailyQaItem } from "@/components/interview/daily-question"
 
 const SITE = "https://agentalpha.top"
 
@@ -29,6 +31,26 @@ export const metadata: Metadata = {
 export default function QaHubPage() {
   const all = getAllQa()
   const groups = getQaGrouped(getCategories())
+  const rowGroups: QaRowGroup[] = groups.map((group) => {
+    const category = getCategories().find((c) => c.cat === group.cat)
+    return {
+      cat: group.cat,
+      name: category?.name || group.cat,
+      intro: category?.intro || "",
+      items: group.items.map((it) => ({
+        slug: it.slug,
+        question: it.question,
+        oneLine: it.oneLine,
+        category: it.category,
+      })),
+    }
+  })
+  const dailyItems: DailyQaItem[] = all.map((it) => ({
+    slug: it.slug,
+    question: it.question,
+    oneLine: it.oneLine,
+    category: it.category,
+  }))
 
   const itemListLd = {
     "@context": "https://schema.org",
@@ -78,32 +100,17 @@ export default function QaHubPage() {
           想看逐层拆解的长文，去<a href="/interview">深度解析</a>；想按学习路线刷，去
           <a href="/interview#chapters">专栏目录</a>。
         </p>
+        <div className="ivq-hero-actions">
+          <Link className="ivq-hero-btn" href="/interview/quiz">
+            开一场模拟面试
+          </Link>
+          <span className="ivq-hero-btnnote">抽题自评，错题优先重抽</span>
+        </div>
+        <DailyQuestion items={dailyItems} />
       </header>
 
       <div className="ivu-wide">
-        {groups.map((group) => {
-          const category = getCategories().find((c) => c.cat === group.cat)
-          return (
-            <section className="ivq-cat" key={group.cat} id={group.cat}>
-              <div className="ivq-cat-head">
-                <h2 className="ivq-cat-name">{category?.name || group.cat}</h2>
-                <p className="ivq-cat-intro">{category?.intro}</p>
-                <span className="ivq-cat-count">{group.items.length} 题</span>
-              </div>
-              <div className="ivq-rows">
-                {group.items.map((item) => (
-                  <Link className="ivq-row" href={`/interview/qa/${item.slug}`} key={item.slug}>
-                    <span className="ivq-row-q">Q · {item.question}</span>
-                    <span className="ivq-row-a">{item.oneLine}</span>
-                    <span className="ivq-row-go" aria-hidden>
-                      查看答案 →
-                    </span>
-                  </Link>
-                ))}
-              </div>
-            </section>
-          )
-        })}
+        <QaRows groups={rowGroups} />
       </div>
 
       <div className="ivu-wide">
@@ -111,7 +118,7 @@ export default function QaHubPage() {
           <div>
             <p className="ivq-cta-t">刷完速答，再往深走一层</p>
             <p className="ivq-cta-d">
-              速答帮你把结论说出口，深度解析帮你扛住追问：17 篇逐层拆解的长文，以及按章刷题的完整学习路线。
+              速答帮你把结论说出口，深度解析帮你扛住追问：18 篇逐层拆解的长文，以及按章刷题的完整学习路线。
             </p>
           </div>
           <div className="ivq-cta-links">

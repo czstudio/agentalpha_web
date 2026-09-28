@@ -1819,3 +1819,136 @@ a.ivc-updcard:hover { border-color: var(--brand); box-shadow: var(--shadow); }
 @media (max-width: 640px) {
   .ivq-grid { grid-template-columns: 1fr; }
 }
+
+/* ============================================================
+   题库页增强：每日一题（.ivd-）+ 搜索/掌握度工具条（.ivq- 增量）
+   ============================================================ */
+.ivq-hero-actions { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; margin-top: 22px; }
+.ivq-hero-btn { font-size: 14.5px; font-weight: 700; color: #fff; background: var(--brand); border-radius: 8px; padding: 10px 20px; text-decoration: none; }
+.ivq-hero-btn:hover { background: var(--brand-deep); }
+.ivq-hero-btnnote { font-size: 13px; color: var(--ink-3); }
+
+.ivd-card { background: var(--card); border: 1px solid var(--line); border-left: 3px solid var(--mark); border-radius: 10px; padding: 18px 22px; margin-top: 22px; max-width: 640px; }
+.ivd-head { display: flex; align-items: baseline; gap: 10px; margin-bottom: 8px; }
+.ivd-kicker { font-size: 11.5px; letter-spacing: 0.14em; font-family: var(--font-mono); color: var(--mark); }
+.ivd-date { font-size: 12px; color: var(--ink-3); }
+.ivd-q { display: block; font-family: var(--font-serif); font-size: 17px; font-weight: 700; color: var(--ink); line-height: 1.55; text-decoration: none; }
+.ivd-q:hover { color: var(--brand-deep); }
+.ivd-a { font-size: 13.5px; color: var(--ink-2); line-height: 1.7; margin: 8px 0 10px; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.ivd-foot { display: flex; gap: 16px; }
+.ivd-link { font-size: 13px; font-weight: 600; color: var(--brand-deep); text-decoration: none; }
+.ivd-link:hover { text-decoration: underline; text-underline-offset: 3px; }
+.ivd-link--ghost { color: var(--ink-2); font-weight: 400; }
+
+.ivq-tools-wrap { margin-top: 8px; }
+.ivq-tools { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; padding: 16px 0 4px; }
+.ivq-search { flex: 1 1 260px; min-width: 220px; font-size: 14px; color: var(--ink); background: var(--card); border: 1px solid var(--line); border-radius: 8px; padding: 9px 14px; outline: none; }
+.ivq-search:focus { border-color: var(--brand); }
+.ivq-filters { display: flex; gap: 6px; }
+.ivq-filter { font-size: 13px; color: var(--ink-2); background: transparent; border: 1px solid var(--line); border-radius: 999px; padding: 7px 14px; cursor: pointer; }
+.ivq-filter.is-on { color: #fff; background: var(--ink); border-color: var(--ink); }
+.ivq-progress { font-size: 13px; color: var(--ink-2); margin-left: auto; }
+.ivq-progress b { color: var(--brand-deep); }
+.ivq-empty { color: var(--ink-3); font-size: 14px; padding: 32px 0; }
+
+/* 行结构改为「主链接 + 掌握标记」两栏；.ivq-row-main 接管原 .ivq-row 的纵向排布 */
+.ivq-row { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 14px; align-items: center; padding: 18px 2px; border-bottom: 1px solid var(--line); }
+.ivq-row-main { display: grid; grid-template-columns: minmax(0, 1fr); gap: 5px; text-decoration: none; transition: background 0.15s ease; }
+.ivq-row:hover .ivq-row-q { color: var(--brand-deep); }
+.ivq-row-q { font-size: 16.5px; font-weight: 600; color: var(--ink); line-height: 1.55; }
+.ivq-row-dot { display: inline-block; width: 7px; height: 7px; border-radius: 50%; background: #1a9a6c; margin-right: 6px; vertical-align: 2px; }
+.ivq-row-mark { font-size: 12px; color: var(--ink-3); background: transparent; border: 1px solid var(--line); border-radius: 999px; padding: 6px 12px; cursor: pointer; white-space: nowrap; }
+.ivq-row-mark:hover { color: #1a9a6c; border-color: #1a9a6c; }
+.ivq-row-mark.is-on { color: #1a9a6c; background: rgba(26, 154, 108, 0.08); border-color: rgba(26, 154, 108, 0.45); }
+
+@media (max-width: 640px) {
+  .ivq-row { grid-template-columns: minmax(0, 1fr); }
+  .ivq-row-mark { justify-self: start; }
+  .ivq-progress { margin-left: 0; }
+}
+
+/* ============================================================
+   模拟面试抽题器（.ivz-）
+   ============================================================ */
+.ivz-setup { display: grid; gap: 18px; padding: 24px 0 8px; }
+.ivz-skeleton { min-height: 320px; }
+.ivz-panel { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 26px 28px; }
+.ivz-panel--muted { background: transparent; }
+.ivz-panel--score { text-align: left; border-left: 3px solid var(--brand); }
+.ivz-panel-t { font-family: var(--font-serif); font-size: 18px; font-weight: 700; color: var(--ink); margin: 0 0 8px; }
+.ivz-panel-t:not(:first-child) { margin-top: 22px; }
+.ivz-panel-d { font-size: 14px; color: var(--ink-2); margin: 0 0 14px; }
+.ivz-chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.ivz-chip { font-size: 13.5px; color: var(--ink-2); background: var(--paper-2); border: 1px solid var(--line); border-radius: 999px; padding: 8px 15px; cursor: pointer; }
+.ivz-chip span { color: var(--ink-3); margin-left: 4px; }
+.ivz-chip.is-on { color: var(--brand-deep); background: var(--brand-tint); border-color: var(--brand); }
+.ivz-chip.is-on span { color: var(--brand-deep); }
+.ivz-counts { display: flex; gap: 8px; flex-wrap: wrap; }
+.ivz-count { font-size: 14px; font-weight: 600; color: var(--ink-2); background: transparent; border: 1px solid var(--line); border-radius: 8px; padding: 9px 18px; cursor: pointer; }
+.ivz-count.is-on { color: #fff; background: var(--ink); border-color: var(--ink); }
+.ivz-opt { display: flex; align-items: center; gap: 8px; font-size: 14px; color: var(--ink-2); margin-top: 18px; cursor: pointer; }
+.ivz-opt input { accent-color: var(--brand); }
+.ivz-actions { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; margin-top: 22px; }
+.ivz-actions-note { font-size: 13px; color: var(--ink-3); }
+.ivz-btn { font-size: 15px; font-weight: 700; border: none; border-radius: 8px; padding: 12px 24px; cursor: pointer; }
+.ivz-btn--primary { color: #fff; background: var(--brand); }
+.ivz-btn--primary:hover { background: var(--brand-deep); }
+.ivz-btn--primary:disabled { background: var(--ink-3); cursor: not-allowed; }
+.ivz-btn--ghost { color: var(--ink); background: transparent; border: 1px solid var(--line-strong); }
+.ivz-btn--ghost:hover { background: rgba(38, 33, 26, 0.05); }
+.ivz-history { list-style: none; margin: 0; padding: 0; }
+.ivz-history li { display: flex; gap: 14px; font-size: 13.5px; color: var(--ink-2); padding: 7px 0; border-bottom: 1px dashed var(--line); }
+.ivz-history li:last-child { border-bottom: none; }
+.ivz-history b { color: var(--ink); }
+
+.ivz-run { max-width: 740px; margin: 0 auto; padding: 32px 0 8px; }
+.ivz-progress { display: flex; align-items: center; gap: 14px; margin-bottom: 26px; }
+.ivz-progress-bar { flex: 1; height: 4px; background: var(--paper-2); border-radius: 999px; overflow: hidden; }
+.ivz-progress-bar span { display: block; height: 100%; background: var(--brand); border-radius: 999px; transition: width 0.25s ease; }
+.ivz-progress-num { font-size: 13px; font-family: var(--font-mono); color: var(--ink-2); flex: none; }
+.ivz-qcat { display: inline-block; font-size: 12px; color: var(--brand-deep); background: var(--brand-tint); border-radius: 999px; padding: 4px 12px; margin-bottom: 14px; }
+.ivz-q { font-family: var(--font-serif); font-size: 27px; font-weight: 700; color: var(--ink); line-height: 1.5; margin: 0 0 12px; }
+.ivz-hint { font-size: 13.5px; color: var(--ink-3); margin: 0 0 24px; }
+.ivz-answer { border-left: 3px solid var(--brand); background: var(--brand-tint); border-radius: 0 10px 10px 0; padding: 16px 20px; }
+.ivz-answer-label { display: block; font-size: 11.5px; letter-spacing: 0.14em; color: var(--brand-deep); margin-bottom: 6px; }
+.ivz-answer p { font-size: 16px; line-height: 1.78; color: var(--ink); margin: 0; }
+.ivz-judge { display: flex; gap: 12px; margin-top: 26px; }
+.ivz-judge.is-waiting { opacity: 0.45; }
+
+.ivz-judge-btn { flex: 1; font-size: 15.5px; font-weight: 700; border-radius: 10px; padding: 14px 0; cursor: pointer; border: 1px solid transparent; }
+.ivz-judge-btn:disabled { cursor: not-allowed; }
+.ivz-judge-btn--hit { color: #14684a; background: rgba(26, 154, 108, 0.1); border-color: rgba(26, 154, 108, 0.4); }
+.ivz-judge-btn--hit:not(:disabled):hover { background: rgba(26, 154, 108, 0.2); }
+.ivz-judge-btn--miss { color: var(--mark); background: var(--mark-tint); border-color: rgba(179, 27, 27, 0.35); }
+.ivz-judge-btn--miss:not(:disabled):hover { background: rgba(179, 27, 27, 0.12); }
+.ivz-judge-btn kbd { font-family: var(--font-mono); font-size: 11px; border: 1px solid currentColor; border-radius: 4px; padding: 1px 5px; margin-left: 6px; opacity: 0.7; }
+.ivz-skip { display: inline-block; font-size: 13px; color: var(--ink-3); margin-top: 20px; text-decoration: none; }
+.ivz-skip:hover { color: var(--brand-deep); text-decoration: underline; text-underline-offset: 3px; }
+
+.ivz-report { display: grid; gap: 18px; padding: 24px 0 8px; }
+.ivz-score-kicker { font-size: 11.5px; letter-spacing: 0.14em; font-family: var(--font-mono); color: var(--brand-deep); margin: 0 0 8px; }
+.ivz-score { font-family: var(--font-serif); font-size: 20px; color: var(--ink); margin: 0 0 8px; }
+.ivz-score b { font-size: 44px; font-weight: 700; color: var(--brand-deep); margin-right: 4px; }
+.ivz-score span { font-size: 14px; color: var(--ink-2); margin-left: 10px; }
+.ivz-verdict { font-size: 15px; color: var(--ink); margin: 0; }
+.ivz-misslist { display: grid; gap: 2px; }
+.ivz-missrow { display: flex; align-items: baseline; justify-content: space-between; gap: 14px; padding: 12px 2px; border-bottom: 1px solid var(--line); text-decoration: none; }
+.ivz-missrow:last-child { border-bottom: none; }
+.ivz-missrow-q { font-size: 15px; font-weight: 600; color: var(--ink); line-height: 1.55; }
+.ivz-missrow:hover .ivz-missrow-q { color: var(--brand-deep); }
+.ivz-missrow-go { font-size: 12.5px; color: var(--brand-deep); flex: none; }
+.ivz-cta-t { font-family: var(--font-serif); font-size: 18px; font-weight: 700; color: #fff; margin: 0 0 6px; }
+.ivz-cta-d { font-size: 13.5px; color: rgba(255, 255, 255, 0.72); line-height: 1.7; margin: 0; max-width: 460px; }
+
+@media (max-width: 640px) {
+  .ivz-panel { padding: 20px; }
+  .ivz-q { font-size: 22px; }
+  .ivz-judge { flex-direction: column; }
+}
+
+/* 面试间首页 hero 入口按钮 */
+.ivc-hero-actions { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; margin-top: 24px; }
+.ivc-hero-btn { font-size: 14.5px; font-weight: 700; color: #fff; background: var(--brand); border-radius: 8px; padding: 10px 20px; text-decoration: none; }
+.ivc-hero-btn:hover { background: var(--brand-deep); }
+.ivc-hero-btn--ghost { color: var(--brand-deep); background: transparent; border: 1px solid var(--brand); }
+.ivc-hero-btn--ghost:hover { background: var(--brand-tint); }
