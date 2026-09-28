@@ -6,7 +6,7 @@ category: agent
 company: bytedance,alibaba,pdd
 tags: [Agent, 记忆机制, 上下文管理]
 minutes: 6
-order: 16
+order: 17
 updated: 2026-09-28
 deep: 
 ---
