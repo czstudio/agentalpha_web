@@ -4,9 +4,11 @@ import { useMemo, useState } from "react"
 import Link from "next/link"
 import {
   analyzeResume,
+  analyzeJd,
   JOB_PROFILES,
   radarLevelLabel,
   type ResumeReport,
+  type JdReport,
 } from "@/lib/tools/resume-analyzer"
 
 const PLACEHOLDER = `粘贴简历全文（项目、实习、技能都包含进来效果最好），例如：
@@ -20,11 +22,14 @@ XX 大学 · 计算机 · 2026 届
 
 export function ResumeClient() {
   const [text, setText] = useState("")
+  const [jd, setJd] = useState("")
   const [profileSlug, setProfileSlug] = useState(JOB_PROFILES[0].slug)
   const [report, setReport] = useState<ResumeReport | null>(null)
+  const [jdReport, setJdReport] = useState<JdReport | null>(null)
 
   const run = () => {
     setReport(analyzeResume(text, profileSlug))
+    setJdReport(jd.trim().length >= 20 ? analyzeJd(jd, text, profileSlug) : null)
   }
 
   const activeProfile = useMemo(
@@ -59,6 +64,14 @@ export function ResumeClient() {
           rows={14}
           spellCheck={false}
         />
+        <textarea
+          className="rt-textarea rt-jd"
+          value={jd}
+          onChange={(e) => setJd(e.target.value)}
+          placeholder={"可选：粘贴目标岗位的 JD（职位描述）原文，体检会逐词对比你的简历和 JD 的差距\n\n例：岗位要求：1. 熟悉 RAG 全链路，有向量检索、Rerank 落地经验；2. 熟悉 Function Calling / MCP…"}
+          rows={6}
+          spellCheck={false}
+        />
         <div className="rt-input-actions">
           <span className="rt-privacy">分析在你的浏览器本地完成，文本不发送到任何服务器</span>
           <button
@@ -89,6 +102,28 @@ export function ResumeClient() {
               <ScoreBar label="结构完整" value={report.score.structure} />
             </div>
           </div>
+
+          {jdReport && (
+            <Block
+              title={`目标 JD 对比 · 命中 ${jdReport.hits.length}/${jdReport.keywords.length} 词`}
+              desc={`JD 命中率 ${jdReport.score}%。缺失的词分两种：真做过但没写的，补进简历；没做过的，先别写，去题库补课再写。`}
+            >
+              <div className="rt-tags">
+                {jdReport.hits.map((w) => (
+                  <span key={w} className="rt-tag on">{w}</span>
+                ))}
+                {jdReport.missing.map((w) => (
+                  <span key={w} className="rt-tag off">{w}</span>
+                ))}
+              </div>
+              {jdReport.missing.length > 0 && (
+                <p className="rt-hint">
+                  高频缺失词建议优先处理：{jdReport.missing.slice(0, 8).join("、")}。
+                  相关考点在<Link href="/interview/qa">速答题库</Link>按词搜索就能找到。
+                </p>
+              )}
+            </Block>
+          )}
 
           <Block title="能力覆盖（证据评级）" desc="三级证据：只挂名词 < 描述了用法 < 带指标结果。面试官看的是证据，不是名词。">
             <div className="rt-radar">
