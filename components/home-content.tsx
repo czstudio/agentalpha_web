@@ -1,5 +1,6 @@
 "use client"
 
+import Link from "next/link"
 import { useLanguage } from "@/contexts/language-context"
 import { EnrollmentQrDialog } from "@/components/enrollment-qr-dialog"
 import { BrandLogoReel } from "@/components/brand-logo-reel"
@@ -144,6 +145,9 @@ export function HomeContent({ data }: HomeContentProps) {
               >
                 <span>{t.hero.cta_primary}</span>
               </button>
+              <Link href="/interview" className="aa-btn-primary aa-btn-quiz">
+                <span>{t.hero.cta_quiz}</span>
+              </Link>
               <a href="#proof" className="aa-btn-ghost">{t.hero.cta_secondary}</a>
             </div>
           </div>
@@ -153,6 +157,52 @@ export function HomeContent({ data }: HomeContentProps) {
               <StatCard key={item.label} label={item.label} value={item.value} note={item.note} />
             ))}
           </dl>
+        </div>
+      </section>
+
+      <section id="quizlib" className="aa-section">
+        <div className="section-shell">
+          <SectionHead
+            icon={BookOpen}
+            kicker={t.quizlib.tag}
+            title={t.quizlib.title}
+            desc={t.quizlib.desc}
+            aside={
+              <p className="aa-quizlib-stats">
+                {t.quizlib.stats
+                  .replace("{qa}", String(data.interview?.qaCount ?? 0))
+                  .replace("{deep}", String(data.interview?.deepCount ?? 0))
+                  .replace("{cat}", String(data.interview?.catCount ?? 0))}
+              </p>
+            }
+          />
+          <div className="aa-proof-grid">
+            {t.quizlib.cards.map((card: any) => (
+              <article key={card.name} className={`aa-proof-card aa-pg ${card.tone}`} data-tilt>
+                <span className="aa-pg-glow" aria-hidden />
+                <span className="aa-pg-noise" aria-hidden />
+                <span className="aa-pg-ghost" aria-hidden>{card.ghost}</span>
+                <div className="aa-pg-body">
+                  <span className="aa-pg-kicker">{card.kicker}</span>
+                  <h3>{card.name}</h3>
+                  <p className="aa-pg-desc">{card.desc}</p>
+                  {card.href ? (
+                    <Link className="aa-pg-go" href={card.href}>
+                      {t.quizlib.cta} →
+                    </Link>
+                  ) : null}
+                </div>
+              </article>
+            ))}
+          </div>
+          <div className="aa-quizlib-actions">
+            <Link href="/interview" className="aa-btn-primary">
+              <span>{t.quizlib.cta}</span>
+            </Link>
+            <Link href="/interview/quiz" className="aa-btn-ghost">
+              {t.quizlib.quiz_cta}
+            </Link>
+          </div>
         </div>
       </section>
 

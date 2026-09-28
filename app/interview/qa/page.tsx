@@ -2,6 +2,7 @@ import type { Metadata } from "next"
 import Link from "next/link"
 import { getAllQa, getQaGrouped } from "@/lib/qa"
 import { getCategories } from "@/lib/interview"
+import { COMPANIES, getQaByCompany } from "@/lib/companies"
 import { QaRows, type QaRowGroup } from "@/components/interview/qa-rows"
 import { DailyQuestion, type DailyQaItem } from "@/components/interview/daily-question"
 
@@ -100,6 +101,20 @@ export default function QaHubPage() {
           想看逐层拆解的长文，去<a href="/interview">深度解析</a>；想按学习路线刷，去
           <a href="/interview#chapters">专栏目录</a>。
         </p>
+        {(() => {
+          const withQa = COMPANIES.filter((c) => getQaByCompany(c.slug).length > 0)
+          if (withQa.length === 0) return null
+          return (
+            <p className="ivq-company-line">
+              按公司刷：
+              {withQa.map((c) => (
+                <Link key={c.slug} href={`/interview/company/${c.slug}`}>
+                  {c.name}
+                </Link>
+              ))}
+            </p>
+          )
+        })()}
         <div className="ivq-hero-actions">
           <Link className="ivq-hero-btn" href="/interview/quiz">
             开一场模拟面试

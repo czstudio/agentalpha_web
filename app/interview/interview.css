@@ -1952,3 +1952,18 @@ a.ivc-updcard:hover { border-color: var(--brand); box-shadow: var(--shadow); }
 .ivc-hero-btn:hover { background: var(--brand-deep); }
 .ivc-hero-btn--ghost { color: var(--brand-deep); background: transparent; border: 1px solid var(--brand); }
 .ivc-hero-btn--ghost:hover { background: var(--brand-tint); }
+
+/* ── 术语表 glossary ───────────────────────────── */
+.glo-list { list-style: none; margin: 0; padding: 0; }
+.glo-item { display: grid; gap: 4px; padding: 16px 2px; border-bottom: 1px solid var(--line); }
+.glo-item:last-child { border-bottom: 0; }
+.glo-term { font-size: 16.5px; font-weight: 600; color: var(--ink); text-decoration: none; line-height: 1.5; }
+.glo-term:hover { color: rgb(110, 34, 240); }
+.glo-oneline { margin: 0; font-size: 14px; color: var(--ink-soft, #5c5c66); line-height: 1.7; }
+.glo-aliases { margin: 0; font-size: 13px; color: #8a8a94; line-height: 1.6; }
+.glo-en { display: block; margin-top: 6px; font-size: 15px; font-weight: 400; color: #8a8a94; letter-spacing: .01em; }
+.glo-aliases-line { font-size: 14px; color: #8a8a94; border-top: 1px solid var(--line); padding-top: 14px; margin-top: 26px; }
+/* 题库页「按公司刷」导航行 */
+.ivq-company-line { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin: 14px 0 0; font-size: 14px; color: #5c5c66; }
+.ivq-company-line a { display: inline-block; padding: 3px 12px; border: 1px solid var(--line); border-radius: 999px; color: var(--ink); text-decoration: none; font-size: 13px; transition: border-color .15s ease, color .15s ease; }
+.ivq-company-line a:hover { border-color: rgb(110, 34, 240); color: rgb(110, 34, 240); }

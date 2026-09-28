@@ -1,6 +1,8 @@
 import { Navigation } from "@/components/navigation"
 import { HomeContent } from "@/components/home-content"
 import { prisma } from "@/lib/prisma"
+import { getAllQa } from "@/lib/qa"
+import { getAllInterview } from "@/lib/interview"
 import { unstable_noStore as noStore } from "next/cache"
 
 export const dynamic = "force-dynamic"
@@ -184,6 +186,20 @@ async function getData() {
       }
     })
 
+    // 题库统计（server 端读 content，客户端组件不能碰 fs）
+    const interview = (() => {
+      try {
+        const qa = getAllQa()
+        return {
+          qaCount: qa.length,
+          catCount: new Set(qa.map((item) => item.category)).size,
+          deepCount: getAllInterview().length,
+        }
+      } catch {
+        return { qaCount: 0, catCount: 0, deepCount: 0 }
+      }
+    })()
+
     return {
       members,
       mentors,
@@ -198,6 +214,7 @@ async function getData() {
       siteContent,
       qingkeTalks,
       qingkeVideos,
+      interview,
     }
   } catch (error) {
     console.error('获取数据失败:', error)
@@ -216,6 +233,7 @@ async function getData() {
       siteContent: {},
       qingkeTalks: [],
       qingkeVideos: [],
+      interview: { qaCount: 0, catCount: 0, deepCount: 0 },
     }
   }
 }

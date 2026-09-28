@@ -1,6 +1,7 @@
 import { communityDocument } from "@/lib/community/content"
 import { getAllQa } from "@/lib/qa"
 import { getAllInterview } from "@/lib/interview"
+import { getAllGlossary } from "@/lib/glossary"
 import { CHAPTERS } from "@/lib/column"
 
 export const dynamic = "force-static"
@@ -12,11 +13,12 @@ export const dynamic = "force-static"
 export function GET() {
   const qa = getAllQa()
   const posts = getAllInterview()
+  const glossary = getAllGlossary()
 
   const lines: string[] = [
     "# AgentAlpha 面试题库与学习路线",
     "",
-    `> 面向大模型 Agent 岗求职者的中文站点：${qa.length} 道高频面试题速答（一题一页、含一句话结论与追问要点）、${posts.length} 篇深度解析、12 章学习路线与五厂真题索引。题目来自社区成员真实面经，持续更新。`,
+    `> 面向大模型 Agent 岗求职者的中文站点：${qa.length} 道高频面试题速答（一题一页、含一句话结论与追问要点）、${posts.length} 篇深度解析、${glossary.length} 个术语定义页、12 章学习路线与五厂真题索引。题目来自社区成员真实面经，持续更新。`,
     "",
     "## 高频面试题速答（每题一页，含答案）",
     "",
@@ -24,6 +26,16 @@ export function GET() {
 
   for (const item of qa) {
     lines.push(`- [${item.question}](https://agentalpha.top/interview/qa/${item.slug})：${item.oneLine}`)
+  }
+
+  lines.push(
+    "",
+    "## 术语表（每词一页：一句话定义 + 机制 + 面试考法）",
+    "",
+  )
+
+  for (const term of glossary) {
+    lines.push(`- [${term.term}](https://agentalpha.top/interview/glossary/${term.slug})：${term.oneLine}`)
   }
 
   lines.push(

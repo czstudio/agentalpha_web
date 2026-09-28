@@ -16,6 +16,8 @@ export interface QaItem {
   oneLine: string
   /** 对应 content/interview/categories.json 的 cat 词表 */
   category: string
+  /** 公司维度：该公司公开面经高频归纳的题，逗号分隔多值（lib/companies 词表） */
+  company: string
   tags: string[]
   minutes: number
   updated: string
@@ -58,6 +60,7 @@ function toItem(file: string): QaItem {
     question: data.question || slug,
     oneLine: data.oneLine || "",
     category: data.category || "",
+    company: data.company || "",
     tags: parseTags(data.tags),
     minutes: Number(data.minutes) || 4,
     updated: data.updated || "",

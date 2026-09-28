@@ -32,7 +32,50 @@
     "title_normal": "Building the Whampoa Academy of AI",
     "subtitle": "No theory-only talk, no chasing trends. Built on technology in production, talent development, and ventures created together — we train AI talent who solve real problems and ship real results.",
     "cta_primary": "Join the community",
-    "cta_secondary": "See what we built"
+    "cta_secondary": "See what we built",
+    "cta_quiz": "AI Agent Interview Library"
+  },
+  "quizlib": {
+    "tag": "Interview Library · Free",
+    "title": "AI Agent Interview Library & Self-Test",
+    "desc": "One question per page with follow-up chains and common wrong answers; deep dives cover mechanisms and engineering trade-offs; a self-test mode draws questions at random. Every page is searchable and citable.",
+    "cards": [
+      {
+        "name": "Quick Answers",
+        "kicker": "One per page",
+        "ghost": "QA",
+        "tone": "g1",
+        "href": "/interview/qa",
+        "desc": "Covers RAG, Agent, inference, fine-tuning and safety. Each page gives a first-answer framework, follow-up answers, and wrong-answer warnings — organize one answer in 3 minutes."
+      },
+      {
+        "name": "Deep Dives",
+        "kicker": "Mechanisms",
+        "ghost": "DEEP",
+        "tone": "g2",
+        "href": "/interview",
+        "desc": "Long-form breakdowns of hard high-frequency questions: mechanisms, sourced numbers, engineering trade-offs."
+      },
+      {
+        "name": "Glossary",
+        "kicker": "One-line definitions",
+        "ghost": "GLOSSARY",
+        "tone": "g3",
+        "href": "/interview/glossary",
+        "desc": "Definition pages for Agent, RAG, MCP, KV Cache and more, cross-linked with synonyms, common solutions, and related questions."
+      },
+      {
+        "name": "Self-Test",
+        "kicker": "Random draw",
+        "ghost": "QUIZ",
+        "tone": "g4",
+        "href": "/interview/quiz",
+        "desc": "Draw questions by category, retry wrong answers, track mastery locally for a fast pre-interview review."
+      }
+    ],
+    "stats": "{qa} quick answers · {deep} deep dives · {cat} categories",
+    "cta": "Open the library",
+    "quiz_cta": "Try the self-test"
   },
   "stats": {
     "stat1_label": "GitHub Stars · InkOS",
