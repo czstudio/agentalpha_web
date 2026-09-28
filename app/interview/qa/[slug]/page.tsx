@@ -5,6 +5,7 @@ import ReactMarkdown from "react-markdown"
 import type { Components } from "react-markdown"
 import { getAllQa, getQa, getRelatedQa, qaPlainBody } from "@/lib/qa"
 import { getCategories, getCategory, getInterview } from "@/lib/interview"
+import { getCompany } from "@/lib/companies"
 
 const SITE = "https://agentalpha.top"
 
@@ -115,6 +116,25 @@ export default async function QaDetailPage({ params }: PageProps) {
               {category.name}
             </Link>
           ) : null}
+          {item.company
+            ? item.company
+                .split(",")
+                .map((c) => c.trim())
+                .filter(Boolean)
+                .map((c) => {
+                  const company = getCompany(c)
+                  return company ? (
+                    <Link
+                      key={c}
+                      href={`/interview/company/${company.slug}`}
+                      className="ivu-chip"
+                      style={{ textDecoration: "none" }}
+                    >
+                      {company.name}面经高频
+                    </Link>
+                  ) : null
+                })
+            : null}
           {item.tags.map((tag) => (
             <span key={tag} className="ivu-chip">
               {tag}

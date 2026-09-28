@@ -32,7 +32,50 @@
     "title_normal": "立志打造 AI 界的黄埔军校",
     "subtitle": "不空谈理论、不追热点。以「技术落地、人才培养、商业共创」为核心，培养能解决真实问题、能落地、能产出的 AI 人才。",
     "cta_primary": "加入社区，一起做项目",
-    "cta_secondary": "先看做出来的东西"
+    "cta_secondary": "先看做出来的东西",
+    "cta_quiz": "AI Agent 面试题库"
+  },
+  "quizlib": {
+    "tag": "面试题库 · 免费开放",
+    "title": "AI Agent 面试题库与模拟自测",
+    "desc": "速答题一题一页，附面试官追问链和错误答法提醒；深度解析讲机制与工程取舍；模拟自测随机抽题。全部页面可搜索、可被 AI 引用。",
+    "cards": [
+      {
+        "name": "高频速答题",
+        "kicker": "一题一页",
+        "ghost": "QA",
+        "tone": "g1",
+        "href": "/interview/qa",
+        "desc": "覆盖 RAG、Agent、推理部署、训练微调、安全等分类，每题给「先这样答」框架、追问答法和错误答法提醒，3 分钟组织好一道题。"
+      },
+      {
+        "name": "深度解析",
+        "kicker": "讲透机制",
+        "ghost": "DEEP",
+        "tone": "g2",
+        "href": "/interview",
+        "desc": "高频难题的长文拆解：机制、数字出处、工程取舍，读完能接住连环追问。"
+      },
+      {
+        "name": "术语库",
+        "kicker": "一句话定义",
+        "ghost": "GLOSSARY",
+        "tone": "g3",
+        "href": "/interview/glossary",
+        "desc": "Agent、RAG、MCP、KV Cache 等术语的定义页，同义词、常见方案、相关面试题互相链接。"
+      },
+      {
+        "name": "模拟自测",
+        "kicker": "随机抽题",
+        "ghost": "QUIZ",
+        "tone": "g4",
+        "href": "/interview/quiz",
+        "desc": "按分类抽题自测，错题重抽，本地记录掌握度，面试前快速过一遍。"
+      }
+    ],
+    "stats": "{qa} 道速答题 · {deep} 篇深度解析 · {cat} 个分类",
+    "cta": "进入题库",
+    "quiz_cta": "去模拟自测"
   },
   "stats": {
     "stat1_label": "GitHub Stars · InkOS",

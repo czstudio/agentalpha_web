@@ -50,6 +50,9 @@ function Hero() {
         <Link className="ivc-hero-btn ivc-hero-btn--ghost" href="/interview/qa">
           速答题库一键直达
         </Link>
+        <Link className="ivc-hero-btn ivc-hero-btn--ghost" href="/interview/glossary">
+          术语表 · 一句话定义
+        </Link>
       </div>
     </header>
   )

@@ -721,6 +721,32 @@ html.enrollment-dialog-open { overflow: hidden; }
 }
 .dark .aa-btn-ghost { border-color: rgb(255 255 255 / 0.2); }
 .aa-btn-ghost:hover { background: var(--card); }
+/* 首屏题库入口按钮：主色描边，弱于主按钮强于 ghost */
+.aa-btn-quiz {
+  color: var(--aa-blue);
+  background: transparent;
+  border: 1px solid color-mix(in srgb, var(--aa-blue) 45%, transparent);
+  font-weight: 500;
+}
+.aa-btn-quiz:hover {
+  background: color-mix(in srgb, var(--aa-blue) 10%, transparent);
+  box-shadow: none;
+  transform: translateY(-1px);
+}
+/* 题库 section：统计行 + 底部动作 */
+.aa-quizlib-stats {
+  margin: 0;
+  color: var(--aa-blue);
+  font-size: .9rem;
+  font-weight: 500;
+  white-space: nowrap;
+}
+.aa-quizlib-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 22px;
+}
 .aa-btn-link {
   display: inline-flex;
   align-items: center;

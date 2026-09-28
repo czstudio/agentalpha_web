@@ -5,6 +5,8 @@ import { getAllInterview } from "@/lib/interview"
 import { getAllQa } from "@/lib/qa"
 import { getAllArticles } from "@/lib/articles"
 import { getMianjingList } from "@/lib/mianjing"
+import { getAllGlossary } from "@/lib/glossary"
+import { COMPANIES, getQaByCompany } from "@/lib/companies"
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const notes = getAllNotes().map((note) => ({
@@ -40,6 +42,20 @@ export default function sitemap(): MetadataRoute.Sitemap {
     lastModified: doc.date ? new Date(doc.date) : new Date(),
     changeFrequency: "monthly" as const,
     priority: 0.7,
+  }))
+
+  const glossary = getAllGlossary().map((item) => ({
+    url: `https://agentalpha.top/interview/glossary/${item.slug}`,
+    lastModified: item.updated ? new Date(item.updated) : new Date(),
+    changeFrequency: "monthly" as const,
+    priority: 0.65,
+  }))
+
+  const companyPages = COMPANIES.filter((c) => getQaByCompany(c.slug).length > 0).map((c) => ({
+    url: `https://agentalpha.top/interview/company/${c.slug}`,
+    lastModified: new Date(),
+    changeFrequency: "weekly" as const,
+    priority: 0.75,
   }))
 
   return [
@@ -80,6 +96,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.7,
     },
     {
+      url: "https://agentalpha.top/interview/glossary",
+      lastModified: new Date(),
+      changeFrequency: "weekly",
+      priority: 0.8,
+    },
+    {
       url: "https://agentalpha.top/learn",
       lastModified: new Date(),
       changeFrequency: "weekly",
@@ -102,5 +124,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...interview,
     ...qa,
     ...mianjing,
+    ...glossary,
+    ...companyPages,
   ]
 }
