@@ -3,7 +3,7 @@ import Link from "next/link"
 import { notFound } from "next/navigation"
 import { ArrowLeft, ArrowRight, Clock3 } from "lucide-react"
 import { Navigation } from "@/components/navigation"
-import { getMianjing } from "@/lib/mianjing"
+import { getMianjing, getMianjingList } from "@/lib/mianjing"
 import { getNoteHeadings, slugifyHeading } from "@/lib/notes"
 import ReactMarkdown from "react-markdown"
 import remarkGfm from "remark-gfm"
@@ -15,7 +15,7 @@ interface MianjingPageProps {
 }
 
 export function generateStaticParams() {
-  return [{ slug: "ali-rl-data-interview" }]
+  return getMianjingList().map((doc) => ({ slug: doc.slug }))
 }
 
 export async function generateMetadata({ params }: MianjingPageProps): Promise<Metadata> {
