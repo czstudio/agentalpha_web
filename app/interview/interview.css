@@ -1970,3 +1970,36 @@ a.ivc-updcard:hover { border-color: var(--brand); box-shadow: var(--shadow); }
 /* 五厂真题集：分组标题右侧的更多链接 */
 .ivq-cat-more { float: right; font-size: 13px; font-weight: 400; color: rgb(110, 34, 240); text-decoration: none; }
 .ivq-cat-more:hover { text-decoration: underline; }
+
+/* ── 学习路线 roadmap ──────────────────────────── */
+.road-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; margin-top: 8px; }
+.road-card { display: flex; flex-direction: column; gap: 8px; padding: 22px; border: 1px solid var(--line); border-radius: 14px; text-decoration: none; background: var(--card, transparent); transition: border-color .15s ease, transform .15s ease; }
+.road-card:hover { border-color: rgb(110, 34, 240); transform: translateY(-2px); }
+.road-card-kicker { font-size: 12px; letter-spacing: .08em; color: rgb(110, 34, 240); }
+.road-card-name { margin: 0; font-size: 20px; font-weight: 700; color: var(--ink); }
+.road-card-tagline { margin: 0; font-size: 14px; color: #5c5c66; line-height: 1.7; }
+.road-card-meta { margin: 0; font-size: 13px; color: #8a8a94; }
+.road-card-go { margin-top: auto; font-size: 13px; color: rgb(110, 34, 240); }
+.ivq-road-tagline { margin: 10px 0 0; font-size: 16px; color: #5c5c66; line-height: 1.7; }
+.road-sec { margin-top: 34px; }
+.road-sec-t { font-size: 17px; font-weight: 700; color: var(--ink); margin: 0 0 14px; padding-bottom: 10px; border-bottom: 1px solid var(--line); }
+.road-sec-t a { font-size: 13px; font-weight: 400; color: rgb(110, 34, 240); }
+.road-steps { list-style: none; margin: 0; padding: 0; }
+.road-step { display: flex; gap: 14px; padding: 14px 0; border-bottom: 1px solid var(--line); }
+.road-step:last-child { border-bottom: 0; }
+.road-step-no { font-size: 22px; font-weight: 700; color: rgb(110, 34, 240); opacity: .45; line-height: 1; min-width: 34px; }
+.road-step-name { font-size: 15.5px; font-weight: 600; color: var(--ink); text-decoration: none; }
+.road-step-name:hover { color: rgb(110, 34, 240); }
+.road-step-intro { margin: 6px 0 0; font-size: 13.5px; color: #5c5c66; line-height: 1.7; }
+.road-step-meta { margin: 4px 0 0; font-size: 12.5px; color: #8a8a94; }
+.road-cats { display: flex; flex-wrap: wrap; gap: 8px; }
+.road-cat { display: inline-flex; align-items: center; gap: 6px; padding: 5px 13px; border: 1px solid var(--line); border-radius: 999px; font-size: 13px; color: var(--ink); text-decoration: none; transition: border-color .15s ease, color .15s ease; }
+.road-cat:hover { border-color: rgb(110, 34, 240); color: rgb(110, 34, 240); }
+.road-cat-count { font-size: 12px; color: #8a8a94; }
+.road-projects { list-style: none; margin: 0; padding: 0; }
+.road-projects li { display: grid; gap: 2px; padding: 10px 0; border-bottom: 1px solid var(--line); }
+.road-projects li:last-child { border-bottom: 0; }
+.road-project-name { font-size: 14.5px; font-weight: 600; color: var(--ink); }
+.road-project-output { font-size: 13px; color: #8a8a94; }
+.road-project-note { margin: 12px 0 0; font-size: 13.5px; color: #5c5c66; }
+.road-project-note a { color: rgb(110, 34, 240); }

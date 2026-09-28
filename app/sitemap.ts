@@ -7,6 +7,7 @@ import { getAllArticles } from "@/lib/articles"
 import { getMianjingList } from "@/lib/mianjing"
 import { getAllGlossary } from "@/lib/glossary"
 import { COMPANIES, getQaByCompany } from "@/lib/companies"
+import { ROADMAPS } from "@/lib/roadmap"
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const notes = getAllNotes().map((note) => ({
@@ -107,6 +108,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "weekly",
       priority: 0.8,
     },
+    {
+      url: "https://agentalpha.top/roadmap",
+      lastModified: new Date(),
+      changeFrequency: "weekly",
+      priority: 0.8,
+    },
+    ...ROADMAPS.map((r) => ({
+      url: `https://agentalpha.top/roadmap/${r.slug}`,
+      lastModified: new Date(),
+      changeFrequency: "monthly" as const,
+      priority: 0.7,
+    })),
     {
       url: "https://agentalpha.top/learn",
       lastModified: new Date(),

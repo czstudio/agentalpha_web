@@ -44,6 +44,9 @@ function Hero() {
         <Link className="ivc-hero-btn" href="/interview/quiz">
           模拟面试 · 抽题自测
         </Link>
+        <Link className="ivc-hero-btn ivc-hero-btn--ghost" href="/roadmap">
+          学习路线 · 按方向刷
+        </Link>
         <Link className="ivc-hero-btn ivc-hero-btn--ghost" href="/tools/resume">
           简历体检 · 追问预演
         </Link>
