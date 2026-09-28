@@ -6,21 +6,24 @@
       "name": "LLM 基础概念",
       "intro": "Transformer、Token、上下文窗口、采样参数、MoE 这些地基题。看起来简单，答得干净利落反而最能体现基本功。",
       "kbChapter": "第 2 章 · LLM 基础",
-      "planned": 14
+      "planned": 14,
+      "flagship": "basics-chapter-guide"
     },
     {
       "cat": "rag",
       "name": "RAG 检索增强",
       "intro": "从文档到答案的整条链路：Embedding、分块、多路召回、重排、缓存与权限。答这类题要先说清链路分层，再讲每一层你踩过的坑。",
       "kbChapter": "第 1 章 · RAG",
-      "planned": 14
+      "planned": 14,
+      "flagship": "rag-chapter-guide"
     },
     {
       "cat": "agent",
       "name": "Agent 架构",
       "intro": "ReAct 循环、规划与反思、记忆系统、整体设计。面试官最想看的是你能不能说出「为什么这么拆」，而不是背框架名字。",
       "kbChapter": "第 4 章 · Agent 架构",
-      "planned": 11
+      "planned": 11,
+      "flagship": "agent-chapter-guide"
     },
     {
       "cat": "tooluse",

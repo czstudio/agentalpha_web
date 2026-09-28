@@ -105,7 +105,9 @@ export default async function CategoryPage({ params }: PageProps) {
               <p className="ivu-sec-sub">PICKED</p>
             </div>
             <Link href={`/interview/${flagship.slug}`} className="ivu-pin">
-              <span className="ivu-pin-badge">真题集</span>
+              <span className="ivu-pin-badge">
+                {flagship.slug.endsWith("-chapter-guide") ? "章节导读" : "真题集"}
+              </span>
               <span className="ivu-pin-main">
                 <span className="ivu-pin-title">{flagship.title}</span>
                 <span className="ivu-pin-sub">
