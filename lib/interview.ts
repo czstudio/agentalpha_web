@@ -165,11 +165,14 @@ export function getInterviewHeadings(content: string): InterviewHeading[] {
   return headings
 }
 
+let _interviewCache: InterviewMeta[] | null = null
+
 export function getAllInterview(): InterviewMeta[] {
+  if (_interviewCache) return _interviewCache
   if (!fs.existsSync(interviewRoot)) return []
   const papersBySlug = loadIndex()
   const worksBySlug = loadWorks()
-  return fs
+  const items = fs
     .readdirSync(interviewRoot)
     .filter((file) => file.endsWith(".md"))
     .map((file) => {
@@ -178,6 +181,8 @@ export function getAllInterview(): InterviewMeta[] {
       return toMeta(file.replace(/\.md$/, ""), data, papersBySlug, worksBySlug)
     })
     .sort((a, b) => a.no.localeCompare(b.no))
+  _interviewCache = items
+  return items
 }
 
 export function getInterview(slug: string): InterviewArticle | null {
