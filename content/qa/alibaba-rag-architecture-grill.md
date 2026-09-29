@@ -3,7 +3,7 @@ slug: alibaba-rag-architecture-grill
 question: "你的 RAG 架构是什么？分几层？"
 oneLine: "我的 RAG 架构分为接入层、检索层和生成层。接入层负责意图路由，检索层执行查询改写、混合召回与重排，生成层负责带引用输出或拒答，每层均有明确指标监控。"
 category: jingchang
-company: alibaba, baidu, kuaishou
+company: alibaba, baidu, kuaishou, didi, xiaomi, microsoft, google, douyin, jd, bilibili
 track: ai-app
 tags: [阿里真题, RAG架构, 面试速答]
 minutes: 5

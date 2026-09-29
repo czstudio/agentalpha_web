@@ -3,7 +3,7 @@ slug: sft-data-preparation
 question: 微调的数据怎么准备？多少条数据才够
 oneLine: 先定任务和输出格式，再收集贴近真实输入的数据，清洗、统一格式、划分训练验证集。数量没有定论，几千到几万条这个量级常见，但质量比条数重要得多。
 category: finetune
-company: huawei
+company: huawei, deepseek, openai
 tags: [微调, 数据]
 minutes: 5
 order: 8

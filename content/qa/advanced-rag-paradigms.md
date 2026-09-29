@@ -3,7 +3,7 @@ slug: advanced-rag-paradigms
 question: 你了解哪些更复杂的 RAG 范式？
 oneLine: Naive 到 Advanced 到 Modular 是流程内的演进；再往上是换层的范式：Self-RAG 让模型自决检索时机、CRAG 检索差时降级纠错、GraphRAG 用图谱答全局问题、Agentic RAG 做成多轮动态检索的 Agent。
 category: jingchang
-company: baidu
+company: baidu, moonshot
 track: ai-app
 tags: [RAG, Self-RAG, GraphRAG, Agentic RAG]
 minutes: 6

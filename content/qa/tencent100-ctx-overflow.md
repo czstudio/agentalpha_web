@@ -3,7 +3,7 @@ slug: tencent100-ctx-overflow
 question: "上下文超出限制时，采用什么处理机制？"
 oneLine: "采用分层机制：先按策略截断，再摘要压缩历史，把工具结果外置并按需回取，仍无法满足时换长上下文模型或分治拆任务。工程上分别处理对话、工具结果和检索内容。"
 category: jingchang
-company: tencent, baidu, kuaishou, xiaohongshu
+company: tencent, baidu, kuaishou, xiaohongshu, didi, moonshot, microsoft, google, douyin, jd, bilibili
 track: agent-dev
 tags: [腾讯真题, 上下文管理, Agent]
 minutes: 5

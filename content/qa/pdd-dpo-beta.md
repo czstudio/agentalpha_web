@@ -3,7 +3,7 @@ slug: pdd-dpo-beta
 question: "讲讲 DPO 算法及 beta 的作用。"
 oneLine: "DPO把奖励最大化重参数化为直接偏好优化，beta作为隐式 KL 惩罚系数，控制策略偏离参考模型的强度：大则保守，小则激进易跑偏。"
 category: jingchang
-company: pdd
+company: pdd, openai
 track: agent-algo
 tags: [DPO, 偏好优化, 大模型面试]
 minutes: 5

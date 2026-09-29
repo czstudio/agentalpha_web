@@ -3,7 +3,7 @@ slug: pdd-opd-kl-direction
 question: "OPD 算法的正向 KL 和反向 KL 有什么区别？"
 oneLine: "正向 KL 从数据分布约束模型，倾向覆盖数据的各种模式，输出更保守；反向 KL 从模型分布约束数据，倾向集中在高概率区域，输出更锐利但可能丢失模式。"
 category: jingchang
-company: pdd
+company: pdd, openai
 track: agent-algo
 tags: [拼多多真题, 大模型面试, KL散度]
 minutes: 5

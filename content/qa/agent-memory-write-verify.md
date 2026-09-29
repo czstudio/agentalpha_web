@@ -3,7 +3,7 @@ slug: agent-memory-write-verify
 question: 记忆写入前怎么校验？记忆模块的质量和效果怎么评估？
 oneLine: 写入前通过去重、原文一致性校验和新旧冲突检测把关；评估时写入侧看抽取准确率和冲突率，使用侧看记忆命中率、任务成功率增量，并引入基于调用结果的可信度回写机制。
 category: memory
-company: baidu
+company: baidu, moonshot
 tags: [Agent, 记忆机制, 效果评估]
 minutes: 6
 order: 9
