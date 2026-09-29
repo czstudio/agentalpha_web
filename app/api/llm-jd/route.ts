@@ -49,13 +49,20 @@ export async function POST(request: Request) {
     return NextResponse.json({ enabled: true, error: "jd_too_short" }, { status: 400 })
   }
 
-  const ip =
-    request.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ||
-    request.headers.get("x-real-ip") ||
-    "unknown"
+  // Vercel 场景取可信头;x-forwarded-for 首位可被客户端伪造,只在无可信头时兜底
+  const vercelFwd = request.headers.get("x-vercel-forwarded-for")
+  const forwarded = request.headers.get("x-forwarded-for")
+  const ip = (
+    vercelFwd
+      ? vercelFwd.split(",").pop()
+      : forwarded
+        ? forwarded.split(",").pop()
+        : request.headers.get("x-real-ip")
+  )
+    ?.trim() || "unknown"
 
   // 相同 JD 直接走缓存,不扣额度之外的钱
-  const key = inputKey("jd", jd)
+  const key = await inputKey("jd", jd)
   const cached = cacheGet(key)
   if (cached) {
     const quota = consumeQuota(ip) // 缓存命中也计一次调用(挡刷),但上游零成本

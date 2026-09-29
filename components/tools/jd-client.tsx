@@ -14,7 +14,9 @@ interface AiUsage {
 }
 
 function todayKey(): string {
-  return new Date().toISOString().slice(0, 10)
+  // 用户本地时区的「今天」,避免 UTC 让额度在早 8 点才刷新
+  const now = new Date()
+  return `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, "0")}-${String(now.getDate()).padStart(2, "0")}`
 }
 
 function loadUsage(): AiUsage {
@@ -130,7 +132,7 @@ export function JdClient({ qaList, jdSamples }: { qaList: QaLite[]; jdSamples: J
           spellCheck={false}
         />
         <div className="tk-input-actions">
-          <span className="tk-privacy">分析在你的浏览器本地完成，JD 文本不发送到任何服务器</span>
+          <span className="tk-privacy">规则拆解在你的浏览器本地完成,文本不发送到任何服务器;「AI 深度拆解」会把 JD 发到服务端调用大模型(可选用)</span>
           <button
             type="button"
             className="tk-run"

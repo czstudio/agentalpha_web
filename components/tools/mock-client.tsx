@@ -14,16 +14,20 @@ import {
 } from "@/lib/tools/mock-interview"
 import type { QaLite } from "@/lib/tools/jd-analyzer"
 import { useLocalState } from "@/hooks/use-local-state"
+import { FAMILY_BASE, MOCK_WRONG_KEY, QA_MASTERY_KEY } from "@/lib/tools/shared"
 
 const MODE_CARDS: Array<{ key: MockMode; name: string; desc: string }> = [
   { key: "jd", name: "岗位剧本面", desc: "按目标方向组 10 题，覆盖该方向的核心考点域" },
   { key: "resume", name: "简历深挖面", desc: "粘贴简历，面试官只问你写过的地方——和真面试的深挖路径一致" },
   { key: "stress", name: "压力追问面", desc: "每题答完追一问：要数字、要对比、要放大十倍之后" },
+  { key: "english", name: "英文技术面", desc: "题干中文、追问英文,练「用英文讲清楚技术」——外企与出海岗必练" },
 ]
 
-const WRONG_KEY = "mock-wrong-slugs"
+const FAMILY_OPTIONS = FAMILY_BASE
+
+const WRONG_KEY = MOCK_WRONG_KEY
 /** 与 /interview/quiz 共用的掌握度键：mock 没答上的题直接记一次 miss，quiz 的错题优先重抽立刻感知 */
-const QUIZ_MASTERY_KEY = "aa-qa-mastered-v1"
+const QUIZ_MASTERY_KEY = QA_MASTERY_KEY
 
 function pushMasteryMiss(slug: string) {
   try {
@@ -36,13 +40,6 @@ function pushMasteryMiss(slug: string) {
     // 与 quiz 的存储约定解析失败时静默，不影响本场面试
   }
 }
-
-const FAMILY_OPTIONS = [
-  { slug: "agent-app", name: "Agent 应用开发" },
-  { slug: "rag-eng", name: "RAG 工程" },
-  { slug: "llm-algo", name: "大模型算法" },
-  { slug: "ai-infra", name: "AI Infra" },
-]
 
 const RATING_OPTIONS: Array<{ key: Rating; label: string; cls: string }> = [
   { key: "ok", label: "答上了", cls: "gap-opt-ok" },
@@ -296,7 +293,11 @@ export function MockClient({ qaList }: { qaList: QaLite[] }) {
               rows={5}
               value={answers[current.id] ?? ""}
               onChange={(e) => setAnswers((prev) => ({ ...prev, [current.id]: e.target.value }))}
-              placeholder="像在面试里一样，开口说——用打字的方式。先结论，再展开，最后给数字。"
+              placeholder={
+                session.mode === "english"
+                  ? "Answer in English — like in a real English interview: conclusion first, then how, then numbers."
+                  : "像在面试里一样，开口说——用打字的方式。先结论，再展开，最后给数字。"
+              }
               spellCheck={false}
             />
 
