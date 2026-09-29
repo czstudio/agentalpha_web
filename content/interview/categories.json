@@ -52,7 +52,8 @@
       "name": "评测与可观测",
       "intro": "非确定系统的回归测试、Golden Set、LLM 裁判校准、trace 埋点与可观测性。核心是别让被测者改自己的分数。",
       "kbChapter": "第 7 章 · 评测",
-      "planned": 6
+      "planned": 6,
+      "flagship": "eval-chapter-guide"
     },
     {
       "cat": "enterprise",
