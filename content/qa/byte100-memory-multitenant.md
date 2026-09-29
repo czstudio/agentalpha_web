@@ -3,7 +3,7 @@ slug: byte100-memory-multitenant
 question: "多租户 Agent 的长期记忆怎么做隔离、加密和可删除？"
 oneLine: "多租户长期记忆需在租户与用户维度做存储分区，检索时从会话身份强制注入过滤条件。敏感字段采用应用层加密并按租户管理密钥。删除操作必须级联清理向量库、缓存与备份条目。"
 category: jingchang
-company: bytedance, meituan, baidu
+company: bytedance, meituan, baidu, xiaohongshu
 track: agent-dev
 tags: [字节真题, 长期记忆, 架构设计]
 minutes: 5

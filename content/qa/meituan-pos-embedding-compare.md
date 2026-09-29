@@ -3,7 +3,7 @@ slug: meituan-pos-embedding-compare
 question: "百川、千问、LLaMA 的位置编码怎么做的？有什么区别？"
 oneLine: "LLaMA 和千问主要采用 RoPE，百川部分版本采用可学习绝对位置编码，核心差别在于相对位置方案更容易配合外推技巧扩展上下文。"
 category: jingchang
-company: meituan, kuaishou, huawei, pdd
+company: meituan, kuaishou, huawei, pdd, xiaohongshu
 track: algo-general
 tags: [位置编码, RoPE, 大模型面试]
 minutes: 5

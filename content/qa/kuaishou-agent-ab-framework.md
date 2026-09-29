@@ -3,7 +3,7 @@ slug: kuaishou-agent-ab-framework
 question: "Agent 的 A/B 测试框架怎么设计？怎么评估改动收益？"
 oneLine: "Agent 的 A/B 测试要按用户分桶，以任务完成率衡量收益，用安全率、延迟和成本守住护栏，再结合多轮过程指标、自动评估与人工对齐，按灰度阶段放量并支持自动回滚。"
 category: jingchang
-company: kuaishou
+company: kuaishou, xiaohongshu
 track: agent-dev
 tags: [快手真题, Agent评估, A/B测试]
 minutes: 5

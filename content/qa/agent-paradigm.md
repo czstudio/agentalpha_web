@@ -3,7 +3,7 @@ slug: agent-paradigm
 question: ReAct、Plan-and-Execute、Reflection 三种范式有什么区别？怎么选？
 oneLine: ReAct 边想边走适合路径不明的短任务，Plan-and-Execute 先立整体计划再分步执行适合步骤多的长任务，Reflection 在执行后自我审查再返工，三者常组合用而不是三选一。
 category: agent
-company: huawei
+company: huawei, xiaohongshu
 tags: [ReAct, Plan-and-Execute, Reflection]
 minutes: 6
 order: 3

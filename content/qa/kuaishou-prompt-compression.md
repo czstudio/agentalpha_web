@@ -3,7 +3,7 @@ slug: kuaishou-prompt-compression
 question: "Prompt 优化策略有哪些？怎么压缩 Prompt？"
 oneLine: "Prompt 优化先分段、选好示例，再配合评测集迭代调试；压缩时删冗余、合并指令，把低频约束下沉到工具层，并用固定集验证效果。"
 category: jingchang
-company: kuaishou
+company: kuaishou, xiaohongshu
 track: agent-dev
 tags: [Prompt优化, Prompt压缩, Agent面试]
 minutes: 5

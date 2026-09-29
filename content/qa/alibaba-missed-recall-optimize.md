@@ -3,7 +3,7 @@ slug: alibaba-missed-recall-optimize
 question: "RAG 漏召怎么优化？"
 oneLine: "按顺序使用查询改写、入库时假设性问题增强、向量加BM25混合检索，并扩大召回数量后用重排保精度。所有手段必须在固定评测集上对比召回率来验证有效性。"
 category: jingchang
-company: alibaba, baidu, kuaishou, pdd
+company: alibaba, baidu, kuaishou, pdd, xiaohongshu
 track: ai-app
 tags: [阿里真题, RAG, 检索优化]
 minutes: 5

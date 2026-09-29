@@ -3,7 +3,7 @@ slug: kuaishou-modular-agent-scheduling
 question: "Modular Agent 的多步规划与调度策略怎么设计？"
 oneLine: "把复杂任务拆成子任务 DAG，用拓扑排序安排执行顺序，让可并行步骤并发执行，再根据中间结果重新规划，并用重试、回退、人工介入处理错误。"
 category: jingchang
-company: kuaishou
+company: kuaishou, xiaohongshu
 track: agent-dev
 tags: [快手真题, 大模型面试, Agent调度]
 minutes: 5

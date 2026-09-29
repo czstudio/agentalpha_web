@@ -3,7 +3,7 @@ slug: kuaishou-agent-eval-quantify
 question: "Agent 评估体系怎么设计？Planning 能力和幻觉率怎么量化？"
 oneLine: "我会分层评估：用任务完成率、步骤效率和工具选择准确率衡量 Planning，用知识库核查、自洽性检查和人工抽样衡量幻觉率，再看端到端成功率、满意度、延迟和 token 成本。"
 category: jingchang
-company: kuaishou, huawei, openai
+company: kuaishou, huawei, openai, xiaohongshu
 track: agent-algo
 tags: [快手真题, 大模型面试, Agent评估]
 minutes: 5
