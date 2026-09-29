@@ -3,7 +3,7 @@ slug: continuous-batching
 question: Continuous Batching 是什么？它和攒一批再处理差在哪
 oneLine: 攒批是凑满一批一起算、等最慢的跑完才散场，短任务全程陪跑，GPU 大量空转；连续批处理按每一步生成调度，谁完成谁退出、新请求随时补位，GPU 一直有活干。
 category: inference
-company: meituan, baidu
+company: meituan, baidu, xiaohongshu, deepseek, moonshot, microsoft, google, douyin, jd, bilibili
 tags: [推理优化, 批处理]
 minutes: 4
 order: 5

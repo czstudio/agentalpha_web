@@ -3,6 +3,7 @@ slug: lora-rank
 question: LoRA 的 rank（秩）怎么选？是不是越大越好
 oneLine: 不是。rank 是 LoRA 旁路矩阵的宽度，决定能学多少变化：小了容量不够，大了费显存还容易过拟合，常见做法从个位数到几十之间起步按任务调。
 category: finetune
+company: antgroup, didi, deepseek, xiaomi, microsoft, google, douyin, jd, bilibili
 tags: [LoRA, 微调, 超参数]
 minutes: 5
 order: 3

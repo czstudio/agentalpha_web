@@ -3,6 +3,7 @@ import Link from "next/link"
 import { Navigation } from "@/components/navigation"
 import { ResumeClient } from "@/components/tools/resume-client"
 import "./resume.css"
+import { ToolsFaq } from "@/components/tools/tools-faq"
 
 const SITE = "https://agentalpha.top"
 
@@ -51,6 +52,7 @@ export default function ResumeToolPage() {
             <Link href="/mianjing">真实面经</Link>
           </div>
         </section>
+              <ToolsFaq slug="resume" />
       </main>
     </>
   )

@@ -3,7 +3,7 @@ slug: deepseek-grpo-moe-issues
 question: "GRPO 训练 MoE 模型会遇到什么问题？怎么改进？"
 oneLine: "GRPO 训练 MoE 要处理专家负载不均衡、稀疏奖励下组内方差归零和 KL 方差过大三类问题；可调负载均衡损失权重，联动组大小与采样温度，用 k3 估计 KL 并加入损失。"
 category: jingchang
-company: deepseek
+company: deepseek, antgroup
 track: agent-algo
 tags: [DeepSeek真题, Agent 算法, MoE]
 minutes: 5

@@ -3,6 +3,7 @@ slug: what-is-react
 question: ReAct 是什么？它是怎么跑起来的？
 oneLine: ReAct 让模型交替输出「思考（Reason）」和「行动（Act）」：想一步该干什么、调一次工具、看一眼结果再想下一步，把推理过程和行动轨迹串成一个循环。
 category: agent
+company: huawei, didi, openai, moonshot, xiaomi, microsoft, google, douyin, jd, bilibili
 tags: [ReAct, 推理, 范式]
 minutes: 5
 order: 2

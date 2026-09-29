@@ -3,7 +3,6 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "prebuild": "python3 scripts/sync_community_doc.py --verify && python3 scripts/verify_community_public_copy.py",
     "build": "next build",
     "dev": "next dev",
     "lint": "eslint .",

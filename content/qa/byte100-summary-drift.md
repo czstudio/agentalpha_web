@@ -3,7 +3,7 @@ slug: byte100-summary-drift
 question: "摘要多轮迭代后语义漂移，怎么发现和纠正？"
 oneLine: "摘要多轮迭代本质是有损压缩。发现漂移需定期对照原文抽查事实保真度，或做一致性校验寻找出处。纠正是定期回到原文重新生成，并将关键事实锚定原文，避免其参与链式迭代。"
 category: jingchang
-company: bytedance, baidu
+company: bytedance, baidu, moonshot
 track: agent-dev
 tags: [字节真题, 记忆管理, 幻觉控制]
 minutes: 5

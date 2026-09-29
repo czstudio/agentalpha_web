@@ -3,7 +3,7 @@ slug: meituan-bf16-fp16
 question: "bf16 和 fp16 怎么选？"
 oneLine: "大模型训练默认选 bf16，推理对精度敏感场景选 fp16。bf16 牺牲尾数精度换取大指数范围，能有效避免训练溢出。fp16 尾数精度高但动态范围小。硬件上 A 系及之后架构才全面支持 bf16。"
 category: jingchang
-company: meituan
+company: meituan, deepseek
 track: algo-general
 tags: [美团真题, 大模型训练, 混合精度]
 minutes: 5
