@@ -53,6 +53,9 @@ export default async function CategoryPage({ params }: PageProps) {
       (!flagship || post.slug !== flagship.slug) &&
       !(post.tags || []).some((t) => t.includes("对比选型") || t.includes("项目面试")),
   )
+  // 量大时截断：默认只展示前 48，其余进分页视图
+  const restShown = rest.length > 60 ? rest.slice(0, 48) : rest
+  const restHidden = rest.length - restShown.length
   const other = all.filter((item) => item.cat !== cat && item.count > 0)
   const total = all.reduce((sum, item) => sum + item.count, 0)
 
@@ -226,7 +229,7 @@ export default async function CategoryPage({ params }: PageProps) {
               <p className="ivu-sec-sub">共 {posts.length} 篇</p>
             </div>
             <div className="ivu-catlist">
-              {(flagship ? rest : posts).map((post) => (
+              {restShown.map((post) => (
                 <InterviewRow
                   key={post.slug}
                   post={post}
@@ -234,7 +237,12 @@ export default async function CategoryPage({ params }: PageProps) {
                   showCover
                 />
               ))}
-              {flagship && rest.length === 0 ? (
+              {restHidden > 0 ? (
+                <Link href={`/interview/category/${category.cat}/all`} className="ivu-catlist-more">
+                  还有 {restHidden} 篇真题解析 · 进入分页列表 →
+                </Link>
+              ) : null}
+              {rest.length === 0 ? (
                 <p className="ivu-empty" style={{ padding: "18px 4px" }}>
                   这个分类暂时只有真题集，配套题解在施工中。
                 </p>

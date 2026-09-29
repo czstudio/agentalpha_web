@@ -371,7 +371,23 @@ function Updates() {
 }
 
 export default function InterviewPage() {
-  const posts = getAllInterview()
+  const allPosts = getAllInterview()
+  // 精选 60：深度解析/对比/项目包全部保留 + 真题每分类抽代表，全量在分类分页页
+  const featured = allPosts.filter(
+    (post) =>
+      !post.slug.includes("-tk") ||
+      (post.tags || []).some((t) => t.includes("对比选型") || t.includes("项目面试") || t.includes("章节导学")),
+  )
+  const tkByCat = new Map<string, number>()
+  const tkPicks = allPosts.filter((post) => {
+    if (!post.slug.includes("-tk")) return false
+    const cat = post.category
+    const n = tkByCat.get(cat) || 0
+    if (n >= 4) return false
+    tkByCat.set(cat, n + 1)
+    return true
+  })
+  const posts = [...featured, ...tkPicks].slice(0, 60)
   const covers = Object.fromEntries(posts.map((post) => [post.slug, hasCover(post.slug)]))
   const categories = getCategoriesWithPosts(false)
   const totalPlanned = categories.reduce((sum, category) => sum + category.planned, 0)
@@ -392,6 +408,21 @@ export default function InterviewPage() {
         totalPlanned={totalPlanned}
         variant="archive"
       />
+      <div className="ivu-wide" style={{ marginTop: -32 }}>
+        <div className="ivu-allentry">
+          <p>
+            站内已上线 <b>{allPosts.length}</b> 篇深度解析与真题解析。上面是精选入口，
+            全部题目按分类分页浏览：
+          </p>
+          <div className="ivu-allentry-cats">
+            {categories.map((c) => (
+              <Link key={c.cat} href={`/interview/category/${c.cat}/all`}>
+                {c.name}（{c.count}）
+              </Link>
+            ))}
+          </div>
+        </div>
+      </div>
     </div>
   )
 }
