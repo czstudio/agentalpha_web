@@ -9,6 +9,7 @@ import {
 } from "@/lib/interview"
 import { InterviewRow } from "@/components/interview/interview-row"
 import { CategoryCard } from "@/components/interview/category-card"
+import { getCategoryLearnData } from "@/lib/learn-path"
 
 interface PageProps {
   params: Promise<{ cat: string }>
@@ -46,9 +47,17 @@ export default async function CategoryPage({ params }: PageProps) {
   const flagship = category.flagship
     ? posts.find((post) => post.slug === category.flagship)
     : undefined
-  const rest = flagship ? posts.filter((post) => post.slug !== flagship.slug) : posts
+  // 深度列表排除对比文与项目包（它们在学习路径区单独露出），排除置顶篇
+  const rest = posts.filter(
+    (post) =>
+      (!flagship || post.slug !== flagship.slug) &&
+      !(post.tags || []).some((t) => t.includes("对比选型") || t.includes("项目面试")),
+  )
   const other = all.filter((item) => item.cat !== cat && item.count > 0)
   const total = all.reduce((sum, item) => sum + item.count, 0)
+
+  // 教程化学习路径数据：术语 → 速答题 → 深挖 → 实战
+  const learn = getCategoryLearnData(cat)
 
   const breadcrumbLd = {
     "@context": "https://schema.org",
@@ -116,6 +125,97 @@ export default async function CategoryPage({ params }: PageProps) {
               </span>
               <span className="ivu-pin-go">进入 →</span>
             </Link>
+          </>
+        ) : null}
+
+        {/* ── 系统学习路径：一个分类一站学完 ── */}
+        <div className="ivu-sec">
+          <h2 className="ivu-sec-t">系统学习路径</h2>
+          <p className="ivu-sec-sub">LEARN PATH</p>
+        </div>
+        <div className="learn-steps">
+          <div className="learn-step">
+            <span className="learn-step-no">1</span>
+            <div className="learn-step-body">
+              <p className="learn-step-t">先建立概念</p>
+              <p className="learn-step-d">{learn.terms.length} 个术语的一句话定义与机制，链到术语页。</p>
+              {learn.terms.length > 0 ? (
+                <div className="learn-terms">
+                  {learn.terms.slice(0, 8).map((t) => (
+                    <Link key={t.slug} href={`/interview/glossary/${t.slug}`}>
+                      {t.term}
+                    </Link>
+                  ))}
+                  {learn.terms.length > 8 ? (
+                    <Link className="learn-terms-more" href="/interview/glossary">
+                      全部 {learn.terms.length} 个 →
+                    </Link>
+                  ) : null}
+                </div>
+              ) : (
+                <p className="learn-step-empty">这个方向的术语页在补，先从刷题开始。</p>
+              )}
+            </div>
+          </div>
+          <div className="learn-step">
+            <span className="learn-step-no">2</span>
+            <div className="learn-step-body">
+              <p className="learn-step-t">刷透高频题</p>
+              <p className="learn-step-d">
+                {learn.qa.length} 道速答题，每题一页：先这样答 → 面试官追问 → 回答的坑。往下就是完整题单。
+              </p>
+            </div>
+          </div>
+          <div className="learn-step">
+            <span className="learn-step-no">3</span>
+            <div className="learn-step-body">
+              <p className="learn-step-t">深挖机制与选型</p>
+              <p className="learn-step-d">
+                {learn.deeps.length} 篇深度解析{learn.comparisons.length > 0 ? ` + ${learn.comparisons.length} 篇对比选型` : ""}
+                ，逐层拆到原理与工程取舍。
+              </p>
+            </div>
+          </div>
+          <div className="learn-step">
+            <span className="learn-step-no">4</span>
+            <div className="learn-step-body">
+              <p className="learn-step-t">实战检验</p>
+              {learn.packs.length > 0 ? (
+                <div className="learn-packs">
+                  {learn.packs.map((p) => (
+                    <Link key={p.slug} href={`/interview/${p.slug}`}>
+                      {p.title}
+                    </Link>
+                  ))}
+                </div>
+              ) : null}
+              <p className="learn-step-d">
+                项目面试包讲「项目怎么讲才扛住追问」；再按公司检验：
+                <Link href="/interview/jingchang">五厂真题集</Link>。
+              </p>
+            </div>
+          </div>
+        </div>
+
+        {learn.qa.length > 0 ? (
+          <>
+            <div className="ivu-sec">
+              <h2 className="ivu-sec-t">速答题单</h2>
+              <p className="ivu-sec-sub">共 {learn.qa.length} 道</p>
+            </div>
+            <div className="ivq-rows">
+              {learn.qa.map((item) => (
+                <div className="ivq-row" key={item.slug}>
+                  <Link className="ivq-row-main" href={`/interview/qa/${item.slug}`}>
+                    <span className="ivq-row-q">Q · {item.question}</span>
+                    <span className="ivq-row-a">{item.oneLine}</span>
+                    <span className="ivq-row-go" aria-hidden>
+                      查看答案 →
+                    </span>
+                  </Link>
+                </div>
+              ))}
+            </div>
           </>
         ) : null}
 

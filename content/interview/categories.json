@@ -30,7 +30,8 @@
       "name": "工具调用",
       "intro": "Function Call、MCP、A2A、Skills，以及工具过百之后的注册、发现、路由与 Schema 设计。落点永远在「准确率抓在哪个环节」。",
       "kbChapter": "第 8 章 · 工具调用",
-      "planned": 13
+      "planned": 13,
+      "flagship": "tooluse-chapter-guide"
     },
     {
       "cat": "multiagent",
@@ -65,14 +66,16 @@
       "name": "训练与微调",
       "intro": "SFT、LoRA、RLHF、DPO、GRPO、蒸馏与数据工程。答这类题的关键是讲清楚每一步在优化什么、数据从哪来。",
       "kbChapter": "第 3 章 · LLM 训练",
-      "planned": 13
+      "planned": 13,
+      "flagship": "finetune-chapter-guide"
     },
     {
       "cat": "inference",
       "name": "推理与部署",
       "intro": "KV Cache、vLLM、量化、批处理、并行策略与显存估算。面试官用这些题判断你是只调过 API，还是真部署过模型。",
       "kbChapter": "第 2 章 · LLM 基础（推理优化）",
-      "planned": 15
+      "planned": 15,
+      "flagship": "inference-chapter-guide"
     },
     {
       "cat": "multimodal",
