@@ -7,6 +7,7 @@ import { getAllArticles } from "@/lib/articles"
 import { getMianjingList } from "@/lib/mianjing"
 import { getAllGlossary } from "@/lib/glossary"
 import { COMPANIES, getQaByCompany } from "@/lib/companies"
+import { TRACKS, getQaByTrack } from "@/lib/tracks"
 import { ROADMAPS } from "@/lib/roadmap"
 import { getAllJd } from "@/lib/jd"
 
@@ -58,6 +59,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     lastModified: new Date(),
     changeFrequency: "weekly" as const,
     priority: 0.75,
+  }))
+
+  const trackPages = TRACKS.filter((t) => getQaByTrack(t.slug).length > 0).map((t) => ({
+    url: `https://agentalpha.top/interview/track/${t.slug}`,
+    lastModified: new Date(),
+    changeFrequency: "weekly" as const,
+    priority: 0.7,
   }))
 
   return [
@@ -212,5 +220,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...mianjing,
     ...glossary,
     ...companyPages,
+    ...trackPages,
   ]
 }
