@@ -2137,56 +2137,311 @@ html.enrollment-dialog-open { overflow: hidden; }
   .aa-proof-grid { grid-template-columns: 1fr; }
 }
 
-/* ── /learn 训练营索引页 ── */
-.learn-home-shell { padding-top: 24px; padding-bottom: 64px; }
-.learn-home-hero { padding: 26px 0 8px; border-bottom: 1px solid var(--border, #e5e1d8); }
-.learn-home-kicker { font-size: 12px; letter-spacing: 0.12em; color: var(--muted, #6b6557); margin: 0 0 10px; }
-.learn-home-hero h1 { font-size: 34px; font-weight: 800; margin: 0 0 14px; }
-.learn-home-lede { color: var(--muted, #6b6557); font-size: 15px; line-height: 1.85; max-width: 640px; margin: 0 0 24px; }
-.learn-home-lede a { color: var(--brand, #6e22f0); text-decoration: underline; text-underline-offset: 3px; }
+/* ── /learn 训练营索引页 ──
+   视觉对齐全站 aa-* 令牌：冷灰纸底、发丝线、衬线标题、墨黑主按钮、
+   靛蓝只用于激活态与链接；不再使用旧米黄底 + 亮紫的孤儿配色。 */
+.learn-home-shell { padding-top: 24px; padding-bottom: clamp(56px, 8vw, 96px); }
 
-.learn-home-block { margin-top: 40px; }
-.learn-home-block > h2 { font-size: 22px; font-weight: 700; margin: 0 0 16px; }
+.learn-home-hero { padding: clamp(40px, 7vw, 84px) 0 clamp(28px, 4.5vw, 48px); border-bottom: 1px solid var(--aa-rule); }
+.learn-home-hero h1 {
+  margin: 0 0 18px;
+  max-width: 14ch;
+  font-family: var(--font-display);
+  font-size: var(--text-display);
+  font-weight: 700;
+  line-height: 1.14;
+  letter-spacing: -0.02em;
+  word-break: keep-all;
+}
+.learn-home-lede { color: var(--aa-muted); font-size: var(--text-lede); line-height: 1.8; max-width: 40em; margin: 0; }
+.learn-home-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 26px; }
 
-.learn-home-principles { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
-.learn-home-principle { border: 1px solid var(--border, #e5e1d8); border-radius: 12px; padding: 18px 20px; background: var(--card, #fffdf8); }
-.learn-home-principle h3 { font-size: 15.5px; font-weight: 700; margin: 0 0 8px; }
-.learn-home-principle p { font-size: 13.5px; line-height: 1.7; margin: 0 0 6px; color: var(--foreground, #26211a); }
-.learn-home-against, .learn-home-insist { display: inline-block; font-size: 12px; font-weight: 700; border-radius: 4px; padding: 0 6px; margin-right: 6px; }
-.learn-home-against { color: #8a4b12; background: #fbf1dc; }
-.learn-home-insist { color: var(--brand, #6e22f0); background: rgba(110, 34, 240, 0.08); }
+.learn-home-stats {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0 28px;
+  margin: 40px 0 0;
+  padding: 24px 0 0;
+  border-top: 1px solid var(--aa-rule);
+  list-style: none;
+}
+.learn-home-stats strong {
+  display: block;
+  font-family: var(--font-display);
+  font-size: clamp(1.4rem, 2vw, 1.9rem);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  line-height: 1.15;
+}
+.learn-home-stats span { display: block; margin-top: 8px; color: var(--aa-muted); font-size: 0.78rem; line-height: 1.55; }
 
-.learn-home-courses { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
-.learn-home-course { border: 1px solid var(--border, #e5e1d8); border-radius: 12px; padding: 18px 20px; position: relative; }
-.learn-home-course-no { font-size: 26px; font-weight: 800; color: var(--brand, #6e22f0); opacity: 0.5; }
-.learn-home-course h3 { font-size: 16px; font-weight: 700; margin: 4px 0 8px; }
-.learn-home-course p { font-size: 13px; color: var(--muted, #6b6557); line-height: 1.7; margin: 0 0 10px; }
-.learn-home-course ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 5px; }
-.learn-home-course li { font-size: 13px; line-height: 1.6; padding-left: 14px; position: relative; }
-.learn-home-course li::before { content: ""; position: absolute; left: 0; top: 0.6em; width: 5px; height: 5px; border-radius: 50%; background: var(--brand, #6e22f0); }
+.learn-home-block { margin-top: clamp(56px, 8vw, 88px); }
+.learn-home-block h2 { max-width: 22em; }
+.learn-home-block .aa-section-head { margin-bottom: clamp(26px, 4vw, 40px); }
+.learn-home-block .aa-section-head h2 { margin: 0; font-family: var(--font-display); font-size: clamp(1.55rem, 2.6vw, 2.1rem); font-weight: 700; line-height: 1.22; letter-spacing: -0.01em; }
+.learn-sub {
+  margin: clamp(34px, 5vw, 52px) 0 16px;
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+.learn-sub::after { content: ""; display: block; width: 34px; height: 2px; margin-top: 10px; background: var(--aa-blue); opacity: 0.55; }
+.learn-sub:first-of-type { margin-top: 0; }
 
-.learn-home-part { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
-.learn-home-part-card { border: 1px solid var(--border, #e5e1d8); border-radius: 12px; padding: 18px 20px; }
-.learn-home-part-card h3 { font-size: 15.5px; font-weight: 700; margin: 0 0 8px; }
-.learn-home-part-who { font-size: 13px; color: var(--muted, #6b6557); line-height: 1.7; margin: 0 0 8px; }
-.learn-home-part-support { font-size: 13px; line-height: 1.7; margin: 0; }
+/* 项目战绩卡 */
+.learn-home .aa-section-desc { word-break: keep-all; overflow-wrap: break-word; }
+.learn-projects { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; align-items: start; }
+.learn-proj {
+  display: flex;
+  flex-direction: column;
+  background: var(--aa-card);
+  border: 1px solid var(--aa-rule);
+  border-radius: 14px;
+  overflow: hidden;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+.learn-proj:hover { border-color: color-mix(in srgb, var(--aa-blue) 35%, var(--aa-rule)); box-shadow: var(--shadow-lift); }
+.learn-proj--wide { grid-column: 1 / -1; display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); align-items: start; }
+.learn-proj--wide .learn-proj-body { padding-top: 22px; }
+.learn-proj-shots { display: grid; gap: 0; align-content: start; background: color-mix(in srgb, var(--aa-blue) 4%, transparent); border-bottom: 1px solid var(--aa-rule); }
+.learn-proj--wide .learn-proj-shots { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px 0; align-self: center; border-bottom: 0; border-right: 1px solid var(--aa-rule); }
+.learn-shot { margin: 0; padding: 14px 14px 0; background: transparent; }
+.learn-shot img { display: block; width: 100%; height: auto; border: 1px solid var(--aa-rule); border-radius: 8px; background: #fff; }
+.learn-shot figcaption { padding: 8px 2px 12px; font-size: 0.76rem; line-height: 1.6; color: var(--aa-muted); }
+.learn-proj-body { display: flex; flex-direction: column; gap: 10px; padding: 20px 22px 22px; min-width: 0; }
+.learn-proj-kicker { margin: 0; color: var(--aa-blue); font-size: 0.68rem; font-weight: 600; letter-spacing: 0.14em; }
+.learn-proj-body h3 { margin: 0; font-family: var(--font-display); font-size: 1.22rem; font-weight: 700; letter-spacing: 0.01em; }
+.learn-proj-desc { margin: 0; color: var(--aa-muted); font-size: 0.88rem; line-height: 1.75; }
+.learn-proj-points { margin: 2px 0 0; padding: 0; list-style: none; display: grid; gap: 7px; }
+.learn-proj-points li { position: relative; padding-left: 15px; font-size: 0.86rem; line-height: 1.7; }
+.learn-proj-points li::before { content: ""; position: absolute; left: 1px; top: 0.62em; width: 6px; height: 6px; border-radius: 2px; background: var(--aa-blue); opacity: 0.85; }
+.learn-proj-links { display: flex; flex-wrap: wrap; gap: 8px 18px; margin-top: 4px; }
+.learn-proj-links a { display: inline-flex; align-items: center; gap: 3px; color: var(--aa-blue); font-size: 0.82rem; font-weight: 600; text-decoration: none; }
+.learn-proj-links a:hover { text-decoration: underline; text-underline-offset: 3px; }
+.learn-proj-links svg { width: 13px; height: 13px; }
+.learn-proj-strip { margin-top: 10px; border-top: 1px dashed var(--aa-rule); padding-top: 12px; }
+.learn-strip { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+.learn-strip--tall { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.learn-strip img {
+  display: block;
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  object-position: top center;
+  border: 1px solid var(--aa-rule);
+  border-radius: 8px;
+  background: #fff;
+}
+.learn-strip--tall img { height: 230px; }
+.learn-strip-cap { margin: 8px 2px 0; font-size: 0.74rem; line-height: 1.6; color: var(--aa-muted); }
 
-.learn-home-open { display: flex; align-items: center; justify-content: space-between; gap: 16px; border: 1px solid var(--border, #e5e1d8); border-radius: 12px; padding: 18px 22px; text-decoration: none; color: inherit; transition: border-color 0.15s ease; }
-.learn-home-open:hover { border-color: var(--brand, #6e22f0); }
-.learn-home-open h3 { font-size: 15.5px; font-weight: 700; margin: 0 0 6px; }
-.learn-home-open p { font-size: 13px; color: var(--muted, #6b6557); line-height: 1.7; margin: 0; }
-.learn-home-open-go { flex: none; font-size: 13.5px; font-weight: 600; color: var(--brand, #6e22f0); display: inline-flex; align-items: center; gap: 4px; }
+/* 课程体系 */
+.learn-home-courses { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
+.learn-home-course { border: 1px solid var(--aa-rule); border-radius: 12px; padding: 18px 20px; position: relative; background: var(--aa-card); }
+.learn-home-course-no { font-family: var(--font-display); font-size: 24px; font-weight: 600; color: var(--aa-blue); opacity: 0.55; }
+.learn-home-course h3 { font-size: 1.02rem; font-weight: 700; margin: 4px 0 8px; letter-spacing: 0.01em; }
+.learn-home-course p { font-size: 0.82rem; color: var(--aa-muted); line-height: 1.7; margin: 0 0 10px; }
+.learn-home-course--link { display: flex; flex-direction: column; text-decoration: none; color: inherit; transition: border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease; }
+.learn-home-course--link:hover { border-color: color-mix(in srgb, var(--aa-blue) 35%, var(--aa-rule)); transform: translateY(-2px); box-shadow: var(--shadow-lift); }
+.learn-home-course-top { display: flex; align-items: baseline; justify-content: space-between; }
+.learn-home-course-tag { font-size: 0.7rem; font-weight: 600; color: var(--aa-blue); background: color-mix(in srgb, var(--aa-blue) 8%, transparent); border-radius: 999px; padding: 2px 10px; }
+.learn-home-course-go { margin-top: auto; padding-top: 10px; font-size: 0.78rem; font-weight: 600; color: var(--aa-blue); }
 
-.learn-home-cta { margin-top: 44px; background: #17141f; color: #fff; border-radius: 16px; padding: 28px 30px; display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
-.learn-home-cta h2 { font-size: 19px; font-weight: 700; margin: 0 0 8px; color: #fff; }
-.learn-home-cta p { font-size: 13.5px; color: rgba(255, 255, 255, 0.72); line-height: 1.75; margin: 0; max-width: 480px; }
-.learn-home-cta-btn { flex: none; display: inline-flex; align-items: center; gap: 6px; background: var(--brand, #6e22f0); color: #fff; font-size: 14px; font-weight: 600; border-radius: 10px; padding: 12px 20px; text-decoration: none; }
-.learn-home-cta-btn:hover { background: #4c15ac; }
+.learn-figures { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; margin-top: 18px; }
+.learn-fig { margin: 0; background: var(--aa-card); border: 1px solid var(--aa-rule); border-radius: 14px; padding: 14px 14px 0; }
+.learn-fig img { display: block; width: 100%; height: auto; border: 1px solid var(--aa-rule); border-radius: 8px; background: #fff; }
+.learn-fig figcaption { padding: 10px 2px 14px; font-size: 0.78rem; line-height: 1.7; color: var(--aa-muted); }
 
-@media (max-width: 900px) {
-  .learn-home-principles { grid-template-columns: 1fr; }
-  .learn-home-courses, .learn-home-part { grid-template-columns: 1fr; }
-  .learn-home-hero h1 { font-size: 26px; }
+/* 导师 */
+.learn-mentors { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; align-items: start; }
+.learn-mentor-col { border: 1px solid var(--aa-rule); border-radius: 14px; padding: 22px 24px; background: var(--aa-card); }
+.learn-mentor-col h3 { margin: 0 0 12px; font-size: 1rem; font-weight: 700; }
+.learn-mentor-col ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 10px; }
+.learn-mentor-col li { position: relative; padding-left: 16px; font-size: 0.86rem; line-height: 1.75; word-break: keep-all; overflow-wrap: break-word; }
+.learn-mentor-col li::before { content: ""; position: absolute; left: 2px; top: 0.62em; width: 6px; height: 6px; border-radius: 2px; background: var(--aa-blue); opacity: 0.85; }
+
+/* 方法四条 */
+.learn-method { border-top: 1px solid var(--aa-rule); }
+.learn-method-row {
+  display: grid;
+  grid-template-columns: 160px minmax(0, 1fr) minmax(0, 1.2fr);
+  gap: 10px 24px;
+  padding: 16px 2px;
+  border-bottom: 1px solid var(--aa-rule);
+}
+.learn-method-row h3 { margin: 0; font-family: var(--font-display); font-size: 1.02rem; font-weight: 700; }
+.learn-method-row p { margin: 0; font-size: 0.86rem; line-height: 1.7; }
+.learn-home-against, .learn-home-insist { display: inline-block; font-size: 0.7rem; font-weight: 700; border-radius: 4px; padding: 1px 7px; margin-right: 8px; }
+.learn-home-against { color: var(--aa-muted); background: color-mix(in srgb, var(--foreground) 7%, transparent); }
+.learn-home-insist { color: var(--aa-blue); background: color-mix(in srgb, var(--aa-blue) 8%, transparent); }
+
+/* 三类成长方向 */
+.learn-tracks { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
+.learn-track { border: 1px solid var(--aa-rule); border-radius: 14px; padding: 20px 22px; background: var(--aa-card); }
+.learn-track h3 { margin: 0 0 12px; font-family: var(--font-display); font-size: 1.08rem; font-weight: 700; }
+.learn-track dl { margin: 0; display: grid; gap: 4px; }
+.learn-track dt { margin-top: 10px; color: var(--aa-muted); font-size: 0.7rem; letter-spacing: 0.06em; }
+.learn-track dd { margin: 0; font-size: 0.85rem; line-height: 1.7; }
+
+/* 结果墙：CSS 列瀑布流 */
+.learn-wall { columns: 3; column-gap: 14px; }
+.learn-wall-item {
+  break-inside: avoid;
+  margin: 0 0 14px;
+  background: var(--aa-card);
+  border: 1px solid var(--aa-rule);
+  border-radius: 12px;
+  padding: 10px 10px 0;
+}
+.learn-wall-item img { display: block; width: 100%; height: auto; border-radius: 6px; background: #fff; }
+.learn-wall-item figcaption { padding: 9px 2px 12px; font-size: 0.76rem; line-height: 1.6; color: var(--aa-muted); }
+
+/* 学员反馈 */
+.learn-chats { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
+.learn-chat { margin: 0; display: flex; flex-direction: column; gap: 12px; border: 1px solid var(--aa-rule); border-radius: 14px; padding: 18px 18px 14px; background: var(--aa-card); }
+.learn-chat blockquote { margin: 0; }
+.learn-chat blockquote p { margin: 0; font-size: 0.86rem; line-height: 1.8; }
+.learn-chat-tag { display: inline-block; margin-top: 10px; color: var(--aa-blue); font-size: 0.72rem; font-weight: 600; letter-spacing: 0.04em; }
+.learn-chat-shot { margin-top: auto; border-top: 1px dashed var(--aa-rule); padding-top: 12px; }
+.learn-chat-shot img { display: block; width: 100%; height: 300px; object-fit: cover; object-position: top center; border: 1px solid var(--aa-rule); border-radius: 8px; background: #fff; }
+.learn-chat-shot figcaption { padding: 8px 2px 0; font-size: 0.74rem; line-height: 1.6; color: var(--aa-muted); }
+/* 反馈补充行：4 张等宽网格收口，避免瀑布流残行 */
+.learn-wall--chats { columns: unset; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; margin-top: 14px; align-items: start; }
+.learn-wall--chats .learn-wall-item { margin: 0; }
+
+/* 项目卡内嵌小图墙（第三方报道 / 用户反馈） */
+.learn-mini-label { margin: 0 0 8px; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.08em; color: var(--aa-muted); }
+.learn-mini-wall { columns: 2; column-gap: 10px; }
+.learn-mini-wall .learn-wall-item { margin: 0 0 10px; padding: 8px 8px 0; }
+
+/* Agent 系列课十阶段路线 */
+.learn-stages-intro { margin: -6px 0 20px; }
+.learn-stages { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+.learn-stage { border: 1px solid var(--aa-rule); border-radius: 12px; padding: 16px 18px 18px; background: var(--aa-card); }
+.learn-stage-top { display: flex; align-items: baseline; gap: 10px; }
+.learn-stage-no { font-family: var(--font-display); font-size: 1.35rem; font-weight: 600; color: var(--aa-blue); opacity: 0.5; }
+.learn-stage h3 { margin: 0; font-size: 0.98rem; font-weight: 700; letter-spacing: 0.01em; }
+.learn-stage p { margin: 8px 0 0; font-size: 0.8rem; line-height: 1.7; color: var(--aa-muted); }
+.learn-stage-out { margin: 8px 0 0; font-size: 0.8rem; line-height: 1.7; color: var(--foreground); }
+.learn-stage-out::before {
+  content: "阶段产出";
+  display: inline-block;
+  font-size: 0.64rem;
+  font-weight: 700;
+  color: var(--aa-blue);
+  background: color-mix(in srgb, var(--aa-blue) 9%, transparent);
+  border-radius: 4px;
+  padding: 1px 7px;
+  margin-right: 8px;
+  vertical-align: 1px;
+}
+
+/* 带教服务 */
+.learn-svc { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; }
+.learn-svc-card { border: 1px solid var(--aa-rule); border-radius: 12px; padding: 18px 20px; background: var(--aa-card); }
+.learn-svc-card h3 { margin: 0 0 8px; font-family: var(--font-display); font-size: 1rem; font-weight: 700; }
+.learn-svc-card p { margin: 0; font-size: 0.82rem; line-height: 1.7; color: var(--aa-muted); }
+
+@media (max-width: 980px) {
+  .learn-svc { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 640px) {
+  .learn-stages { grid-template-columns: 1fr; }
+  .learn-svc { grid-template-columns: 1fr; }
+  .learn-mini-wall { columns: 1; }
+}
+
+/* 参与方式 */
+.learn-home-part { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
+.learn-home-part-card { border: 1px solid var(--aa-rule); border-radius: 14px; padding: 20px 22px; background: var(--aa-card); }
+.learn-home-part-card h3 { margin: 0 0 10px; font-family: var(--font-display); font-size: 1.05rem; font-weight: 700; }
+.learn-home-part-who { margin: 0 0 8px; color: var(--aa-muted); font-size: 0.84rem; line-height: 1.7; }
+.learn-home-part-support { margin: 0; font-size: 0.84rem; line-height: 1.7; }
+
+/* FAQ */
+.learn-faq { border-top: 1px solid var(--aa-rule); }
+.learn-faq-item { border-bottom: 1px solid var(--aa-rule); }
+.learn-faq-item summary {
+  cursor: pointer;
+  list-style: none;
+  position: relative;
+  padding: 16px 34px 16px 2px;
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+.learn-faq-item summary::-webkit-details-marker { display: none; }
+.learn-faq-item summary::after {
+  content: "+";
+  position: absolute;
+  right: 6px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--aa-blue);
+  font-size: 1.2rem;
+  font-weight: 400;
+}
+.learn-faq-item[open] summary::after { content: "−"; }
+.learn-faq-item p { margin: 0; padding: 0 40px 18px 2px; color: var(--aa-muted); font-size: 0.88rem; line-height: 1.8; }
+
+/* 尾部 CTA：墨黑面板 + 二维码 */
+.learn-home-cta {
+  margin-top: clamp(56px, 8vw, 88px);
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 28px 48px;
+  align-items: center;
+  background: var(--btn, #1d1d1f);
+  color: #f5f5f7;
+  border-radius: 18px;
+  padding: clamp(26px, 4vw, 44px);
+}
+.learn-cta-copy h2 { margin: 0 0 14px; color: #f5f5f7; font-family: var(--font-display); font-size: clamp(1.3rem, 2.4vw, 1.75rem); font-weight: 700; letter-spacing: 0.01em; }
+.learn-cta-asks { margin: 0; padding: 0; list-style: none; display: grid; gap: 9px; counter-reset: cta; }
+.learn-cta-asks li { counter-increment: cta; display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 10px; font-size: 0.86rem; line-height: 1.6; }
+.learn-cta-asks li::before { content: counter(cta, decimal-leading-zero); font-family: var(--font-display); color: rgba(245, 245, 247, 0.45); margin-right: 4px; }
+.learn-cta-asks strong { font-weight: 600; }
+.learn-cta-asks span { color: rgba(245, 245, 247, 0.62); }
+.learn-cta-note { margin: 16px 0 0; color: rgba(245, 245, 247, 0.62); font-size: 0.8rem; line-height: 1.7; }
+.learn-home-cta .learn-home-actions { margin-top: 20px; }
+.learn-cta-btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 42px;
+  padding: 10px 18px;
+  color: #f5f5f7;
+  background: transparent;
+  border: 1px solid rgba(245, 245, 247, 0.28);
+  border-radius: 10px;
+  font-size: 0.86rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: border-color 0.2s ease, background 0.2s ease;
+}
+.learn-cta-btn-ghost:hover { border-color: rgba(245, 245, 247, 0.55); background: rgba(245, 245, 247, 0.06); }
+.learn-cta-btn-ghost svg { width: 14px; height: 14px; }
+.learn-cta-qr { margin: 0; text-align: center; }
+.learn-cta-qr img { display: block; width: 168px; height: auto; border-radius: 12px; background: #fff; padding: 6px; }
+.learn-cta-qr figcaption { margin-top: 10px; color: rgba(245, 245, 247, 0.62); font-size: 0.74rem; line-height: 1.6; max-width: 190px; }
+
+@media (max-width: 980px) {
+  .learn-projects, .learn-figures, .learn-mentors { grid-template-columns: 1fr; }
+  .learn-proj--wide { grid-template-columns: 1fr; }
+  .learn-proj--wide .learn-proj-shots { grid-template-columns: 1fr; gap: 0; border-right: 0; border-bottom: 1px solid var(--aa-rule); }
+  .learn-home-courses, .learn-tracks, .learn-home-part, .learn-chats { grid-template-columns: 1fr; }
+  .learn-wall { columns: 2; }
+  .learn-wall--chats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .learn-method-row { grid-template-columns: 1fr; gap: 4px; }
+  .learn-home-stats { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px 24px; }
+  .learn-home-cta { grid-template-columns: 1fr; justify-items: start; }
+}
+
+@media (max-width: 640px) {
+  .learn-wall { columns: 1; }
+  .learn-wall--chats { grid-template-columns: 1fr; }
+  .learn-strip--tall { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .learn-home-hero h1 { font-size: clamp(1.9rem, 8vw, 2.4rem); }
 }
 
 /* ── 首页 · 导师与学员结果区 ── */
@@ -2209,10 +2464,6 @@ html.enrollment-dialog-open { overflow: hidden; }
   .aa-mentor-grid, .aa-case-grid { grid-template-columns: 1fr; }
   .aa-result-row { grid-template-columns: 1fr; gap: 4px; }
 }
-
-.learn-home-aims { margin: 0 0 8px; padding: 0; list-style: none; display: grid; gap: 6px; }
-.learn-home-aims li { font-size: 14px; line-height: 1.75; padding-left: 16px; position: relative; }
-.learn-home-aims li::before { content: ""; position: absolute; left: 2px; top: 0.62em; width: 6px; height: 6px; border-radius: 50%; background: var(--brand, #6e22f0); }
 
 /* ── 第三轮：排版修复（断行）+ 论文条 + 课程卡 ── */
 .aa-section-head h2,
@@ -2244,11 +2495,6 @@ html.enrollment-dialog-open { overflow: hidden; }
 .aa-paper-chip-meta { font-size: 12px; font-weight: 600; color: var(--brand, #6e22f0); margin-top: auto; }
 @media (max-width: 900px) { .aa-paper-strip-list { grid-template-columns: 1fr; } }
 
-.learn-home-course--link { display: flex; flex-direction: column; text-decoration: none; color: inherit; transition: border-color 0.15s ease, transform 0.15s ease; }
-.learn-home-course--link:hover { border-color: var(--brand, #6e22f0); transform: translateY(-2px); }
-.learn-home-course-top { display: flex; align-items: baseline; justify-content: space-between; }
-.learn-home-course-tag { font-size: 11.5px; font-weight: 600; color: var(--brand, #6e22f0); background: rgba(110, 34, 240, 0.08); border-radius: 999px; padding: 2px 10px; }
-.learn-home-course-go { margin-top: auto; padding-top: 10px; font-size: 12.5px; font-weight: 600; color: var(--brand, #6e22f0); }
 
 /* ── 项目区 3D 浅彩卡（方案 07 · light）────────────
    打法学 Stripe/Apple 浅色卡：白卡为底，色相只出现在
