@@ -3,7 +3,7 @@ slug: meituan-sft-dpo-data
 question: "SFT 加 DPO 的训练数据怎么组织？"
 oneLine: "SFT 数据组织成指令与回答对，覆盖单轮、多轮及工具调用场景并作难度分层。DPO 数据组织成偏好对，需严格控制采纳与拒绝回答的长度均衡，防止模型学会写长。"
 category: jingchang
-company: meituan, kuaishou, huawei, pdd
+company: meituan, kuaishou, huawei, pdd, deepseek, moonshot, xiaomi, microsoft, google, douyin, jd, bilibili, openai
 track: agent-algo
 tags: [美团真题, SFT, DPO]
 minutes: 5

@@ -3,7 +3,7 @@ slug: meituan-emergence-why
 question: "模型的涌现现象是什么？原因是什么？"
 oneLine: "模型规模较小时能力近乎为零，超过某个阈值后表现突然跳变。原因有两种解释：评测指标制造了假象，或组合任务中的多个子能力同时达到要求。"
 category: jingchang
-company: meituan, baidu, huawei
+company: meituan, baidu, huawei, deepseek, openai
 track: algo-general
 tags: [涌现, 大模型, 能力评测]
 minutes: 5

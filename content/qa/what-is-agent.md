@@ -3,7 +3,7 @@ slug: what-is-agent
 question: 什么是 AI Agent？它和直接调用大模型有什么区别？
 oneLine: 直接调用是「一问一答」，Agent 是让模型在循环里自主使用工具、维护状态、根据反馈决定下一步，直到把目标做完。差的是「行动循环」，不是模型更强。
 category: agent
-company: antgroup, huawei
+company: antgroup, huawei, openai, microsoft, google, douyin, jd, bilibili
 tags: [Agent, 基础概念]
 minutes: 5
 order: 1

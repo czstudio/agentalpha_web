@@ -3,7 +3,7 @@ slug: what-is-lora
 question: LoRA 是什么？为什么微调大家都在用它
 oneLine: LoRA 冻结原模型权重，在旁边加一对小矩阵只训练它们，用远小于全量微调的参数量达到接近的效果。省显存、好切换、可插拔，所以成了默认选择。
 category: finetune
-company: antgroup, huawei
+company: antgroup, huawei, didi, deepseek, openai, xiaomi, microsoft, google, douyin, jd, bilibili
 tags: [LoRA, 微调]
 minutes: 5
 order: 2

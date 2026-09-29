@@ -3,7 +3,7 @@ slug: grpo-training-metrics
 question: GRPO 训练要盯哪些指标？熵坍塌和组内奖励方差为零分别怎么处理？
 oneLine: GRPO 训练需盯紧奖励、策略熵、KL散度和组内奖励方差。应对熵坍塌可采用熵正则、降低KL约束或clip-higher；处理组内方差为零需引入动态采样过滤无效组，并优化奖励判据的难度分层。
 category: finetune
-company: didi, tencent, pdd, xiaohongshu
+company: didi, tencent, pdd, xiaohongshu, deepseek, xiaomi, microsoft, google, douyin, jd, bilibili, openai
 tags: [GRPO, 强化学习, 模型训练]
 minutes: 6
 order: 25

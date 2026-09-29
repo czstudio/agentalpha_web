@@ -3,7 +3,7 @@ slug: bytedance-why-qkv
 question: "self-attention 为什么要把矩阵拆成 Q、K、V？"
 oneLine: "核心是为了让匹配与内容解耦。Q 和 K 负责相似度匹配，决定找什么和去哪找。V 携带实际提取出的内容。拆分能避免单矩阵自乘导致的表达力受限，让同一批词用不同关注模式取不同信息。"
 category: jingchang
-company: bytedance, kuaishou, huawei
+company: bytedance, kuaishou, huawei, didi, deepseek, moonshot, xiaomi, microsoft, google, douyin, jd, bilibili
 track: algo-general
 tags: [字节真题, Transformer, 底层原理]
 minutes: 5

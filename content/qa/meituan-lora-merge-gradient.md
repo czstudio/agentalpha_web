@@ -3,7 +3,7 @@ slug: meituan-lora-merge-gradient
 question: "LoRA 合并回原模型时，梯度有什么问题？"
 oneLine: "训练中途合并会破坏等价性，因为梯度只流过低秩矩阵，原模型权重被冻结未同步更新。部署时合并会导致无法热切换多任务 LoRA。"
 category: jingchang
-company: meituan
+company: meituan, deepseek
 track: agent-algo
 tags: [美团真题, LoRA, 模型部署]
 minutes: 5

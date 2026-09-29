@@ -3,6 +3,7 @@ slug: what-is-token
 question: Token 是什么？为什么大模型按 Token 计费
 oneLine: Token 是模型处理文本的最小单位，由分词器把文字切开得到，一个 token 约半个到一个英文单词或一到两个汉字。按 token 计费是因为计算量和显存占用都由 token 数决定。
 category: basics
+company: openai
 tags: [LLM 基础, Token]
 minutes: 4
 order: 3

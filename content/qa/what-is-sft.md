@@ -3,7 +3,7 @@ slug: what-is-sft
 question: SFT（监督微调）是什么？和预训练有什么区别
 oneLine: 预训练是让模型在海量无标注文本上学「下一个词怎么接」，SFT 是用人工写好的问答对教它「别人问什么该怎么答」。前者给能力，后者给用法。
 category: finetune
-company: huawei
+company: huawei, deepseek, didi, openai
 tags: [微调, SFT]
 minutes: 5
 order: 1

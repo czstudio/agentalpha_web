@@ -3,7 +3,7 @@ slug: byte100-dpo-no-rm
 question: "DPO 为什么不需要显式奖励模型？它的假设和局限是什么？"
 oneLine: "DPO 不需要显式奖励模型，因为最优策略与奖励函数存在闭式对应关系。算法将偏好概率直接改写为策略的函数，把隐式奖励定义为当前策略与参考模型的对数比，从而直接用偏好对优化策略。"
 category: jingchang
-company: bytedance, tencent, baidu
+company: bytedance, tencent, baidu, deepseek, openai, moonshot
 track: agent-algo
 tags: [字节真题, DPO, 对齐算法]
 minutes: 5

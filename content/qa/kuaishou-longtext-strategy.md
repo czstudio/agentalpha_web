@@ -3,7 +3,7 @@ slug: kuaishou-longtext-strategy
 question: "长文本处理有什么策略？"
 oneLine: "长文本处理先按任务选策略：对话历史做摘要，文档用检索，代码按需重取；再用截断滑窗保留近期信息，必要时让长上下文模型处理真正需要全文的任务。"
 category: jingchang
-company: kuaishou, xiaohongshu
+company: kuaishou, xiaohongshu, didi, moonshot, openai
 track: agent-dev
 tags: [长文本, 上下文管理, Agent]
 minutes: 5

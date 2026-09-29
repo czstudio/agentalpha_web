@@ -3,7 +3,7 @@ slug: meituan-tracking-frontier
 question: "你们是怎么跟进最新大模型技术的？"
 oneLine: "我们按论文、开源仓库和技术社区分级跟进，每周固定时间筛选信息；优先看与业务相关的内容，值得深入的再做笔记和复现，避免什么都追。"
 category: jingchang
-company: meituan
+company: meituan, openai
 track: agent-dev
 tags: [美团真题, 大模型技术, 技术跟进]
 minutes: 5

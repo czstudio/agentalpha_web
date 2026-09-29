@@ -3,7 +3,7 @@ slug: tencent100-atomic-index-switch
 question: "知识库高频更新，怎么做到增量索引、原子切换和不停服？"
 oneLine: "用变更事件驱动文档级增量更新，先删旧 chunk 再写新 chunk；用双索引和别名一次切换，旧索引持续服务，缓存按版本隔离。"
 category: jingchang
-company: tencent, meituan
+company: tencent, meituan, didi
 track: ai-app
 tags: [腾讯真题, 增量索引, 原子切换]
 minutes: 5
