@@ -1,131 +1,13 @@
 import type { Metadata } from "next"
 import Link from "next/link"
-import { readFileSync } from "fs"
-import { join } from "path"
 import { ArrowLeft, ArrowUpRight } from "lucide-react"
 import { Navigation } from "@/components/navigation"
-import { LearnToc } from "./learn-toc"
-
-/** 社区内训会议的公开回放（来自训练营课程文档） */
-const REPLAYS: { title: string; desc: string; href: string }[] = [
-  {
-    title: "课程介绍会回放",
-    desc: "十个阶段逐一说明：RAG、Memory、单 / 多 Agent、Deep-Research、Code Agent、自进化 Agent、Agentic RL。",
-    href: "https://meeting.tencent.com/crm/2G4ZrQVAd0",
-  },
-  {
-    title: "答疑会回放",
-    desc: "技术学习路线、职业发展方向与当前市场供需关系的讨论。",
-    href: "https://meeting.tencent.com/crm/KwBp84aQ74",
-  },
-  {
-    title: "一对一辅导示例回放",
-    desc: "强化学习与深度学习的理论与实践串讲。",
-    href: "https://meeting.tencent.com/crm/N8XDyErX4b",
-  },
-]
-
-/** 学完能达到的水平（来自训练营课程文档） */
-const OUTCOMES: { name: string; desc: string }[] = [
-  {
-    name: "技术能力",
-    desc: "能独立设计、实现、优化完整的 Agent 系统：从单 Agent 到多智能体协作，再到深度搜索与代码 Agent。",
-  },
-  {
-    name: "面试竞争力",
-    desc: "实习和校招同学，学完达到互联网大厂 LLM Agent 工程师的面试要求，有可展示的项目成果。",
-  },
-  {
-    name: "职业竞争力",
-    desc: "社招转大模型的同学，学完达到一到两年经验的大模型工程师水平，能直接参与核心项目。",
-  },
-]
-
-/** 课程特色（来自训练营课程文档） */
-const FEATURES: { name: string; desc: string }[] = [
-  {
-    name: "从跑通示例到解决实际问题",
-    desc: "不是只跑通 AutoGen 官方示例，而是用阶段式任务逐步构建能解决真实问题的 Agent 系统。",
-  },
-  {
-    name: "每阶段做深度对比分析",
-    desc: "每个阶段都要求做性能对比，例如 ReAct 与 Reflection、仓库复用与从零生成，训练工程判断。",
-  },
-  {
-    name: "前沿方向全覆盖",
-    desc: "Agentic Search、DeepSearch、Code Agent、自进化编码、Agentic RL 都在路线内。",
-  },
-]
-
-const FIT_YES: string[] = [
-  "想进入大模型 / Agent 领域，但不知从何入手的开发者",
-  "想增加简历项目含量、准备大厂面试的求职者",
-  "非科班但对大模型有兴趣，需要系统指导的学习者",
-  "自学遇到瓶颈，需要实战指导与项目驱动的学习者",
-]
-
-const FIT_NO: string[] = [
-  "只想看课、不打算动手做项目的人：训练营的产出都来自动手，只看课跟不上节奏",
-  "追求速成承诺、近期没有时间投入的人：能力成长需要周期，这里不提供短期保证",
-]
-
-/** 学员结果速览：每行都对应本页下方或社区文档中的截图与反馈 */
-const BRIEF: { bg: string; via: string; result: string }[] = [
-  { bg: "双非本科", via: "社区学习，3 段内推实习，补 5 个项目（GitHub 1,300 星），参与顶会论文", result: "3 个中厂 offer，入职杭州初创 64k" },
-  { bg: "985 硕", via: "主攻 Memory 方向，多模态 memory 顶会论文", result: "Qwen memory offer（另有百度文心、微信 offer）" },
-  { bg: "专科 · 8 年后端", via: "参与 Idea2Paper 项目后转行 Agent 开发", result: "56w offer，公司准备上市" },
-  { bg: "双非本 211 硕", via: "多对一陪跑，拿到多家大厂实习", result: "入职美团，NeurIPS 合作论文（二作）" },
-  { bg: "大厂在职", via: "用 Agent Memory 项目做述职", result: "获大领导认可与年终激励" },
-  { bg: "社招学员", via: "学习两个月", result: "除 DeepSeek、Seed 外，头部大厂 offer 基本拿了一遍" },
-  { bg: "211 本", via: "科研训练与论文合作", result: "5 个 985 直博 offer" },
-  { bg: "大二 · 零基础", via: "一对一辅导 5 个月", result: "完成论文并投出 ICASSP 2026" },
-]
-
-/** 学员去向（依据本页录用截图与学员反馈；logo 为 simple-icons 单色图形） */
-const ORGS: { svg?: string; label?: string; text?: string }[] = [
-  { svg: "bytedance", label: "字节 Seed" },
-  { svg: "tencent", label: "腾讯" },
-  { svg: "alibaba", label: "阿里 Qwen" },
-  { svg: "baidu", label: "百度" },
-  { svg: "ant", label: "蚂蚁 Plan A" },
-  { svg: "huawei", label: "华为" },
-  { svg: "meituan", label: "美团" },
-  { svg: "moonshot", label: "Kimi" },
-  { svg: "deepseek", label: "DeepSeek" },
-  { text: "京东 TGT" },
-]
-
-function orgSvg(name: string): string {
-  return readFileSync(join(process.cwd(), "public/images/learn/logos", `${name}.svg`), "utf8")
-}
 
 export const metadata: Metadata = {
   title: "大模型 Agent 训练营 · AgentAlpha",
   description:
     "项目驱动、导师带教、实战落地：五个可核验的自研项目、三层课程体系与十阶段实战路线、带教服务实录，大厂 offer 与顶会录用结果墙。资料研习、项目实战、深度陪跑三种参与方式，完整介绍见社区文档。",
   alternates: { canonical: "/learn" },
-  openGraph: {
-    type: "website",
-    url: "/learn",
-    siteName: "AgentAlpha",
-    title: "大模型 Agent 训练营 · AgentAlpha",
-    description:
-      "五个可核验的自研项目、十阶段实战路线、大厂 offer 与顶会录用结果墙。项目驱动、导师带教、实战落地。",
-    images: [
-      {
-        url: "/ai-agent-network-visualization-with-nodes-and-conn.jpg",
-        width: 1024,
-        height: 1024,
-        alt: "AgentAlpha 大模型 Agent 训练营",
-      },
-    ],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "大模型 Agent 训练营 · AgentAlpha",
-    description: "五个可核验的自研项目、十阶段实战路线、真实结果墙。",
-    images: ["/ai-agent-network-visualization-with-nodes-and-conn.jpg"],
-  },
 }
 
 /** 社区完整介绍文档（定位、项目战绩、导师、学员结果、参与方式都在这里） */
@@ -166,11 +48,10 @@ const PROJECTS: {
       { label: "GitHub 仓库", href: "https://github.com/AgentAlphaAGI/Idea2Paper" },
       { label: "官网 paperbuild.cn", href: "https://paperbuild.cn" },
       { label: "技术报告 arXiv:2601.20833", href: "https://arxiv.org/abs/2601.20833" },
-      { label: "Hugging Face 项目页", href: "https://huggingface.co/papers/2603.27065" },
     ],
     shots: [
       {
-        src: "idea2paper-site.webp",
+        src: "idea2paper-site.jpg",
         w: 1294,
         h: 767,
         alt: "Idea2Paper 官网 paperbuild.cn 首页截图",
@@ -179,10 +60,10 @@ const PROJECTS: {
     ],
     strip: {
       srcs: [
-        { src: "paper-gen-1.webp", w: 560, h: 1252, alt: "Idea2Paper 自动生成的论文第 1 页" },
-        { src: "paper-gen-2.webp", w: 560, h: 1252, alt: "Idea2Paper 自动生成的论文协议章节" },
-        { src: "paper-gen-3.webp", w: 560, h: 1252, alt: "Idea2Paper 自动生成的论文金融 XBRL 章节" },
-        { src: "paper-gen-4.webp", w: 560, h: 1252, alt: "Idea2Paper 自动生成的论文模型架构章节" },
+        { src: "paper-gen-1.jpg", w: 560, h: 1252, alt: "Idea2Paper 自动生成的论文第 1 页" },
+        { src: "paper-gen-2.jpg", w: 560, h: 1252, alt: "Idea2Paper 自动生成的论文协议章节" },
+        { src: "paper-gen-3.jpg", w: 560, h: 1252, alt: "Idea2Paper 自动生成的论文金融 XBRL 章节" },
+        { src: "paper-gen-4.jpg", w: 560, h: 1252, alt: "Idea2Paper 自动生成的论文模型架构章节" },
       ],
       cap: "Agent 自动生成的论文示例（四篇不同课题的成稿页面，滚动查看全文）",
     },
@@ -190,14 +71,14 @@ const PROJECTS: {
       label: "第三方报道与内测实况",
       srcs: [
         {
-          src: "idea2paper-media.webp",
+          src: "idea2paper-media.jpg",
           w: 807,
           h: 961,
           alt: "第三方公众号文章《从一个灵感，到一篇论文：Idea2Paper 介绍与上手指南》封面",
           cap: "第三方公众号文章《从一个灵感，到一篇论文》（144 人关注）",
         },
         {
-          src: "chat-idea2paper-beta.webp",
+          src: "chat-idea2paper-beta.jpg",
           w: 720,
           h: 1610,
           alt: "Idea2Paper 产品内测群聊天截图",
@@ -214,13 +95,11 @@ const PROJECTS: {
       "GitHub 7,800+ stars、1,500+ forks，npm 下载 3.6 万+",
       "kimi 首批开源合作伙伴",
       "150+ 部作品签约番茄、七猫，头部作者月入 3-5 万",
-      "兼职作者稳定月增收 5,000+ 元，每章模型调用成本约 0.2 元",
-      "InkOS 1.6.0 引入互动影游、剧本与分镜工作台，以及可插拔 Skill 系统",
     ],
     links: [{ label: "GitHub 仓库", href: "https://github.com/Narcooo/inkos" }],
     shots: [
       {
-        src: "inkos-github.webp",
+        src: "inkos-github.jpg",
         w: 1400,
         h: 794,
         alt: "InkOS 的 GitHub 仓库页面截图",
@@ -229,8 +108,8 @@ const PROJECTS: {
     ],
     strip: {
       srcs: [
-        { src: "inkos-readers.webp", w: 555, h: 332, alt: "InkOS 作品在读人数 40,115 的后台截图" },
-        { src: "inkos-fanqie.webp", w: 1260, h: 921, alt: "InkOS 作品在番茄小说的平台数据截图" },
+        { src: "inkos-readers.jpg", w: 555, h: 332, alt: "InkOS 作品在读人数 40,115 的后台截图" },
+        { src: "inkos-fanqie.jpg", w: 1260, h: 921, alt: "InkOS 作品在番茄小说的平台数据截图" },
       ],
       cap: "平台公开数据：在读人数 4 万+；番茄连载中，男频传统玄幻新书榜第 24 名",
     },
@@ -238,56 +117,56 @@ const PROJECTS: {
       label: "第三方报道 · 用户与作者反馈",
       srcs: [
         {
-          src: "inkos-media.webp",
+          src: "inkos-media.jpg",
           w: 719,
           h: 964,
           alt: "第三方技术社区关于 InkOS 的推文",
           cap: "第三方推文：InkOS 五智能体流水线与工程约束解析",
         },
         {
-          src: "inkos-card.webp",
+          src: "inkos-card.jpg",
           w: 976,
           h: 803,
           alt: "InkOS 项目信息卡片：GitHub stars 与 npm 下载量",
           cap: "项目卡片：GitHub 7,800+ stars、npm 下载 3.6 万+",
         },
         {
-          src: "chat-inkos-sign.webp",
+          src: "chat-inkos-sign.jpg",
           w: 720,
           h: 700,
           alt: "作者群聊天截图：作品审核通过并签约",
           cap: "作者群实录：作品审核通过、正式签约",
         },
         {
-          src: "chat-inkos-income.webp",
+          src: "chat-inkos-income.jpg",
           w: 720,
           h: 552,
           alt: "作者群聊天截图：讨论稳定收入",
           cap: "作者群实录：讨论稳定收入与延伸玩法",
         },
         {
-          src: "chat-inkos-flavor.webp",
+          src: "chat-inkos-flavor.jpg",
           w: 720,
           h: 227,
           alt: "读者聊天截图：从第 6 章开始就没 AI 味了",
           cap: "读者反馈：「调教好从 6 章开始，就没 AI 味了」",
         },
         {
-          src: "chat-inkos-quality.webp",
+          src: "chat-inkos-quality.jpg",
           w: 720,
           h: 230,
           alt: "读者聊天截图：起码 InkOS 出的比我自己写要好",
           cap: "读者反馈：「起码 InkOS 出的，比我自己写要好」",
         },
         {
-          src: "chat-inkos-author.webp",
+          src: "chat-inkos-author.jpg",
           w: 720,
           h: 595,
           alt: "作者聊天截图：用 InkOS 写作发布到平台赚钱",
           cap: "作者反馈：用 InkOS 完成作品并发布到平台",
         },
         {
-          src: "chat-inkos-arch.webp",
+          src: "chat-inkos-arch.jpg",
           w: 720,
           h: 167,
           alt: "社区成员评价 InkOS 产品架构",
@@ -303,13 +182,12 @@ const PROJECTS: {
     points: [
       "3 人团队 20 天上线，30 天用户破万",
       "帮卖家创造营收 300 万-350 万",
-      "技术链路：商品链接解析 → 多视角图片提取与九宫格参考图（解决 AI 货不对版）→ Gemini 拆解爆款脚本 → 生成合规短视频",
       "成员由此掌握工程、产品、运营变现全流程",
     ],
     links: [{ label: "访问产品官网 qiantingai.com", href: "https://qiantingai.com" }],
     shots: [
       {
-        src: "qianting-site.webp",
+        src: "qianting-site.jpg",
         w: 1400,
         h: 721,
         alt: "潜艇 AI 官网首页截图，展示一站式带货视频解决方案",
@@ -320,7 +198,7 @@ const PROJECTS: {
   {
     name: "SellAI Pro · 跨境电商 AI 运营中枢",
     kicker: "ENTERPRISE · 企业定制",
-    desc: "企业定制电商项目：把选品判断、竞品雷达、Listing 转化、货源与利润、AI 经营对话、风险门禁六个板块，做成可判断、可迭代的经营系统。",
+    desc: "企业定制电商项目：把选品、竞品、Listing、货源与利润、风险门禁，变成可判断、可迭代的经营系统。",
     points: [
       "10 大核心功能矩阵，覆盖机会发现到运营复盘",
       "Goal 执行中心 + 多 Agent 协作",
@@ -329,28 +207,28 @@ const PROJECTS: {
     links: [{ label: "访问产品官网", href: "https://sellaipro.fly.dev/" }],
     shots: [
       {
-        src: "sellai-hero.webp",
+        src: "sellai-hero.jpg",
         w: 1400,
         h: 652,
         alt: "SellAI Pro 平台首页截图，展示高端跨境卖家 AI 运营中枢",
         cap: "平台首页：今日运营判断 + 机会、ASIN 池、毛利、风险分区",
       },
       {
-        src: "sellai-features.webp",
+        src: "sellai-features.jpg",
         w: 1400,
         h: 604,
         alt: "SellAI Pro 十大核心功能矩阵截图",
         cap: "10 大核心功能矩阵，可独立使用，也可被 Goal 自动调用",
       },
       {
-        src: "sellai-cockpit.webp",
+        src: "sellai-cockpit.jpg",
         w: 1280,
         h: 797,
         alt: "SellAI Pro 实战舱界面截图",
         cap: "实战舱：今日商机、项目任务与项目助手分区",
       },
       {
-        src: "sellai-arch.webp",
+        src: "sellai-arch.jpg",
         w: 1400,
         h: 534,
         alt: "SellAI Pro 决策架构图：先判断战场，再调度数字员工",
@@ -367,14 +245,14 @@ const PROJECTS: {
     links: [{ label: "访问 API 站点", href: "https://kkaiapi.com" }],
     shots: [
       {
-        src: "huohua-home.webp",
+        src: "huohua-home.jpg",
         w: 1400,
         h: 853,
         alt: "火花数据 API 官网首页截图",
         cap: "给 Agent 的专业数据 API 和模型调用服务",
       },
       {
-        src: "huohua-databases.webp",
+        src: "huohua-databases.jpg",
         w: 1400,
         h: 817,
         alt: "火花数据 13 个专业数据库列表截图",
@@ -395,7 +273,7 @@ const COURSES: { name: string; tag: string; desc: string; href: string }[] = [
   {
     name: "大模型入门到入行",
     tag: "入门级",
-    desc: "两个月掌握 LLM：从原理到工程，面向转岗与就业的第一门主线课。",
+    desc: "两个月搞定 LLM：从原理到工程，面向转岗与就业的第一门主线课。",
     href: "https://agentalpha.feishu.cn/docx/VjP3djEdCoJgjtxTLAPcmm1Lntc",
   },
   {
@@ -453,7 +331,7 @@ const STAGES: { no: string; name: string; focus: string; out: string }[] = [
   {
     no: "05",
     name: "DeepSearch 路线",
-    focus: "推理中检索（动态触发搜索）、文档内推理（RiD）、复现最小可运行的 Search-o1 流程。",
+    focus: "推理中检索（动态触发搜索）、文档内推理（RiD）、复现最小 Search-o1 闭环。",
     out: "「思考 → 搜索 → 整合」报告，与纯 RAG 从答案质量、引用准确性、推理链完整性做对照",
   },
   {
@@ -471,7 +349,7 @@ const STAGES: { no: string; name: string; focus: string; out: string }[] = [
   {
     no: "08",
     name: "AlphaEvolve：自进化编码",
-    focus: "进化循环：生成 → 评估 → 筛选 → 迭代；MAP-Elites 与岛屿模型、并行评估、SE-Agent 轨迹级进化。",
+    focus: "生成 → 评估 → 筛选 → 迭代闭环、MAP-Elites 与岛屿模型、并行评估、SE-Agent 轨迹级进化。",
     out: "在可量化任务上跑通完整自进化流程 + 实验记录（性能曲线、种群演化、失败案例）",
   },
   {
@@ -501,18 +379,18 @@ const SERVICE: { name: string; desc: string }[] = [
 
 /** 辅导过程实录（来自训练营课程文档的真实记录） */
 const SERVICE_WALL: { src: string; w: number; h: number; cap: string }[] = [
-  { src: "teach-1v1-meeting.webp", w: 1200, h: 726, cap: "一对一辅导会议：强化学习与深度学习理论串讲" },
-  { src: "teach-rag-qa.webp", w: 1000, h: 489, cap: "RAG 答疑：检索效果优化、参数调优与多语言处理" },
-  { src: "teach-ama-memory.webp", w: 1000, h: 541, cap: "AMA：Agent Memory 分层架构与技术趋势" },
-  { src: "teach-live-notice.webp", w: 720, h: 1197, cap: "周日直播项目课：项目介绍与现场答疑" },
-  { src: "teach-mem-week.webp", w: 720, h: 1028, cap: "课程群：本周 Memory 项目安排与高频面试题" },
-  { src: "chat-gcn-baseline.webp", w: 647, h: 561, cap: "正在辅导的例子：学员魔改方法追上基线后的讨论" },
-  { src: "teach-weekly-report.webp", w: 1000, h: 859, cap: "学员学习周报：逐日记录进展、收获与问题" },
-  { src: "teach-exp-report.webp", w: 1200, h: 992, cap: "学员实验进度报告：多方案指标对比" },
-  { src: "teach-effibench.webp", w: 1200, h: 447, cap: "EffiBench 实验复现结果表：与论文逐项对比" },
-  { src: "teach-au-lesson.webp", w: 1200, h: 1040, cap: "海外导师辅导课：怎么读论文" },
+  { src: "teach-1v1-meeting.jpg", w: 1200, h: 726, cap: "一对一辅导会议：强化学习与深度学习理论串讲" },
+  { src: "teach-rag-qa.jpg", w: 1000, h: 489, cap: "RAG 答疑：检索效果优化、参数调优与多语言处理" },
+  { src: "teach-ama-memory.jpg", w: 1000, h: 541, cap: "AMA：Agent Memory 分层架构与技术趋势" },
+  { src: "teach-live-notice.jpg", w: 720, h: 1197, cap: "周日直播项目课：项目介绍与现场答疑" },
+  { src: "teach-mem-week.jpg", w: 720, h: 1028, cap: "课程群：本周 Memory 项目安排与高频面试题" },
+  { src: "chat-gcn-baseline.jpg", w: 647, h: 561, cap: "正在辅导的例子：学员魔改方法追上基线后的讨论" },
+  { src: "teach-weekly-report.jpg", w: 1000, h: 859, cap: "学员学习周报：逐日记录进展、收获与问题" },
+  { src: "teach-exp-report.jpg", w: 1200, h: 992, cap: "学员实验进度报告：多方案指标对比" },
+  { src: "teach-effibench.jpg", w: 1200, h: 447, cap: "EffiBench 实验复现结果表：与论文逐项对比" },
+  { src: "teach-au-lesson.jpg", w: 1200, h: 1040, cap: "海外导师辅导课：怎么读论文" },
   {
-    src: "paper-mentor-table.webp",
+    src: "paper-mentor-table.jpg",
     w: 1092,
     h: 702,
     cap: "两年论文辅导课题记录（已匿名）：学员以合作作者参与期刊与会议论文",
@@ -521,14 +399,14 @@ const SERVICE_WALL: { src: string; w: number; h: number; cap: string }[] = [
 
 const FIGURES: { src: string; w: number; h: number; alt: string; cap: string }[] = [
   {
-    src: "syllabus-llm.webp",
+    src: "syllabus-llm.jpg",
     w: 1400,
     h: 989,
     alt: "AgentAlpha 大模型基础课程大纲图：八个模块与实战安排",
     cap: "大模型基础课大纲：基础知识 → 数据工程 → 分布式训练框架 → 微调 → 推理与部署优化 → 评测与分析 → 应用，每个模块配实战，最后并入训练营现有路线",
   },
   {
-    src: "syllabus-agent.webp",
+    src: "syllabus-agent.jpg",
     w: 1400,
     h: 803,
     alt: "智能体系统开发实战课十个阶段思维导图",
@@ -559,29 +437,8 @@ const MENTORS: { title: string; items: string[] }[] = [
   },
 ]
 
-/** 一对一辅导老师（来自训练营课程文档的详细介绍） */
-const TUTORS: { name: string; tag: string; points: string[] }[] = [
+const PRINCIPLES: { name: string; against: string; insist: string }[] = [
   {
-    name: "Ben 老师",
-    tag: "研究方向 · 产学研",
-    points: [
-      "MIT 博士，985 青年教授",
-      "担任腾讯、OPPO、字节、阿里等大厂 AI lab 产学研项目合作的资深研究科学家，项目资金支持数百万级",
-      "多次获 CVPR、ECCV 等顶会 Workshop Challenge 全球冠军",
-    ],
-  },
-  {
-    name: "Jack 老师",
-    tag: "训练与系统方向",
-    points: [
-      "香港 Top 3 博士后研究员，曾赴新加坡国立大学交流访学，有知名科技公司研究经历",
-      "在 ICLR、NeurIPS、ICML、ACL、AAAI、ASPLOS 等国际会议发表论文 80 余篇",
-      "获 NeurIPS Spotlight、Outstanding Student Paper Award；方向：Agentic RL、自进化 Agent、推理加速、联邦学习与分布式训练",
-    ],
-  },
-]
-
-const PRINCIPLES: { name: string; against: string; insist: string }[] = [  {
     name: "实战为王",
     against: "只看课、只跑示例、只记概念。",
     insist: "围绕真实项目拆需求、写代码、做评估、复盘结果。",
@@ -625,31 +482,31 @@ const TRACKS: { name: string; who: string; train: string; outcome: string }[] = 
 ]
 
 const OFFERS: { src: string; w: number; h: number; cap: string }[] = [
-  { src: "offer-tencent.webp", w: 790, h: 725, cap: "腾讯公司录用意向书（已脱敏）" },
-  { src: "offer-bytedance.webp", w: 884, h: 1184, cap: "字节跳动录用通知（大模型安全算法工程师 · Seed）" },
-  { src: "offer-jd-tgt.webp", w: 1400, h: 862, cap: "京东 TGT（Tech Genius Team）意向函（已脱敏）" },
-  { src: "offer-ant.webp", w: 1400, h: 706, cap: "蚂蚁集团 Plan A 意向书（已脱敏）" },
-  { src: "offer-huawei.webp", w: 1200, h: 706, cap: "华为天才少年计划录取通知（已脱敏）" },
-  { src: "offer-collage.webp", w: 900, h: 1200, cap: "腾讯、字节、NeurIPS 等录用与意向结果合集（已脱敏）" },
+  { src: "offer-tencent.jpg", w: 790, h: 725, cap: "腾讯公司录用意向书（已脱敏）" },
+  { src: "offer-bytedance.jpg", w: 884, h: 1184, cap: "字节跳动录用通知（大模型安全算法工程师 · Seed）" },
+  { src: "offer-jd-tgt.jpg", w: 1400, h: 862, cap: "京东 TGT（Tech Genius Team）意向函（已脱敏）" },
+  { src: "offer-ant.jpg", w: 1400, h: 706, cap: "蚂蚁集团 Plan A 意向书（已脱敏）" },
+  { src: "offer-huawei.jpg", w: 1200, h: 706, cap: "华为天才少年计划录取通知（已脱敏）" },
+  { src: "offer-collage.jpg", w: 900, h: 1200, cap: "腾讯、字节、NeurIPS 等录用与意向结果合集（已脱敏）" },
 ]
 
 const PAPER_RESULTS: { src: string; w: number; h: number; cap: string }[] = [
-  { src: "paper-iclr-accept.webp", w: 370, h: 148, cap: "ICLR Decision：Accept (Poster)" },
-  { src: "paper-iclr-review.webp", w: 1179, h: 438, cap: "ICLR 评审结果" },
-  { src: "paper-kdd.webp", w: 680, h: 1226, cap: "KDD 2025 Research Track 录用通知" },
-  { src: "paper-iccv.webp", w: 680, h: 1114, cap: "ICCV 2025 录用通知" },
-  { src: "paper-icml.webp", w: 680, h: 1295, cap: "ICML 2024 录用通知" },
-  { src: "paper-emnlp.webp", w: 876, h: 292, cap: "EMNLP 2025 录用邮件" },
-  { src: "paper-aaai24.webp", w: 850, h: 735, cap: "AAAI-24 录用通知" },
-  { src: "paper-aaai-status.webp", w: 840, h: 836, cap: "AAAI 2024 提交状态：Accept（已打码）" },
-  { src: "paper-aaai-score.webp", w: 893, h: 589, cap: "AAAI 评审分数" },
-  { src: "paper-positive-reviews.webp", w: 1080, h: 2055, cap: "两位审稿人涨分，最终全正分接收" },
-  { src: "paper-neurips.webp", w: 509, h: 729, cap: "NeurIPS 2024 Poster 接收通知" },
-  { src: "paper-ieee-tit.webp", w: 1228, h: 496, cap: "IEEE Transactions on Information Theory 接收通知" },
-  { src: "phd-usc.webp", w: 609, h: 785, cap: "南加州大学计算机科学博士录取与四年资助" },
-  { src: "phd-duke.webp", w: 1229, h: 966, cap: "杜克大学计算机科学博士录取通知" },
-  { src: "phd-hkust.webp", w: 680, h: 955, cap: "香港科技大学入学奖学金通知" },
-  { src: "phd-collage.webp", w: 900, h: 1028, cap: "多校博士录取结果合集（已脱敏）" },
+  { src: "paper-iclr-accept.jpg", w: 370, h: 148, cap: "ICLR Decision：Accept (Poster)" },
+  { src: "paper-iclr-review.jpg", w: 1179, h: 438, cap: "ICLR 评审结果" },
+  { src: "paper-kdd.jpg", w: 680, h: 1226, cap: "KDD 2025 Research Track 录用通知" },
+  { src: "paper-iccv.jpg", w: 680, h: 1114, cap: "ICCV 2025 录用通知" },
+  { src: "paper-icml.jpg", w: 680, h: 1295, cap: "ICML 2024 录用通知" },
+  { src: "paper-emnlp.jpg", w: 876, h: 292, cap: "EMNLP 2025 录用邮件" },
+  { src: "paper-aaai24.jpg", w: 850, h: 735, cap: "AAAI-24 录用通知" },
+  { src: "paper-aaai-status.jpg", w: 840, h: 836, cap: "AAAI 2024 提交状态：Accept（已打码）" },
+  { src: "paper-aaai-score.jpg", w: 893, h: 589, cap: "AAAI 评审分数" },
+  { src: "paper-positive-reviews.jpg", w: 1080, h: 2055, cap: "两位审稿人涨分，最终全正分接收" },
+  { src: "paper-neurips.jpg", w: 509, h: 729, cap: "NeurIPS 2024 Poster 接收通知" },
+  { src: "paper-ieee-tit.jpg", w: 1228, h: 496, cap: "IEEE Transactions on Information Theory 接收通知" },
+  { src: "phd-usc.jpg", w: 609, h: 785, cap: "南加州大学计算机科学博士录取与四年资助" },
+  { src: "phd-duke.jpg", w: 1229, h: 966, cap: "杜克大学计算机科学博士录取通知" },
+  { src: "phd-hkust.jpg", w: 680, h: 955, cap: "香港科技大学入学奖学金通知" },
+  { src: "phd-collage.jpg", w: 900, h: 1028, cap: "多校博士录取结果合集（已脱敏）" },
 ]
 
 const CHAT_FEATURED: { quote: string; tag: string; src: string; w: number; h: number; cap: string }[] = [
@@ -657,7 +514,7 @@ const CHAT_FEATURED: { quote: string; tag: string; src: string; w: number; h: nu
     quote:
       "双非本科，去年在社区学习，内推了三个实习，补了 5 个有含金量的项目（GitHub 1300 星），也参与了顶会论文，拿到 3 个中厂 offer，最后选了杭州一家初创 64k。RAG 项目最有帮助，面试里项目被追问了 30 分钟，面经都没考。",
     tag: "双非本科 · RAG 项目",
-    src: "chat-triple-offer.webp",
+    src: "chat-triple-offer.jpg",
     w: 720,
     h: 1602,
     cap: "学员群聊：实战项目三投三中，深圳一家初创 Agent 岗开了 47k×13",
@@ -666,7 +523,7 @@ const CHAT_FEATURED: { quote: string; tag: string; src: string; w: number; h: nu
     quote:
       "985 学弟，主推 memory 模块，多模态 memory 发了篇顶会，方向对口拿到 Qwen memory offer，此外还有百度文心基模和微信的 offer。",
     tag: "985 硕 · Qwen",
-    src: "chat-qwen.webp",
+    src: "chat-qwen.jpg",
     w: 720,
     h: 1561,
     cap: "学员反馈：经社区内推引荐，拿到 Qwen offer",
@@ -675,7 +532,7 @@ const CHAT_FEATURED: { quote: string; tag: string; src: string; w: number; h: nu
     quote:
       "专科出身、工作 8 年的后端程序员，参与 Idea2Paper 项目后转行 Agent 开发，靠项目拿下 56w offer，现公司准备上市。",
     tag: "转行 Agent · 56w",
-    src: "chat-56w-1.webp",
+    src: "chat-56w-1.jpg",
     w: 720,
     h: 606,
     cap: "学员反馈：因 Idea2Paper 项目经历跳槽升任组长",
@@ -683,7 +540,7 @@ const CHAT_FEATURED: { quote: string; tag: string; src: string; w: number; h: nu
   {
     quote: "211 学弟在社区参与科研训练与论文合作，申请季拿到 5 个 985 直博 offer，最终进入意向导师的实验室。",
     tag: "211 本 · 5 个 985 直博",
-    src: "phd-985-offers.webp",
+    src: "phd-985-offers.jpg",
     w: 900,
     h: 2000,
     cap: "学员报喜聊天（已打码）：拿到多个直博 offer 后向导师报喜",
@@ -691,7 +548,7 @@ const CHAT_FEATURED: { quote: string; tag: string; src: string; w: number; h: nu
   {
     quote: "大二学弟，Python 和深度学习零基础起步，一对一辅导 5 个月完成第一篇论文，投出 ICASSP 2026。",
     tag: "大二 · ICASSP 2026",
-    src: "chat-icassp.webp",
+    src: "chat-icassp.jpg",
     w: 720,
     h: 1600,
     cap: "论文辅导群实录：从零基础到论文成稿（辅导记录）",
@@ -699,7 +556,7 @@ const CHAT_FEATURED: { quote: string; tag: string; src: string; w: number; h: nu
   {
     quote: "硕士学员参与 NeurIPS 合作论文后，获导师推荐赴香港大学读博。",
     tag: "NeurIPS 合作 · 港大读博",
-    src: "chat-hkust-rec.webp",
+    src: "chat-hkust-rec.jpg",
     w: 720,
     h: 980,
     cap: "顶会论文合作后获推荐读博（聊天已打码）",
@@ -707,10 +564,10 @@ const CHAT_FEATURED: { quote: string; tag: string; src: string; w: number; h: nu
 ]
 
 const CHAT_MORE: { src: string; w: number; h: number; cap: string }[] = [
-  { src: "chat-meituan-nips.webp", w: 720, h: 1609, cap: "双非本 211 硕：拿到多家大厂实习后选择美团，参与 NeurIPS 合作论文（二作）" },
-  { src: "chat-memory-review.webp", w: 720, h: 1429, cap: "大厂在职学员：靠 Agent Memory 项目述职获大领导认可，拿到年终大礼包" },
-  { src: "chat-two-months.webp", w: 720, h: 1468, cap: "学习两个月：除 DeepSeek、Seed 外，头部大厂 offer 基本拿了一遍" },
-  { src: "chat-56w-2.webp", w: 720, h: 1230, cap: "Idea2Paper 技术组群聊：学员所在公司产品准备上市" },
+  { src: "chat-meituan-nips.jpg", w: 720, h: 1609, cap: "双非本 211 硕：拿到多家大厂实习后选择美团，参与 NeurIPS 合作论文（二作）" },
+  { src: "chat-memory-review.jpg", w: 720, h: 1429, cap: "大厂在职学员：靠 Agent Memory 项目述职获大领导认可，拿到年终大礼包" },
+  { src: "chat-two-months.jpg", w: 720, h: 1468, cap: "学习两个月：除 DeepSeek、Seed 外，头部大厂 offer 基本拿了一遍" },
+  { src: "chat-56w-2.jpg", w: 720, h: 1230, cap: "Idea2Paper 技术组群聊：学员所在公司产品准备上市" },
 ]
 
 const PARTICIPATION: { level: string; who: string; support: string }[] = [
@@ -756,10 +613,6 @@ const FAQ: { q: string; a: string }[] = [
     q: "上面的成果可以核验吗？",
     a: "可以。五个代表项目都给出 GitHub / 官网链接，两个自研项目在 Hugging Face 与 npm 上有公开记录；offer 与论文录用截图已脱敏，扫码可进社区进一步了解。",
   },
-  {
-    q: "和市面上其他大模型课程的区别是什么？",
-    a: "三点。项目可核验：五个代表项目都有公开链接和第三方平台记录，不是虚构的案例名。产学研一体：导师同时来自产业界和学术界，课程、项目、论文共用一条主线。结果可查：offer、论文录用、博士录取的截图都放在本页，社区文档全程公开。",
-  },
 ]
 
 const CTA_ASKS: { k: string; v: string }[] = [
@@ -773,7 +626,6 @@ export default function LearnIndexPage() {
   return (
     <>
       <Navigation />
-      <LearnToc />
       <main className="aa-notes learn-home">
         <article className="aa-notes-shell learn-home-shell">
           <nav className="aa-note-breadcrumb">
@@ -793,16 +645,8 @@ export default function LearnIndexPage() {
               <a className="aa-btn-primary" href={COMMUNITY_DOC_URL} target="_blank" rel="noopener noreferrer">
                 查看社区完整介绍 <ArrowUpRight aria-hidden />
               </a>
-              <a
-                className="aa-btn-ghost"
-                href="https://meeting.tencent.com/crm/2G4ZrQVAd0"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                先看课程介绍会回放
-              </a>
               <Link className="aa-btn-ghost" href="/learn/claude-code">
-                逛公开教程
+                先逛公开教程
               </Link>
             </div>
             <ul className="learn-home-stats">
@@ -818,7 +662,7 @@ export default function LearnIndexPage() {
           <section id="projects" className="learn-home-block">
             <div className="aa-section-head">
               <div className="aa-section-head-main">
-                <p className="aa-kicker">01 · REPRESENTATIVE PROJECTS</p>
+                <p className="aa-kicker">REPRESENTATIVE PROJECTS</p>
                 <h2>五个代表项目，链接全部可核验</h2>
                 <p className="aa-section-desc">
                   训练营的实战载体：自研四大学术核心成果加企业定制项目，技术研发、项目实战、人才培养都围绕它们展开。
@@ -835,7 +679,7 @@ export default function LearnIndexPage() {
                   <div className="learn-proj-shots">
                     {proj.shots.map((shot) => (
                       <figure key={shot.src} className="learn-shot">
-                        <img src={IMG + shot.src} alt={shot.alt} width={shot.w} height={shot.h} loading="lazy" decoding="async" />
+                        <img src={IMG + shot.src} alt={shot.alt} width={shot.w} height={shot.h} loading="lazy" />
                         {shot.cap ? <figcaption>{shot.cap}</figcaption> : null}
                       </figure>
                     ))}
@@ -860,7 +704,7 @@ export default function LearnIndexPage() {
                       <div className="learn-proj-strip">
                         <div className={proj.strip.srcs.length > 2 ? "learn-strip learn-strip--tall" : "learn-strip"}>
                           {proj.strip.srcs.map((s) => (
-                            <img key={s.src} src={IMG + s.src} alt={s.alt} width={s.w} height={s.h} loading="lazy" decoding="async" />
+                            <img key={s.src} src={IMG + s.src} alt={s.alt} width={s.w} height={s.h} loading="lazy" />
                           ))}
                         </div>
                         <p className="learn-strip-cap">{proj.strip.cap}</p>
@@ -872,7 +716,7 @@ export default function LearnIndexPage() {
                         <div className="learn-mini-wall">
                           {proj.mini.srcs.map((s) => (
                             <figure key={s.src} className="learn-wall-item">
-                              <img src={IMG + s.src} alt={s.alt} width={s.w} height={s.h} loading="lazy" decoding="async" />
+                              <img src={IMG + s.src} alt={s.alt} width={s.w} height={s.h} loading="lazy" />
                               <figcaption>{s.cap}</figcaption>
                             </figure>
                           ))}
@@ -888,7 +732,7 @@ export default function LearnIndexPage() {
           <section id="courses" className="learn-home-block">
             <div className="aa-section-head">
               <div className="aa-section-head-main">
-                <p className="aa-kicker">02 · COURSES</p>
+                <p className="aa-kicker">COURSES</p>
                 <h2>三层课程体系 + 十阶段 Agent 系列课</h2>
                 <p className="aa-section-desc">
                   课程体系 + 实战训练营 + 项目定制三大板块：基础课打底，大模型专项课分层到入门 / 论文 / offer 三级，Agent
@@ -918,7 +762,7 @@ export default function LearnIndexPage() {
             <div className="learn-figures">
               {FIGURES.map((fig) => (
                 <figure key={fig.src} className="learn-fig">
-                  <img src={IMG + fig.src} alt={fig.alt} width={fig.w} height={fig.h} loading="lazy" decoding="async" />
+                  <img src={IMG + fig.src} alt={fig.alt} width={fig.w} height={fig.h} loading="lazy" />
                   <figcaption>{fig.cap}</figcaption>
                 </figure>
               ))}
@@ -926,7 +770,7 @@ export default function LearnIndexPage() {
 
             <h3 className="learn-sub">Agent 系列课 · 十阶段实战路线</h3>
             <p className="aa-section-desc learn-stages-intro">
-              每个阶段都按「掌握内容 → 实践任务 → 阶段考核 → 实战产出」推进：先跑通经典范式，再做对比分析，最后留下能写进简历的项目。
+              每个阶段都是「掌握内容 → 实践任务 → 阶段考核 → 实战产出」的完整闭环：先跑通经典范式，再对比深度分析，最后留下能写进简历的项目。
             </p>
             <div className="learn-stages">
               {STAGES.map((s) => (
@@ -940,33 +784,12 @@ export default function LearnIndexPage() {
                 </div>
               ))}
             </div>
-
-            <h3 className="learn-sub">学完能达到的水平</h3>
-            <div className="learn-svc learn-svc--3">
-              {OUTCOMES.map((o) => (
-                <div key={o.name} className="learn-svc-card">
-                  <h3>{o.name}</h3>
-                  <p>{o.desc}</p>
-                </div>
-              ))}
-            </div>
-
-            <h3 className="learn-sub">介绍会与答疑会回放</h3>
-            <div className="learn-replays">
-              {REPLAYS.map((r) => (
-                <a key={r.href} className="learn-replay" href={r.href} target="_blank" rel="noopener noreferrer">
-                  <strong>{r.title}</strong>
-                  <span>{r.desc}</span>
-                  <em>腾讯会议回放 ↗</em>
-                </a>
-              ))}
-            </div>
           </section>
 
           <section id="service" className="learn-home-block">
             <div className="aa-section-head">
               <div className="aa-section-head-main">
-                <p className="aa-kicker">03 · SERVICE</p>
+                <p className="aa-kicker">SERVICE</p>
                 <h2>带教服务与课程形式</h2>
                 <p className="aa-section-desc">
                   训练营不是看课自习：直播带做、每周答疑、周报考核、内推与论文辅导都写在流程里。下面是服务内容与真实的辅导过程记录。
@@ -985,55 +808,17 @@ export default function LearnIndexPage() {
             <div className="learn-wall">
               {SERVICE_WALL.map((o) => (
                 <figure key={o.src} className="learn-wall-item">
-                  <a href={IMG + o.src} target="_blank" rel="noopener noreferrer" title="点击查看原图">
-                    <img src={IMG + o.src} alt={o.cap} width={o.w} height={o.h} loading="lazy" decoding="async" />
-                  </a>
+                  <img src={IMG + o.src} alt={o.cap} width={o.w} height={o.h} loading="lazy" />
                   <figcaption>{o.cap}</figcaption>
                 </figure>
               ))}
             </div>
           </section>
 
-          <section id="fit" className="learn-home-block">
-            <div className="aa-section-head">
-              <div className="aa-section-head-main">
-                <p className="aa-kicker">04 · WHO IT'S FOR</p>
-                <h2>课程特色与适合谁</h2>
-                <p className="aa-section-desc">先说清楚训练营怎么教，再说清楚谁适合来、谁不适合来。</p>
-              </div>
-            </div>
-            <div className="learn-svc learn-svc--3 learn-fit-features">
-              {FEATURES.map((f) => (
-                <div key={f.name} className="learn-svc-card">
-                  <h3>{f.name}</h3>
-                  <p>{f.desc}</p>
-                </div>
-              ))}
-            </div>
-            <div className="learn-fit">
-              <div className="learn-fit-col">
-                <h3>适合谁</h3>
-                <ul>
-                  {FIT_YES.map((t) => (
-                    <li key={t}>{t}</li>
-                  ))}
-                </ul>
-              </div>
-              <div className="learn-fit-col learn-fit-col--no">
-                <h3>暂不适合谁</h3>
-                <ul>
-                  {FIT_NO.map((t) => (
-                    <li key={t}>{t}</li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-          </section>
-
           <section id="mentors" className="learn-home-block">
             <div className="aa-section-head">
               <div className="aa-section-head-main">
-                <p className="aa-kicker">05 · MENTORS</p>
+                <p className="aa-kicker">MENTORS</p>
                 <h2>导师与社区成员</h2>
                 <p className="aa-section-desc">产学研三方都在一线做项目：研究问题、工程难点和真实场景放在同一个训练场里。</p>
               </div>
@@ -1050,27 +835,12 @@ export default function LearnIndexPage() {
                 </div>
               ))}
             </div>
-
-            <h3 className="learn-sub">一对一辅导老师</h3>
-            <div className="learn-svc learn-svc--2">
-              {TUTORS.map((t) => (
-                <div key={t.name} className="learn-svc-card learn-tutor">
-                  <h3>{t.name}</h3>
-                  <span className="learn-tutor-tag">{t.tag}</span>
-                  <ul>
-                    {t.points.map((p) => (
-                      <li key={p}>{p}</li>
-                    ))}
-                  </ul>
-                </div>
-              ))}
-            </div>
           </section>
 
           <section id="method" className="learn-home-block">
             <div className="aa-section-head">
               <div className="aa-section-head-main">
-                <p className="aa-kicker">06 · PRINCIPLES</p>
+                <p className="aa-kicker">PRINCIPLES</p>
                 <h2>训练营的方法</h2>
               </div>
             </div>
@@ -1094,7 +864,7 @@ export default function LearnIndexPage() {
           <section id="tracks" className="learn-home-block">
             <div className="aa-section-head">
               <div className="aa-section-head-main">
-                <p className="aa-kicker">07 · TRACKS</p>
+                <p className="aa-kicker">TRACKS</p>
                 <h2>三类成长方向</h2>
                 <p className="aa-section-desc">不同人的目标不一样，但训练底层相通：围绕真实 Agent 项目，形成可展示、可解释、可迁移的能力。</p>
               </div>
@@ -1119,57 +889,17 @@ export default function LearnIndexPage() {
           <section id="results" className="learn-home-block">
             <div className="aa-section-head">
               <div className="aa-section-head-main">
-                <p className="aa-kicker">08 · RESULTS</p>
+                <p className="aa-kicker">RESULTS</p>
                 <h2>真实结果与学员案例</h2>
                 <p className="aa-section-desc">以下截图均已脱敏，来自社区学员的真实结果；每个项目本身也有公开链接可查。</p>
               </div>
-            </div>
-
-            <h3 className="learn-sub">学员结果速览</h3>
-            <div className="learn-brief-wrap">
-              <table className="learn-brief">
-                <thead>
-                  <tr>
-                    <th>背景</th>
-                    <th>经过</th>
-                    <th>结果</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {BRIEF.map((row) => (
-                    <tr key={row.bg}>
-                      <td>{row.bg}</td>
-                      <td>{row.via}</td>
-                      <td>{row.result}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-
-            <h3 className="learn-sub">学员去向</h3>
-            <div className="learn-orgs" aria-label="学员去向">
-              {ORGS.map((o) =>
-                o.text ? (
-                  <span key={o.text} className="learn-org learn-org--text">
-                    {o.text}
-                  </span>
-                ) : (
-                  <span key={o.label} className="learn-org">
-                    <span aria-hidden dangerouslySetInnerHTML={{ __html: orgSvg(o.svg!) }} />
-                    <span>{o.label}</span>
-                  </span>
-                ),
-              )}
             </div>
 
             <h3 className="learn-sub">大厂 Offer 与录用结果</h3>
             <div className="learn-wall">
               {OFFERS.map((o) => (
                 <figure key={o.src} className="learn-wall-item">
-                  <a href={IMG + o.src} target="_blank" rel="noopener noreferrer" title="点击查看原图">
-                    <img src={IMG + o.src} alt={o.cap} width={o.w} height={o.h} loading="lazy" decoding="async" />
-                  </a>
+                  <img src={IMG + o.src} alt={o.cap} width={o.w} height={o.h} loading="lazy" />
                   <figcaption>{o.cap}</figcaption>
                 </figure>
               ))}
@@ -1179,9 +909,7 @@ export default function LearnIndexPage() {
             <div className="learn-wall">
               {PAPER_RESULTS.map((o) => (
                 <figure key={o.src} className="learn-wall-item">
-                  <a href={IMG + o.src} target="_blank" rel="noopener noreferrer" title="点击查看原图">
-                    <img src={IMG + o.src} alt={o.cap} width={o.w} height={o.h} loading="lazy" decoding="async" />
-                  </a>
+                  <img src={IMG + o.src} alt={o.cap} width={o.w} height={o.h} loading="lazy" />
                   <figcaption>{o.cap}</figcaption>
                 </figure>
               ))}
@@ -1196,7 +924,7 @@ export default function LearnIndexPage() {
                     <span className="learn-chat-tag">{c.tag}</span>
                   </blockquote>
                   <div className="learn-chat-shot">
-                    <img src={IMG + c.src} alt={c.cap} width={c.w} height={c.h} loading="lazy" decoding="async" />
+                    <img src={IMG + c.src} alt={c.cap} width={c.w} height={c.h} loading="lazy" />
                     <figcaption>{c.cap}</figcaption>
                   </div>
                 </figure>
@@ -1205,28 +933,17 @@ export default function LearnIndexPage() {
             <div className="learn-wall learn-wall--chats">
               {CHAT_MORE.map((c) => (
                 <figure key={c.src} className="learn-wall-item">
-                  <a href={IMG + c.src} target="_blank" rel="noopener noreferrer" title="点击查看原图">
-                    <img src={IMG + c.src} alt={c.cap} width={c.w} height={c.h} loading="lazy" decoding="async" />
-                  </a>
+                  <img src={IMG + c.src} alt={c.cap} width={c.w} height={c.h} loading="lazy" />
                   <figcaption>{c.cap}</figcaption>
                 </figure>
               ))}
             </div>
-
-            <p className="learn-next-step">
-              想核对细节：项目链接都在上方卡片里，结果截图可点开看原图。不确定是否合适，先看
-              <a href="https://meeting.tencent.com/crm/2G4ZrQVAd0" target="_blank" rel="noopener noreferrer">
-                课程介绍会回放
-              </a>
-              ，再对照
-              <a href="#participate">三种参与方式</a>；页底二维码可以直接把你的情况发给我们。
-            </p>
           </section>
 
           <section id="participate" className="learn-home-block">
             <div className="aa-section-head">
               <div className="aa-section-head-main">
-                <p className="aa-kicker">09 · PARTICIPATION</p>
+                <p className="aa-kicker">PARTICIPATION</p>
                 <h2>三种参与方式</h2>
                 <p className="aa-section-desc">不同人需要的不是同一种服务，而是不同深度的参与方式。</p>
               </div>
@@ -1245,7 +962,7 @@ export default function LearnIndexPage() {
           <section id="faq" className="learn-home-block">
             <div className="aa-section-head">
               <div className="aa-section-head-main">
-                <p className="aa-kicker">10 · FAQ</p>
+                <p className="aa-kicker">FAQ</p>
                 <h2>常见问题</h2>
               </div>
             </div>
@@ -1286,20 +1003,10 @@ export default function LearnIndexPage() {
               </div>
             </div>
             <figure className="learn-cta-qr">
-              <img src={IMG + "wechat-qr.webp"} alt="社区联系人微信二维码" width={939} height={1056} loading="lazy" decoding="async" />
+              <img src={IMG + "wechat-qr.jpg"} alt="社区联系人微信二维码" width={939} height={1056} loading="lazy" />
               <figcaption>扫码添加微信，发送上面 4 个信息</figcaption>
             </figure>
           </section>
-
-          {/* 移动端底部固定操作条（桌面端隐藏） */}
-          <div className="learn-mcta">
-            <a className="aa-btn-primary" href="https://meeting.tencent.com/crm/2G4ZrQVAd0" target="_blank" rel="noopener noreferrer">
-              看介绍会回放
-            </a>
-            <a className="aa-btn-ghost" href="#participate">
-              参与方式
-            </a>
-          </div>
         </article>
       </main>
     </>

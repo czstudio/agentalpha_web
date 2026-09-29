@@ -3,7 +3,7 @@ slug: byte100-agent-rl-trajectory
 question: "怎么从线上轨迹筛选 Agent RL 数据，避免把偶然成功当优质样本？"
 oneLine: "筛选线上轨迹不能只看最终成功，必须做过程质量审查、可复现性验证和结果归因。实现上先用规则过滤坏例，再用模型打分，最后人工校准。"
 category: jingchang
-company: bytedance, tencent, baidu, deepseek, openai
+company: bytedance, tencent, baidu
 track: agent-algo
 tags: [字节真题, 强化学习, 数据清洗]
 minutes: 5

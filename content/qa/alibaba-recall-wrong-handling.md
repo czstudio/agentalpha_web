@@ -3,7 +3,7 @@ slug: alibaba-recall-wrong-handling
 question: "RAG 召回错了怎么处理？"
 oneLine: "解决 RAG 召回错误要先定位再处理。用分层指标排查切分、Embedding 或重排。针对语义切断、表述不一致和专有名词失配，分别用语义边界切分、查询改写和补关键词检索解决，最后回收坏案进评测集。"
 category: jingchang
-company: alibaba, xiaomi
+company: alibaba
 track: ai-app
 tags: [阿里真题, 召回优化, 坏案分析]
 minutes: 5

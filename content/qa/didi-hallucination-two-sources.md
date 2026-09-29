@@ -3,7 +3,7 @@ slug: didi-hallucination-two-sources
 question: "RAG 的幻觉有哪两类来源？防控手段分别是什么？"
 oneLine: "RAG 幻觉分检索层和生成层：前者是没召回相关内容，后者是召回了却加入推断；用提示词、质量门控、引用核查和带来源编号的结构化输出防控。"
 category: jingchang
-company: didi, kuaishou, antgroup, xiaohongshu
+company: didi
 track: ai-app
 tags: [滴滴真题, RAG, AI 算法应用]
 minutes: 5

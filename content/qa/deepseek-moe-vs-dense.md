@@ -3,7 +3,7 @@ slug: deepseek-moe-vs-dense
 question: "MoE 和 Dense 模型，训练与推理的差异有哪些？"
 oneLine: "MoE 训练要处理负载均衡和专家通信，推理只激活部分专家但仍需装下全部参数；算力受限选 Dense，要规模上限选 MoE。"
 category: jingchang
-company: deepseek, kuaishou, antgroup
+company: deepseek
 track: infra
 tags: [MoE, Dense, AI Infra]
 minutes: 5

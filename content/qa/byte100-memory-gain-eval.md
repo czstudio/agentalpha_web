@@ -3,7 +3,7 @@ slug: byte100-memory-gain-eval
 question: "怎么评测 Memory 对任务成功率的真实增益？"
 oneLine: "评测记忆增益必须做对照实验与消融实验，对比带记忆与不带记忆在任务成功率、交互轮次和纠正次数上的差异，不能只看检索相似度。"
 category: jingchang
-company: bytedance, moonshot
+company: bytedance
 track: agent-dev
 tags: [字节真题, Memory, 评测方法]
 minutes: 5

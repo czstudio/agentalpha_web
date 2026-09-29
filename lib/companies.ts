@@ -37,10 +37,6 @@ export const COMPANIES: Company[] = [
   { slug: "douyin", name: "抖音", aliases: ["抖音"], note: "大模型岗位考基础原理的演进逻辑：RNN 缺陷到 Attention、Decoder-only 胜因，追问链条完整。" },
   { slug: "netease", name: "网易", aliases: ["网易", "网易有道", "伏羲"], note: "游戏 AI（伏羲）与有道教育场景，Agent 业务落地与内容生成的结合题多。" },
   { slug: "iflytek", name: "科大讯飞", aliases: ["讯飞", "科大讯飞", "星火"], note: "星火大模型与语音主业结合，语音交互 Agent、多模态与行业落地方向题多。" },
-  { slug: "sensetime", name: "商汤科技", aliases: ["商汤", "SenseTime"], note: "多模态与具身智能方向：视觉语言 Agent、GUI 理解操作、多模态训练与评估题密度高。" },
-  { slug: "microsoft", name: "微软", aliases: ["微软", "Microsoft", "Copilot"], note: "企业级 Copilot 方向：Azure 技术栈选型、企业数据隐私增强、工具协议与错误恢复设计。" },
-  { slug: "google", name: "谷歌", aliases: ["谷歌", "Google", "Gemini"], note: "Gemini 多模态原生架构、A2A 协议、大规模 ML 管线与 TPU 推理优化方向。" },
-  { slug: "openai", name: "OpenAI", aliases: ["OpenAI", "GPT"], note: "Agent 对齐与工具调用底层：RLHF 在 Agent 的应用、推理模型的取舍、Function Calling 原理。" },
   { slug: "nio", name: "蔚来", aliases: ["蔚来", "NIO"], note: "智能座舱与车载语音 Agent 场景，端侧部署、低延迟与多模态交互是特色方向。" },
 ]
 

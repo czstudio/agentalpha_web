@@ -3,7 +3,7 @@ slug: meituan-235b-moe-estimate
 question: "235B 的 MoE 模型，训练算力怎么估算？"
 oneLine: "估算 MoE 模型训练算力的核心是确认激活参数量。用 token 数乘激活参数量及三倍前向系数得出总 FLOPs，再除以扣除通信与负载不均损耗的集群有效算力。"
 category: jingchang
-company: meituan, deepseek
+company: meituan
 track: infra
 tags: [美团真题, MoE, 算力估算]
 minutes: 5

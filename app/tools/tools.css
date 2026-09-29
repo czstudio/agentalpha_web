@@ -576,11 +576,3 @@
   .tk-hero h1 { font-size: 26px; }
   .tk-score-item { grid-template-columns: 76px 1fr 30px; }
 }
-
-/* ── 工具 FAQ ── */
-.tk-faq-list { display: grid; gap: 8px; }
-.tk-faq-item { border: 1px solid var(--tk-line); border-radius: 10px; background: #fff; padding: 10px 14px; }
-.tk-faq-item summary { cursor: pointer; font-size: 14.5px; font-weight: 600; color: var(--tk-ink); }
-.tk-faq-item summary:hover { color: var(--tk-brand-ink); }
-.tk-faq-item[open] summary { margin-bottom: 6px; }
-.tk-faq-item p { margin: 0; font-size: 13.5px; color: var(--tk-ink-2); line-height: 1.75; }
