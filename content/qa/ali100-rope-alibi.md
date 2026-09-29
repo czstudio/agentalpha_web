@@ -3,7 +3,7 @@ slug: ali100-rope-alibi
 question: "RoPE、ALiBi 和可学习位置编码各有什么优缺点？"
 oneLine: "核心差异在于外推能力与实现成本的取舍。可学习编码绝对查表但无法外推；RoPE 靠内积产生相对位置，配合技巧可扩长，是主流；ALiBi 在注意力分数加惩罚，外推平滑但表达力弱。"
 category: jingchang
-company: alibaba
+company: alibaba, kuaishou, moonshot, deepseek
 track: algo-general
 tags: [阿里真题, 位置编码, LLM基础]
 minutes: 5

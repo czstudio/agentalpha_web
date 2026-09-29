@@ -3,6 +3,7 @@ slug: what-is-flash-attention
 question: Flash Attention 是什么？它到底在优化什么？
 oneLine: Flash Attention 是一种精确的注意力算法，通过分块计算和在线 Softmax 技术减少中间矩阵的显存读写，重点优化的是访存通信瓶颈而非计算量。
 category: inference
+company: antgroup, didi, deepseek, microsoft, google, douyin, jd, bilibili
 tags: [模型推理, CUDA优化, Attention]
 minutes: 6
 order: 19

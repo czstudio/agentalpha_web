@@ -3,7 +3,7 @@ slug: ali100-final-consistency
 question: "外部工具不稳定时，怎么保证任务最终一致性，避免重复扣款或重复发货？"
 oneLine: "用唯一请求键实现幂等，超时后先查询操作状态再决定是否重试，并通过异步对账发现意图与实际结果的差异，再进入补偿或人工处理。"
 category: jingchang
-company: alibaba
+company: alibaba, antgroup
 track: agent-dev
 tags: [阿里真题, 幂等, 最终一致性]
 minutes: 5

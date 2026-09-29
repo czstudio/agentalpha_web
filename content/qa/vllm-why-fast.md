@@ -3,7 +3,7 @@ slug: vllm-why-fast
 question: vLLM 为什么快？PagedAttention 解决了什么问题
 oneLine: vLLM 快的核心是 PagedAttention：把 KV Cache 像操作系统管内存分页那样按小块管理，显存几乎零浪费，同样显存能装下更多并发请求，吞吐自然上去。
 category: inference
-company: meituan, baidu, tencent
+company: meituan, baidu, tencent, antgroup, huawei, xiaohongshu, didi, deepseek, openai, moonshot, xiaomi, microsoft, google, douyin, jd, bilibili
 tags: [推理优化, vLLM]
 minutes: 5
 order: 2

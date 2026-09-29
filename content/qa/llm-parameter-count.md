@@ -3,6 +3,7 @@ slug: llm-parameter-count
 question: 7B、70B 指的是什么？参数量怎么影响能力、速度和成本
 oneLine: 7B、70B 指模型可学习参数的数量，B 是十亿。参数量大致决定知识容量和能力上限，同时决定显存占用和速度，是能力、成本、部署三边的折中。
 category: basics
+company: xiaohongshu
 tags: [LLM 基础, 参数量]
 minutes: 5
 order: 8

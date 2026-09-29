@@ -3,7 +3,7 @@ slug: ali100-sandwich-ln
 question: "Pre-LN、Post-LN 和 Sandwich-LN 对深层训练稳定性有什么影响？"
 oneLine: "稳定性上 Pre-LN 最好，深层模型默认采用；原始 Transformer 采用 Post-LN，需要 warmup 精调；Sandwich-LN 作为折中方案前后都加。"
 category: jingchang
-company: alibaba
+company: alibaba, pdd, xiaohongshu, didi, deepseek
 track: algo-general
 tags: [阿里真题, LayerNorm, 训练稳定性]
 minutes: 5

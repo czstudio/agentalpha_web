@@ -3,7 +3,7 @@ slug: sft-to-rl-switch
 question: SFT 训到什么程度可以切 RL？切换的判断标准是什么？
 oneLine: SFT 阶段需确保模型掌握基本任务能力且输出格式稳定，当验证集指标进入平台期、格式合规率达标且正确率非零时即可切 RL，避免探索成本过高。
 category: finetune
-company: didi,intsig
+company: didi, intsig, antgroup, deepseek, xiaomi, openai
 tags: [[, S, F, T, ,,  , R, L, ,,  , 模, 型, 训, 练, ]]
 minutes: 6
 order: 30

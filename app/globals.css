@@ -2337,8 +2337,10 @@ html.enrollment-dialog-open { overflow: hidden; }
   vertical-align: 1px;
 }
 
-/* 带教服务 */
+/* ── 带教服务 ── */
 .learn-svc { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; }
+.learn-svc--3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.learn-fit-features { margin-bottom: 24px; }
 .learn-svc-card { border: 1px solid var(--aa-rule); border-radius: 12px; padding: 18px 20px; background: var(--aa-card); }
 .learn-svc-card h3 { margin: 0 0 8px; font-family: var(--font-display); font-size: 1rem; font-weight: 700; }
 .learn-svc-card p { margin: 0; font-size: 0.82rem; line-height: 1.7; color: var(--aa-muted); }
@@ -2351,6 +2353,91 @@ html.enrollment-dialog-open { overflow: hidden; }
   .learn-svc { grid-template-columns: 1fr; }
   .learn-mini-wall { columns: 1; }
 }
+
+/* ── 性能：长页区块跳过屏外渲染 ── */
+.learn-home-block { content-visibility: auto; contain-intrinsic-size: auto 760px; scroll-margin-top: 84px; }
+@media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
+
+/* ── 一对一辅导老师卡 ── */
+.learn-svc--2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.learn-tutor-tag { display: inline-block; margin: 2px 0 10px; font-size: 0.7rem; font-weight: 700; color: var(--aa-blue); background: color-mix(in srgb, var(--aa-blue) 9%, transparent); border-radius: 999px; padding: 2px 10px; }
+.learn-tutor ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 8px; }
+.learn-tutor li { position: relative; padding-left: 15px; font-size: 0.84rem; line-height: 1.7; color: var(--aa-muted); }
+.learn-tutor li::before { content: ""; position: absolute; left: 1px; top: 0.62em; width: 6px; height: 6px; border-radius: 2px; background: var(--aa-blue); opacity: 0.85; }
+
+/* ── 结果区尾部下一步行 ── */
+.learn-next-step { margin: 26px 0 0; padding: 16px 0 0; border-top: 1px dashed var(--aa-rule); font-size: 0.84rem; line-height: 1.8; color: var(--aa-muted); }
+.learn-next-step a { color: var(--aa-blue); font-weight: 600; text-decoration: none; }
+.learn-next-step a:hover { text-decoration: underline; text-underline-offset: 3px; }
+
+/* ── 移动端底部固定操作条 ── */
+.learn-mcta { display: none; }
+@media (max-width: 720px) {
+  .learn-mcta {
+    display: flex;
+    gap: 10px;
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 60;
+    padding: 10px 14px calc(10px + env(safe-area-inset-bottom));
+    background: color-mix(in srgb, var(--background) 90%, transparent);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-top: 1px solid var(--aa-rule);
+  }
+  .learn-mcta a { flex: 1; justify-content: center; padding-top: 10px; padding-bottom: 10px; font-size: 0.86rem; }
+  .aa-notes.learn-home { padding-bottom: 84px; }
+}
+
+/* ── 左侧滚动目录（超宽屏显示） ── */
+.learn-toc { position: fixed; top: 50%; transform: translateY(-50%); left: calc((100vw - 1080px) / 2 - 160px); width: 136px; z-index: 40; display: none; }
+@media (min-width: 1560px) { .learn-toc { display: block; } }
+.learn-toc::before { content: "本页目录"; display: block; font-size: 0.66rem; font-weight: 700; letter-spacing: 0.12em; color: var(--aa-muted); margin-bottom: 10px; }
+.learn-toc a { display: block; padding: 5px 0 5px 12px; border-left: 2px solid var(--aa-rule); color: var(--aa-muted); font-size: 0.76rem; text-decoration: none; line-height: 1.4; transition: color 0.15s ease, border-color 0.15s ease; }
+.learn-toc a:hover { color: var(--foreground); }
+.learn-toc a.is-active { color: var(--aa-blue); border-left-color: var(--aa-blue); font-weight: 600; }
+
+/* ── 学员结果速览表 ── */
+.learn-brief { width: 100%; border-collapse: collapse; font-size: 0.82rem; line-height: 1.65; }
+.learn-brief th { text-align: left; padding: 10px 14px; font-size: 0.72rem; letter-spacing: 0.08em; color: var(--aa-muted); border-bottom: 1px solid var(--aa-rule); white-space: nowrap; }
+.learn-brief td { padding: 12px 14px; border-bottom: 1px solid var(--aa-rule); vertical-align: top; }
+.learn-brief td:first-child { white-space: nowrap; font-weight: 600; }
+.learn-brief td:last-child { color: var(--aa-blue); font-weight: 600; }
+.learn-brief-wrap { overflow-x: auto; border: 1px solid var(--aa-rule); border-radius: 12px; background: var(--aa-card); padding: 6px 8px; }
+@media (max-width: 720px) { .learn-brief td:first-child { white-space: normal; } }
+
+/* ── 学员去向 logo 墙 ── */
+.learn-orgs { display: flex; flex-wrap: wrap; gap: 12px 26px; align-items: center; padding: 18px 20px; border: 1px solid var(--aa-rule); border-radius: 12px; background: var(--aa-card); }
+.learn-org { display: inline-flex; align-items: center; gap: 8px; color: var(--aa-muted); }
+.learn-org svg { height: 22px; width: auto; opacity: 0.78; }
+.learn-org span { font-size: 0.78rem; font-weight: 600; }
+.learn-org--text { border: 1px solid var(--aa-rule); border-radius: 6px; padding: 5px 10px; font-size: 0.78rem; font-weight: 700; }
+
+/* ── 介绍会回放链接 ── */
+.learn-replays { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+.learn-replay { display: flex; flex-direction: column; gap: 4px; border: 1px solid var(--aa-rule); border-radius: 12px; padding: 14px 16px; background: var(--aa-card); text-decoration: none; color: inherit; transition: border-color 0.2s ease, transform 0.2s ease; }
+.learn-replay:hover { border-color: color-mix(in srgb, var(--aa-blue) 35%, var(--aa-rule)); transform: translateY(-2px); }
+.learn-replay strong { font-size: 0.88rem; }
+.learn-replay span { font-size: 0.76rem; line-height: 1.6; color: var(--aa-muted); }
+.learn-replay em { font-style: normal; font-size: 0.72rem; font-weight: 600; color: var(--aa-blue); margin-top: 2px; }
+@media (max-width: 980px) { .learn-replays { grid-template-columns: 1fr; } }
+
+/* ── 适合谁 / 暂不适合 ── */
+.learn-fit { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); gap: 14px; }
+.learn-fit-col { border: 1px solid var(--aa-rule); border-radius: 14px; padding: 20px 22px; background: var(--aa-card); }
+.learn-fit-col h3 { margin: 0 0 12px; font-family: var(--font-display); font-size: 1.05rem; font-weight: 700; }
+.learn-fit-col ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 9px; }
+.learn-fit-col li { position: relative; padding-left: 16px; font-size: 0.86rem; line-height: 1.7; }
+.learn-fit-col li::before { content: ""; position: absolute; left: 2px; top: 0.62em; width: 6px; height: 6px; border-radius: 2px; background: var(--aa-blue); opacity: 0.85; }
+.learn-fit-col--no li::before { background: var(--aa-muted); opacity: 0.5; }
+@media (max-width: 980px) { .learn-fit { grid-template-columns: 1fr; } }
+
+/* ── 结果墙图片：点击查看原图 ── */
+.learn-wall-item > a { display: block; }
+.learn-wall-item > a img { transition: transform 0.2s ease; }
+.learn-wall-item > a:hover img { transform: scale(1.015); }
 
 /* 参与方式 */
 .learn-home-part { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
