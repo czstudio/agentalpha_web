@@ -65,6 +65,8 @@ export function relatedNotesForQa(qa: QaItem, limit = 3): NoteMeta[] {
 export function qaForNote(slug: string, limit = 4): QaItem[] {
   const stems = noteStems(slug)
   if (stems.length === 0) return []
+  // 单一词干但足够特异（如 rag、moe）时，命中一题即算匹配
+  const solo = stems.length === 1 && stems[0].length >= 3
   const list = getAllQa()
   return list
     .map((qa) => {
@@ -72,7 +74,7 @@ export function qaForNote(slug: string, limit = 4): QaItem[] {
       const score = stems.reduce((acc, s) => acc + (text.includes(s) ? 1 : 0), 0)
       return { qa, score }
     })
-    .filter((x) => x.score >= 2)
+    .filter((x) => x.score >= (solo ? 1 : 2))
     .sort((a, b) => b.score - a.score || a.qa.order - b.qa.order)
     .slice(0, limit)
     .map((x) => x.qa)
