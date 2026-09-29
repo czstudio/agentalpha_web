@@ -81,6 +81,20 @@
 
 每批次验收：`pnpm exec tsc --noEmit` + `pnpm run build` + 图片引用检查 + 新页面进 sitemap/llms.txt + 提交一笔可回滚 commit。
 
+## 5.5 多会话分工看板（2026-09-29 起，认领前先看这里，避免撞车）
+
+> 本仓库有多个并行会话在推进。认领任务时先 `git pull`，在下面把状态改成「进行中@会话」，做完改「完成@commit」。
+> 文件归属约定：工具线只动 `app/tools/**`、`components/tools/**`、`lib/tools/**`、`lib/jd.ts`、`docs/TOOLS-ROADMAP.md`；
+> 内容线动 `content/**` 与 `app/interview/**`；`app/sitemap.ts`、`app/llms.txt/route.ts`、`components/navigation.tsx`、`locales/*` 是公共接线文件，改动后尽快提交。
+
+| 任务 | 状态 |
+| --- | --- |
+| B4 模拟面试剧本化 + B6 复盘本/投递 CRM + B7 Offer 对比 + 全工具 UX 打磨 | 进行中@工具会话（2026-09-29） |
+| B2 JD 样板第二批 8 篇（暂存 `_jd_batch2/`，工具会话校验落位） | 进行中@内容代理 |
+| B3 简历模板/样本页 10 个 | 待认领（素材：PROJECTS + 项目面试包 + resume-analyzer 词表） |
+| 题库朝 200+ 推进 / 项目面试包扩容 | 已有会话在跑（qa_gen 管线） |
+| B5 JD 到 50 页 + 季度 updated 刷新 | 排队（B2 落位后） |
+
 ## 6. 合规与信任红线（工具线通用，永久生效）
 
 1. 不伪造经历：系统输出区分「用户事实」与「表达建议」，指标位置留空让用户填真实值。
