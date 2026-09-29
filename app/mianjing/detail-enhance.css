@@ -1,19 +1,19 @@
 /* 面经详情页视觉增强（独立于 globals.css，仅本页引入；用更高优先级覆盖） */
 
-/* 1) 公司徽章品牌色（data-co 属性驱动） */
-.mj-page .mj-company-pill[data-co="bytedance"] { background: #e6f7f7; color: #0f766e; border-color: #99e2dd; }
-.mj-page .mj-company-pill[data-co="alibaba"] { background: #fff4e8; color: #c2560a; border-color: #ffd9b3; }
-.mj-page .mj-company-pill[data-co="tencent"] { background: #e8f3ff; color: #1d6fd0; border-color: #b3d9ff; }
-.mj-page .mj-company-pill[data-co="meituan"] { background: #fff8d9; color: #9a6b00; border-color: #ffe985; }
-.mj-page .mj-company-pill[data-co="baidu"] { background: #eef1ff; color: #3b53c4; border-color: #c3cdf5; }
-.mj-page .mj-company-pill[data-co="jd"] { background: #ffeef0; color: #c03540; border-color: #ffb8c0; }
-.mj-page .mj-company-pill[data-co="moonshot"] { background: #f1ecfd; color: #5e48b8; border-color: #d4c8f7; }
-.mj-page .mj-company-pill[data-co="xiaomi"] { background: #fdf0e7; color: #b4530a; border-color: #f7cfb2; }
-.mj-page .mj-company-pill[data-co="kuaishou"] { background: #eafaf0; color: #187c4b; border-color: #b4ecc9; }
-.mj-page .mj-company-pill[data-co="didi"] { background: #fdeee8; color: #c2542a; border-color: #f8c9b3; }
-.mj-page .mj-company-pill[data-co="pdd"] { background: #ffeef6; color: #c02a6e; border-color: #ffb8d6; }
-.mj-page .mj-company-pill[data-co="douyin"] { background: #f2f2f4; color: #3d3d46; border-color: #d6d6dc; }
-.mj-page .mj-company-pill {
+/* 1) 公司徽章品牌色（data-co 属性驱动；详情页 .mj-page 与列表页 .mj-index 共用） */
+.mj-company-pill[data-co="bytedance"] { background: #e6f7f7; color: #0f766e; border-color: #99e2dd; }
+.mj-company-pill[data-co="alibaba"] { background: #fff4e8; color: #c2560a; border-color: #ffd9b3; }
+.mj-company-pill[data-co="tencent"] { background: #e8f3ff; color: #1d6fd0; border-color: #b3d9ff; }
+.mj-company-pill[data-co="meituan"] { background: #fff8d9; color: #9a6b00; border-color: #ffe985; }
+.mj-company-pill[data-co="baidu"] { background: #eef1ff; color: #3b53c4; border-color: #c3cdf5; }
+.mj-company-pill[data-co="jd"] { background: #ffeef0; color: #c03540; border-color: #ffb8c0; }
+.mj-company-pill[data-co="moonshot"] { background: #f1ecfd; color: #5e48b8; border-color: #d4c8f7; }
+.mj-company-pill[data-co="xiaomi"] { background: #fdf0e7; color: #b4530a; border-color: #f7cfb2; }
+.mj-company-pill[data-co="kuaishou"] { background: #eafaf0; color: #187c4b; border-color: #b4ecc9; }
+.mj-company-pill[data-co="didi"] { background: #fdeee8; color: #c2542a; border-color: #f8c9b3; }
+.mj-company-pill[data-co="pdd"] { background: #ffeef6; color: #c02a6e; border-color: #ffb8d6; }
+.mj-company-pill[data-co="douyin"] { background: #f2f2f4; color: #3d3d46; border-color: #d6d6dc; }
+.mj-company-pill {
   border-width: 1px;
   border-style: solid;
   font-weight: 600;

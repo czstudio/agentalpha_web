@@ -3,6 +3,23 @@ import Link from "next/link"
 import { ArrowRight, ArrowUpRight, Clock3 } from "lucide-react"
 import { Navigation } from "@/components/navigation"
 import { getMianjingList } from "@/lib/mianjing"
+import "./detail-enhance.css"
+
+/** 公司展示名 → 徽章配色 key（与详情页一致） */
+const COMPANY_KEYS: Record<string, string> = {
+  字节跳动: "bytedance",
+  阿里巴巴: "alibaba",
+  腾讯: "tencent",
+  美团: "meituan",
+  百度: "baidu",
+  京东: "jd",
+  "月之暗面（Kimi）": "moonshot",
+  小米: "xiaomi",
+  快手: "kuaishou",
+  滴滴: "didi",
+  拼多多: "pdd",
+  抖音: "douyin",
+}
 
 export const metadata: Metadata = {
   title: "面经 · 面试笔记",
@@ -31,7 +48,7 @@ export default function MianjingIndexPage() {
           {list.map((doc) => (
             <Link key={doc.slug} href={`/mianjing/${doc.slug}`} className="mj-card">
               <div className="mj-card-top">
-                <span className="mj-company-pill">{doc.company}</span>
+                <span className="mj-company-pill" data-co={COMPANY_KEYS[doc.company] ?? ""}>{doc.company}</span>
                 <span className="aa-note-minutes">
                   <Clock3 aria-hidden /> {doc.minutes} 分钟读完
                 </span>
