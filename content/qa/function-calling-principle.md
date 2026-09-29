@@ -4,6 +4,7 @@ question: 什么是 Function Calling？它的原理是什么？
 oneLine: 开发者用 JSON schema 描述工具传给模型，模型判断需要时输出结构化 tool_calls JSON 而非自然语言，宿主代码执行后把结果回填对话，模型再生成答案——模型只决策、代码执行，两轮对话完成一次调用。
 category: jingchang
 company: tencent
+track: agent-dev
 tags: [Function Calling, 工具调用, Agent]
 minutes: 5
 order: 9

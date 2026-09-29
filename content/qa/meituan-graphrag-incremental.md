@@ -4,6 +4,7 @@ question: "GraphRAG 的难点是什么？增量更新怎么做？"
 oneLine: "GraphRAG 的难点在于实体抽取一致性、图构建成本和多跳查询延迟。增量更新通过提取新文档增量实体并对齐来实现，依靠版本化索引进行灰度切换。"
 category: jingchang
 company: meituan
+track: ai-app
 tags: [美团真题, GraphRAG, 增量更新]
 minutes: 5
 order: 55

@@ -4,6 +4,7 @@ question: "查询改写怎么设计？"
 oneLine: "查询改写核心是解决口语提问与知识库书面语的语义鸿沟。具体设计包括指代补全、口语转术语和长问题拆子问题。系统需对比召回率进行评估并设计原句回退机制。"
 category: jingchang
 company: bytedance
+track: agent-dev
 tags: [字节真题, 检索增强, 召回优化]
 minutes: 5
 order: 18

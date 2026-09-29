@@ -4,6 +4,7 @@ question: "Orchestrator-Worker 和去中心化协作分别适合什么任务？"
 oneLine: "先看任务有没有天然的分解与汇总结构：有就用 Orchestrator-Worker，由中心统一分派和整合；没有就考虑去中心化，让多个 Agent 平等提案和投票。"
 category: jingchang
 company: tencent
+track: agent-dev
 tags: [腾讯真题, Agent协作, 多智能体]
 minutes: 5
 order: 144

@@ -4,6 +4,7 @@ question: "怎么把非结构化对话转成可更新的用户偏好、业务状
 oneLine: "用抽取、分类、更新三步处理对话：按 schema 保守抽取实体和属性，分库存放偏好、状态与任务，再和旧记录比对，按冲突规则覆盖或合并。"
 category: jingchang
 company: alibaba
+track: agent-dev
 tags: [阿里真题, 用户画像, 记忆更新]
 minutes: 5
 order: 101

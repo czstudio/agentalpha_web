@@ -4,6 +4,7 @@ question: "做过 NLP，那 NLP 和 LLM 的区别是什么？"
 oneLine: "核心区别在于范式变化。NLP 时代任务定义在数据集上，模型为任务定制。LLM 时代任务定义在提示词上，预训练加指令微调打通了任务边界。"
 category: jingchang
 company: meituan
+track: algo-general
 tags: [美团真题, 范式演进, 基础概念]
 minutes: 5
 order: 50

@@ -4,6 +4,7 @@ question: "模型输出置信度不可直接相信时，系统怎么决定重试
 oneLine: "不要直接使用模型自报的置信度，而要结合多采样一致性、检索支撑度和校验器结果判断答案是否可靠，再按错误是否可修复、证据是否充分和场景风险选择重试、拒答或转人工。"
 category: jingchang
 company: tencent
+track: agent-dev
 tags: [腾讯真题, 置信度, Agent路由]
 minutes: 5
 order: 136

@@ -4,6 +4,7 @@ question: "Temperature、Top-k、Top-p 分别怎么影响生成？NL2SQL 场景�
 oneLine: "Temperature 控制分布平滑度，Top-k 限候选数量，Top-p 按累积概率自适应截断；NL2SQL 应降低随机性，并用语法校验兜底。"
 category: jingchang
 company: baidu
+track: ai-app
 tags: [百度真题, 采样策略, NL2SQL]
 minutes: 5
 order: 174

@@ -4,6 +4,7 @@ question: SFT 数据和 RLHF 对齐数据，在筛选标准和用途上有什么
 oneLine: SFT 数据教模型学会做任务，核心是筛选正确且多样的示范数据；RLHF 数据教模型按人类偏好做得更好，核心是筛选具有真实优劣对比和高标注一致性的偏好对。前者决定能力上限，后者决定行为对齐。
 category: jingchang
 company: baidu
+track: agent-algo
 tags: [数据工程, RLHF, SFT]
 minutes: 6
 order: 17

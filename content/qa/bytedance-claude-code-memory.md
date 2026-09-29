@@ -4,6 +4,7 @@ question: "Claude Code 的 memory 三层逻辑设计是什么？为什么这么�
 oneLine: "Claude Code 的 memory 分为会话内上下文、项目级 CLAUDE.md 和用户级全局配置三层。分层是为了适应不同的生命周期和共享范围，避免项目内容污染个人偏好。"
 category: jingchang
 company: bytedance
+track: agent-dev
 tags: [字节真题, Agent记忆, 架构设计]
 minutes: 5
 order: 20

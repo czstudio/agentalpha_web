@@ -4,6 +4,7 @@ question: "广告投放需要多个 Agent 时，怎么划分角色、共享状�
 oneLine: "按职能拆成洞察、方案、审核三个 Agent，共享状态放进集中任务看板，不做点对点传递；各自定义交付物，由编排方判定整体完成，审核保持独立。"
 category: jingchang
 company: tencent
+track: agent-dev
 tags: [腾讯真题, 多Agent协作, 任务编排]
 minutes: 5
 order: 143

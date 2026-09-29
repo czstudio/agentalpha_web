@@ -4,6 +4,7 @@ question: "金融风控构造 SFT 数据，怎么覆盖难例并避免数据泄�
 oneLine: "难例从拒贷申诉、审批改判和边界额度案例中挖掘，按拒绝原因分层采样并标注依据；训练评测按时间和客户切分，先脱敏，再复核并保证样本可追溯。"
 category: jingchang
 company: tencent
+track: ai-app
 tags: [腾讯真题, 数据采样, 数据泄漏]
 minutes: 5
 order: 157

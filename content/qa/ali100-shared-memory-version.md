@@ -4,6 +4,7 @@ question: "多 Agent 共享记忆怎么做版本控制和并发写冲突？"
 oneLine: "共享记忆采用单写入通道控制并发，条目级版本号校验写入，冲突按时间或业务规则合并，读多写少的条目配缓存并在写入时失效。"
 category: jingchang
 company: alibaba
+track: agent-dev
 tags: [阿里真题, 多Agent, 共享记忆]
 minutes: 5
 order: 104

@@ -4,6 +4,7 @@ question: "上下文工程都做什么？"
 oneLine: "上下文工程主要做四件事：保存高价值信息、隔离多会话与多用户、在Token预算不足时做选择、在超限时做压缩。它决定输入什么，提示词工程决定怎么输入。"
 category: jingchang
 company: alibaba
+track: agent-dev
 tags: [阿里真题, 上下文工程, 记忆管理]
 minutes: 5
 order: 39

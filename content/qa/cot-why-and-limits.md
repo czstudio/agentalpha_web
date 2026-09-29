@@ -4,6 +4,7 @@ question: CoT 为什么有效？它有什么缺点或局限？
 oneLine: 模型逐 token 生成没有回头修改的机会，CoT 把中间步骤外置到上下文里当草稿纸，后续生成能利用已写下的推理；代价是 token 和延迟成倍涨，且推理链出错会向下传导。
 category: jingchang
 company: tencent
+track: agent-dev
 tags: [CoT, 提示工程, 推理]
 minutes: 5
 order: 10

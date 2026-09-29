@@ -4,6 +4,7 @@ question: "BLIP、BLIP-2 和 Flamingo 的区别是什么？"
 oneLine: "核心区别在于冻结策略与连接方式。Flamingo 冻结视觉编码器并插入交叉注意力；BLIP 采用双头架构与噪声过滤；BLIP-2 用 Q-Former 连接冻结的图像编码器与 LLM。"
 category: jingchang
 company: bytedance
+track: multimodal
 tags: [字节真题, 多模态, 架构对比]
 minutes: 5
 order: 28

@@ -4,6 +4,7 @@ question: 你觉得 MCP 能成为行业标准吗？
 oneLine: 趋势上 MCP 有望成为工具发现与集成的行业事实标准，但过程不会一蹴而就。它解决了集成难题且设计解耦，但仍面临治理中立性与版本迭代迁移成本的考验。
 category: jingchang
 company: alibaba
+track: agent-dev
 tags: [Agent, MCP, 协议标准]
 minutes: 6
 order: 15

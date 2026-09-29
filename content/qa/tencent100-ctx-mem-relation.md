@@ -4,6 +4,7 @@ question: "AI Agent 里上下文工程和记忆管理是什么关系？各自的
 oneLine: "上下文工程决定本次调用模型能看到什么，记忆管理负责跨会话信息的写入、检索与淘汰；记忆向上下文提供相关条目，一个管瞬时视野，一个管长期资产。"
 category: jingchang
 company: tencent
+track: agent-dev
 tags: [腾讯真题, 上下文工程, 记忆管理]
 minutes: 5
 order: 130

@@ -4,6 +4,7 @@ question: "多模态检索的评估指标 Recall@K 和 mAP 是什么？"
 oneLine: "Recall@K 衡量真实匹配项是否进入前 K 名，是检索主指标。mAP 即平均精度均值，反映整体排序质量。多模态需双向分别计算。"
 category: jingchang
 company: bytedance
+track: multimodal
 tags: [字节真题, 多模态, 评估指标]
 minutes: 5
 order: 29

@@ -4,6 +4,7 @@ question: "需求模糊时，Agent 什么时候该追问，什么时候按默认
 oneLine: "需求模糊先看可逆性和成本：低风险任务按用户历史与业务配置取默认值继续，并展示假设；高风险不可逆任务先问清关键缺失项。"
 category: jingchang
 company: alibaba
+track: agent-dev
 tags: [阿里真题, Agent决策]
 minutes: 5
 order: 108

@@ -4,6 +4,7 @@ question: 大模型应用里 WebSocket 和 SSE 怎么选？各自的局限是什
 oneLine: 流式输出主流用 SSE：单向推送、实现简单、自带断线重连；WebSocket 是全双工长连接，适合双方都要主动发消息的实时协作场景，代价是连接状态要自己管理。
 category: jingchang
 company: alibaba
+track: agent-dev
 tags: [通信协议, 流式输出, 工程选型]
 minutes: 4
 order: 6

@@ -4,6 +4,7 @@ question: "大项目里来了一个新需求，加一个新功能的工作流是
 oneLine: "先拆需求并评估会影响哪些模块，再为新功能建立评测集，定义做对的标准。实现时只做必要改动，经过评测回归和小流量验证后上线，同时监控新功能与存量功能的指标。"
 category: jingchang
 company: baidu
+track: agent-dev
 tags: [百度真题, 需求拆解, 评测]
 minutes: 5
 order: 172

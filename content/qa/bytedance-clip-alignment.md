@@ -4,6 +4,7 @@ question: "CLIP 的原理是什么？对齐损失怎么工作的？"
 oneLine: "CLIP 采用双塔架构，分别用图像和文本编码器提取特征，通过对比学习拉近正样本对、推开负样本对。对齐损失使用对称的 InfoNCE，计算双向交叉熵。"
 category: jingchang
 company: bytedance
+track: multimodal
 tags: [字节真题, 多模态, 对比学习]
 minutes: 5
 order: 26

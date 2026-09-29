@@ -4,6 +4,7 @@ question: "怎么设计任务队列，让长任务可取消、可恢复且不重
 oneLine: "用状态机管理任务，用检查点读取取消标记，用步骤级日志保存进度；恢复时先查幂等键对应的外部操作是否已生效，再决定是否执行，避免长任务中断后重复产生副作用。"
 category: jingchang
 company: tencent
+track: agent-dev
 tags: [腾讯真题, 任务队列, 幂等性]
 minutes: 5
 order: 142

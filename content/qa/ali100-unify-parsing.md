@@ -4,6 +4,7 @@ question: "企业知识库里 PDF、网页、表格、扫描件和工单怎么�
 oneLine: "按格式分治解析，再统一到标准中间格式。PDF处理表格双栏，网页去噪抽正文，扫描件做OCR和版面恢复，工单按字段抽。最后全部转为含标题、段落、表格和元数据的统一Schema，再进切分索引。"
 category: jingchang
 company: alibaba
+track: ai-app
 tags: [阿里真题, 文档解析, RAG]
 minutes: 5
 order: 106

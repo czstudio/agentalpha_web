@@ -4,6 +4,7 @@ question: "多意图识别为什么要做并行？"
 oneLine: "串行处理会累加每个意图的网络往返延迟，并行处理能将总延迟从相加变为取最大值。代价是必须做好并发控制与失败隔离，单个意图超时需单独重试。"
 category: jingchang
 company: bytedance
+track: agent-dev
 tags: [字节真题, 意图识别, 并发控制]
 minutes: 5
 order: 19

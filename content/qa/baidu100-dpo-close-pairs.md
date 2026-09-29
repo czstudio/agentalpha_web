@@ -4,6 +4,7 @@ question: "DPO 的 chosen 和 rejected 差异太小，会发生什么？"
 oneLine: "差异太小会让偏好信号变弱，梯度方向不稳定，训练在两答案间摇摆，收敛变慢甚至不收敛，模型还可能学到噪声而非真实偏好。"
 category: jingchang
 company: baidu
+track: algo-general
 tags: [百度真题, DPO, 偏好数据]
 minutes: 5
 order: 176

@@ -4,6 +4,7 @@ question: Function Calling 和 MCP 都能做工具调用，什么场景选哪个
 oneLine: 判断核心只有一个问题——这个工具会不会在本应用之外被复用：临时接一两个工具用 Function Calling 就够；要跨项目跨团队复用、数量多难管理、或社区已有现成 MCP Server，就上 MCP。
 category: jingchang
 company: jd
+track: agent-dev
 tags: [Function Calling, MCP, 工程选型]
 minutes: 5
 order: 14

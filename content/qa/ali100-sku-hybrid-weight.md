@@ -4,6 +4,7 @@ question: "查询里同时有 SKU、规则编号和自然语言描述，混合�
 oneLine: "混合检索不要调权重，要分层处理。精确标识符走关键词倒排做结构化过滤，自然语言走向量召回。先按标识符缩小候选集，再用语义相似度排序。"
 category: jingchang
 company: alibaba
+track: ai-app
 tags: [阿里真题, 混合检索, RAG]
 minutes: 5
 order: 109

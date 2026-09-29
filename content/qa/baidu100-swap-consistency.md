@@ -4,6 +4,7 @@ question: "为什么要做一致性检测和 swap consistency？防的是哪类�
 oneLine: "一致性检测和 swap consistency 用来确认评测结论是否稳定，主要防止裁判偏好第一个选项的位置偏差，以及模型受选项呈现顺序影响的顺序依赖。"
 category: jingchang
 company: baidu
+track: agent-algo
 tags: [百度真题, 评测一致性, 模型裁判]
 minutes: 5
 order: 171

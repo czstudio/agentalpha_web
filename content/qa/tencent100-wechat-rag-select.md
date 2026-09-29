@@ -4,6 +4,7 @@ question: "微信客服的 RAG，怎么在 BM25、向量检索和混合检索之
 oneLine: "微信客服默认选混合检索：精确查询靠 BM25，口语描述靠向量；两路召回用 RRF 融合，再做重排精排。资源不足先砍重排，再按查询形态退到纯向量或 BM25。"
 category: jingchang
 company: tencent
+track: ai-app
 tags: [腾讯真题, RAG, 混合检索]
 minutes: 5
 order: 150

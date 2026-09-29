@@ -4,6 +4,7 @@ question: "Function Calling、MCP、Skill 三者怎么对比？"
 oneLine: "三者不在同一层。Function Calling 是模型侧的调用表达，MCP 是工具侧的接入协议，Skill 是流程侧的知识打包。三者配合完成模型发请求、工具标准化接入与流程编排。"
 category: jingchang
 company: alibaba
+track: agent-dev
 tags: [阿里真题, Agent架构, 工具调用]
 minutes: 5
 order: 43

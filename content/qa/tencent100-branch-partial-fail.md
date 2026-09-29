@@ -4,6 +4,7 @@ question: "多 Agent 并行分支一个失败其他成功，汇总节点怎么�
 oneLine: "先判断失败分支是否是汇总必需，再决定重试或降级；非必需就用成功结果汇总，并标明缺失与失败原因，禁止静默丢弃。"
 category: jingchang
 company: tencent
+track: agent-dev
 tags: [腾讯真题, 多Agent, 容错处理]
 minutes: 5
 order: 145

@@ -4,6 +4,7 @@ question: "为游戏运营设计一个有界 Agent，哪些步骤交给模型，
 oneLine: "原则是把创意和理解交给模型，把规则和执行写成确定性 Workflow，并让所有动作建议先过规则引擎，再进入执行环节。"
 category: jingchang
 company: tencent
+track: agent-dev
 tags: [腾讯真题, Agent边界]
 minutes: 5
 order: 133

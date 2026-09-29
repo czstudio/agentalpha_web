@@ -4,6 +4,7 @@ question: "为什么选 GRPO 而不是 PPO 或 DPO？"
 oneLine: "GRPO 省去了 PPO 的价值网络以降低显存和稳定性成本，同时克服了 DPO 依赖离线偏好对且无过程信号的缺点，代价是需权衡采样成本与组大小。"
 category: jingchang
 company: meituan
+track: agent-algo
 tags: [美团真题, RLHF, GRPO]
 minutes: 5
 order: 60

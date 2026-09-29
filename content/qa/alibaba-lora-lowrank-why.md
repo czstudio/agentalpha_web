@@ -4,6 +4,7 @@ question: "LoRA 的低秩分解为什么有效？"
 oneLine: "LoRA 的有效性建立在经验观察上：微调时权重的更新量是低秩的。它用两个小矩阵相乘来近似这个更新量，在保证起点等价原模型的同时，让可训练参数骤降。"
 category: jingchang
 company: alibaba
+track: agent-algo
 tags: [阿里真题, LoRA, 微调]
 minutes: 5
 order: 34

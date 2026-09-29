@@ -4,6 +4,7 @@ question: "PPO 或 GRPO 训完，模型跑偏到训练分布外怎么办？"
 oneLine: "核心是控制策略偏移幅度并防止模型刷分。手段上利用KL约束控制偏离参考模型的幅度，设计多维奖励，调大温度和组大小保持探索。监控上盯紧生成熵、KL曲线与人工抽检。"
 category: jingchang
 company: meituan
+track: agent-algo
 tags: [美团真题, PPO, 强化学习]
 minutes: 5
 order: 64

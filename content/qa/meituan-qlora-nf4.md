@@ -4,6 +4,7 @@ question: "NF4 和 FP16 怎么选？NF4 的分布拟合是什么逻辑？"
 oneLine: "QLoRA 微调时基座模型选 4 位 NF4 降低显存，训练和关键路径计算选 FP16。NF4 按正态分布分位数设置格点，中间密两头疏，拟合权重分布以减小量化误差。"
 category: jingchang
 company: meituan
+track: agent-algo
 tags: [美团真题, QLoRA, 模型量化]
 minutes: 5
 order: 54

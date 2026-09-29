@@ -4,6 +4,7 @@ question: "多 Agent 的消息协议应包含哪些字段？怎么保证可追�
 oneLine: "消息协议要记录消息身份、通信双方、任务归属、结构化内容、时间、因果关系，并用任务日志和顺序重放保证可追踪、可复现。"
 category: jingchang
 company: alibaba
+track: agent-dev
 tags: [阿里真题, 多 Agent]
 minutes: 5
 order: 111

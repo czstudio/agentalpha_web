@@ -4,6 +4,7 @@ question: "客服、营销、商家运营、研发助手分别适合 ReAct、工
 oneLine: "按任务确定性选范式：客服多用带检索的工作流，营销用 ReAct，商家运营用状态机，研发助手用带规划的 ReAct；确定性高的任务不要引入 Agent。"
 category: jingchang
 company: alibaba
+track: agent-dev
 tags: [阿里真题, Agent范式]
 minutes: 5
 order: 105

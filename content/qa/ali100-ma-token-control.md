@@ -4,6 +4,7 @@ question: "多 Agent 系统怎么避免循环委派、重复执行和 Token 成�
 oneLine: "要同时管住委派路径、任务认领和 Token 预算：记录派发链路识别循环，全局登记任务结果避免重复，并用分层配额和摘要控制成本。"
 category: jingchang
 company: alibaba
+track: agent-dev
 tags: [阿里真题, 多 Agent, Token 成本]
 minutes: 5
 order: 112

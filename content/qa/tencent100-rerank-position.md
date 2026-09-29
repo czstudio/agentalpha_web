@@ -4,6 +4,7 @@ question: "Reranker 放在召回链路的什么位置？候选数量怎么确定
 oneLine: "Reranker 放在召回之后、生成之前，先合并多路召回结果，再用交叉编码器精排出少量候选进入上下文。"
 category: jingchang
 company: tencent
+track: ai-app
 tags: [腾讯真题, RAG, 精排]
 minutes: 5
 order: 151

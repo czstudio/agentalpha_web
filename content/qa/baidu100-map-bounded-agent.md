@@ -4,6 +4,7 @@ question: "为地图问答设计一个有界 Agent，哪些步骤给模型，哪
 oneLine: "模型负责理解口语问题、生成结构化查询意图并组织多结果表述；检索、路径、数据查询、限速合规和所有数字都由确定性引擎负责。"
 category: jingchang
 company: baidu
+track: agent-dev
 tags: [百度真题, Agent边界]
 minutes: 5
 order: 168

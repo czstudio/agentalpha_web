@@ -4,6 +4,7 @@ question: "AWQ、GPTQ 和 FP8 量化怎么选？"
 oneLine: "硬件新首选FP8，精度损失小且免校准。追求极限显存压缩选AWQ，INT4下精度更好且量化快。考虑生态兼容性选GPTQ。"
 category: jingchang
 company: bytedance
+track: infra
 tags: [字节真题, 模型量化, 显存优化]
 minutes: 5
 order: 96

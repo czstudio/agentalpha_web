@@ -4,6 +4,7 @@ question: "上下文工程做过吗？todo list 为什么能让模型更聚焦�
 oneLine: "做过。todo list 把长任务中间状态外置成显式结构。模型每步先读清单，将“做到哪了”从隐式历史变成显式状态，注意力锚定清单，不被历史稀释。"
 category: jingchang
 company: bytedance
+track: agent-dev
 tags: [字节真题, 上下文工程, 状态管理]
 minutes: 5
 order: 17

@@ -4,6 +4,7 @@ question: "多模型网关怎么按任务难度、SLA、价格和安全等级动
 oneLine: "先按任务类型粗分，再结合用户SLA与预算选择模型；敏感场景强制指定模型，并用小模型判断难度，实时权衡价格与延迟，配合超时降级和按路由维度记账。"
 category: jingchang
 company: alibaba
+track: infra
 tags: [阿里真题, 多模型路由, 成本治理]
 minutes: 5
 order: 116

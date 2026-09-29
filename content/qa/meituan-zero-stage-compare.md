@@ -4,6 +4,7 @@ question: "ZeRO-2 和 ZeRO-3 怎么选？"
 oneLine: "显存够用选 ZeRO-2，模型大到放不下再上 ZeRO-3。ZeRO-2 通信开销较小，是多数微调场景的默认选择。"
 category: jingchang
 company: meituan
+track: algo-general
 tags: [美团真题, 大模型训练, 分布式并行]
 minutes: 5
 order: 58

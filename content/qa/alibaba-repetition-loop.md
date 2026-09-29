@@ -4,6 +4,7 @@ question: "模型出现复读机现象怎么解释、怎么处理？"
 oneLine: "复读机现象由训练数据重复、低温或贪心解码放大高频路径、解码缺少重复惩罚三者叠加造成。处理需从数据端去重，并在解码端调高温度、增加 repetition penalty 或设置 top-p 截断。"
 category: jingchang
 company: alibaba
+track: agent-algo
 tags: [阿里真题, 解码策略, 模型推理]
 minutes: 5
 order: 36

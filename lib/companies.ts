@@ -33,6 +33,11 @@ export const COMPANIES: Company[] = [
   { slug: "antgroup", name: "蚂蚁集团", aliases: ["蚂蚁", "蚂蚁集团", "支付宝"], note: "Agent 交付风险与回滚机制、Harness 上下文管理等生产化考题常见；大模型算法岗反复考 PPO 四模型与量化选型。" },
   { slug: "didi", name: "滴滴", aliases: ["滴滴"], note: "大模型算法岗以 GRPO 全家桶著称：损失函数手写、KL 估计、熵坍塌、训练监控指标层层下钻。" },
   { slug: "kuaishou", name: "快手", aliases: ["快手"], note: "大模型应用开发岗考 RAG 全链路十连问与手写公式（GAE、重要性采样），GenAI 岗另考量化与推理成本。" },
+  { slug: "xiaomi", name: "小米", aliases: ["小米"], note: "Agent 岗偏工程落地：RAG 知识库更新、MCP 传输选型这类「上过生产没有」的问题常见。" },
+  { slug: "douyin", name: "抖音", aliases: ["抖音"], note: "大模型岗位考基础原理的演进逻辑：RNN 缺陷到 Attention、Decoder-only 胜因，追问链条完整。" },
+  { slug: "netease", name: "网易", aliases: ["网易", "网易有道", "伏羲"], note: "游戏 AI（伏羲）与有道教育场景，Agent 业务落地与内容生成的结合题多。" },
+  { slug: "iflytek", name: "科大讯飞", aliases: ["讯飞", "科大讯飞", "星火"], note: "星火大模型与语音主业结合，语音交互 Agent、多模态与行业落地方向题多。" },
+  { slug: "nio", name: "蔚来", aliases: ["蔚来", "NIO"], note: "智能座舱与车载语音 Agent 场景，端侧部署、低延迟与多模态交互是特色方向。" },
 ]
 
 export function getCompany(slug: string): Company | null {

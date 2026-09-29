@@ -4,6 +4,7 @@ question: "Skill、Tool、Workflow 和 Agent 的边界是什么？企业能力�
 oneLine: "Tool 是单个操作，Workflow 是固定编排，Skill 是任务知识与流程包，Agent 是自主决策循环；企业把能力沉到 Tool 与 Workflow，把经验沉到 Skill，只在必要处引入 Agent。"
 category: jingchang
 company: alibaba
+track: agent-dev
 tags: [阿里真题, Agent架构, 能力封装]
 minutes: 5
 order: 110

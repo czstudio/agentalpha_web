@@ -4,6 +4,7 @@ question: "多个工具都能回答同一问题时，怎么训练或评测模型
 oneLine: "训练侧要构造多条正例，不惩罚合理选择，只惩罚成本高或结果错的劣质路径。评测侧需固定题集统计工具选择分布、成功率与成本，观察模型是按场景选择还是习惯性单用。"
 category: jingchang
 company: bytedance
+track: agent-dev
 tags: [字节真题, 工具调用, 模型评测]
 minutes: 5
 order: 87

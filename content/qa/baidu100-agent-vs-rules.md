@@ -4,6 +4,7 @@ question: "不用 Agent，只用规则、检索、模板 SQL 能做到几成效�
 oneLine: "先用规则和检索覆盖高频标准场景，七成以上的问题不必调用 Agent；再把 Agent 留给长尾、需要组合推理、多步依赖和意图模糊的部分，按难度分层。"
 category: jingchang
 company: baidu
+track: agent-dev
 tags: [百度真题, Agent, 规则检索]
 minutes: 5
 order: 167

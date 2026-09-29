@@ -4,6 +4,7 @@ question: "设计一个面向内部员工的问答 Agent，要接工单系统和
 oneLine: "先明确量级与延迟要求，再按意图路由、工具调用、带引用生成三层架构设计，并重点处理混合路由切分、后端限流排队及工具超时降级等工程约束。"
 category: jingchang
 company: bytedance
+track: agent-dev
 tags: [字节真题, 系统设计, Agent架构]
 minutes: 5
 order: 15

@@ -4,6 +4,7 @@ question: "Working、Episodic、Semantic、Procedural 四类记忆怎么划分�
 oneLine: "这四类记忆沿用认知科学分类并映射到 Agent 工程。Working 对应当前上下文窗口，Episodic 记录经历的会话与事件，Semantic 沉淀事实与知识，Procedural 固化做法与流程。"
 category: jingchang
 company: bytedance
+track: agent-dev
 tags: [字节真题, Agent记忆, 认知架构]
 minutes: 5
 order: 71

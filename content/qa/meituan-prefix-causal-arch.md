@@ -4,6 +4,7 @@ question: "Prefix、Causal、Encoder-Decoder 三种注意力架构的区别？"
 oneLine: "三者区别在于注意力方向。Prefix 前缀双向生成单向，Causal 全程单向，Encoder-Decoder 编码双向解码单向。主流选 Causal，赢在训练目标统一及无限自回归。"
 category: jingchang
 company: meituan
+track: algo-general
 tags: [美团真题, 模型架构, 注意力机制]
 minutes: 5
 order: 62

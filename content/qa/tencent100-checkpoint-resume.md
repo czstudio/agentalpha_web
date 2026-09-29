@@ -4,6 +4,7 @@ question: "Agent 执行到一半被中断，怎么通过 Checkpoint 安全恢复
 oneLine: "Checkpoint 要记录任务目标与当前计划、已完成步骤及结果、未决状态。恢复时先校验外部副作用，再跳过已完成步骤，继续未完成部分。"
 category: jingchang
 company: tencent
+track: agent-dev
 tags: [腾讯真题, Checkpoint, 幂等恢复]
 minutes: 5
 order: 135

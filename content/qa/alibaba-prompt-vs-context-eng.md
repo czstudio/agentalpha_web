@@ -4,6 +4,7 @@ question: "提示词工程和上下文工程的区别是什么？"
 oneLine: "提示词工程改的是指令写法，属于单点优化；上下文工程管的是模型能看到什么，属于系统层设计。上下文里垃圾太多，提示词写得再好也没用。"
 category: jingchang
 company: alibaba
+track: agent-dev
 tags: [阿里真题, 提示词工程, Agent]
 minutes: 5
 order: 41

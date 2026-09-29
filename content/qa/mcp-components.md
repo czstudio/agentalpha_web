@@ -4,6 +4,7 @@ question: MCP 由哪几部分组成？
 oneLine: 三层看：角色层 Host/Client/Server（Host 是宿主应用，Client 是其通信模块，一 Host 连多 Server）；能力层 Tools/Resources/Prompts 三类；协议层 JSON-RPC 2.0 加 stdio 或 Streamable HTTP 传输。
 category: jingchang
 company: baidu
+track: agent-dev
 tags: [MCP, 协议, 工具调用]
 minutes: 5
 order: 11

@@ -4,6 +4,7 @@ question: "怎么设计 Human-in-the-loop，让高风险操作必须审批且可
 oneLine: "把支付、对外发送、删除等高风险动作放入审批队列，Agent 暂停等待但不阻塞其他任务，并按动作是否可撤销安排确认顺序和补偿动作。"
 category: jingchang
 company: alibaba
+track: agent-dev
 tags: [阿里真题, Human-in-the-loop, 审批恢复]
 minutes: 5
 order: 107

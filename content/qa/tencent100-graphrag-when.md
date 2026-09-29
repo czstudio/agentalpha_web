@@ -4,6 +4,7 @@ question: "什么时候该用 GraphRAG，而不是普通向量 RAG？"
 oneLine: "多跳关系推理或文档整体趋势总结优先考虑 GraphRAG；单点事实查询用普通向量 RAG。最终看多跳与全局问题占比，权衡图谱构建、实体处理和维护成本。"
 category: jingchang
 company: tencent
+track: ai-app
 tags: [腾讯真题, GraphRAG, 向量检索]
 minutes: 5
 order: 153

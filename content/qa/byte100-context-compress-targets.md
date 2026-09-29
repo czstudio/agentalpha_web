@@ -4,6 +4,7 @@ question: "超长任务的上下文压缩，怎么保留目标、约束、工具
 oneLine: "压缩不能无差别摘要，必须采取分层保护策略。目标与约束永不压缩，工具结果按结论加来源摘要且原始数据外置存储，未决事项列成显式清单，先结构化抽取再压缩。"
 category: jingchang
 company: bytedance
+track: agent-dev
 tags: [字节真题, 上下文压缩, Agent记忆]
 minutes: 5
 order: 75

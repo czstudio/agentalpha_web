@@ -4,6 +4,7 @@ question: "上下文污染是什么？怎么防？"
 oneLine: "上下文污染指无关或错误信息混入上下文并影响模型后续生成。防范方法包括来源过滤、过期标记与淘汰、会话隔离以及定期清理与压缩。"
 category: jingchang
 company: alibaba
+track: agent-dev
 tags: [阿里真题, Agent, 状态管理]
 minutes: 5
 order: 40

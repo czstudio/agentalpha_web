@@ -4,6 +4,7 @@ question: 什么场景下会用图数据库增强向量检索？
 oneLine: 向量检索擅长语义相近、不擅长多跳关系；问题需要沿实体关系走多步时（供应链穿透、组织架构、影响分析），先向量定位实体、再图上精确遍历，图管结构、向量管入口。
 category: jingchang
 company: alibaba
+track: ai-app
 tags: [GraphRAG, 向量检索, 知识图谱]
 minutes: 5
 order: 8

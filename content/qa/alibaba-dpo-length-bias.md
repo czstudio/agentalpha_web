@@ -4,6 +4,7 @@ question: "DPO 训练后模型输出变长，是什么原因？"
 oneLine: "核心原因是偏好数据中被选中的回答普遍更长。DPO 直接对偏好对进行优化，模型将长度本身视作可利用的信号，学会了写长更易被选。缓解方法包括构造数据时控制长度均衡，或加长度惩罚项。"
 category: jingchang
 company: alibaba
+track: agent-algo
 tags: [阿里真题, DPO, 偏好对齐]
 minutes: 5
 order: 35

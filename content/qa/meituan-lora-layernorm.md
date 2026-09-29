@@ -4,6 +4,7 @@ question: "LoRA 能不能插在 LayerNorm 后面？"
 oneLine: "不推荐把 LoRA 插在 LayerNorm 后面。LayerNorm 参数量极小，微调收益有限。它对数据分布的稳定性很敏感，强行插入容易扰动训练。常见做法是插在注意力和前馈层的投影矩阵上。"
 category: jingchang
 company: meituan
+track: agent-algo
 tags: [美团真题, LoRA, 模型微调]
 minutes: 5
 order: 53

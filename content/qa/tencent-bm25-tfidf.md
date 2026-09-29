@@ -4,6 +4,7 @@ question: BM25 对 TF-IDF 做了哪些核心优化？字面检索的原理是什
 oneLine: BM25 是 TF-IDF 的改良版，核心优化了词频饱和度与文档长度归一化。在 RAG 中作为字面检索通道，依赖分词抓取精确匹配，与向量检索形成互补。
 category: jingchang
 company: tencent,baidu
+track: ai-app
 tags: [[, 检, 索, 增, 强, ,,  , 算, 法, 原, 理, ,,  , 混, 合, 检, 索, ]]
 minutes: 6
 order: 22

@@ -4,6 +4,7 @@ question: "工具有转账、发消息这类副作用时，怎么实现幂等与
 oneLine: "给每次副作用操作绑定任务 ID 加步骤 ID 的唯一业务键，服务端重复请求返回首次结果；可逆操作自动执行并事后审计，不可逆操作先审批，超时默认拒绝。"
 category: jingchang
 company: tencent
+track: agent-dev
 tags: [腾讯真题, 幂等, 人工审批]
 minutes: 5
 order: 149

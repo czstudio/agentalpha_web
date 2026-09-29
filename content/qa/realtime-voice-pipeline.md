@@ -4,6 +4,7 @@ question: 实时语音 Agent 的链路是什么？流式 ASR 和 TTS 怎么拼�
 oneLine: 实时语音链路分级联和端到端两类，流式拼接的核心是服务端 VAD 断句与客户端回声消除配合实现全双工打断，底层首选 WebRTC 避免 TCP 队头阻塞。
 category: jingchang
 company: bytedance
+track: agent-dev
 tags: [语音 Agent, WebRTC, 全双工]
 minutes: 6
 order: 2

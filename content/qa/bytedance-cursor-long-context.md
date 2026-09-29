@@ -4,6 +4,7 @@ question: "Cursor 这类工具上下文过长会有性能下降的现象吗？�
 oneLine: "现象真实存在。长上下文会稀释注意力并降低指令遵循能力，成本与延迟也会线性增加。应对策略包括截断历史、下沉稳定内容至系统层以及按需检索代码。"
 category: jingchang
 company: bytedance
+track: agent-dev
 tags: [字节真题, 长上下文, 检索增强]
 minutes: 5
 order: 21

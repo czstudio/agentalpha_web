@@ -4,6 +4,7 @@ question: "记忆库规模持续增长，怎么防污染、陈旧信息和检索
 oneLine: "用准入控制、定期治理和检索过滤管理记忆库，并持续监控规模曲线、命中率和错误记忆被引用的频率。"
 category: jingchang
 company: alibaba
+track: agent-dev
 tags: [阿里真题, 记忆治理, 检索过滤]
 minutes: 5
 order: 102
