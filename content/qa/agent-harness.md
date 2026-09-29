@@ -3,6 +3,7 @@ slug: agent-harness
 question: 业界说的 Agent Harness 是什么？为什么同一个模型换个框架效果差很多
 oneLine: Harness 是模型外面那套工程框架：循环控制、上下文管理、工具执行、权限和日志。模型只负责决定下一步，剩下的都由 harness 决定，所以它直接决定效果上限。
 category: agent
+company: xiaohongshu
 tags: [Agent, 工程架构]
 minutes: 5
 order: 10

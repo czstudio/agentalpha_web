@@ -3,7 +3,7 @@ slug: meituan-attention-variants
 question: "知道哪些注意力机制？"
 oneLine: "我会按族谱回答：MHA 是基线，MQA、GQA 和 MLA 主要围绕 KV Cache 做压缩，稀疏注意力降低长文本复杂度，Flash Attention 做算子级优化。"
 category: jingchang
-company: meituan, tencent, pdd
+company: meituan, tencent, pdd, xiaohongshu
 track: algo-general
 tags: [注意力机制, KV Cache, 大模型面试]
 minutes: 5

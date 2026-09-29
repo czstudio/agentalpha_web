@@ -3,7 +3,7 @@ slug: kuaishou-agent-memory-stack
 question: "Agent 的长期记忆怎么实现？说说你的方案。"
 oneLine: "我会采用分层长期记忆，而不是只依赖向量库：用向量库保存历史对话 embedding，用实体记忆组织实体关系，用摘要记忆压缩历史，并在检索时联合相关性与时间衰减排序。"
 category: jingchang
-company: kuaishou
+company: kuaishou, xiaohongshu
 track: agent-dev
 tags: [快手真题, Agent记忆, 长期记忆]
 minutes: 5
