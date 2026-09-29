@@ -3,6 +3,8 @@ import Link from "next/link"
 import { notFound } from "next/navigation"
 import { ArrowLeft, ArrowRight, Clock3 } from "lucide-react"
 import { Navigation } from "@/components/navigation"
+import { CrossLinks } from "@/components/cross-link"
+import { qaForMianjing } from "@/lib/crosslink"
 import { getMianjing, getMianjingList } from "@/lib/mianjing"
 import { getNoteHeadings, slugifyHeading } from "@/lib/notes"
 import { ReadingExtras } from "@/components/mianjing/reading-extras"
@@ -87,6 +89,23 @@ export default async function MianjingDetailPage({ params }: MianjingPageProps) 
   const doc = getMianjing(slug)
   if (!doc) notFound()
   const headings = getNoteHeadings(doc.content)
+  const { companySlug, items: xQaItems } = qaForMianjing(doc)
+  const xQaLinks = [
+    ...(companySlug
+      ? [
+          {
+            href: `/interview/company/${companySlug}`,
+            label: `刷${doc.company}真题（50 题）`,
+            note: "按厂聚合 · 含考点映射",
+          },
+        ]
+      : []),
+    ...xQaItems.map((q) => ({
+      href: `/interview/qa/${q.slug}`,
+      label: q.question,
+      note: q.oneLine.slice(0, 40) + (q.oneLine.length > 40 ? "…" : ""),
+    })),
+  ]
 
   return (
     <>
@@ -148,6 +167,8 @@ export default async function MianjingDetailPage({ params }: MianjingPageProps) 
                   了解训练营 <ArrowRight aria-hidden />
                 </Link>
               </aside>
+
+              <CrossLinks title="面经对应的真题" variant="mianjing" items={xQaLinks} />
 
               <nav className="aa-note-pager">
                 <span />

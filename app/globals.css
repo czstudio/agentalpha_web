@@ -2740,3 +2740,13 @@ html.enrollment-dialog-open { overflow: hidden; }
   font-size: 0.86rem;
   font-weight: 500;
 }
+
+/* ── 站内互链区块（题库 ↔ 面经 ↔ 笔记） ── */
+.xl-rel { margin: 22px 0 6px; padding: 16px 18px; border: 1px solid var(--border); border-radius: 12px; background: var(--card); }
+.xl-rel-t { margin: 0 0 10px; font-size: 0.8rem; font-weight: 700; letter-spacing: 0.06em; color: var(--muted-foreground); }
+.xl-rel-list { display: grid; gap: 8px; }
+.xl-rel-item { display: flex; flex-direction: column; gap: 3px; padding: 10px 12px; border: 1px solid var(--border); border-radius: 9px; text-decoration: none; background: transparent; transition: border-color 0.15s ease, background 0.15s ease; }
+.xl-rel-item:hover { border-color: color-mix(in srgb, var(--primary) 40%, var(--border)); background: color-mix(in srgb, var(--primary) 4%, transparent); }
+.xl-rel-label { font-size: 0.88rem; font-weight: 600; color: var(--foreground); line-height: 1.5; }
+.xl-rel-note { font-size: 0.76rem; color: var(--muted-foreground); line-height: 1.5; }
+.xl-rel--qa { margin-top: 26px; }

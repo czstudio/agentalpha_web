@@ -9,6 +9,8 @@ import rehypeKatex from "rehype-katex"
 import type { Components } from "react-markdown"
 import { isValidElement, type ReactNode } from "react"
 import { Navigation } from "@/components/navigation"
+import { CrossLinks } from "@/components/cross-link"
+import { qaForNote } from "@/lib/crosslink"
 import { getAdjacentNotes, getAllNotes, getNote, getNoteHeadings, slugifyHeading, type NoteHeading } from "@/lib/notes"
 
 interface NotePageProps {
@@ -121,6 +123,7 @@ export default async function NoteDetailPage({ params }: NotePageProps) {
   const note = getNote(slug)
   if (!note) notFound()
   const { previous, next } = getAdjacentNotes(slug)
+  const xQa = qaForNote(slug)
   const headings = getNoteHeadings(note.content)
   const implementationFocus = note.series === "RAG"
     ? "把召回、证据与版本过滤做成可复跑实验"
@@ -187,6 +190,16 @@ export default async function NoteDetailPage({ params }: NotePageProps) {
                   了解训练营 <ArrowRight aria-hidden />
                 </Link>
               </aside>
+
+              <CrossLinks
+                title="这篇笔记的配套真题"
+                variant="note"
+                items={xQa.map((q) => ({
+                  href: `/interview/qa/${q.slug}`,
+                  label: q.question,
+                  note: q.oneLine.slice(0, 40) + (q.oneLine.length > 40 ? "…" : ""),
+                }))}
+              />
 
               <nav className="aa-note-pager">
                 {previous ? (
