@@ -5,6 +5,8 @@ import { ArrowLeft, ArrowRight, Clock3 } from "lucide-react"
 import { Navigation } from "@/components/navigation"
 import { getMianjing, getMianjingList } from "@/lib/mianjing"
 import { getNoteHeadings, slugifyHeading } from "@/lib/notes"
+import { ReadingExtras } from "@/components/mianjing/reading-extras"
+import "../detail-enhance.css"
 import ReactMarkdown from "react-markdown"
 import remarkGfm from "remark-gfm"
 import type { Components } from "react-markdown"
@@ -12,6 +14,26 @@ import type { ReactNode } from "react"
 
 interface MianjingPageProps {
   params: Promise<{ slug: string }>
+}
+
+/** 公司展示名 → 徽章配色 key（detail-enhance.css 的 data-co 属性） */
+const COMPANY_KEYS: Record<string, string> = {
+  字节跳动: "bytedance",
+  阿里巴巴: "alibaba",
+  腾讯: "tencent",
+  美团: "meituan",
+  百度: "baidu",
+  京东: "jd",
+  "月之暗面（Kimi）": "moonshot",
+  小米: "xiaomi",
+  快手: "kuaishou",
+  滴滴: "didi",
+  拼多多: "pdd",
+  抖音: "douyin",
+}
+
+function companyKey(name: string): string {
+  return COMPANY_KEYS[name] ?? ""
 }
 
 export function generateStaticParams() {
@@ -39,7 +61,13 @@ function createMarkdownComponents(headings: { id: string; title: string }[]): Co
   return {
     h2({ children, ...props }) {
       const current = headings[cursor++]
-      return <h2 id={current?.id || slugifyHeading(headingText(children))} {...props}>{children}</h2>
+      const id = current?.id || slugifyHeading(headingText(children))
+      return (
+        <h2 id={id} {...props}>
+          {children}
+          <a className="mj-anchor" href={`#${id}`} aria-label="锚点链接">#</a>
+        </h2>
+      )
     },
     h3({ children, ...props }) {
       const current = headings[cursor++]
@@ -63,6 +91,7 @@ export default async function MianjingDetailPage({ params }: MianjingPageProps) 
   return (
     <>
       <Navigation />
+      <ReadingExtras />
       <main className="aa-notes aa-note-detail mj-page">
         <article className="aa-notes-shell aa-note-article">
           <nav className="aa-note-breadcrumb">
@@ -73,7 +102,7 @@ export default async function MianjingDetailPage({ params }: MianjingPageProps) 
 
           <header className="aa-note-header mj-header">
             <div className="aa-note-meta">
-              <span className="mj-company-pill">{doc.company}</span>
+              <span className="mj-company-pill" data-co={companyKey(doc.company)}>{doc.company}</span>
               <span className="mj-round">{doc.round}</span>
               <span className="aa-note-minutes">
                 <Clock3 aria-hidden /> {doc.minutes} 分钟读完
