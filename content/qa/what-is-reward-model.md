@@ -3,6 +3,7 @@ slug: what-is-reward-model
 question: Reward Model 是什么？Reward Hacking 怎么发现、怎么防？
 oneLine: Reward Model 把人类偏好学成奖励分数，在强化学习阶段指导策略；Reward Hacking 是策略刷高分但实际变差，要靠人评对照、漂移监控、策略约束和持续重训来控制。
 category: finetune
+company: antgroup
 tags: [RLHF, Reward Model, Reward Hacking]
 minutes: 6
 order: 13
