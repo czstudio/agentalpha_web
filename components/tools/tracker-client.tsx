@@ -101,7 +101,7 @@ export function TrackerClient() {
             </div>
             {stats.applied >= 5 && (
               <p className="tk-hint">
-                投了 {stats.applied} 家、进面 {stats.interviewed} 家（{Math.round((stats.interviewed / stats.applied) * 100)}%）。
+                投了 {stats.applied} 家、进面 {stats.interviewed} 家（{Math.round((stats.interviewed / stats.applied) * 100)}%，按进入一面及以后口径统计，笔试不计）。
                 进面率低于 20% 先回头改简历（<a href="/tools/resume">简历体检</a>）；进面率高但挂在面试，去
                 <a href="/tools/mock-interview">模拟面试</a>补表达。
               </p>

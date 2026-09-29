@@ -40,6 +40,18 @@ LLM_MODEL=gemini-3.1-flash-lite
 - `/tools/jd-analyzer`:规则拆解结果之后「AI 深度拆解」卡(四节固定结构:人话翻译/隐藏考点/简历怎么改/准备顺序)。
 - 防滥用:system prompt 声明 JD 仅为待分析材料;输出仅作展示不做指令;页面标注「大模型生成 · 需人工核验」。
 
+## 故障切换(2026-09-29 实测)
+
+中转站模型通道会整族故障(当天 gemini 系全部 503 model_temporarily_unavailable)。处置:改 Vercel 的 `LLM_MODEL` 为备用模型重新部署即可,零代码改动。实测可用的备选:
+
+| 模型 | 实测 | 特点 |
+| --- | --- | --- |
+| `gemini-3.1-flash-lite`(主选) | 3.9s,≈¥0.004/次 | 最便宜最快 |
+| `glm-5.3-flash` | 探活 200 | 备选一 |
+| `deepseek-v4-flash` | 10.7s,带 reasoning | 备选二,四类 JD(算法/Infra/英文)实测输出质量高 |
+
+健康检查:`curl -H "Authorization: Bearer <key>" .../v1/models` 看模型在列;真探活要发一次 1-token 请求(模型在列也可能 503)。
+
 ## 扩展下个工具时
 
 - 新增 `app/api/llm-<tool>/route.ts`,复用 `lib/tools/llm-server.ts` 的 `consumeQuota/callLlm/cache*`;

@@ -1,5 +1,7 @@
 "use client"
 
+import { QA_MASTERY_KEY } from "@/lib/tools/shared"
+
 import Link from "next/link"
 import { useCallback, useEffect, useMemo, useState } from "react"
 
@@ -29,7 +31,7 @@ interface QuizRun {
   missed: string[]
 }
 
-const MASTERED_KEY = "aa-qa-mastered-v1"
+const MASTERED_KEY = QA_MASTERY_KEY
 const HISTORY_KEY = "aa-quiz-history-v1"
 
 function loadJson<T>(key: string, fallback: T): T {

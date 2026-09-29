@@ -12,7 +12,7 @@
 
 export const LLM_MODEL_DEFAULT = "gemini-3.1-flash-lite"
 export const LLM_BASE_URL_DEFAULT = "https://api.huohuaapi.com/v1"
-/** 全站每日调用配额(3 元预算 ÷ 单次 ≤¥0.005,留边际) */
+/** 全站每日调用配额(3 元 ÷ ¥0.005,留边际) */
 export const LLM_SITE_DAILY_QUOTA = 600
 /** 单 IP 每日配额(防单人刷完全站额度) */
 export const LLM_IP_DAILY_QUOTA = 10
@@ -33,18 +33,11 @@ const siteCounter: DayCounter = { date: "", count: 0 }
 const ipCounters = new Map<string, DayCounter>()
 const cache = new Map<string, { text: string; model: string }>()
 
-function today(): string {
-  return new Date().toISOString().slice(0, 10)
-}
-
-function bump(counter: DayCounter): number {
-  const day = today()
-  if (counter.date !== day) {
-    counter.date = day
-    counter.count = 0
-  }
-  counter.count++
-  return counter.count
+/** 服务端按北京时间(站点受众)取「当天」,避免 UTC 让配额在北京早 8 点才重置 */
+export function todayCN(): string {
+  const now = new Date()
+  const cn = new Date(now.getTime() + 8 * 3600 * 1000)
+  return cn.toISOString().slice(0, 10)
 }
 
 export type QuotaVerdict =
@@ -53,7 +46,7 @@ export type QuotaVerdict =
 
 /** 预检 + 计数。调用失败不回退计数(保守:失败也占额度,防止用报错刷免费重试) */
 export function consumeQuota(ip: string): QuotaVerdict {
-  const day = today()
+  const day = todayCN()
   if (siteCounter.date !== day) {
     siteCounter.date = day
     siteCounter.count = 0
@@ -82,12 +75,18 @@ export function consumeQuota(ip: string): QuotaVerdict {
   return { ok: true, ...state, siteUsed: siteCounter.count, ipUsed: ipCounter.count }
 }
 
-function hashInput(text: string): string {
-  let h = 0
-  for (let i = 0; i < text.length; i++) {
-    h = (h * 31 + text.charCodeAt(i)) | 0
-  }
-  return `${text.length}-${h}`
+async function hashInput(text: string): Promise<string> {
+  // sha-256:弱哈希会让不同 JD 低概率串缓存答案
+  const buf = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(text.trim().toLowerCase()))
+  return Array.from(new Uint8Array(buf.slice(0, 12)))
+    .map((b) => b.toString(16).padStart(2, "0"))
+    .join("")
+}
+
+/** 缓存键带模型名:切换 LLM_MODEL 后不再命中旧模型的缓存 */
+export async function inputKey(namespace: string, input: string): Promise<string> {
+  const model = process.env.LLM_MODEL || LLM_MODEL_DEFAULT
+  return `${namespace}:${model}:${await hashInput(input)}`
 }
 
 export function cacheGet(key: string): { text: string; model: string } | null {
@@ -100,10 +99,6 @@ export function cachePut(key: string, value: { text: string; model: string }): v
     if (oldest !== undefined) cache.delete(oldest)
   }
   cache.set(key, value)
-}
-
-export function inputKey(namespace: string, input: string): string {
-  return `${namespace}:${hashInput(input.trim().toLowerCase())}`
 }
 
 export interface LlmResult {

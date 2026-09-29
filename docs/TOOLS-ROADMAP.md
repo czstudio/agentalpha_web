@@ -61,7 +61,7 @@
 ## 4. 技术架构决策（已定，勿反复）
 
 - **纯前端规则引擎**：所有交互工具与 /tools/resume 同形态——零后端、零上传、文本不出浏览器。LLM 增强层（用户自填 key）留给 v2，接口设计见 `_resume_optimizer/research.md` §8.3。
-- **JD 样板页 = content/jd/*.md**：frontmatter 字段 `slug/company/title/role/family/level/summary/cats/qaSlugs/keywords/updated`，正文固定 10 节 `## ` 标题。cats 用 content/interview/categories.json 词表，qaSlugs 必须真实存在于 content/qa。
+- **JD 样板页 = content/jd/*.md**：frontmatter 字段 `slug/company/title/role/family/level/summary/cats/qaSlugs/keywords/updated`，正文固定 9 节 `## ` 标题（2026-09-29 校正：首批起实际即 9 节，此前文档写 10 节是口径笔误），页面再自动补「对应面试题/相似岗位/下一步」三节共 12 节。cats 用 content/interview/categories.json 词表，qaSlugs 必须真实存在于 content/qa。
 - **JD 口径红线**：样板页是「该方向公开 JD 的高频归纳，非某一篇特定 JD」，页面明示；不写具体薪资/团队/编制数字；业务推测用「大概率/可能」并标置信度。与 lib/companies 的 company 字段口径一致。
 - **页面风格**：内容页（/jd）用面试间 `.ivu-` 暖纸底体系；工具页用白底 `.rt-` 体系扩展。CSS 前缀隔离，不动 globals.css。
 - **互链规则**：JD 页 → 题库（cats 自动）+ 简历体检 + Gap 自测 + 项目匹配器 + 同公司聚合页；工具结果页 → 相关 JD 样板页 + 题库。
@@ -92,7 +92,8 @@
 | B8 LLM 增强层第一期(用户拍板:最便宜模型 + 3 元/天预算) | 已上线代码@待部署 env:gemini-3.1-flash-lite + 全站 600 次/单 IP 10 次/浏览器 5 次 + 结果缓存,端点 /api/llm-jd,接入 JD 分析器「AI 深度拆解」;**线上激活需在 Vercel 配 LLM_API_KEY 等三个环境变量,见 docs/LLM-DEPLOY.md** |
 | JD 样板第三批 8 篇(字节Seed/阿里多模态/腾讯Infra/百度千帆/美团LongCat/蚂蚁/B站/拼多多) | 完成:JD 库 6→22 篇 |
 | 首页工具箱入口 + mock↔quiz 错题数据打通 | 完成 |
-| B4 模拟面试剧本化 + B6 复盘本/投递 CRM + B7 Offer 对比 + 全工具 UX 打磨 | 完成@0e7656a(2026-09-29):8 工具全上线,/tools 索引含六步路径 |
+| B4 模拟面试剧本化 + B6 复盘本/投递 CRM + B7 Offer 对比 + 全工具 UX 打磨 | 完成@0e7656a(2026-09-29):8 工具全上线,/tools 索引含六步路径;09-29 审查后补英文技术面模式(题干中文、追问英文) |
+| 2026-09-29 双轴代码审查+多画像 e2e 修复批 | 完成:IP 头防伪造(x-vercel 优先)、缓存键 sha-256+含模型名、配额按北京时间重置、mock 题目 id 防撞、共享常量层(lib/tools/shared.ts)、tools.css 主色令牌化、tracker 进面口径注明、隐私文案与 AI 卡矛盾修正 |
 | B2 JD 样板第二批 8 篇 | 完成@0e7656a:JD 库 6→14 篇,代理撰写+双轮独立校验 |
 | 构建阻塞修复(裸 \$ 金额误配公式 + 单页 60s 超时) | 完成@2f25551(大部分)+ f29785a:staticPageGenerationTimeout=300 |
 | B3 简历模板/样本页 10 个 | 待认领(素材:PROJECTS + 项目面试包 + resume-analyzer 词表) |

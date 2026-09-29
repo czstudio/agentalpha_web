@@ -6,7 +6,7 @@
 import { analyzeResume } from "@/lib/tools/resume-analyzer"
 import type { QaLite } from "@/lib/tools/jd-analyzer"
 
-export type MockMode = "jd" | "resume" | "stress"
+export type MockMode = "jd" | "resume" | "stress" | "english"
 export type PersonaKey = "gentle" | "cold" | "detail" | "arch" | "hr"
 export type Rating = "ok" | "partial" | "fail"
 
@@ -71,13 +71,22 @@ export const HR_POOL = [
   "如果同时有几个 offer，你最看重什么？为什么。",
 ]
 
-/** 压力模式的通用深挖追问（按题序循环） */
+/** 压力模式的通用深挖追问(按题序循环) */
 const STRESS_PROBES = [
-  "你刚才提到的那个点，具体数字是多少？说不出来就是没做过。",
-  "为什么选这个方案？当时对比过什么，放弃了什么？",
-  "如果流量放大十倍，你这套哪里先出问题？",
-  "这个结论怎么验证的？评测集多大、指标是什么？",
-  "重来一次你会改哪个设计 decision？为什么。",
+  "你刚才提到的那个点,具体数字是多少?说不出来就是没做过。",
+  "为什么选这个方案?当时对比过什么,放弃了什么?",
+  "如果流量放大十倍,你这套哪里先出问题?",
+  "这个结论怎么验证的?评测集多大、指标是什么?",
+  "重来一次你会改哪个设计 decision?为什么。",
+]
+
+/** 英文模式的追问(练「用英文讲技术」:题干中文、追问英文,作答建议用英文) */
+const ENGLISH_PROBES = [
+  "Can you walk me through the trade-offs you just described, in English?",
+  "Give me the concrete numbers behind that result — in English, please.",
+  "How would you explain this design decision to a non-Chinese-speaking teammate?",
+  "What broke first under load, and how did you find out? Answer in English.",
+  "If you had to redo this project, what would you change and why? In English.",
 ]
 
 /** 各方向的技术题分类组合（与 Gap 自测的方向口径一致） */
@@ -124,41 +133,38 @@ function buildJdSet(familySlug: string, qaList: QaLite[], persona: PersonaKey, t
       })
     }
   }
-  return finalize(pick(questions, total), persona, 0)
+  return finalize(pick(questions, total), persona)
 }
 
 /** 简历深挖：题目来自简历体检的追问预演（真实面经原题） */
 function buildResumeSet(resumeText: string, familySlug: string, persona: PersonaKey): MockQuestion[] {
   const report = analyzeResume(resumeText, familySlug === "ai-infra" ? "ai-infra" : familySlug === "llm-algo" ? "llm-algo" : "agent-app")
   const questions: MockQuestion[] = []
-  for (const bullet of report.bullets.slice(0, 6)) {
+  // id 带经历序号防撞:两条经历前 12 字相同也不会串自评
+  report.bullets.slice(0, 6).forEach((bullet, bi) => {
     bullet.probes.slice(0, 2).forEach((p, i) => {
       questions.push({
-        id: `${bullet.text.slice(0, 12)}-${i}`,
+        id: `resume-b${bi}-p${i}`,
         question: p.q,
         source: `简历「${bullet.text.slice(0, 18)}…」`,
       })
     })
-  }
+  })
   // 简历命中能力域但没被 bullet 覆盖的，补域级追问
-  for (const cell of report.radar.filter((c) => c.level > 0).slice(0, 3)) {
+  report.radar.filter((c) => c.level > 0).slice(0, 3).forEach((cell, ci) => {
     cell.axis.probes.slice(0, 1).forEach((p) => {
-      questions.push({ id: `axis-${cell.axis.key}`, question: p, source: cell.axis.label })
+      questions.push({ id: `axis-${ci}-${cell.axis.key}`, question: p, source: cell.axis.label })
+    })
+  })
+  if (questions.length === 0) {
+    report.radar.slice(0, 3).forEach((cell, ci) => {
+      questions.push({ id: `axis-f${ci}-${cell.axis.key}`, question: cell.axis.probes[0], source: cell.axis.label })
     })
   }
-  if (questions.length === 0) {
-    questions.push(
-      ...report.radar.slice(0, 3).map((cell) => ({
-        id: `axis-${cell.axis.key}`,
-        question: cell.axis.probes[0],
-        source: cell.axis.label,
-      })),
-    )
-  }
-  return finalize(questions.slice(0, 10), persona, 0)
+  return finalize(questions.slice(0, 10), persona)
 }
 
-function finalize(questions: MockQuestion[], persona: PersonaKey, stressFrom: number): MockQuestion[] {
+function finalize(questions: MockQuestion[], persona: PersonaKey): MockQuestion[] {
   const out = [...questions]
   if (persona === "hr") {
     out.splice(1, 0, { id: "hr-0", question: HR_POOL[0], source: "HR 题" })
@@ -189,6 +195,13 @@ export function buildSession(opts: {
   }
   if (opts.mode === "stress") {
     questions = questions.map((q, i) => ({ ...q, followUp: STRESS_PROBES[i % STRESS_PROBES.length] }))
+  }
+  if (opts.mode === "english") {
+    questions = questions.map((q, i) => ({
+      ...q,
+      followUp: ENGLISH_PROBES[i % ENGLISH_PROBES.length],
+      source: q.source === "HR 题" ? q.source : `${q.source} · 英文作答`,
+    }))
   }
   return { mode: opts.mode, persona, questions }
 }

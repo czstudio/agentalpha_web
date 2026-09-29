@@ -224,13 +224,6 @@ export function familyLabel(family: MatcherFamily): string {
   )[family]
 }
 
-export const FAMILY_OPTIONS: Array<{ slug: MatcherFamily; label: string }> = [
-  { slug: "agent-app", label: "Agent 应用开发" },
-  { slug: "rag-eng", label: "RAG 工程" },
-  { slug: "llm-algo", label: "大模型算法" },
-  { slug: "ai-infra", label: "AI Infra" },
-]
-
 export const SKILL_OPTIONS: Array<{ slug: SkillLevel; label: string; hint: string }> = [
   { slug: "zero", label: "零基础", hint: "会写 Python，没碰过大模型" },
   { slug: "api", label: "调过 LLM API", hint: "用 SDK 或接口做过调用" },

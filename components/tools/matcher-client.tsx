@@ -4,7 +4,6 @@ import { useState } from "react"
 import Link from "next/link"
 import {
   matchProjects,
-  FAMILY_OPTIONS,
   SKILL_OPTIONS,
   TIME_OPTIONS,
   familyLabel,
@@ -13,8 +12,10 @@ import {
   type TimeBudget,
   type MatcherRecommendation,
 } from "@/lib/tools/project-matcher"
+import { FAMILY_BASE } from "@/lib/tools/shared"
 
 const DIFF_LABEL = ["", "入门", "进阶", "高阶"]
+const FAMILY_OPTIONS = FAMILY_BASE.map((f) => ({ slug: f.slug as MatcherFamily, label: f.name }))
 
 export function MatcherClient() {
   const [family, setFamily] = useState<MatcherFamily>("agent-app")
