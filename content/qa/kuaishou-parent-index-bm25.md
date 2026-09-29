@@ -3,7 +3,7 @@ slug: kuaishou-parent-index-bm25
 question: "为什么引入父子索引和 BM25？怎么和向量检索融合？"
 oneLine: "父子索引用小块向量匹配保精度，命中后取完整父块补齐语义；BM25补专名、型号、代码标识，再把两路召回取并集，用RRF或加权融合排序，最后重排精排。"
 category: jingchang
-company: kuaishou
+company: kuaishou, netease
 track: ai-app
 tags: [快手真题, 大模型面试, 检索增强]
 minutes: 5

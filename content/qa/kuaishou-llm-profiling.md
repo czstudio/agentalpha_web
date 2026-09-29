@@ -3,7 +3,7 @@ slug: kuaishou-llm-profiling
 question: "推荐系统引入 LLM 做 User Profiling，可行性和挑战是什么？"
 oneLine: "可行的方案是把行为序列转成自然语言，让 LLM 生成可解释的画像摘要，再和 embedding 画像混合使用，同时按用户活跃度分配成本，并处理时效和隐私问题。"
 category: jingchang
-company: kuaishou
+company: kuaishou, netease
 track: ai-app
 tags: [推荐系统, 用户画像, LLM]
 minutes: 5

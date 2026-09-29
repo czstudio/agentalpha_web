@@ -3,7 +3,7 @@ slug: kuaishou-embedding-dim
 question: "Embedding 维度怎么选？维度高低各有什么影响？"
 oneLine: "维度先跟随基座模型输出，再按召回效果和成本曲线找拐点；高维表达力强但更耗资源，低维省资源但语义更容易挤在一起。"
 category: jingchang
-company: kuaishou
+company: kuaishou, netease
 track: ai-app
 tags: [快手真题, Embedding, 向量检索]
 minutes: 5

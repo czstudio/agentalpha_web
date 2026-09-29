@@ -3,7 +3,7 @@ slug: byte100-tool-timeout-retry
 question: "工具调用的超时、重试、幂等、补偿和熔断怎么实现？"
 oneLine: "工具调用的稳定性需分层实现。超时按工具分级，重试仅限查询类幂等操作，幂等靠请求去重键实现。非幂等失败走反向补偿或人工对账，连续失败触发熔断并降级使用缓存。"
 category: jingchang
-company: bytedance, tencent, baidu, microsoft, xiaohongshu, didi, openai, xiaomi, google, douyin, jd, bilibili
+company: bytedance, tencent, baidu, microsoft, xiaohongshu, didi, openai, xiaomi, google, douyin, jd, bilibili, sensetime, zhipu, nio
 track: agent-dev
 tags: [字节真题, 工具调用, 稳定性]
 minutes: 5

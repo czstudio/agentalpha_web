@@ -3,7 +3,7 @@ slug: byte100-stop-condition
 question: "Agent 的停止条件怎么设计？怎么避免死循环和无限反思？"
 oneLine: "Agent 停止条件分正常完成、预算耗尽和异常终止三类。避免死循环需检测重复状态与动作，限制连续无进展步数，并为反思机制设置计次上限。停止后应交付已完成部分与未完成清单。"
 category: jingchang
-company: bytedance, meituan, baidu, xiaohongshu, didi, deepseek, moonshot, xiaomi, microsoft, google, douyin, jd, bilibili
+company: bytedance, meituan, baidu, xiaohongshu, didi, deepseek, moonshot, xiaomi, microsoft, google, douyin, jd, bilibili, sensetime, zhipu, nio
 track: agent-dev
 tags: [字节真题, Agent设计, 异常处理]
 minutes: 5

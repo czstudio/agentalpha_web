@@ -3,7 +3,7 @@ slug: huawei-agent-tool-safety
 question: "Agent 调用外部工具的安全边界怎么划？"
 oneLine: "先按工具风险分级，再把权限和确认机制下沉到工具层：查询限频，可逆写自动执行并审计，不可逆操作必须人工确认，同时做白名单、参数校验、沙箱隔离和审计留痕。"
 category: jingchang
-company: huawei
+company: huawei, netease
 track: agent-dev
 tags: [工具安全, 权限控制, Agent开发]
 minutes: 5

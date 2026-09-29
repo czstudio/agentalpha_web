@@ -3,6 +3,7 @@ slug: embedding-model-selection
 question: Embedding 模型怎么选？看哪些指标？
 oneLine: 五个维度：中文/多语能力、检索精度（看 C-MTEB 这类榜单）、最大输入长度、推理成本、能否私有化部署；选定后用自己的数据建评测集复测，别只信榜单。
 category: rag
+company: netease
 tags: [Embedding, 选型, C-MTEB]
 minutes: 5
 order: 4

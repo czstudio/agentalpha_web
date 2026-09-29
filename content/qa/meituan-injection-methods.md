@@ -3,7 +3,7 @@ slug: meituan-injection-methods
 question: "提示词注入有哪些手段？分别怎么防？"
 oneLine: "提示词注入包括直接注入、间接注入、角色扮演绕过和编码混淆，防御要做输入输出过滤、内容隔离、工具限权，并对高危动作人工确认。"
 category: jingchang
-company: meituan, tencent, huawei, openai, microsoft, google, douyin, jd, bilibili
+company: meituan, tencent, huawei, openai, microsoft, google, douyin, jd, bilibili, netease
 track: agent-dev
 tags: [提示词注入, Agent安全, 大模型面试]
 minutes: 5

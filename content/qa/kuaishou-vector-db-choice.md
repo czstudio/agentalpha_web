@@ -3,7 +3,7 @@ slug: kuaishou-vector-db-choice
 question: "为什么不用 Milvus 或 Elasticsearch？向量库选型怎么解释？"
 oneLine: "我会按数据规模、QPS、检索方式、运维能力和一致性要求选型；当前规模用 pgvector 加 BM25 足够，规模上来再迁移 Milvus。"
 category: jingchang
-company: kuaishou
+company: kuaishou, netease
 track: infra
 tags: [快手真题, 向量库选型, 大模型面试]
 minutes: 5

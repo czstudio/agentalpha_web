@@ -3,7 +3,7 @@ slug: what-is-quantization
 question: 模型量化是什么？INT4、INT8 压缩会不会伤效果
 oneLine: 量化把权重从 FP16 这类高精度数映射到 INT8、INT4 的低精度数，显存和搬运量降到二分之一或四分之一；做得细损失很小，做得糙会明显掉点，上线前要用目标任务验证。
 category: inference
-company: meituan, deepseek, openai, xiaomi
+company: meituan, deepseek, openai, xiaomi, minimax, iflytek
 tags: [推理优化, 量化]
 minutes: 5
 order: 4

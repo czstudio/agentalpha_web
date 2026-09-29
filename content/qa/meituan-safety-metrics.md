@@ -3,7 +3,7 @@ slug: meituan-safety-metrics
 question: "安全防护有哪些量化指标？"
 oneLine: "安全防护要用攻击集量化，分层看注入攻击拦截率、有害内容检出率与误杀率、越权动作拦截率和数据泄露事件扫描命中率。"
 category: jingchang
-company: meituan, baidu, didi, openai, microsoft, google, douyin, jd, bilibili
+company: meituan, baidu, didi, openai, microsoft, google, douyin, jd, bilibili, netease
 track: agent-dev
 tags: [安全评估, 攻击集, Agent安全]
 minutes: 5

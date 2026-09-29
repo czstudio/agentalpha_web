@@ -3,7 +3,7 @@ slug: kuaishou-rec-llm-integration
 question: "推荐系统和 LLM 怎么结合？从召回和精排说。"
 oneLine: "召回用 LLM 理解和改写 query，结合 embedding 语义召回与知识增强协同过滤找候选；精排用它建模用户兴趣、增强特征交叉语义，并用推荐理由辅助打分，落到短视频就是内容理解和个性化增强。"
 category: jingchang
-company: kuaishou
+company: kuaishou, netease
 track: ai-app
 tags: [推荐系统, LLM, 召回与精排]
 minutes: 5

@@ -3,7 +3,7 @@ slug: byte100-ma-arch-select
 question: "单 Agent、Supervisor-Worker、层级式、去中心化多 Agent 怎么选型？"
 oneLine: "选型按任务耦合度与规模决定。默认从单 Agent 起步。Supervisor-Worker 适合可并行拆分的子任务。层级式适合控制大规模组织的通信复杂度。去中心化适合无中心决策场景，但调试成本高。"
 category: jingchang
-company: bytedance, tencent, baidu, antgroup, xiaohongshu, didi, xiaomi, microsoft, google, douyin, jd, bilibili
+company: bytedance, tencent, baidu, antgroup, xiaohongshu, didi, xiaomi, microsoft, google, douyin, jd, bilibili, sensetime, zhipu, nio
 track: agent-dev
 tags: [字节真题, 多智能体, 架构选型]
 minutes: 5

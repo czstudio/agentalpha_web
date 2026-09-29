@@ -3,7 +3,7 @@ slug: kuaishou-tool-injection-defense
 question: "工具调用怎么做安全控制？怎么防 Prompt 注入？"
 oneLine: "工具调用要做输入、执行、输出三层控制，检索内容默认不可信，工具按白名单和参数校验执行，高危动作人工确认，并用最小权限兜底。"
 category: jingchang
-company: kuaishou
+company: kuaishou, netease
 track: agent-dev
 tags: [快手真题, Prompt注入, 工具安全]
 minutes: 5

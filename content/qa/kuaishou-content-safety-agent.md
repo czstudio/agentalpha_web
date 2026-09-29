@@ -3,7 +3,7 @@ slug: kuaishou-content-safety-agent
 question: "如何用 Agent 做视频内容安全审核？和规则审核怎么协作？"
 oneLine: "用规则引擎和分类模型先快速过滤明确违规，再让多模态 Agent 理解灰度内容并输出推理链，不确定时交给人工；Agent 延迟高，只适合非实时审核。"
 category: jingchang
-company: kuaishou
+company: kuaishou, netease
 track: agent-dev
 tags: [快手真题, 内容安全, 多模态Agent]
 minutes: 5

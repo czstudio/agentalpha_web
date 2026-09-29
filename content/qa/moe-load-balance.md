@@ -3,6 +3,7 @@ slug: moe-load-balance
 question: MoE 的负载均衡是什么？专家并行怎么切？
 oneLine: 负载均衡是为了防止路由偏科导致专家塌缩，传统靠辅助损失函数，现在有无损的偏置调整法；专家并行则是把不同专家放到不同GPU上，通过两次all-to-all通信完成分发和合并。
 category: finetune
+company: sensetime, minimax, iflytek, nio
 tags: [MoE, 并行策略, 负载均衡]
 minutes: 6
 order: 15

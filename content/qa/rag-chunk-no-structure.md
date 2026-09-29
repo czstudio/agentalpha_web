@@ -3,7 +3,7 @@ slug: rag-chunk-no-structure
 question: 文档没有标题层级时，分块怎么切？切完剩下的碎块怎么处理？
 oneLine: 遇到无结构文本，按段落、句子、固定窗口或语义相似度骤降点依次降级切分。尾部碎块通常向前合并或交由父子索引处理，保证语义自洽，不强求等长。
 category: rag
-company: kuaishou,bytedance
+company: kuaishou, bytedance, netease
 tags: [RAG, 文本分块]
 minutes: 6
 order: 20

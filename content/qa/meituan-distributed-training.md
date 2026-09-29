@@ -3,7 +3,7 @@ slug: meituan-distributed-training
 question: "分布式训练有哪些技术？"
 oneLine: "分布式训练先分数据并行、张量并行、流水线并行，再按卡数和模型规模组合，并用 ZeRO、DeepSpeed 或 Megatron 实现。"
 category: jingchang
-company: meituan, baidu, antgroup, huawei, didi, deepseek, microsoft, google, douyin, jd, bilibili
+company: meituan, baidu, antgroup, huawei, didi, deepseek, microsoft, google, douyin, jd, bilibili, zhipu, minimax, iflytek
 track: algo-general
 tags: [分布式训练, 并行技术, 大模型面试]
 minutes: 5

@@ -3,7 +3,7 @@ slug: pdd-offline-before-online
 question: "模型要经过哪些离线验证才能上线？"
 oneLine: "先比 AUC/GAUC 和 baseline，再查分人群与流量切片的公平性、稳定性，回放历史流量做模拟打分，最后小流量 A/B 并分阶段放量。"
 category: jingchang
-company: pdd
+company: pdd, netease
 track: ai-app
 tags: [拼多多真题, 大模型面试, 模型评估]
 minutes: 5

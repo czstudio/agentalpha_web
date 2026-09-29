@@ -3,7 +3,7 @@ slug: dpo-vs-ppo
 question: DPO 和 PPO 有什么区别？为什么很多团队改用 DPO
 oneLine: PPO 是在 RLHF 里用强化学习：奖励模型打分，模型在训练循环里反复采样更新。DPO 把同一目标改写成直接在偏好对上优化，不需要奖励模型，也没有采样循环，工程上省事得多。
 category: finetune
-company: antgroup, pdd, xiaohongshu, didi, deepseek, openai, xiaomi, microsoft, google, douyin, jd, bilibili
+company: antgroup, pdd, xiaohongshu, didi, deepseek, openai, xiaomi, microsoft, google, douyin, jd, bilibili, zhipu, minimax, iflytek
 tags: [DPO, RLHF]
 minutes: 6
 order: 6

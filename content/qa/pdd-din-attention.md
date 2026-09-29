@@ -3,7 +3,7 @@ slug: pdd-din-attention
 question: "DIN 的注意力机制起什么作用？为什么换 softmax 效果变差？"
 oneLine: "DIN 根据候选商品为历史行为动态分配权重，激活相关兴趣；softmax 强制兴趣相互竞争，会破坏多兴趣并存。"
 category: jingchang
-company: pdd
+company: pdd, netease
 track: ai-app
 tags: [拼多多真题, 推荐系统, 注意力机制]
 minutes: 5

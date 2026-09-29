@@ -3,7 +3,7 @@ slug: vlm-vision-token-reduction
 question: VLM 怎么减少 vision token？视觉 token 太多带来什么问题？
 oneLine: 视觉 token 太多会挤占上下文预算并推高延迟，减少 token 的方法包括降低分辨率、Patch 合并、池化压缩、学习型压缩和动态分辨率，实际应用中通常根据任务容忍度选择压缩档位。
 category: multimodal
-company: pdd
+company: pdd, sensetime, minimax, iflytek, nio
 tags: [VLM, 多模态, 模型优化]
 minutes: 6
 order: 12

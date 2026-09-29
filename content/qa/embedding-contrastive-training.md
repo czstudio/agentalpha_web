@@ -3,6 +3,7 @@ slug: embedding-contrastive-training
 question: Embedding 模型是怎么训练出来的？对比学习在做什么？
 oneLine: Embedding 训练的核心是对比学习，通过 InfoNCE 损失函数拉近正样本、推远负样本，现代做法高度依赖 In-batch 负例与 BM25 挖掘的难负例来构建训练信号。
 category: rag
+company: netease
 tags: [[, r, a, g, ,,  , e, m, b, e, d, d, i, n, g, ]]
 minutes: 6
 order: 16

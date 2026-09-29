@@ -3,7 +3,7 @@ slug: byte100-replan-loop
 question: "Planner 生成的计划不可执行时，Executor 怎么反馈和触发 Replan？"
 oneLine: "Executor 通过结构化反馈失败步骤、失败类型和已完成结果，让 Planner 增量修改计划。缺参数就地补齐，步骤依赖断裂才触发 Replan，超限直接降级转人工。"
 category: jingchang
-company: bytedance, xiaohongshu, didi, xiaomi
+company: bytedance, xiaohongshu, didi, xiaomi, sensetime, zhipu, nio
 track: agent-dev
 tags: [字节真题, Agent, Replan]
 minutes: 5

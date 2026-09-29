@@ -3,6 +3,7 @@ slug: enterprise-rag-pitfalls
 question: 企业知识库 RAG 落地最常见的坑是什么？
 oneLine: 大头不在算法在数据：文档解析质量差、数据陈旧没版本、权限没接住；其次是把 demo 效果当上线预期。顺序上先修数据工程，再谈模型优化。
 category: enterprise
+company: netease
 tags: [RAG 落地, 数据质量, 知识库]
 minutes: 6
 order: 2
