@@ -1,10 +1,9 @@
 "use client"
 
-import { useEffect, useState, useRef, useCallback, useSyncExternalStore } from "react"
+import { useEffect, useState, useRef, useCallback } from "react"
 import Link from "next/link"
-import { useTheme } from "next-themes"
 import { AnimatePresence, motion } from "framer-motion"
-import { SunMedium, Moon, ArrowRight, Menu, X } from "lucide-react"
+import { ArrowRight, Menu, X } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
 import { SiteLogo } from "@/components/site-logo"
@@ -18,14 +17,10 @@ import { LanguageSwitcher } from "@/components/language-switcher"
 import { useLanguage } from "@/contexts/language-context"
 import { openEnrollmentDialog } from "@/lib/enrollment-event"
 
-const subscribeToHydration = () => () => undefined
-
 export function Navigation() {
   const [scrolled, setScrolled] = useState(false)
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
-  const mounted = useSyncExternalStore(subscribeToHydration, () => true, () => false)
   const [showFireworks, setShowFireworks] = useState(false)
-  const { resolvedTheme, setTheme } = useTheme()
   const { t } = useLanguage()
 
   const navItems = [
@@ -74,7 +69,6 @@ export function Navigation() {
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
 
-  const toggleTheme = () => setTheme(resolvedTheme === "dark" ? "light" : "dark")
   const closeMobileMenu = () => setMobileMenuOpen(false)
 
   return (
@@ -111,23 +105,6 @@ export function Navigation() {
 
             <div className="flex items-center gap-2">
               <LanguageSwitcher />
-
-              <Button
-                variant="ghost"
-                size="icon"
-                className="h-11 w-11"
-                onClick={toggleTheme}
-                aria-label={t.nav.toggleTheme}
-                disabled={!mounted}
-              >
-                {!mounted ? (
-                  <SunMedium className="w-5 h-5" />
-                ) : resolvedTheme === "dark" ? (
-                  <SunMedium className="w-5 h-5" />
-                ) : (
-                  <Moon className="w-5 h-5" />
-                )}
-              </Button>
 
               <Button
                 variant="ghost"
