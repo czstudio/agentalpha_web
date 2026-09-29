@@ -104,28 +104,6 @@ export const metadata: Metadata = {
   description:
     "项目驱动、导师带教、实战落地：五个可核验的自研项目、三层课程体系与十阶段实战路线、带教服务实录，大厂 offer 与顶会录用结果墙。资料研习、项目实战、深度陪跑三种参与方式，完整介绍见社区文档。",
   alternates: { canonical: "/learn" },
-  openGraph: {
-    type: "website",
-    url: "/learn",
-    siteName: "AgentAlpha",
-    title: "大模型 Agent 训练营 · AgentAlpha",
-    description:
-      "五个可核验的自研项目、十阶段实战路线、大厂 offer 与顶会录用结果墙。项目驱动、导师带教、实战落地。",
-    images: [
-      {
-        url: "/ai-agent-network-visualization-with-nodes-and-conn.jpg",
-        width: 1024,
-        height: 1024,
-        alt: "AgentAlpha 大模型 Agent 训练营",
-      },
-    ],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "大模型 Agent 训练营 · AgentAlpha",
-    description: "五个可核验的自研项目、十阶段实战路线、真实结果墙。",
-    images: ["/ai-agent-network-visualization-with-nodes-and-conn.jpg"],
-  },
 }
 
 /** 社区完整介绍文档（定位、项目战绩、导师、学员结果、参与方式都在这里） */
@@ -559,29 +537,8 @@ const MENTORS: { title: string; items: string[] }[] = [
   },
 ]
 
-/** 一对一辅导老师（来自训练营课程文档的详细介绍） */
-const TUTORS: { name: string; tag: string; points: string[] }[] = [
+const PRINCIPLES: { name: string; against: string; insist: string }[] = [
   {
-    name: "Ben 老师",
-    tag: "研究方向 · 产学研",
-    points: [
-      "MIT 博士，985 青年教授",
-      "担任腾讯、OPPO、字节、阿里等大厂 AI lab 产学研项目合作的资深研究科学家，项目资金支持数百万级",
-      "多次获 CVPR、ECCV 等顶会 Workshop Challenge 全球冠军",
-    ],
-  },
-  {
-    name: "Jack 老师",
-    tag: "训练与系统方向",
-    points: [
-      "香港 Top 3 博士后研究员，曾赴新加坡国立大学交流访学，有知名科技公司研究经历",
-      "在 ICLR、NeurIPS、ICML、ACL、AAAI、ASPLOS 等国际会议发表论文 80 余篇",
-      "获 NeurIPS Spotlight、Outstanding Student Paper Award；方向：Agentic RL、自进化 Agent、推理加速、联邦学习与分布式训练",
-    ],
-  },
-]
-
-const PRINCIPLES: { name: string; against: string; insist: string }[] = [  {
     name: "实战为王",
     against: "只看课、只跑示例、只记概念。",
     insist: "围绕真实项目拆需求、写代码、做评估、复盘结果。",
@@ -818,7 +775,7 @@ export default function LearnIndexPage() {
           <section id="projects" className="learn-home-block">
             <div className="aa-section-head">
               <div className="aa-section-head-main">
-                <p className="aa-kicker">01 · REPRESENTATIVE PROJECTS</p>
+                <p className="aa-kicker">REPRESENTATIVE PROJECTS</p>
                 <h2>五个代表项目，链接全部可核验</h2>
                 <p className="aa-section-desc">
                   训练营的实战载体：自研四大学术核心成果加企业定制项目，技术研发、项目实战、人才培养都围绕它们展开。
@@ -888,7 +845,7 @@ export default function LearnIndexPage() {
           <section id="courses" className="learn-home-block">
             <div className="aa-section-head">
               <div className="aa-section-head-main">
-                <p className="aa-kicker">02 · COURSES</p>
+                <p className="aa-kicker">COURSES</p>
                 <h2>三层课程体系 + 十阶段 Agent 系列课</h2>
                 <p className="aa-section-desc">
                   课程体系 + 实战训练营 + 项目定制三大板块：基础课打底，大模型专项课分层到入门 / 论文 / offer 三级，Agent
@@ -963,41 +920,10 @@ export default function LearnIndexPage() {
             </div>
           </section>
 
-          <section id="service" className="learn-home-block">
-            <div className="aa-section-head">
-              <div className="aa-section-head-main">
-                <p className="aa-kicker">03 · SERVICE</p>
-                <h2>带教服务与课程形式</h2>
-                <p className="aa-section-desc">
-                  训练营不是看课自习：直播带做、每周答疑、周报考核、内推与论文辅导都写在流程里。下面是服务内容与真实的辅导过程记录。
-                </p>
-              </div>
-            </div>
-            <div className="learn-svc">
-              {SERVICE.map((s) => (
-                <div key={s.name} className="learn-svc-card">
-                  <h3>{s.name}</h3>
-                  <p>{s.desc}</p>
-                </div>
-              ))}
-            </div>
-            <h3 className="learn-sub">辅导过程实录（答疑、周报与论文课题记录）</h3>
-            <div className="learn-wall">
-              {SERVICE_WALL.map((o) => (
-                <figure key={o.src} className="learn-wall-item">
-                  <a href={IMG + o.src} target="_blank" rel="noopener noreferrer" title="点击查看原图">
-                    <img src={IMG + o.src} alt={o.cap} width={o.w} height={o.h} loading="lazy" decoding="async" />
-                  </a>
-                  <figcaption>{o.cap}</figcaption>
-                </figure>
-              ))}
-            </div>
-          </section>
-
           <section id="fit" className="learn-home-block">
             <div className="aa-section-head">
               <div className="aa-section-head-main">
-                <p className="aa-kicker">04 · WHO IT'S FOR</p>
+                <p className="aa-kicker">WHO IT'S FOR</p>
                 <h2>课程特色与适合谁</h2>
                 <p className="aa-section-desc">先说清楚训练营怎么教，再说清楚谁适合来、谁不适合来。</p>
               </div>
@@ -1030,10 +956,41 @@ export default function LearnIndexPage() {
             </div>
           </section>
 
+          <section id="service" className="learn-home-block">
+            <div className="aa-section-head">
+              <div className="aa-section-head-main">
+                <p className="aa-kicker">SERVICE</p>
+                <h2>带教服务与课程形式</h2>
+                <p className="aa-section-desc">
+                  训练营不是看课自习：直播带做、每周答疑、周报考核、内推与论文辅导都写在流程里。下面是服务内容与真实的辅导过程记录。
+                </p>
+              </div>
+            </div>
+            <div className="learn-svc">
+              {SERVICE.map((s) => (
+                <div key={s.name} className="learn-svc-card">
+                  <h3>{s.name}</h3>
+                  <p>{s.desc}</p>
+                </div>
+              ))}
+            </div>
+            <h3 className="learn-sub">辅导过程实录（答疑、周报与论文课题记录）</h3>
+            <div className="learn-wall">
+              {SERVICE_WALL.map((o) => (
+                <figure key={o.src} className="learn-wall-item">
+                  <a href={IMG + o.src} target="_blank" rel="noopener noreferrer" title="点击查看原图">
+                    <img src={IMG + o.src} alt={o.cap} width={o.w} height={o.h} loading="lazy" decoding="async" />
+                  </a>
+                  <figcaption>{o.cap}</figcaption>
+                </figure>
+              ))}
+            </div>
+          </section>
+
           <section id="mentors" className="learn-home-block">
             <div className="aa-section-head">
               <div className="aa-section-head-main">
-                <p className="aa-kicker">05 · MENTORS</p>
+                <p className="aa-kicker">MENTORS</p>
                 <h2>导师与社区成员</h2>
                 <p className="aa-section-desc">产学研三方都在一线做项目：研究问题、工程难点和真实场景放在同一个训练场里。</p>
               </div>
@@ -1050,27 +1007,12 @@ export default function LearnIndexPage() {
                 </div>
               ))}
             </div>
-
-            <h3 className="learn-sub">一对一辅导老师</h3>
-            <div className="learn-svc learn-svc--2">
-              {TUTORS.map((t) => (
-                <div key={t.name} className="learn-svc-card learn-tutor">
-                  <h3>{t.name}</h3>
-                  <span className="learn-tutor-tag">{t.tag}</span>
-                  <ul>
-                    {t.points.map((p) => (
-                      <li key={p}>{p}</li>
-                    ))}
-                  </ul>
-                </div>
-              ))}
-            </div>
           </section>
 
           <section id="method" className="learn-home-block">
             <div className="aa-section-head">
               <div className="aa-section-head-main">
-                <p className="aa-kicker">06 · PRINCIPLES</p>
+                <p className="aa-kicker">PRINCIPLES</p>
                 <h2>训练营的方法</h2>
               </div>
             </div>
@@ -1094,7 +1036,7 @@ export default function LearnIndexPage() {
           <section id="tracks" className="learn-home-block">
             <div className="aa-section-head">
               <div className="aa-section-head-main">
-                <p className="aa-kicker">07 · TRACKS</p>
+                <p className="aa-kicker">TRACKS</p>
                 <h2>三类成长方向</h2>
                 <p className="aa-section-desc">不同人的目标不一样，但训练底层相通：围绕真实 Agent 项目，形成可展示、可解释、可迁移的能力。</p>
               </div>
@@ -1119,7 +1061,7 @@ export default function LearnIndexPage() {
           <section id="results" className="learn-home-block">
             <div className="aa-section-head">
               <div className="aa-section-head-main">
-                <p className="aa-kicker">08 · RESULTS</p>
+                <p className="aa-kicker">RESULTS</p>
                 <h2>真实结果与学员案例</h2>
                 <p className="aa-section-desc">以下截图均已脱敏，来自社区学员的真实结果；每个项目本身也有公开链接可查。</p>
               </div>
@@ -1212,21 +1154,12 @@ export default function LearnIndexPage() {
                 </figure>
               ))}
             </div>
-
-            <p className="learn-next-step">
-              想核对细节：项目链接都在上方卡片里，结果截图可点开看原图。不确定是否合适，先看
-              <a href="https://meeting.tencent.com/crm/2G4ZrQVAd0" target="_blank" rel="noopener noreferrer">
-                课程介绍会回放
-              </a>
-              ，再对照
-              <a href="#participate">三种参与方式</a>；页底二维码可以直接把你的情况发给我们。
-            </p>
           </section>
 
           <section id="participate" className="learn-home-block">
             <div className="aa-section-head">
               <div className="aa-section-head-main">
-                <p className="aa-kicker">09 · PARTICIPATION</p>
+                <p className="aa-kicker">PARTICIPATION</p>
                 <h2>三种参与方式</h2>
                 <p className="aa-section-desc">不同人需要的不是同一种服务，而是不同深度的参与方式。</p>
               </div>
@@ -1245,7 +1178,7 @@ export default function LearnIndexPage() {
           <section id="faq" className="learn-home-block">
             <div className="aa-section-head">
               <div className="aa-section-head-main">
-                <p className="aa-kicker">10 · FAQ</p>
+                <p className="aa-kicker">FAQ</p>
                 <h2>常见问题</h2>
               </div>
             </div>
@@ -1290,16 +1223,6 @@ export default function LearnIndexPage() {
               <figcaption>扫码添加微信，发送上面 4 个信息</figcaption>
             </figure>
           </section>
-
-          {/* 移动端底部固定操作条（桌面端隐藏） */}
-          <div className="learn-mcta">
-            <a className="aa-btn-primary" href="https://meeting.tencent.com/crm/2G4ZrQVAd0" target="_blank" rel="noopener noreferrer">
-              看介绍会回放
-            </a>
-            <a className="aa-btn-ghost" href="#participate">
-              参与方式
-            </a>
-          </div>
         </article>
       </main>
     </>

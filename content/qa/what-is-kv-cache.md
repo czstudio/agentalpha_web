@@ -3,7 +3,6 @@ slug: what-is-kv-cache
 question: KV Cache 是什么？没有它为什么就快不起来
 oneLine: 生成每个新词都要和前面所有词做注意力计算，KV Cache 把前面词算好的键值中间结果存下来复用，每步只算新词自己那份，省掉绝大部分重复计算。
 category: inference
-company: antgroup, xiaohongshu, didi, deepseek, openai, moonshot, xiaomi, microsoft, google, douyin, jd, bilibili
 tags: [推理优化, KV Cache]
 minutes: 5
 order: 1

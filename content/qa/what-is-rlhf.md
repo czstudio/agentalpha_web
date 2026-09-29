@@ -3,7 +3,6 @@ slug: what-is-rlhf
 question: RLHF 是什么？为什么要做人类反馈强化学习这一步
 oneLine: RLHF 先用人类对回答的偏好训练一个奖励模型，再用强化学习让模型朝「人觉得更好」的方向优化。它补的是 SFT 给不了的东西：在多个都对的说法里选出人更满意的那个。
 category: finetune
-company: antgroup
 tags: [RLHF, 对齐]
 minutes: 6
 order: 5

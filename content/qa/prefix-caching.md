@@ -3,7 +3,7 @@ slug: prefix-caching
 question: Prefix Caching（前缀缓存）是什么？怎么靠它省钱提速
 oneLine: 大量请求的开头一模一样，比如同一段系统提示词。把这段公共开头算好的 KV Cache 存下来跨请求复用，后来的请求跳过这部分预填充，首 token 更快，费用也更低。
 category: inference
-company: meituan, baidu, moonshot
+company: meituan, baidu
 tags: [推理优化, 前缀缓存]
 minutes: 4
 order: 6

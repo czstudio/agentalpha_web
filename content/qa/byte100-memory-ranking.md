@@ -3,7 +3,7 @@ slug: byte100-memory-ranking
 question: "长期记忆的排序怎么设计？相关性、重要性、时效性、置信度怎么综合？"
 oneLine: "长期记忆排序采用先召回后重排架构。重排阶段综合相关性、重要性、时效性和置信度四因子加权。权重按业务调整。时效性衰减半衰期按信息类型区分，偏好类衰减慢，状态类衰减快。"
 category: jingchang
-company: bytedance, meituan, baidu, moonshot
+company: bytedance, meituan, baidu
 track: agent-dev
 tags: [字节真题, 长期记忆, RAG排序]
 minutes: 5

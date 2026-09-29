@@ -3,7 +3,6 @@ slug: what-are-gqa-mqa-mla
 question: GQA、MQA、MLA 是什么？为什么推理部署都在用？
 oneLine: 它们都是为缩减大模型推理时 KV 缓存显存占用而设计的注意力变体。MQA 共享一个 KV 头，GQA 分组共享，MLA 则将 KV 压缩成低秩潜在向量并解耦 RoPE。
 category: inference
-company: antgroup
 tags: [大模型推理, 注意力机制, KV Cache]
 minutes: 6
 order: 18

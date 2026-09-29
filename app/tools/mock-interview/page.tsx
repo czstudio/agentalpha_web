@@ -4,7 +4,6 @@ import { Navigation } from "@/components/navigation"
 import { MockClient } from "@/components/tools/mock-client"
 import { getAllQa } from "@/lib/qa"
 import "../tools.css"
-import { ToolsFaq } from "@/components/tools/tools-faq"
 
 const SITE = "https://agentalpha.top"
 
@@ -74,7 +73,6 @@ export default function MockInterviewPage() {
             </Link>
           </div>
         </section>
-              <ToolsFaq slug="mock-interview" />
       </main>
     </>
   )

@@ -49,36 +49,6 @@ export default async function JdDetailPage({ params }: PageProps) {
     author: { "@type": "Organization", name: "AgentAlpha" },
     publisher: { "@type": "Organization", name: "AgentAlpha" },
   }
-  const faqLd = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: [
-      {
-        "@type": "Question",
-        name: "这份拆解对应哪一篇 JD?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: `不对应某一篇特定 JD。它是${co?.name ?? "该公司"}${doc.role}方向公开 JD 与公开面经的高频归纳,页面会随更新时间持续校对;具体招聘以官方发布为准。`,
-        },
-      },
-      {
-        "@type": "Question",
-        name: "列表里的面试题是真题吗?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "链接全部指向站内真实题库(一题一页带答案),来自公开面经的归纳与社区成员的面试复盘,不称「内部真题」。",
-        },
-      },
-      {
-        "@type": "Question",
-        name: "怎么用这页准备面试?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "对照硬技能清单补缺口;把「JD 没写但面试会问」当追问预演;把对应面试题逐条过完。也可用站内 JD 人话拆解器对专属 JD 出拆解。",
-        },
-      },
-    ],
-  }
   const breadcrumbLd = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
@@ -94,7 +64,6 @@ export default async function JdDetailPage({ params }: PageProps) {
       <Navigation />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }} />
 
       <main className="jd-main">
         <nav className="jd-crumb" aria-label="面包屑">
@@ -175,20 +144,6 @@ export default async function JdDetailPage({ params }: PageProps) {
             <div className="t">{co?.name ?? company} 面试题聚合</div>
             <div className="d">该公司公开面经高频归纳的题目全集</div>
           </Link>
-        </div>
-
-        <h2 className="jd-section-title">关于这份拆解</h2>
-        <div className="jd-qa-list jd-faq">
-          {[
-            ["这份拆解对应哪一篇 JD?", `不对应某一篇特定 JD。它是${co?.name ?? "该公司"}${doc.role}方向公开 JD 与公开面经的高频归纳,页面会随更新时间持续校对;具体招聘以官方发布为准。`],
-            ["列表里的面试题是真题吗?", "链接全部指向站内真实题库(一题一页带答案),来自公开面经的归纳与社区成员的面试复盘,不称「内部真题」。"],
-            ["怎么用这页准备面试?", "三步:对照硬技能清单补缺口;把「JD 没写但面试会问」当追问预演;把对应面试题逐条过完。想针对你手上的 JD 出专属拆解,用页面底部的 JD 人话拆解器。"],
-          ].map(([q, a]) => (
-            <details key={q} className="jd-faq-item">
-              <summary>{q}</summary>
-              <p>{a}</p>
-            </details>
-          ))}
         </div>
 
         <p className="jd-claim">
