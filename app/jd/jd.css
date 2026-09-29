@@ -1,0 +1,260 @@
+/* ============================================================
+   JD 拆解库设计系统 —— 令牌与面试间 .ivu- 同源（暖纸底 + 品牌紫），
+   全部样式收在 .jd- 前缀内，不动 globals.css。
+   ============================================================ */
+
+.jd-root {
+  --jd-paper: #faf6ef;
+  --jd-card: #ffffff;
+  --jd-ink: #26211a;
+  --jd-ink-2: #6e6557;
+  --jd-ink-3: #9a9082;
+  --jd-brand: #6e22f0;
+  --jd-brand-tint: #f3ecfe;
+  --jd-mark: #b31b1b;
+  --jd-line: #e7decc;
+  --jd-font-sans: "MiSans", -apple-system, BlinkMacSystemFont, "PingFang SC",
+    "Hiragino Sans GB", "Microsoft YaHei", "Segoe UI", sans-serif;
+  --jd-radius: 12px;
+  --jd-shadow: 0 10px 30px -18px rgba(38, 33, 26, 0.25);
+
+  background: var(--jd-paper);
+  color: var(--jd-ink);
+  font-family: var(--jd-font-sans);
+  font-size: 16px;
+  line-height: 1.78;
+}
+
+.jd-main {
+  max-width: 780px;
+  margin: 0 auto;
+  padding: 40px 20px 72px;
+}
+
+.jd-crumb {
+  font-size: 13px;
+  color: var(--jd-ink-3);
+  margin-bottom: 22px;
+}
+.jd-crumb a { color: var(--jd-ink-2); text-decoration: none; }
+.jd-crumb a:hover { color: var(--jd-brand); }
+.jd-crumb .sep { margin: 0 6px; }
+
+.jd-hero h1 {
+  font-size: 30px;
+  line-height: 1.3;
+  letter-spacing: 0.01em;
+  margin: 0 0 12px;
+}
+.jd-kicker {
+  font-size: 13px;
+  letter-spacing: 0.18em;
+  color: var(--jd-brand);
+  font-weight: 600;
+  margin: 0 0 10px;
+}
+.jd-summary {
+  color: var(--jd-ink-2);
+  line-height: 1.85;
+  margin: 0 0 16px;
+}
+.jd-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+.jd-meta span {
+  font-size: 13px;
+  color: var(--jd-ink-2);
+  border: 1px solid var(--jd-line);
+  background: var(--jd-card);
+  border-radius: 999px;
+  padding: 3px 12px;
+}
+.jd-updated {
+  font-size: 12px;
+  color: var(--jd-ink-3);
+  margin-bottom: 26px;
+}
+
+/* 正文 markdown 排版（h2 带两位序号，与题库/深度解析一致） */
+.jd-body { margin-bottom: 34px; }
+.jd-body h2 {
+  font-size: 21px;
+  margin: 40px 0 14px;
+  padding-top: 18px;
+  border-top: 1px solid var(--jd-line);
+  counter-increment: jd-h2;
+  position: relative;
+}
+.jd-body { counter-reset: jd-h2; }
+.jd-body h2::before {
+  content: counter(jd-h2, decimal-leading-zero);
+  font-size: 13px;
+  color: var(--jd-brand);
+  letter-spacing: 0.12em;
+  display: block;
+  margin-bottom: 4px;
+}
+.jd-body h2:first-child { border-top: none; padding-top: 0; }
+.jd-body p { color: var(--jd-ink); margin: 0 0 12px; }
+.jd-body ul { margin: 0 0 14px; padding-left: 1.2em; }
+.jd-body li { margin-bottom: 6px; }
+.jd-body a { color: var(--jd-brand); text-decoration: none; border-bottom: 1px solid rgba(110, 34, 240, 0.3); }
+.jd-body a:hover { border-bottom-color: var(--jd-brand); }
+.jd-body table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+  margin: 0 0 16px;
+  background: var(--jd-card);
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid var(--jd-line);
+}
+.jd-body th, .jd-body td {
+  border: 1px solid var(--jd-line);
+  padding: 8px 12px;
+  text-align: left;
+  vertical-align: top;
+}
+.jd-body th { background: #f6efe2; font-weight: 600; }
+
+.jd-section-title {
+  font-size: 21px;
+  margin: 40px 0 14px;
+  padding-top: 18px;
+  border-top: 1px solid var(--jd-line);
+}
+
+.jd-qa-list {
+  display: grid;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+.jd-qa-item {
+  display: flex;
+  gap: 10px;
+  align-items: baseline;
+  background: var(--jd-card);
+  border: 1px solid var(--jd-line);
+  border-radius: 10px;
+  padding: 10px 14px;
+  font-size: 15px;
+}
+.jd-qa-item a { color: var(--jd-ink); text-decoration: none; flex: 1; }
+.jd-qa-item a:hover { color: var(--jd-brand); }
+.jd-qa-cat {
+  font-size: 12px;
+  color: var(--jd-ink-3);
+  white-space: nowrap;
+}
+
+.jd-similar {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 10px;
+}
+.jd-similar a {
+  display: block;
+  background: var(--jd-card);
+  border: 1px solid var(--jd-line);
+  border-radius: 10px;
+  padding: 12px 14px;
+  text-decoration: none;
+  color: var(--jd-ink);
+}
+.jd-similar a:hover { border-color: var(--jd-brand); }
+.jd-similar .co { font-size: 12px; color: var(--jd-ink-3); display: block; margin-bottom: 2px; }
+.jd-similar .ti { font-size: 15px; font-weight: 600; }
+.jd-similar .sm { font-size: 12.5px; color: var(--jd-ink-2); margin-top: 4px; display: block; line-height: 1.6; }
+
+.jd-cta {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 10px;
+  margin-top: 14px;
+}
+.jd-cta a {
+  display: block;
+  background: var(--jd-card);
+  border: 1px solid var(--jd-line);
+  border-radius: 10px;
+  padding: 14px;
+  text-decoration: none;
+  color: var(--jd-ink);
+  transition: border-color 0.15s;
+}
+.jd-cta a:hover { border-color: var(--jd-brand); }
+.jd-cta .t { font-weight: 600; font-size: 15px; margin-bottom: 4px; }
+.jd-cta .d { font-size: 13px; color: var(--jd-ink-2); line-height: 1.6; }
+
+.jd-claim {
+  margin-top: 30px;
+  font-size: 13px;
+  color: var(--jd-ink-3);
+  line-height: 1.7;
+  border-top: 1px dashed var(--jd-line);
+  padding-top: 14px;
+}
+
+/* ── 索引页 ── */
+.jd-index-co {
+  background: var(--jd-card);
+  border: 1px solid var(--jd-line);
+  border-radius: var(--jd-radius);
+  padding: 18px 20px;
+  margin-bottom: 14px;
+}
+.jd-index-co .co-head {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+.jd-index-co .co-name { font-size: 18px; font-weight: 700; }
+.jd-index-co .co-note { font-size: 13px; color: var(--jd-ink-2); }
+.jd-index-co .co-items { display: grid; gap: 8px; }
+.jd-index-co .co-item {
+  display: block;
+  border: 1px solid var(--jd-line);
+  border-radius: 10px;
+  padding: 10px 14px;
+  text-decoration: none;
+  color: var(--jd-ink);
+}
+.jd-index-co .co-item:hover { border-color: var(--jd-brand); }
+.jd-index-co .co-item .t { font-weight: 600; font-size: 15px; }
+.jd-index-co .co-item .s { font-size: 13px; color: var(--jd-ink-2); margin-top: 2px; display: block; line-height: 1.6; }
+
+.jd-tool-banner {
+  background: var(--jd-brand-tint);
+  border: 1px solid rgba(110, 34, 240, 0.25);
+  border-radius: var(--jd-radius);
+  padding: 18px 20px;
+  margin: 26px 0;
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.jd-tool-banner .tb-t { font-weight: 700; margin-bottom: 4px; }
+.jd-tool-banner .tb-d { font-size: 14px; color: var(--jd-ink-2); }
+.jd-tool-banner a {
+  background: var(--jd-brand);
+  color: #fff;
+  border-radius: 999px;
+  padding: 9px 22px;
+  font-size: 14px;
+  text-decoration: none;
+  white-space: nowrap;
+}
+.jd-tool-banner a:hover { background: #4c15ac; }
+
+@media (max-width: 640px) {
+  .jd-main { padding: 28px 16px 56px; }
+  .jd-hero h1 { font-size: 24px; }
+  .jd-body table { font-size: 13px; }
+}

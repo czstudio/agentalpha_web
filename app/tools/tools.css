@@ -1,0 +1,354 @@
+/* ============================================================
+   工具中心共用样式（.tk- 前缀）—— 白底工具体系，与 .rt- 同族。
+   被 /tools 索引、jd-analyzer、gap-test、project-matcher 共用。
+   ============================================================ */
+
+.tk-main {
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 48px 20px 80px;
+}
+
+.tk-hero { margin-bottom: 28px; }
+
+.tk-kicker {
+  font-size: 13px;
+  letter-spacing: 0.18em;
+  color: #6b5bd6;
+  font-weight: 600;
+  margin: 0 0 10px;
+}
+
+.tk-hero h1 {
+  font-size: 34px;
+  line-height: 1.25;
+  margin: 0 0 12px;
+  letter-spacing: 0.01em;
+}
+
+.tk-lede {
+  color: #4b5563;
+  line-height: 1.8;
+  margin: 0;
+  max-width: 660px;
+}
+
+.tk-shell {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.tk-input-card {
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+  padding: 20px;
+  background: #fff;
+}
+
+.tk-label {
+  font-size: 13px;
+  font-weight: 600;
+  color: #374151;
+  margin: 0 0 8px;
+}
+
+.tk-textarea {
+  width: 100%;
+  box-sizing: border-box;
+  border: 1px solid #d1d5db;
+  border-radius: 10px;
+  padding: 12px 14px;
+  font-size: 14px;
+  line-height: 1.7;
+  font-family: inherit;
+  resize: vertical;
+  background: #fafafa;
+}
+.tk-textarea:focus { outline: 2px solid rgba(107, 91, 214, 0.35); border-color: #6b5bd6; background: #fff; }
+
+.tk-chips { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 4px; }
+
+.tk-chip {
+  border: 1px solid #d1d5db;
+  background: #fff;
+  border-radius: 999px;
+  padding: 6px 16px;
+  font-size: 14px;
+  cursor: pointer;
+  color: #374151;
+}
+.tk-chip-on {
+  border-color: #6b5bd6;
+  background: #f3f0ff;
+  color: #4c3ad1;
+  font-weight: 600;
+}
+
+.tk-input-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 14px;
+  flex-wrap: wrap;
+}
+
+.tk-privacy { font-size: 12.5px; color: #6b7280; }
+
+.tk-run {
+  background: #6b5bd6;
+  color: #fff;
+  border: none;
+  border-radius: 999px;
+  padding: 10px 28px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+}
+.tk-run:hover { background: #5949c4; }
+.tk-run:disabled { background: #c7c3e8; cursor: not-allowed; }
+
+.tk-hint { font-size: 13px; color: #6b7280; margin: 10px 0 0; line-height: 1.7; }
+
+.tk-block {
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+  padding: 20px;
+  background: #fff;
+}
+.tk-block h3 { margin: 0 0 6px; font-size: 17px; }
+.tk-block-desc { font-size: 13.5px; color: #6b7280; margin: 0 0 14px; line-height: 1.7; }
+
+.tk-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+.tk-tag {
+  font-size: 12.5px;
+  border-radius: 999px;
+  padding: 3px 10px;
+  border: 1px solid #d1d5db;
+  color: #4b5563;
+  background: #fff;
+}
+.tk-tag.on { border-color: rgba(22, 163, 74, 0.4); background: #f0fdf4; color: #15803d; }
+.tk-tag.off { border-color: rgba(220, 38, 38, 0.25); background: #fef2f2; color: #b91c1c; }
+
+.tk-score-item { display: grid; grid-template-columns: 92px 1fr 34px; gap: 10px; align-items: center; margin-bottom: 8px; }
+.tk-score-label { font-size: 13px; color: #4b5563; }
+.tk-score-track { height: 8px; background: #ede9fe; border-radius: 999px; overflow: hidden; }
+.tk-score-track span { display: block; height: 100%; background: #6b5bd6; border-radius: 999px; }
+.tk-score-track span.warn { background: #d97706; }
+.tk-score-num { font-size: 14px; font-weight: 700; color: #374151; text-align: right; }
+.tk-score-num.warn { color: #d97706; }
+
+.tk-list { display: grid; gap: 8px; }
+.tk-list a {
+  display: block;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  padding: 10px 14px;
+  text-decoration: none;
+  color: #111827;
+  font-size: 14.5px;
+}
+.tk-list a:hover { border-color: #6b5bd6; }
+.tk-list .sub { display: block; font-size: 12.5px; color: #6b7280; margin-top: 2px; line-height: 1.6; }
+
+.tk-note {
+  display: inline-block;
+  font-size: 11.5px;
+  color: #92400e;
+  background: #fffbeb;
+  border: 1px solid rgba(217, 119, 6, 0.3);
+  border-radius: 999px;
+  padding: 1px 9px;
+  margin-left: 6px;
+  vertical-align: 1px;
+}
+
+.tk-dim-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 10px; }
+.tk-dim-card { border: 1px solid #e5e7eb; border-radius: 10px; padding: 12px 14px; }
+.tk-dim-card .t { font-weight: 600; font-size: 14.5px; margin-bottom: 4px; }
+.tk-dim-card .d { font-size: 12.5px; color: #6b7280; line-height: 1.65; }
+
+.tk-topic-list { margin: 0; padding: 0; list-style: none; display: grid; gap: 10px; }
+.tk-topic-list li {
+  border-left: 3px solid #6b5bd6;
+  background: #faf9ff;
+  border-radius: 0 10px 10px 0;
+  padding: 10px 14px;
+  font-size: 14px;
+}
+.tk-topic-list li .t { font-weight: 600; display: block; margin-bottom: 2px; }
+.tk-topic-list li .d { color: #4b5563; font-size: 13.5px; line-height: 1.7; }
+
+.tk-cta-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 10px;
+}
+.tk-cta-grid a {
+  display: block;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 14px;
+  text-decoration: none;
+  color: #111827;
+  background: #fff;
+}
+.tk-cta-grid a:hover { border-color: #6b5bd6; }
+.tk-cta-grid .t { font-weight: 700; font-size: 15px; margin-bottom: 4px; }
+.tk-cta-grid .d { font-size: 13px; color: #6b7280; line-height: 1.65; }
+
+.tk-foot { font-size: 13px; color: #6b7280; line-height: 1.8; margin: 0; }
+
+/* 工具中心索引卡 */
+.tk-index-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 14px;
+}
+.tk-index-card {
+  display: block;
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+  background: #fff;
+  padding: 18px;
+  text-decoration: none;
+  color: #111827;
+}
+.tk-index-card:hover { border-color: #6b5bd6; box-shadow: 0 8px 24px -16px rgba(107, 91, 214, 0.4); }
+.tk-index-card .badge {
+  display: inline-block;
+  font-size: 11px;
+  border-radius: 999px;
+  padding: 2px 10px;
+  margin-bottom: 10px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+.badge-diag { background: #f3f0ff; color: #4c3ad1; border: 1px solid rgba(107, 91, 214, 0.3); }
+.badge-flow { background: #fffbeb; color: #92400e; border: 1px solid rgba(217, 119, 6, 0.3); }
+.tk-index-card .t { font-size: 16.5px; font-weight: 700; margin-bottom: 6px; }
+.tk-index-card .d { font-size: 13.5px; color: #4b5563; line-height: 1.7; }
+
+/* ── Gap 自测 ── */
+.gap-self-table { display: grid; gap: 14px; }
+.gap-self-row { border: 1px solid #e5e7eb; border-radius: 10px; padding: 12px 14px; }
+.gap-self-head .t { font-weight: 600; font-size: 14.5px; }
+.gap-self-head .d { display: block; font-size: 12.5px; color: #6b7280; margin: 2px 0 10px; line-height: 1.6; }
+.gap-self-levels { display: flex; flex-wrap: wrap; gap: 6px; }
+.gap-lv {
+  border: 1px solid #d1d5db;
+  background: #fff;
+  border-radius: 8px;
+  padding: 5px 12px;
+  font-size: 13px;
+  cursor: pointer;
+  color: #4b5563;
+}
+.gap-lv:hover { border-color: #6b5bd6; }
+.gap-lv-on { border-color: #6b5bd6; background: #f3f0ff; color: #4c3ad1; font-weight: 600; }
+
+.gap-quiz-domain { margin-top: 16px; }
+.gap-quiz-domain-name { font-weight: 600; font-size: 14.5px; margin: 0 0 8px; }
+.gap-quiz-item { border: 1px solid #e5e7eb; border-radius: 10px; padding: 10px 14px; margin-bottom: 8px; }
+.gap-quiz-q a { color: #111827; text-decoration: none; font-size: 14.5px; font-weight: 500; }
+.gap-quiz-q a:hover { color: #6b5bd6; }
+.gap-quiz-opts { display: flex; gap: 6px; margin-top: 8px; }
+.gap-opt {
+  border: 1px solid #d1d5db;
+  background: #fff;
+  border-radius: 999px;
+  padding: 4px 14px;
+  font-size: 13px;
+  cursor: pointer;
+  color: #4b5563;
+}
+.gap-opt-ok { border-color: #16a34a; background: #f0fdf4; color: #15803d; font-weight: 600; }
+.gap-opt-unsure { border-color: #d97706; background: #fffbeb; color: #b45309; font-weight: 600; }
+.gap-opt-fail { border-color: #dc2626; background: #fef2f2; color: #b91c1c; font-weight: 600; }
+
+.gap-result-rows { display: grid; gap: 12px; }
+.gap-result-row { display: grid; gap: 6px; }
+.gap-result-head { display: flex; align-items: center; gap: 8px; }
+.gap-result-head .t { font-weight: 600; font-size: 14.5px; }
+.gap-result-links { font-size: 13px; }
+.gap-result-links a { color: #6b5bd6; text-decoration: none; }
+.gap-result-links a:hover { text-decoration: underline; }
+
+/* ── 项目匹配器 ── */
+.pm-diff {
+  display: inline-block;
+  font-size: 11.5px;
+  font-weight: 600;
+  color: #4c3ad1;
+  background: #f3f0ff;
+  border: 1px solid rgba(107, 91, 214, 0.3);
+  border-radius: 999px;
+  padding: 1px 10px;
+  margin-left: 10px;
+  vertical-align: 2px;
+}
+.pm-reasons { margin: 0 0 14px; padding: 0; list-style: none; display: flex; flex-wrap: wrap; gap: 6px; }
+.pm-reasons li {
+  font-size: 12px;
+  color: #4b5563;
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
+  border-radius: 999px;
+  padding: 2px 10px;
+}
+.pm-sec { margin-bottom: 12px; }
+.pm-sec-t { font-size: 13px; font-weight: 600; color: #374151; margin: 0 0 6px; }
+.pm-bullet {
+  font-size: 14px;
+  color: #111827;
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  padding: 10px 14px;
+  margin: 0;
+  line-height: 1.8;
+}
+.pm-cat-links { display: flex; gap: 8px; flex-wrap: wrap; }
+.pm-cat-link {
+  font-size: 13px;
+  color: #6b5bd6;
+  text-decoration: none;
+  border: 1px solid rgba(107, 91, 214, 0.35);
+  border-radius: 999px;
+  padding: 3px 14px;
+}
+.pm-cat-link:hover { background: #f3f0ff; }
+
+/* ── 工具中心流程 ── */
+.tools-flow {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 10px;
+}
+.tools-flow-step {
+  display: grid;
+  gap: 2px;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 12px 14px;
+  text-decoration: none;
+  color: #111827;
+  background: #fafafa;
+}
+.tools-flow-step:hover { border-color: #6b5bd6; background: #fff; }
+.tools-flow-step .no {
+  font-size: 12px;
+  font-weight: 700;
+  color: #6b5bd6;
+  letter-spacing: 0.08em;
+}
+.tools-flow-step .lb { font-weight: 700; font-size: 14.5px; }
+.tools-flow-step .ds { font-size: 12px; color: #6b7280; line-height: 1.6; }
+
+@media (max-width: 640px) {
+  .tk-main { padding: 32px 16px 64px; }
+  .tk-hero h1 { font-size: 26px; }
+  .tk-score-item { grid-template-columns: 76px 1fr 30px; }
+}

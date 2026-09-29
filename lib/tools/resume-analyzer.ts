@@ -172,7 +172,7 @@ const OVERCLAIM_WORDS = ["精通"]
 const REPLICA_MARKS = ["仿写", "复刻", "克隆", "clone", "高仿", "仿照"]
 
 /** JD 解析时忽略的英文停用词 */
-const JD_STOPWORDS = new Set([
+export const JD_STOPWORDS = new Set([
   "the", "and", "for", "with", "you", "your", "our", "are", "will", "have", "has",
   "from", "that", "this", "who", "not", "all", "any", "can", "must", "should",
   "job", "work", "team", "role", "plus", "etc", "us", "we", "or", "in", "on",

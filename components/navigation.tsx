@@ -33,6 +33,7 @@ export function Navigation() {
     { label: t.nav.notes, href: "/notes" },
     { label: t.nav.articles, href: "/articles" },
     { label: t.nav.interview, href: "/interview" },
+    { label: t.nav.tools, href: "/tools" },
     { label: t.nav.mianjing, href: "/mianjing" },
     { label: t.nav.gzh, href: "/gzh" },
     { label: t.nav.learn, href: "/learn" },
