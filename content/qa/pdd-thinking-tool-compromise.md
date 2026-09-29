@@ -3,7 +3,7 @@ slug: pdd-thinking-tool-compromise
 question: "推理模型和工具调用的冲突，后来是怎么解决的？"
 oneLine: "核心折中是让模型先完整结束一轮思考，再发起工具调用；需要外部信息时，再开启下一轮。MCP 也受到底层 Function Calling 支持的限制。"
 category: jingchang
-company: pdd
+company: pdd, openai
 track: algo-general
 tags: [拼多多真题, 推理模型, 工具调用]
 minutes: 5

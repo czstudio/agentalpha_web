@@ -3,6 +3,7 @@ slug: what-is-moe
 question: MoE（混合专家）是什么？为什么新模型纷纷改用 MoE
 oneLine: MoE 是一种稀疏结构：模型总参数量很大，但每个 token 只激活其中一小部分专家。容量大、单步计算少，代价是所有参数都要常驻显存，部署门槛在显存。
 category: basics
+company: didi, deepseek, microsoft, google, douyin, jd, bilibili
 tags: [LLM 基础, MoE]
 minutes: 5
 order: 9

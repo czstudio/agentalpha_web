@@ -3,7 +3,7 @@ slug: rag-effect-eval
 question: 线上跑的 RAG 怎么衡量效果好不好？
 oneLine: 分两层：检索层用 Hit@K 看该召回的有没有进前 K、MRR 看排多前，生成层用忠实度、答案相关性、上下文召回率这类 LLM 裁判指标；线上最终看点踩率、追问率、转人工率。
 category: jingchang
-company: bytedance
+company: bytedance, kuaishou, pdd, xiaohongshu, didi, deepseek, openai, moonshot, xiaomi, microsoft, google, douyin, jd, bilibili
 track: ai-app
 tags: [RAG, 评估, 检索]
 minutes: 6

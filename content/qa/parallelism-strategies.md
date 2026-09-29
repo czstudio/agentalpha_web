@@ -3,6 +3,7 @@ slug: parallelism-strategies
 question: 张量并行、流水线并行、数据并行有什么区别？多卡怎么拆
 oneLine: 数据并行复制整个模型、分摊请求，解决请求多；张量并行把每层的矩阵切开、多卡合算一层，解决单层算不动；流水线并行把层分段接力，解决模型太深装不下。
 category: inference
+company: deepseek
 tags: [推理优化, 分布式]
 minutes: 6
 order: 8

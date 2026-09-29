@@ -3,7 +3,7 @@ slug: tencent100-thinking-tool-or-reply
 question: "Agent 的 thinking 阶段怎么决定调用工具还是直接回复？"
 oneLine: "先看信息是否充分，再权衡工具调用的风险与成本，并结合任务类型决策；可让模型显式判断，也可用轻量意图分类器配合规则兜底，后者更稳。"
 category: jingchang
-company: tencent, baidu
+company: tencent, baidu, xiaohongshu
 track: agent-dev
 tags: [腾讯真题, Agent决策, 工具调用]
 minutes: 5
