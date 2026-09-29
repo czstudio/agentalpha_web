@@ -9,7 +9,21 @@ import {
 } from "@/lib/interview"
 import { InterviewRow } from "@/components/interview/interview-row"
 import { CategoryCard } from "@/components/interview/category-card"
-import { getCategoryLearnData } from "@/lib/learn-path"
+import { getCategoryLearnData, GROUP_TO_CATS } from "@/lib/learn-path"
+import { getAllGlossary } from "@/lib/glossary"
+import fs from "node:fs"
+import path from "node:path"
+
+/** 该分类第一张可用的手绘概念图 */
+function categoryDiagram(cat: string): string | null {
+  const names = fs.readdirSync(path.join(process.cwd(), "public", "images", "diagrams"))
+  const groups = Object.entries(GROUP_TO_CATS).filter(([, cats]) => cats.includes(cat)).map(([g]) => g)
+  const terms = getAllGlossary().filter((t) => groups.includes(t.group))
+  for (const t of terms) {
+    if (names.includes(`${t.slug}.webp`)) return `/images/diagrams/${t.slug}.png`
+  }
+  return null
+}
 
 interface PageProps {
   params: Promise<{ cat: string }>
@@ -61,6 +75,7 @@ export default async function CategoryPage({ params }: PageProps) {
 
   // 教程化学习路径数据：术语 → 速答题 → 深挖 → 实战
   const learn = getCategoryLearnData(cat)
+  const catDiagram = categoryDiagram(cat)
 
   const breadcrumbLd = {
     "@context": "https://schema.org",
@@ -136,6 +151,13 @@ export default async function CategoryPage({ params }: PageProps) {
           <h2 className="ivu-sec-t">系统学习路径</h2>
           <p className="ivu-sec-sub">LEARN PATH</p>
         </div>
+        {catDiagram ? (
+          <figure className="glo-figure">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src={catDiagram} alt={`${category.name}手绘概念图`} loading="lazy" />
+          </figure>
+        ) : null}
+
         <div className="learn-steps">
           <div className="learn-step">
             <span className="learn-step-no">1</span>

@@ -2108,3 +2108,7 @@ a.ivc-updcard:hover { border-color: var(--brand); box-shadow: var(--shadow); }
 .ivu-allentry-cats { display: flex; flex-wrap: wrap; gap: 8px; }
 .ivu-allentry-cats a { padding: 5px 13px; border: 1px solid var(--line); border-radius: 999px; font-size: 13px; color: var(--ink); text-decoration: none; }
 .ivu-allentry-cats a:hover { border-color: rgb(110, 34, 240); color: rgb(110, 34, 240); }
+
+/* ── 手绘概念图容器 ───────────────────────────── */
+.glo-figure { margin: 0 0 10px; border: 1px solid var(--line); border-radius: 14px; overflow: hidden; background: #FCFBF7; }
+.glo-figure img { display: block; width: 100%; height: auto; }

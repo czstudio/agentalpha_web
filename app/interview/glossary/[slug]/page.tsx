@@ -3,10 +3,17 @@ import Link from "next/link"
 import { notFound } from "next/navigation"
 import ReactMarkdown from "react-markdown"
 import type { Components } from "react-markdown"
+import fs from "node:fs"
+import path from "node:path"
 import { getAllGlossary, getGlossary, GLOSSARY_GROUPS } from "@/lib/glossary"
 import { getQa } from "@/lib/qa"
 
 const SITE = "https://agentalpha.top"
+
+/** 手绘概念图（public/images/diagrams/<slug>.png），存在才渲染 */
+function hasDiagram(slug: string): boolean {
+  return fs.existsSync(path.join(process.cwd(), "public", "images", "diagrams", `${slug}.png`))
+}
 
 interface PageProps {
   params: Promise<{ slug: string }>
@@ -51,6 +58,7 @@ export default async function GlossaryDetailPage({ params }: PageProps) {
   if (!item) notFound()
   const groupName = GLOSSARY_GROUPS.find((g) => g.group === item.group)?.name || item.group
   const relatedQaItems = item.relatedQa.map((qaSlug) => getQa(qaSlug)).filter(Boolean)
+  const diagram = hasDiagram(slug) ? `/images/diagrams/${slug}.webp` : null
   const relatedTermItems = item.relatedTerms
     .map((termSlug) => getGlossary(termSlug))
     .filter(Boolean)
@@ -124,6 +132,15 @@ export default async function GlossaryDetailPage({ params }: PageProps) {
           <p>{item.oneLine}</p>
         </div>
       </div>
+
+      {diagram ? (
+        <div className="ivu-measure">
+          <figure className="glo-figure">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src={diagram} alt={`${item.term}手绘概念图`} loading="lazy" />
+          </figure>
+        </div>
+      ) : null}
 
       <div className="ivu-measure">
         <article className="ivu-prose">
