@@ -8,6 +8,8 @@ import { getCategories, getCategory, getInterview } from "@/lib/interview"
 import { getCompany } from "@/lib/companies"
 import { CAT_TO_TOOLS } from "@/lib/tools/shared"
 import { getQaNeighbors } from "@/lib/learn-path"
+import { relatedMianjingForQa, relatedNotesForQa } from "@/lib/crosslink"
+import { CrossLinks } from "@/components/cross-link"
 
 const SITE = "https://agentalpha.top"
 
@@ -64,6 +66,8 @@ export default async function QaDetailPage({ params }: PageProps) {
   const related = getRelatedQa(slug, 5)
   const deepPost = item.deep ? getInterview(item.deep) : null
   const neighbors = getQaNeighbors(item.category, slug)
+  const xMianjing = relatedMianjingForQa(item)
+  const xNotes = relatedNotesForQa(item)
 
   const faqLd = {
     "@context": "https://schema.org",
@@ -231,6 +235,25 @@ export default async function QaDetailPage({ params }: PageProps) {
               </div>
             </aside>
           )}
+
+          <CrossLinks
+            title="这家公司的面经实录"
+            items={xMianjing.map((m) => ({
+              href: `/mianjing/${m.slug}`,
+              label: m.title,
+              note: `${m.company} · ${m.round.split("·")[0]}`,
+            }))}
+          />
+
+          <CrossLinks
+            title="相关深度笔记"
+            variant="note"
+            items={xNotes.map((n) => ({
+              href: `/notes/${n.slug}`,
+              label: n.title,
+              note: `${n.series} · ${n.minutes} 分钟`,
+            }))}
+          />
 
           <aside className="ivq-cta">
             <div>
