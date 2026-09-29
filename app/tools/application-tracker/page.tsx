@@ -2,7 +2,6 @@ import type { Metadata } from "next"
 import { Navigation } from "@/components/navigation"
 import { TrackerClient } from "@/components/tools/tracker-client"
 import "../tools.css"
-import { ToolsFaq } from "@/components/tools/tools-faq"
 
 const SITE = "https://agentalpha.top"
 
@@ -41,7 +40,6 @@ export default function ApplicationTrackerPage() {
         </header>
 
         <TrackerClient />
-              <ToolsFaq slug="application-tracker" />
       </main>
     </>
   )

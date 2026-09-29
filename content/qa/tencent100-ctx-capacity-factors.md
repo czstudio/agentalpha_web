@@ -3,7 +3,7 @@ slug: tencent100-ctx-capacity-factors
 question: "影响 AI Agent 上下文容量的因素有哪些？"
 oneLine: "AI Agent 的上下文容量本质上是预算管理问题，既受模型窗口大小和有效注意力长度限制，也取决于提示词、历史、检索、工具结果、生成预留的分配，以及单请求成本和延迟。"
 category: jingchang
-company: tencent, moonshot
+company: tencent
 track: agent-dev
 tags: [腾讯真题, 上下文管理, Agent]
 minutes: 5

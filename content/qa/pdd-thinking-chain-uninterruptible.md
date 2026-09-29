@@ -3,7 +3,7 @@ slug: pdd-thinking-chain-uninterruptible
 question: "推理模型的思考链为什么不能中途打断？"
 oneLine: "推理模型先连续生成完整思考，再给出答案；工具调用却要求暂停生成、等待结果后再继续。中断会让前面的推理上下文断开，两种生成范式因此冲突。"
 category: jingchang
-company: pdd, openai
+company: pdd
 track: algo-general
 tags: [推理模型, 思考链, 工具调用]
 minutes: 5

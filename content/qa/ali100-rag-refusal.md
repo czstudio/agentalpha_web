@@ -3,7 +3,7 @@ slug: ali100-rag-refusal
 question: "RAG 找不到答案时，置信度、拒答、追问和转人工怎么设计？"
 oneLine: "按检索分数和内容相关性设置正常回答、不确定回答与拒答三层出口，结合多路召回一致性和模型自评，交易与合规问题直接转人工。"
 category: jingchang
-company: alibaba, moonshot
+company: alibaba
 track: ai-app
 tags: [阿里真题, RAG, 拒答设计]
 minutes: 5

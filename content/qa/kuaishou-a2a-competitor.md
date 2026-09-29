@@ -3,7 +3,7 @@ slug: kuaishou-a2a-competitor
 question: "A2A 是不是 MCP 的竞品？两套协议怎么共存？"
 oneLine: "A2A 不是 MCP 的竞品。MCP 解决 Agent 向下连接工具的问题，A2A 解决 Agent 向外协作的问题。每个 Agent 用 MCP 管自己的工具层，Agent 之间用 A2A 委派子任务。"
 category: jingchang
-company: kuaishou, google
+company: kuaishou
 track: agent-dev
 tags: [快手真题, A2A, MCP]
 minutes: 5

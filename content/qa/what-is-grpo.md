@@ -3,7 +3,6 @@ slug: what-is-grpo
 question: GRPO 是什么？它比 PPO 省在哪
 oneLine: GRPO 用「组内比较」代替价值网络：同一个问题让模型采出一组回答，按组内相对好坏分配奖励来更新策略。省掉了和策略模型差不多大的价值模型，显存和算力都省下来。
 category: finetune
-company: pdd, xiaohongshu, didi, deepseek, openai, microsoft, google, douyin, jd, bilibili
 tags: [GRPO, RLHF]
 minutes: 5
 order: 7

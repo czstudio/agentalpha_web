@@ -3,7 +3,6 @@ slug: context-window-limit
 question: Agent 的上下文窗口不够用怎么办？
 oneLine: 四板斧：裁剪（丢旧留新）、压缩（长文摘要化）、外置（状态写进存储按需取回）、分流（子任务拆给独立上下文）。目标是让窗口只装当前决策需要的信息。
 category: agent
-company: xiaohongshu, openai, moonshot
 tags: [上下文, Context Engineering]
 minutes: 5
 order: 5

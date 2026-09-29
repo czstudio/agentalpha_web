@@ -3,7 +3,6 @@ slug: agent-planning
 question: Agent 的任务规划怎么做？为什么要先拆解再执行
 oneLine: 规划就是把目标拆成有依赖关系的子步骤，再按依赖顺序执行、根据每步反馈调整。先拆解是因为模型的上下文和可靠性都有限，大任务直接做容易在中途迷失。
 category: agent
-company: xiaohongshu, didi, deepseek, openai, moonshot, xiaomi, microsoft, google, douyin, jd, bilibili
 tags: [Agent, 规划]
 minutes: 5
 order: 9

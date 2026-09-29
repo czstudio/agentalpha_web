@@ -21,14 +21,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const interview = getAllInterview().map((post) => ({
     url: `https://agentalpha.top/interview/${post.slug}`,
-    lastModified: post.updated ? new Date(post.updated) : new Date(),
+    lastModified: new Date(),
     changeFrequency: "monthly" as const,
     priority: 0.8,
   }))
 
   const articles = getAllArticles().map((a) => ({
     url: `https://agentalpha.top/articles/${a.slug}`,
-    lastModified: a.date ? new Date(a.date) : new Date(),
+    lastModified: new Date(),
     changeFrequency: "weekly" as const,
     priority: 0.85,
   }))

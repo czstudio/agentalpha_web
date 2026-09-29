@@ -3,7 +3,7 @@ slug: meituan-transformer-structure
 question: "讲讲 Transformer 的结构。"
 oneLine: "Transformer 按数据流由输入嵌入、位置信息、N 层网络和输出层组成；每层用多头自注意力交换信息，用前馈网络变换特征，并用残差连接与归一化保证训练稳定。"
 category: jingchang
-company: meituan, huawei, pdd, xiaohongshu, didi, deepseek, openai, moonshot, xiaomi, microsoft, google, douyin, jd, bilibili
+company: meituan
 track: algo-general
 tags: [Transformer, 大模型面试, 美团真题]
 minutes: 5
