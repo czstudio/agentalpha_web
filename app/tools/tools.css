@@ -545,6 +545,17 @@
 .offer-result-row .rank.r0 { color: #4c3ad1; }
 .offer-result-row .name { font-size: 14px; font-weight: 600; }
 
+/* ── AI 深度拆解 ── */
+.jda-block { border-color: rgba(107, 91, 214, 0.35); background: #fdfdff; }
+.jda-run { margin-top: 2px; }
+.jda-status { font-size: 14px; color: #4b5563; background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 10px; padding: 10px 14px; margin: 0; line-height: 1.7; }
+.jda-body { font-size: 14.5px; line-height: 1.85; color: #111827; }
+.jda-body h2 { font-size: 16px; margin: 18px 0 8px; color: #4c3ad1; }
+.jda-body h2:first-child { margin-top: 4px; }
+.jda-body ul { padding-left: 1.2em; margin: 0 0 10px; }
+.jda-body li { margin-bottom: 5px; }
+.jda-body p { margin: 0 0 10px; }
+
 @media (max-width: 640px) {
   .tk-main { padding: 32px 16px 64px; }
   .tk-hero h1 { font-size: 26px; }

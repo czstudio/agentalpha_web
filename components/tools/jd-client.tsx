@@ -1,8 +1,32 @@
 "use client"
 
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import Link from "next/link"
+import ReactMarkdown from "react-markdown"
 import { breakdownJd, type JdBreakdown, type QaLite } from "@/lib/tools/jd-analyzer"
+
+const DAILY_BROWSER_QUOTA = 5
+const USAGE_KEY = "jd-ai-usage-v1"
+
+interface AiUsage {
+  date: string
+  count: number
+}
+
+function todayKey(): string {
+  return new Date().toISOString().slice(0, 10)
+}
+
+function loadUsage(): AiUsage {
+  try {
+    const raw = window.localStorage.getItem(USAGE_KEY)
+    if (!raw) return { date: todayKey(), count: 0 }
+    const parsed = JSON.parse(raw) as AiUsage
+    return parsed.date === todayKey() ? parsed : { date: todayKey(), count: 0 }
+  } catch {
+    return { date: todayKey(), count: 0 }
+  }
+}
 
 const PLACEHOLDER = `粘贴 JD 原文（职位描述 + 任职要求都贴进来效果最好），例如：
 
@@ -25,8 +49,71 @@ export function JdClient({ qaList, jdSamples }: { qaList: QaLite[]; jdSamples: J
   const [text, setText] = useState("")
   const [report, setReport] = useState<JdBreakdown | null>(null)
 
+  const [aiText, setAiText] = useState("")
+  const [aiModel, setAiModel] = useState("")
+  const [aiState, setAiState] = useState<"idle" | "loading" | "done" | "error" | "disabled" | "site-quota">("idle")
+  const [aiError, setAiError] = useState("")
+  const [aiUsage, setAiUsage] = useState<AiUsage>({ date: todayKey(), count: 0 })
+
+  useEffect(() => {
+    setAiUsage(loadUsage())
+  }, [])
+
   const run = () => {
     setReport(breakdownJd(text, qaList))
+    setAiText("")
+    setAiState("idle")
+    setAiError("")
+  }
+
+  const runAi = async () => {
+    if (aiUsage.count >= DAILY_BROWSER_QUOTA) {
+      setAiState("disabled")
+      return
+    }
+    setAiState("loading")
+    setAiError("")
+    try {
+      const res = await fetch("/api/llm-jd", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ jd: text }),
+      })
+      const data = (await res.json()) as {
+        enabled?: boolean
+        text?: string
+        model?: string
+        error?: string
+        scope?: string
+      }
+      if (!data.enabled) {
+        setAiState("disabled")
+        setAiError("ai_off")
+        return
+      }
+      if (res.status === 429) {
+        setAiState(data.scope === "ip" ? "disabled" : "site-quota")
+        return
+      }
+      if (!res.ok || !data.text) {
+        setAiState("error")
+        setAiError(data.error ?? `http_${res.status}`)
+        return
+      }
+      setAiText(data.text)
+      setAiModel(data.model ?? "")
+      setAiState("done")
+      const next = { date: todayKey(), count: aiUsage.count + 1 }
+      setAiUsage(next)
+      try {
+        window.localStorage.setItem(USAGE_KEY, JSON.stringify(next))
+      } catch {
+        // 隐私模式写不进就算了,界面照常用
+      }
+    } catch {
+      setAiState("error")
+      setAiError("network")
+    }
   }
 
   const qaBySlug = (slug: string) => qaList.find((q) => q.slug === slug)
@@ -160,6 +247,52 @@ export function JdClient({ qaList, jdSamples }: { qaList: QaLite[]; jdSamples: J
               </div>
             </div>
           )}
+
+          <div className="tk-block jda-block">
+            <h3>
+              AI 深度拆解
+              <span className="tk-note">大模型生成 · 需人工核验</span>
+            </h3>
+            <p className="tk-block-desc">
+              规则拆解看词面命中,AI 拆解看岗位判断:把这份 JD 再交给大模型按面试官视角过一遍。
+              免费额度:每个浏览器每天 {DAILY_BROWSER_QUOTA} 次(今天已用 {aiUsage.count} 次),输入与结果都不出你的浏览器和服务端,不用于其他用途。
+            </p>
+
+            {aiState === "idle" && (
+              <button type="button" className="tk-run jda-run" onClick={runAi} disabled={aiUsage.count >= DAILY_BROWSER_QUOTA}>
+                {aiUsage.count >= DAILY_BROWSER_QUOTA ? "今日免费次数已用完" : `用 AI 再拆一遍(剩 ${DAILY_BROWSER_QUOTA - aiUsage.count} 次)`}
+              </button>
+            )}
+            {aiState === "loading" && (
+              <p className="jda-status">正在拆解,大约 5-15 秒,别关页面…</p>
+            )}
+            {aiState === "disabled" && (
+              <p className="jda-status">
+                {aiError === "ai_off"
+                  ? "AI 深度拆解暂未开放(服务端未配置),先用上面的规则拆解结果,同样覆盖考点词与隐藏要求。"
+                  : "今天的免费次数用完了,明天再来。上面的规则拆解不限额,随时可用。"}
+              </p>
+            )}
+            {aiState === "site-quota" && (
+              <p className="jda-status">今天全站 AI 额度已用完(每日 3 元预算控制),明天自动恢复。规则拆解不受影响。</p>
+            )}
+            {aiState === "error" && (
+              <p className="jda-status">
+                AI 拆解出错了({aiError})。可能是服务波动,稍后重试;上面的规则拆解结果是完整的。
+              </p>
+            )}
+            {aiState === "done" && (
+              <>
+                <div className="jda-body">
+                  <ReactMarkdown>{aiText}</ReactMarkdown>
+                </div>
+                <p className="tk-hint">
+                  由 {aiModel} 生成,结论按「大概率/可能」的推断口径读,投递决策请结合官方 JD 与公开面经。
+                  有用的话,把关键考点抄进你的准备清单。
+                </p>
+              </>
+            )}
+          </div>
 
           <div className="tk-block">
             <h3>下一步</h3>
