@@ -3,6 +3,7 @@ import { Navigation } from "@/components/navigation"
 import { GapClient } from "@/components/tools/gap-client"
 import { getAllQa } from "@/lib/qa"
 import "../tools.css"
+import { ToolsFaq } from "@/components/tools/tools-faq"
 
 const SITE = "https://agentalpha.top"
 
@@ -49,6 +50,7 @@ export default function GapTestPage() {
         </header>
 
         <GapClient qaList={qaList} />
+              <ToolsFaq slug="gap-test" />
       </main>
     </>
   )

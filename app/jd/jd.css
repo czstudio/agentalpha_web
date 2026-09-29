@@ -258,3 +258,10 @@
   .jd-hero h1 { font-size: 24px; }
   .jd-body table { font-size: 13px; }
 }
+
+/* ── JD 页 FAQ ── */
+.jd-faq { margin-bottom: 6px; }
+.jd-faq-item { background: var(--jd-card); border: 1px solid var(--jd-line); border-radius: 10px; padding: 10px 14px; }
+.jd-faq-item summary { cursor: pointer; font-size: 14.5px; font-weight: 600; color: var(--jd-ink); }
+.jd-faq-item[open] summary { margin-bottom: 6px; }
+.jd-faq-item p { margin: 0; font-size: 13.5px; color: var(--jd-ink-2); line-height: 1.75; }
