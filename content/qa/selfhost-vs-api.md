@@ -3,6 +3,7 @@ slug: selfhost-vs-api
 question: 大模型自己部署还是直接调 API？这笔账怎么算
 oneLine: API 按 token 计费、零运维、随开随用，代价是数据出域和单价刚性；自建前期投卡投人，换来数据可控和低边际成本。量小波动大用 API，量大、平稳、敏感才自建。
 category: inference
+company: kuaishou
 tags: [推理优化, 部署]
 minutes: 4
 order: 10

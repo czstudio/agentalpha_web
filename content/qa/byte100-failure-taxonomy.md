@@ -3,7 +3,7 @@ slug: byte100-failure-taxonomy
 question: "任务失败、工具失败、模型失败、权限失败怎么区分？恢复策略各是什么？"
 oneLine: "区分这四类失败的核心是按层级归因。权限失败需申请或换路径，工具失败走重试降级，模型失败要重生成或换模型，任务失败需人介入或重规划。"
 category: jingchang
-company: bytedance, meituan, baidu
+company: bytedance, meituan, baidu, xiaohongshu
 track: agent-dev
 tags: [字节真题, 异常处理, 归因策略]
 minutes: 5

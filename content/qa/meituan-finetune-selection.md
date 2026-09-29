@@ -3,7 +3,7 @@ slug: meituan-finetune-selection
 question: "LoRA、QLoRA 与全量微调怎么选？"
 oneLine: "资源有限先选 LoRA；单卡或大基座选 QLoRA；只有基座级任务且有多卡集群时才做全量微调，再看任务与基座差距和 Adapter 热切换需求"
 category: jingchang
-company: meituan,tencent,baidu
+company: meituan, tencent, baidu, huawei
 track: agent-algo
 tags: [美团真题, 大模型面试, 参数高效微调]
 minutes: 5
