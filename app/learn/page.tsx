@@ -1,7 +1,5 @@
 import type { Metadata } from "next"
 import Link from "next/link"
-import { readFileSync } from "fs"
-import { join } from "path"
 import { ArrowLeft, ArrowUpRight } from "lucide-react"
 import { Navigation } from "@/components/navigation"
 import { LearnToc } from "./learn-toc"
@@ -94,10 +92,6 @@ const ORGS: { svg?: string; label?: string; text?: string }[] = [
   { svg: "deepseek", label: "DeepSeek" },
   { text: "京东 TGT" },
 ]
-
-function orgSvg(name: string): string {
-  return readFileSync(join(process.cwd(), "public/images/learn/logos", `${name}.svg`), "utf8")
-}
 
 export const metadata: Metadata = {
   title: "大模型 Agent 训练营 · AgentAlpha",
@@ -1098,7 +1092,7 @@ export default function LearnIndexPage() {
                   </span>
                 ) : (
                   <span key={o.label} className="learn-org">
-                    <span aria-hidden dangerouslySetInnerHTML={{ __html: orgSvg(o.svg!) }} />
+                    <span aria-hidden dangerouslySetInnerHTML={{ __html: "" }} />
                     <span>{o.label}</span>
                   </span>
                 ),
