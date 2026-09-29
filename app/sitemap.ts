@@ -8,6 +8,7 @@ import { getMianjingList } from "@/lib/mianjing"
 import { getAllGlossary } from "@/lib/glossary"
 import { COMPANIES, getQaByCompany } from "@/lib/companies"
 import { ROADMAPS } from "@/lib/roadmap"
+import { getAllJd } from "@/lib/jd"
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const notes = getAllNotes().map((note) => ({
@@ -120,6 +121,48 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly" as const,
       priority: 0.7,
     })),
+    {
+      url: "https://agentalpha.top/jd",
+      lastModified: new Date(),
+      changeFrequency: "weekly",
+      priority: 0.85,
+    },
+    ...getAllJd().map((doc) => ({
+      url: `https://agentalpha.top/jd/${doc.company}/${doc.slug}`,
+      lastModified: doc.updated ? new Date(doc.updated) : new Date(),
+      changeFrequency: "monthly" as const,
+      priority: 0.8,
+    })),
+    {
+      url: "https://agentalpha.top/tools",
+      lastModified: new Date(),
+      changeFrequency: "weekly",
+      priority: 0.85,
+    },
+    {
+      url: "https://agentalpha.top/tools/jd-analyzer",
+      lastModified: new Date(),
+      changeFrequency: "weekly",
+      priority: 0.8,
+    },
+    {
+      url: "https://agentalpha.top/tools/resume",
+      lastModified: new Date(),
+      changeFrequency: "weekly",
+      priority: 0.8,
+    },
+    {
+      url: "https://agentalpha.top/tools/gap-test",
+      lastModified: new Date(),
+      changeFrequency: "weekly",
+      priority: 0.8,
+    },
+    {
+      url: "https://agentalpha.top/tools/project-matcher",
+      lastModified: new Date(),
+      changeFrequency: "weekly",
+      priority: 0.75,
+    },
     {
       url: "https://agentalpha.top/learn",
       lastModified: new Date(),

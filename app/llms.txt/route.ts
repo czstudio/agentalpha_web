@@ -3,6 +3,7 @@ import { getAllQa } from "@/lib/qa"
 import { getAllInterview } from "@/lib/interview"
 import { getAllGlossary } from "@/lib/glossary"
 import { CHAPTERS } from "@/lib/column"
+import { getAllJd, getJdCompany } from "@/lib/jd"
 
 export const dynamic = "force-static"
 
@@ -40,7 +41,27 @@ export function GET() {
 
   lines.push(
     "",
-    "## 深度解析（长文逐层拆解）",
+    "## 大厂 JD 拆解（岗位画像 + 隐藏考点 + 对应面试题）",
+    "",
+    "- [JD 拆解库索引](https://agentalpha.top/jd)：大厂 AI 岗 JD 人话翻译，每页含硬技能清单、JD 没写但面试会问、能力模型与准备计划",
+  )
+
+  for (const doc of getAllJd()) {
+    const co = getJdCompany(doc.company)
+    lines.push(`- [${doc.title}](https://agentalpha.top/jd/${doc.company}/${doc.slug})：${co?.name ?? doc.company} ${doc.role}方向，${doc.summary}`)
+  }
+
+  lines.push(
+    "",
+    "## 免费求职工具（纯前端、不上传）",
+    "",
+    "- [JD 人话拆解器](https://agentalpha.top/tools/jd-analyzer)：粘贴 JD 出岗位画像、考察词、隐藏考点与匹配面试题",
+    "- [简历体检](https://agentalpha.top/tools/resume)：简历 + JD 对比、能力覆盖证据评级、追问预演与风险",
+    "- [面试 Gap 自测](https://agentalpha.top/tools/gap-test)：八项能力自评加真题抽验，出雷达与补课路径",
+    "- [项目匹配器](https://agentalpha.top/tools/project-matcher)：按方向、基础、时间推荐可写进简历的项目方案",
+    "- [工具箱总览](https://agentalpha.top/tools)：看懂岗位 → 测出差距 → 做项目 → 改简历的完整链路",
+    "",
+    "## 学习路线（12 章专栏）",
     "",
   )
 
