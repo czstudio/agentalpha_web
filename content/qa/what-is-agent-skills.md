@@ -3,7 +3,6 @@ slug: what-is-agent-skills
 question: Agent Skills（技能包）是什么？它和 MCP、提示词是什么关系
 oneLine: Skills 把完成一类任务的说明文档、脚本和资源打包成一个文件夹，模型按需读取里面的说明来加载做法。MCP 管工具怎么接进来，Skills 管流程和知识怎么按需装载。
 category: tooluse
-company: xiaohongshu, openai, xiaomi, microsoft, google, douyin, jd, bilibili
 tags: [Agent, Skills]
 minutes: 4
 order: 10

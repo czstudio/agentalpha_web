@@ -3,7 +3,7 @@ slug: meituan-training-pipeline
 question: "大模型训练有哪些步骤？"
 oneLine: "大模型训练通常分四阶段：预训练学语言与知识，SFT 学指令行为，RLHF 或 DPO 做偏好对齐，最后按业务需要用领域数据微调。"
 category: jingchang
-company: meituan, baidu, tencent, huawei
+company: meituan,baidu,tencent
 track: algo-general
 tags: [大模型训练, 对齐训练, 美团真题]
 minutes: 5

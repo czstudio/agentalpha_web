@@ -3,7 +3,7 @@ slug: meituan-llama-length-limits
 question: "LLaMA 的输入可以无限长吗？输入变长会有哪些变化？"
 oneLine: "不能。输入变长会推高注意力计算成本和延迟，也会线性增加 KV Cache 显存占用；超过训练长度后，外推能力可能退化，长文中部信息也更难被有效利用。"
 category: jingchang
-company: meituan, xiaohongshu
+company: meituan
 track: algo-general
 tags: [美团真题, LLaMA, 长上下文]
 minutes: 5

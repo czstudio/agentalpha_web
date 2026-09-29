@@ -6,7 +6,6 @@ import type { Components } from "react-markdown"
 import { getAllQa, getQa, getRelatedQa, qaPlainBody } from "@/lib/qa"
 import { getCategories, getCategory, getInterview } from "@/lib/interview"
 import { getCompany } from "@/lib/companies"
-import { CAT_TO_TOOLS } from "@/lib/tools/shared"
 import { getQaNeighbors } from "@/lib/learn-path"
 
 const SITE = "https://agentalpha.top"
@@ -215,22 +214,6 @@ export default async function QaDetailPage({ params }: PageProps) {
               )}
             </nav>
           ) : null}
-
-          {(CAT_TO_TOOLS[item.category] ?? []).length > 0 && (
-            <aside className="ivq-cta ivq-cta--tools">
-              <div>
-                <p className="ivq-cta-t">练这个考点的工具</p>
-                <div className="ivq-tool-links">
-                  {(CAT_TO_TOOLS[item.category] ?? []).map((t) => (
-                    <Link key={t.href} className="ivq-tool-link" href={t.href}>
-                      <span className="t">{t.label}</span>
-                      <span className="d">{t.why}</span>
-                    </Link>
-                  ))}
-                </div>
-              </div>
-            </aside>
-          )}
 
           <aside className="ivq-cta">
             <div>

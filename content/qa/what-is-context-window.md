@@ -3,7 +3,6 @@ slug: what-is-context-window
 question: 上下文窗口是什么？为什么 128K 不等于能塞 128K
 oneLine: 上下文窗口是模型一次能处理的最大 token 数，输入输出都算在内。但塞满不等于用好：长文本下注意力会稀释、成本随长度上涨，有效上下文通常明显短于标称值。
 category: basics
-company: moonshot
 tags: [LLM 基础, 上下文窗口]
 minutes: 5
 order: 7

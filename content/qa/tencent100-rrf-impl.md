@@ -3,7 +3,7 @@ slug: tencent100-rrf-impl
 question: "多路检索结果怎么高效实现 Reciprocal Rank Fusion？"
 oneLine: "用 RRF 按各路排名倒数累加文档得分，再用哈希表聚合、排序取 Top-K；k 常取 60，无需归一化相似度分数。"
 category: jingchang
-company: tencent, pdd
+company: tencent
 track: ai-app
 tags: [腾讯真题, 信息检索, RAG]
 minutes: 5

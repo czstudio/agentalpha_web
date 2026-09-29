@@ -3,7 +3,7 @@ slug: meituan-llm-safety-aspects
 question: "怎么理解大模型安全？包含哪些方面？"
 oneLine: "大模型安全可以按模型说什么、模型被输入什么、数据流过什么、模型做什么四层来答，分别对应内容安全、提示词注入与越权、数据安全，以及 Agent 的行为安全。"
 category: jingchang
-company: meituan, baidu, tencent, didi, openai, xiaomi, microsoft, google, douyin, jd, bilibili
+company: meituan,baidu,tencent
 track: agent-dev
 tags: [美团真题, 大模型安全, Agent安全]
 minutes: 5

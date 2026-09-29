@@ -3,7 +3,7 @@ slug: byte100-ma-message-payload
 question: "多 Agent 之间传自然语言还是结构化状态？怎么控制信息损失？"
 oneLine: "按信息类型分层。关键状态用结构化数据保证无损与可校验，叙事性上下文用自然语言保持灵活。通过传递契约化控制信息损失。"
 category: jingchang
-company: bytedance, tencent, baidu, xiaohongshu
+company: bytedance, tencent, baidu
 track: agent-dev
 tags: [字节真题, 多智能体, 状态传递]
 minutes: 5

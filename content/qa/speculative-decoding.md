@@ -3,7 +3,7 @@ slug: speculative-decoding
 question: 投机解码是什么？小模型凭什么能给大模型加速
 oneLine: 小模型一口气猜出几个 token，大模型用一次前向并行验证，对的留下、错的从错处重猜。权重每步只读一次却可能产出多个 token，输出分布和大模型自己生成完全一致。
 category: inference
-company: meituan, baidu, antgroup, deepseek
+company: meituan, baidu
 tags: [推理优化, 解码加速]
 minutes: 5
 order: 7

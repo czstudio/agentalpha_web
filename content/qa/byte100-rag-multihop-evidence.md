@@ -3,7 +3,7 @@ slug: byte100-rag-multihop-evidence
 question: "搜索推荐广告的多跳问题，怎么构建可验证的证据链？"
 oneLine: "核心是拆解多跳问题进行多轮检索。每跳生成子查询，带上前一跳结论作上下文。记录每跳来源形成证据链，确保中间结论能回溯到具体片段，遇弱证据标注不确定性。"
 category: jingchang
-company: bytedance, tencent, baidu, xiaomi
+company: bytedance, tencent, baidu
 track: ai-app
 tags: [字节真题, Agentic RAG, 多跳检索]
 minutes: 5
