@@ -21,6 +21,22 @@ const MODE_CARDS: Array<{ key: MockMode; name: string; desc: string }> = [
   { key: "stress", name: "压力追问面", desc: "每题答完追一问：要数字、要对比、要放大十倍之后" },
 ]
 
+const WRONG_KEY = "mock-wrong-slugs"
+/** 与 /interview/quiz 共用的掌握度键：mock 没答上的题直接记一次 miss，quiz 的错题优先重抽立刻感知 */
+const QUIZ_MASTERY_KEY = "aa-qa-mastered-v1"
+
+function pushMasteryMiss(slug: string) {
+  try {
+    const raw = window.localStorage.getItem(QUIZ_MASTERY_KEY)
+    const map = raw ? (JSON.parse(raw) as Record<string, { h: number; m: number; last: string }>) : {}
+    const rec = map[slug] || { h: 0, m: 0, last: "" }
+    map[slug] = { h: rec.h ?? 0, m: (rec.m ?? 0) + 1, last: new Date().toISOString().slice(0, 10) }
+    window.localStorage.setItem(QUIZ_MASTERY_KEY, JSON.stringify(map))
+  } catch {
+    // 与 quiz 的存储约定解析失败时静默，不影响本场面试
+  }
+}
+
 const FAMILY_OPTIONS = [
   { slug: "agent-app", name: "Agent 应用开发" },
   { slug: "rag-eng", name: "RAG 工程" },
@@ -45,7 +61,7 @@ export function MockClient({ qaList }: { qaList: QaLite[] }) {
   const [ratings, setRatings] = useState<Record<string, Rating>>({})
   const [showAnswer, setShowAnswer] = useState(false)
   const [copied, setCopied] = useState(false)
-  const [wrongSlugs, setWrongSlugs] = useLocalState<string[]>("mock-wrong-slugs", [])
+  const [wrongSlugs, setWrongSlugs] = useLocalState<string[]>(WRONG_KEY, [])
 
   const persona = PERSONAS.find((p) => p.key === personaKey) || PERSONAS[0]
   const current = session?.questions[cursor]
@@ -68,6 +84,7 @@ export function MockClient({ qaList }: { qaList: QaLite[] }) {
     if (!current) return
     setRatings((prev) => ({ ...prev, [current.id]: r }))
     if (r !== "ok" && current.qaSlug) {
+      pushMasteryMiss(current.qaSlug)
       setWrongSlugs((prev) => (prev.includes(current.qaSlug!) ? prev : [...prev, current.qaSlug!]))
     }
   }
@@ -204,8 +221,8 @@ export function MockClient({ qaList }: { qaList: QaLite[] }) {
 
           {wrongSlugs.length > 0 && (
             <p className="tk-hint">
-              错题已记入本机错题本（共 {wrongSlugs.length} 题），
-              去 <Link href="/interview/quiz">模拟抽题</Link> 可以优先重抽它们。
+              错题已记入本机错题本（共 {wrongSlugs.length} 题），并已同步到
+              <Link href="/interview/quiz">模拟抽题</Link>的掌握度——那里的错题优先重抽会带上它们。
             </p>
           )}
 

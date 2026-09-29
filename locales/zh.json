@@ -76,7 +76,8 @@
     ],
     "stats": "{qa} 道速答题 · {deep} 篇深度解析 · {cat} 个分类",
     "cta": "进入题库",
-    "quiz_cta": "去模拟自测"
+    "quiz_cta": "去模拟自测",
+    "tools_cta": "求职工具箱"
   },
   "stats": {
     "stat1_label": "GitHub Stars · InkOS",
