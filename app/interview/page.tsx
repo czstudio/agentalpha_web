@@ -1,6 +1,6 @@
 import type { Metadata } from "next"
 import Link from "next/link"
-import { getAllInterview, getCategoriesWithPosts, hasCover } from "@/lib/interview"
+import { getAllInterview, getCategories, getCategoriesWithPosts, hasCover } from "@/lib/interview"
 import { getAllQa } from "@/lib/qa"
 import { InterviewList } from "@/components/interview/interview-list"
 import {
@@ -190,25 +190,41 @@ function ChapterRow({ chapter, siteTitles }: { chapter: ColumnChapter; siteTitle
                   <em>No.{post.no}</em> {post.title}
                 </Link>
               ))}
+              {chapter.cats.filter((cat) => getCategories().some((c) => c.cat === cat)).map((cat) => {
+                const meta = getCategories().find((c) => c.cat === cat)
+                const qaCount = getAllQa().filter((q) => q.category === cat).length
+                return qaCount > 0 ? (
+                  <Link key={cat} href={`/interview/category/${cat}`} className="ivc-ch-link ivc-ch-link--path">
+                    <em>学习路径</em> {meta?.name}（{qaCount} 道速答题 + 深度解析 + 术语）
+                  </Link>
+                ) : null
+              })}
             </div>
           </div>
         ) : null}
-        <div className="ivc-ch-links">
-          <span className="ivc-ch-links-label">真题集 · 飞书</span>
-          <div className="ivc-ch-links-list">
-            {chapter.docs.map((doc) => (
-              <a
-                key={doc.label}
-                href={doc.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="ivc-ch-link ivc-ch-link--ext"
-              >
-                {doc.label}
-              </a>
-            ))}
-          </div>
-        </div>
+        {chapter.docs.length ? (
+          <details className="ivc-ch-docs">
+            <summary>
+              真题集原文（{chapter.docs.length} 份 · 飞书文档）
+              <svg viewBox="0 0 16 16" width="11" height="11" aria-hidden>
+                <path d="M4 6l4 4 4-4" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </summary>
+            <div className="ivc-ch-links-list">
+              {chapter.docs.map((doc) => (
+                <a
+                  key={doc.label}
+                  href={doc.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="ivc-ch-link ivc-ch-link--ext"
+                >
+                  {doc.label} ↗
+                </a>
+              ))}
+            </div>
+          </details>
+        ) : null}
         <p className="ivc-ch-more">更多题目持续更新中……</p>
       </div>
     </article>
