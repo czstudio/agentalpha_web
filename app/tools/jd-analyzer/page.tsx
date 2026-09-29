@@ -5,6 +5,7 @@ import { JdClient } from "@/components/tools/jd-client"
 import { getAllJd } from "@/lib/jd"
 import { getAllQa } from "@/lib/qa"
 import "../tools.css"
+import { ToolsFaq } from "@/components/tools/tools-faq"
 
 const SITE = "https://agentalpha.top"
 
@@ -69,6 +70,7 @@ export default function JdAnalyzerPage() {
             ))}
           </div>
         </section>
+              <ToolsFaq slug="jd-analyzer" />
       </main>
     </>
   )
