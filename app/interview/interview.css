@@ -2085,3 +2085,26 @@ a.ivc-updcard:hover { border-color: var(--brand); box-shadow: var(--shadow); }
 .ivc-ch-docs summary svg { transition: transform .25s ease; }
 .ivc-ch-docs[open] summary svg { transform: rotate(180deg); }
 .ivc-ch-docs .ivc-ch-links-list { padding: 2px 10px 10px; }
+
+/* ── 分页列表与轻量行 ─────────────────────────── */
+.ivu-catlist-more { display: flex; align-items: center; justify-content: center; gap: 8px; margin: 14px 0 4px; padding: 14px; border: 1px dashed var(--line); border-radius: 12px; font-size: 14px; color: rgb(110, 34, 240); text-decoration: none; transition: border-color .15s ease, background .15s ease; }
+.ivu-catlist-more:hover { border-color: rgb(110, 34, 240); background: rgba(110, 34, 240, 0.04); }
+.ivu-rowitem { display: flex; align-items: center; gap: 14px; padding: 13px 6px; border-bottom: 1px solid var(--line); text-decoration: none; }
+.ivu-rowitem:last-child { border-bottom: 0; }
+.ivu-rowitem-no { flex: none; font-size: 12px; color: #a0a0aa; min-width: 58px; font-variant-numeric: tabular-nums; }
+.ivu-rowitem-main { min-width: 0; display: grid; gap: 2px; }
+.ivu-rowitem-title { font-size: 15px; font-weight: 600; color: var(--ink); line-height: 1.5; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.ivu-rowitem-q { font-size: 13px; color: #8a8a94; line-height: 1.6; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.ivu-rowitem:hover .ivu-rowitem-title { color: rgb(110, 34, 240); }
+.ivu-rowitem-go { flex: none; color: #b8b8c0; }
+.ivu-pager { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 8px; margin: 26px 0 8px; }
+.ivu-pager-btn { min-width: 36px; padding: 7px 12px; border: 1px solid var(--line); border-radius: 9px; font-size: 13.5px; color: var(--ink); text-decoration: none; text-align: center; transition: border-color .15s ease, color .15s ease; }
+.ivu-pager-btn:hover { border-color: rgb(110, 34, 240); color: rgb(110, 34, 240); }
+.ivu-pager-btn.is-cur { border-color: rgb(110, 34, 240); background: rgb(110, 34, 240); color: #fff; font-weight: 600; }
+.ivu-pager-gap { color: #b8b8c0; }
+.ivu-allentry { padding: 20px; border: 1px solid var(--line); border-radius: 14px; }
+.ivu-allentry p { margin: 0 0 12px; font-size: 14px; color: #5c5c66; }
+.ivu-allentry p b { color: rgb(110, 34, 240); }
+.ivu-allentry-cats { display: flex; flex-wrap: wrap; gap: 8px; }
+.ivu-allentry-cats a { padding: 5px 13px; border: 1px solid var(--line); border-radius: 999px; font-size: 13px; color: var(--ink); text-decoration: none; }
+.ivu-allentry-cats a:hover { border-color: rgb(110, 34, 240); color: rgb(110, 34, 240); }
