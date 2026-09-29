@@ -38,14 +38,16 @@
       "name": "多智能体",
       "intro": "角色切分、消息协议、状态同步、冲突仲裁。拆多 Agent 不是人多力量大，是上下文稀缺和角色混乱逼出来的工程选择。",
       "kbChapter": "第 5 章 · 多智能体",
-      "planned": 4
+      "planned": 4,
+      "flagship": "multiagent-chapter-guide"
     },
     {
       "cat": "memory",
       "name": "记忆系统",
       "intro": "工作记忆、情景记忆、语义记忆、程序性记忆怎么分，什么信息值得写入，冲突怎么覆盖合并，遗忘怎么设计。",
       "kbChapter": "第 4 章 · Agent 架构（记忆系统）",
-      "planned": 3
+      "planned": 3,
+      "flagship": "memory-chapter-guide"
     },
     {
       "cat": "eval",
@@ -60,7 +62,8 @@
       "name": "项目实战与企业级",
       "intro": "从 demo 到生产的差距：私有知识、权限边界、可审计、业务集成、成本可控。项目题八成问的是这五件事。",
       "kbChapter": "第 10 章 · 项目深挖",
-      "planned": 8
+      "planned": 8,
+      "flagship": "enterprise-chapter-guide"
     },
     {
       "cat": "finetune",
@@ -83,7 +86,8 @@
       "name": "多模态",
       "intro": "VLM 怎么看图、视觉 Token 的开销、文档解析与视频理解。专项岗的重点，应用岗的加分项。",
       "kbChapter": "第 6 章 · 多模态",
-      "planned": 6
+      "planned": 6,
+      "flagship": "multimodal-chapter-guide"
     },
     {
       "cat": "prompt",
@@ -104,7 +108,8 @@
       "name": "五厂面经真题集",
       "intro": "字节、阿里、腾讯、美团、百度各 100 题，按考点分组整理成一份带锚点的速览。题目本身可以背，答题骨架要自己长出来。",
       "kbChapter": "第 12 章 · 五厂高频面试题",
-      "planned": 8
+      "planned": 8,
+      "flagship": "jingchang-chapter-guide"
     }
   ]
 }
