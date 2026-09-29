@@ -23,7 +23,7 @@ updated: "2026-09-29"
 
 **1. Embedding模型选型：不是“一个模型打天下”**
 
-- **通用场景**：首选OpenAI text-embedding-ada-002（维度1536）或text-embedding-3-small（维度1536，可降维至256-1536）。原因：在MTEB benchmark上平均分高（ada-002约61.0），且API成本低（$0.13/1M tokens）。
+- **通用场景**：首选OpenAI text-embedding-ada-002（维度1536）或text-embedding-3-small（维度1536，可降维至256-1536）。原因：在MTEB benchmark上平均分高（ada-002约61.0），且API成本低（\$0.13/1M tokens）。
 - **中文场景**：BAAI/bge-large-zh-v1.5（维度1024）或moka-ai/m3e-base（维度768）。原因：在C-MTEB上bge-large-zh-v1.5得分约64.5，优于ada-002的中文表现（约58.0）。注意：bge模型需要prefix指令（如“为这个句子生成表示以用于检索”），否则效果下降10-15%。
 - **代码/技术文档**：intfloat/e5-mistral-7b-instruct（维度4096）或sentence-transformers/all-MiniLM-L6-v2（维度384）。前者在CodeSearchNet上Recall@10比ada-002高8%，但推理成本高（7B模型）；后者维度低，适合移动端或低延迟场景。
 - **领域微调**：如果数据量>10万条，建议用SimCSE或Contrastive Learning微调。例如，医疗领域用PubMedBERT初始化，在MS MARCO医疗子集上微调，Recall@20可提升12%。

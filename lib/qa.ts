@@ -70,13 +70,18 @@ function toItem(file: string): QaItem {
   }
 }
 
+let _qaCache: QaItem[] | null = null
+
 export function getAllQa(): QaItem[] {
+  if (_qaCache) return _qaCache
   if (!fs.existsSync(qaRoot)) return []
-  return fs
+  const items = fs
     .readdirSync(qaRoot)
     .filter((file) => file.endsWith(".md"))
     .map(toItem)
     .sort((a, b) => (a.category === b.category ? a.order - b.order : a.category.localeCompare(b.category)))
+  _qaCache = items
+  return items
 }
 
 export function getQa(slug: string): QaItem | null {

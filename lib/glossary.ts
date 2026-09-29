@@ -81,13 +81,18 @@ function toItem(file: string): GlossaryItem {
   }
 }
 
+let _gloCache: GlossaryItem[] | null = null
+
 export function getAllGlossary(): GlossaryItem[] {
+  if (_gloCache) return _gloCache
   if (!fs.existsSync(glossaryRoot)) return []
-  return fs
+  const items = fs
     .readdirSync(glossaryRoot)
     .filter((file) => file.endsWith(".md"))
     .map(toItem)
     .sort((a, b) => (a.group === b.group ? a.term.localeCompare(b.term, "zh-Hans-CN") : a.group.localeCompare(b.group)))
+  _gloCache = items
+  return items
 }
 
 export function getGlossary(slug: string): GlossaryItem | null {
