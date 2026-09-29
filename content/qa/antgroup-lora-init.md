@@ -3,7 +3,7 @@ slug: antgroup-lora-init
 question: "LoRA 微调的 A、B 矩阵怎么初始化？为什么？"
 oneLine: "LoRA 微调把 B 初始化为零，把 A 初始化为高斯随机矩阵，让 BA 初始为零，使训练起点等价于原模型；两者都随机会引入随机扰动，打乱训练初期的输出。"
 category: jingchang
-company: antgroup
+company: antgroup, pdd
 track: agent-algo
 tags: [蚂蚁集团真题, LoRA, 参数初始化]
 minutes: 5
