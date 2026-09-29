@@ -1,0 +1,57 @@
+/* =====================================================
+   主题可读性修正层（theme-soft）
+   作用：全局背景淡化 + 文字对比度提到 WCAG AA。
+   依据（对比度实测）：
+   - 浅色 muted #86868b/#f7f7f9 = 3.39:1（不达标）→ #62626d = 5.63:1
+   - 暗色底 #0a0a0c 过黑 → #17181d（柔和深灰，正文 15:1）
+   - 暗色 muted #86868b/#1c1c1e = 4.7:1 → #a6a6b0/#232530 = 6.3:1
+   - 青绿 #15b7a3 作文字仅 2.52:1 → 文字用 #0b6e63（5.4:1），装饰线保留亮青
+   该文件在 globals.css 之后加载，同名变量覆盖生效。
+   ===================================================== */
+
+/* ── 浅色主题：muted 文字加深 ── */
+:root {
+  --muted-foreground: #62626d;
+}
+
+/* ── 暗色主题：整体淡化 ── */
+.dark {
+  --background: #17181d;
+  --foreground: #ececf1;
+  --card: #232530;
+  --card-foreground: #ececf1;
+  --popover: #232530;
+  --popover-foreground: #ececf1;
+  --secondary: #232530;
+  --secondary-foreground: #ececf1;
+  --muted: #20222b;
+  --muted-foreground: #a6a6b0;
+}
+
+/* 暗色下代码卡淡化（保持深底不破坏语法高亮，但提亮一档） */
+.dark .note-code-card { background: #1f2129; }
+.dark .note-code-card summary { background: #24262f; }
+.note-code-card { background: #2b2f3a; }
+.note-code-card summary { background: #303543; color: #d6d9e2; }
+
+/* 青绿作为「文字」时统一用深青，保证白底 ≥4.5:1 */
+.aa-note-toc a:hover { color: #0b6e63; }
+.mj-page .aa-note-toc a.on { color: #0b6e63; border-left-color: #15b7a3; }
+
+/* 暗色下面经公司徽章微调（底色更淡、字色更亮） */
+.dark .mj-company-pill[data-co="bytedance"] { background: #12312e; color: #7de3d3; border-color: #1e5a52; }
+.dark .mj-company-pill[data-co="alibaba"] { background: #3a2a14; color: #ffb877; border-color: #6e4d1e; }
+.dark .mj-company-pill[data-co="tencent"] { background: #14293f; color: #8ec2ff; border-color: #1e4a78; }
+.dark .mj-company-pill[data-co="meituan"] { background: #3a3110; color: #ffd966; border-color: #6e5c1a; }
+.dark .mj-company-pill[data-co="baidu"] { background: #1d2340; color: #a8b4f5; border-color: #35406e; }
+.dark .mj-company-pill[data-co="jd"] { background: #3a1a1e; color: #ff9aa4; border-color: #6e3038; }
+.dark .mj-company-pill[data-co="moonshot"] { background: #26203d; color: #c4b3f7; border-color: #443a6e; }
+
+/* 暗色下首页 hero 视频卡加柔和边与轻遮罩，压住高亮帧 */
+.dark .aa-logo-reel-stage { box-shadow: 0 0 0 1px rgb(255 255 255 / 0.08), 0 24px 48px -28px rgb(0 0 0 / 0.6); }
+
+/* 暗色下面经表格与引用块淡化 */
+.dark .mj-table-wrap { border-color: #2e3140; }
+.dark .mj-table-wrap thead th { background: #20222b; border-bottom-color: #2e3140; }
+.dark .mj-table-wrap tbody tr:nth-child(even) { background: #1d1f27; }
+.dark .mj-callout { background: #1a2622; border-left-color: #15b7a3; color: #d9e2de; }
