@@ -3,7 +3,7 @@ slug: meituan-multimodal-overview
 question: "多模态了解吗？说说主流架构。"
 oneLine: "主流多模态架构可从表征、融合、生成三层理解：CLIP做图文对齐，BLIP-2和Flamingo做跨模态融合，LLaVA类路线把视觉信息接入LLM完成生成。"
 category: jingchang
-company: meituan, sensetime
+company: meituan, sensetime, pdd
 track: multimodal
 tags: [多模态, 架构, 美团真题]
 minutes: 5

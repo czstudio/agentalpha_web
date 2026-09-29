@@ -3,7 +3,7 @@ slug: alibaba-l1-l2-sparsity
 question: "L1 和 L2 正则的稀疏性有什么区别？"
 oneLine: "L1正则产生稀疏解，最优解常落在坐标轴上，权重精确为零。L2正则产生平滑解，权重被整体压小但不为零。两者的差异源于几何等高线分布与先验分布的不同。"
 category: jingchang
-company: alibaba
+company: alibaba, pdd
 track: algo-general
 tags: [阿里真题, 机器学习, 数学基础]
 minutes: 5
