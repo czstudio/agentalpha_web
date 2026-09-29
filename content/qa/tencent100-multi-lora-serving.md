@@ -3,7 +3,7 @@ slug: tencent100-multi-lora-serving
 question: "多 LoRA Adapter 在线服务，怎么隔离、切换和控制显存？"
 oneLine: "基座常驻显存，Adapter 按需热加载；请求携带标识，调度按 Adapter 分组或支持批内混 LoRA；用常驻上限和 LRU 控显存，网关按业务隔离权限、配额与版本。"
 category: jingchang
-company: tencent
+company: tencent, baidu
 track: infra
 tags: [腾讯真题, LoRA, 显存管理]
 minutes: 5

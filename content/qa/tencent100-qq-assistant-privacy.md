@@ -3,7 +3,7 @@ slug: tencent100-qq-assistant-privacy
 question: "内容助手类系统怎么满足数据最小化、权限控制和全链路审计？"
 oneLine: "只采集业务必需字段，先脱敏再进入模型；按角色和场景注入检索限制，并记录每次访问、调用和外部动作，支持导出合规报告。"
 category: jingchang
-company: tencent
+company: tencent, meituan
 track: agent-dev
 tags: [腾讯真题, 数据安全, Agent]
 minutes: 5

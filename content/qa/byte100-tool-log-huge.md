@@ -3,7 +3,7 @@ slug: byte100-tool-log-huge
 question: "工具返回几十万 Token 的日志，怎么处理？"
 oneLine: "绝不能直接塞入上下文，必须分层处理。即时层保留错误码与关键行，摘要层用小模型或规则提取结论，原始层外置存储并留引用句柄供 Agent 按需回放。工具端最好直接支持过滤。"
 category: jingchang
-company: bytedance
+company: bytedance, baidu
 track: agent-dev
 tags: [字节真题, 工具调用, 上下文管理]
 minutes: 5

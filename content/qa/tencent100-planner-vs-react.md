@@ -3,7 +3,7 @@ slug: tencent100-planner-vs-react
 question: "Planner-Executor 架构什么情况下优于单 Agent ReAct？"
 oneLine: "任务长且步骤多、子任务可并行，或需要预算与进度管控时，Planner-Executor 通常更合适；超过十步或需要并行拆分，就是先规划的明确信号。"
 category: jingchang
-company: tencent
+company: tencent, meituan, baidu
 track: agent-dev
 tags: [腾讯真题, Agent 架构, ReAct]
 minutes: 5

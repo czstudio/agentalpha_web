@@ -3,7 +3,7 @@ slug: byte100-memory-write-decision
 question: "什么信息应该写入长期记忆？怎么避免把幻觉永久保存？"
 oneLine: "长期记忆只写入跨会话可复用、状态稳定且来源确凿的信息。系统需校验来源、隔离事实与推断并打低置信标记，定期用新交互校验旧记忆。"
 category: jingchang
-company: bytedance
+company: bytedance, meituan, baidu
 track: agent-dev
 tags: [字节真题, 长期记忆, 防幻觉]
 minutes: 5

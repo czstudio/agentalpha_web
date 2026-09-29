@@ -3,7 +3,7 @@ slug: byte100-fc-mcp-rest-cli
 question: "Function Calling、MCP、REST API 和本地 CLI 的职责边界是什么？"
 oneLine: "这四者分属不同层级。REST API 是通用网络接口，CLI 是本地进程入口，Function Calling 是模型表达调用的数据格式，MCP 是 AI 客户端接入工具的协议标准。一次调用可贯穿四层。"
 category: jingchang
-company: bytedance
+company: bytedance, tencent, baidu
 track: agent-dev
 tags: [字节真题, 工具调用, MCP协议]
 minutes: 5

@@ -3,7 +3,7 @@ slug: tencent100-ann-tradeoff
 question: "海量向量查 Top-K 近邻，精确检索和近似检索怎么取舍？"
 oneLine: "精确检索结果完美，但延迟随数据量线性增长；百万级以上通常选 HNSW 或 IVF，再根据延迟 SLA 和召回率调参数。"
 category: jingchang
-company: tencent
+company: tencent, meituan
 track: algo-general
 tags: [腾讯真题, 向量检索, ANN]
 minutes: 5

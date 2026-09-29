@@ -3,7 +3,7 @@ slug: tencent100-evidence-conflict
 question: "检索证据冲突、过期和权限不一致怎么处理？"
 oneLine: "我会先区分冲突、过期和权限不一致：冲突比较时效性与来源可信度并标注分歧，过期按生效时间过滤，权限在检索层先判定。"
 category: jingchang
-company: tencent
+company: tencent, baidu
 track: ai-app
 tags: [腾讯真题, 证据治理, 权限控制]
 minutes: 5
