@@ -6,6 +6,7 @@ import type { Components } from "react-markdown"
 import { getAllQa, getQa, getRelatedQa, qaPlainBody } from "@/lib/qa"
 import { getCategories, getCategory, getInterview } from "@/lib/interview"
 import { getCompany } from "@/lib/companies"
+import { getQaNeighbors } from "@/lib/learn-path"
 
 const SITE = "https://agentalpha.top"
 
@@ -61,6 +62,7 @@ export default async function QaDetailPage({ params }: PageProps) {
   const category = getCategory(item.category)
   const related = getRelatedQa(slug, 5)
   const deepPost = item.deep ? getInterview(item.deep) : null
+  const neighbors = getQaNeighbors(item.category, slug)
 
   const faqLd = {
     "@context": "https://schema.org",
@@ -185,6 +187,33 @@ export default async function QaDetailPage({ params }: PageProps) {
               </li>
             </ul>
           </div>
+
+          {neighbors.prev || neighbors.next ? (
+            <nav className="ivq-serial" aria-label="本章题目导航">
+              {neighbors.prev ? (
+                <Link className="ivq-serial-link" href={`/interview/qa/${neighbors.prev.slug}`}>
+                  <span className="ivq-serial-label">上一题</span>
+                  <span className="ivq-serial-q">{neighbors.prev.question}</span>
+                </Link>
+              ) : (
+                <span className="ivq-serial-link is-empty" />
+              )}
+              <span className="ivq-serial-pos">
+                {category ? `${category.name} · ` : ""}第 {neighbors.index}/{neighbors.total} 题
+              </span>
+              {neighbors.next ? (
+                <Link className="ivq-serial-link is-next" href={`/interview/qa/${neighbors.next.slug}`}>
+                  <span className="ivq-serial-label">下一题</span>
+                  <span className="ivq-serial-q">{neighbors.next.question}</span>
+                </Link>
+              ) : (
+                <Link className="ivq-serial-link is-empty" href={`/interview/category/${item.category}`}>
+                  <span className="ivq-serial-label">本章学完</span>
+                  <span className="ivq-serial-q">回到学习路径 →</span>
+                </Link>
+              )}
+            </nav>
+          ) : null}
 
           <aside className="ivq-cta">
             <div>
