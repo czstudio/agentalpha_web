@@ -20,7 +20,7 @@ function categoryDiagram(cat: string): string | null {
   const groups = Object.entries(GROUP_TO_CATS).filter(([, cats]) => cats.includes(cat)).map(([g]) => g)
   const terms = getAllGlossary().filter((t) => groups.includes(t.group))
   for (const t of terms) {
-    if (names.includes(`${t.slug}.webp`)) return `/images/diagrams/${t.slug}.png`
+    if (names.includes(`${t.slug}.webp`)) return `/images/diagrams/${t.slug}.webp`
   }
   return null
 }
