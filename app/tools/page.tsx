@@ -6,10 +6,10 @@ import "./tools.css"
 const SITE = "https://agentalpha.top"
 
 export const metadata: Metadata = {
-  title: "求职工具箱 · JD 拆解 / 简历体检 / Gap 自测 / 项目匹配",
+  title: "求职工具箱 · JD 拆解 / 简历体检 / Gap 自测 / 模拟面试 / 投递看板",
   description:
-    "面向 AI Agent 岗求职者的免费工具：JD 人话拆解器、简历体检、面试 Gap 自测、项目匹配器。全部浏览器本地运行，不注册、不上传。看懂岗位 → 测出差距 → 做项目 → 改简历，一条链路。",
-  keywords: ["AI 求职工具", "简历优化工具", "JD 分析", "面试自测", "Agent 求职"],
+    "面向 AI Agent 岗求职者的免费工具全家桶：JD 人话拆解器、简历体检、面试 Gap 自测、项目匹配器、AI 模拟面试、面试复盘本、投递看板、Offer 对比器。全部浏览器本地运行，不注册、不上传。看懂岗位 → 测出差距 → 做项目 → 改简历 → 模拟面试 → 记录复盘，一条链路。",
+  keywords: ["AI 求职工具", "简历优化工具", "JD 分析", "面试自测", "模拟面试", "投递管理"],
   alternates: { canonical: "/tools" },
 }
 
@@ -42,6 +42,34 @@ const TOOLS = [
     title: "项目匹配器",
     desc: "选方向、基础、时间，拿三个能写进简历、扛得住追问的项目方案：难度、时间预算、bullet 模板、验收指标。",
   },
+  {
+    href: "/tools/mock-interview",
+    badge: "陪跑",
+    badgeClass: "badge-coach",
+    title: "AI 模拟面试",
+    desc: "五种面试官人格、三种模式（岗位剧本 / 简历深挖 / 压力追问），逐题作答出复盘报告，错题自动进错题本。",
+  },
+  {
+    href: "/tools/interview-log",
+    badge: "管理",
+    badgeClass: "badge-manage",
+    title: "面试复盘本",
+    desc: "面完当天记被问题目、卡壳点、下次策略；自动统计你反复挂在哪一轮哪类主题。数据只存本机。",
+  },
+  {
+    href: "/tools/application-tracker",
+    badge: "管理",
+    badgeClass: "badge-manage",
+    title: "投递看板",
+    desc: "未投到 offer 八个状态的看板管理，自动汇总投递漏斗与进面率，告诉你问题在简历还是在面试。",
+  },
+  {
+    href: "/tools/offer-compare",
+    badge: "决策",
+    badgeClass: "badge-flow",
+    title: "Offer 对比器",
+    desc: "六个维度打分加权重可调，算出加权对比与一句人话结论，附薪资谈判的实用常识。",
+  },
 ]
 
 const FLOW = [
@@ -49,7 +77,8 @@ const FLOW = [
   { step: "2", label: "测出差距", desc: "Gap 自测出短板与补课路径", href: "/tools/gap-test" },
   { step: "3", label: "做项目", desc: "项目匹配器按时间拿方案", href: "/tools/project-matcher" },
   { step: "4", label: "改简历", desc: "体检工具查证据与追问风险", href: "/tools/resume" },
-  { step: "5", label: "刷题面试", desc: "题库 179 题 + 模拟抽题", href: "/interview/qa" },
+  { step: "5", label: "模拟面试", desc: "人格化面试演练 + 错题本", href: "/tools/mock-interview" },
+  { step: "6", label: "记录复盘", desc: "复盘本 + 投递看板闭环迭代", href: "/tools/interview-log" },
 ]
 
 export default function ToolsIndexPage() {
@@ -71,8 +100,8 @@ export default function ToolsIndexPage() {
           <p className="tk-kicker">免费工具 · TOOLBOX</p>
           <h1>AI Agent 岗求职工具箱</h1>
           <p className="tk-lede">
-            看懂岗位 → 测出差距 → 做项目 → 改简历 → 刷题面试，一条链路的免费工具。
-            全部纯前端实现：不注册、不上传，你的简历和 JD 不出浏览器。
+            看懂岗位 → 测出差距 → 做项目 → 改简历 → 模拟面试 → 记录复盘，一条链路的八个免费工具。
+            全部纯前端实现：不注册、不上传，你的简历、JD 和面试记录不出浏览器。
           </p>
         </header>
 
@@ -105,7 +134,7 @@ export default function ToolsIndexPage() {
           <div className="tk-cta-grid">
             <Link href="/jd">
               <div className="t">大厂 JD 拆解库</div>
-              <div className="d">字节/阿里/腾讯/百度/美团/小红书热门岗位精拆</div>
+              <div className="d">热门岗位精拆：硬技能、隐藏考点、能力模型与准备计划</div>
             </Link>
             <Link href="/interview/qa">
               <div className="t">面试题库</div>

@@ -71,6 +71,26 @@ export function GapClient({ qaList }: { qaList: QaLite[] }) {
   const [quiz, setQuiz] = useState<Record<string, QuizAnswer>>({})
   const [quizPicks, setQuizPicks] = useState<Record<string, QaLite[]> | null>(null)
   const [report, setReport] = useState<GapReport | null>(null)
+  const [copied, setCopied] = useState(false)
+
+  const copyReport = async () => {
+    if (!report) return
+    const lines = [
+      `AgentAlpha 面试 Gap 自测 · ${report.family.name} · 加权 ${report.total} 分`,
+      "",
+      report.conclusion,
+      "",
+      "八项明细：",
+      ...report.domains.map((d) => `- ${d.domain.label}：${d.score} 分${d.verified ? (d.adjusted >= d.self ? "（抽验通过）" : "（抽验回落）") : ""}`),
+    ]
+    try {
+      await navigator.clipboard.writeText(lines.join("\n"))
+      setCopied(true)
+      setTimeout(() => setCopied(false), 2000)
+    } catch {
+      setCopied(false)
+    }
+  }
 
   const verifiableDomains = useMemo(
     () => GAP_DOMAINS.filter((d) => (self[d.key] ?? 0) >= 2),
@@ -209,6 +229,9 @@ export function GapClient({ qaList }: { qaList: QaLite[] }) {
               <p className="tk-hint">
                 雷达已按「{report.family.name}」方向加权：虚标会被抽题拉回，低权重域（如该方向不考的记忆）拉分有限。
               </p>
+              <button type="button" className="mock-end-btn" onClick={copyReport} style={{ marginTop: 6 }}>
+                {copied ? "已复制，发给导师或朋友看" : "复制报告为文本"}
+              </button>
             </div>
           </div>
 

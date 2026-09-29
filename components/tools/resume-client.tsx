@@ -26,10 +26,33 @@ export function ResumeClient() {
   const [profileSlug, setProfileSlug] = useState(JOB_PROFILES[0].slug)
   const [report, setReport] = useState<ResumeReport | null>(null)
   const [jdReport, setJdReport] = useState<JdReport | null>(null)
+  const [copied, setCopied] = useState(false)
 
   const run = () => {
     setReport(analyzeResume(text, profileSlug))
     setJdReport(jd.trim().length >= 20 ? analyzeJd(jd, text, profileSlug) : null)
+  }
+
+  const copyReport = async () => {
+    if (!report) return
+    const lines = [
+      `AgentAlpha 简历体检 · ${report.profile.name} · 综合 ${report.score.total} 分`,
+      `岗位匹配 ${report.score.match} / 经历质量 ${report.score.bullet} / 能力覆盖 ${report.score.radar} / 结构完整 ${report.score.structure}`,
+      jdReport ? `JD 命中率 ${jdReport.score}%（${jdReport.hits.length}/${jdReport.keywords.length} 词）` : "",
+      "",
+      "能力覆盖（证据等级）：",
+      ...report.radar.map((c) => `- ${c.axis.label}：${radarLevelLabel(c.level)}（${c.evidence}）`),
+      "",
+      report.structure.length > 0 ? `结构问题：\n${report.structure.map((s) => `- ${s}`).join("\n")}` : "",
+      report.missingCore.length > 0 ? `\n缺核心词：${report.missingCore.join("、")}` : "",
+    ].filter(Boolean)
+    try {
+      await navigator.clipboard.writeText(lines.join("\n"))
+      setCopied(true)
+      setTimeout(() => setCopied(false), 2000)
+    } catch {
+      setCopied(false)
+    }
   }
 
   const activeProfile = useMemo(
@@ -100,6 +123,11 @@ export function ResumeClient() {
               <ScoreBar label="经历质量" value={report.score.bullet} />
               <ScoreBar label="能力覆盖" value={report.score.radar} />
               <ScoreBar label="结构完整" value={report.score.structure} />
+            </div>
+            <div className="rt-copy-col">
+              <button type="button" className="rt-copy-btn" onClick={copyReport}>
+                {copied ? "已复制" : "复制报告"}
+              </button>
             </div>
           </div>
 

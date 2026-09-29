@@ -437,3 +437,21 @@
   .rt-hero h1 { font-size: 26px; }
   .rt-main { padding-top: 32px; }
 }
+
+.rt-copy-col {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+}
+
+.rt-copy-btn {
+  border: 1px solid #d1d5db;
+  background: #fff;
+  border-radius: 999px;
+  padding: 7px 18px;
+  font-size: 13px;
+  cursor: pointer;
+  color: #374151;
+  white-space: nowrap;
+}
+.rt-copy-btn:hover { border-color: #6b5bd6; color: #4c3ad1; }

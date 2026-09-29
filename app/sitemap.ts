@@ -164,6 +164,30 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.75,
     },
     {
+      url: "https://agentalpha.top/tools/mock-interview",
+      lastModified: new Date(),
+      changeFrequency: "weekly",
+      priority: 0.8,
+    },
+    {
+      url: "https://agentalpha.top/tools/interview-log",
+      lastModified: new Date(),
+      changeFrequency: "weekly",
+      priority: 0.7,
+    },
+    {
+      url: "https://agentalpha.top/tools/application-tracker",
+      lastModified: new Date(),
+      changeFrequency: "weekly",
+      priority: 0.7,
+    },
+    {
+      url: "https://agentalpha.top/tools/offer-compare",
+      lastModified: new Date(),
+      changeFrequency: "weekly",
+      priority: 0.65,
+    },
+    {
       url: "https://agentalpha.top/learn",
       lastModified: new Date(),
       changeFrequency: "weekly",
