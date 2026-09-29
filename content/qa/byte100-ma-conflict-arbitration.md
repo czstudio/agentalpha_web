@@ -3,7 +3,7 @@ slug: byte100-ma-conflict-arbitration
 question: "多个 Agent 结论冲突时，怎么仲裁而不靠简单多数投票？"
 oneLine: "仲裁多个 Agent 冲突应先看冲突类型。事实冲突查证据，方法冲突看约束，偏好冲突交由用户决策。机制上采用历史可信度加权或超阈值升级。"
 category: jingchang
-company: bytedance
+company: bytedance, meituan, tencent
 track: agent-dev
 tags: [字节真题, 多智能体, 冲突仲裁]
 minutes: 5

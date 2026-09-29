@@ -3,7 +3,7 @@ slug: tencent100-remote-mcp-authz
 question: "远程 MCP Server 怎么设计鉴权、授权、审计和租户隔离？"
 oneLine: "远程 MCP Server 要先在连接层用 token 或 OAuth 验证客户端身份，再由 Server 按身份决定工具和资源权限；同时记录每次调用，并按租户隔离数据与配额。"
 category: jingchang
-company: tencent
+company: tencent, meituan
 track: agent-dev
 tags: [腾讯真题, MCP鉴权, 多租户]
 minutes: 5

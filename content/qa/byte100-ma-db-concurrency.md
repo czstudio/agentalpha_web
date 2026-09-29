@@ -3,7 +3,7 @@ slug: byte100-ma-db-concurrency
 question: "多 Agent 并行调同一个数据库，事务、锁、幂等和资源竞争怎么处理？"
 oneLine: "这是分布式系统老问题穿上Agent外衣。事务用Saga模式带补偿，锁用带过期的资源级租约，幂等靠操作带去重键，资源竞争通过按Agent分组的连接池配额解决。"
 category: jingchang
-company: bytedance
+company: bytedance, tencent, baidu
 track: agent-dev
 tags: [字节真题, 分布式系统, 并发控制]
 minutes: 5

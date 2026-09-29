@@ -3,7 +3,7 @@ slug: byte100-memory-conflict
 question: "用户画像变了，记忆冲突怎么检测？覆盖、合并还是遗忘？"
 oneLine: "检测记忆冲突看新旧信息是否同主题且属性矛盾。处理策略分覆盖、合并、遗忘三类。遵循时间新者优先且保留审计痕迹原则，用户显式纠正永远最高优先。"
 category: jingchang
-company: bytedance
+company: bytedance, meituan, baidu
 track: agent-dev
 tags: [字节真题, 记忆机制, 用户画像]
 minutes: 5

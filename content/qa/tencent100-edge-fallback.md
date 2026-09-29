@@ -3,7 +3,7 @@ slug: tencent100-edge-fallback
 question: "云端大模型不可用时，边缘或小模型降级链路怎么保证基本功能？"
 oneLine: "按主模型、备用区域或备用模型、本地小模型、规则与 FAQ 模板分级降级，同时砍掉复杂任务，保住高频简单查询，并提前演练。"
 category: jingchang
-company: tencent
+company: tencent, baidu
 track: infra
 tags: [腾讯真题, 降级策略, 边缘推理]
 minutes: 5

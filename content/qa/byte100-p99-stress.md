@@ -3,7 +3,7 @@ slug: byte100-p99-stress
 question: "推理服务压测怎么设计？为什么只看平均吞吐会掩盖 P99 抖动？"
 oneLine: "平均吞吐会平均掉长尾请求，掩盖极差的用户体验。推理服务压测必须模拟真实流量形态，采集分位延迟、失败率与队列深度，并单独测试长上下文请求。"
 category: jingchang
-company: bytedance
+company: bytedance, tencent, baidu
 track: infra
 tags: [字节真题, 模型推理, 性能压测]
 minutes: 5
