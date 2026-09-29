@@ -3,6 +3,7 @@ slug: agent-loop
 question: Agent 为什么会陷入死循环？怎么检测和治理？
 oneLine: 死循环的根子是「模型看不到失败」：同一动作反复重试、两个工具互相踢皮球、错误输出被当成进展。治理靠检测（轨迹指纹、轮数预算、进度指标）加干预（升级提示、换路线、交还人）。
 category: agent
+company: xiaohongshu, didi, deepseek, openai, moonshot, xiaomi, microsoft, google, douyin, jd, bilibili
 tags: [死循环, 稳定性, 路径震荡]
 minutes: 6
 order: 6

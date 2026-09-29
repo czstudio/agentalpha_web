@@ -3,6 +3,7 @@ slug: what-is-qlora
 question: QLoRA 是什么？一张消费级显卡怎么微调大模型
 oneLine: QLoRA 先把冻结的基座模型量化到低位宽省显存，再在它上面做普通 LoRA 训练。权重占用的显存大幅下降，训练精度由 LoRA 部分保持，单张消费级显卡就能调很大的模型。
 category: finetune
+company: huawei
 tags: [QLoRA, LoRA, 量化]
 minutes: 5
 order: 4

@@ -3,7 +3,7 @@ slug: meituan-rlhf-details
 question: "讲讲 RLHF 的具体过程，涉及几个模型？"
 oneLine: "RLHF 具体涉及四个模型：策略模型负责训练，参考模型计算 KL 约束，奖励模型根据人类偏好打分，价值模型计算优势函数以降低方差。"
 category: jingchang
-company: meituan,baidu
+company: meituan, baidu, openai, huawei, pdd, xiaohongshu, didi, deepseek, xiaomi, microsoft, google, douyin, jd, bilibili
 track: agent-algo
 tags: [RLHF, 偏好对齐, 大模型面试]
 minutes: 5

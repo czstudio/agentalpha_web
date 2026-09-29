@@ -3,7 +3,7 @@ slug: rag-vs-finetune
 question: RAG 和微调怎么选？什么场景该用哪个？
 oneLine: 知识要更新、要溯源，用 RAG；行为、格式、领域语感不对，用微调；两者不冲突，多数生产系统是先 RAG 后微调。
 category: rag
-company: meituan
+company: meituan, antgroup, huawei, didi, xiaomi, moonshot, microsoft, google, douyin, jd, bilibili
 tags: [RAG, 微调, SFT]
 minutes: 5
 order: 1

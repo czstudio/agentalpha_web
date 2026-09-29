@@ -1,0 +1,189 @@
+[baseline-browser-mapping] The data in this module is over two months old.  To ensure accurate Baseline data, please update: `npm i baseline-browser-mapping@latest -D`
+   ▲ Next.js 16.0.10 (Turbopack)
+   - Environments: .env.local
+
+ ⚠ The "middleware" file convention is deprecated. Please use "proxy" instead. Learn more: https://nextjs.org/docs/messages/middleware-to-proxy
+   Creating an optimized production build ...
+[baseline-browser-mapping] The data in this module is over two months old.  To ensure accurate Baseline data, please update: `npm i baseline-browser-mapping@latest -D`
+ ✓ Compiled successfully in 5.2s
+   Running TypeScript ...
+   Collecting page data using 15 workers ...
+[baseline-browser-mapping] The data in this module is over two months old.  To ensure accurate Baseline data, please update: `npm i baseline-browser-mapping@latest -D`
+[baseline-browser-mapping] The data in this module is over two months old.  To ensure accurate Baseline data, please update: `npm i baseline-browser-mapping@latest -D`
+[baseline-browser-mapping] The data in this module is over two months old.  To ensure accurate Baseline data, please update: `npm i baseline-browser-mapping@latest -D`
+[baseline-browser-mapping] The data in this module is over two months old.  To ensure accurate Baseline data, please update: `npm i baseline-browser-mapping@latest -D`
+[baseline-browser-mapping] The data in this module is over two months old.  To ensure accurate Baseline data, please update: `npm i baseline-browser-mapping@latest -D`
+[baseline-browser-mapping] The data in this module is over two months old.  To ensure accurate Baseline data, please update: `npm i baseline-browser-mapping@latest -D`
+[baseline-browser-mapping] The data in this module is over two months old.  To ensure accurate Baseline data, please update: `npm i baseline-browser-mapping@latest -D`
+[baseline-browser-mapping] The data in this module is over two months old.  To ensure accurate Baseline data, please update: `npm i baseline-browser-mapping@latest -D`
+[baseline-browser-mapping] The data in this module is over two months old.  To ensure accurate Baseline data, please update: `npm i baseline-browser-mapping@latest -D`
+[baseline-browser-mapping] The data in this module is over two months old.  To ensure accurate Baseline data, please update: `npm i baseline-browser-mapping@latest -D`
+[baseline-browser-mapping] The data in this module is over two months old.  To ensure accurate Baseline data, please update: `npm i baseline-browser-mapping@latest -D`
+[baseline-browser-mapping] The data in this module is over two months old.  To ensure accurate Baseline data, please update: `npm i baseline-browser-mapping@latest -D`
+[baseline-browser-mapping] The data in this module is over two months old.  To ensure accurate Baseline data, please update: `npm i baseline-browser-mapping@latest -D`
+[baseline-browser-mapping] The data in this module is over two months old.  To ensure accurate Baseline data, please update: `npm i baseline-browser-mapping@latest -D`
+[baseline-browser-mapping] The data in this module is over two months old.  To ensure accurate Baseline data, please update: `npm i baseline-browser-mapping@latest -D`
+   Generating static pages using 15 workers (0/3181) ...
+[baseline-browser-mapping] The data in this module is over two months old.  To ensure accurate Baseline data, please update: `npm i baseline-browser-mapping@latest -D`
+[baseline-browser-mapping] The data in this module is over two months old.  To ensure accurate Baseline data, please update: `npm i baseline-browser-mapping@latest -D`
+[baseline-browser-mapping] The data in this module is over two months old.  To ensure accurate Baseline data, please update: `npm i baseline-browser-mapping@latest -D`
+[baseline-browser-mapping] The data in this module is over two months old.  To ensure accurate Baseline data, please update: `npm i baseline-browser-mapping@latest -D`
+[baseline-browser-mapping] The data in this module is over two months old.  To ensure accurate Baseline data, please update: `npm i baseline-browser-mapping@latest -D`
+[baseline-browser-mapping] The data in this module is over two months old.  To ensure accurate Baseline data, please update: `npm i baseline-browser-mapping@latest -D`
+[baseline-browser-mapping] The data in this module is over two months old.  To ensure accurate Baseline data, please update: `npm i baseline-browser-mapping@latest -D`
+[baseline-browser-mapping] The data in this module is over two months old.  To ensure accurate Baseline data, please update: `npm i baseline-browser-mapping@latest -D`
+[baseline-browser-mapping] The data in this module is over two months old.  To ensure accurate Baseline data, please update: `npm i baseline-browser-mapping@latest -D`
+[baseline-browser-mapping] The data in this module is over two months old.  To ensure accurate Baseline data, please update: `npm i baseline-browser-mapping@latest -D`
+[baseline-browser-mapping] The data in this module is over two months old.  To ensure accurate Baseline data, please update: `npm i baseline-browser-mapping@latest -D`
+[baseline-browser-mapping] The data in this module is over two months old.  To ensure accurate Baseline data, please update: `npm i baseline-browser-mapping@latest -D`
+[baseline-browser-mapping] The data in this module is over two months old.  To ensure accurate Baseline data, please update: `npm i baseline-browser-mapping@latest -D`
+[baseline-browser-mapping] The data in this module is over two months old.  To ensure accurate Baseline data, please update: `npm i baseline-browser-mapping@latest -D`
+[baseline-browser-mapping] The data in this module is over two months old.  To ensure accurate Baseline data, please update: `npm i baseline-browser-mapping@latest -D`
+   Generating static pages using 15 workers (795/3181) 
+LaTeX-incompatible input and strict mode is set to 'warn': Unicode text character "降" used in math mode [unicodeTextInMathMode]
+LaTeX-incompatible input and strict mode is set to 'warn': Unicode text character "到" used in math mode [unicodeTextInMathMode]
+   Generating static pages using 15 workers (1590/3181) 
+   Generating static pages using 15 workers (2385/3181) 
+ ✓ Generating static pages using 15 workers (3181/3181) in 20.1s
+   Finalizing page optimization ...
+
+Route (app)
+┌ ƒ /
+├ ○ /_not-found
+├ ○ /admin/content
+├ ○ /admin/dashboard
+├ ○ /admin/login
+├ ○ /admin/media
+├ ○ /admin/members
+├ ○ /admin/mentors
+├ ○ /admin/news
+├ ○ /admin/papers
+├ ○ /admin/partners
+├ ○ /admin/projects
+├ ○ /admin/quicklinks
+├ ○ /admin/resources
+├ ○ /admin/settings
+├ ○ /admin/site-content
+├ ○ /admin/social-platforms
+├ ƒ /api/admin/members
+├ ƒ /api/admin/members/[id]
+├ ƒ /api/admin/mentors
+├ ƒ /api/admin/mentors/[id]
+├ ƒ /api/admin/news
+├ ƒ /api/admin/news/[id]
+├ ƒ /api/admin/papers
+├ ƒ /api/admin/papers/[id]
+├ ƒ /api/admin/partners
+├ ƒ /api/admin/partners/[id]
+├ ƒ /api/admin/projects
+├ ƒ /api/admin/projects/[id]
+├ ƒ /api/admin/quicklinks
+├ ƒ /api/admin/reset-password
+├ ƒ /api/admin/resources
+├ ƒ /api/admin/site-content
+├ ƒ /api/admin/social-platforms
+├ ƒ /api/admin/social-platforms/[id]
+├ ƒ /api/admin/stats
+├ ƒ /api/admin/upload
+├ ƒ /api/auth/login
+├ ƒ /api/init-db
+├ ƒ /api/llm-jd
+├ ƒ /api/public/data
+├ ƒ /api/public/qingke-talks
+├ ○ /articles
+├ ● /articles/[slug]
+│ ├ /articles/2026-open-source-resume-tools
+│ ├ /articles/meituan-multi-agent-conflict
+│ └ /articles/synthetic-data-quality-monitoring
+├ ○ /community
+├ ○ /community/markdown
+├ ○ /feed.xml
+├ ○ /gzh
+├ ○ /interview
+├ ● /interview/[slug]
+│ ├ /interview/llm-vs-agent
+│ ├ /interview/react-over-cot
+│ ├ /interview/functioncall-unstable
+│ └ [+2485 more paths]
+├ ● /interview/category/[cat]
+│ ├ /interview/category/basics
+│ ├ /interview/category/rag
+│ ├ /interview/category/agent
+│ └ [+11 more paths]
+├ ● /interview/category/[cat]/all/[[...p]]
+│ ├ /interview/category/basics/all
+│ ├ /interview/category/basics/all/2
+│ ├ /interview/category/basics/all/3
+│ └ [+59 more paths]
+├ ● /interview/company/[slug]
+│ ├ /interview/company/bytedance
+│ ├ /interview/company/alibaba
+│ ├ /interview/company/tencent
+│ └ [+14 more paths]
+├ ○ /interview/glossary
+├ ● /interview/glossary/[slug]
+│ ├ /interview/glossary/multi-agent
+│ ├ /interview/glossary/a2a
+│ ├ /interview/glossary/agent-memory
+│ └ [+28 more paths]
+├ ○ /interview/jingchang
+├ ○ /interview/qa
+├ ● /interview/qa/[slug]
+│ ├ /interview/qa/baidu100-chunk-512
+│ ├ /interview/qa/meituan-distributed-training
+│ ├ /interview/qa/moonshot-rag-four-libs
+│ └ [+374 more paths]
+├ ○ /interview/quiz
+├ ● /interview/track/[slug]
+│ ├ /interview/track/agent-dev
+│ ├ /interview/track/agent-algo
+│ ├ /interview/track/ai-app
+│ └ [+3 more paths]
+├ ○ /jd
+├ ● /jd/[company]/[slug]
+│ ├ /jd/alibaba/llm-application
+│ ├ /jd/alibaba/qwen-multimodal
+│ ├ /jd/antgroup/agent-delivery
+│ └ [+19 more paths]
+├ ○ /learn
+├ ○ /learn/claude-code
+├ ● /learn/claude-code/[slug]
+├ ○ /llms-full.txt
+├ ○ /llms.txt
+├ ○ /mianjing
+├ ● /mianjing/[slug]
+│ ├ /mianjing/ali-taotian-ai-agent-2026
+│ ├ /mianjing/aliyun-agent-intern-23q-2026
+│ ├ /mianjing/anon-rag-specialist-2026
+│ └ [+15 more paths]
+├ ○ /notes
+├ ● /notes/[slug]
+│ ├ /notes/agentic-rl-react
+│ ├ /notes/agentic-rl-credit-assignment
+│ ├ /notes/agentic-rl-grpo-rollout
+│ └ [+73 more paths]
+├ ○ /roadmap
+├ ● /roadmap/[slug]
+│ ├ /roadmap/agent-developer
+│ ├ /roadmap/rag-engineer
+│ ├ /roadmap/llm-application
+│ └ /roadmap/ai-infra
+├ ○ /robots.txt
+├ ○ /sitemap.xml
+├ ○ /tools
+├ ○ /tools/application-tracker
+├ ○ /tools/gap-test
+├ ○ /tools/interview-log
+├ ○ /tools/jd-analyzer
+├ ○ /tools/mock-interview
+├ ○ /tools/offer-compare
+├ ○ /tools/project-matcher
+└ ○ /tools/resume
+
+
+ƒ Proxy (Middleware)
+
+○  (Static)   prerendered as static content
+●  (SSG)      prerendered as static HTML (uses generateStaticParams)
+ƒ  (Dynamic)  server-rendered on demand
+

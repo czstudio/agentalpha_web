@@ -3,6 +3,7 @@ slug: agent-memory-design
 question: Agent 的记忆系统怎么设计？
 oneLine: 按寿命分层：上下文窗口是工作记忆，向量库放长期记忆，数据库放结构化事实；要点是定清楚「什么值得记、怎么检索回来、什么时候过期」。
 category: agent
+company: xiaohongshu, didi, moonshot, xiaomi, microsoft, google, douyin, jd, bilibili
 tags: [记忆系统, 上下文]
 minutes: 6
 order: 4

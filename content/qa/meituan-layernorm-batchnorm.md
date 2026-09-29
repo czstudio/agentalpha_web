@@ -3,7 +3,7 @@ slug: meituan-layernorm-batchnorm
 question: "LayerNorm 和 BatchNorm 的区别？为什么 Transformer 用前者？"
 oneLine: "BatchNorm 沿 batch 维度归一化，依赖批统计量，处理变长序列不稳。LayerNorm 沿特征维度逐样本归一化，与 batch 无关，适合 Transformer 处理变长文本。"
 category: jingchang
-company: meituan
+company: meituan, huawei, pdd, xiaohongshu, didi, deepseek, xiaomi, microsoft, google, douyin, jd, bilibili
 track: algo-general
 tags: [美团真题, 归一化, Transformer]
 minutes: 5
