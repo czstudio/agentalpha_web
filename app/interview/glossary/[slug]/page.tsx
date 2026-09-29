@@ -10,9 +10,9 @@ import { getQa } from "@/lib/qa"
 
 const SITE = "https://agentalpha.top"
 
-/** 手绘概念图（public/images/diagrams/<slug>.png），存在才渲染 */
+/** 手绘概念图（public/images/diagrams/<slug>.webp），存在才渲染 */
 function hasDiagram(slug: string): boolean {
-  return fs.existsSync(path.join(process.cwd(), "public", "images", "diagrams", `${slug}.png`))
+  return fs.existsSync(path.join(process.cwd(), "public", "images", "diagrams", `${slug}.webp`))
 }
 
 interface PageProps {
