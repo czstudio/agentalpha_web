@@ -3,7 +3,7 @@ slug: what-is-scaling-law
 question: Scaling Law 是什么？为什么大家相信堆算力有用
 oneLine: Scaling Law 指模型 loss 随参数量、数据量、算力的增长按幂律平滑下降的经验规律。它让加大投入的收益变得可预测，是行业敢持续堆算力的主要依据。
 category: basics
-company: deepseek, openai
+company: deepseek, openai, zhipu, minimax, iflytek
 tags: [LLM 基础, Scaling Law]
 minutes: 5
 order: 10

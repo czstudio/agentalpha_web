@@ -3,7 +3,7 @@ slug: mcp-what-and-core
 question: 什么是 MCP？它的核心内容是什么？
 oneLine: MCP 是 Anthropic 2024 年底推出的开放协议，解决工具接入碎片化：工具按协议实现一次、任何支持 MCP 的客户端都能复用，三层核心是 Host/Client/Server 角色、Tools/Resources/Prompts 能力、JSON-RPC 2.0 通信。
 category: jingchang
-company: bytedance, openai, xiaomi, microsoft, google, douyin, jd, bilibili
+company: bytedance, openai, xiaomi, microsoft, google, douyin, jd, bilibili, sensetime, zhipu, nio
 track: agent-dev
 tags: [MCP, 工具调用, 协议]
 minutes: 5

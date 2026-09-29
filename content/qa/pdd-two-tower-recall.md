@@ -3,7 +3,7 @@ slug: pdd-two-tower-recall
 question: "召回的双塔结构是什么？ANN 索引怎么建？"
 oneLine: "双塔分别编码用户和物品，离线预计算物品向量，线上用用户向量与 ANN 索引做内积或余弦召回；索引可选 HNSW 或 IVF，训练用 in-batch 负采和难例挖掘。"
 category: jingchang
-company: pdd
+company: pdd, netease
 track: ai-app
 tags: [拼多多真题, 双塔召回, ANN 索引]
 minutes: 5

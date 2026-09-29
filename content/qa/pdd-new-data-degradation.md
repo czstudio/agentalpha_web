@@ -3,7 +3,7 @@ slug: pdd-new-data-degradation
 question: "新数据集训练后，其他领域能力下降了怎么办？"
 oneLine: "我会把问题按防和治处理：训练前混入通用数据并设计配比，训练中降低参数扰动，训练后用通用回归集对比定位并及时回退。"
 category: jingchang
-company: pdd
+company: pdd, netease
 track: agent-algo
 tags: [灾难性遗忘, 数据配比, 能力回归]
 minutes: 5

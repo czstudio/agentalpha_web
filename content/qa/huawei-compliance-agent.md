@@ -3,7 +3,7 @@ slug: huawei-compliance-agent
 question: "如何设计符合个保法和等保要求的 Agent 系统？"
 oneLine: "把个保法要求落实到最小必要采集、敏感信息单独同意、级联删除和出境合规，把等保要求落实到分级分类、审计留存及传输存储加密，并通过脱敏、字段级权限和动作前检查约束 Agent。"
 category: jingchang
-company: huawei
+company: huawei, netease
 track: agent-dev
 tags: [个保法, 等保, Agent安全]
 minutes: 5

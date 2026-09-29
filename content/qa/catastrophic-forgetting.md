@@ -3,7 +3,7 @@ slug: catastrophic-forgetting
 question: 微调完模型「变笨」了怎么办？灾难性遗忘怎么防
 oneLine: 灾难性遗忘是模型在新任务数据上训练后，原有的通用能力明显退化的现象。防法核心是别让训练分布太窄：混入通用数据、控制训练强度、用 LoRA 这类只动小部分参数的方法。
 category: finetune
-company: meituan, huawei, antgroup, pdd, xiaohongshu, didi, deepseek, openai, moonshot, xiaomi, microsoft, google, douyin, jd, bilibili
+company: meituan, huawei, antgroup, pdd, xiaohongshu, didi, deepseek, openai, moonshot, xiaomi, microsoft, google, douyin, jd, bilibili, zhipu, minimax, iflytek
 tags: [微调, 灾难性遗忘]
 minutes: 4
 order: 9

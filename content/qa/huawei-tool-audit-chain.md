@@ -3,7 +3,7 @@ slug: huawei-tool-audit-chain
 question: "Agent 的工具调用安全审计链路怎么设计？怎么防高危操作？"
 oneLine: "记录每次工具调用的主体、时间、工具、参数、结果和指令依据，写入不可篡改日志并支持回放；按动作风险分级，收紧权限，校验参数，异常时告警，不可逆操作必须人工确认。"
 category: jingchang
-company: huawei
+company: huawei, netease
 track: agent-dev
 tags: [工具安全, 安全审计, 高危操作]
 minutes: 5

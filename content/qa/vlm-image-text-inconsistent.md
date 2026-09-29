@@ -3,7 +3,7 @@ slug: vlm-image-text-inconsistent
 question: 多模态数据里图文不一致的样本，训练时和上线后分别怎么处理？
 oneLine: 训练阶段先用CLIP类模型打分清洗数据，同时保留少量标注为矛盾的样本教模型学会拒答；上线后靠前置相关性检测拦截，并结合提示词约束模型只依据图像作答。
 category: multimodal
-company: xiaohongshu,baidu
+company: xiaohongshu, baidu, sensetime, minimax, iflytek, nio
 tags: [[, 多, 模, 态, ,,  , V, L, M, ,,  , 数, 据, 清, 洗, ]]
 minutes: 6
 order: 10

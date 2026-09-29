@@ -3,7 +3,7 @@ slug: pdd-mmoe-vs-ple
 question: "MMOE 和 PLE 的区别？"
 oneLine: "MMOE 让多个任务共享专家并由各自门控组合，PLE 把任务独占专家和共享专家分开，通过渐进式分离路由减少任务冲突与负迁移。"
 category: jingchang
-company: pdd
+company: pdd, netease
 track: ai-app
 tags: [拼多多真题, 多任务学习, 搜广推]
 minutes: 5

@@ -3,7 +3,7 @@ slug: vlm-hallucination-mitigation
 question: 多模态模型的幻觉主要来自哪里？怎么缓解？
 oneLine: 幻觉主要来自视觉信息丢失、语言先验压过图像事实，以及图文弱相关训练数据。缓解时需区分感知性与知识性幻觉，前者靠高分辨率输入、强制视觉溯源解决，后者靠RAG补外部知识，并在规则侧用检测器交叉校验。
 category: multimodal
-company: xiaohongshu
+company: xiaohongshu, sensetime, minimax, iflytek, nio
 tags: [[, 多, 模, 态, ,,  , 幻, 觉, ,,  , R, A, G, ]]
 minutes: 6
 order: 9

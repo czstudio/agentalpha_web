@@ -3,7 +3,7 @@ slug: antgroup-moe-balance-loss
 question: "怎么用修改损失函数解决 MoE 负载均衡？"
 oneLine: "在原任务损失上加入辅助均衡损失，度量各专家负载偏离均匀分布的程度，再用系数控制均衡与专家专业化之间的权衡。"
 category: jingchang
-company: antgroup
+company: antgroup, sensetime, minimax, iflytek, nio
 track: agent-algo
 tags: [蚂蚁集团真题, 大模型面试, MoE]
 minutes: 5

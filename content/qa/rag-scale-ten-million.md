@@ -3,7 +3,7 @@ slug: rag-scale-ten-million
 question: 知识库到千万级文档，为什么只调向量库参数救不了召回？
 oneLine: 千万级规模下相似内容海量增加，向量区分度被稀释，单靠调参解决不了干扰项暴增的问题，必须通过检索架构升级、数据治理和模型调优来应对。
 category: rag
-company: pdd
+company: pdd, netease
 tags: [[, R, A, G, ,,  , 向, 量, 检, 索, ,,  , 召, 回, 优, 化, ]]
 minutes: 6
 order: 21

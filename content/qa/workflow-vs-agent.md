@@ -3,7 +3,7 @@ slug: workflow-vs-agent
 question: Workflow 和 Agent 有什么区别？什么时候不该用 Agent？
 oneLine: Workflow 是人写死的流程图，模型只填空；Agent 是模型自己决定下一步。流程稳定、错误代价高的场景用 Workflow，路径真不确定才上 Agent。能用 Workflow 解决的问题上 Agent 是负收益。
 category: agent
-company: xiaohongshu, didi, openai, moonshot, xiaomi, microsoft, google, douyin, jd, bilibili
+company: xiaohongshu, didi, openai, moonshot, xiaomi, microsoft, google, douyin, jd, bilibili, sensetime, zhipu, netease, nio
 tags: [Workflow, 选型, 架构]
 minutes: 5
 order: 8

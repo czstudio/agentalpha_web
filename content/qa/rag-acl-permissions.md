@@ -3,7 +3,7 @@ slug: rag-acl-permissions
 question: 把内部文档接进 RAG，文档权限怎么带进检索链路？
 oneLine: 核心原则是权限过滤必须发生在检索阶段之前或之中。通过给 Chunk 附加权限元数据或按权限域隔离物理分区，检索时传入用户身份在引擎做标量过滤，并在生成侧做好引用脱敏兜底。
 category: safety
-company: pdd,bytedance
+company: pdd, bytedance, netease
 tags: [[, R, A, G, ,,  , 权, 限, 控, 制, ,,  , 向, 量, 检, 索, ]]
 minutes: 6
 order: 8

@@ -3,7 +3,7 @@ slug: kuaishou-rerank-truncation
 question: "Rerank 的 TopK 怎么截断？截断策略怎么影响延迟和准确率？"
 oneLine: "Rerank 的 TopK 要同时看上下文预算、噪声代价和延迟，优先用分数阈值自适应截断，并持续监控 rerank 后的分布漂移。"
 category: jingchang
-company: kuaishou
+company: kuaishou, netease
 track: ai-app
 tags: [快手真题, 大模型面试, Rerank]
 minutes: 5

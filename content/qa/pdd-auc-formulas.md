@@ -3,7 +3,7 @@ slug: pdd-auc-formulas
 question: "AUC 的两种计算方法，写出公式。"
 oneLine: "AUC 有两种常见计算方法：按正负样本对的排序概率计算，或按分数降序绘制 ROC 曲线后计算曲线下面积。"
 category: jingchang
-company: pdd
+company: pdd, netease
 track: algo-general
 tags: [AUC, ROC, GAUC]
 minutes: 5
