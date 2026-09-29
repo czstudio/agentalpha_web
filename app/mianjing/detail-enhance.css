@@ -1,0 +1,101 @@
+/* 面经详情页视觉增强（独立于 globals.css，仅本页引入；用更高优先级覆盖） */
+
+/* 1) 公司徽章品牌色（data-co 属性驱动） */
+.mj-page .mj-company-pill[data-co="bytedance"] { background: #e6f7f7; color: #0f766e; border-color: #99e2dd; }
+.mj-page .mj-company-pill[data-co="alibaba"] { background: #fff4e8; color: #c2560a; border-color: #ffd9b3; }
+.mj-page .mj-company-pill[data-co="tencent"] { background: #e8f3ff; color: #1d6fd0; border-color: #b3d9ff; }
+.mj-page .mj-company-pill[data-co="meituan"] { background: #fff8d9; color: #9a6b00; border-color: #ffe985; }
+.mj-page .mj-company-pill[data-co="baidu"] { background: #eef1ff; color: #3b53c4; border-color: #c3cdf5; }
+.mj-page .mj-company-pill[data-co="jd"] { background: #ffeef0; color: #c03540; border-color: #ffb8c0; }
+.mj-page .mj-company-pill[data-co="moonshot"] { background: #f1ecfd; color: #5e48b8; border-color: #d4c8f7; }
+.mj-page .mj-company-pill[data-co="xiaomi"] { background: #fdf0e7; color: #b4530a; border-color: #f7cfb2; }
+.mj-page .mj-company-pill[data-co="kuaishou"] { background: #eafaf0; color: #187c4b; border-color: #b4ecc9; }
+.mj-page .mj-company-pill[data-co="didi"] { background: #fdeee8; color: #c2542a; border-color: #f8c9b3; }
+.mj-page .mj-company-pill[data-co="pdd"] { background: #ffeef6; color: #c02a6e; border-color: #ffb8d6; }
+.mj-page .mj-company-pill[data-co="douyin"] { background: #f2f2f4; color: #3d3d46; border-color: #d6d6dc; }
+.mj-page .mj-company-pill {
+  border-width: 1px;
+  border-style: solid;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+/* 2) 目录激活态：当前节高亮 + 左侧色条 */
+.mj-page .aa-note-toc a {
+  border-left: 2px solid transparent;
+  transition: color 0.15s ease, border-color 0.15s ease;
+  line-height: 1.6;
+  display: inline-block;
+}
+.mj-page .aa-note-toc a.on {
+  color: #15b7a3;
+  border-left-color: #15b7a3;
+  font-weight: 600;
+}
+.mj-page .aa-note-toc > p {
+  font-weight: 600;
+  color: #374151;
+  letter-spacing: 0.06em;
+}
+
+/* 3) 正文 h2：底部细线 + 悬停锚点 */
+.mj-page .mj-prose h2 {
+  padding-bottom: 0.4em;
+  border-bottom: 1px solid #e8eaee;
+  scroll-margin-top: 84px;
+}
+.mj-prose h2 .mj-anchor {
+  opacity: 0;
+  margin-left: 8px;
+  color: #15b7a3;
+  text-decoration: none;
+  font-weight: 400;
+  transition: opacity 0.15s ease;
+}
+.mj-prose h2:hover .mj-anchor { opacity: 1; }
+
+/* 4) 表格：表头底色 + 斑马纹 + 圆角容器 */
+.mj-page .mj-table-wrap {
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid #e5e7eb;
+}
+.mj-page .mj-table-wrap table { border: none; margin: 0; }
+.mj-page .mj-table-wrap thead th {
+  background: #f5f6fa;
+  font-weight: 600;
+  border-bottom: 1px solid #e5e7eb;
+}
+.mj-page .mj-table-wrap tbody tr:nth-child(even) { background: #fafbfd; }
+.mj-page .mj-table-wrap td, .mj-page .mj-table-wrap th { border: none; }
+
+/* 5) 引用/提示块：品牌色左条 + 更柔和底色 */
+.mj-page .mj-callout {
+  border-left: 4px solid #15b7a3;
+  background: #f2fbf9;
+  border-radius: 0 10px 10px 0;
+}
+.mj-page .mj-callout p { margin: 0.6em 0; }
+
+/* 6) 阅读进度条 */
+.mj-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  width: 0;
+  background: linear-gradient(90deg, #15b7a3, #6b5bd6);
+  z-index: 60;
+  transition: width 0.08s linear;
+}
+
+/* 7) 标签更克制 */
+.mj-page .mj-tag {
+  background: #f5f6fa;
+  border: 1px solid #e8eaee;
+  color: #4b5563;
+}
+
+@media (max-width: 1024px) {
+  .mj-progress { display: none; }
+}
