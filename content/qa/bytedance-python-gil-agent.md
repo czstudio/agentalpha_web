@@ -4,6 +4,7 @@ question: "Python 的 GIL 对 Agent 后端服务有什么影响？"
 oneLine: "GIL 限制了多线程并行执行 CPU 密集任务，但在 Agent 后端中影响有限。Agent 大量时间用于等待模型和工具的 IO 响应，多线程或异步够用。本地向量化等逻辑可用多进程解决。"
 category: jingchang
 company: bytedance
+track: agent-dev
 tags: [字节真题, 并发编程, Python底层]
 minutes: 5
 order: 24

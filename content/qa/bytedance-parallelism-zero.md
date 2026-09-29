@@ -4,6 +4,7 @@ question: "数据并行、张量并行、流水线并行分别解决什么？ZeR
 oneLine: "数据并行切分数据，张量并行切分层内权重，流水线并行按层切分模型。ZeRO 是数据并行的显存优化技术，通过分片优化器状态、梯度和参数来节省显存。"
 category: jingchang
 company: bytedance
+track: infra
 tags: [字节真题, 分布式训练, 显存优化]
 minutes: 5
 order: 30

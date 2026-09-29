@@ -4,6 +4,7 @@ question: "从用户输入到最终输出，你这套系统的真实链路是什
 oneLine: "链路按规则、分类、检索、生成、审核拆开，只有复杂意图理解和最终生成用大模型，其余用规则、小模型或检索，控制成本、延迟和稳定性。"
 category: jingchang
 company: baidu
+track: agent-dev
 tags: [百度真题, Agent架构, 成本意识]
 minutes: 5
 order: 169

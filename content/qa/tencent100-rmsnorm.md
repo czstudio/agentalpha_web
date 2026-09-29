@@ -4,6 +4,7 @@ question: "RMSNorm 和 LayerNorm 的核心差异是什么？部署时怎么取�
 oneLine: "LayerNorm 计算均值和方差，RMSNorm 只计算均方根，省去均值计算和一次遍历。多数任务效果相当，后者更快、显存略省；从零训练选后者，已有前者权重不必改造。"
 category: jingchang
 company: tencent
+track: algo-general
 tags: [腾讯真题, 归一化, 模型部署]
 minutes: 5
 order: 158

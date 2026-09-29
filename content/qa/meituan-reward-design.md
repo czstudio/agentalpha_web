@@ -4,6 +4,7 @@ question: "GRPO 的奖励函数怎么设计？"
 oneLine: "GRPO 的奖励函数采用分层设计，结合结果奖励与过程奖励。原则上能用规则判别就不依赖模型，以此减少奖励作弊空间，且奖励维度必须单一可归因。"
 category: jingchang
 company: meituan
+track: agent-algo
 tags: [美团真题, GRPO, 奖励设计]
 minutes: 5
 order: 61

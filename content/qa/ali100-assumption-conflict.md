@@ -4,6 +4,7 @@ question: "工具执行结果和计划假设冲突时，Agent 怎么修正后续
 oneLine: "Agent 先判断冲突属于参数级、目标级还是全局级，再选择就地重试、局部重规划或终止任务，并由 Executor 结构化上报冲突。"
 category: jingchang
 company: alibaba
+track: agent-dev
 tags: [阿里真题, Agent规划, 冲突处理]
 minutes: 5
 order: 106

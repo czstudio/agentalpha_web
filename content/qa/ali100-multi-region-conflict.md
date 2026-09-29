@@ -4,6 +4,7 @@ question: "同一规则在多个国家站点冲突，怎么按时效性、地域
 oneLine: "这是一个过滤问题而不是排序问题。首先按地域做硬过滤，不参与相似度竞争。同域内冲突按新版本优先、官方文档高于经验帖排序。跨域冲突直接分别回答，绝不融合。"
 category: jingchang
 company: alibaba
+track: ai-app
 tags: [阿里真题, 知识库检索, 多域冲突]
 minutes: 5
 order: 108

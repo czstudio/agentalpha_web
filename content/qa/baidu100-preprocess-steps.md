@@ -4,6 +4,7 @@ question: "知识入库前做了哪些预处理？各步骤分别解决什么问
 oneLine: "知识入库前通常经过格式解析、清洗、结构化抽取、语义切分和元数据标注，分别处理格式异构、数据质量、内容结构、检索单元以及过滤审计问题。"
 category: jingchang
 company: baidu
+track: ai-app
 tags: [百度真题, 知识库预处理, 检索]
 minutes: 5
 order: 161

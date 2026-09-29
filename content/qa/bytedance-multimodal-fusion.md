@@ -4,6 +4,7 @@ question: "多模态融合有哪几种方式？各是什么思路？"
 oneLine: "多模态融合分为早期、中期和晚期三种。早期在特征层合并，保留信息多但对齐难；中期在中间层注意力交互，是当前主流；晚期在决策级合并，实现简单但易丢失交互信息。"
 category: jingchang
 company: bytedance
+track: multimodal
 tags: [字节真题, 多模态, 融合策略]
 minutes: 5
 order: 25

@@ -4,6 +4,7 @@ question: "模型输出有随机性，怎么设计可重放的 Trace 和事故�
 oneLine: "记录完整输入、每步模型原始输出、采样参数与种子及外部工具响应快照；按任务 ID 聚合，固定输入流和快照重放，再定位分歧步骤并对比预期行为。"
 category: jingchang
 company: tencent
+track: agent-dev
 tags: [腾讯真题, Trace, 事故复盘]
 minutes: 5
 order: 139

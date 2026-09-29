@@ -4,6 +4,7 @@ question: "举一个大模型输出不符合指令的真实案例，说说怎么
 oneLine: "要求输出 JSON 却夹带解释文本是最常见的指令失效案例。原因通常是指令过长导致约束被稀释，或格式要求与模型习惯冲突。解法包括指令拆分、约束解码，以及格式校验配合错误回传重试。"
 category: jingchang
 company: bytedance
+track: agent-dev
 tags: [字节真题, 指令遵循, 格式约束]
 minutes: 5
 order: 22

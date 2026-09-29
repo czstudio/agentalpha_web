@@ -4,6 +4,7 @@ question: "你这个 Agent 是问答型、决策型还是执行型？边界是�
 oneLine: "Agent 按输出对象定型：给人信息是问答型，给系统选择是决策型，改变外部状态是执行型；面试先说明项目类型，再讲边界，执行型必须配权限、幂等和审计。"
 category: jingchang
 company: baidu
+track: agent-dev
 tags: [百度真题, Agent分类, 执行边界]
 minutes: 5
 order: 166

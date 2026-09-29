@@ -4,6 +4,7 @@ question: "Agent 的混合路由和限流怎么设计？"
 oneLine: "混合路由按复杂度切分请求，规则或小模型处理高频简单任务，大模型处理复杂任务，需预留升级通道。限流依据后端工具 QPS 预算设计，采用队列削峰、优先级排队与超限降级策略。"
 category: jingchang
 company: bytedance
+track: agent-dev
 tags: [字节真题, 混合路由, 架构设计]
 minutes: 5
 order: 16

@@ -4,6 +4,7 @@ question: "Qwen 系列模型怎么选 vLLM、SGLang 或其他推理引擎？"
 oneLine: "默认用 vLLM，结构化输出和复杂解码需求优先试 SGLang，只有在追求极限性能时再考虑 TensorRT-LLM，并评估工程门槛与硬件绑定。"
 category: jingchang
 company: alibaba
+track: infra
 tags: [阿里真题, 推理引擎, 模型服务]
 minutes: 5
 order: 115

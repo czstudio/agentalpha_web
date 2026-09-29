@@ -4,6 +4,7 @@ question: "知识库里新旧文档分布不一致，检索有偏差怎么办？
 oneLine: "知识库新文档占比小，旧文档会在向量空间里淹没它们。可通过引入时间衰减因子给新文档加权、按版本分索引、识别时效性意图并优先路由新库来解决，同时需单独建时效性测试集评估。"
 category: jingchang
 company: meituan
+track: ai-app
 tags: [美团真题, RAG, 检索优化]
 minutes: 5
 order: 56

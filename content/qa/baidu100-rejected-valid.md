@@ -4,6 +4,7 @@ question: "怎么证明 rejected 是有效负样本，而不是误杀？"
 oneLine: "用来源可溯、人工盲评和对照重训三层验证 rejected，先确认拒答理由可靠，再看误杀率，最后看替换后效果是否变差。"
 category: jingchang
 company: baidu
+track: algo-general
 tags: [百度真题, 负样本验证]
 minutes: 5
 order: 177

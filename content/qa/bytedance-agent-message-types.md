@@ -4,6 +4,7 @@ question: 最简单的 Agent Loop 包含哪些步骤？Message 有哪些类型�
 oneLine: 最小 Agent Loop 包含组装上下文、调用模型、执行工具并回填、判断终止四步循环，消息类型按 OpenAI 标准分为 system、user、assistant 和 tool 四种。
 category: jingchang
 company: bytedance
+track: agent-dev
 tags: [Agent, 基础概念, 面试高频]
 minutes: 6
 order: 19

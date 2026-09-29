@@ -4,6 +4,7 @@ question: "知识源是 API 文档、日志、DDL、Wiki 这几类，最难处�
 oneLine: "日志最难处理：它无结构、量大、时效敏感，还可能含敏感信息；相比之下，API 文档适合模板化解析，DDL 可直接图谱化，Wiki 半结构化。回答时应先对比，再讲日志的处理链。"
 category: jingchang
 company: baidu
+track: ai-app
 tags: [百度真题, 知识源, 日志处理]
 minutes: 5
 order: 160

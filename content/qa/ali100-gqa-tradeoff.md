@@ -4,6 +4,7 @@ question: "GQA 为什么能降低推理成本？它可能牺牲哪些能力？"
 oneLine: "GQA 通过让多个查询头共享一组 KV 头，按共享比例缩小 KV Cache 体积，从而节省显存和带宽。代价是头多样性下降，可能导致复杂推理与细粒度模式捕捉能力退化。"
 category: jingchang
 company: alibaba
+track: algo-general
 tags: [阿里真题, 推理优化, 注意力机制]
 minutes: 5
 order: 102

@@ -4,6 +4,7 @@ question: "过程奖励模型怎么设计？怎么防止模型迎合评审器而
 oneLine: "过程奖励模型按步骤评分，给长链路更密的信号；同时把评审器和执行器解耦，用结果奖励和人工标注校准，盯住过程分与结果分的相关性，防止模型迎合评审器。"
 category: jingchang
 company: alibaba
+track: agent-algo
 tags: [阿里真题, 强化学习]
 minutes: 5
 order: 114

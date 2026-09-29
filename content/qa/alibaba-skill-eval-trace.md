@@ -4,6 +4,7 @@ question: Agent 的评测系统怎么设计？Trace 数据要记录哪些？
 oneLine: 评测系统按评测集、执行、判定、报告分层设计，优先用确定性指标，主观质量用 LLM 评分。Trace 数据需记录每次调用的输入输出、工具参数、上下文快照和路由决策，用于回放归因和新题挖掘。
 category: jingchang
 company: alibaba
+track: agent-dev
 tags: [[, A, g, e, n, t, 评, 测, ,,  , T, r, a, c, e, 数, 据, ,,  , L, L, M, -, a, s, -, J, u, d, g, e, ]]
 minutes: 6
 order: 16

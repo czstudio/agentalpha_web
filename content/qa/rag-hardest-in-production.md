@@ -4,6 +4,7 @@ question: RAG 实际落地中最难的地方在哪里？
 oneLine: 不是把 Demo 跑起来，是调好：文档预处理是最脏的工程活，检索质量定位靠分层指标，效果评估没建起来之前所有优化都是盲调。
 category: jingchang
 company: alibaba
+track: ai-app
 tags: [RAG, 工程落地, 评估]
 minutes: 6
 order: 7

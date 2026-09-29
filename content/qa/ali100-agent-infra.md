@@ -4,6 +4,7 @@ question: "Agent Infra 和之前的 Agent 应用开发有什么区别？"
 oneLine: "Agent 应用开发面向单个业务，关注提示词、工具和效果；Agent Infra 面向平台，为所有 Agent 提供公共底座，解决规模化生产问题。"
 category: jingchang
 company: alibaba
+track: agent-dev
 tags: [阿里真题, Agent Infra, 平台工程]
 minutes: 5
 order: 118

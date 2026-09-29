@@ -4,6 +4,7 @@ question: 用 LangGraph 实现多轮对话 Agent，比手写 prompt 流程强在
 oneLine: 手写流程在处理中断恢复和复杂分支时容易堆砌条件判断，LangGraph 通过图结构和统一状态模型，原生提供持久化、人审挂起和并发控制。选型取决于状态复杂度和对底层调度的控制需求。
 category: jingchang
 company: meituan,bytedance
+track: agent-dev
 tags: [[, A, g, e, n, t, 框, 架, ,,  , L, a, n, g, G, r, a, p, h, ,,  , 工, 程, 架, 构, ]]
 minutes: 6
 order: 21

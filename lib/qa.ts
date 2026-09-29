@@ -18,6 +18,8 @@ export interface QaItem {
   category: string
   /** 公司维度：该公司公开面经高频归纳的题，逗号分隔多值（lib/companies 词表） */
   company: string
+  /** 岗位维度：agent-dev | agent-algo | ai-app | multimodal | infra | algo-general，逗号分隔多值（lib/tracks 词表） */
+  track: string
   tags: string[]
   minutes: number
   updated: string
@@ -61,6 +63,7 @@ function toItem(file: string): QaItem {
     oneLine: data.oneLine || "",
     category: data.category || "",
     company: data.company || "",
+    track: data.track || "",
     tags: parseTags(data.tags),
     minutes: Number(data.minutes) || 4,
     updated: data.updated || "",

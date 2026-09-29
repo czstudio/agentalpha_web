@@ -4,6 +4,7 @@ question: "大模型的上下文学习为什么有效？它和参数更新有什
 oneLine: "上下文学习的本质是将学习变成条件生成，模型通过模式匹配与组合泛化完成任务，不更新参数。参数更新是将知识永久写入权重。频繁变化的知识用上下文学习或RAG，稳定行为用微调。"
 category: jingchang
 company: alibaba
+track: algo-general
 tags: [阿里真题, 上下文学习, 微调]
 minutes: 5
 order: 104

@@ -4,6 +4,7 @@ question: "跨境电商多语言场景，怎么选基座模型并设计能力评
 oneLine: "选型看目标语言覆盖、电商适配、上下文与成本；评测需按语言独立建集分项测试，严禁英语外推，并增加跨语言一致性检查。"
 category: jingchang
 company: alibaba
+track: algo-general
 tags: [阿里真题, 模型选型, 多语言评测]
 minutes: 5
 order: 105

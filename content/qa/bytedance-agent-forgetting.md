@@ -4,6 +4,7 @@ question: Agent 为什么必须学会遗忘？记忆衰退机制怎么设计？
 oneLine: 遗忘是为了保证检索质量与决策准确性。无限制的记忆会导致检索变慢并引入噪声，设计衰退机制需要结合时间衰减、按类型配置、用量反馈与显式失效，并在写入端做好冲突检测。
 category: jingchang
 company: bytedance
+track: agent-algo
 tags: [Agent, 记忆机制, 面试真题]
 minutes: 6
 order: 18

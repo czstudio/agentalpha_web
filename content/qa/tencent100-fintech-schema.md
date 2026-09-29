@@ -4,6 +4,7 @@ question: "金融风控场景，工具 Schema 怎么设计以降低参数错误�
 oneLine: "参数要严格约束，工具要写清边界和差异，高风险金额还要强制二次确认。"
 category: jingchang
 company: tencent
+track: ai-app
 tags: [腾讯真题, 工具调用, Schema设计]
 minutes: 5
 order: 147

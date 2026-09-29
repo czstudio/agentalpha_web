@@ -4,6 +4,7 @@ question: "RAG 怎么做文档级、段落级权限过滤？怎么防止缓存�
 oneLine: "权限过滤必须在检索层完成，通过索引打标签和系统注入用户身份实现。防缓存越权需将权限维度加入缓存键，并在多租户命中缓存后二次校验权限。"
 category: jingchang
 company: bytedance
+track: ai-app
 tags: [字节真题, RAG, 权限控制]
 minutes: 5
 order: 92

@@ -4,6 +4,7 @@ question: "怎么设计可回放的 Agent 状态，让线上 Bad Case 完整复�
 oneLine: "设计可回放状态需要记录完整输入（含版本号）、每步中间产物与随机性来源。回放采用确定性重放，按序喂入记录流，并通过快照或Mock解决外部工具随时间变化的问题。"
 category: jingchang
 company: bytedance
+track: agent-dev
 tags: [字节真题, 状态管理, Bad Case 排查]
 minutes: 5
 order: 84

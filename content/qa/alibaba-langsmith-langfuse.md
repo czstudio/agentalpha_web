@@ -4,6 +4,7 @@ question: "langsmith 和 langfuse 怎么选？"
 oneLine: "选型看两点：是否需要私有化部署满足合规要求，以及技术栈是否深度绑定 LangChain。重度使用 LangChain 选 LangSmith，需开源自部署选 Langfuse。"
 category: jingchang
 company: alibaba
+track: agent-dev
 tags: [阿里真题, LLM可观测, 选型对比]
 minutes: 5
 order: 42

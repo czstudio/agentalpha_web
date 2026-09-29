@@ -4,6 +4,7 @@ question: "跨会话任务怎么恢复执行状态，同时避免重放已完成
 oneLine: "用状态快照保存目标计划、已完成步骤及结果、未决事项；恢复前按唯一操作 ID 查证副作用，已生效就跳过，未生效再执行。"
 category: jingchang
 company: alibaba
+track: agent-dev
 tags: [阿里真题, 状态恢复, 幂等设计]
 minutes: 5
 order: 103

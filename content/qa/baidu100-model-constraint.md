@@ -4,6 +4,7 @@ question: "检索结果互相冲突或证据不充分时，怎么约束模型？
 oneLine: "用冲突证据约束模型呈现分歧并按可信度、时效性取舍；证据不足时做置信度门控，拒答或追问，并让每条结论绑定证据编号。"
 category: jingchang
 company: baidu
+track: ai-app
 tags: [百度真题, 检索增强, 置信度门控]
 minutes: 5
 order: 164

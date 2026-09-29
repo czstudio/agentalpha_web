@@ -4,6 +4,7 @@ question: "你的 SFT 本质上在教模型什么？教知识、风格还是行�
 oneLine: "SFT 主要教模型稳定的输出风格和行为边界，而不是把知识硬塞进参数；知识更新快、参数化成本高，知识更适合用 RAG，数据应多数围绕边界设计。"
 category: jingchang
 company: baidu
+track: algo-general
 tags: [百度真题, SFT, RAG]
 minutes: 5
 order: 175

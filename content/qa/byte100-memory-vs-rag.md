@@ -4,6 +4,7 @@ question: "Agent 的记忆机制和传统 RAG 什么关系？主流 Agent 真的
 oneLine: "主流 Agent 没有淘汰 RAG，两者是分层关系。RAG 解决外部知识的“取”，是记忆的底层检索组件。Agent 记忆系统在此基础上增加了“存”与“忘”的机制。"
 category: jingchang
 company: bytedance
+track: agent-dev
 tags: [字节真题, Agent记忆, 检索增强]
 minutes: 5
 order: 70

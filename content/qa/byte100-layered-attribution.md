@@ -4,6 +4,7 @@ question: "任务成功率、步骤正确率、工具成功率和答案质量怎
 oneLine: "采用自下而上的归因排查路径，依次测试工具调用层、规划层、生成层和端到端层，确保精准定位到底坏在哪一层。"
 category: jingchang
 company: bytedance
+track: agent-dev
 tags: [字节真题, 评测指标, Agent归因]
 minutes: 5
 order: 99

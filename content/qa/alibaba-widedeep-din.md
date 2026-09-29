@@ -4,6 +4,7 @@ question: "Wide&Deep 和 DIN 的区别是什么？"
 oneLine: "核心区别在于 DIN 引入了目标注意力机制。Wide&Deep 采用双路联合训练，Wide 侧负责特征共现的记忆，Deep 侧负责泛化。DIN 在此基础上按候选商品与用户历史行为的相关度加权，激活相关兴趣。"
 category: jingchang
 company: alibaba
+track: algo-general
 tags: [阿里真题, 推荐系统, 注意力机制]
 minutes: 5
 order: 37

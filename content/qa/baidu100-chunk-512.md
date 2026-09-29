@@ -4,6 +4,7 @@ question: "chunk 为什么设 512？和 128、1024 相比 trade-off 是什么？
 oneLine: "512 是语义完整性与检索精度的折中：128 定位准但上下文碎，1024 语义完整却会稀释向量表征并增加上下文成本与噪声，最终要用评测集选型并对齐 Embedding 模型的最优输入长度。"
 category: jingchang
 company: baidu
+track: ai-app
 tags: [百度真题, RAG, Embedding]
 minutes: 5
 order: 162

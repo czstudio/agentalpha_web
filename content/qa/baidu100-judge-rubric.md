@@ -4,6 +4,7 @@ question: "LLM-as-a-Judge 的 rubric 怎么设计？哪些维度是硬门槛，�
 oneLine: "Rubric 分硬门槛和加分项：先用规则判事实、安全、相关性和格式，命中一项就低分；模型再按完整性、结构、简洁度和引用规范连续评分，并用正反例与人工抽样校准。"
 category: jingchang
 company: baidu
+track: agent-algo
 tags: [百度真题, LLM-as-a-Judge, rubric]
 minutes: 5
 order: 170

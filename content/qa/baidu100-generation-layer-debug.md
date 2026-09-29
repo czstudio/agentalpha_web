@@ -4,6 +4,7 @@ question: "Top-K 已召回正确证据，模型还是答错了，怎么判断问
 oneLine: "先隔离检索层和生成层：用 Hit@K 与人工检查确认证据是否命中，再判断模型是没用证据、推理错误还是指令跑偏，并按类型修复。"
 category: jingchang
 company: baidu
+track: ai-app
 tags: [百度真题, 检索生成]
 minutes: 5
 order: 163

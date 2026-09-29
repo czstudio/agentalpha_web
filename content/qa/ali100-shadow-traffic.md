@@ -4,6 +4,7 @@ question: "模型和 Prompt 升级怎么做灰度、影子流量、回滚和会�
 oneLine: "先按流量百分比或租户灰度并监控核心指标，再用影子流量对比输出质量；指标越线自动回滚，且让同一会话固定版本。"
 category: jingchang
 company: alibaba
+track: infra
 tags: [阿里真题, 灰度发布, Agent]
 minutes: 5
 order: 117

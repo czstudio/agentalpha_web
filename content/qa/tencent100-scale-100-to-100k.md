@@ -4,6 +4,7 @@ question: "用户量从 100 涨到 10 万，Agent 服务的主要扩展瓶颈在
 oneLine: "主要瓶颈会按排队顺序出现：先是模型推理并发和 GPU 吞吐，再是工具与检索下游 QPS，最后是状态和记忆存储；应先压测定位，再分层扩容。"
 category: jingchang
 company: tencent
+track: agent-dev
 tags: [腾讯真题, 扩展性, Agent架构]
 minutes: 5
 order: 141

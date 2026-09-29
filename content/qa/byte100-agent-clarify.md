@@ -4,6 +4,7 @@ question: "怎么让 Agent 在开放任务中先澄清需求，而不是直接�
 oneLine: "核心是动作分级与槽位检查。将写操作、对外发送、花钱等设为高风险并强制确认，关键字段缺失时生成澄清问题，不可逆且信息不足时必须提问。"
 category: jingchang
 company: bytedance
+track: agent-dev
 tags: [字节真题, 动作分级, 意图识别]
 minutes: 5
 order: 83

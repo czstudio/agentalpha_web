@@ -4,6 +4,7 @@ question: "怎么构建 Agent 轨迹评测集，同时评估最终结果与中�
 oneLine: "把 Agent 轨迹按结果层和步骤层分别标注、分别评分，再用失败样本定位走歪的步骤，并持续回流 bad case 防回归。"
 category: jingchang
 company: tencent
+track: agent-dev
 tags: [腾讯真题, 轨迹评测, Agent评测]
 minutes: 5
 order: 137

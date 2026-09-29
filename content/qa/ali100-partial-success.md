@@ -4,6 +4,7 @@ question: "Agent 部分成功怎么处理：保留有效结果、回滚副作用
 oneLine: "先按步骤依赖图判断失败影响，保留已完成结果。可补偿的副作用执行补偿并记日志，无依赖的后续任务继续执行，不可补偿且未执行的任务暂停确认。"
 category: jingchang
 company: alibaba
+track: agent-dev
 tags: [阿里真题, 部分成功, 副作用处理]
 minutes: 5
 order: 109

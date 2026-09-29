@@ -4,6 +4,7 @@ question: "事实性幻觉、逻辑幻觉、引用幻觉与指令冲突怎么区
 oneLine: "区分这四者要看错误根因。事实性幻觉是知识缺失，逻辑幻觉是推理断裂，引用幻觉是检索用错，指令冲突是没按要求做。治理它们分别对应RAG、推理链校验、溯源核对与约束层。"
 category: jingchang
 company: alibaba
+track: algo-general
 tags: [阿里真题, 幻觉治理, 评估评测]
 minutes: 5
 order: 103

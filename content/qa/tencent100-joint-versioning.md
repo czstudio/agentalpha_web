@@ -4,6 +4,7 @@ question: "怎么做模型、Prompt、知识库、工具和评测集的联合版
 oneLine: "把模型、Prompt、知识库、工具和评测集视为一个版本组合管理。每次请求记录五元组，发布绑定组合版本，评测通过后切流量，回滚也按组合回退。"
 category: jingchang
 company: tencent
+track: agent-dev
 tags: [腾讯真题, 版本管理, Agent评测]
 minutes: 5
 order: 140

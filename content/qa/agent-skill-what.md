@@ -4,6 +4,7 @@ question: Agent Skill 是什么？它和 prompt、MCP 工具有什么区别？
 oneLine: Agent Skill 是把指令、脚本、模板打包成可被自动发现、按需加载的能力包机制，Anthropic 2025 年 10 月推出、12 月开放标准；它不是保存 prompt，MCP 给能力、Skill 教用法。
 category: jingchang
 company: bytedance
+track: agent-dev
 tags: [Agent Skill, 上下文工程, 工具调用]
 minutes: 5
 order: 4

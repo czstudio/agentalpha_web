@@ -4,6 +4,7 @@ question: 大模型的工具调用能力是怎么训练出来的？
 oneLine: 预训练语料里没有结构化调用样本、学不会；靠两个阶段：SFT 喂全场景的工具调用对话学会「怎么调」，RLHF 用偏好信号学会「什么时候不该调」，一句话——SFT 教会怎么调，RLHF 教会什么时候调。
 category: jingchang
 company: meituan
+track: agent-dev
 tags: [Function Calling, SFT, RLHF, 训练]
 minutes: 6
 order: 13

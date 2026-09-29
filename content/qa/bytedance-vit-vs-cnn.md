@@ -4,6 +4,7 @@ question: "ViT 和 CNN 的区别？各自优劣？"
 oneLine: "CNN 依赖局部感受野与权重共享，归纳偏置强，对小数据友好。ViT 将图像切块作 token 序列，用全局注意力，大数据下上限更高。工程上 ViT 与大模型架构统一，多模态融合更顺畅。"
 category: jingchang
 company: bytedance
+track: multimodal
 tags: [字节真题, 多模态, 计算机视觉]
 minutes: 5
 order: 27

@@ -4,6 +4,7 @@ question: "多轮对话的训练数据怎么表示角色、状态、工具调用
 oneLine: "把多轮对话整理成带角色的消息序列，把工具调用、工具返回和状态变化都插入上下文，只对 assistant 消息计算损失。"
 category: jingchang
 company: alibaba
+track: agent-algo
 tags: [阿里真题, 多轮对话, 工具调用]
 minutes: 5
 order: 113

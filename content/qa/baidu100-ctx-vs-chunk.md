@@ -4,6 +4,7 @@ question: "模型上下文长度和知识切片长度，这两个概念怎么区
 oneLine: "上下文长度是模型一次处理的总 token 预算，知识切片长度是单个检索单元的 token 数；召回内容还要和历史、提示词、生成预留共同占用上下文。"
 category: jingchang
 company: baidu
+track: algo-general
 tags: [百度真题, 上下文窗口, 知识切片]
 minutes: 5
 order: 173

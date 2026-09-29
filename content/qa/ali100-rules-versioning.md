@@ -4,6 +4,7 @@ question: "商品规则频繁变化，怎么做知识增量更新、版本治理
 oneLine: "商品规则类知识有强时效性。增量更新靠变更事件驱动，按规则ID先删后增。版本治理需给每条知识打上生效与失效时间，检索时按当前时间过滤。过期清退靠定时任务清理，并联动失效缓存。"
 category: jingchang
 company: alibaba
+track: ai-app
 tags: [阿里真题, 知识库, 增量更新]
 minutes: 5
 order: 107

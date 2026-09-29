@@ -4,6 +4,7 @@ question: "一次 Agent 任务怎么控制 Token、模型、检索和工具的�
 oneLine: "核心是先计量后控制，把预算挂在任务维度。系统按环节拆解记账，通过分级路由、上下文压缩和缓存降低消耗，最后用任务级预算熔断精确止血。"
 category: jingchang
 company: bytedance
+track: agent-dev
 tags: [字节真题, 成本控制, Agent架构]
 minutes: 5
 order: 98

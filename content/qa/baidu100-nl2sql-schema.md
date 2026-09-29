@@ -4,6 +4,7 @@ question: "NL2SQL 的工具 Schema 怎么设计，才能降低参数错误和工
 oneLine: "把表名和列名做成基于元数据的封闭枚举，前置校验类型与格式，并拆分生成和执行工具，再用权限规则控制执行。"
 category: jingchang
 company: baidu
+track: ai-app
 tags: [百度真题, NL2SQL, 工具调用]
 minutes: 5
 order: 165

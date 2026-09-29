@@ -4,6 +4,7 @@ question: 为什么 Decoder-only 成了大模型的主流架构？
 oneLine: Decoder-only 成为主流是因为它的训练效率高、训练与推理目标一致，且同构的网络层在放大参数时工程实现简单，最适合通用生成基座赛道。
 category: jingchang
 company: bytedance
+track: algo-general
 tags: [[, 大, 模, 型, 架, 构, ,,  , T, r, a, n, s, f, o, r, m, e, r, ,,  , 面, 试, 高, 频, ]]
 minutes: 6
 order: 20

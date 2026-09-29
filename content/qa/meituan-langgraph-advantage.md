@@ -4,6 +4,7 @@ question: "LangGraph 做多轮 Agent 的优势是什么？"
 oneLine: "LangGraph 的核心优势是原生支持循环和条件分支，开发者无需手写状态机即可实现多轮工具调用与反思。它集中管理状态并支持 Checkpoint 恢复，代价是抽象层级高，调试需适应图执行模型。"
 category: jingchang
 company: meituan
+track: agent-dev
 tags: [美团真题, LangGraph, Agent编排]
 minutes: 5
 order: 65
