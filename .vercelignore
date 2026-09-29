@@ -13,8 +13,6 @@ content/learn/claude-code/reports/
 content/learn/claude-code/research/
 content/learn/claude-code/approval-lock.json
 
-public/images/learn/
-
 scripts/finalize_editorial_metadata.py
 scripts/learn_content.py
 scripts/preapproval_audit.py
