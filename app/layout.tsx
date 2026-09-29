@@ -5,6 +5,7 @@ import { ThemeProvider } from "@/components/theme-provider"
 import { LanguageProvider } from "@/contexts/language-context"
 import "katex/dist/katex.min.css"
 import "./globals.css"
+import "./theme-soft.css"
 
 const siteUrl = "https://agentalpha.top"
 
