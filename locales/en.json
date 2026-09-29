@@ -76,7 +76,8 @@
     ],
     "stats": "{qa} quick answers · {deep} deep dives · {cat} categories",
     "cta": "Open the library",
-    "quiz_cta": "Try the self-test"
+    "quiz_cta": "Try the self-test",
+    "tools_cta": "Free Tools"
   },
   "stats": {
     "stat1_label": "GitHub Stars · InkOS",

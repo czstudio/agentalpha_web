@@ -202,6 +202,9 @@ export function HomeContent({ data }: HomeContentProps) {
             <Link href="/interview/quiz" className="aa-btn-ghost">
               {t.quizlib.quiz_cta}
             </Link>
+            <Link href="/tools" className="aa-btn-ghost">
+              {t.quizlib.tools_cta}
+            </Link>
           </div>
         </div>
       </section>
