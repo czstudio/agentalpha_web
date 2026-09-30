@@ -13,7 +13,7 @@ body{background:var(--bg)}
 #prog{position:fixed;top:0;left:0;height:2px;background:var(--accent);width:0;z-index:99}
 /* 入场动效：初始隐藏只在 JS 可用时生效（无 JS 全量可见） */
 html.js [data-r]{opacity:0;transform:translateY(16px);transition:opacity var(--dur) var(--ease),transform var(--dur) var(--ease);transition-delay:calc(var(--i,0)*70ms)}
-[data-r].in{opacity:1;transform:none}
+html.js [data-r].in{opacity:1;transform:none}
 /* 十一优惠条 */
 .strip{background:var(--accent-soft);border-bottom:1px solid var(--hair);font-size:.84rem;color:var(--accent);text-align:center;padding:10px 16px;font-weight:500}
 .strip b{font-weight:700}
