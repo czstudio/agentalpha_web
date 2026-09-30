@@ -28,7 +28,8 @@
 .jd-main {
   max-width: 780px;
   margin: 0 auto;
-  padding: 40px 20px 72px;
+  /* 顶部留出吸顶导航高度，防止 kicker/标题被遮 */
+  padding: 116px 20px 72px;
 }
 
 .jd-crumb {
@@ -254,7 +255,7 @@
 .jd-tool-banner a:hover { background: #4c15ac; }
 
 @media (max-width: 640px) {
-  .jd-main { padding: 28px 16px 56px; }
+  .jd-main { padding: 96px 16px 56px; }
   .jd-hero h1 { font-size: 24px; }
   .jd-body table { font-size: 13px; }
 }

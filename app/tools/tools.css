@@ -1,16 +1,18 @@
 :root {
-  /* 工具页共用令牌(与 .rt-/.jd- 同族色板;改视觉改这里) */
-  --tk-brand: var(--tk-brand);
-  --tk-brand-deep: var(--tk-brand-deep);
-  --tk-brand-tint: var(--tk-brand-tint);
-  --tk-brand-ink: var(--tk-brand-ink);
-  --tk-ink: var(--tk-ink);
-  --tk-ink-2: var(--tk-ink-2);
-  --tk-ink-3: var(--tk-ink-3);
-  --tk-line: var(--tk-line);
-  --tk-line-2: var(--tk-line-2);
-  --tk-warn: var(--tk-warn);
-  --tk-paper: var(--tk-paper);
+  /* 工具页共用令牌(与 .jd-/.ivu- 同族色板;改视觉改这里)。
+     注意：此前这里误写成 --tk-brand: var(--tk-brand) 自引用，
+     所有 var(--tk-*) 引用一直落在失效值上，现改为真实字面值。 */
+  --tk-brand: #6e22f0;
+  --tk-brand-deep: #4c15ac;
+  --tk-brand-tint: #f3ecfe;
+  --tk-brand-ink: #5b1fc4;
+  --tk-ink: #1f2937;
+  --tk-ink-2: #4b5563;
+  --tk-ink-3: #6b7280;
+  --tk-line: #e5e7eb;
+  --tk-line-2: #d1d5db;
+  --tk-warn: #d97706;
+  --tk-paper: #faf9ff;
 }
 
 /* ============================================================
