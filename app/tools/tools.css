@@ -942,12 +942,21 @@
   white-space: pre;
 }
 
-/* 打印:只保留纸面 */
+/* 打印:只保留纸面(简历)与 .print-root 报告(其他工具通用) */
+.print-root { display: none; }
 @media print {
   body { background: #fff !important; }
   body * { visibility: hidden; }
-  #rb-print-root, #rb-print-root * { visibility: visible; }
+  #rb-print-root, #rb-print-root *, .print-root, .print-root * { visibility: visible; }
   #rb-print-root { position: absolute; left: 0; top: 0; width: 100%; }
+  .print-root { display: block !important; position: absolute; left: 0; top: 0; width: 100%; background: #fff; padding: 6px; }
+  .print-doc { font-family: var(--tk-font-serif); color: #1c1a16; font-size: 12.5px; line-height: 1.7; }
+  .print-doc h1 { text-align: center; font-size: 21px; margin: 0 0 4px; }
+  .print-doc .meta { color: #6e6557; font-size: 11.5px; text-align: center; margin: 0 0 14px; }
+  .print-doc h2 { font-size: 14.5px; letter-spacing: 0.12em; border-bottom: 1.5px solid #1c1a16; padding-bottom: 3px; margin: 16px 0 8px; }
+  .print-doc table { width: 100%; border-collapse: collapse; font-size: 12px; margin: 4px 0 10px; }
+  .print-doc th, .print-doc td { border: 1px solid #999; padding: 4px 8px; text-align: left; }
+  .print-doc li { margin-bottom: 3px; }
   .rb-toolbar { display: none !important; }
   .rb-paper { border: none; border-radius: 0; padding: 0; }
   nav { display: none !important; }

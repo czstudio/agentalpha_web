@@ -1,6 +1,7 @@
 "use client"
 
 import { useMemo, useState } from "react"
+import { downloadWord, escHtml } from "@/lib/tools/report-doc"
 import Link from "next/link"
 import {
   GAP_DOMAINS,
@@ -121,6 +122,23 @@ export function GapClient({ qaList }: { qaList: QaLite[] }) {
     setReport(null)
   }
 
+  const buildReportHtml = () => {
+    const date = new Date().toISOString().slice(0, 10)
+    const dimRows = report!.domains
+      .map(
+        (d) =>
+          `<tr><td>${escHtml(d.domain.label)}</td><td>${d.score} 分</td><td>${d.verified ? (d.adjusted >= d.self ? "抽验通过" : "抽验回落") : "未抽验"}</td></tr>`,
+      )
+      .join("")
+    const weakest = report!.weakest
+      .map(
+        (d) =>
+          `<li><b>${escHtml(d.domain.label)} · 当前 ${d.score} 分</b>：先把 ${escHtml(d.domain.label)} 分类的题目过一遍${d.adjusted < 1 ? "（概念层还没立起来，配合学习路线对应章节一起看）" : "（有基础但缺证据，做一个能出指标的小项目补上）"}。</li>`,
+      )
+      .join("")
+    return `<p class="meta">目标方向：${escHtml(report!.family.name)} · 加权 ${report!.total} 分 · 生成于 ${date} · AgentAlpha Gap 自测</p><h2>结论</h2><p>${escHtml(report!.conclusion)}</p><h2>八项明细</h2><table><tr><th>能力域</th><th>得分</th><th>抽验</th></tr>${dimRows}</table>${weakest ? `<h2>短板补课路径</h2><ol>${weakest}</ol>` : ""}`
+  }
+
   return (
     <div className="tk-shell">
       <section className="tk-input-card" aria-label="自测输入">
@@ -237,9 +255,21 @@ export function GapClient({ qaList }: { qaList: QaLite[] }) {
               <p className="tk-hint">
                 雷达已按「{report.family.name}」方向加权：虚标会被抽题拉回，低权重域（如该方向不考的记忆）拉分有限。
               </p>
-              <button type="button" className="mock-end-btn" onClick={copyReport} style={{ marginTop: 6 }}>
-                {copied ? "已复制，发给导师或朋友看" : "复制报告为文本"}
-              </button>
+              <div style={{ display: "flex", gap: 8, flexWrap: "wrap", marginTop: 6 }}>
+                <button type="button" className="mock-end-btn" onClick={copyReport}>
+                  {copied ? "已复制，发给导师或朋友看" : "复制报告为文本"}
+                </button>
+                <button type="button" className="mock-end-btn" onClick={() => window.print()}>
+                  打印 / 存 PDF
+                </button>
+                <button
+                  type="button"
+                  className="mock-end-btn"
+                  onClick={() => downloadWord("面试 Gap 自测报告", buildReportHtml(), `gap-自测报告-${new Date().toISOString().slice(0, 10)}.doc`)}
+                >
+                  下载 Word
+                </button>
+              </div>
             </div>
           </div>
 
@@ -297,6 +327,9 @@ export function GapClient({ qaList }: { qaList: QaLite[] }) {
               </div>
             </div>
           )}
+          <div className="print-root" aria-hidden>
+            <div className="print-doc" dangerouslySetInnerHTML={{ __html: buildReportHtml() }} />
+          </div>
         </section>
       )}
     </div>

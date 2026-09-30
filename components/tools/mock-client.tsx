@@ -12,6 +12,7 @@ import {
   type PersonaKey,
   type Rating,
 } from "@/lib/tools/mock-interview"
+import { downloadWord, textToParas } from "@/lib/tools/report-doc"
 import type { QaLite } from "@/lib/tools/jd-analyzer"
 import { useLocalState } from "@/hooks/use-local-state"
 import { FAMILY_BASE, MOCK_WRONG_KEY, QA_MASTERY_KEY } from "@/lib/tools/shared"
@@ -236,6 +237,19 @@ export function MockClient({ qaList }: { qaList: QaLite[] }) {
             <div style={{ display: "flex", gap: 8 }}>
               <button type="button" className="tk-run" style={{ background: "#374151" }} onClick={copyTranscript}>
                 {copied ? "已复制" : "复制 transcript"}
+              </button>
+              <button
+                type="button"
+                className="tk-run"
+                onClick={() =>
+                  downloadWord(
+                    "模拟面试复盘",
+                    textToParas(exportTranscript(session, answers, ratings)),
+                    `模拟面试复盘-${new Date().toISOString().slice(0, 10)}.doc`,
+                  )
+                }
+              >
+                存为 Word
               </button>
               <button type="button" className="tk-run" onClick={() => setSession(null)}>
                 再来一场
