@@ -200,6 +200,9 @@ def convert_element(element: ET.Element, media: dict[str, Any], heading_ids: set
         "column": "section",
     }.get(tag, tag)
     node: dict[str, Any] = {"type": "element", "tag": output_tag, "children": []}
+    if tag == "tr" and "社群人数" in "".join(element.itertext()):
+        # 站点不展示社群规模类人数（用户要求，2026-09-30）：整行丢弃
+        return None
     if tag in {"h1", "h2", "h3", "h4"}:
         label = re.sub(r"\s+", " ", "".join(element.itertext())).strip()
         base = re.sub(r"[^0-9a-z\u4e00-\u9fff]+", "-", label.casefold()).strip("-") or "section"
