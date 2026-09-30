@@ -114,18 +114,31 @@ export function parseResumeText(raw: string): ParseResult {
     }
 
     if (!section) {
-      // 前置区:第一行短且无数字当姓名,其后合并成一句话简介
-      if (!nameTaken && line.length <= 12 && !/\d/.test(line)) {
+      // 前置区:姓名判定收紧——短、无数字、且像人名(2-4 个汉字,或「姓+名」无动词/技能词);
+      // 「熟悉 Python」这类技能行不许再被当成姓名
+      const looksLikeName =
+        !nameTaken &&
+        line.length <= 12 &&
+        !/\d/.test(line) &&
+        /^[\u4e00-\u9fff·\s]{2,12}$/.test(line) &&
+        !/(熟悉|掌握|了解|精通|负责|参与|使用|做过|熟悉)/.test(line)
+      if (looksLikeName) {
         data.name = line
         nameTaken = true
         continue
       }
-      data.summary = data.summary ? `${data.summary}${line}` : line
+      // 有分隔符的多段行(联系方式/自我介绍)才拼进 summary;孤立短行交给用户确认
+      data.summary = data.summary ? `${data.summary}；${line}` : line
       continue
     }
 
     if (section === "skills") {
       const cleaned = line.replace(/^[技能特长：:]+\s*/, "")
+      // 技能区只收像「词/短语」的行:太长的完整句子(>40 字或含句号)不静默吞,交给用户确认
+      if (cleaned.length > 40 || /[。.!?！?]/.test(cleaned.replace(/\.\d/g, ""))) {
+        loose.push(line)
+        continue
+      }
       for (const piece of cleaned.split(/[、,，;；]/).map((s) => s.trim()).filter(Boolean)) {
         data.skills.push(piece)
       }
@@ -294,8 +307,9 @@ const AUDIT_RULES: Array<{ kind: string; level: AuditLevel; re: RegExp; note: st
   {
     kind: "时态边界",
     level: "risk",
-    re: /(正在|计划|规划|探索中|预计|将于|未来将)/,
-    absent: /(已上线|已交付|上线|交付|完成)/,
+    re: /(正在|计划|规划|探索中|预计|将于|未来将|明年|下季度|后续将)/,
+    // 只有「已/完成了 X 的交付上线」这类明确的完成表述才抑制;「预计明年完成迁移」不该抑制
+    absent: /(已(上线|交付|完成|发布|落地)|上线了|交付了|完成了|落地了|发布了)/,
     note: "规划中的方向不能写成已交付的收益:要么改成「规划中/在推进」,要么等真的落地再写结果",
   },
   {
@@ -360,16 +374,17 @@ const JD_STOP = new Set([
 /** JD 里提到的技术点 vs 简历里真实出现的:给覆盖率与缺失清单,不做语义匹配、不建议编造 */
 export function matchJd(data: ResumeData, jd: string): { hits: string[]; missing: string[]; total: number } {
   const resumeText = JSON.stringify(data).toLowerCase()
-  const tokens = new Set<string>()
+  // 保留 JD 原词形展示(大小写对用户有意义:Kubernetes vs k8s),匹配用小写
+  const tokens = new Map<string, string>()
   for (const t of jd.match(/[A-Za-z][A-Za-z0-9.+#-]{1,24}/g) || []) {
     const low = t.toLowerCase()
-    if (low.length >= 2 && !JD_STOP.has(low) && !/^\d/.test(low)) tokens.add(low)
+    if (low.length >= 2 && !JD_STOP.has(low) && !/^\d/.test(low) && !tokens.has(low)) tokens.set(low, t)
   }
   const hits: string[] = []
   const missing: string[] = []
-  for (const t of tokens) {
-    if (resumeText.includes(t)) hits.push(t)
-    else missing.push(t)
+  for (const [low, orig] of tokens) {
+    if (resumeText.includes(low)) hits.push(orig)
+    else missing.push(orig)
   }
   return { hits, missing: missing.slice(0, 12), total: hits.length + missing.length }
 }

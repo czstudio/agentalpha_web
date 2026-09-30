@@ -47,7 +47,12 @@ export async function POST(request: Request) {
     return NextResponse.json({ enabled: true, error: "too_short" }, { status: 400 })
   }
 
+  const providedKey = userKey.length > 0
   const effectiveKey = userKey.length >= 20 ? userKey : ""
+  // 用户给了 key 但不合法:显式拒绝,绝不静默回退到站点额度(否则用户以为在用自己的 key)
+  if (providedKey && !effectiveKey) {
+    return NextResponse.json({ enabled: true, error: "bad_key" }, { status: 400 })
+  }
   if (!effectiveKey && !process.env.LLM_API_KEY) {
     return NextResponse.json({ enabled: true, error: "not_configured" }, { status: 503 })
   }

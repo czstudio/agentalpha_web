@@ -247,6 +247,7 @@ export function ResumeBuilderClient() {
         const map: Record<string, string> = {
           too_short: "简历内容太短,至少 30 字再试。",
           not_configured: "AI 深度改写还没开放。可以在下面填自己的 API key 立即使用。",
+          bad_key: "你填的 API key 格式不对(少于 20 个字符),请求被拒绝;请在下方面板检查是否复制完整。",
           quota: "免费额度用完了(全站或本机)。明天再来,或用自己的 API key(不计免费额度)。",
           upstream: `模型通道出了问题(${json.detail || "未知"}),稍后再试,或换自己的 key/模型。`,
           bad_output: "模型这次没按格式返回,再试一次通常就好。",
@@ -489,7 +490,7 @@ export function ResumeBuilderClient() {
             {/* ── AI 深度改写 ── */}
             <section className="tk-input-card" aria-label="AI 深度改写">
               <div className="rb-sec-head">
-                <p className="tk-label">AI 深度改写(可选用)</p>
+                <p className="tk-label">AI 深度改写(可选)</p>
                 <span className="tk-note">{userCfg.apiKey ? "用自己的 key" : `今日免费 ${aiQuota}/${RESUME_DAILY_LIMIT} 次`}</span>
               </div>
               <p className="tk-hint" style={{ marginTop: 0 }}>
@@ -502,21 +503,42 @@ export function ResumeBuilderClient() {
                   {aiState === "loading" ? "改写中…" : "AI 改写全部经历"}
                 </button>
               </div>
-              {!userCfg.apiKey && (
-                <details className="jda-keypanel">
-                  <summary>用自己的 API key(不计免费额度,更快更稳)</summary>
-                  <div className="jda-keypanel-body">
-                    <p className="jda-keypanel-hint">
-                      Key 只存在你这台浏览器(localStorage),请求时经本站转发但不落库、不记录。兼容 OpenAI 接口格式的中转或官方 API 都可以用。
-                    </p>
+              <details className="jda-keypanel">
+                <summary>
+                  {userCfg.apiKey
+                    ? "已配置自己的 API key(点击可修改或清除)"
+                    : "用自己的 API key(不计免费额度,更快更稳)"}
+                </summary>
+                <div className="jda-keypanel-body">
+                  <p className="jda-keypanel-hint">
+                    Key 只存在你这台浏览器(localStorage),请求时经本站转发但不落库、不记录。兼容 OpenAI 接口格式的中转或官方 API 都可以用。
+                    {userCfg.apiKey && " 已保存的 key 会优先于站点免费额度使用;想恢复免费额度就清除 key。"}
+                  </p>
+                  <input
+                    className="trk-input jda-key-input"
+                    type="password"
+                    aria-label="API key"
+                    placeholder="sk-…(至少 20 个字符)"
+                    value={userCfg.apiKey}
+                    onChange={(e) => {
+                      const cfg = { ...userCfg, apiKey: e.target.value }
+                      setUserCfg(cfg)
+                      try {
+                        if (cfg.apiKey) localStorage.setItem(RESUME_AI_KEY, JSON.stringify(cfg))
+                        else localStorage.removeItem(RESUME_AI_KEY)
+                      } catch {
+                        // 忽略
+                      }
+                    }}
+                  />
+                  <div className="jda-key-row">
                     <input
                       className="trk-input jda-key-input"
-                      type="password"
-                      aria-label="API key"
-                      placeholder="sk-…"
-                      value={userCfg.apiKey}
+                      aria-label="接口地址"
+                      placeholder="https://api.huohuaapi.com/v1"
+                      value={userCfg.baseUrl}
                       onChange={(e) => {
-                        const cfg = { ...userCfg, apiKey: e.target.value }
+                        const cfg = { ...userCfg, baseUrl: e.target.value }
                         setUserCfg(cfg)
                         try {
                           localStorage.setItem(RESUME_AI_KEY, JSON.stringify(cfg))
@@ -525,41 +547,29 @@ export function ResumeBuilderClient() {
                         }
                       }}
                     />
-                    <div className="jda-key-row">
-                      <input
-                        className="trk-input jda-key-input"
-                        aria-label="接口地址"
-                        placeholder="https://api.huohuaapi.com/v1"
-                        value={userCfg.baseUrl}
-                        onChange={(e) => {
-                          const cfg = { ...userCfg, baseUrl: e.target.value }
-                          setUserCfg(cfg)
-                          try {
-                            localStorage.setItem(RESUME_AI_KEY, JSON.stringify(cfg))
-                          } catch {
-                            // 忽略
-                          }
-                        }}
-                      />
-                      <input
-                        className="trk-input jda-key-input"
-                        aria-label="模型名"
-                        placeholder="deepseek-v4-flash"
-                        value={userCfg.model}
-                        onChange={(e) => {
-                          const cfg = { ...userCfg, model: e.target.value }
-                          setUserCfg(cfg)
-                          try {
-                            localStorage.setItem(RESUME_AI_KEY, JSON.stringify(cfg))
-                          } catch {
-                            // 忽略
-                          }
-                        }}
-                      />
-                    </div>
+                    <input
+                      className="trk-input jda-key-input"
+                      aria-label="模型名"
+                      placeholder="deepseek-v4-flash"
+                      value={userCfg.model}
+                      onChange={(e) => {
+                        const cfg = { ...userCfg, model: e.target.value }
+                        setUserCfg(cfg)
+                        try {
+                          localStorage.setItem(RESUME_AI_KEY, JSON.stringify(cfg))
+                        } catch {
+                          // 忽略
+                        }
+                      }}
+                    />
                   </div>
-                </details>
-              )}
+                  {userCfg.apiKey && userCfg.apiKey.length < 20 && (
+                    <p className="jda-keypanel-hint" style={{ color: "#b3261e" }}>
+                      这个 key 不到 20 个字符,发请求会被拒绝;请检查是否复制完整,或清空改用站点免费额度。
+                    </p>
+                  )}
+                </div>
+              </details>
               {aiState === "error" && <p className="mock-followup" style={{ marginTop: 10 }}>{aiError}</p>}
               {aiState === "done" && (
                 <div style={{ marginTop: 12 }}>
@@ -641,7 +651,8 @@ export function ResumeBuilderClient() {
 
           {/* ── 预览列(打印只保留这一块) ── */}
           <div className="rb-preview-col" id="rb-print-root">
-            <div className="rb-toolbar rb-chrome">
+            <div className="rb-toolbar-sticky rb-chrome">
+            <div className="rb-toolbar">
               <span className="tk-privacy">
                 {savedAt ? `已自动保存到本机(${savedAt})` : "A4 排版;指标位〔〕留空,自己填真实数字"}
               </span>
@@ -656,6 +667,7 @@ export function ResumeBuilderClient() {
                   <FileText size={13} strokeWidth={2} aria-hidden /> LaTeX
                 </button>
               </span>
+            </div>
             </div>
             <div className="rb-toolbar rb-chrome" style={{ marginTop: -4 }}>
               <span className="tk-privacy">换个地方继续编辑或备份:</span>
@@ -721,11 +733,11 @@ export function ResumeBuilderClient() {
                             <span className="rb-org">{[e.org, e.role].filter(Boolean).join(" · ")}</span>
                             {e.time && <span className="rb-time">{e.time}</span>}
                           </p>
-                          {e.bullets.filter(Boolean).length > 0 && (
+                          {(e.bullets.length > 0 || e.org || e.role) && (
                             <ul className="rb-ul">
-                              {e.bullets.filter(Boolean).map((b, j) => (
-                                <li key={j}>{b}</li>
-                              ))}
+                              {(e.bullets.length ? e.bullets : [""]).map((b, j) =>
+                                b.trim() ? <li key={j}>{b}</li> : <li key={j} className="rb-empty-hint">（编辑区里这条还没写内容）</li>,
+                              )}
                             </ul>
                           )}
                         </div>
