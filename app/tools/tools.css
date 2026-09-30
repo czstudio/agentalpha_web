@@ -220,7 +220,7 @@
   padding: 10px 14px;
   font-size: 14px;
 }
-.tk-topic-list li .t { font-weight: 600; display: block; margin-bottom: 2px; }
+.tk-topic-list li .t { font-weight: 600; display: flex; align-items: baseline; gap: 8px; flex-wrap: wrap; margin-bottom: 2px; }
 .tk-topic-list li .d { color: var(--tk-ink-2); font-size: 13.5px; line-height: 1.7; }
 
 .tk-cta-grid {
@@ -249,13 +249,12 @@
   grid-template-columns: repeat(12, 1fr);
   gap: 14px;
 }
-/* bento 不等宽:首两张主卡(引流/陪跑)更醒目,避免等宽灰阵列 */
-.tk-index-card { grid-column: span 3; }
+/* bento 不等宽:首尾两张大卡呼应,中间两行各三张,避免等宽灰阵列(10 卡配平:6+6/4×3/4×3/6+6) */
+.tk-index-card { grid-column: span 4; }
 .tk-index-card:nth-child(1) { grid-column: span 6; }
 .tk-index-card:nth-child(2) { grid-column: span 6; }
-.tk-index-card:nth-child(3) { grid-column: span 4; }
-.tk-index-card:nth-child(4) { grid-column: span 4; }
-.tk-index-card:nth-child(5) { grid-column: span 4; }
+.tk-index-card:nth-child(9) { grid-column: span 6; }
+.tk-index-card:nth-child(10) { grid-column: span 6; }
 @media (max-width: 900px) {
   .tk-index-card, .tk-index-card:nth-child(n) { grid-column: span 6; }
 }
@@ -743,6 +742,23 @@
   line-height: 1.6;
   margin-top: -4px;
 }
+
+/* ── 自我介绍生成器 ── */
+.intro-highlights { display: grid; gap: 8px; }
+.intro-input {
+  width: 100%;
+  box-sizing: border-box;
+  border: 1px solid var(--tk-line-2);
+  border-radius: 10px;
+  padding: 10px 14px;
+  font-size: 14px;
+  font-family: inherit;
+  background: var(--tk-paper);
+  color: var(--tk-ink);
+}
+.intro-input:focus { outline: 2px solid rgba(var(--tk-brand-rgb), 0.35); border-color: var(--tk-brand); background: #fff; }
+.intro-input::placeholder { color: var(--tk-ink-3); opacity: 1; }
+.intro-input:focus-visible { outline: 2px solid var(--tk-brand); outline-offset: 2px; }
 
 /* ── 交互动效(全部过 prefers-reduced-motion 降级) ── */
 @keyframes tk-rise {

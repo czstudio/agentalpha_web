@@ -6,6 +6,7 @@ import {
   Radar,
   Compass,
   MessagesSquare,
+  Mic,
   NotebookPen,
   ClipboardList,
   Scale,
@@ -29,7 +30,7 @@ const SITE = "https://agentalpha.top"
 export const metadata: Metadata = {
   title: "求职工具箱 · JD 拆解 / 简历体检 / Gap 自测 / 模拟面试 / 投递看板",
   description:
-    "面向 AI Agent 岗求职者的免费工具全家桶：JD 人话拆解器、简历体检、面试 Gap 自测、项目匹配器、AI 模拟面试、面试复盘本、投递看板、Offer 对比器。全部浏览器本地运行，不注册、不上传。看懂岗位 → 测出差距 → 做项目 → 改简历 → 模拟面试 → 记录复盘，一条链路。",
+    "面向 AI Agent 岗求职者的免费工具全家桶：JD 人话拆解器、简历体检、面试 Gap 自测、项目匹配器、AI 模拟面试、自我介绍生成器、面试复盘本、投递看板、Offer 对比器。全部浏览器本地运行，不注册、不上传。看懂岗位 → 测出差距 → 做项目 → 改简历 → 模拟面试 → 记录复盘，一条链路。",
   keywords: ["AI 求职工具", "简历优化工具", "JD 分析", "面试自测", "模拟面试", "投递管理"],
   alternates: { canonical: "/tools" },
 }
@@ -98,6 +99,13 @@ const TOOLS: {
     desc: "粘一条经历十秒打分:动词强度、量化证据、技术深度、结果表达四维，给问题清单和改写骨架。",
   },
   {
+    href: "/tools/self-intro",
+    badge: "陪跑",
+    icon: Mic,
+    title: "自我介绍生成器",
+    desc: "填方向和亮点经历，拿 60 秒逐句稿与 3 分钟五段骨架，附通病检查（无数字、慎用精通、与 JD 零重合）和追问预演。",
+  },
+  {
     href: "/tools/offer-compare",
     badge: "决策",
     icon: Scale,
@@ -116,7 +124,7 @@ const FLOW: { step: string; label: string; desc: string; href: string }[] = [
 ]
 
 const HERO_CHIPS: { icon: LucideIcon; text: string }[] = [
-  { icon: Wrench, text: "9 个工具" },
+  { icon: Wrench, text: "10 个工具" },
   { icon: ShieldCheck, text: "纯浏览器本地运行" },
   { icon: Sparkles, text: "免费 · 无需注册" },
 ]
@@ -172,7 +180,7 @@ export default function ToolsIndexPage() {
           <p className="tk-kicker" data-anim="hero">免费工具 · TOOLBOX</p>
           <h1 data-anim="hero">AI Agent 岗求职工具箱</h1>
           <p className="tk-lede" data-anim="hero">
-            看懂岗位 → 测出差距 → 做项目 → 改简历 → 模拟面试 → 记录复盘，一条链路的九个免费工具。
+            看懂岗位 → 测出差距 → 做项目 → 改简历 → 模拟面试 → 记录复盘，一条链路的十个免费工具。
             全部纯前端实现：不注册、不上传，你的简历、JD 和面试记录不出浏览器。
           </p>
           <div className="tk-hero-chips">

@@ -196,6 +196,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.75,
     },
     {
+      url: "https://agentalpha.top/tools/self-intro",
+      lastModified: new Date(),
+      changeFrequency: "weekly",
+      priority: 0.75,
+    },
+    {
       url: "https://agentalpha.top/tools/offer-compare",
       lastModified: new Date(),
       changeFrequency: "weekly",
