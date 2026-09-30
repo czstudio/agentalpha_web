@@ -17,9 +17,11 @@ import {
   Map,
   History,
   ArrowRight,
+  PenLine,
   type LucideIcon,
 } from "lucide-react"
 import { Navigation } from "@/components/navigation"
+import { ToolsEntrance } from "@/components/tools/tools-entrance"
 import "./tools.css"
 
 const SITE = "https://agentalpha.top"
@@ -35,7 +37,6 @@ export const metadata: Metadata = {
 const TOOLS: {
   href: string
   badge: string
-  badgeClass: string
   icon: LucideIcon
   title: string
   desc: string
@@ -43,7 +44,6 @@ const TOOLS: {
   {
     href: "/tools/jd-analyzer",
     badge: "引流",
-    badgeClass: "badge-flow",
     icon: ScanSearch,
     title: "JD 人话拆解器",
     desc: "粘贴目标岗位 JD，拆出岗位画像、考察词、JD 没写但面试会问的隐藏考点，并匹配站内真实面试题。配套大厂 JD 精拆样板库。",
@@ -51,7 +51,6 @@ const TOOLS: {
   {
     href: "/tools/resume",
     badge: "诊断",
-    badgeClass: "badge-diag",
     icon: FileCheck2,
     title: "AI / Agent 岗简历体检",
     desc: "粘贴简历（可加 JD）做本地分析：逐词对比、能力覆盖证据评级、逐条批注、基于真实面经的追问预演与翻车风险。",
@@ -59,7 +58,6 @@ const TOOLS: {
   {
     href: "/tools/gap-test",
     badge: "诊断",
-    badgeClass: "badge-diag",
     icon: Radar,
     title: "面试 Gap 自测",
     desc: "八项能力自评 + 真题抽验防虚标，出能力雷达与一句人话结论，短板按优先级排好补课路径。",
@@ -67,7 +65,6 @@ const TOOLS: {
   {
     href: "/tools/project-matcher",
     badge: "诊断",
-    badgeClass: "badge-diag",
     icon: Compass,
     title: "项目匹配器",
     desc: "选方向、基础、时间，拿三个能写进简历、扛得住追问的项目方案：难度、时间预算、bullet 模板、验收指标。",
@@ -75,7 +72,6 @@ const TOOLS: {
   {
     href: "/tools/mock-interview",
     badge: "陪跑",
-    badgeClass: "badge-coach",
     icon: MessagesSquare,
     title: "AI 模拟面试",
     desc: "五种面试官人格、三种模式（岗位剧本 / 简历深挖 / 压力追问），逐题作答出复盘报告，错题自动进错题本。",
@@ -83,7 +79,6 @@ const TOOLS: {
   {
     href: "/tools/interview-log",
     badge: "管理",
-    badgeClass: "badge-manage",
     icon: NotebookPen,
     title: "面试复盘本",
     desc: "面完当天记被问题目、卡壳点、下次策略；自动统计你反复挂在哪一轮哪类主题。数据只存本机。",
@@ -91,15 +86,20 @@ const TOOLS: {
   {
     href: "/tools/application-tracker",
     badge: "管理",
-    badgeClass: "badge-manage",
     icon: ClipboardList,
     title: "投递看板",
     desc: "未投到 offer 八个状态的看板管理，自动汇总投递漏斗与进面率，告诉你问题在简历还是在面试。",
   },
   {
+    href: "/tools/bullet-grader",
+    badge: "诊断",
+    icon: PenLine,
+    title: "简历 Bullet 打分器",
+    desc: "粘一条经历十秒打分:动词强度、量化证据、技术深度、结果表达四维，给问题清单和改写骨架。",
+  },
+  {
     href: "/tools/offer-compare",
     badge: "决策",
-    badgeClass: "badge-flow",
     icon: Scale,
     title: "Offer 对比器",
     desc: "六个维度打分加权重可调，算出加权对比与一句人话结论，附薪资谈判的实用常识。",
@@ -107,16 +107,16 @@ const TOOLS: {
 ]
 
 const FLOW: { step: string; label: string; desc: string; href: string }[] = [
-  { step: "1", label: "看懂岗位", desc: "拆目标 JD，或看大厂精拆样板", href: "/jd" },
-  { step: "2", label: "测出差距", desc: "Gap 自测出短板与补课路径", href: "/tools/gap-test" },
-  { step: "3", label: "做项目", desc: "项目匹配器按时间拿方案", href: "/tools/project-matcher" },
-  { step: "4", label: "改简历", desc: "体检工具查证据与追问风险", href: "/tools/resume" },
-  { step: "5", label: "模拟面试", desc: "人格化面试演练 + 错题本", href: "/tools/mock-interview" },
-  { step: "6", label: "记录复盘", desc: "复盘本 + 投递看板迭代", href: "/tools/interview-log" },
+  { step: "1", label: "看懂岗位", desc: "拆目标 JD 与考察词", href: "/jd" },
+  { step: "2", label: "测出差距", desc: "自测短板与补课路径", href: "/tools/gap-test" },
+  { step: "3", label: "做项目", desc: "按时间拿项目方案", href: "/tools/project-matcher" },
+  { step: "4", label: "改简历", desc: "查证据与追问风险", href: "/tools/resume" },
+  { step: "5", label: "模拟面试", desc: "面试演练与错题本", href: "/tools/mock-interview" },
+  { step: "6", label: "记录复盘", desc: "复盘与投递看板迭代", href: "/tools/interview-log" },
 ]
 
 const HERO_CHIPS: { icon: LucideIcon; text: string }[] = [
-  { icon: Wrench, text: "8 个工具" },
+  { icon: Wrench, text: "9 个工具" },
   { icon: ShieldCheck, text: "纯浏览器本地运行" },
   { icon: Sparkles, text: "免费 · 无需注册" },
 ]
@@ -166,18 +166,19 @@ export default function ToolsIndexPage() {
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }} />
       <Navigation />
+      <ToolsEntrance>
       <main className="tk-main">
         <header className="tk-hero">
-          <p className="tk-kicker">免费工具 · TOOLBOX</p>
-          <h1>AI Agent 岗求职工具箱</h1>
-          <p className="tk-lede">
-            看懂岗位 → 测出差距 → 做项目 → 改简历 → 模拟面试 → 记录复盘，一条链路的八个免费工具。
+          <p className="tk-kicker" data-anim="hero">免费工具 · TOOLBOX</p>
+          <h1 data-anim="hero">AI Agent 岗求职工具箱</h1>
+          <p className="tk-lede" data-anim="hero">
+            看懂岗位 → 测出差距 → 做项目 → 改简历 → 模拟面试 → 记录复盘，一条链路的九个免费工具。
             全部纯前端实现：不注册、不上传，你的简历、JD 和面试记录不出浏览器。
           </p>
           <div className="tk-hero-chips">
             {HERO_CHIPS.map((c) => (
               <span key={c.text} className="tk-hero-chip">
-                <c.icon aria-hidden size={14} />
+                <c.icon aria-hidden size={16} />
                 {c.text}
               </span>
             ))}
@@ -188,11 +189,11 @@ export default function ToolsIndexPage() {
           <h3>求职路径</h3>
           <div className="tools-flow">
             {FLOW.map((f) => (
-              <Link key={f.step} href={f.href} className="tools-flow-step">
+              <Link key={f.step} href={f.href} className="tools-flow-step" data-anim="step">
                 <span className="no">{f.step}</span>
                 <span className="lb">{f.label}</span>
                 <span className="ds">{f.desc}</span>
-                <ArrowRight aria-hidden className="arr" size={15} />
+                <ArrowRight aria-hidden className="arr" size={16} />
               </Link>
             ))}
           </div>
@@ -200,12 +201,12 @@ export default function ToolsIndexPage() {
 
         <div className="tk-index-grid">
           {TOOLS.map((t) => (
-            <Link key={t.href} href={t.href} className="tk-index-card">
+            <Link key={t.href} href={t.href} className="tk-index-card" data-anim="card">
               <span className="tk-card-top">
-                <span className={`tk-icon-chip ${t.badgeClass}`}>
-                  <t.icon aria-hidden size={19} />
+                <span className="tk-icon-chip">
+                  <t.icon aria-hidden size={20} />
                 </span>
-                <span className={`badge ${t.badgeClass}`}>{t.badge}</span>
+                <span className="badge">{t.badge}</span>
               </span>
               <span className="t">{t.title}</span>
               <span className="d">{t.desc}</span>
@@ -221,9 +222,9 @@ export default function ToolsIndexPage() {
           <p className="tk-block-desc">工具的判断依据全部来自站内真实内容，不是拍脑袋的规则：</p>
           <div className="tk-lib-grid">
             {LIBS.map((l) => (
-              <Link key={l.href} href={l.href} className="tk-lib-card">
+              <Link key={l.href} href={l.href} className="tk-lib-card" data-anim="card">
                 <span className={`tk-lib-icon ${l.tint}`}>
-                  <l.icon aria-hidden size={17} />
+                  <l.icon aria-hidden size={16} />
                 </span>
                 <span className="t">{l.title}</span>
                 <span className="d">{l.desc}</span>
@@ -232,6 +233,7 @@ export default function ToolsIndexPage() {
           </div>
         </section>
       </main>
+      </ToolsEntrance>
     </>
   )
 }

@@ -1,4 +1,5 @@
 import type { Metadata } from "next"
+import { Compass } from "lucide-react"
 import { Navigation } from "@/components/navigation"
 import { MatcherClient } from "@/components/tools/matcher-client"
 import "../tools.css"
@@ -31,11 +32,11 @@ export default function ProjectMatcherPage() {
       <Navigation />
       <main className="tk-main">
         <header className="tk-hero">
-          <p className="tk-kicker">免费工具 · PROJECT MATCHER</p>
+          <p className="tk-kicker"><Compass size={13} strokeWidth={2} aria-hidden /> 免费工具 · PROJECT MATCHER</p>
           <h1>项目匹配器</h1>
           <p className="tk-lede">
             「做什么项目能上岸」没有标准答案，但有匹配逻辑：方向考点重合度 × 时间可行性 × 你的当前基础。
-            选三项，拿三个项目方案——每个带简历写法模板（指标留空，你自己填真实值）和面试会被问到的真题。
+            选三项，拿三个项目方案，每个带简历写法模板（指标留空，你自己填真实值）和面试会被问到的真题。
           </p>
         </header>
 

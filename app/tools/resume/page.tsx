@@ -1,7 +1,9 @@
 import type { Metadata } from "next"
 import Link from "next/link"
+import { ClipboardCheck } from "lucide-react"
 import { Navigation } from "@/components/navigation"
 import { ResumeClient } from "@/components/tools/resume-client"
+import "../tools.css"
 import "./resume.css"
 import { ToolsFaq } from "@/components/tools/tools-faq"
 
@@ -31,7 +33,7 @@ export default function ResumeToolPage() {
       <Navigation />
       <main className="rt-main">
         <header className="rt-hero">
-          <p className="rt-kicker">免费工具 · RESUME CHECK</p>
+          <p className="rt-kicker"><ClipboardCheck size={13} strokeWidth={2} aria-hidden /> 免费工具 · RESUME CHECK</p>
           <h1>AI / Agent 岗简历体检</h1>
           <p className="rt-lede">
             粘简历和目标 JD，本地分析：JD 逐词对比、能力证据评级、逐条批注、追问预演。不上传，文本不出浏览器。

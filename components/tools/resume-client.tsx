@@ -30,7 +30,7 @@ export function ResumeClient() {
   const resumeRef = useRef<HTMLTextAreaElement>(null)
   const jdRef = useRef<HTMLTextAreaElement>(null)
 
-  // SSR 水合前粘贴的内容事件会丢(按钮灰着)——水合后回读一次
+  // SSR 水合前粘贴的内容事件会丢（按钮灰着），水合后回读一次
   useEffect(() => {
     if (resumeRef.current?.value) setText(resumeRef.current.value)
     if (jdRef.current?.value) setJd(jdRef.current.value)
@@ -90,6 +90,7 @@ export function ResumeClient() {
         <textarea
           ref={resumeRef}
           className="rt-textarea"
+          aria-label="简历正文"
           value={text}
           onChange={(e) => setText(e.target.value)}
           placeholder={PLACEHOLDER}
@@ -99,6 +100,7 @@ export function ResumeClient() {
         <textarea
           ref={jdRef}
           className="rt-textarea rt-jd"
+          aria-label="目标岗位 JD 原文（可选）"
           value={jd}
           onChange={(e) => setJd(e.target.value)}
           placeholder={"可选：粘贴目标岗位的 JD（职位描述）原文，体检会逐词对比你的简历和 JD 的差距\n\n例：岗位要求：1. 熟悉 RAG 全链路，有向量检索、Rerank 落地经验；2. 熟悉 Function Calling / MCP…"}
@@ -110,8 +112,8 @@ export function ResumeClient() {
           <button
             type="button"
             className="rt-run"
-            onClick={run}
-            disabled={text.trim().length < 60}
+            onClick={() => { if (text.trim().length >= 60) run() }}
+            aria-disabled={text.trim().length < 60}
           >
             开始体检
           </button>

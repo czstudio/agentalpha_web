@@ -50,16 +50,16 @@ function Radar({ domains }: { domains: GapReport["domains"] }) {
   return (
     <svg viewBox="0 0 240 240" width="240" height="240" role="img" aria-label="能力雷达图">
       {[0.25, 0.5, 0.75, 1].map((r) => (
-        <polygon key={r} points={poly(r)} fill="none" stroke="#e5e7eb" strokeWidth="1" />
+        <polygon key={r} points={poly(r)} fill="none" stroke="#e7decc" strokeWidth="1" />
       ))}
       {domains.map((_, i) => {
         const [x, y] = pt(i, 1)
-        return <line key={i} x1={C} y1={C} x2={x} y2={y} stroke="#e5e7eb" strokeWidth="1" />
+        return <line key={i} x1={C} y1={C} x2={x} y2={y} stroke="#e7decc" strokeWidth="1" />
       })}
-      <polygon points={dataPoly} fill="rgba(107, 91, 214, 0.25)" stroke="#6b5bd6" strokeWidth="2" />
+      <polygon points={dataPoly} fill="rgba(110, 34, 240, 0.22)" stroke="#6e22f0" strokeWidth="2" />
       {domains.map((d, i) => {
         const [x, y] = pt(i, Math.max(d.score, 3) / 100)
-        return <circle key={d.domain.key} cx={x} cy={y} r="3" fill="#6b5bd6" />
+        return <circle key={d.domain.key} cx={x} cy={y} r="3" fill="#6e22f0" />
       })}
     </svg>
   )
@@ -167,14 +167,22 @@ export function GapClient({ qaList }: { qaList: QaLite[] }) {
           ))}
         </div>
 
-        {selfDone && !quizPicks && (
-          <div className="tk-input-actions">
-            <span className="tk-privacy">抽题验证：自评「做过 demo」及以上的域，每域随机抽 2 道真实面试题</span>
-            <button type="button" className="tk-run" onClick={genQuiz}>
-              {verifiableDomains.length > 0 ? "生成验证题" : "直接出报告"}
-            </button>
-          </div>
-        )}
+        {/* 常驻进度条:未评完也看得见还差几项、按钮在哪（评审:38 个按钮无 CTA 指引） */}
+        <div className="gap-progress-cta" role="status">
+          <span className="gap-progress-text">
+            {quizPicks
+              ? "自评完成，下方抽题验证后出报告"
+              : `已评 ${GAP_DOMAINS.filter((d) => self[d.key] !== undefined).length}/8 项，全部评完解锁下一步`}
+          </span>
+          <button
+            type="button"
+            className="tk-run"
+            onClick={() => { if (selfDone && !quizPicks) genQuiz() }}
+            aria-disabled={!selfDone || !!quizPicks}
+          >
+            {selfDone && verifiableDomains.length === 0 ? "直接出报告" : "生成验证题"}
+          </button>
+        </div>
       </section>
 
       {quizPicks && (

@@ -186,7 +186,7 @@ export function LogClient() {
         <section className="tk-block">
           <h3>面完就忘，是求职期最大的浪费</h3>
           <p className="tk-block-desc">
-            每场面试都是一次付费调研：面试官替你标出了不会的地方。当天记三样——被问的题、卡壳点、下次怎么答，
+            每场面试都是一次付费调研：面试官替你标出了不会的地方。当天记三样：被问的题、卡壳点、下次怎么答，
             三场之后你会清楚地看到自己反复挂在哪类问题上。
           </p>
           <div className="tk-cta-grid">

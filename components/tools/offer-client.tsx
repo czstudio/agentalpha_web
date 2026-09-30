@@ -44,7 +44,7 @@ export function OfferClient() {
       .map((o) => ({
         ...o,
         total: Math.round(
-          (DIMENSIONS.reduce((sum, d) => sum + (o.scores[d.key] ?? 5) * (weights[d.key] ?? 3), 0) / weightSum) * 10,
+          (DIMENSIONS.reduce((sum, d) => sum + (o.scores[d.key] ?? 5) * (weights[d.key] ?? 3),0) / weightSum) * 10,
         ) / 10,
       }))
       .sort((a, b) => b.total - a.total)
@@ -58,7 +58,7 @@ export function OfferClient() {
   const gap = results.length >= 2 ? results[0].total - results[1].total : 0
   let verdict = "把两边的分数填真实一点，差距会自己出来。"
   if (results.length >= 2) {
-    if (gap >= 1.5) verdict = `${results[0].name} 综合明显领先（高 ${gap} 分）。如果内心还在纠结，说明有些维度你没敢打真实分——把那维的权重调高再看一次。`
+    if (gap >= 1.5) verdict = `${results[0].name} 综合明显领先（高 ${gap} 分）。如果内心还在纠结，说明有些维度你没敢打真实分，把那维的权重调高再看一次。`
     else if (gap >= 0.5) verdict = `${results[0].name} 小幅领先（高 ${gap} 分）。这个量级属于「几天后你会忘记差距」的范围，优先按稳定性与业务真实性做决定。`
     else verdict = "两边几乎打平。这种情况别再算分了：选那个 mentor 更强、业务更核心的，薪资差在职业前几年会被成长速度抹平。"
   }
@@ -140,7 +140,7 @@ export function OfferClient() {
         ))}
         <p className="mock-advice">{verdict}</p>
         <p className="tk-hint">
-          提醒：分数只是把你的直觉摊开看。两个实用的谈判常识——手握多个 offer 时薪资谈判空间最大；
+          提醒：分数只是把你的直觉摊开看。两个实用的谈判常识：手握多个 offer 时薪资谈判空间最大；
           没写进 offer 的口头承诺（调薪、转岗、期权）默认不存在。数字口径自己留档，别只记 HR 的话。
         </p>
       </section>

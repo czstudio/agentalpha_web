@@ -39,7 +39,7 @@ interface AiUsage {
 }
 
 function todayKey(): string {
-  // 用户本地时区的「今天」,避免 UTC 让额度在早 8 点才刷新
+  // 用户本地时区的「今天」，避免 UTC 让额度在早 8 点才刷新
   const now = new Date()
   return `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, "0")}-${String(now.getDate()).padStart(2, "0")}`
 }
@@ -88,7 +88,7 @@ export function JdClient({ qaList, jdSamples }: { qaList: QaLite[]; jdSamples: J
   useEffect(() => {
     setAiUsage(loadUsage())
     setUserCfg(loadUserKey())
-    // SSR 水合前用户就可能粘贴了 JD(React state 还是空,按钮会灰着)——水合完成后回读一次输入框,不让已填的内容丢事件
+    // SSR 水合前用户就可能粘贴了 JD(React state 还是空，按钮会灰着），水合完成后回读一次输入框，不让已填的内容丢事件
     if (jdInputRef.current?.value) setText(jdInputRef.current.value)
   }, [])
 
@@ -156,7 +156,7 @@ export function JdClient({ qaList, jdSamples }: { qaList: QaLite[]; jdSamples: J
         try {
           window.localStorage.setItem(USAGE_KEY, JSON.stringify(next))
         } catch {
-          // 隐私模式写不进就算了,界面照常用
+          // 隐私模式写不进就算了，界面照常用
         }
       }
     } catch {
@@ -173,6 +173,7 @@ export function JdClient({ qaList, jdSamples }: { qaList: QaLite[]; jdSamples: J
         <textarea
           ref={jdInputRef}
           className="tk-textarea"
+          aria-label="目标岗位 JD 原文"
           value={text}
           onChange={(e) => setText(e.target.value)}
           placeholder={PLACEHOLDER}
@@ -180,12 +181,12 @@ export function JdClient({ qaList, jdSamples }: { qaList: QaLite[]; jdSamples: J
           spellCheck={false}
         />
         <div className="tk-input-actions">
-          <span className="tk-privacy">规则拆解在你的浏览器本地完成,文本不发送到任何服务器;「AI 深度拆解」会把 JD 发到服务端调用大模型(可选用)</span>
+          <span className="tk-privacy">规则拆解在你的浏览器本地完成，文本不发送到任何服务器；「AI 深度拆解」在拆解结果区，可选用，那一步才会把 JD 发到服务端</span>
           <button
             type="button"
             className="tk-run"
-            onClick={run}
-            disabled={text.trim().length < 50}
+            onClick={() => { if (text.trim().length >= 50) run() }}
+            aria-disabled={text.trim().length < 50}
           >
             开始拆解
           </button>
@@ -323,8 +324,8 @@ export function JdClient({ qaList, jdSamples }: { qaList: QaLite[]; jdSamples: J
               <span className="tk-note">大模型生成 · 需人工核验</span>
             </h3>
             <p className="tk-block-desc">
-              规则拆解看词面命中,AI 拆解看岗位判断:把这份 JD 再交给大模型按面试官视角过一遍。
-              免费额度:每个浏览器每天 {DAILY_BROWSER_QUOTA} 次(今天已用 {aiUsage.count} 次),输入与结果都不出你的浏览器和服务端,不用于其他用途。
+              规则拆解看词面命中，AI 拆解看岗位判断:把这份 JD 再交给大模型按面试官视角过一遍。
+              免费额度:每个浏览器每天 {DAILY_BROWSER_QUOTA} 次（今天已用 {aiUsage.count} 次），输入与结果都不出你的浏览器和服务端，不用于其他用途。
             </p>
 
             {aiState === "idle" && (
@@ -332,26 +333,26 @@ export function JdClient({ qaList, jdSamples }: { qaList: QaLite[]; jdSamples: J
                 {userCfg.apiKey
                   ? "用我的 key 拆解"
                   : aiUsage.count >= DAILY_BROWSER_QUOTA
-                    ? "今日免费次数已用完(或填自己的 key 解锁)"
-                    : `用 AI 再拆一遍(剩 ${DAILY_BROWSER_QUOTA - aiUsage.count} 次)`}
+                    ? "今日免费次数已用完（或填自己的 key 解锁）"
+                    : `用 AI 再拆一遍（剩 ${DAILY_BROWSER_QUOTA - aiUsage.count} 次）`}
               </button>
             )}
             {aiState === "loading" && (
-              <p className="jda-status">正在拆解,大约 5-15 秒,别关页面…</p>
+              <p className="jda-status">正在拆解，大约 5-15 秒，别关页面…</p>
             )}
             {aiState === "disabled" && (
               <>
                 <p className="jda-status">
                   {aiError === "ai_off" || !userCfg.apiKey
-                    ? "站点免费 AI 额度暂未开放/已用完。规则拆解(上方)不受影响;等不及的话,在下面填一个自己的大模型 API key 立即用。"
-                    : "今天的免费次数用完了,明天再来。上面的规则拆解不限额,随时可用。"}
+                    ? "站点免费 AI 额度暂未开放/已用完。规则拆解（上方）不受影响；等不及的话，在下面填一个自己的大模型 API key 立即用。"
+                    : "今天的免费次数用完了，明天再来。上面的规则拆解不限额，随时可用。"}
                 </p>
                 <details className="jda-keypanel" open={showKeyPanel} onToggle={(e) => setShowKeyPanel((e.target as HTMLDetailsElement).open)}>
-                  <summary>用自己的 API key(立即解锁,额度算你自己的)</summary>
+                  <summary>用自己的 API key（立即解锁，额度算你自己的）</summary>
                   <div className="jda-keypanel-body">
                     <p className="jda-keypanel-hint">
-                      填一个 OpenAI 兼容中转/官方的 key。key 只存你这台浏览器(localStorage),请求经本站转发但不落库、不记录;
-                      默认按 huohua 中转 + deepseek-v4-flash 填好,可改成你自己的端点与模型。
+                      填一个 OpenAI 兼容中转/官方的 key。key 只存你这台浏览器（localStorage),请求经本站转发但不落库、不记录；
+                      默认按 huohua 中转 + deepseek-v4-flash 填好，可改成你自己的端点与模型。
                     </p>
                     <input
                       className="trk-input jda-key-input"
@@ -384,18 +385,18 @@ export function JdClient({ qaList, jdSamples }: { qaList: QaLite[]; jdSamples: J
                       onClick={runAi}
                       disabled={userCfg.apiKey.length < 20}
                     >
-                      {userCfg.apiKey.length >= 20 ? "用我的 key 拆解" : "填入 key 后解锁(至少 20 位)"}
+                      {userCfg.apiKey.length >= 20 ? "用我的 key 拆解" : "填入 key 后解锁（至少 20 位）"}
                     </button>
                   </div>
                 </details>
               </>
             )}
             {aiState === "site-quota" && (
-              <p className="jda-status">今天全站 AI 额度已用完(每日 3 元预算控制),明天自动恢复。规则拆解不受影响。</p>
+              <p className="jda-status">今天全站 AI 额度已用完（每日 3 元预算控制），明天自动恢复。规则拆解不受影响。</p>
             )}
             {aiState === "error" && (
               <p className="jda-status">
-                AI 拆解出错了({aiError})。可能是服务波动,稍后重试;上面的规则拆解结果是完整的。
+                AI 拆解出错了({aiError})。可能是服务波动，稍后重试；上面的规则拆解结果是完整的。
               </p>
             )}
             {aiState === "done" && (
@@ -404,8 +405,8 @@ export function JdClient({ qaList, jdSamples }: { qaList: QaLite[]; jdSamples: J
                   <ReactMarkdown remarkPlugins={[remarkGfm]}>{aiText}</ReactMarkdown>
                 </div>
                 <p className="tk-hint">
-                  由 {aiModel} 生成,结论按「大概率/可能」的推断口径读,投递决策请结合官方 JD 与公开面经。
-                  有用的话,把关键考点抄进你的准备清单。
+                  由 {aiModel} 生成，结论按「大概率/可能」的推断口径读，投递决策请结合官方 JD 与公开面经。
+                  有用的话，把关键考点抄进你的准备清单。
                 </p>
               </>
             )}
