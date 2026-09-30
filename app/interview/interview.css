@@ -2147,3 +2147,28 @@ a.ivc-updcard:hover { border-color: var(--brand); box-shadow: var(--shadow); }
 .fac-shared summary { padding: 12px 16px; font-size: 13.5px; color: #8a8a94; cursor: pointer; list-style: none; user-select: none; }
 .fac-shared summary::-webkit-details-marker { display: none; }
 .fac-shared[open] summary { border-bottom: 1px dashed var(--line); }
+
+/* ── 真题解析库索引 ───────────────────────────── */
+.tk-catgrid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 12px; }
+.tk-catcard { display: flex; flex-direction: column; gap: 8px; padding: 16px 18px; border: 1px solid var(--line); border-radius: 12px; background: var(--card, transparent); }
+.tk-catcard-head { display: flex; align-items: baseline; justify-content: space-between; gap: 8px; }
+.tk-catcard-name { font-size: 15.5px; font-weight: 700; color: var(--ink); text-decoration: none; }
+.tk-catcard-name:hover { color: rgb(110, 34, 240); }
+.tk-catcard-count { flex: none; font-size: 12.5px; color: #8a8a94; }
+.tk-catcard-split { margin: 0; font-size: 13px; color: #5c5c66; }
+.tk-catcard-split b { color: rgb(110, 34, 240); font-weight: 600; }
+.tk-catcard-links { display: flex; gap: 12px; margin-top: auto; font-size: 13px; }
+.tk-catcard-links a { color: rgb(110, 34, 240); text-decoration: none; }
+
+/* ── 分类页内容类型分区 ──────────────────────── */
+.ivu-type-tab { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; color: #8a8a94; }
+.ivu-type-tab b { color: var(--ink); font-weight: 600; }
+
+/* ── 首页意图四卡 ─────────────────────────────── */
+.ivc-intent { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; margin-top: 18px; }
+.ivc-intent-card { display: flex; flex-direction: column; gap: 6px; padding: 18px 20px; border: 1px solid var(--line); border-radius: 14px; text-decoration: none; background: var(--card, transparent); transition: border-color .15s ease, transform .15s ease; }
+.ivc-intent-card:hover { border-color: rgb(110, 34, 240); transform: translateY(-2px); }
+.ivc-intent-kicker { font-size: 12px; color: #8a8a94; }
+.ivc-intent-title { font-size: 17px; font-weight: 700; color: var(--ink); }
+.ivc-intent-card:hover .ivc-intent-title { color: rgb(110, 34, 240); }
+.ivc-intent-desc { font-size: 13px; color: #5c5c66; line-height: 1.6; }

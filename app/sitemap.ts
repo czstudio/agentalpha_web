@@ -112,6 +112,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.8,
     },
     {
+      url: "https://agentalpha.top/interview/tk",
+      lastModified: new Date(),
+      changeFrequency: "weekly",
+      priority: 0.85,
+    },
+    {
       url: "https://agentalpha.top/interview/jingchang",
       lastModified: new Date(),
       changeFrequency: "weekly",
