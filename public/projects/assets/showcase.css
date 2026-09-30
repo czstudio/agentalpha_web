@@ -190,3 +190,11 @@ details.qa .ans{padding:13px 18px 15px 36px;font-size:13.5px;color:var(--ink-2)}
 .prod-chip{display:inline-flex;align-items:center;gap:7px;font-size:12px;color:var(--accent);background:var(--accent-soft);border:1px solid var(--accent-line);border-radius:999px;padding:4px 13px;font-weight:600;letter-spacing:.02em}
 .prod-chip .live{width:6px;height:6px;border-radius:50%;background:var(--accent);animation:pulse 2.2s infinite}
 .card.flat{background:var(--bg-2)}
+
+/* JD 真实岗位出处 */
+.jdsrc{margin-top:14px;display:grid;gap:10px}
+.jdsrc .jds{display:grid;grid-template-columns:1fr;gap:4px;padding:10px 14px;background:var(--bg-2);border:1px solid var(--hair);border-radius:10px}
+.jdsrc .jds a{font-size:.84rem;font-weight:600;color:var(--accent)}
+.jdsrc .jds a:hover{text-decoration:underline;text-underline-offset:3px}
+.jdsrc .jds span{font-size:.82rem;color:var(--ink-2);line-height:1.7}
+
