@@ -4,7 +4,7 @@ question: MCP 的 stdio 和 Streamable HTTP 传输是怎么回事？让你实现
 oneLine: stdio 用于本地零网络开销的子进程通信，Streamable HTTP 负责远程服务并支持 SSE 流式返回；实现服务端需处理握手，用协议原语暴露工具，实际开发多用 FastMCP 完成注册。
 category: tooluse
 company: baidu, bytedance, bilibili, xiaomi
-tags: [[, M, C, P, ,,  , A, g, e, n, t, 通, 信, ,,  , 协, 议, 实, 现, ]]
+tags: ["MCP", "Agent通信", "协议实现"]
 minutes: 6
 order: 21
 updated: 2026-09-28

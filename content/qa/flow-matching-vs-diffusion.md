@@ -3,7 +3,7 @@ slug: flow-matching-vs-diffusion
 question: Flow Matching 相比扩散模型好在哪？
 oneLine: 核心在于学的东西和路径不同。扩散模型学习逐步去噪的随机路径，而流匹配学习噪声到数据的确定性速度场，常采用直线路径。这使得流匹配训练目标更简单稳定，推理时步数更少、成本更低。
 category: basics
-tags: [[, 大, 模, 型, ,,  , 生, 成, 模, 型, ,,  , F, l, o, w,  , M, a, t, c, h, i, n, g, ]]
+tags: ["大模型", "生成模型", "Flow Matching"]
 minutes: 6
 order: 19
 updated: 2026-09-28

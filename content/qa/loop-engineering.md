@@ -3,7 +3,7 @@ slug: loop-engineering
 question: 什么是 Loop Engineering？Agent 主循环的每一步要设计什么？
 oneLine: Loop Engineering 是把 Agent 的感知、决策、行动、观察循环当作工程对象设计，而非只调提示词。主循环需重点设计观察段结果预处理、决策段终止规则、行动段工具校验与上下文压缩策略。
 category: agent
-tags: [[, A, g, e, n, t, ,,  , L, o, o, p,  , E, n, g, i, n, e, e, r, i, n, g, ,,  , 上, 下, 文, 管, 理, ]]
+tags: ["Agent", "Loop Engineering", "上下文管理"]
 minutes: 6
 order: 19
 updated: 2026-09-28

@@ -3,7 +3,7 @@ slug: langchain-lcel-and-components
 question: LangChain 的核心组件有哪些？LCEL 是什么？
 oneLine: LangChain 核心组件包括模型接口、提示模板、输出解析器、检索器、工具与记忆；LCEL 是一种管道式的声明语言，用于将组件组合成链并统一流式与异步执行接口。
 category: tooluse
-tags: [[, L, a, n, g, C, h, a, i, n, ,,  , 框, 架, ,,  , L, C, E, L, ]]
+tags: ["LangChain", "框架", "LCEL"]
 minutes: 6
 order: 27
 updated: 2026-09-28

@@ -3,7 +3,7 @@ slug: llm-ab-test-design
 question: LLM 应用的 A/B 测试和传统有什么不同？怎么设计？
 oneLine: LLM 应用的 A/B 测试面临输出非确定性和质量难量化的问题。设计时需按用户分流，指标改用解决率等业务代理指标，并用交错实验和离线影子评测提高测试敏感度。
 category: eval
-tags: [[, A, /, B, 测, 试, ,,  , 评, 估, 指, 标, ,,  , 工, 程, 实, 践, ]]
+tags: ["A/B测试", "评估指标", "工程实践"]
 minutes: 6
 order: 11
 updated: 2026-09-28

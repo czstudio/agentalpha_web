@@ -3,7 +3,7 @@ slug: parameter-count-calculation
 question: 7B 模型的 7B 是怎么算出来的？给你一个架构怎么估参数量？
 oneLine: 估算参数量主要看 Transformer 层的数量和隐藏层维度。核心口诀是每层参数约为 12 倍维度的平方，加上词表嵌入和输出头参数，代入 32 层和 4096 维度即可推导出 7B 量级。
 category: basics
-tags: [[, 模, 型, 架, 构, ,,  , 显, 存, 估, 算, ,,  , 算, 力, 评, 估, ]]
+tags: ["模型架构", "显存估算", "算力评估"]
 minutes: 6
 order: 25
 updated: 2026-09-28

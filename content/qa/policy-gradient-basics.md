@@ -3,7 +3,7 @@ slug: policy-gradient-basics
 question: 策略梯度和价值函数是什么？没这些基础能学 GRPO 吗？
 oneLine: 策略梯度决定模型优化的方向，通过奖励加权提升好输出的概率；价值函数估计期望回报，作为基线用来降低训练方差。没有这些基础很难学透 GRPO，因为 GRPO 的核心机制组内均值就是一种最直接的基线替代方案。
 category: finetune
-tags: [[, 强, 化, 学, 习, ,,  , G, R, P, O, ,,  , 基, 础, 概, 念, ]]
+tags: ["强化学习", "GRPO", "基础概念"]
 minutes: 6
 order: 37
 updated: 2026-09-28

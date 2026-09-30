@@ -3,7 +3,7 @@ slug: rejection-sampling-bon
 question: 拒绝采样和 Best-of-N 是什么？和 RL 什么关系？
 oneLine: Best-of-N 是推理时采样 N 个结果选最优，不改模型；拒绝采样是用最优结果反向做 SFT，属于离线强化学习。标准 RL 则是它们的在线连续版，通过优势加权更新梯度。
 category: finetune
-tags: [[, 强, 化, 学, 习, ,,  , 推, 理, 策, 略, ,,  , 对, 齐, ]]
+tags: ["强化学习", "推理策略", "对齐"]
 minutes: 6
 order: 36
 updated: 2026-09-28

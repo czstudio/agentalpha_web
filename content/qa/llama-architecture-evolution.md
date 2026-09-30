@@ -3,7 +3,7 @@ slug: llama-architecture-evolution
 question: LLaMA、ChatGLM、Qwen 这些开源模型的架构演进主线是什么？
 oneLine: 开源模型的架构演进主线是走向趋同的标配组合，即 Decoder-only 架构搭配 RMSNorm、SwiGLU 和 RoPE，同时在注意力机制上向 GQA 演进以节省显存，近期则在 MoE 化和原生多模态两个方向产生分叉。
 category: basics
-tags: [[, 架, 构, 演, 进, ,,  , L, L, M, 基, 础, ,,  , 面, 试, 高, 频, ]]
+tags: ["架构演进", "LLM基础", "面试高频"]
 minutes: 6
 order: 24
 updated: 2026-09-28

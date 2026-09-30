@@ -3,7 +3,7 @@ slug: gui-agent-design
 question: GUI Agent（操作图形界面的 Agent）难在哪？怎么设计？
 oneLine: GUI Agent 的难点集中在感知、行动和规划三个层面，设计时需要权衡纯视觉与结构化解析方案，构建稳定的原子动作空间，并在选型上坚持有 API 走 API，无 API 才用 GUI 的兜底原则。
 category: agent
-tags: [[, G, U, I,  , A, g, e, n, t, ,,  , A, g, e, n, t, 设, 计, ,,  , 视, 觉, 定, 位, ]]
+tags: ["GUI Agent", "Agent设计", "视觉定位"]
 minutes: 5
 order: 18
 updated: 2026-09-28

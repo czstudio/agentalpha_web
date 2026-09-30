@@ -4,7 +4,7 @@ question: GRPO 之后有哪些衍生改进？DAPO 改了什么？
 oneLine: 先讲清GRPO组内相对优势、截断比率和KL惩罚三要素。再说明DAPO用Token级损失归一解决长度偏差，用动态采样过滤无效组，放宽截断上界防熵塌缩，最后补充移除方差归一等衍生思路。
 category: finetune
 company: tencent,meituan
-tags: [[, G, R, P, O, ,,  , D, A, P, O, ,,  , 强, 化, 学, 习, ]]
+tags: ["GRPO", "DAPO", "强化学习"]
 minutes: 6
 order: 21
 updated: 2026-09-28

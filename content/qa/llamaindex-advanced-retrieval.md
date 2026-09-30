@@ -3,7 +3,7 @@ slug: llamaindex-advanced-retrieval
 question: LlamaIndex 的高级检索有哪些玩法？索引结构怎么选？
 oneLine: 回答分两部分，高级检索主要依靠递归、自动合并、句子窗口和多路复用等机制解决上下文割裂问题；索引结构选型遵循普通问答用向量、全局汇总用树图、复杂文档用路由的原则。
 category: tooluse
-tags: [[, L, l, a, m, a, I, n, d, e, x, ,,  , 检, 索, 增, 强, ]]
+tags: ["LlamaIndex", "检索增强"]
 minutes: 5
 order: 24
 updated: 2026-09-28

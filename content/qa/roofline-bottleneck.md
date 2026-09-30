@@ -4,7 +4,7 @@ question: 怎么判断一个算子是带宽瓶颈还是计算瓶颈？Roofline �
 oneLine: 判断瓶颈的核心是对比算子的计算强度与硬件的拐点。Roofline 模型通过横轴计算强度和纵轴性能，直观展现算子是被内存带宽限制还是被算力限制。
 category: inference
 company: tencent,pdd
-tags: [[, 算, 子, 优, 化, ,,  , L, L, M, 推, 理, ,,  , R, o, o, f, l, i, n, e, ]]
+tags: ["算子优化", "LLM推理", "Roofline"]
 minutes: 6
 order: 20
 updated: 2026-09-28

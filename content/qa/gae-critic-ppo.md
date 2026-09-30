@@ -4,7 +4,7 @@ question: GAE 的公式是什么？λ 和 γ 各是什么含义？为什么有�
 oneLine: GAE是多步TD误差的加权和，γ决定未来奖励视野，λ调节偏差与方差。Reward Model只提供最终的标量奖励，而Critic用于估计状态价值并作为基线，用来降低策略梯度更新时的方差。
 category: finetune
 company: kuaishou,antgroup
-tags: [[, 强, 化, 学, 习, ,,  , P, P, O, ,,  , 算, 法, 基, 础, ]]
+tags: ["强化学习", "PPO", "算法基础"]
 minutes: 6
 order: 23
 updated: 2026-09-28

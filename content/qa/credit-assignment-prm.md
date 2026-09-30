@@ -4,7 +4,7 @@ question: 长链路 Agent 任务为什么信用分配难？PRM 怎么参与？
 oneLine: 难在只有最终奖励且轨迹长，无法区分哪一步导致成败，优势估计方差大；PRM 可作过程奖励拼进总回报，或直接转成优势信号参与更新。
 category: finetune
 company: tencent
-tags: [[, 强, 化, 学, 习, ,,  , 奖, 励, 模, 型, ,,  , 信, 用, 分, 配, ]]
+tags: ["强化学习", "奖励模型", "信用分配"]
 minutes: 6
 order: 20
 updated: 2026-09-28

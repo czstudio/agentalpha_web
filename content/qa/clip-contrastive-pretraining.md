@@ -4,7 +4,7 @@ question: CLIP 是怎么工作的？为什么能做零样本分类？
 oneLine: CLIP 采用双塔结构，通过对比学习将图像和文本映射到同一向量空间。零样本分类是将类目名转为文本提示并编码，与图像向量计算相似度得出结果，用提示代替了传统分类器。
 category: multimodal
 company: bytedance
-tags: [[, 多, 模, 态, ,,  , 对, 比, 学, 习, ,,  , 视, 觉, 编, 码, 器, ]]
+tags: ["多模态", "对比学习", "视觉编码器"]
 minutes: 6
 order: 7
 updated: 2026-09-28

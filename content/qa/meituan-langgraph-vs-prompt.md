@@ -5,7 +5,7 @@ oneLine: 手写流程在处理中断恢复和复杂分支时容易堆砌条件�
 category: jingchang
 company: meituan,bytedance
 track: agent-dev
-tags: [[, A, g, e, n, t, 框, 架, ,,  , L, a, n, g, G, r, a, p, h, ,,  , 工, 程, 架, 构, ]]
+tags: ["Agent框架", "LangGraph", "工程架构"]
 minutes: 6
 order: 21
 updated: 2026-09-28

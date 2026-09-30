@@ -3,7 +3,7 @@ slug: ai-pm-interview-overview
 question: AI 产品经理的面试和算法岗有什么不同？要准备什么？
 oneLine: 算法岗考察模型训练与优化，AI 产品面试则看重对模型能力边界的直觉、场景判断力、评测标准定义以及成本核算，准备时要吃透项目技术选型原因并熟悉主流模型真实表现。
 category: enterprise
-tags: [[, 面, 试, 准, 备, ,,  , 产, 品, 经, 理, ,,  , 方, 案, 设, 计, ]]
+tags: ["面试准备", "产品经理", "方案设计"]
 minutes: 6
 order: 13
 updated: 2026-09-28

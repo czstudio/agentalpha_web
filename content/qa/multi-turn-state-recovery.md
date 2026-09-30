@@ -3,7 +3,7 @@ slug: multi-turn-state-recovery
 question: Agent 长任务跑到一半断了（重启/超时/用户离开），状态怎么恢复？
 oneLine: 核心是状态外置和步骤级别的检查点落盘。恢复时从最近检查点重建上下文加载计划与变量，未完成步骤通过幂等设计重放；若用户离开则挂起任务，等回来后确认再继续。
 category: agent
-tags: [[, A, g, e, n, t, ,,  , 状, 态, 管, 理, ,,  , L, a, n, g, G, r, a, p, h, ]]
+tags: ["Agent", "状态管理", "LangGraph"]
 minutes: 6
 order: 20
 updated: 2026-09-28

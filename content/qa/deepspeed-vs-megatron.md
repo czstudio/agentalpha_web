@@ -3,7 +3,7 @@ slug: deepspeed-vs-megatron
 question: DeepSpeed 和 Megatron-LM 怎么选？
 oneLine: 核心看任务规模和团队工程能力。千亿参数以上的大规模预训练且有英伟达技术栈支持选 Megatron-LM；百亿参数微调、中等集群或追求快速起步选 DeepSpeed。两者也可组合使用。
 category: finetune
-tags: [[, 分, 布, 式, 训, 练, ,,  , 框, 架, 选, 型, ,,  , 大, 模, 型, 预, 训, 练, ]]
+tags: ["分布式训练", "框架选型", "大模型预训练"]
 minutes: 6
 order: 34
 updated: 2026-09-28

@@ -3,7 +3,7 @@ slug: triton-kernel-development
 question: 什么时候需要写 Triton 自定义算子？开发流程是什么？
 oneLine: 只有在 profile 证明现有算子存在访存瓶颈、需要算子融合或新算子无库实现时才写。流程包括确定分块策略、编写核函数、与参考实现对拍、自动调优及集成。
 category: inference
-tags: [[, T, r, i, t, o, n, ,,  , 算, 子, 优, 化, ,,  , 模, 型, 推, 理, ]]
+tags: ["Triton", "算子优化", "模型推理"]
 minutes: 6
 order: 27
 updated: 2026-09-28

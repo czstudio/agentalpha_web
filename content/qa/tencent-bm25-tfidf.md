@@ -5,7 +5,7 @@ oneLine: BM25 是 TF-IDF 的改良版，核心优化了词频饱和度与文档�
 category: jingchang
 company: tencent, baidu, antgroup
 track: ai-app
-tags: [[, 检, 索, 增, 强, ,,  , 算, 法, 原, 理, ,,  , 混, 合, 检, 索, ]]
+tags: ["检索增强", "算法原理", "混合检索"]
 minutes: 6
 order: 22
 updated: 2026-09-28
