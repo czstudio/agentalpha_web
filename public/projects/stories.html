@@ -59,6 +59,27 @@ html.js [data-r]{opacity:0;transform:translateY(16px);transition:opacity var(--d
 .shots figure{margin:0;border:1px solid var(--hair-2);border-radius:12px;overflow:hidden;background:#fff}
 .shots img{width:100%;display:block;aspect-ratio:292/633;object-fit:cover}
 .shots figcaption{font-family:var(--mono);font-size:10.5px;color:var(--muted-2);padding:8px 10px;border-top:1px solid var(--hair);background:var(--bg-2)}
+/* 快报精选卡 */
+.flash{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:8px 0 34px}
+.fcard{background:#fff;border:1px solid var(--hair);border-radius:14px;padding:18px 20px;display:flex;flex-direction:column;gap:8px;transition:transform .28s var(--ease),border-color .28s}
+.fcard:hover{transform:translateY(-2px);border-color:var(--accent-line)}
+.fcard .who{font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;color:var(--muted-2)}
+.fcard .res{font-family:var(--serif);font-size:1.06rem;font-weight:700;color:var(--ink);line-height:1.4}
+.fcard .res em{font-style:normal;color:var(--accent)}
+.fcard p{font-size:.8rem;color:var(--muted);line-height:1.7;margin:0}
+/* 30 条分组带 */
+.bgrp{margin-bottom:26px}
+.bgrp h4{font-family:var(--sans);font-size:.9rem;font-weight:700;color:var(--ink);margin:0 0 6px;display:flex;align-items:baseline;gap:10px}
+.bgrp h4 span{font-family:var(--mono);font-size:10.5px;color:var(--muted-2);letter-spacing:.1em;font-weight:400}
+.brow{display:grid;grid-template-columns:240px 1fr;gap:16px;padding:9px 0;border-bottom:1px solid var(--hair);font-size:.85rem;align-items:baseline}
+.brow:last-child{border-bottom:none}
+.brow .who{color:var(--muted)}
+.brow .got{color:var(--ink-2);line-height:1.65}
+.brow .got b{color:var(--ink);font-weight:600}
+@media (max-width:960px){
+  .flash{grid-template-columns:1fr}
+  .brow{grid-template-columns:1fr;gap:2px}
+}
 /* 成果墙 */
 .wallwrap{border:1px solid var(--hair-2);border-radius:16px;overflow:hidden;background:#fff;box-shadow:0 20px 48px rgb(0 0 0/.06)}
 .wallwrap img{width:100%;display:block}
@@ -110,7 +131,7 @@ footer.footer .inner{width:min(1080px,calc(100% - clamp(40px,8vw,72px)));margin:
 </section>
 
 <div class="sbar"><div class="wrap">
-  <div class="sb" data-r><b>12 位</b><span>学员，覆盖求职、论文、保研、申博、人才计划</span></div>
+  <div class="sb" data-r><b>30 篇</b><span>案例库条目，其中 12 位做了逐段深度复盘</span></div>
   <div class="sb" data-r style="--i:1"><b>26 天 – 5 年</b><span>准备周期跨度，最快的 26 天拿到 offer，最长的走了完整科研路径</span></div>
   <div class="sb" data-r style="--i:2"><b>3 类追问</b><span>每个案例都写清面试官的追问与当时怎么答</span></div>
 </div></div>
@@ -250,7 +271,67 @@ footer.footer .inner{width:min(1080px,calc(100% - clamp(40px,8vw,72px)));margin:
   </article>
 </div></section>
 
-<section class="blk" id="wall" style="background:var(--bg-2);border-top:1px solid var(--hair);border-bottom:1px solid var(--hair)"><div class="inner">
+<section class="blk" id="offers" style="background:var(--bg-2);border-top:1px solid var(--hair);border-bottom:1px solid var(--hair)"><div class="inner">
+  <div class="ghead" data-r><span class="no">MORE</span><h2>更多 offer 与薪资</h2></div>
+  <p class="gsub" data-r style="--i:1">案例库共 30 篇，以下是全部 30 条的结果汇总（部分条目与上方深度案例对应），全部脱敏。薪资为学员自愿披露与公开开奖行情的复盘口径，随年份、岗位与部门波动，不构成任何承诺。</p>
+
+  <div class="flash">
+    <div class="fcard" data-r><span class="who">211 本 · 约 3 个月</span><span class="res">小红书算法岗实习转正 <em>45k×16</em>（SSP 档）</span><p>1 个月补八股、手撕与一个可演示的推荐/大模型项目；日常实习扎进真实业务做召回优化与 A/B 验证，转正答辩后拿 return offer，总包约 72W+。</p></div>
+    <div class="fcard" data-r style="--i:1"><span class="who">985 本硕 · 约 1.5 个月</span><span class="res">某大厂大模型算法 offer（<em>总包约 35–50W</em>）</span><p>高学历但缺项目：补齐大模型算法项目与面试表达，走校招算法岗流程拿 offer。</p></div>
+    <div class="fcard" data-r style="--i:2"><span class="who">211 交通硕 · 约 3 个月</span><span class="res">智谱 AI offer（Top 大模型独角兽）</span><p>自动驾驶方向、0 大模型经验的传统工科转 AI：补大模型算法与 Agent/RAG 面试主线。</p></div>
+    <div class="fcard" data-r><span class="who">UX 设计跨专业 · 约 2 个月</span><span class="res">快速增长创业公司 Agent 算法岗（应届总包约 <em>40–65W</em>）</span><p>设计背景非程序员路径，靠 Agent 算法项目训练转入算法岗。</p></div>
+    <div class="fcard" data-r style="--i:1"><span class="who">双非 · 前端背景 · 约 2 个月</span><span class="res">大厂 LLM 相关 offer（<em>50W+</em>）</span><p>无 LLM/算法基础的开发转岗，补 LLM 项目与面试训练。</p></div>
+    <div class="fcard" data-r style="--i:2"><span class="who">985 本硕 · 开发转算法</span><span class="res">算法岗机会（<em>80W+</em>）</span><p>资深开发转 Agent/LLM 方向，靠大模型算法项目体系完成转岗。</p></div>
+  </div>
+
+  <div class="bgrp" data-r>
+    <h4>实习与校招上岸 <span>8 条</span></h4>
+    <div class="brow"><span class="who">211 本 / 3 个月</span><span class="got">小红书算法岗实习转正，<b>45k×16</b>（SSP 档）</span></div>
+    <div class="brow"><span class="who">985 本 / 1.5 个月</span><span class="got">某大厂大模型算法 offer（校招总包约 <b>35–50W</b>）</span></div>
+    <div class="brow"><span class="who">985 跨专业 / 半年内</span><span class="got">Top AI 创业公司大模型算法实习</span></div>
+    <div class="brow"><span class="who">无算法经验 / 1.5 个月</span><span class="got">AI 大厂算法工程师 offer（校招总包约 <b>40W+</b>）</span></div>
+    <div class="brow"><span class="who">机械专业 / 1.5 个月</span><span class="got">大厂 AI coding 实习 offer</span></div>
+    <div class="brow"><span class="who">硕士 / 2 个月</span><span class="got">AI coding offer，并反哺硕士论文方向</span></div>
+    <div class="brow"><span class="who">研一 / 3 个月</span><span class="got">大厂 LLM 算法 offer（校招总包约 <b>40W+</b>）</span></div>
+    <div class="brow"><span class="who">研一</span><span class="got">大厂 LLM 实习机会（月薪 8–12K 或转正）</span></div>
+  </div>
+
+  <div class="bgrp" data-r>
+    <h4>低起点 / 弱背景补救 <span>10 条</span></h4>
+    <div class="brow"><span class="who">双非本 / 3 个月</span><span class="got">科大讯飞、美的、TME 等 <b>3 个</b> LLM 方向 offer（多 offer 在手）</span></div>
+    <div class="brow"><span class="who">双非本硕 / 3 个月</span><span class="got">Top 15 大厂 NLP/LLM 算法岗 offer</span></div>
+    <div class="brow"><span class="who">二本 / 2 个月</span><span class="got">大厂 LLM 算法岗，薪资较原开发岗<b>涨约 50%</b></span></div>
+    <div class="brow"><span class="who">二本 / 2 个月</span><span class="got">AI 创业公司软件开发，约 <b>38K/月</b></span></div>
+    <div class="brow"><span class="who">双非本 / 2 个月</span><span class="got">数百人规模公司 LLM 算法岗 offer</span></div>
+    <div class="brow"><span class="who">双非 / 2 个月</span><span class="got">大厂 LLM 相关 offer（<b>50W+</b>）</span></div>
+    <div class="brow"><span class="who">双非 / 3 个月</span><span class="got">中型公司生成式 AI 工程师 offer</span></div>
+    <div class="brow"><span class="who">双非本+加硕 / 3 个月</span><span class="got">多家中大厂算法岗 offer 在手，可择优选</span></div>
+    <div class="brow"><span class="who">生医跨专业 / 26 天</span><span class="got">26 天拿到 LLM offer</span></div>
+    <div class="brow"><span class="who">二本</span><span class="got">AI 岗位约 <b>22K/月</b></span></div>
+  </div>
+
+  <div class="bgrp" data-r>
+    <h4>跨专业与工科转 AI <span>8 条</span></h4>
+    <div class="brow"><span class="who">211 交通硕 / 3 个月</span><span class="got">Top 大模型独角兽<b>智谱 AI</b> offer</span></div>
+    <div class="brow"><span class="who">设计跨专业 / 2 个月</span><span class="got">快速增长创业公司 Agent 算法岗（应届总包约 <b>40–65W</b>）</span></div>
+    <div class="brow"><span class="who">土木专业 / 3 个月</span><span class="got">算法岗 offer，约 <b>35W</b></span></div>
+    <div class="brow"><span class="who">设计跨专业 / 3 个月</span><span class="got">大模型 Agent 算法岗 offer</span></div>
+    <div class="brow"><span class="who">非计科零基础</span><span class="got">约 <b>30W</b> 大模型算法岗位 offer</span></div>
+    <div class="brow"><span class="who">金融背景</span><span class="got">多个大厂大模型算法 offer（多 offer 在手）</span></div>
+    <div class="brow"><span class="who">土木背景</span><span class="got"><b>35W</b> 级别 LLM/算法 offer</span></div>
+    <div class="brow"><span class="who">CV 跨专业 / 7 个月</span><span class="got">入选大模型相关人才计划或岗位机会</span></div>
+  </div>
+
+  <div class="bgrp" data-r>
+    <h4>在职开发转 Agent / LLM <span>4 条</span></h4>
+    <div class="brow"><span class="who">开发 4 年 / 3 个月</span><span class="got">互联网大厂算法岗 offer（社招）</span></div>
+    <div class="brow"><span class="who">前端背景</span><span class="got"><b>50W+</b> offer</span></div>
+    <div class="brow"><span class="who">开发岗</span><span class="got">LLM 岗，薪资提升<b>约 50%</b></span></div>
+    <div class="brow"><span class="who">985 本硕</span><span class="got">算法岗机会（<b>80W+</b>）</span></div>
+  </div>
+</div></section>
+
+<section class="blk" id="wall" style="background:var(--bg);border-top:1px solid var(--hair)"><div class="inner">
   <div class="ghead" data-r><span class="no">WALL</span><h2>部分成果展示</h2></div>
   <p class="gsub" data-r style="--i:1">以下为已有资料中的脱敏结果汇总，包含 Offer、录用意向与论文录用等不同类型成果，不与上方某一个案例逐项对应。</p>
   <div class="wallwrap" data-r style="--i:2">
