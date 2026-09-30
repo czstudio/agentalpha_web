@@ -10,10 +10,10 @@ import { ToolsFaq } from "@/components/tools/tools-faq"
 const SITE = "https://agentalpha.top"
 
 export const metadata: Metadata = {
-  title: "AI/Agent 岗简历体检 · 免费在线简历分析",
+  title: "简历在线分析 - AI 岗简历体检,免费查匹配度与追问风险",
   description:
-    "粘贴简历文本和目标 JD，本地分析不出浏览器：JD 逐词对比、Agent 岗能力覆盖证据评级、逐条经历批注、基于真实面经的追问预演与翻车风险。免费、无注册、不上传。",
-  keywords: ["Agent 简历优化", "大模型简历", "AI 岗简历修改", "简历诊断", "面试追问预演"],
+    "免费在线简历分析:粘贴简历和目标 JD,本地逐词对比匹配度、能力证据评级、逐条批注,并基于真实面经预演面试官会追问什么。AI Agent 与大模型岗位专用,无需注册,简历不出浏览器。",
+  keywords: ["简历在线分析", "简历匹配度检测", "简历体检", "简历优化免费", "AI岗位简历", "简历诊断工具"],
   alternates: { canonical: "/tools/resume" },
 }
 

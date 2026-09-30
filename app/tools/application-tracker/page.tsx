@@ -8,10 +8,10 @@ import { ToolsFaq } from "@/components/tools/tools-faq"
 const SITE = "https://agentalpha.top"
 
 export const metadata: Metadata = {
-  title: "投递看板 · 求职投递追踪 CRM",
+  title: "求职投递管理 - 免费投递记录看板与漏斗统计",
   description:
-    "记录每一家投递：未投/已投/笔试/一面/二面/HR/Offer/拒，看板式管理，自动汇总投递漏斗与进面率，告诉你问题出在简历还是面试。数据只存本机浏览器，不上传、无账号。",
-  keywords: ["投递追踪", "求职 CRM", "秋招看板", "投递管理", "面试进度"],
+    "免费求职投递管理工具:未投到 Offer 八个状态的看板,自动汇总投递漏斗与进面率,告诉你问题出在简历还是面试。数据只存本机浏览器,不上传、不公开。",
+  keywords: ["求职投递管理", "投递记录", "投递看板", "求职CRM", "秋招投递", "投递统计"],
   alternates: { canonical: "/tools/application-tracker" },
 }
 

@@ -170,6 +170,22 @@ export default async function MianjingDetailPage({ params }: MianjingPageProps) 
 
               <CrossLinks title="面经对应的真题" variant="mianjing" items={xQaLinks} />
 
+              <aside className="aa-note-promo" aria-label="免费求职工具">
+                <p className="aa-note-promo-kicker">免费求职工具箱</p>
+                <p className="aa-note-promo-text">
+                  把这篇面经用起来:对照
+                  <Link href="/tools/jd-analyzer">JD 分析工具</Link>
+                  拆目标岗位考点,用
+                  <Link href="/tools/resume-builder">免费在线简历生成器</Link>
+                  排一页能直接投的简历,再到
+                  <Link href="/tools/mock-interview">AI 模拟面试</Link>
+                  把面经里的追问先答一遍。全部免费、不注册、浏览器本地运行。
+                </p>
+                <Link href="/tools" className="aa-note-promo-cta">
+                  进入工具箱 <ArrowRight aria-hidden />
+                </Link>
+              </aside>
+
               <nav className="aa-note-pager">
                 <span />
                 <span className="aa-note-pager-card aa-note-pager-card--next mj-pager-more">

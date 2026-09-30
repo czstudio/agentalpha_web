@@ -8,10 +8,10 @@ import { ToolsFaq } from "@/components/tools/tools-faq"
 const SITE = "https://agentalpha.top"
 
 export const metadata: Metadata = {
-  title: "Offer 对比器 · 多个 offer 怎么选",
+  title: "Offer 对比器 - 多个 offer 怎么选,六维加权对比",
   description:
-    "六个维度（总包/城市/业务/成长/稳定性/强度）打分 + 权重可调，算出加权对比和一句人话结论，附带薪资谈判的实用常识。纯本地计算，offer 信息不出浏览器。",
-  keywords: ["offer 怎么选", "offer 对比", "薪资谈判", "求职决策"],
+    "多个 offer 怎么选?薪资总包、城市、业务前景、成长、稳定性、强度六个维度打分,权重可调,算出加权对比和一句人话结论,附薪资谈判常识。纯本地计算,offer 信息不出浏览器。",
+  keywords: ["offer对比", "offer怎么选", "offer比较工具", "薪资对比", "跳槽决策", "秋招offer"],
   alternates: { canonical: "/tools/offer-compare" },
 }
 

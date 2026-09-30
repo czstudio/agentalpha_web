@@ -10,10 +10,10 @@ import { ToolsFaq } from "@/components/tools/tools-faq"
 const SITE = "https://agentalpha.top"
 
 export const metadata: Metadata = {
-  title: "AI 模拟面试 · 岗位剧本 / 简历深挖 / 压力追问",
+  title: "AI 模拟面试 - 免费在线练岗位剧本/简历深挖/压力追问",
   description:
-    "选面试官人格（温和引导/冷酷打断/细节抠挖/架构挑战/HR 观察），跑一场像真面试的模拟：按方向组卷或粘贴简历被逐条深挖，压力模式每题追问到底，答完出复盘报告，错题自动进错题本。免费、无注册、本机运行。",
-  keywords: ["AI 模拟面试", "Agent 面试练习", "简历深挖面试", "压力面试", "面试复盘"],
+    "免费在线 AI 模拟面试:五种面试官人格(温和/冷酷/细节/架构/HR),三种模式——按岗位剧本组卷、粘贴简历被逐条深挖、压力追问到底;答完出复盘报告,错题自动进错题本。无需注册,全程浏览器本地。",
+  keywords: ["AI模拟面试", "在线模拟面试", "面试练习", "简历深挖", "压力面试", "大模型面试", "免费模拟面试"],
   alternates: { canonical: "/tools/mock-interview" },
 }
 

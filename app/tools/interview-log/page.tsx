@@ -8,10 +8,10 @@ import { ToolsFaq } from "@/components/tools/tools-faq"
 const SITE = "https://agentalpha.top"
 
 export const metadata: Metadata = {
-  title: "面试复盘本 · 面完当天记，不再重复挂同一类题",
+  title: "面试复盘模板 - 记录被问题目,统计反复挂在哪",
   description:
-    "记录每场真实面试：公司、轮次、被问题目、卡壳点、下次策略。自动统计你反复挂在哪一轮、哪类主题，把每场面试变成一次针对性补课。数据只存本机浏览器，不上传、不公开。",
-  keywords: ["面试复盘", "面经记录", "卡壳点整理", "求职复盘工具"],
+    "免费的面试复盘工具:面完当天记公司、轮次、被问题目、卡壳点、下次策略,自动统计你反复挂在哪一轮、哪类主题。数据只存本机浏览器,不上传、不公开,适合秋招春招连续作战。",
+  keywords: ["面试复盘", "面试记录模板", "面试总结工具", "秋招复盘", "面经整理", "求职记录"],
   alternates: { canonical: "/tools/interview-log" },
 }
 

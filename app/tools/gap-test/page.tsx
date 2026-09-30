@@ -9,10 +9,10 @@ import { ToolsFaq } from "@/components/tools/tools-faq"
 const SITE = "https://agentalpha.top"
 
 export const metadata: Metadata = {
-  title: "面试 Gap 自测 · 测你离目标 AI 岗位差多远",
+  title: "面试 Gap 自测 - 测你离 AI 岗位 Offer 差多远",
   description:
-    "选目标方向，八项能力自评加真实面试题抽验（防虚标），出能力雷达、短板清单和补课路径：先刷哪个题库分类、走哪条学习路线、做什么项目。免费、无注册、浏览器本地完成。",
-  keywords: ["AI 岗位差距自测", "Agent 面试自测", "大模型面试准备", "能力雷达", "求职诊断"],
+    "八项能力自评加真实面试题抽验(防虚标),测出你和目标 AI 岗位的差距:能力雷达、短板清单、补课路径。免费、无需注册、浏览器本地完成,自测结果不出本机。",
+  keywords: ["面试能力测评", "AI岗位自测", "面试差距测试", "求职自测", "大模型面试准备", "能力雷达"],
   alternates: { canonical: "/tools/gap-test" },
 }
 

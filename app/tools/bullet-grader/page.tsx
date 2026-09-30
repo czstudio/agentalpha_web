@@ -8,10 +8,10 @@ import "../tools.css"
 const SITE = "https://agentalpha.top"
 
 export const metadata: Metadata = {
-  title: "简历 Bullet 打分器 · 一条经历值多少分",
+  title: "简历经历打分 - Bullet 一条值多少分,给改写骨架",
   description:
-    "粘贴单条简历经历，四维打分（动词强度/量化证据/技术深度/结果表达），给问题清单和改写骨架。指标位留空由你填真实值，系统不编数。免费、本地运行。",
-  keywords: ["简历 bullet 打分", "简历经历怎么写", "简历量化", "简历修改工具"],
+    "粘贴单条简历经历,按动词强度、量化证据、技术深度、结果表达四维打分,给问题清单和改写骨架。指标位留空由你填真实值,系统不编数。免费、无需注册、本地运行。",
+  keywords: ["简历打分", "简历经历优化", "STAR法则", "简历量化", "bullet写法", "简历动词"],
   alternates: { canonical: "/tools/bullet-grader" },
 }
 
