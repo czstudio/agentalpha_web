@@ -8,10 +8,10 @@ import { ToolsFaq } from "@/components/tools/tools-faq"
 const SITE = "https://agentalpha.top"
 
 export const metadata: Metadata = {
-  title: "项目匹配器 · 不知道做什么项目能上岸？",
+  title: "AI 项目推荐 - 按方向和时间匹配能写进简历的项目",
   description:
-    "选目标方向、现有基础和可投入时间，推荐三个能写进简历、扛得住追问的 AI 项目：每个给难度、时间预算、简历 bullet 模板、验收指标和会被问到的面试题。免费、无注册。",
-  keywords: ["AI 求职项目推荐", "简历项目怎么选", "Agent 项目", "RAG 项目", "大模型面试项目"],
+    "不知道做什么项目?选目标方向、现有基础和可投入时间,推荐三个能写进简历、扛得住追问的 AI 项目:难度、时间预算、简历 bullet 模板、验收指标和会被问到的面试题。免费、本地运行。",
+  keywords: ["AI项目推荐", "大模型项目", "简历项目怎么写", "RAG项目", "Agent项目", "AI岗项目"],
   alternates: { canonical: "/tools/project-matcher" },
 }
 

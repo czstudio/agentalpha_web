@@ -11,10 +11,10 @@ import { ToolsFaq } from "@/components/tools/tools-faq"
 const SITE = "https://agentalpha.top"
 
 export const metadata: Metadata = {
-  title: "JD 人话拆解器 · 免费在线解析招聘 JD",
+  title: "JD 分析工具 - 免费在线拆解招聘 JD,匹配面试题",
   description:
-    "粘贴目标岗位的 JD 原文，浏览器本地拆解：岗位画像识别、考察词分层、JD 没写但面试会问的隐藏考点、业务场景推断、匹配站内面试题。免费、无注册、不上传。",
-  keywords: ["JD 解析", "JD 拆解", "岗位要求分析", "AI 岗位 JD", "面试准备工具"],
+    "免费在线 JD 分析:粘贴招聘 JD 原文,浏览器本地拆出岗位画像、考察词、JD 没写但面试会问的隐藏考点,并匹配站内真实面试题。面向 AI Agent 与大模型岗位,无需注册,JD 文本不上传。",
+  keywords: ["JD分析工具", "JD拆解", "招聘JD解析", "岗位要求分析", "面试考点", "AI岗位JD", "免费JD工具"],
   alternates: { canonical: "/tools/jd-analyzer" },
 }
 

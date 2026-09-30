@@ -3,6 +3,7 @@
 import Link from "next/link"
 import { useLanguage } from "@/contexts/language-context"
 import { EnrollmentQrDialog } from "@/components/enrollment-qr-dialog"
+import { HomeTools } from "@/components/home-tools"
 import { BrandLogoReel } from "@/components/brand-logo-reel"
 import {
   BookOpen,
@@ -208,6 +209,8 @@ export function HomeContent({ data }: HomeContentProps) {
           </div>
         </div>
       </section>
+
+      <HomeTools />
 
       <section id="proof" className="aa-section">
         <div className="section-shell">

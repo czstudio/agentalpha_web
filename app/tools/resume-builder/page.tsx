@@ -8,10 +8,10 @@ import "../tools.css"
 const SITE = "https://agentalpha.top"
 
 export const metadata: Metadata = {
-  title: "简历生成器 · 一页排版好的简历,本地导出 PDF 和 Word",
+  title: "免费在线简历生成器 - 导出 PDF 和 Word,无需注册",
   description:
-    "粘贴旧简历或一段话,自动解析重排成一页 A4 简历;逐条经历按动词、量化、深度、结果打分并给改写骨架;本地导出打印 PDF、Word 和 LaTeX 源码。不注册、不上传。",
-  keywords: ["简历生成器", "简历排版", "简历模板", "LaTeX 简历", "简历导出 Word", "Agent 岗简历"],
+    "免费在线简历制作工具:粘贴旧简历或写一段话,自动排版成一页 A4 简历,直接导出 PDF 和 Word,无水印、无需注册。内置逐条经历打分(AI 岗位向),每条给改写骨架;也可导出 LaTeX 源码在 Overleaf 编译。全部在你的浏览器本地完成,简历不上传。",
+  keywords: ["免费简历制作", "在线简历生成器", "简历导出PDF", "简历模板 Word", "简历制作免费", "AI岗位简历", "LaTeX简历", "求职简历工具"],
   alternates: { canonical: "/tools/resume-builder" },
 }
 
