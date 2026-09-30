@@ -90,6 +90,7 @@
 | 任务 | 状态 |
 | --- | --- |
 | 工具区视觉与体验整备(暖纸风 v2 + 新工具 2 个) | 完成@92726cb(2026-09-30):视觉改版(暖纸令牌收尾/bento 不等宽/GSAP 入场/lucide 图标 13-16-20 三档/动效全量 reduced-motion 降级)+ 新增 Bullet 打分器与自我介绍生成器(共 10 工具);三路严评修复 30+ 项;playwright 冒烟 14+16 全过 |
+| 简历生成器二期(吸收 4 个开源简历项目方法论,用户指定 ASu-skills 重点) | 完成@2026-09-30:证据审计引擎(时态边界/最高级比较全集/指标缺口径/团队指标归因/0→1 说明,方法论来自 ASu-resume-audit-skill)、JD 词面对齐(命中/缺失+建议,不推荐编造)、AI 深度改写(/api/llm-resume,站点 env+用户自带 key 双通道,输出原文→改写→问题说明,逐条采用;禁编造红线进 system prompt)、Markdown 导出、JSON 导入导出回环、本地自动保存+恢复、重新开始;线上 AI 已激活(enabled:true,用户配好 Vercel env);三轮冒烟 23 断言全过(含真实 AI 调用) |
 | 去 AI 配色(用户指令:蓝紫禁用)+ 自我介绍生成器重做成简历生成器 | 完成@2026-09-30:accent 紫 #6e22f0 → 陶土 #b4532a(Anthropic book-cloth 同族),全工具区 recolor,内容库四色图标统一单色;修 --tk-paper-2/--tk-brand-wash 自引用潜伏 bug(sed 误伤字面值);「自我介绍生成器」下线,重做为「简历生成器」(/tools/resume-builder):粘贴旧简历或一段话→启发式解析成结构化数据→LaTeX 风纸面实时预览,逐条经历复用打分引擎给分与改写骨架(〔〕留空不编数),导出打印 PDF/Word(.doc)/LaTeX 源码(Overleaf XeLaTeX),图片导入暂不做 OCR(诚实边界);冒烟 21/21 |
 | B8 LLM 增强层第一期(用户拍板:最便宜模型 + 3 元/天预算) | 已上线代码@待部署 env:gemini-3.1-flash-lite + 全站 600 次/单 IP 10 次/浏览器 5 次 + 结果缓存,端点 /api/llm-jd,接入 JD 分析器「AI 深度拆解」;**线上激活需在 Vercel 配 LLM_API_KEY 等三个环境变量,见 docs/LLM-DEPLOY.md**(用户自带 key 通道已可用) |
 | JD 样板第三批 8 篇(字节Seed/阿里多模态/腾讯Infra/百度千帆/美团LongCat/蚂蚁/B站/拼多多) | 完成:JD 库 6→22 篇 |
