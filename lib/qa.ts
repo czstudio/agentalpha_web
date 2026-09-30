@@ -48,9 +48,10 @@ function parseFrontmatter(raw: string): { data: Record<string, string>; body: st
 function parseTags(raw: string | undefined): string[] {
   if (!raw) return []
   const parts = raw
-    .replace(/^[\[\[]+| [\]\]]+$/g, "")
+    .replace(/\r/g, "")
+    .replace(/^\[[\s]*|[\s]*\]$/g, "")
     .split(",")
-    .map((s) => s.trim().replace(/^"|"$/g, ""))
+    .map((s) => s.trim().replace(/^"|"$/g, "").replace(/\]$/, "").trim())
     .filter(Boolean)
   // 防御：曾有生成器把标签逐字写成单字符数组（如 [, A, g, e, n, t]），拼回后按逗号重拆
   if (parts.length > 6 && parts.every((p) => p.length <= 1)) {
