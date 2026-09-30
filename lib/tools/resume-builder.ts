@@ -58,12 +58,19 @@ const SECTION_RULES: Array<{ re: RegExp; key: "education" | "experience" | "proj
   { re: /^(获奖经历|荣誉奖项|获奖|荣誉|证书|校园经历|社区与开源|开源贡献|自我评价|其他)\s*[:：]?$/, key: "extras" },
 ]
 
-const TIME_RE = /((?:19|20)\d{2}\s*[年.\-/][^|]*?(?:至今|现在|(?:19|20)\d{2}\s*年?|(?:19|20)\d{2}))/
+const TIME_RE = /(?:19|20)\d{2}(?:\s*[年.\-/]\s*\d{1,2})?(?:\s*(?:-|–|—|至|~)\s*(?:(?:19|20)\d{2}(?:\s*[年.\-/]\s*\d{1,2})?|至今|现在|present))?/i
 const BULLET_RE = /^\s*(?:[•·●▪]\s*|[-–—]\s+|\d+[.、)]\s+)/
 const PHONE_RE = /1[3-9]\d{9}/
 const CONTACT_RE = /(@|github\.com|gitee\.com|\.com|linkedin|像符)/i
 
 type SectionKey = "education" | "experience" | "projects" | "skills" | "extras"
+
+/** 条目头判定:必须有真两位年份(19xx/20xx)时间段或分隔符;「预计明年」这类相对时间不算 */
+function looksLikeEntryHead(line: string): boolean {
+  if (line.includes("|") || line.includes("｜")) return true
+  // 条目头的时间段必须贴着行尾;「预计明年覆盖 50% 场景」这类句中数字不算
+  return /(?:19|20)\d{2}(?:[.\-/]\d{1,2})?\s*(?:(?:-|–|—|至|~)\s*(?:(?:19|20)\d{2}(?:[.\-/]\d{1,2})?|至今|现在))?\s*。?\s*$/.test(line)
+}
 
 function isSectionHeader(line: string): SectionKey | null {
   for (const rule of SECTION_RULES) {
@@ -135,8 +142,8 @@ export function parseResumeText(raw: string): ParseResult {
       continue
     }
 
-    // 条目头:带时间段或分隔符;否则视作上一条目的补充
-    if (TIME_RE.test(line) || line.includes("|") || line.includes("｜")) {
+    // 条目头:必须含真年份时间段或分隔符;否则视作上一条目的补充
+    if (looksLikeEntryHead(line)) {
       entries.push(splitEntry(line))
       continue
     }
@@ -245,4 +252,124 @@ export function buildWordHtml(d: ResumeData): string {
     sec("其他经历", entryHtmlWord(d.extras)),
     "</body></html>",
   ].join("\r\n")
+}
+
+/** 生成 Markdown 版(可贴进任何编辑器继续改) */
+export function buildMarkdown(d: ResumeData): string {
+  const entryMd = (entries: ResumeEntry[]) =>
+    entries
+      .map((e) => {
+        const head = ["**" + [e.org, e.role].filter(Boolean).join(" · ") + "**", e.time].filter(Boolean).join("  ")
+        const bullets = e.bullets.filter(Boolean).map((b) => `- ${b}`).join("\n")
+        return `${head}\n${bullets}`
+      })
+      .join("\n\n")
+  const parts = [`# ${d.name}`, d.contact ? d.contact : "", d.summary ? `> ${d.summary}` : ""]
+  if (d.education.length) parts.push("## 教育背景\n\n" + entryMd(d.education))
+  if (d.experience.length) parts.push("## 实习与工作\n\n" + entryMd(d.experience))
+  if (d.projects.length) parts.push("## 项目经历\n\n" + entryMd(d.projects))
+  if (d.skills.length) parts.push("## 专业技能\n\n" + d.skills.join(" · "))
+  if (d.extras.length) parts.push("## 其他经历\n\n" + entryMd(d.extras))
+  return parts.filter((p) => p.trim()).join("\n\n")
+}
+
+/* ── 证据审计(方法论吸收自 ASu-resume-audit-skill:时态边界/最高级比较全集/指标口径/团队指标归因/角色强度) ── */
+
+export type AuditLevel = "risk" | "evidence"
+
+export interface AuditFlag {
+  level: AuditLevel
+  /** 风险类别 */
+  kind: string
+  /** 给用户的修改建议 */
+  note: string
+}
+
+export interface AuditItem {
+  text: string
+  flags: AuditFlag[]
+}
+
+const AUDIT_RULES: Array<{ kind: string; level: AuditLevel; re: RegExp; note: string; absent?: RegExp }> = [
+  {
+    kind: "时态边界",
+    level: "risk",
+    re: /(正在|计划|规划|探索中|预计|将于|未来将)/,
+    absent: /(已上线|已交付|上线|交付|完成)/,
+    note: "规划中的方向不能写成已交付的收益:要么改成「规划中/在推进」,要么等真的落地再写结果",
+  },
+  {
+    kind: "最高级比较全集",
+    level: "risk",
+    re: /(首个|第一次|第一人|最年轻|最大|最早|顶尖|行业第一)/,
+    note: "「首个/第一/最」类表述要能报出比较全集(和谁比、范围多大),面试官一定会问",
+  },
+  {
+    kind: "指标缺口径",
+    level: "evidence",
+    re: /(%|AUC|准确率|召回|延迟|QPS|转化率|命中率)/,
+    absent: /(评测集|分母|时间窗|口径|badcase|基线|对比|样本)/,
+    note: "百分比/延迟类指标要备好口径:评测集、分母、时间窗,答不出会被当成拍脑袋",
+  },
+  {
+    kind: "团队指标个人归因",
+    level: "risk",
+    re: /(团队|公司|业务|产品)(整体)?(用户|收入|DAU|GMV|增长|营收)|(用户数|DAU|GMV)(突破|破|达)/,
+    absent: /(我负责|独立|我的部分|名下|模块)/,
+    note: "团队/公司指标不会自动变成个人成果:圈出你名下的那部分,写你直接负责的模块",
+  },
+  {
+    kind: "0→1 缺说明",
+    level: "evidence",
+    re: /(0→1|0到1|从零|从 0)/,
+    absent: /(新服务|新链路|新策略|搭建|初始化|立项)/,
+    note: "写 0→1 要说明「0」指什么:新服务、新链路还是新策略节点",
+  },
+]
+
+/** 逐条审计:返回带风险标记的条目(只含有标记的,干净条目不出现在结果里) */
+export function auditResume(data: ResumeData): AuditItem[] {
+  const out: AuditItem[] = []
+  for (const group of [data.experience, data.projects, data.extras]) {
+    for (const entry of group) {
+      for (const b of entry.bullets) {
+        const text = b.trim()
+        if (!text) continue
+        const flags: AuditFlag[] = []
+        for (const rule of AUDIT_RULES) {
+          if (rule.re.test(text) && !(rule.absent && rule.absent.test(text))) {
+            flags.push({ level: rule.level, kind: rule.kind, note: rule.note })
+          }
+        }
+        if (flags.length) out.push({ text, flags })
+      }
+    }
+  }
+  return out
+}
+
+/* ── JD 对齐(规则版:英文技术词 + 站内能力词表,不做语义匹配) ── */
+
+const JD_STOP = new Set([
+  "the", "and", "for", "with", "will", "are", "you", "our", "you", "your", "or", "to", "of", "in", "on", "is", "be",
+  "as", "by", "an", "at", "we", "us", "it", "its", "have", "has", "can", "do", "not", "from", "that", "this", "are",
+  "a", "b", "c", "d", "e", "etc", "job", "role", "work", "works", "working", "year", "years", "plus", "strong",
+  "good", "great", "best", "more", "than", "who", "what", "how", "all", "any", "per", "via", "using", "use", "used",
+])
+
+/** JD 里提到的技术点 vs 简历里真实出现的:给覆盖率与缺失清单,不做语义匹配、不建议编造 */
+export function matchJd(data: ResumeData, jd: string): { hits: string[]; missing: string[]; total: number } {
+  const resumeText = JSON.stringify(data).toLowerCase()
+  const tokens = new Set<string>()
+  for (const t of jd.match(/[A-Za-z][A-Za-z0-9.+#-]{1,24}/g) || []) {
+    const low = t.toLowerCase()
+    if (low.length >= 2 && !JD_STOP.has(low) && !/^\d/.test(low)) tokens.add(low)
+  }
+  const hits: string[] = []
+  const missing: string[] = []
+  for (const t of tokens) {
+    if (resumeText.includes(t)) hits.push(t)
+    else missing.push(t)
+  }
+  return { hits, missing: missing.slice(0, 12), total: hits.length + missing.length }
 }
