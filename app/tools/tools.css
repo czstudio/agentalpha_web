@@ -21,10 +21,27 @@
 .tk-main {
   max-width: 880px;
   margin: 0 auto;
-  padding: 48px 20px 80px;
+  /* 顶部留出吸顶导航的高度，防止标题/kicker 被遮 */
+  padding: 116px 20px 80px;
 }
 
 .tk-hero { margin-bottom: 28px; }
+
+/* hero 下的特性芯片行 */
+.tk-hero-chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+.tk-hero-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--tk-ink-2);
+  border: 1px solid var(--tk-line);
+  background: #fff;
+  border-radius: 999px;
+  padding: 5px 13px;
+}
+.tk-hero-chip svg { color: var(--tk-brand); }
 
 .tk-kicker {
   font-size: 13px;
@@ -223,7 +240,8 @@
   gap: 14px;
 }
 .tk-index-card {
-  display: block;
+  display: flex;
+  flex-direction: column;
   border: 1px solid var(--tk-line);
   border-radius: 14px;
   background: #fff;
@@ -232,12 +250,25 @@
   color: var(--tk-ink);
 }
 .tk-index-card:hover { border-color: var(--tk-brand); box-shadow: 0 8px 24px -16px rgba(107, 91, 214, 0.4); }
+/* 卡头：图标芯片 + 分类徽标 */
+.tk-card-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px; }
+.tk-icon-chip {
+  width: 40px;
+  height: 40px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 11px;
+}
+.tk-icon-chip.badge-diag { background: var(--tk-brand-tint); color: var(--tk-brand-ink); }
+.tk-icon-chip.badge-flow { background: #fffbeb; color: #b45309; }
+.tk-icon-chip.badge-coach { background: #f0fdf4; color: #15803d; }
+.tk-icon-chip.badge-manage { background: #eff6ff; color: #1d4ed8; }
 .tk-index-card .badge {
   display: inline-block;
   font-size: 11px;
   border-radius: 999px;
   padding: 2px 10px;
-  margin-bottom: 10px;
   font-weight: 600;
   letter-spacing: 0.04em;
 }
@@ -247,6 +278,50 @@
 .badge-manage { background: #eff6ff; color: #1d4ed8; border: 1px solid rgba(29, 78, 216, 0.3); }
 .tk-index-card .t { font-size: 16.5px; font-weight: 700; margin-bottom: 6px; }
 .tk-index-card .d { font-size: 13.5px; color: var(--tk-ink-2); line-height: 1.7; }
+.tk-index-card .go {
+  margin-top: 12px;
+  padding-top: 10px;
+  border-top: 1px dashed var(--tk-line);
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--tk-brand);
+}
+.tk-index-card:hover .go svg { transform: translateX(2px); }
+.tk-index-card .go svg { transition: transform 0.15s ease; }
+
+/* ── 内容库配套卡 ── */
+.tk-lib-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px; }
+.tk-lib-card {
+  display: grid;
+  gap: 3px;
+  align-content: start;
+  border: 1px solid var(--tk-line);
+  border-radius: 12px;
+  padding: 14px;
+  text-decoration: none;
+  color: var(--tk-ink);
+  background: #fff;
+  transition: border-color 0.15s ease, transform 0.15s ease;
+}
+.tk-lib-card:hover { border-color: var(--tk-brand); transform: translateY(-2px); }
+.tk-lib-icon {
+  width: 32px;
+  height: 32px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9px;
+  margin-bottom: 6px;
+}
+.tint-amber { background: #fffbeb; color: #b45309; }
+.tint-violet { background: var(--tk-brand-tint); color: var(--tk-brand-ink); }
+.tint-blue { background: #eff6ff; color: #1d4ed8; }
+.tint-green { background: #f0fdf4; color: #15803d; }
+.tk-lib-card .t { font-weight: 700; font-size: 14.5px; }
+.tk-lib-card .d { font-size: 12.5px; color: var(--tk-ink-3); line-height: 1.65; }
 
 /* ── Gap 自测 ── */
 .gap-self-table { display: grid; gap: 14px; }
@@ -338,31 +413,61 @@
 }
 .pm-cat-link:hover { background: var(--tk-brand-tint); }
 
-/* ── 工具中心流程 ── */
+/* ── 工具中心流程：六步连接流 ── */
 .tools-flow {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  gap: 10px;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 14px;
 }
 .tools-flow-step {
+  position: relative;
   display: grid;
-  gap: 2px;
+  gap: 3px;
+  align-content: start;
   border: 1px solid var(--tk-line);
   border-radius: 12px;
-  padding: 12px 14px;
+  padding: 14px 13px;
   text-decoration: none;
   color: var(--tk-ink);
   background: var(--tk-paper);
+  transition: border-color 0.15s ease, background 0.15s ease, transform 0.15s ease;
 }
-.tools-flow-step:hover { border-color: var(--tk-brand); background: #fff; }
+.tools-flow-step:hover { border-color: var(--tk-brand); background: #fff; transform: translateY(-2px); }
 .tools-flow-step .no {
+  width: 24px;
+  height: 24px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  background: var(--tk-brand);
+  color: #fff;
   font-size: 12px;
   font-weight: 700;
-  color: var(--tk-brand);
-  letter-spacing: 0.08em;
+  margin-bottom: 4px;
 }
-.tools-flow-step .lb { font-weight: 700; font-size: 14.5px; }
-.tools-flow-step .ds { font-size: 12px; color: var(--tk-ink-3); line-height: 1.6; }
+.tools-flow-step .lb { font-weight: 700; font-size: 14px; }
+.tools-flow-step .ds { font-size: 11.5px; color: var(--tk-ink-3); line-height: 1.55; }
+/* 步骤间箭头（落在列间距里，最后一列不画） */
+.tools-flow-step .arr {
+  position: absolute;
+  right: -12px;
+  top: 20px;
+  color: var(--tk-brand);
+  opacity: 0.55;
+  z-index: 1;
+}
+.tools-flow-step:last-child .arr { display: none; }
+.tools-flow-step:hover .arr { opacity: 1; }
+
+@media (max-width: 860px) {
+  .tools-flow { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .tools-flow-step:nth-child(3n) .arr { display: none; }
+}
+@media (max-width: 560px) {
+  .tools-flow { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .tools-flow-step .arr { display: none; }
+}
 
 /* ── 模拟面试 ── */
 .mock-mode-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 10px; }
@@ -572,7 +677,7 @@
 .jda-body p { margin: 0 0 10px; }
 
 @media (max-width: 640px) {
-  .tk-main { padding: 32px 16px 64px; }
+  .tk-main { padding: 96px 16px 64px; }
   .tk-hero h1 { font-size: 26px; }
   .tk-score-item { grid-template-columns: 76px 1fr 30px; }
 }
@@ -584,3 +689,16 @@
 .tk-faq-item summary:hover { color: var(--tk-brand-ink); }
 .tk-faq-item[open] summary { margin-bottom: 6px; }
 .tk-faq-item p { margin: 0; font-size: 13.5px; color: var(--tk-ink-2); line-height: 1.75; }
+
+/* ── JD 拆解:人话速览 / 行动清单 / 自带 key 面板 ── */
+.jda-plain-body { font-size: 14.5px; line-height: 1.9; color: var(--tk-ink); }
+.jda-plain-body p { margin: 0 0 10px; }
+.jda-seniority { color: var(--tk-brand-ink); font-weight: 600; }
+.jda-checklist { margin: 0; padding-left: 1.4em; font-size: 14.5px; line-height: 1.9; color: var(--tk-ink); }
+.jda-checklist li { margin-bottom: 6px; }
+.jda-keypanel { border: 1px dashed var(--tk-line-2); border-radius: 10px; padding: 10px 14px; margin-top: 10px; }
+.jda-keypanel summary { cursor: pointer; font-size: 13.5px; font-weight: 600; color: var(--tk-brand-ink); }
+.jda-keypanel-body { display: grid; gap: 8px; margin-top: 10px; }
+.jda-keypanel-hint { font-size: 12.5px; color: var(--tk-ink-3); line-height: 1.7; margin: 0; }
+.jda-key-input { width: 100%; box-sizing: border-box; }
+.jda-key-row { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }

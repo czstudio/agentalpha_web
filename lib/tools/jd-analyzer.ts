@@ -48,6 +48,63 @@ export interface JdBreakdown {
   qaPicks: string[]
   /** JD 文本长度（字） */
   length: number
+  /** 人话翻译（规则从 JD 原文结构生成,不做无依据推断） */
+  plain: string[]
+  /** 级别判断（JD 信号推断） */
+  seniority: string
+  /** 行动清单（基于考察词缺口与隐藏考点生成） */
+  checklist: string[]
+}
+
+/** 级别判断:只依据 JD 明示的年限/头衔词 */
+function judgeSeniority(jdText: string): string {
+  if (/实习|应届|助理|校招|trainee|intern/i.test(jdText)) return "入门级（实习/校招口径）"
+  if (/资深|专家|高级|Lead|负责人|架构师|5\s*年以上|8\s*年以上|senior|staff/i.test(jdText)) return "高级（资深/带头人口径）"
+  if (/1-3\s*年|三年以内|1~3年|2\s*年以上|3\s*年以上/.test(jdText)) return "中级（1-3 年口径）"
+  return "JD 未明示年限,按中级准备,面试时先问清"
+}
+
+/** 人话翻译:从 JD 原文拆职责/要求结构,转述成段(引用 JD 实际出现的词) */
+function buildPlain(jdText: string, families: FamilyScore[], coreHits: string[], business: HiddenTopic[]): string[] {
+  const lines: string[] = []
+  // 职责段:抓「岗位职责/工作职责/你将」后的第一二条
+  const dutyMatch = jdText.match(/(?:岗位职责|工作职责|你将|职位职责)[:：]?\s*([\s\S]{10,180}?)(?:任职要求|岗位要求|要求|我们期望|$)/)
+  const duties = dutyMatch
+    ? dutyMatch[1].split(/[;；\n]|(?=[一二三四五六七八九十1-9][、.．])/).map(s => s.replace(/^[\s一二三四五六七八九十1-9、.．-]+/, "").trim()).filter(s => s.length >= 8).slice(0, 2)
+    : []
+  const topFamily = families[0]
+  if (duties.length > 0) {
+    lines.push(`核心工作两三件事:${duties.join(';')}。落在「${topFamily.profile.name}」的职责范围里。`)
+  } else if (coreHits.length > 0) {
+    lines.push(`从考察词看,这个岗的日常大概率围绕${coreHits.slice(0, 4).join('、')}展开,属于「${topFamily.profile.name}」方向。`)
+  } else {
+    lines.push(`JD 里没出现方向性关键词,画像识别也区分不开——这种 JD 建议直接看团队和业务线判断,或拿去问在职的人。`)
+  }
+  if (business.length > 0) {
+    lines.push(`业务上大概率是${business.map(b => b.topic.replace(/（推断）/, '')).join('、')}——准备项目故事时往这个场景靠。`)
+  }
+  const reqMatch = jdText.match(/(?:任职要求|岗位要求|我们要找|要求)[:：]?\s*([\s\S]*)$/)
+  const reqCount = reqMatch ? reqMatch[1].split(/\n|[;；]/).filter(s => s.trim().length >= 6).length : 0
+  if (reqCount > 0) {
+    lines.push(`任职要求 ${reqCount} 条,其中明确点名了 ${coreHits.length} 个核心考察词——这些是简历筛选的硬门槛,对不上就没有然后了。`)
+  }
+  return lines
+}
+
+/** 行动清单:从缺口/隐藏考点/业务信号生成可执行的下一步 */
+function buildChecklist(coreHits: string[], hidden: HiddenTopic[], qaPicks: string[], cats: string[]): string[] {
+  const list: string[] = []
+  if (coreHits.length > 0) {
+    list.push(`把简历技能段对着这些词过一遍:${coreHits.slice(0, 6).join('、')}——做过的补进简历,没做过的先别写`)
+  }
+  for (const h of hidden.slice(0, 3)) {
+    list.push(`预演追问「${h.topic}」:${h.detail.slice(0, 30)}…`)
+  }
+  if (qaPicks.length > 0) {
+    list.push(`先刷匹配出来的 ${qaPicks.length} 道题,答不上的就是你的优先补课区`)
+  }
+  list.push('用项目匹配器按「这个方向 + 你的基础 + 可投入时间」拿一个项目方案,补上简历里最缺的那格证据')
+  return list.slice(0, 6)
 }
 
 /** 隐藏要求映射：JD 信号 → 面试真实考法。全部来自站内题库与面经的高频归纳。 */
@@ -146,14 +203,22 @@ function matchQa(jdText: string, coreHits: string[], qaList: QaLite[], limit = 1
 
 export function breakdownJd(jdText: string, qaList: QaLite[]): JdBreakdown {
   const { keywords, coreHits } = extractKeywords(jdText)
+  const families = scoreFamilies(jdText)
+  const hidden = HIDDEN_RULES.filter((r) => r.re.test(jdText)).map(({ topic, detail }) => ({ topic, detail }))
+  const business = BUSINESS_RULES.filter((r) => r.re.test(jdText)).map(({ topic, detail }) => ({ topic, detail }))
+  const qaPicks = matchQa(jdText, coreHits, qaList)
+  const dimensions = matchDimensions(jdText)
   return {
-    families: scoreFamilies(jdText),
+    families,
     keywords,
     coreHits,
-    dimensions: matchDimensions(jdText),
-    hidden: HIDDEN_RULES.filter((r) => r.re.test(jdText)).map(({ topic, detail }) => ({ topic, detail })),
-    business: BUSINESS_RULES.filter((r) => r.re.test(jdText)).map(({ topic, detail }) => ({ topic, detail })),
-    qaPicks: matchQa(jdText, coreHits, qaList),
+    dimensions,
+    hidden,
+    business,
+    qaPicks,
     length: jdText.trim().length,
+    plain: buildPlain(jdText, families, coreHits, business),
+    seniority: judgeSeniority(jdText),
+    checklist: buildChecklist(coreHits, hidden, qaPicks, dimensions.map((d) => d.key)),
   }
 }

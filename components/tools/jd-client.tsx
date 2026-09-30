@@ -7,6 +7,30 @@ import { breakdownJd, type JdBreakdown, type QaLite } from "@/lib/tools/jd-analy
 
 const DAILY_BROWSER_QUOTA = 5
 const USAGE_KEY = "jd-ai-usage-v1"
+const USERKEY_STORE = "jd-ai-userkey-v1"
+
+interface UserKeyConfig {
+  apiKey: string
+  baseUrl: string
+  model: string
+}
+
+const DEFAULT_USER_CONFIG: UserKeyConfig = {
+  apiKey: "",
+  baseUrl: "https://api.huohuaapi.com/v1",
+  model: "deepseek-v4-flash",
+}
+
+function loadUserKey(): UserKeyConfig {
+  try {
+    const raw = window.localStorage.getItem(USERKEY_STORE)
+    if (!raw) return { ...DEFAULT_USER_CONFIG }
+    const parsed = JSON.parse(raw) as Partial<UserKeyConfig>
+    return { ...DEFAULT_USER_CONFIG, ...parsed }
+  } catch {
+    return { ...DEFAULT_USER_CONFIG }
+  }
+}
 
 interface AiUsage {
   date: string
@@ -56,10 +80,22 @@ export function JdClient({ qaList, jdSamples }: { qaList: QaLite[]; jdSamples: J
   const [aiState, setAiState] = useState<"idle" | "loading" | "done" | "error" | "disabled" | "site-quota">("idle")
   const [aiError, setAiError] = useState("")
   const [aiUsage, setAiUsage] = useState<AiUsage>({ date: todayKey(), count: 0 })
+  const [userCfg, setUserCfg] = useState<UserKeyConfig>({ ...DEFAULT_USER_CONFIG })
+  const [showKeyPanel, setShowKeyPanel] = useState(false)
 
   useEffect(() => {
     setAiUsage(loadUsage())
+    setUserCfg(loadUserKey())
   }, [])
+
+  const saveUserCfg = (cfg: UserKeyConfig) => {
+    setUserCfg(cfg)
+    try {
+      window.localStorage.setItem(USERKEY_STORE, JSON.stringify(cfg))
+    } catch {
+      // 隐私模式存不进就算了
+    }
+  }
 
   const run = () => {
     setReport(breakdownJd(text, qaList))
@@ -69,7 +105,7 @@ export function JdClient({ qaList, jdSamples }: { qaList: QaLite[]; jdSamples: J
   }
 
   const runAi = async () => {
-    if (aiUsage.count >= DAILY_BROWSER_QUOTA) {
+    if (aiUsage.count >= DAILY_BROWSER_QUOTA && !userCfg.apiKey) {
       setAiState("disabled")
       return
     }
@@ -79,7 +115,12 @@ export function JdClient({ qaList, jdSamples }: { qaList: QaLite[]; jdSamples: J
       const res = await fetch("/api/llm-jd", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ jd: text }),
+        body: JSON.stringify({
+          jd: text,
+          apiKey: userCfg.apiKey || undefined,
+          baseUrl: userCfg.apiKey ? userCfg.baseUrl : undefined,
+          model: userCfg.apiKey ? userCfg.model : undefined,
+        }),
       })
       const data = (await res.json()) as {
         enabled?: boolean
@@ -105,12 +146,14 @@ export function JdClient({ qaList, jdSamples }: { qaList: QaLite[]; jdSamples: J
       setAiText(data.text)
       setAiModel(data.model ?? "")
       setAiState("done")
-      const next = { date: todayKey(), count: aiUsage.count + 1 }
-      setAiUsage(next)
-      try {
-        window.localStorage.setItem(USAGE_KEY, JSON.stringify(next))
-      } catch {
-        // 隐私模式写不进就算了,界面照常用
+      if (!userCfg.apiKey) {
+        const next = { date: todayKey(), count: aiUsage.count + 1 }
+        setAiUsage(next)
+        try {
+          window.localStorage.setItem(USAGE_KEY, JSON.stringify(next))
+        } catch {
+          // 隐私模式写不进就算了,界面照常用
+        }
       }
     } catch {
       setAiState("error")
@@ -149,6 +192,16 @@ export function JdClient({ qaList, jdSamples }: { qaList: QaLite[]; jdSamples: J
 
       {report && (
         <section className="tk-shell" aria-label="拆解结果">
+
+          <div className="tk-block jda-plain">
+            <h3>人话速览<span className="tk-note">规则生成 · 引号内均来自你的 JD 原文</span></h3>
+            <div className="jda-plain-body">
+              {report.plain.map((line) => (
+                <p key={line.slice(0, 16)}>{line}</p>
+              ))}
+              <p className="jda-seniority">级别判断:{report.seniority}</p>
+            </div>
+          </div>
 
           <div className="tk-block">
             <h3>岗位画像识别</h3>
@@ -250,6 +303,15 @@ export function JdClient({ qaList, jdSamples }: { qaList: QaLite[]; jdSamples: J
             </div>
           )}
 
+          <div className="tk-block">
+            <h3>行动清单<span className="tk-note">照着做就行</span></h3>
+            <ol className="jda-checklist">
+              {report.checklist.map((item, i) => (
+                <li key={i}>{item}</li>
+              ))}
+            </ol>
+          </div>
+
           <div className="tk-block jda-block">
             <h3>
               AI 深度拆解
@@ -261,19 +323,67 @@ export function JdClient({ qaList, jdSamples }: { qaList: QaLite[]; jdSamples: J
             </p>
 
             {aiState === "idle" && (
-              <button type="button" className="tk-run jda-run" onClick={runAi} disabled={aiUsage.count >= DAILY_BROWSER_QUOTA}>
-                {aiUsage.count >= DAILY_BROWSER_QUOTA ? "今日免费次数已用完" : `用 AI 再拆一遍(剩 ${DAILY_BROWSER_QUOTA - aiUsage.count} 次)`}
+              <button type="button" className="tk-run jda-run" onClick={runAi} disabled={aiUsage.count >= DAILY_BROWSER_QUOTA && !userCfg.apiKey}>
+                {userCfg.apiKey
+                  ? "用我的 key 拆解"
+                  : aiUsage.count >= DAILY_BROWSER_QUOTA
+                    ? "今日免费次数已用完(或填自己的 key 解锁)"
+                    : `用 AI 再拆一遍(剩 ${DAILY_BROWSER_QUOTA - aiUsage.count} 次)`}
               </button>
             )}
             {aiState === "loading" && (
               <p className="jda-status">正在拆解,大约 5-15 秒,别关页面…</p>
             )}
             {aiState === "disabled" && (
-              <p className="jda-status">
-                {aiError === "ai_off"
-                  ? "AI 深度拆解暂未开放(服务端未配置),先用上面的规则拆解结果,同样覆盖考点词与隐藏要求。"
-                  : "今天的免费次数用完了,明天再来。上面的规则拆解不限额,随时可用。"}
-              </p>
+              <>
+                <p className="jda-status">
+                  {aiError === "ai_off" || !userCfg.apiKey
+                    ? "站点免费 AI 额度暂未开放/已用完。规则拆解(上方)不受影响;等不及的话,在下面填一个自己的大模型 API key 立即用。"
+                    : "今天的免费次数用完了,明天再来。上面的规则拆解不限额,随时可用。"}
+                </p>
+                <details className="jda-keypanel" open={showKeyPanel} onToggle={(e) => setShowKeyPanel((e.target as HTMLDetailsElement).open)}>
+                  <summary>用自己的 API key(立即解锁,额度算你自己的)</summary>
+                  <div className="jda-keypanel-body">
+                    <p className="jda-keypanel-hint">
+                      填一个 OpenAI 兼容中转/官方的 key。key 只存你这台浏览器(localStorage),请求经本站转发但不落库、不记录;
+                      默认按 huohua 中转 + deepseek-v4-flash 填好,可改成你自己的端点与模型。
+                    </p>
+                    <input
+                      className="trk-input jda-key-input"
+                      type="password"
+                      placeholder="API Key(如 sk-…)"
+                      value={userCfg.apiKey}
+                      onChange={(e) => saveUserCfg({ ...userCfg, apiKey: e.target.value.trim() })}
+                      autoComplete="off"
+                      spellCheck={false}
+                    />
+                    <div className="jda-key-row">
+                      <input
+                        className="trk-input"
+                        placeholder="Base URL"
+                        value={userCfg.baseUrl}
+                        onChange={(e) => saveUserCfg({ ...userCfg, baseUrl: e.target.value.trim() })}
+                        spellCheck={false}
+                      />
+                      <input
+                        className="trk-input"
+                        placeholder="模型名"
+                        value={userCfg.model}
+                        onChange={(e) => saveUserCfg({ ...userCfg, model: e.target.value.trim() })}
+                        spellCheck={false}
+                      />
+                    </div>
+                    <button
+                      type="button"
+                      className="tk-run"
+                      onClick={runAi}
+                      disabled={userCfg.apiKey.length < 20}
+                    >
+                      {userCfg.apiKey.length >= 20 ? "用我的 key 拆解" : "填入 key 后解锁(至少 20 位)"}
+                    </button>
+                  </div>
+                </details>
+              </>
             )}
             {aiState === "site-quota" && (
               <p className="jda-status">今天全站 AI 额度已用完(每日 3 元预算控制),明天自动恢复。规则拆解不受影响。</p>

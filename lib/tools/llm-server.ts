@@ -111,17 +111,21 @@ export function llmConfigured(): boolean {
   return Boolean(process.env.LLM_API_KEY)
 }
 
-/** OpenAI 兼容 chat completions 调用(密钥只在本层出现,永不回传给客户端) */
+/** OpenAI 兼容 chat completions 调用(密钥只在本层出现,永不回传给客户端)。
+ * 优先站点 env;用户自带 key 时用请求里的 key/baseUrl/model(用户模式,各付各的账)。 */
 export async function callLlm(opts: {
   system: string
   user: string
   maxTokens?: number
   temperature?: number
+  apiKey?: string
+  baseUrl?: string
+  model?: string
 }): Promise<LlmResult> {
-  const apiKey = process.env.LLM_API_KEY
+  const apiKey = opts.apiKey || process.env.LLM_API_KEY
   if (!apiKey) throw new Error("LLM_NOT_CONFIGURED")
-  const baseUrl = process.env.LLM_BASE_URL || LLM_BASE_URL_DEFAULT
-  const model = process.env.LLM_MODEL || LLM_MODEL_DEFAULT
+  const baseUrl = opts.baseUrl || process.env.LLM_BASE_URL || LLM_BASE_URL_DEFAULT
+  const model = opts.model || process.env.LLM_MODEL || LLM_MODEL_DEFAULT
 
   const controller = new AbortController()
   const timer = setTimeout(() => controller.abort(), LLM_TIMEOUT_MS)

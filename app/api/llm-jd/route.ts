@@ -44,19 +44,32 @@ JD 没写但面试一定会问的 4 条,每条一句话,聚焦真实面试考法
 按优先级 3 步,每步一句话,可引用"题库/项目/模拟面试"这类通用动作`
 
 export async function POST(request: Request) {
-  if (!llmConfigured()) {
-    return NextResponse.json({ enabled: false, error: "not_configured" })
-  }
-
   let jd = ""
+  let userKey = ""
+  let userBaseUrl = ""
+  let userModel = ""
   try {
-    const body = (await request.json()) as { jd?: string }
+    const body = (await request.json()) as { jd?: string; apiKey?: string; baseUrl?: string; model?: string }
     jd = (body.jd ?? "").trim()
+    userKey = (body.apiKey ?? "").trim()
+    userBaseUrl = (body.baseUrl ?? "").trim()
+    userModel = (body.model ?? "").trim()
   } catch {
     return NextResponse.json({ enabled: true, error: "bad_request" }, { status: 400 })
   }
   if (jd.length < 50) {
     return NextResponse.json({ enabled: true, error: "jd_too_short" }, { status: 400 })
+  }
+
+  // 双通道:站点 env(运营方配置)或用户自带 key(页面上填,只存其浏览器)。
+  // 用户 key 同样走站点限额——防止本服务被当作免费代理。
+  const hasSiteKey = llmConfigured()
+  if (!hasSiteKey && !userKey) {
+    return NextResponse.json({ enabled: false, error: "not_configured" })
+  }
+  const effectiveKey = hasSiteKey ? undefined : userKey
+  if (!hasSiteKey && userKey.length < 20) {
+    return NextResponse.json({ enabled: true, error: "bad_user_key" }, { status: 400 })
   }
 
   // Vercel 场景取可信头;x-forwarded-for 首位可被客户端伪造,只在无可信头时兜底
@@ -71,9 +84,9 @@ export async function POST(request: Request) {
   )
     ?.trim() || "unknown"
 
-  // 相同 JD 直接走缓存,不扣额度之外的钱
-  const key = await inputKey("jd", jd)
-  const cached = cacheGet(key)
+  // 相同 JD 直接走缓存,不扣额度之外的钱(用户 key 模式不走站点缓存:各自密钥各自的账)
+  const key = effectiveKey ? `user:${await inputKey("jd", jd)}` : await inputKey("jd", jd)
+  const cached = effectiveKey ? null : cacheGet(key)
   if (cached) {
     const quota = consumeQuota(ip) // 缓存命中也计一次调用(挡刷),但上游零成本
     if (!quota.ok) {
@@ -94,8 +107,13 @@ export async function POST(request: Request) {
     const result = await callLlm({
       system: SYSTEM,
       user: `JD 原文:\n${jd.slice(0, LLM_INPUT_CHAR_LIMIT)}`,
+      apiKey: effectiveKey,
+      baseUrl: effectiveKey && userBaseUrl ? userBaseUrl : undefined,
+      model: effectiveKey && userModel ? userModel : undefined,
     })
-    cachePut(key, { text: result.text, model: result.model })
+    if (!effectiveKey) {
+      cachePut(key, { text: result.text, model: result.model })
+    }
     return NextResponse.json({
       enabled: true,
       text: result.text,
