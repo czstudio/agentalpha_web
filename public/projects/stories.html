@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>学员成果 · 12 位学员，12 条大模型转型路径 | AgentAlpha</title>
-<meta name="description" content="12 位真实学员的完整转型记录：求职上岸、顶会论文、保研、海外申博与人才计划。每个人原来卡在哪里、具体改了什么、面试官追问时怎么答——全过程可查。">
+<meta name="description" content="12 位真实学员的完整转型记录：求职上岸、顶会论文、保研、海外申博与人才计划。每个人原来卡在哪里、面试官怎么追问、具体怎么答——全过程可查。">
 <link rel="stylesheet" href="assets/showcase.css">
 <script>document.documentElement.classList.add('js')</script>
 <style>
@@ -18,7 +18,7 @@ html.js [data-r]{opacity:0;transform:translateY(16px);transition:opacity var(--d
 .strip{background:var(--accent-soft);border-bottom:1px solid var(--hair);font-size:.84rem;color:var(--accent);text-align:center;padding:10px 16px;font-weight:500}
 .strip b{font-weight:700}
 /* Hero */
-.shero{border-bottom:1px solid var(--hair);padding:clamp(64px,9vh,104px) 0 clamp(44px,6vh,64px);position:relative;overflow:hidden}
+.shero{border-bottom:1px solid var(--hair);padding:clamp(64px,9vh,104px) 0 clamp(40px,6vh,58px);position:relative;overflow:hidden}
 .shero::before{content:"";position:absolute;inset:0;background:radial-gradient(560px 260px at 18% -10%, var(--accent-soft), transparent 66%);pointer-events:none}
 .shero>*{position:relative}
 .shero .inner{width:min(1080px,calc(100% - clamp(40px,8vw,72px)));margin:0 auto}
@@ -29,6 +29,13 @@ html.js [data-r]{opacity:0;transform:translateY(16px);transition:opacity var(--d
 /* 阅读说明（诚实边界） */
 .note{display:flex;gap:12px;background:var(--bg-2);border:1px solid var(--hair);border-radius:12px;padding:14px 18px;margin-top:26px;font-size:.84rem;color:var(--ink-2);line-height:1.75;max-width:760px}
 .note .ic{flex:none;width:8px;height:8px;border-radius:50%;background:var(--accent);margin-top:7px}
+/* 本页导航 */
+.subnav{position:sticky;top:58px;z-index:40;background:color-mix(in oklab, var(--bg) 88%, transparent);backdrop-filter:saturate(1.4) blur(12px);border-bottom:1px solid var(--hair)}
+.subnav .inner{width:min(1080px,calc(100% - clamp(40px,8vw,72px)));margin:0 auto;display:flex;gap:4px;overflow-x:auto;scrollbar-width:none}
+.subnav .inner::-webkit-scrollbar{display:none}
+.subnav a{flex:none;font-size:.83rem;color:var(--muted);padding:11px 13px;border-bottom:2px solid transparent;transition:color .18s,border-color .18s}
+.subnav a:hover{color:var(--ink)}
+.subnav a.on{color:var(--ink);font-weight:600;border-bottom-color:var(--accent)}
 /* 指标条 */
 .sbar{border-bottom:1px solid var(--hair);background:var(--bg-2)}
 .sbar .wrap{width:min(1080px,calc(100% - clamp(40px,8vw,72px)));margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:0;padding:22px 0}
@@ -42,32 +49,55 @@ html.js [data-r]{opacity:0;transform:translateY(16px);transition:opacity var(--d
 .ghead h2{font-size:clamp(1.35rem,2.3vw,1.7rem);font-weight:700}
 .gsub{color:var(--muted);font-size:.9rem;max-width:66ch;margin-bottom:26px}
 /* 案例条目 */
-.case{display:grid;grid-template-columns:200px 1fr;gap:24px;padding:30px 0;border-top:1px solid var(--hair)}
+.case{display:grid;grid-template-columns:200px 1fr;gap:24px;padding:32px 0;border-top:1px solid var(--hair)}
 .case .hd{display:flex;flex-direction:column;gap:8px;align-items:flex-start}
 .case .no{font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;color:var(--muted-2)}
 .case h3{font-family:var(--serif);font-size:1.3rem;font-weight:700;letter-spacing:-.01em;line-height:1.3}
 .case .bg{font-size:.78rem;color:var(--muted);line-height:1.6}
 .pill{display:inline-flex;align-items:center;gap:6px;font-size:.78rem;font-weight:600;color:var(--accent);background:var(--accent-soft);border:1px solid var(--accent-line);border-radius:999px;padding:4px 12px;line-height:1.5;margin-top:2px}
+.pill.dark{color:var(--ink);background:var(--bg-2);border-color:var(--hair-2)}
 .case .bd{font-size:.93rem;color:var(--ink-2)}
 .case .bd p{line-height:1.88;margin:0 0 12px;text-wrap:pretty}
-.case .bd p:last-child{margin-bottom:0}
 .case .bd b{color:var(--ink);font-weight:600}
-.case .bd h4{font-family:var(--sans);font-size:.9rem;font-weight:700;color:var(--ink);margin:16px 0 8px;display:flex;align-items:baseline;gap:8px}
-.case .bd h4::before{content:"";flex:none;width:14px;height:1.5px;background:var(--accent);transform:translateY(-3px)}
+/* 追问实录 */
+.probes{margin:16px 0 4px;border:1px solid var(--hair);border-radius:12px;background:#fff;overflow:hidden}
+.probes .ph{display:flex;align-items:center;gap:8px;font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;color:var(--muted-2);padding:10px 16px;background:var(--bg-2);border-bottom:1px solid var(--hair)}
+.probe{padding:13px 16px;border-bottom:1px solid var(--hair)}
+.probe:last-child{border-bottom:none}
+.probe .q{font-weight:600;color:var(--ink);font-size:.9rem;line-height:1.6;display:flex;gap:10px}
+.probe .q i{flex:none;font-family:var(--mono);font-style:normal;font-size:10px;font-weight:700;color:var(--accent);background:var(--accent-soft);border-radius:5px;padding:2px 7px;letter-spacing:.08em;transform:translateY(2px)}
+.probe .a{font-size:.87rem;color:var(--ink-2);line-height:1.8;margin:7px 0 0 34px}
+.probe .a b{color:var(--ink);font-weight:600}
+/* 旗舰案例 */
+.case.flag{border-top:none;background:#fff;border:1px solid var(--hair-2);border-radius:18px;padding:30px 32px;margin:6px 0 30px;box-shadow:0 16px 44px rgb(0 0 0/.05)}
+.case.flag .pill{background:var(--accent);color:#fff;border-color:var(--accent)}
+.steps{list-style:none;margin:4px 0 0;padding:0}
+.steps li{position:relative;padding:0 0 14px 26px;font-size:.9rem;color:var(--ink-2);line-height:1.8}
+.steps li::before{content:"";position:absolute;left:5px;top:9px;width:7px;height:7px;border-radius:50%;background:var(--accent);opacity:.75}
+.steps li::after{content:"";position:absolute;left:8px;top:20px;bottom:-2px;width:1px;background:var(--hair)}
+.steps li:last-child{padding-bottom:2px}
+.steps li:last-child::after{display:none}
+.steps li b{color:var(--ink);font-weight:600}
 /* 聊天截图三联 */
 .shots{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;max-width:600px;margin:18px 0 6px}
 .shots figure{margin:0;border:1px solid var(--hair-2);border-radius:12px;overflow:hidden;background:#fff}
 .shots img{width:100%;display:block;aspect-ratio:292/633;object-fit:cover}
 .shots figcaption{font-family:var(--mono);font-size:10.5px;color:var(--muted-2);padding:8px 10px;border-top:1px solid var(--hair);background:var(--bg-2)}
-/* 快报精选卡 */
-.flash{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:8px 0 34px}
-.fcard{background:#fff;border:1px solid var(--hair);border-radius:14px;padding:18px 20px;display:flex;flex-direction:column;gap:8px;transition:transform .28s var(--ease),border-color .28s}
-.fcard:hover{transform:translateY(-2px);border-color:var(--accent-line)}
-.fcard .who{font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;color:var(--muted-2)}
-.fcard .res{font-family:var(--serif);font-size:1.06rem;font-weight:700;color:var(--ink);line-height:1.4}
-.fcard .res em{font-style:normal;color:var(--accent)}
-.fcard p{font-size:.8rem;color:var(--muted);line-height:1.7;margin:0}
-/* 30 条分组带 */
+/* 追问主题榜 */
+.topics{border-top:1px solid var(--hair)}
+.topic{display:grid;grid-template-columns:56px 250px 1fr;gap:20px;padding:22px 0;border-bottom:1px solid var(--hair);align-items:baseline}
+.topic .n{font-family:var(--serif);font-size:1.5rem;font-weight:700;color:var(--muted-2);letter-spacing:-.02em}
+.topic h3{font-size:1rem;font-weight:700;color:var(--ink);margin:0}
+.topic .desc{font-size:.88rem;color:var(--ink-2);line-height:1.85}
+.topic .desc b{color:var(--ink);font-weight:600}
+.topic .desc .src{display:block;margin-top:6px;font-family:var(--mono);font-size:10.5px;color:var(--muted-2);letter-spacing:.06em}
+/* 薪资 specs 行 */
+.srow{display:grid;grid-template-columns:230px 1fr;gap:20px;padding:19px 0;border-bottom:1px solid var(--hair);align-items:baseline}
+.srow .who{font-size:.8rem;color:var(--muted);line-height:1.6}
+.srow .got{font-size:.95rem;color:var(--ink-2);line-height:1.7}
+.srow .got b{font-family:var(--serif);font-size:1.12rem;color:var(--ink);font-weight:700;letter-spacing:-.01em}
+.srow .got em{font-style:normal;color:var(--accent);font-weight:600}
+/* 分组带（30 条全量） */
 .bgrp{margin-bottom:26px}
 .bgrp h4{font-family:var(--sans);font-size:.9rem;font-weight:700;color:var(--ink);margin:0 0 6px;display:flex;align-items:baseline;gap:10px}
 .bgrp h4 span{font-family:var(--mono);font-size:10.5px;color:var(--muted-2);letter-spacing:.1em;font-weight:400}
@@ -76,10 +106,6 @@ html.js [data-r]{opacity:0;transform:translateY(16px);transition:opacity var(--d
 .brow .who{color:var(--muted)}
 .brow .got{color:var(--ink-2);line-height:1.65}
 .brow .got b{color:var(--ink);font-weight:600}
-@media (max-width:960px){
-  .flash{grid-template-columns:1fr}
-  .brow{grid-template-columns:1fr;gap:2px}
-}
 /* 成果墙 */
 .wallwrap{border:1px solid var(--hair-2);border-radius:16px;overflow:hidden;background:#fff;box-shadow:0 20px 48px rgb(0 0 0/.06)}
 .wallwrap img{width:100%;display:block}
@@ -97,13 +123,19 @@ html.js [data-r]{opacity:0;transform:translateY(16px);transition:opacity var(--d
 .cta .promo b{color:#fff}
 section.blk{padding:clamp(52px,8vh,88px) 0}
 .blk .inner{width:min(1080px,calc(100% - clamp(40px,8vw,72px)));margin:0 auto}
+.alt{background:var(--bg-2);border-top:1px solid var(--hair);border-bottom:1px solid var(--hair)}
 footer.footer{border-top:1px solid var(--hair);padding:26px 0;font-size:.82rem;color:var(--muted)}
 footer.footer .inner{width:min(1080px,calc(100% - clamp(40px,8vw,72px)));margin:0 auto;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
 @media (max-width:960px){
   .sbar .wrap{grid-template-columns:1fr;gap:14px}
   .sb{border-left:none;padding-left:0}
   .case{grid-template-columns:1fr;gap:14px}
+  .case.flag{padding:22px 18px}
   .shots{max-width:none}
+  .topic{grid-template-columns:1fr;gap:6px}
+  .topic .n{font-size:1.1rem}
+  .srow{grid-template-columns:1fr;gap:4px}
+  .brow{grid-template-columns:1fr;gap:2px}
 }
 @media (prefers-reduced-motion: reduce){
   html.js [data-r]{opacity:1;transform:none;transition:none}
@@ -130,52 +162,76 @@ footer.footer .inner{width:min(1080px,calc(100% - clamp(40px,8vw,72px)));margin:
   </div>
 </section>
 
+<nav class="subnav" aria-label="本页导航"><div class="inner">
+  <a href="#jobs" class="on">求职上岸</a><a href="#research">论文与保研</a><a href="#phd">申博与人才计划</a><a href="#probes">面试官追问</a><a href="#offers">更多 offer 与薪资</a><a href="#wall">成果展示</a>
+</div></nav>
+
 <div class="sbar"><div class="wrap">
-  <div class="sb" data-r><b>30 篇</b><span>案例库条目，其中 12 位做了逐段深度复盘</span></div>
+  <div class="sb" data-r><b>12 位</b><span>深度复盘学员，覆盖求职、论文、保研、申博、人才计划</span></div>
   <div class="sb" data-r style="--i:1"><b>26 天 – 5 年</b><span>准备周期跨度，最快的 26 天拿到 offer，最长的走了完整科研路径</span></div>
-  <div class="sb" data-r style="--i:2"><b>3 类追问</b><span>每个案例都写清面试官的追问与当时怎么答</span></div>
+  <div class="sb" data-r style="--i:2"><b>5 类追问</b><span>每个案例都还原面试官的追问与当时的答法</span></div>
 </div></div>
 
 <section class="blk" id="jobs"><div class="inner">
   <div class="ghead" data-r><span class="no">PATH 01</span><h2>求职上岸</h2></div>
   <p class="gsub" data-r style="--i:1">从双非本科到四年老兵，共同点是：项目不再停在「能演示」，而是能讲清失败、边界与代价。</p>
 
+  <article class="case flag" data-r>
+    <div class="hd"><span class="no">CASE 00 · 旗舰</span><h3>阿周</h3><span class="bg">南方某 211 计算机本科<br>大三下开始 · 全程约 3 个月</span><span class="pill">小红书算法岗实习转正 45k×16（SSP 档）</span><span class="pill dark">总包约 72W+</span></div>
+    <div class="bd">
+      <p><b>起点：</b>上一段实习在小厂做前端，简历上看不到大模型或推荐算法的影子；机器学习只会写公式，调不通一个真实模型；LeetCode 只刷过几十道，手撕 medium 容易卡壳。他卡在简历关前面，连面试的池子都进不去。算法岗 HC 收缩、大厂校招泡池子排序，光靠学校牌子排不到前面。</p>
+      <p><b>路线选择：</b>比起海投校招拼运气，他选了更稳的一条：先用一段日常实习把背景补齐，再用实习转正把 offer 从不确定变成已落袋。</p>
+      <ol class="steps">
+        <li><b>第 1 个月 · 集中备战：</b>算法八股（SVM、树模型、深度学习、Transformer、召回排序基础）+ LeetCode 200 道核心题与剑指 Offer + 一个能演示的推荐/大模型项目（多路召回、向量检索、粗排精排，加一段简单 RAG/Agent 链路）。</li>
+        <li><b>第 2–3 个月 · 日常实习：</b>扎进小红书信息流推荐的真实业务：召回侧优化、用 A/B Test 验证特征、把用户反馈和线上指标（CTR/CVR/留存）做成复盘，不当 toy demo。</li>
+        <li><b>转正答辩：</b>导师评语 + 转正答辩 + 业务方认可，拿 return offer：45k×16，SSP 档，签字费/期权/房补另算。</li>
+      </ol>
+      <div class="probes"><div class="ph">实习转正答辩 · 项目被追问什么</div>
+        <div class="probe"><div class="q"><i>Q1</i>数据从哪里来？召回效果怎么评估？</div><p class="a">项目阶段就补齐了评测口径；实习里用 <b>A/B Test</b> 验证特征与线上指标挂钩，避免只报离线数字。</p></div>
+        <div class="probe"><div class="q"><i>Q2</i>线上出了问题怎么排查？失败了怎么恢复？</div><p class="a">链路里保留可复盘的日志与指标监控，问题能追到具体环节；这也成为他答辩时讲得最顺的部分。</p></div>
+        <div class="probe"><div class="q"><i>Q3</i>成本和延迟怎么权衡？</div><p class="a">多路召回与粗排精排的分层本身就是延迟与效果的权衡；他能讲清每一层为什么存在。</p></div>
+      </div>
+      <p style="margin-top:12px">他的准备方法贯穿始终：把项目转成简历 bullet 和面试问答，用 STAR（背景–任务–动作–结果）讲清取舍，而不是堆技术名词。</p>
+    </div>
+  </article>
+
   <article class="case" data-r>
     <div class="hd"><span class="no">CASE 01</span><h3>Ethan</h3><span class="bg">双非本科 · 211 硕士<br>准备 3 个月</span><span class="pill">科大讯飞、美的、TME 相关大模型岗位机会</span></div>
     <div class="bd">
-      <p><b>起点：</b>没有竞赛、论文，也没有大厂实习。准备了 3 个月，简历上真正能打的只有两条项目：企业知识库 RAG 和工作流 Agent。</p>
-      <p>他第一次改项目时，最大的误区是把「做过」写成「会了」：接入向量库、调用大模型、搭了工作流。这样的描述能过关键词筛选，却经不起第二个问题。</p>
-      <h4>第一轮追问：没有论文，项目深度怎么证明？</h4>
-      <p>他没有再回答「效果不错」，而是把坏样本拆成事实问答、跨章节、表格、无答案四类，再分别记录分块、Embedding、rerank 的变化。项目从一个 Demo 变成了一套能复现、能比较、能解释失败的系统。</p>
-      <h4>第二轮追问：工具调用失败怎么办？</h4>
-      <p>回答也不再是「加重试」：缺参数就追问，权限不足就拒绝，超时走异步重试，写操作必须二次确认，持续失败才转人工，并保留完整 trace。面试官真正想听的是边界和代价，而不是框架名。</p>
-      <h4>第三轮追问：同一个项目，为什么能投不同公司？</h4>
-      <p>项目事实不变，但表达重点改变：偏算法的岗位讲召回和评测，偏应用的岗位讲工具调用与状态机，偏业务的岗位讲权限、回退和线上指标。</p>
+      <p><b>起点：</b>没有竞赛、论文，也没有大厂实习。简历上真正能打的只有两条项目：企业知识库 RAG 和工作流 Agent。第一次改项目时，最大的误区是把「做过」写成「会了」。这样的描述能过关键词筛选，却经不起第二个问题。</p>
+      <div class="probes"><div class="ph">面试实录 · 三轮追问</div>
+        <div class="probe"><div class="q"><i>Q1</i>没有论文，项目深度怎么证明？</div><p class="a">他没有再回答「效果不错」，而是把坏样本拆成<b>事实问答、跨章节、表格、无答案四类</b>，再分别记录分块、Embedding、rerank 的变化。项目从一个 Demo 变成一套能复现、能比较、能解释失败的系统。</p></div>
+        <div class="probe"><div class="q"><i>Q2</i>工具调用失败怎么办？</div><p class="a">回答不再是「加重试」：缺参数就追问，权限不足就拒绝，超时走异步重试，写操作必须二次确认，持续失败才转人工，并保留完整 trace。<b>面试官真正想听的是边界和代价，而不是框架名。</b></p></div>
+        <div class="probe"><div class="q"><i>Q3</i>同一个项目，为什么能投不同公司？</div><p class="a">项目事实不变，表达重点切换：偏算法的岗位讲<b>召回和评测</b>，偏应用的岗位讲<b>工具调用与状态机</b>，偏业务的岗位讲<b>权限、回退和线上指标</b>。</p></div>
+      </div>
     </div>
   </article>
 
   <article class="case" data-r>
     <div class="hd"><span class="no">CASE 02</span><h3>Liam</h3><span class="bg">普通本科 · 信息管理<br>无大厂实习</span><span class="pill">深圳 Agent 开发岗 Offer</span></div>
     <div class="bd">
-      <p><b>起点：</b>过去讲项目时总围绕 chunk、Embedding、向量库转，一旦被问「为什么论文表格召回不到」，回答就只剩「换一个模型试试」。</p>
-      <p>这次他先停掉功能堆叠，专门做坏样本。PDF 解析后表格是否还在？表头和数值有没有被切开？论文名、数据集名、指标缩写是不是纯向量的盲区？最后用固定分块和语义分块做对照，并给专有名词补上 BM25。</p>
-      <p>另一条 Agent 线也做了同样的拆解：Reviewer 输出 JSON 不合法时，不重跑整条 pipeline；先校验字段，能修就修，不能修只重跑当前节点，连续失败再回退或人工接管。</p>
+      <p><b>起点：</b>过去讲项目总围绕 chunk、Embedding、向量库转，一旦被问「为什么论文表格召回不到」，回答就只剩「换一个模型试试」。这次他先停掉功能堆叠，专门做坏样本。</p>
+      <div class="probes"><div class="ph">面试实录 · 项目深挖近 20 分钟</div>
+        <div class="probe"><div class="q"><i>Q1</i>为什么论文表格就是召回不到？</div><p class="a">他先查解析层：PDF 解析后<b>表格是否还在、表头和数值有没有被切开</b>，再查语义层：论文名、数据集名、指标缩写是纯向量检索的盲区，给专有名词补上 BM25，并用固定分块和语义分块做对照。</p></div>
+        <div class="probe"><div class="q"><i>Q2</i>Reviewer 输出 JSON 不合法怎么办？重跑整条流程吗？</div><p class="a">不重跑整条 pipeline：<b>先校验字段，能修就修，不能修只重跑当前节点</b>，连续失败再回退或人工接管。</p></div>
+      </div>
       <div class="shots">
         <figure><img src="assets/img/stories/chat-1.jpg" alt="模拟还原：从一次真实面试卡点开始拆问题（1/3）" loading="lazy"><figcaption>模拟还原 1/3 · 拆问题</figcaption></figure>
         <figure><img src="assets/img/stories/chat-2.jpg" alt="模拟还原：把模糊的优化改成可验证步骤（2/3）" loading="lazy"><figcaption>模拟还原 2/3 · 可验证步骤</figcaption></figure>
         <figure><img src="assets/img/stories/chat-3.jpg" alt="模拟还原：面试通过后仍然复盘具体追问（3/3）" loading="lazy"><figcaption>模拟还原 3/3 · 面后复盘</figcaption></figure>
       </div>
-      <p>下周面试，面试官顺着表格解析和局部重试继续问了近 20 分钟。他第一次没有乱，也没有靠背名词硬撑。</p>
+      <p>面试官顺着表格解析和局部重试继续问了近 20 分钟。他第一次没有乱，也没有靠背名词硬撑。</p>
     </div>
   </article>
 
   <article class="case" data-r>
     <div class="hd"><span class="no">CASE 03</span><h3>Ryan</h3><span class="bg">双非背景 · 多年全栈<br>转 AI 方向</span><span class="pill">入职儿童 AI 玩具团队</span></div>
     <div class="bd">
-      <p><b>起点：</b>转 AI 时最大的优势不是「写代码快」，而是知道一个功能要怎样接进真实产品。</p>
-      <p>他在 Idea2Paper 中持续提交代码，做过知识图谱构建界面、后端流水线、跨平台前端与任务进度等工作。到面试时，能展示的不只是最终页面，还有提交记录、模块边界和踩过的坑。</p>
-      <p>入职儿童 AI 玩具团队后，工作很快从网页功能转向 ASR、情绪识别、RAG、Function Call、多 Agent 与设备延迟。他不断压缩语音到回答的链路，并开始承担十余人团队的推进工作。</p>
-      <p>这个案例的关键不是「全栈转 AI」六个字，而是原有工程能力怎样迁移：前端懂交互，后端懂链路，到了端侧产品还要懂延迟、失败和用户等待。</p>
+      <p><b>起点：</b>转 AI 时最大的优势不是「写代码快」，而是知道一个功能要怎样接进真实产品。他在 Idea2Paper 中持续提交代码：知识图谱构建界面、后端流水线、跨平台前端与任务进度。</p>
+      <div class="probes"><div class="ph">面试实录 · 开源项目深挖</div>
+        <div class="probe"><div class="q"><i>Q1</i>这个开源项目里你具体做了什么？</div><p class="a">他能展示的不只是最终页面，还有<b>提交记录、模块边界和踩过的坑</b>——面试官可以顺着代码继续验证。</p></div>
+        <div class="probe"><div class="q"><i>Q2</i>到端侧产品，工程难点变成什么？</div><p class="a">入职儿童 AI 玩具团队后，问题从网页功能转向 ASR、情绪识别、RAG、Function Call、多 Agent 与<b>设备延迟</b>：前端懂交互、后端懂链路，端侧还要懂延迟、失败和用户等待。</p></div>
+      </div>
     </div>
   </article>
 
@@ -183,67 +239,78 @@ footer.footer .inner{width:min(1080px,calc(100% - clamp(40px,8vw,72px)));margin:
     <div class="hd"><span class="no">CASE 04</span><h3>Mason</h3><span class="bg">在职开发<br>2026 年 3–4 月集中补 Agent 工程</span><span class="pill">多位面试官主动提起 Idea2Paper</span></div>
     <div class="bd">
       <p><b>起点：</b>在职开发，项目包括 Agentic Search v2、知识图谱召回与去重、DeepResearch 和数据泄漏排查。</p>
-      <p>至少三位面试官主动提到了 Idea2Paper，并继续追问 Agent 的设计边界、Agent Team、Swarm、Harness 以及系统如何持续优化。开源项目在这里不是简历装饰，而是面试官可以顺着代码继续验证的入口。</p>
-      <p>他的准备方式也随之改变：少讲「用了哪些框架」，多讲一次错误召回如何定位、一条搜索链路为什么这样拆、自动化做到哪一步必须停下来交给人。</p>
+      <div class="probes"><div class="ph">面试实录 · 面试官顺着开源项目往下问</div>
+        <div class="probe"><div class="q"><i>Q1</i>Idea2Paper 的 Agent 设计边界在哪里？Agent Team、Swarm、Harness 怎么选？</div><p class="a">至少三位面试官主动提到这个项目并追问这些概念。他的答法：<b>少讲「用了哪些框架」，多讲一次错误召回如何定位、一条搜索链路为什么这样拆</b>。</p></div>
+        <div class="probe"><div class="q"><i>Q2</i>系统怎么持续优化？自动化做到哪一步？</div><p class="a">讲清<b>自动化做到哪一步必须停下来交给人</b>。开源项目不是简历装饰，而是面试官可以顺着代码继续验证的入口。</p></div>
+      </div>
     </div>
   </article>
 
   <article class="case" data-r>
     <div class="hd"><span class="no">CASE 05</span><h3>Noah</h3><span class="bg">4 年后端经验<br>准备 6 个月 · 目标游戏 AI</span><span class="pill">24K 游戏 AI Offer</span></div>
     <div class="bd">
-      <p><b>起点：</b>目标不是泛泛的「大模型应用岗」，而是游戏 AI。</p>
-      <p>他做的是 NPC 与任务生成 Agent：故事知识库保存世界设定，玩家记忆记录长期状态，有限状态机限制剧情推进，再用评测检查角色是否出戏、任务是否自相矛盾。</p>
-      <p>后端经验让他更早意识到，生成得像不像只是第一层；状态能不能持续、规则会不会被绕过、一次错误会不会污染后续剧情，才是产品真正会遇到的问题。</p>
+      <p><b>起点：</b>目标不是泛泛的「大模型应用岗」，而是游戏 AI。他做的是 NPC 与任务生成 Agent：故事知识库保存世界设定，玩家记忆记录长期状态，有限状态机限制剧情推进。</p>
+      <div class="probes"><div class="ph">面试实录 · 系统设计深挖</div>
+        <div class="probe"><div class="q"><i>Q1</i>怎么保证 NPC 不出戏、任务不自相矛盾？</div><p class="a">他配了<b>评测</b>：专门检查角色是否出戏、任务是否自相矛盾。生成得像不像只是第一层。</p></div>
+        <div class="probe"><div class="q"><i>Q2</i>长线剧情里，一次生成错误会怎样？</div><p class="a">后端经验让他更早意识到真正的产品问题：<b>状态能不能持续、规则会不会被绕过、一次错误会不会污染后续剧情</b>。</p></div>
+      </div>
     </div>
   </article>
 
   <article class="case" data-r>
     <div class="hd"><span class="no">CASE 06</span><h3>Lucas</h3><span class="bg">双非本科 · 无论文实习竞赛<br>准备周期 2 个月</span><span class="pill">大模型相关岗位 Offer</span></div>
     <div class="bd">
-      <p><b>起点：</b>准备周期只有 2 个月。</p>
-      <p>他的企业知识库项目没有停在「上传文档就能问答」：先处理不同文档解析，再分别检查召回、rerank 和引用；链路里保留 trace，出现错答能追到具体文档与分块。</p>
-      <p>为了避免拿几个顺手问题自测，他整理了 300 条测试集。项目的价值因此从「能演示」变成「能知道哪类问题还不行」。</p>
+      <p><b>起点：</b>准备周期只有 2 个月，项目没有停在「上传文档就能问答」：先处理不同文档解析，再分别检查召回、rerank 和引用。</p>
+      <div class="probes"><div class="ph">面试实录 · 评测与可追溯</div>
+        <div class="probe"><div class="q"><i>Q1</i>你怎么知道系统是不是真的变好了？</div><p class="a">为了避免拿几个顺手问题自测，他整理了 <b>300 条测试集</b>。项目的价值从「能演示」变成「能知道哪类问题还不行」。</p></div>
+        <div class="probe"><div class="q"><i>Q2</i>出现错答，你怎么定位？</div><p class="a">链路里保留 trace，<b>错答能追到具体文档与分块</b>。</p></div>
+      </div>
     </div>
   </article>
 
   <article class="case" data-r>
     <div class="hd"><span class="no">CASE 07</span><h3>Chloe</h3><span class="bg">非计算机专业 · 生物医学背景<br>集中准备 26 天</span><span class="pill">大模型岗位 Offer</span></div>
     <div class="bd">
-      <p><b>起点：</b>非计算机专业，集中准备 26 天。</p>
-      <p>她没有硬做一个陌生的通用客服，而是选择医学文献 RAG 与安全问答：处理药物别名和术语映射，混合召回文献，检查回答与引用是否一致，并为高风险问题设计拒答。</p>
-      <p>专业背景在这里不是包袱，而是判断系统有没有胡说的参照系。她能解释哪些问题可以辅助检索、哪些问题必须拒绝，以及为什么「有引用」不等于「引用支持结论」。</p>
+      <p><b>起点：</b>非计算机专业，集中准备 26 天。她没有硬做一个陌生的通用客服，而是选择医学文献 RAG 与安全问答：处理药物别名和术语映射，混合召回文献，检查回答与引用是否一致。</p>
+      <div class="probes"><div class="ph">面试实录 · 安全边界深挖</div>
+        <div class="probe"><div class="q"><i>Q1</i>医学问题，哪些能答、哪些必须拒绝？</div><p class="a">专业背景成了判断系统有没有胡说的参照系：她能解释<b>哪些问题可以辅助检索、哪些问题必须拒绝</b>，并为高风险问题设计了拒答。</p></div>
+        <div class="probe"><div class="q"><i>Q2</i>有引用就等于可靠吗？</div><p class="a">她能讲清<b>「有引用」不等于「引用支持结论」</b>，回答与引用的一致性要单独检查。</p></div>
+      </div>
     </div>
   </article>
 
   <article class="case" data-r>
     <div class="hd"><span class="no">CASE 08</span><h3>Daniel</h3><span class="bg">2025 年 7 月入职百度<br>7–10 月持续做实验</span><span class="pill">在职实验线：多 Agent · 多模态 · LLM 评分</span></div>
     <div class="bd">
-      <p><b>起点：</b>2025 年 7 月加入百度，随后用 7–10 月持续做实验。</p>
-      <p>他把多 Agent、多模态知识图谱、LLM 评分串到同一条实验线上，也对比 Gemini 与 GPT-4o 的表现。重点不是宣布「某模型更强」，而是记录任务条件、失败类型和差异出现在哪里。</p>
-      <p>这条路径说明，拿到岗位并不是学习结束。真正进入团队后，问题会从「会不会调用模型」变成「如何设计可复现的比较，以及怎样解释失败」。</p>
+      <p><b>起点：</b>拿到岗位并不是学习结束。他把多 Agent、多模态知识图谱、LLM 评分串到同一条实验线上，也对比 Gemini 与 GPT-4o 的表现。</p>
+      <div class="probes"><div class="ph">入职后的实验复盘</div>
+        <div class="probe"><div class="q"><i>Q1</i>结论是「某模型更强」吗？</div><p class="a">重点不是宣布谁更强，而是记录<b>任务条件、失败类型和差异出现在哪里</b>。如何设计可复现的比较、怎样解释失败，才是进团队后被问的问题。</p></div>
+      </div>
     </div>
   </article>
 </div></section>
 
-<section class="blk" id="research" style="background:var(--bg-2);border-top:1px solid var(--hair);border-bottom:1px solid var(--hair)"><div class="inner">
+<section class="blk alt" id="research"><div class="inner">
   <div class="ghead" data-r><span class="no">PATH 02</span><h2>论文与保研</h2></div>
   <p class="gsub" data-r style="--i:1">本科阶段把一条实验链做完整，比把结果包装成天才故事更重要。</p>
 
   <article class="case" data-r>
     <div class="hd"><span class="no">CASE 09</span><h3>Leo</h3><span class="bg">211 大三<br>准备 4 个月</span><span class="pill">AAAI 2024 论文 · 中科院推荐</span></div>
     <div class="bd">
-      <p><b>起点：</b>围绕多模态大模型依次推进数据、模型、优化和对比实验，没有把「跑通一个仓库」当作完成。</p>
-      <p>每一步都要回答：数据为什么这样处理，改动影响了什么，和基线相比究竟差在哪里。</p>
-      <p>对本科生来说，最重要的不是把结果包装成天才故事，而是让四个月的实验链条看得见。</p>
+      <p>围绕多模态大模型依次推进数据、模型、优化和对比实验，没有把「跑通一个仓库」当作完成。</p>
+      <div class="probes"><div class="ph">导师/面试追问</div>
+        <div class="probe"><div class="q"><i>Q1</i>数据为什么这样处理？改动影响了什么？和基线差在哪？</div><p class="a">每一步都要能回答这三个问题。对本科生来说，最重要的不是包装成天才故事，而是<b>让四个月的实验链条看得见</b>。</p></div>
+      </div>
     </div>
   </article>
 
   <article class="case" data-r>
     <div class="hd"><span class="no">CASE 10</span><h3>Sophia</h3><span class="bg">电子信息专业大四<br>深度学习基础薄弱 · 时间卡在毕业前</span><span class="pill">NeurIPS 2024 Poster · 清华深造</span></div>
     <div class="bd">
-      <p><b>起点：</b>她没有跳过原有专业基础，而是从信号处理切入，补齐数据、模型、优化与论文写作。</p>
-      <p>遇到实验不稳定时，先回到数据和指标，而不是不断更换更大的模型。</p>
-      <p>转向不是把过去全部推倒，而是找到旧知识与新问题的连接点。</p>
+      <p>她没有跳过原有专业基础，而是从信号处理切入，补齐数据、模型、优化与论文写作。</p>
+      <div class="probes"><div class="ph">实验卡住时怎么办</div>
+        <div class="probe"><div class="q"><i>Q1</i>实验不稳定，是换更大的模型吗？</div><p class="a">她的做法是<b>先回到数据和指标</b>，而不是不断换更大的模型。转向不是把过去全部推倒，而是找到旧知识与新问题的连接点。</p></div>
+      </div>
     </div>
   </article>
 </div></section>
@@ -255,34 +322,50 @@ footer.footer .inner{width:min(1080px,calc(100% - clamp(40px,8vw,72px)));margin:
   <article class="case" data-r>
     <div class="hd"><span class="no">CASE 11</span><h3>Aiden</h3><span class="bg">中下游 211 计算机专业<br>GPA 约 3.0 · 申请季</span><span class="pill">USC &amp; Duke 计算机博士录取 · USC 四年资助</span></div>
     <div class="bd">
-      <p><b>起点：</b>进入申请季时成绩并不占优势。</p>
-      <p>他把准备重点放在可验证的研究经历：计算机视觉论文、头部互联网实习、模型优化过程，以及材料中如何把这些经历串成同一条研究兴趣。</p>
-      <p>这个结果不是「低 GPA 也没关系」，而是成绩短板无法改写时，其他材料必须足够具体、彼此一致。</p>
+      <p>进入申请季时成绩并不占优势。他把准备重点放在可验证的研究经历：计算机视觉论文、头部互联网实习、模型优化过程。</p>
+      <div class="probes"><div class="ph">申请材料的取舍</div>
+        <div class="probe"><div class="q"><i>Q1</i>经历很多，怎么串成一条线？</div><p class="a">关键是把论文、实习、优化过程<b>串成同一条研究兴趣</b>。这个结果不是「低 GPA 也没关系」，而是短板无法改写时，其他材料必须足够具体、彼此一致。</p></div>
+      </div>
     </div>
   </article>
 
   <article class="case" data-r>
     <div class="hd"><span class="no">CASE 12</span><h3>Oliver</h3><span class="bg">中游 211 · 本科时不熟 Transformer<br>整条路径持续 5 年 · 中科大博士</span><span class="pill">华为「天才少年」 · 阿里星 P7</span></div>
     <div class="bd">
-      <p><b>起点：</b>本科阶段对 Transformer 并不熟悉。整条路径持续 5 年，最终在中科大完成博士训练。</p>
-      <p>他从复现 Transformer 开始，逐步进入顶会研究、小团队协作和开源工作。长期积累的重点不是多背几个结构，而是能独立复现实验、判断改动是否有效，并把结果交付给团队。</p>
-      <p>这不是几个月速成故事，而是一条时间更长、门槛更高，也更接近真实科研成长的路径。</p>
+      <p>本科阶段对 Transformer 并不熟悉。他从复现 Transformer 开始，逐步进入顶会研究、小团队协作和开源工作。</p>
+      <div class="probes"><div class="ph">长期积累的重点</div>
+        <div class="probe"><div class="q"><i>Q1</i>五年里真正练出来的是什么？</div><p class="a">不是多背几个结构，而是<b>能独立复现实验、判断改动是否有效、把结果交付给团队</b>。这不是几个月速成故事，而是一条时间更长、门槛更高的路径。</p></div>
+      </div>
     </div>
   </article>
 </div></section>
 
-<section class="blk" id="offers" style="background:var(--bg-2);border-top:1px solid var(--hair);border-bottom:1px solid var(--hair)"><div class="inner">
+<section class="blk alt" id="probes"><div class="inner">
+  <div class="ghead" data-r><span class="no">PATTERN</span><h2>面试官最爱追问的五类问题</h2></div>
+  <p class="gsub" data-r style="--i:1">把 12 个案例的追问放在一起看，重复出现的就是面试官真正在筛的东西。训练营的项目与教程按这五类组织：每一类，你都有能展开讲的实物。</p>
+  <div class="topics">
+    <div class="topic" data-r><span class="n">01</span><h3>项目深度怎么证明</h3><div class="desc">不是「效果不错」，而是坏样本分类、测试集、实验链。<b>Lucas 整理 300 条测试集</b>；Ethan 把坏样本拆成四类分别记录指标变化；Leo 每一步都要回答「数据为什么这样处理、和基线差在哪」。<span class="src">出现在 CASE 01 / 06 / 09</span></div></div>
+    <div class="topic" data-r><span class="n">02</span><h3>失败了怎么办</h3><div class="desc">工具调用失败、输出不合法、生成错误污染后续，面试官要听<b>校验、局部重试、回退、人工接管和完整 trace</b>，而不是一句「加重试」。<span class="src">出现在 CASE 01 / 02 / 05</span></div></div>
+    <div class="topic" data-r><span class="n">03</span><h3>为什么这样设计</h3><div class="desc">数据从哪来、召回怎么评估、成本和延迟怎么权衡。阿周的分层召回与 A/B 验证、Liam 的排查链（解析、分块、混合召回、rerank、评测），都是这个问题的答案库。<span class="src">出现在 CASE 00 / 02 / 08</span></div></div>
+    <div class="topic" data-r><span class="n">04</span><h3>边界与代价</h3><div class="desc">权限不足就拒绝、高风险问题设拒答、自动化到哪一步交给人——<b>面试官真正想听的是边界和代价，而不是框架名</b>。<span class="src">出现在 CASE 01 / 04 / 07</span></div></div>
+    <div class="topic" data-r><span class="n">05</span><h3>同一个项目，换个岗位怎么讲</h3><div class="desc">项目事实不变，表达重点切换：算法岗讲<b>召回和评测</b>，应用岗讲<b>工具调用与状态机</b>，业务岗讲<b>权限、回退和线上指标</b>。<span class="src">出现在 CASE 01 / 03</span></div></div>
+  </div>
+</div></section>
+
+<section class="blk" id="offers"><div class="inner">
   <div class="ghead" data-r><span class="no">MORE</span><h2>更多 offer 与薪资</h2></div>
   <p class="gsub" data-r style="--i:1">案例库共 30 篇，以下是全部 30 条的结果汇总（部分条目与上方深度案例对应），全部脱敏。薪资为学员自愿披露与公开开奖行情的复盘口径，随年份、岗位与部门波动，不构成任何承诺。</p>
 
-  <div class="flash">
-    <div class="fcard" data-r><span class="who">211 本 · 约 3 个月</span><span class="res">小红书算法岗实习转正 <em>45k×16</em>（SSP 档）</span><p>1 个月补八股、手撕与一个可演示的推荐/大模型项目；日常实习扎进真实业务做召回优化与 A/B 验证，转正答辩后拿 return offer，总包约 72W+。</p></div>
-    <div class="fcard" data-r style="--i:1"><span class="who">985 本硕 · 约 1.5 个月</span><span class="res">某大厂大模型算法 offer（<em>总包约 35–50W</em>）</span><p>高学历但缺项目：补齐大模型算法项目与面试表达，走校招算法岗流程拿 offer。</p></div>
-    <div class="fcard" data-r style="--i:2"><span class="who">211 交通硕 · 约 3 个月</span><span class="res">智谱 AI offer（Top 大模型独角兽）</span><p>自动驾驶方向、0 大模型经验的传统工科转 AI：补大模型算法与 Agent/RAG 面试主线。</p></div>
-    <div class="fcard" data-r><span class="who">UX 设计跨专业 · 约 2 个月</span><span class="res">快速增长创业公司 Agent 算法岗（应届总包约 <em>40–65W</em>）</span><p>设计背景非程序员路径，靠 Agent 算法项目训练转入算法岗。</p></div>
-    <div class="fcard" data-r style="--i:1"><span class="who">双非 · 前端背景 · 约 2 个月</span><span class="res">大厂 LLM 相关 offer（<em>50W+</em>）</span><p>无 LLM/算法基础的开发转岗，补 LLM 项目与面试训练。</p></div>
-    <div class="fcard" data-r style="--i:2"><span class="who">985 本硕 · 开发转算法</span><span class="res">算法岗机会（<em>80W+</em>）</span><p>资深开发转 Agent/LLM 方向，靠大模型算法项目体系完成转岗。</p></div>
+  <div class="specs" style="border-top:1px solid var(--hair)" data-r>
+    <div class="srow"><span class="who">211 本 · 约 3 个月<br>实习转正路径</span><span class="got">小红书算法岗实习转正 <b>45k×16</b><em>（SSP 档）</em>，签字费/期权/房补另算，总包约 72W+ → <b>CASE 00</b></span></div>
+    <div class="srow"><span class="who">985 本硕 · 约 1.5 个月</span><span class="got">某大厂大模型算法 offer，校招总包约 <b>35–50W</b></span></div>
+    <div class="srow"><span class="who">211 交通硕 · 约 3 个月</span><span class="got">Top 大模型独角兽<b>智谱 AI</b> offer</span></div>
+    <div class="srow"><span class="who">UX 设计跨专业 · 约 2 个月</span><span class="got">快速增长创业公司 Agent 算法岗，应届总包约 <b>40–65W</b></span></div>
+    <div class="srow"><span class="who">双非 · 前端背景 · 约 2 个月</span><span class="got">大厂 LLM 相关 offer，<b>50W+</b></span></div>
+    <div class="srow"><span class="who">985 本硕 · 开发转算法</span><span class="got">算法岗机会，<b>80W+</b></span></div>
   </div>
+
+  <div style="height:34px"></div>
 
   <div class="bgrp" data-r>
     <h4>实习与校招上岸 <span>8 条</span></h4>
@@ -331,7 +414,7 @@ footer.footer .inner{width:min(1080px,calc(100% - clamp(40px,8vw,72px)));margin:
   </div>
 </div></section>
 
-<section class="blk" id="wall" style="background:var(--bg);border-top:1px solid var(--hair)"><div class="inner">
+<section class="blk alt" id="wall"><div class="inner">
   <div class="ghead" data-r><span class="no">WALL</span><h2>部分成果展示</h2></div>
   <p class="gsub" data-r style="--i:1">以下为已有资料中的脱敏结果汇总，包含 Offer、录用意向与论文录用等不同类型成果，不与上方某一个案例逐项对应。</p>
   <div class="wallwrap" data-r style="--i:2">
@@ -377,5 +460,15 @@ setTimeout(() => {
     if (el.getBoundingClientRect().top < vh) el.classList.add('in');
   });
 }, 2600);
+// 本页导航高亮
+const secs = ['jobs','research','phd','probes','offers','wall'];
+const nio = new IntersectionObserver(es => es.forEach(e => {
+  if (!e.isIntersecting) return;
+  const id = e.target.id;
+  document.querySelectorAll('.subnav a').forEach(a => {
+    a.classList.toggle('on', a.getAttribute('href') === '#' + id);
+  });
+}), { rootMargin: '-30% 0px -60% 0px' });
+secs.forEach(id => { const el = document.getElementById(id); if (el) nio.observe(el); });
 </script>
 </body></html>
