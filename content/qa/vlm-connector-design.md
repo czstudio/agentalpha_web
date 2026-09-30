@@ -4,7 +4,7 @@ question: VLM 里视觉编码器和 LLM 之间怎么连接？线性投影、Q-Fo
 oneLine: 视觉与文本分布不同，需连接层做对齐。大上下文时代主流是 MLP，因其保留全部视觉 token 且成本可控，不丢细节。Q-Former 压缩率高但丢细节，线性投影则表达能力有限。
 category: multimodal
 company: xiaohongshu, pdd, sensetime, minimax, iflytek, nio
-tags: [[, V, L, M, ,,  , 架, 构, 设, 计, ,,  , 多, 模, 态, ]]
+tags: ["VLM", "架构设计", "多模态"]
 minutes: 6
 order: 8
 updated: 2026-09-28

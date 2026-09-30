@@ -4,7 +4,7 @@ question: 向量库选了 HNSW，在线更新和索引一致性怎么处理？�
 oneLine: HNSW 的强项是查询，弱项是删改；频繁更新会导致图连接退化和写入阻塞，实际工程中通常用版本切换和冷热分区机制，把在线改图转换为离线换图。
 category: rag
 company: jd,huawei
-tags: [[, 向, 量, 数, 据, 库, ,,  , H, N, S, W, ,,  , R, A, G, ]]
+tags: ["向量数据库", "HNSW", "RAG"]
 minutes: 6
 order: 19
 updated: 2026-09-28

@@ -3,7 +3,7 @@ slug: agent-guardrails
 question: Agent 的护栏（Guardrails）怎么分层设计？
 oneLine: 护栏设计遵循纵深防御原则，按数据流向分为输入、对话与检索、工具执行、输出四层，核心是隔离指令与数据，对工具实行最小权限管控。
 category: safety
-tags: [[, A, g, e, n, t, ,,  , 护, 栏, ,,  , 安, 全, ]]
+tags: ["Agent", "护栏", "安全"]
 minutes: 6
 order: 6
 updated: 2026-09-28

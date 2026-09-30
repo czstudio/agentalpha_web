@@ -3,7 +3,7 @@ slug: layernorm-pre-post
 question: LayerNorm 和 BatchNorm 什么区别？Pre-LN 和 Post-LN 差在哪？
 oneLine: BatchNorm 跨样本归一化，受限于变长序列和小批次；LayerNorm 对单样本全特征归一化，与批次无关。Post-LN 表达上限高但深层难训练；Pre-LN 梯度平稳易训练，是目前主流。
 category: basics
-tags: [[, 大, 模, 型, 基, 础, ,,  , 归, 一, 化, ]]
+tags: ["大模型基础", "归一化"]
 minutes: 6
 order: 23
 updated: 2026-09-28

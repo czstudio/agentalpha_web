@@ -4,7 +4,7 @@ question: 梯度累积和直接增大 batch size，效果完全等价吗？
 oneLine: 数学上在理想条件下近似等价，但在工程实现中，由于批次统计层、梯度裁剪粒度、调度器计步以及浮点误差的存在，两者并不完全等价。
 category: finetune
 company: pdd
-tags: [[, 模, 型, 训, 练, ,,  , 优, 化, 器, ,,  , 显, 存, 优, 化, ]]
+tags: ["模型训练", "优化器", "显存优化"]
 minutes: 6
 order: 24
 updated: 2026-09-28

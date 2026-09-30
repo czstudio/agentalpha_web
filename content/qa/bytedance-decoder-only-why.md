@@ -5,7 +5,7 @@ oneLine: Decoder-only 成为主流是因为它的训练效率高、训练与推�
 category: jingchang
 company: bytedance
 track: algo-general
-tags: [[, 大, 模, 型, 架, 构, ,,  , T, r, a, n, s, f, o, r, m, e, r, ,,  , 面, 试, 高, 频, ]]
+tags: ["大模型架构", "Transformer", "面试高频"]
 minutes: 6
 order: 20
 updated: 2026-09-28

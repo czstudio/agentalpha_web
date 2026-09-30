@@ -3,7 +3,7 @@ slug: emergence-and-scaling
 question: 大模型的涌现能力是什么？和 Scaling Law 什么关系？
 oneLine: Scaling Law 描述整体损失随算力、数据、参数增加呈幂律可预测下降，而涌现能力是规模跨过阈值后，模型在特定任务上表现从随机突变到可用的非平滑现象。
 category: basics
-tags: [[, 大, 语, 言, 模, 型, ,,  , 理, 论, 基, 础, ]]
+tags: ["大语言模型", "理论基础"]
 minutes: 6
 order: 22
 updated: 2026-09-28

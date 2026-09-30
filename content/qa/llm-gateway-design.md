@@ -3,7 +3,7 @@ slug: llm-gateway-design
 question: LLM 网关是什么？企业为什么要加这一层？
 oneLine: LLM 网关是应用与模型供应商之间的统一入口层。企业加这一层是为了实现接口适配、智能路由、团队级计费限流与内容安全审查，从而实现应用与底层模型解耦，便于统一治理成本。
 category: enterprise
-tags: [[, 架, 构, 设, 计, ,,  , L, L, M, 网, 关, ,,  , 模, 型, 接, 入, ]]
+tags: ["架构设计", "LLM网关", "模型接入"]
 minutes: 6
 order: 15
 updated: 2026-09-28

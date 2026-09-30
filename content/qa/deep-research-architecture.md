@@ -3,7 +3,7 @@ slug: deep-research-architecture
 question: Deep Research 是怎么实现的？和普通 RAG/Agent 差在哪？
 oneLine: Deep Research 通过问题分解、迭代检索、阅读筛选和证据综合来生成带引用的报告。与普通 RAG 的单轮检索不同，它的查询会随发现动态演化；与普通 Agent 相比，它的目标聚焦于信息综合而非执行动作。
 category: agent
-tags: [[, A, g, e, n, t, ,,  , R, A, G, ,,  , 架, 构, 设, 计, ]]
+tags: ["Agent", "RAG", "架构设计"]
 minutes: 6
 order: 21
 updated: 2026-09-28

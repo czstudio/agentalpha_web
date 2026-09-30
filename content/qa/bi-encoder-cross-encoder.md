@@ -3,7 +3,7 @@ slug: bi-encoder-cross-encoder
 question: Bi-Encoder 和 Cross-Encoder 是什么？Rerank 为什么非它不可？
 oneLine: Bi-Encoder 双塔独立编码做召回，文档向量可离线预计算建索引；Cross-Encoder 拼接打分精度高但没法预计算，只能放在召回后的小候选集上做精排。
 category: rag
-tags: [[, R, A, G, ,,  , 检, 索, 增, 强, ,,  , 排, 序, ]]
+tags: ["RAG", "检索增强", "排序"]
 minutes: 6
 order: 15
 updated: 2026-09-28

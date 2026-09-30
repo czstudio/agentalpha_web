@@ -5,7 +5,7 @@ oneLine: 评测系统按评测集、执行、判定、报告分层设计，优�
 category: jingchang
 company: alibaba
 track: agent-dev
-tags: [[, A, g, e, n, t, 评, 测, ,,  , T, r, a, c, e, 数, 据, ,,  , L, L, M, -, a, s, -, J, u, d, g, e, ]]
+tags: ["Agent评测", "Trace数据", "LLM-as-Judge"]
 minutes: 6
 order: 16
 updated: 2026-09-28

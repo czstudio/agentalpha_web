@@ -3,7 +3,7 @@ slug: model-selection-for-project
 question: 项目选模型时 GPT/Claude/Qwen/DeepSeek 怎么权衡？
 oneLine: 选型不看公开榜单，主要围绕能力、成本、合规和生态四个维度做权衡，通过构建贴合业务的专属评测集实测，并在工程上采用模型层抽象与多供应商策略保障平滑切换。
 category: enterprise
-tags: [[, 模, 型, 选, 型, ,,  , L, L, M, ,,  , A, g, e, n, t, ]]
+tags: ["模型选型", "LLM", "Agent"]
 minutes: 6
 order: 16
 updated: 2026-09-28

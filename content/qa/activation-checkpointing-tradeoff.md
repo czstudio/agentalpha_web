@@ -3,7 +3,7 @@ slug: activation-checkpointing-tradeoff
 question: 激活检查点（梯度重算）的取舍是什么？
 oneLine: 核心取舍是用计算时间换显存空间。通过在反向传播时重算部分前向激活值，能将显存占用从线性降至平方根量级，代价是增加约一轮前向计算时间导致吞吐下降，是长上下文训练的必开项。
 category: finetune
-tags: [[, 模, 型, 训, 练, ,,  , 显, 存, 优, 化, ,,  , 训, 练, 加, 速, ]]
+tags: ["模型训练", "显存优化", "训练加速"]
 minutes: 6
 order: 33
 updated: 2026-09-28

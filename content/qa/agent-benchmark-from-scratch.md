@@ -4,7 +4,7 @@ question: 从零构建一个 Agent Benchmark 要做哪些事？
 oneLine: 构建Agent Benchmark的核心是确保评估客观且可复现，需要依次完成定义任务域与自动校验标准、搭建可重置的沙箱环境与数据集、设计成功率与过程指标，并做好人类基线校准与防数据污染。
 category: eval
 company: bytedance
-tags: [[, A, g, e, n, t, 评, 估, ,,  , B, e, n, c, h, m, a, r, k, 设, 计, ,,  , 面, 试, 高, 频, ]]
+tags: ["Agent评估", "Benchmark设计", "面试高频"]
 minutes: 6
 order: 10
 updated: 2026-09-28

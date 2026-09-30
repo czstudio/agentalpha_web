@@ -3,7 +3,7 @@ slug: agent-streaming-ux
 question: Agent 的流式输出怎么设计？SSE 和 WebSocket 怎么选？
 oneLine: Agent 流式输出需要同时处理大模型的字级 Token 流和工具调用的结构化事件流。传输协议默认选择单向推送的 SSE，需要语音等双向持续通信时才改用 WebSocket。
 category: tooluse
-tags: [[, A, g, e, n, t, 工, 程, ,,  , 通, 信, 协, 议, ,,  , 前, 端, 交, 互, ]]
+tags: ["Agent工程", "通信协议", "前端交互"]
 minutes: 6
 order: 22
 updated: 2026-09-28

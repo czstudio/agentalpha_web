@@ -4,7 +4,7 @@ question: 多模态训练中文本主导、图像被忽略，怎么发现和解�
 oneLine: 先通过模态消融评测和训练侧梯度监控确认图像是否被忽略，然后从数据端提升图文强相关样本比例，并在训练侧分阶段解冻或调整视觉分支学习率来解决。
 category: multimodal
 company: xiaohongshu, sensetime, minimax, iflytek, nio
-tags: [[, 多, 模, 态, ,,  , 训, 练, 优, 化, ,,  , 模, 型, 评, 测, ]]
+tags: ["多模态", "训练优化", "模型评测"]
 minutes: 6
 order: 11
 updated: 2026-09-28

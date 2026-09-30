@@ -3,7 +3,7 @@ slug: traditional-nlp-basics
 question: 分词、Word2Vec、CNN/RNN 这些传统 NLP 基础还在考吗？和大模型什么关系？
 oneLine: 还在考，但现在的考法是把传统技术作为大模型演进的对照系。核心要讲清旧技术的局限，并说明大模型的底层设计是如何解决这些历史遗留问题的。
 category: basics
-tags: [[, N, L, P, 基, 础, ,,  , 面, 试, 策, 略, ,,  , 模, 型, 演, 进, ]]
+tags: ["NLP基础", "面试策略", "模型演进"]
 minutes: 6
 order: 26
 updated: 2026-09-28
