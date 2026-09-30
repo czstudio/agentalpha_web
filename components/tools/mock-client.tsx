@@ -17,10 +17,10 @@ import { useLocalState } from "@/hooks/use-local-state"
 import { FAMILY_BASE, MOCK_WRONG_KEY, QA_MASTERY_KEY } from "@/lib/tools/shared"
 
 const MODE_CARDS: Array<{ key: MockMode; name: string; desc: string }> = [
-  { key: "jd", name: "岗位剧本面", desc: "按目标方向组 10 题，覆盖该方向的核心考点域" },
-  { key: "resume", name: "简历深挖面", desc: "粘贴简历，面试官只问你写过的地方——和真面试的深挖路径一致" },
+  { key: "jd", name: "岗位剧本面", desc: "按目标方向组一套岗位真题，覆盖该方向的核心考点域" },
+  { key: "resume", name: "简历深挖面", desc: "粘贴简历，面试官只问你写过的地方，和真面试的深挖路径一致" },
   { key: "stress", name: "压力追问面", desc: "每题答完追一问：要数字、要对比、要放大十倍之后" },
-  { key: "english", name: "英文技术面", desc: "题干中文、追问英文,练「用英文讲清楚技术」——外企与出海岗必练" },
+  { key: "english", name: "英文技术面", desc: "题干中文、追问英文，练「用英文讲清楚技术」：外企与出海岗必练" },
 ]
 
 const FAMILY_OPTIONS = FAMILY_BASE
@@ -54,7 +54,7 @@ export function MockClient({ qaList }: { qaList: QaLite[] }) {
   const [resumeText, setResumeText] = useState("")
   const resumeInputRef = useRef<HTMLTextAreaElement>(null)
 
-  // SSR 水合前粘贴的简历事件会丢(开始按钮灰着)——水合后回读一次
+  // SSR 水合前粘贴的简历事件会丢（开始按钮灰着），水合后回读一次
   useEffect(() => {
     if (resumeInputRef.current?.value) setResumeText(resumeInputRef.current.value)
   }, [])
@@ -137,10 +137,11 @@ export function MockClient({ qaList }: { qaList: QaLite[] }) {
               <textarea
                 ref={resumeInputRef}
                 className="tk-textarea"
+                aria-label="简历正文"
                 rows={8}
                 value={resumeText}
                 onChange={(e) => setResumeText(e.target.value)}
-                placeholder={"把项目、实习、技能贴进来（至少 60 字）。面试题会来自你写下的每一条经历——和真实面试官拿到你简历后的提问路径一致。"}
+                placeholder={"把项目、实习、技能贴进来（至少 60 字）。面试题会来自你写下的每一条经历，和真实面试官拿到你简历后的提问路径一致。"}
                 spellCheck={false}
               />
             </>
@@ -182,8 +183,8 @@ export function MockClient({ qaList }: { qaList: QaLite[] }) {
             <button
               type="button"
               className="tk-run"
-              onClick={start}
-              disabled={mode === "resume" && resumeText.trim().length < 60}
+              onClick={() => { if (!(mode === "resume" && resumeText.trim().length < 60)) start() }}
+              aria-disabled={mode === "resume" && resumeText.trim().length < 60}
             >
               开始面试
             </button>
@@ -226,7 +227,7 @@ export function MockClient({ qaList }: { qaList: QaLite[] }) {
           {wrongSlugs.length > 0 && (
             <p className="tk-hint">
               错题已记入本机错题本（共 {wrongSlugs.length} 题），并已同步到
-              <Link href="/interview/quiz">模拟抽题</Link>的掌握度——那里的错题优先重抽会带上它们。
+              <Link href="/interview/quiz">模拟抽题</Link>的掌握度，那里的错题优先重抽会带上它们。
             </p>
           )}
 
@@ -297,13 +298,14 @@ export function MockClient({ qaList }: { qaList: QaLite[] }) {
 
             <textarea
               className="tk-textarea"
+              aria-label="你的回答"
               rows={5}
               value={answers[current.id] ?? ""}
               onChange={(e) => setAnswers((prev) => ({ ...prev, [current.id]: e.target.value }))}
               placeholder={
                 session.mode === "english"
-                  ? "Answer in English — like in a real English interview: conclusion first, then how, then numbers."
-                  : "像在面试里一样，开口说——用打字的方式。先结论，再展开，最后给数字。"
+                  ? "Answer in English like in a real English interview: conclusion first, then how, then numbers."
+                  : "像在面试里一样，开口说，用打字的方式。先结论，再展开，最后给数字。"
               }
               spellCheck={false}
             />

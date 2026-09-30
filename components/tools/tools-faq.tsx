@@ -5,7 +5,7 @@ const SITE = "https://agentalpha.top"
 
 /**
  * 工具页通用 FAQ 区:可见内容与 FAQPage JSON-LD 同源,
- * 另注入 SoftwareApplication(工具页富摘要)。内容口径见 lib/tools/faqs.ts 头注释。
+ * 另注入 SoftwareApplication(工具页富摘要）。内容口径见 lib/tools/faqs.ts 头注释。
  */
 export function ToolsFaq({ slug }: { slug: string }) {
   const meta = getToolFaqs(slug)
@@ -48,7 +48,7 @@ export function ToolsFaq({ slug }: { slug: string }) {
       </div>
       <p className="tk-hint">
         更多工具见<Link href="/tools">求职工具箱</Link>:JD 拆解、简历体检、Gap 自测、项目匹配、
-        模拟面试、复盘本、投递看板、Offer 对比,全部免费本地运行。
+        模拟面试、复盘本、投递看板、Offer 对比，全部免费本地运行。
       </p>
     </section>
   )

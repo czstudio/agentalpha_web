@@ -1,4 +1,5 @@
 import type { Metadata } from "next"
+import { Radar } from "lucide-react"
 import { Navigation } from "@/components/navigation"
 import { GapClient } from "@/components/tools/gap-client"
 import { getAllQa } from "@/lib/qa"
@@ -40,10 +41,10 @@ export default function GapTestPage() {
       <Navigation />
       <main className="tk-main">
         <header className="tk-hero">
-          <p className="tk-kicker">免费工具 · GAP TEST</p>
+          <p className="tk-kicker"><Radar size={13} strokeWidth={2} aria-hidden /> 免费工具 · GAP TEST</p>
           <h1>面试 Gap 自测</h1>
           <p className="tk-lede">
-            选目标方向，八项能力自评，然后用真实面试题验证一遍——自评「会」的域会被抽题，
+            选目标方向，八项能力自评，然后用真实面试题验证一遍：自评「会」的域会被抽题，
             答不上分数就回落。最后出能力雷达、一句人话结论和按优先级排好的补课路径。
             不注册、不上传，全部在浏览器本地完成。
           </p>

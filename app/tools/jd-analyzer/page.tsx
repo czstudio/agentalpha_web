@@ -1,5 +1,6 @@
 import type { Metadata } from "next"
 import Link from "next/link"
+import { FileSearch } from "lucide-react"
 import { Navigation } from "@/components/navigation"
 import { JdClient } from "@/components/tools/jd-client"
 import { getAllJd } from "@/lib/jd"
@@ -43,7 +44,7 @@ export default function JdAnalyzerPage() {
       <Navigation />
       <main className="tk-main">
         <header className="tk-hero">
-          <p className="tk-kicker">免费工具 · JD ANALYZER</p>
+          <p className="tk-kicker"><FileSearch size={13} strokeWidth={2} aria-hidden /> 免费工具 · JD ANALYZER</p>
           <h1>JD 人话拆解器</h1>
           <p className="tk-lede">
             把看不懂的招聘 JD 粘进来，拆成能执行的准备清单：这个 JD 偏哪个岗位画像、明确考什么、

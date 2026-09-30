@@ -1,4 +1,5 @@
 import type { Metadata } from "next"
+import { LayoutList } from "lucide-react"
 import { Navigation } from "@/components/navigation"
 import { TrackerClient } from "@/components/tools/tracker-client"
 import "../tools.css"
@@ -31,11 +32,11 @@ export default function ApplicationTrackerPage() {
       <Navigation />
       <main className="tk-main">
         <header className="tk-hero">
-          <p className="tk-kicker">免费工具 · APPLICATION TRACKER</p>
+          <p className="tk-kicker"><LayoutList size={13} strokeWidth={2} aria-hidden /> 免费工具 · APPLICATION TRACKER</p>
           <h1>投递看板</h1>
           <p className="tk-lede">
             offer 少的常见原因不是实力不够，是投递混乱：忘了跟进、错过笔试、复盘不出挂在哪轮。
-            每投一家记一笔，状态变了随手改，两周后漏斗会自己告诉你——是简历问题还是面试问题。
+            每投一家记一笔，状态变了随手改，两周后漏斗会自己告诉你：是简历问题还是面试问题。
             数据只存本机浏览器。
           </p>
         </header>

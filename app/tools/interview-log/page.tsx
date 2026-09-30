@@ -1,4 +1,5 @@
 import type { Metadata } from "next"
+import { NotebookPen } from "lucide-react"
 import { Navigation } from "@/components/navigation"
 import { LogClient } from "@/components/tools/log-client"
 import "../tools.css"
@@ -31,10 +32,10 @@ export default function InterviewLogPage() {
       <Navigation />
       <main className="tk-main">
         <header className="tk-hero">
-          <p className="tk-kicker">免费工具 · INTERVIEW LOG</p>
+          <p className="tk-kicker"><NotebookPen size={13} strokeWidth={2} aria-hidden /> 免费工具 · INTERVIEW LOG</p>
           <h1>面试复盘本</h1>
           <p className="tk-lede">
-            每场面试都是面试官替你做的一次免费诊断——他挑的地方就是你不会的地方。
+            每场面试都是面试官替你做的一次免费诊断：他挑的地方就是你不会的地方。
             当天记三样：被问的题、卡壳点、下次怎么答。三场之后，你会清楚看到自己反复挂在哪类问题上。
             记录只存你的浏览器，不上传、不公开。
           </p>

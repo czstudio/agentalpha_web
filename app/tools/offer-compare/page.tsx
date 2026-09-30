@@ -1,4 +1,5 @@
 import type { Metadata } from "next"
+import { Scale } from "lucide-react"
 import { Navigation } from "@/components/navigation"
 import { OfferClient } from "@/components/tools/offer-client"
 import "../tools.css"
@@ -31,11 +32,11 @@ export default function OfferComparePage() {
       <Navigation />
       <main className="tk-main">
         <header className="tk-hero">
-          <p className="tk-kicker">免费工具 · OFFER COMPARE</p>
+          <p className="tk-kicker"><Scale size={13} strokeWidth={2} aria-hidden /> 免费工具 · OFFER COMPARE</p>
           <h1>Offer 对比器</h1>
           <p className="tk-lede">
             多个 offer 纠结的本质是维度没摊开。给每个 offer 的六个维度打分、给「对你真正重要的」加权，
-            算出对比和一句直话。工具不替你做决定——它把你自己的直觉变成看得见的数字。
+            算出对比和一句直话。工具不替你做决定，它把你自己的直觉变成看得见的数字。
             纯本地计算，offer 信息不出浏览器。
           </p>
         </header>

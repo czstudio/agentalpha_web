@@ -1,5 +1,6 @@
 import type { Metadata } from "next"
 import Link from "next/link"
+import { MessagesSquare } from "lucide-react"
 import { Navigation } from "@/components/navigation"
 import { MockClient } from "@/components/tools/mock-client"
 import { getAllQa } from "@/lib/qa"
@@ -41,12 +42,13 @@ export default function MockInterviewPage() {
       <Navigation />
       <main className="tk-main">
         <header className="tk-hero">
-          <p className="tk-kicker">免费工具 · MOCK INTERVIEW</p>
+          <p className="tk-kicker"><MessagesSquare size={13} strokeWidth={2} aria-hidden /> 免费工具 · MOCK INTERVIEW</p>
           <h1>AI 模拟面试</h1>
           <p className="tk-lede">
             会背和会说之间隔一场面试。这里给你一场接近真实的演练：挑一个面试官人格，
             按目标方向组卷、或贴上简历等着被逐条深挖、或开压力模式被追问到底。
             答完出复盘报告，没答上的题自动进错题本。不注册、不上传，全程在你浏览器里。
+            面试题与面试官回应来自站内真实题库的固定模板，不是实时生成的 AI 对话。
           </p>
         </header>
 
@@ -55,7 +57,7 @@ export default function MockInterviewPage() {
         <section className="tk-block" style={{ marginTop: 24 }}>
           <h3>怎么练最有效</h3>
           <p className="tk-block-desc">
-            第一遍用温和人格把话说完整，第二遍换冷酷人格压缩到一分钟版本，第三遍开压力模式——
+            第一遍用温和人格把话说完整，第二遍换冷酷人格压缩到一分钟版本，第三遍开压力模式。
             真面试里让你崩的从来不是题本身，是「说了一半被追问细节」。作答时开口说或打字都行，
             但一定要先答再看参考答案，看完再自评，顺序反了就变成背题。
           </p>
