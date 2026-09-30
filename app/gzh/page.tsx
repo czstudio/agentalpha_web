@@ -100,7 +100,7 @@ export default function GzhPage() {
       <section className="aa-notes-outro mj-outro">
         <div className="aa-notes-shell">
           <p>△ AgentAlpha 公众号</p>
-          <h2>长文首发在公众号，题库沉淀在站内。</h2>
+          <h2>长文首发在公众号，题库都收在站内。</h2>
           <a className="aa-notes-join" href="/interview/qa">
             去刷面试题 <ArrowUpRight aria-hidden />
           </a>
