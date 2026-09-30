@@ -2,6 +2,7 @@
 
 import { useMemo } from "react"
 import { useLocalState } from "@/hooks/use-local-state"
+import { downloadWord, escHtml } from "@/lib/tools/report-doc"
 
 interface Dimension {
   key: string
@@ -61,6 +62,19 @@ export function OfferClient() {
     if (gap >= 1.5) verdict = `${results[0].name} 综合明显领先（高 ${gap} 分）。如果内心还在纠结，说明有些维度你没敢打真实分，把那维的权重调高再看一次。`
     else if (gap >= 0.5) verdict = `${results[0].name} 小幅领先（高 ${gap} 分）。这个量级属于「几天后你会忘记差距」的范围，优先按稳定性与业务真实性做决定。`
     else verdict = "两边几乎打平。这种情况别再算分了：选那个 mentor 更强、业务更核心的，薪资差在职业前几年会被成长速度抹平。"
+  }
+
+  const buildReportHtml = () => {
+    const date = new Date().toISOString().slice(0, 10)
+    const rankRows = results
+      .map((r, i) => `<tr><td>#${i + 1}</td><td>${escHtml(r.name)}</td><td>${r.total}</td></tr>`)
+      .join("")
+    const dimHead = `<tr><th>维度（权重）</th>${results.map((r) => `<th>${escHtml(r.name)}</th>`).join("")}</tr>`
+    const dimRows = DIMENSIONS.map(
+      (d) =>
+        `<tr><td>${escHtml(d.label)}（${weights[d.key] ?? 3}）</td>${results.map((r) => `<td>${r.scores[d.key] ?? 5}</td>`).join("")}</tr>`,
+    ).join("")
+    return `<p class="meta">生成于 ${date} · AgentAlpha Offer 对比器</p><h2>加权排序</h2><table><tr><th>#</th><th>Offer</th><th>加权总分</th></tr>${rankRows}</table><h2>维度明细（1-10）</h2><table>${dimHead}${dimRows}</table><h2>结论</h2><p>${escHtml(verdict)}</p><h2>谈判提醒</h2><p>手握多个 offer 时薪资谈判空间最大；没写进 offer 的口头承诺（调薪、转岗、期权）默认不存在。</p>`
   }
 
   return (
@@ -127,7 +141,21 @@ export function OfferClient() {
       </section>
 
       <section className="tk-block">
-        <h3>对比结果</h3>
+        <div className="rb-sec-head">
+          <h3 style={{ margin: 0 }}>对比结果</h3>
+          <span className="rb-toolbar-btns">
+            <button type="button" className="tk-run rb-print-btn" onClick={() => window.print()}>
+              打印 / 存 PDF
+            </button>
+            <button
+              type="button"
+              className="mock-end-btn"
+              onClick={() => downloadWord("Offer 对比报告", buildReportHtml(), `offer-对比报告-${new Date().toISOString().slice(0, 10)}.doc`)}
+            >
+              下载 Word
+            </button>
+          </span>
+        </div>
         {results.map((r, i) => (
           <div key={r.name} className="offer-result-row">
             <span className={`rank r${i}`}>#{i + 1}</span>
@@ -144,6 +172,10 @@ export function OfferClient() {
           没写进 offer 的口头承诺（调薪、转岗、期权）默认不存在。数字口径自己留档，别只记 HR 的话。
         </p>
       </section>
+
+      <div className="print-root" aria-hidden>
+        <div className="print-doc" dangerouslySetInnerHTML={{ __html: buildReportHtml() }} />
+      </div>
     </div>
   )
 }

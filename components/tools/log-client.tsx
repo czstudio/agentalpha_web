@@ -2,6 +2,7 @@
 
 import { useMemo, useState } from "react"
 import { useLocalState } from "@/hooks/use-local-state"
+import { downloadWord, escHtml } from "@/lib/tools/report-doc"
 
 const ROUNDS = ["笔试", "一面", "二面", "三面", "HR 面", "其他"] as const
 const RESULTS = [
@@ -66,6 +67,34 @@ export function LogClient() {
     if (window.confirm("删除这条复盘？")) setEntries((prev) => prev.filter((it) => it.id !== id))
   }
 
+  const reportDate = new Date().toISOString().slice(0, 10)
+
+  const buildReportHtml = () => {
+    const resultLabel = (r: string) => (r === "pass" ? "通过" : r === "fail" ? "挂了" : "待定")
+    const roundRow = stats.byRound.length
+      ? `<p>挂科轮次分布：${stats.byRound.map((r) => `${escHtml(r.round)} × ${r.n}`).join("，")}。</p>`
+      : ""
+    const topicRow = stuckTopics.length
+      ? `<p>反复出现的卡壳主题：${stuckTopics.map(escHtml).join("、")}——优先补课区。</p>`
+      : ""
+    const rows = entries
+      .map(
+        (it) => `<tr><td>${escHtml(it.date)}</td><td>${escHtml(it.company)}</td><td>${escHtml(it.role)}</td><td>${escHtml(it.round)}</td><td>${resultLabel(it.result)}</td></tr>`,
+      )
+      .join("")
+    const details = entries
+      .map((it) => {
+        const items = [
+          it.questions && `被问题目：${it.questions}`,
+          it.stuck && `卡壳点：${it.stuck}`,
+          it.next && `下次策略：${it.next}`,
+        ].filter(Boolean)
+        return `<p style="margin:8pt 0 2pt;"><b>${escHtml(it.company)} · ${escHtml(it.role)} · ${escHtml(it.round)}（${escHtml(it.date)}，${resultLabel(it.result)}）</b></p><ul>${items.map((x) => `<li>${escHtml(x)}</li>`).join("")}</ul>`
+      })
+      .join("")
+    return `<p class="meta">共 ${stats.total} 场 · 生成于 ${reportDate} · AgentAlpha 复盘本</p><h2>复盘统计</h2>${roundRow}${topicRow}<h2>逐场台账</h2><table><tr><th>日期</th><th>公司</th><th>岗位</th><th>轮次</th><th>结果</th></tr>${rows}</table><h2>卡壳点与下次策略</h2>${details}`
+  }
+
   const stats = useMemo(() => {
     const fails = entries.filter((e) => e.result === "fail")
     const byRound = ROUNDS.map((r) => ({ round: r, n: fails.filter((e) => e.round === r).length })).filter((x) => x.n > 0)
@@ -124,7 +153,21 @@ export function LogClient() {
 
       {stats.total > 0 && (
         <section className="tk-block">
-          <h3>复盘统计 · {stats.total} 场</h3>
+          <div className="rb-sec-head">
+            <h3 style={{ margin: 0 }}>复盘统计 · {stats.total} 场</h3>
+            <span className="rb-toolbar-btns">
+              <button type="button" className="tk-run rb-print-btn" onClick={() => window.print()}>
+                打印 / 存 PDF
+              </button>
+              <button
+                type="button"
+                className="mock-end-btn"
+                onClick={() => downloadWord("面试复盘报告", buildReportHtml(), `面试复盘报告-${new Date().toISOString().slice(0, 10)}.doc`)}
+              >
+                下载 Word
+              </button>
+            </span>
+          </div>
           {stats.byRound.length > 0 && (
             <p className="tk-block-desc">
               挂科轮次分布：{stats.byRound.map((r) => `${r.round} × ${r.n}`).join("，")}。
@@ -180,6 +223,12 @@ export function LogClient() {
             ))}
           </div>
         </section>
+      )}
+
+      {stats.total > 0 && (
+        <div className="print-root" aria-hidden>
+          <div className="print-doc" dangerouslySetInnerHTML={{ __html: buildReportHtml() }} />
+        </div>
       )}
 
       {entries.length === 0 && !showForm && (
