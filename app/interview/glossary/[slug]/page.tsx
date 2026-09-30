@@ -2,6 +2,7 @@ import type { Metadata } from "next"
 import Link from "next/link"
 import { notFound } from "next/navigation"
 import ReactMarkdown from "react-markdown"
+import remarkGfm from "remark-gfm"
 import type { Components } from "react-markdown"
 import fs from "node:fs"
 import path from "node:path"
@@ -144,7 +145,7 @@ export default async function GlossaryDetailPage({ params }: PageProps) {
 
       <div className="ivu-measure">
         <article className="ivu-prose">
-          <ReactMarkdown components={createGlossaryComponents()}>{item.content}</ReactMarkdown>
+          <ReactMarkdown remarkPlugins={[remarkGfm]} components={createGlossaryComponents()}>{item.content}</ReactMarkdown>
 
           {item.aliases.length > 0 ? (
             <p className="glo-aliases-line">又称：{item.aliases.join(" · ")}</p>

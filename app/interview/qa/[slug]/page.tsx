@@ -2,6 +2,7 @@ import type { Metadata } from "next"
 import Link from "next/link"
 import { notFound } from "next/navigation"
 import ReactMarkdown from "react-markdown"
+import remarkGfm from "remark-gfm"
 import type { Components } from "react-markdown"
 import { getAllQa, getQa, getRelatedQa, qaPlainBody } from "@/lib/qa"
 import { getCategories, getCategory, getInterview } from "@/lib/interview"
@@ -162,7 +163,7 @@ export default async function QaDetailPage({ params }: PageProps) {
 
       <div className="ivu-measure">
         <article className="ivu-prose">
-          <ReactMarkdown components={createQaComponents()}>{item.content}</ReactMarkdown>
+          <ReactMarkdown remarkPlugins={[remarkGfm]} components={createQaComponents()}>{item.content}</ReactMarkdown>
 
           {deepPost ? (
             <aside className="ivu-link" key={deepPost.slug}>
