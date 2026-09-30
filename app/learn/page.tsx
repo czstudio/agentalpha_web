@@ -489,7 +489,7 @@ const SERVICE: { name: string; desc: string }[] = [
   { name: "周报与阶段小结", desc: "每周提交学习周报，按阶段检查成果。" },
   {
     name: "内推与论文辅导",
-    desc: "结业优秀项目获内推机会，已有学员入职 Seed、Kimi 等团队；论文方向有两年课题记录可查。",
+    desc: "结业优秀项目获内推机会，已有学员入职 Seed、Kimi 等团队；论文方向有两年课题记录。",
   },
 ]
 
@@ -588,7 +588,7 @@ const PRINCIPLES: { name: string; against: string; insist: string }[] = [  {
   {
     name: "项目驱动",
     against: "学习结束后没有作品，简历和申请材料仍然空。",
-    insist: "每个阶段都留下可检查、可展示、可讲解的项目产出。",
+    insist: "每个阶段都留下拿得出手的作品。",
   },
   {
     name: "长期主义",

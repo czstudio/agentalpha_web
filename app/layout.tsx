@@ -40,7 +40,7 @@ export const metadata: Metadata = {
     url: "/",
     siteName: "AgentAlpha",
     title: "AgentAlpha｜大模型 Agent 实战社区",
-    description: "技术落地、人才培养、商业共创，围绕真实 Agent 项目共同成长。",
+    description: "技术落地、人才培养、商业共创：在真实的 Agent 项目里一起成长。",
     images: [
       {
         url: "/ai-agent-network-visualization-with-nodes-and-conn.jpg",
