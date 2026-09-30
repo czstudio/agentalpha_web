@@ -10,6 +10,8 @@ cats: [agent, multimodal, tooluse]
 qaSlugs: [what-is-vlm, video-understanding, realtime-voice-pipeline, visual-token-cost, agent-loop, tool-routing, vlm-hallucination-mitigation, agent-latency]
 keywords: [MiniMax 面试, 海螺 Agent 开发, 多模态 Agent, MiniMax 产品工程]
 updated: 2026-09-29
+sourceUrl: https://vrfi1sk8a0.jobs.feishu.cn/379481/
+sourceName: MiniMax 官方飞书招聘
 ---
 
 ## 这条 JD 在招什么人

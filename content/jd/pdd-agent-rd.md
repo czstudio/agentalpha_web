@@ -10,6 +10,8 @@ cats: [tooluse, memory, enterprise]
 qaSlugs: [mcp-what-and-core, mcp-components, mcp-transports, mcp-security, fc-vs-mcp-when, context-compression-minimal-loss, agent-memory-hierarchy, agent-memory-write-verify]
 keywords: [拼多多 Agent 研发, 拼多多 MCP 面试, 上下文压缩, 拼多多社招面试]
 updated: 2026-09-29
+sourceUrl: https://www.nowcoder.com/discuss/904039189484761088
+sourceName: 牛客
 ---
 
 ## 这条 JD 在招什么人

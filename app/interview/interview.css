@@ -2172,3 +2172,210 @@ a.ivc-updcard:hover { border-color: var(--brand); box-shadow: var(--shadow); }
 .ivc-intent-title { font-size: 17px; font-weight: 700; color: var(--ink); }
 .ivc-intent-card:hover .ivc-intent-title { color: rgb(110, 34, 240); }
 .ivc-intent-desc { font-size: 13px; color: #5c5c66; line-height: 1.6; }
+
+/* ── 速答页「结合真实项目刷题」区（.qap-） ──────────────────
+   注：本段为重建版。原未提交样式在一次 git checkout 中被误回滚，
+   其中 .qap-proj-tag / .qap-proj-metrics / .qap-proj-how 三条与
+   两行 @media 为原文逐字恢复，其余按设计系统重建，请该区归属者校对。 */
+.qap-projects { margin-top: 36px; padding-top: 26px; border-top: 1px solid var(--line); }
+.qap-projects-head { display: flex; align-items: baseline; gap: 14px; flex-wrap: wrap; padding-bottom: 12px; border-bottom: 1px solid var(--line); }
+.qap-projects-t { font-family: var(--font-serif); font-size: 22px; font-weight: 700; color: var(--ink); margin: 0; }
+.qap-projects-d { flex: 1 1 260px; font-size: 13px; color: var(--ink-3); margin: 0; }
+.qap-projects-d a { color: var(--brand-deep); text-decoration: none; font-weight: 600; }
+.qap-projects-d a:hover { text-decoration: underline; text-underline-offset: 3px; }
+.qap-projects-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-top: 16px; }
+.qap-proj-card { display: flex; flex-direction: column; gap: 6px; background: var(--card); border: 1px solid var(--line); border-radius: 10px; padding: 16px 18px; text-decoration: none; transition: border-color 0.15s ease, transform 0.15s ease; }
+.qap-proj-card:hover { border-color: var(--brand); transform: translateY(-1px); }
+.qap-proj-name { margin: 0; font-size: 15px; font-weight: 700; color: var(--ink); line-height: 1.5; }
+.qap-proj-tag { margin: 0; font-size: 12px; color: var(--ink-2); }
+.qap-proj-metrics { margin: 2px 0 0; font-size: 12.5px; font-weight: 600; color: rgb(110, 34, 240); }
+.qap-proj-how { margin: 4px 0 0; padding-top: 8px; border-top: 1px dashed var(--line); font-size: 12.5px; color: #5c5c66; line-height: 1.65; margin-top: auto; }
+@media (max-width: 960px) { .qap-projects-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 560px) { .qap-projects-grid { grid-template-columns: 1fr; } }
+
+/* ============================================================
+   面试间 hub 重构（.ivt- 前缀，追加于文件末尾）：
+   分区头（图标胶囊+衬线标题）/ 高频速答 / 前沿直达条 /
+   章节降权 slim / 考点地图紧凑化 / 实战工具面板 / 更新动态缩小。
+   令牌全部复用 .ivu-root（--paper / --ink / --brand / --line），
+   不新增色彩、不改动既有 ivc- / ivu- / ivq- 类。
+   ============================================================ */
+
+/* ── 分区容器与分区头 ─────────────────────── */
+.ivt-sec { max-width: var(--wide); margin: 52px auto 0; padding: 0 20px; scroll-margin-top: 72px; }
+.ivt-sec-head { border-bottom: 1px solid var(--line); padding-bottom: 14px; margin-bottom: 20px; }
+.ivt-sec-titlerow { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+.ivt-sec-chip {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 30px; height: 30px; flex: none; border-radius: 9px;
+  background: var(--brand-tint); color: var(--brand-deep);
+  border: 1px solid rgba(110, 34, 240, 0.2);
+}
+.ivt-sec-title { font-family: var(--font-serif); font-size: 24px; font-weight: 700; letter-spacing: 0.03em; margin: 0; }
+.ivt-sec-more { margin-left: auto; font-size: 13.5px; font-weight: 600; color: var(--brand-deep); text-decoration: none; white-space: nowrap; }
+.ivt-sec-more:hover { text-decoration: underline; text-underline-offset: 3px; }
+.ivt-sec-lede { font-size: 14.5px; color: var(--ink-2); line-height: 1.85; max-width: 760px; margin: 10px 0 0; }
+
+/* ── hero 锚点导航条 ──────────────────────── */
+.ivt-anchor { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 18px; }
+.ivt-anchor a {
+  font-size: 13px; color: var(--ink-2); text-decoration: none;
+  border: 1px solid var(--line); background: var(--card);
+  border-radius: 999px; padding: 5px 14px;
+  transition: color 0.15s ease, border-color 0.15s ease;
+}
+.ivt-anchor a:hover { color: var(--brand-deep); border-color: var(--brand); }
+
+/* ── ② 高频速答精选 ───────────────────────── */
+.ivt-qagrid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+.ivt-qcard {
+  display: flex; flex-direction: column; gap: 8px;
+  background: var(--card); border: 1px solid var(--line); border-radius: 12px;
+  padding: 18px 20px 14px; text-decoration: none;
+  transition: border-color 0.15s ease, transform 0.15s ease, box-shadow 0.15s ease;
+}
+.ivt-qcard:hover { border-color: var(--brand); transform: translateY(-2px); box-shadow: var(--shadow); }
+.ivt-qcard-q { font-size: 15.5px; font-weight: 700; color: var(--ink); line-height: 1.55; }
+.ivt-qcard-a { font-size: 13px; color: var(--ink-2); line-height: 1.7; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.ivt-qcard-foot { margin-top: auto; display: flex; align-items: center; justify-content: space-between; gap: 10px; padding-top: 8px; border-top: 1px dashed var(--line); }
+.ivt-qcard-foot em { font-style: normal; font-size: 11.5px; color: var(--brand-deep); background: var(--brand-tint); border-radius: 999px; padding: 2px 9px; white-space: nowrap; }
+.ivt-qcard-foot i { font-style: normal; font-size: 12.5px; color: var(--brand-deep); white-space: nowrap; }
+
+/* ── ③ 前沿直达条 + 推荐路线 ──────────────── */
+.ivt-frontier {
+  display: flex; align-items: center; flex-wrap: wrap; gap: 8px;
+  background: var(--brand-tint); border: 1px solid rgba(110, 34, 240, 0.18);
+  border-radius: 12px; padding: 12px 16px;
+}
+.ivt-frontier-t { font-size: 12px; letter-spacing: 0.12em; color: var(--brand-deep); font-weight: 700; margin-right: 4px; flex: none; }
+.ivt-frontier-item {
+  display: inline-flex; align-items: center; gap: 7px;
+  font-size: 13.5px; color: var(--ink);
+  background: var(--card); border: 1px solid rgba(110, 34, 240, 0.22);
+  border-radius: 999px; padding: 5px 13px; text-decoration: none;
+  transition: border-color 0.15s ease, color 0.15s ease;
+}
+.ivt-frontier-item:hover { border-color: var(--brand); color: var(--brand-deep); }
+.ivt-frontier-item em { font-style: normal; font-size: 11px; color: var(--brand-deep); background: var(--brand-tint); border-radius: 999px; padding: 1px 7px; }
+.ivt-route-note { font-size: 13px; color: var(--ink-3); margin: 12px 0 0; }
+
+/* 前沿章徽章 */
+.ivt-ch-frontier { font-size: 11.5px; color: #fff; background: var(--brand); border-radius: 999px; padding: 2px 10px; flex: none; }
+
+/* 章内详解截断提示（每章只露前几条，全量进分类页） */
+.ivt-ch-linkmore { font-size: 12px; color: var(--ink-3); align-self: center; }
+
+/* 降权章（slim）：RAG / LLM 基础等基本功收尾，弱化视觉 */
+.ivt-ch-slim { padding: 18px 4px; }
+.ivt-ch-slim .ivc-ch-no { font-size: 24px; color: var(--ink-3); }
+.ivt-ch-slim .ivc-ch-name { font-size: 17px; font-weight: 400; }
+.ivt-ch-slim .ivc-ch-intro { font-size: 13px; color: var(--ink-3); margin-bottom: 6px; }
+.ivt-ch-slim .ivc-ch-links-label { padding-top: 4px; }
+.ivt-ch-slim .ivc-ch-docs { margin-top: 6px; }
+
+/* ── ④ 考点地图紧凑化（覆盖 .ivc-mapgrid 列数，后者在本文件更早处定义） ── */
+.ivt-mapgrid { grid-template-columns: repeat(4, 1fr); gap: 10px; }
+.ivt-fold { margin-top: 18px; border: 1px dashed var(--line); border-radius: 12px; background: var(--card); }
+.ivt-fold summary {
+  display: flex; align-items: center; justify-content: space-between; gap: 8px;
+  padding: 12px 16px; font-size: 13.5px; font-weight: 600; color: var(--ink-2);
+  cursor: pointer; list-style: none; user-select: none;
+}
+.ivt-fold summary::-webkit-details-marker { display: none; }
+.ivt-fold summary:hover { color: var(--brand-deep); }
+.ivt-fold summary svg { transition: transform 0.25s ease; }
+.ivt-fold[open] summary { border-bottom: 1px dashed var(--line); color: var(--brand-deep); }
+.ivt-fold[open] summary svg { transform: rotate(180deg); }
+.ivt-fold-lede { font-size: 13.5px; color: var(--ink-2); line-height: 1.8; margin: 14px 16px 12px; }
+.ivt-fold .ivc-projgrid { padding: 0 16px 16px; }
+
+/* ── ⑤ 实战工具面板（紧跟学习路线） ────────── */
+.ivt-tools-panel { background: var(--brand-tint); border: 1px solid rgba(110, 34, 240, 0.18); border-radius: 16px; padding: 16px; }
+.ivt-tools-chips { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 12px 2px; }
+.ivt-tools-chips span {
+  font-size: 11.5px; font-weight: 700; letter-spacing: 0.08em; color: var(--brand-deep);
+  background: var(--card); border: 1px solid rgba(110, 34, 240, 0.25);
+  border-radius: 999px; padding: 2px 11px;
+}
+.ivt-tools-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; }
+.ivt-tool {
+  display: flex; flex-direction: column; gap: 7px;
+  background: var(--card); border: 1px solid var(--line); border-radius: 12px;
+  padding: 14px 15px 12px; text-decoration: none;
+  transition: border-color 0.15s ease, transform 0.15s ease, box-shadow 0.15s ease;
+}
+.ivt-tool:hover { border-color: var(--brand); transform: translateY(-2px); box-shadow: var(--shadow); }
+.ivt-tool-top { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+.ivt-tool-icon {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 30px; height: 30px; border-radius: 9px;
+  background: var(--brand-tint); color: var(--brand-deep);
+}
+.ivt-tool-badge { font-size: 10.5px; color: var(--ink-3); border: 1px solid var(--line); border-radius: 999px; padding: 1px 8px; }
+.ivt-tool-name { font-size: 14.5px; font-weight: 700; color: var(--ink); line-height: 1.45; }
+.ivt-tool:hover .ivt-tool-name { color: var(--brand-deep); }
+.ivt-tool-desc { font-size: 12.5px; color: var(--ink-2); line-height: 1.65; flex: 1; }
+.ivt-tool-go { font-size: 12px; color: var(--brand-deep); }
+
+/* ── ⑦ 更新动态缩小：在写清单并成两列 ─────── */
+.ivt-updlist { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px 18px; }
+.ivt-updlist a { color: var(--ink-2); text-decoration: none; }
+.ivt-updlist a:hover { color: var(--brand-deep); text-decoration: underline; text-underline-offset: 3px; }
+
+/* 底部全量入口与页面的间距 */
+.ivt-allentry { margin-top: 44px; }
+
+/* ── 响应式 ───────────────────────────────── */
+@media (max-width: 1024px) {
+  .ivt-qagrid { grid-template-columns: repeat(2, 1fr); }
+  .ivt-mapgrid { grid-template-columns: repeat(2, 1fr); }
+  .ivt-tools-grid { grid-template-columns: repeat(3, 1fr); }
+}
+@media (max-width: 720px) {
+  .ivt-sec { margin-top: 40px; padding: 0 16px; }
+  .ivt-sec-title { font-size: 20px; }
+  .ivt-sec-more { margin-left: 0; flex-basis: 100%; }
+  .ivt-anchor { flex-wrap: nowrap; overflow-x: auto; padding-bottom: 4px; scrollbar-width: none; -ms-overflow-style: none; }
+  .ivt-anchor::-webkit-scrollbar { display: none; }
+  .ivt-anchor a { flex: none; }
+  .ivt-qagrid { grid-template-columns: 1fr; }
+  /* 移动端控高：速答卡收起一句话答案；章内详解限高，学习路径链接排前 */
+  .ivt-qcard { padding: 14px 16px 10px; gap: 6px; }
+  .ivt-qcard-a { display: none; }
+  .ivc-ch-links-list { max-height: 88px; overflow: hidden; }
+  .ivc-ch-links-list .ivc-ch-link--path { order: -1; }
+  .ivt-mapgrid { grid-template-columns: 1fr; }
+  .ivt-tools-grid { grid-template-columns: repeat(2, 1fr); }
+  .ivt-tools-panel { padding: 12px; }
+  .ivt-updlist { grid-template-columns: 1fr; }
+  .ivt-frontier { padding: 10px 12px; }
+}
+@media (max-width: 480px) {
+  .ivt-sec { margin-top: 32px; }
+  .ivc-ch-points { display: none; }
+}
+
+/* ── 动效降级 ─────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  .ivt-anchor a,
+  .ivt-qcard,
+  .ivt-frontier-item,
+  .ivt-tool,
+  .ivt-fold summary svg { transition: none; }
+  .ivt-qcard:hover,
+  .ivt-tool:hover { transform: none; box-shadow: none; }
+}
+
+/* ── 题库分组折叠（qa-rows details 化）──────────────── */
+details.ivq-cat > .ivq-cat-head { cursor: pointer; list-style: none; align-items: center; }
+details.ivq-cat > .ivq-cat-head::-webkit-details-marker { display: none; }
+details.ivq-cat > .ivq-cat-head .ivq-cat-intro {
+  display: -webkit-box; -webkit-line-clamp: 1; -webkit-box-orient: vertical; overflow: hidden;
+}
+details.ivq-cat > .ivq-cat-head .ivq-cat-toggle {
+  flex: none; margin-left: auto; padding: 5px 12px;
+  border: 1px solid var(--line); border-radius: 999px;
+  color: var(--brand-deep); font-size: 12px; white-space: nowrap;
+}
+details.ivq-cat[open] > .ivq-cat-head .ivq-cat-toggle { background: var(--brand-tint); }
+details.ivq-cat:not([open]) { padding-bottom: 2px; }

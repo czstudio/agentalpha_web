@@ -10,6 +10,8 @@ cats: [agent, tooluse, memory, enterprise]
 qaSlugs: [what-is-agent, bytedance-agent-message-types, mcp-what-and-core, agent-memory-hierarchy, agent-token-billing, agent-latency, workflow-vs-agent, agent-evaluation]
 keywords: [字节跳动 Agent 开发, 豆包 Agent 岗, 扣子 Coze 工程师, 字节 AI 应用面试]
 updated: 2026-09-28
+sourceUrl: https://jobs.bytedance.com/campus/position
+sourceName: 字节跳动校招官网（职位ID A42097）
 ---
 
 ## 这条 JD 在招什么人

@@ -266,3 +266,43 @@
 .jd-faq-item summary { cursor: pointer; font-size: 14.5px; font-weight: 600; color: var(--jd-ink); }
 .jd-faq-item[open] summary { margin-bottom: 6px; }
 .jd-faq-item p { margin: 0; font-size: 13.5px; color: var(--jd-ink-2); line-height: 1.75; }
+
+/* ── 原 JD 来源入口（jdl- 前缀）──
+   有 sourceUrl 显示「查看原 JD ↗」，没有显示待补灰字；
+   列表卡从 <a> 改为 div + 内层 .jdl-item-link，外层 hover 描边不变。 */
+.jd-index-co .jdl-item-link {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+.jd-index-co .jdl-src-link,
+.jd-index-co .jdl-src-pending {
+  display: inline-block;
+  font-size: 12px;
+  line-height: 1.5;
+  margin-top: 6px;
+}
+.jd-index-co .jdl-src-link {
+  color: var(--jd-brand);
+  text-decoration: none;
+  font-weight: 600;
+  border-bottom: 1px solid rgba(110, 34, 240, 0.3);
+}
+.jd-index-co .jdl-src-link:hover { border-bottom-color: var(--jd-brand); }
+.jd-index-co .jdl-src-pending { color: var(--jd-ink-3); }
+
+.jdl-source {
+  font-size: 13px;
+  margin: 0 0 8px;
+}
+.jdl-source-link {
+  color: var(--jd-brand);
+  text-decoration: none;
+  font-weight: 600;
+  border-bottom: 1px solid rgba(110, 34, 240, 0.3);
+}
+.jdl-source-link:hover { border-bottom-color: var(--jd-brand); }
+.jdl-source-pending {
+  font-size: 12px;
+  color: var(--jd-ink-3);
+}

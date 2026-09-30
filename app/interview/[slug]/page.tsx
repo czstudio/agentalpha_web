@@ -200,10 +200,18 @@ export default async function InterviewDetailPage({ params }: PageProps) {
   const cover = hasCover(post.slug)
   // 非面试体文章（AgentAlpha 特稿）question 兜底成了标题，此时不渲染题卡
   const showQuestion = post.question && post.question !== post.title
-  // 自动摘要是正文首段时不重复渲染导语
+  // 自动摘要是正文首段时不重复渲染导语；截断的摘要按句边界收口，不留半句
+  const excerptRaw = post.excerpt || ""
+  const lastStop = excerptRaw.lastIndexOf("。")
+  const excerptClean =
+    excerptRaw && lastStop > 0 && lastStop < excerptRaw.length - 1
+      ? excerptRaw.slice(0, lastStop + 1)
+      : excerptRaw
   const lede =
-    post.excerpt && !post.content.slice(0, 600).includes(post.excerpt.slice(0, 24))
-      ? post.excerpt
+    excerptClean &&
+    !post.content.slice(0, 600).includes(excerptClean.slice(0, 24)) &&
+    !post.content.slice(0, 600).includes(excerptRaw.slice(0, 24))
+      ? excerptClean
       : null
   const mainContent =
     answerIdx0 === -1 ? post.content : post.content.slice(0, answerIdx0).trim()

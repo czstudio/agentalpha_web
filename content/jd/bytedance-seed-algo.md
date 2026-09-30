@@ -10,6 +10,8 @@ cats: [finetune, basics]
 qaSlugs: [bytedance-decoder-only-why, bytedance-agent-forgetting, what-is-rlhf, sft-data-preparation, agentic-rl-vs-sft, grpo-training-metrics, llm-distillation, why-post-training]
 keywords: [字节 Seed 算法, Seed 后训练, 字节大模型算法面试, RLHF 数据构造]
 updated: 2026-09-29
+sourceUrl: https://jobs.bytedance.com/campus/position/7622891560695793973/detail
+sourceName: 字节跳动官网
 ---
 
 ## 这条 JD 在招什么人

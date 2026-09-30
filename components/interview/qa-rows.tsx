@@ -132,11 +132,13 @@ export function QaRows({ groups }: { groups: QaRowGroup[] }) {
         </p>
       )}
 
-      {visibleGroups.map((group) => {
+      {visibleGroups.map((group, gi) => {
         const done = group.items.filter((it) => isMastered(mastery[it.slug])).length
+        // 首屏降噪：默认只展开第一组，其余折叠；搜索/筛选命中时全展开
+        const expanded = q.trim().length > 0 || filter !== "all" || gi === 0
         return (
-          <section className="ivq-cat" key={group.cat} id={group.cat}>
-            <div className="ivq-cat-head">
+          <details className="ivq-cat" key={group.cat} id={group.cat} open={expanded}>
+            <summary className="ivq-cat-head">
               <h2 className="ivq-cat-name">{group.name}</h2>
               <p className="ivq-cat-intro">{group.intro}</p>
               {ready && (
@@ -144,7 +146,10 @@ export function QaRows({ groups }: { groups: QaRowGroup[] }) {
                   {done >= group.items.length ? "已刷完" : `已掌握 ${done}/${group.items.length}`}
                 </span>
               )}
-            </div>
+              <span className="ivq-cat-toggle" aria-hidden>
+                {expanded ? "收起" : `展开 ${group.items.length} 题`}
+              </span>
+            </summary>
             <div className="ivq-rows">
               {group.items.map((item) => {
                 const on = isMastered(mastery[item.slug])
@@ -172,7 +177,7 @@ export function QaRows({ groups }: { groups: QaRowGroup[] }) {
                 )
               })}
             </div>
-          </section>
+          </details>
         )
       })}
     </div>

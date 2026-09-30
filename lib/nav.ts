@@ -1,5 +1,5 @@
 import { getCategoriesWithPosts } from "@/lib/interview"
-import { getAllQa } from "@/lib/qa"
+import { getAllQa, orderQaCategories } from "@/lib/qa"
 import { getAllInterview } from "@/lib/interview"
 import { ROADMAPS } from "@/lib/roadmap"
 import { COMPANIES, getQaByCompany } from "@/lib/companies"
@@ -51,7 +51,8 @@ export function buildInterviewNav(): NavGroup[] {
       key: "learn",
       title: "系统学习（按方向）",
       open: true,
-      items: categories.map((c) => ({
+      // 与 /interview/qa 的分类顺序一致：新主题（自进化/Agentic RL/DeepSearch 等）前置，RAG/LLM 基础靠后
+      items: orderQaCategories(categories).map((c) => ({
         label: c.name,
         href: `/interview/category/${c.cat}`,
         badge: `${qaCount(c.cat) + c.count}`,
