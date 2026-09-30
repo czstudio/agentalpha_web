@@ -154,8 +154,8 @@ export default function NotesIndexPage() {
               {publishedWechat.map((article) => <a className="aa-notes-wechat-card" href={article.url} target="_blank" rel="noreferrer" key={article.articleId}><span>{article.publishedAt} · 已发表</span><h3>{article.title}</h3><strong>打开原文 <ArrowUpRight aria-hidden /></strong></a>)}
             </div>
             <div className="aa-notes-cta-grid">
-              <Link className="aa-notes-cta-card" href="/community#3-课程体系"><span>课程入口</span><strong>训练营要交的作业是开源项目和论文 <ArrowRight aria-hidden /></strong><small>课程体系全部公开，成品去社区项目页看</small></Link>
-              <Link className="aa-notes-cta-card aa-notes-cta-card--dark" href="/#join"><span>社区入口</span><strong>来 AgentAlpha，一起练习和复盘 <ArrowRight aria-hidden /></strong><small>offer 我们不敢保证，能保证的是每周有人陪你过代码、看结果</small></Link>
+              <Link className="aa-notes-cta-card" href="/community#3-课程体系"><span>课程入口</span><strong>真正的履历无需修饰，它是公开的代码与论文 <ArrowRight aria-hidden /></strong><small>课程细节全公开</small></Link>
+              <Link className="aa-notes-cta-card aa-notes-cta-card--dark" href="/#join"><span>社区入口</span><strong>一起来做有影响力有意义的项目，改变一点点世界 <ArrowRight aria-hidden /></strong><small>把项目做好，offer 是自然发生的事</small></Link>
             </div>
           </div>
         </section>
