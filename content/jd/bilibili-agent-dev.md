@@ -10,6 +10,8 @@ cats: [agent, rag, tooluse]
 qaSlugs: [rag-pipeline, rag-chunking, hybrid-retrieval-rerank, rag-evaluation, what-is-react, agent-loop, what-is-function-calling, how-to-write-tool-description]
 keywords: [B站 AI Agent, B站 RAG 面试, LangChain 组件, 多轮 Agent 设计]
 updated: 2026-09-29
+sourceUrl: https://jobs.bilibili.com/
+sourceName: 哔哩哔哩招聘官网（列表入口）
 ---
 
 ## 这条 JD 在招什么人

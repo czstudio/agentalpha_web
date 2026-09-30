@@ -10,6 +10,8 @@ cats: [finetune, basics]
 qaSlugs: [what-is-grpo, grpo-improvements, grpo-training-metrics, dpo-vs-ppo, gae-critic-ppo, sft-to-rl-switch, agentic-rl-vs-sft, catastrophic-forgetting]
 keywords: [滴滴大模型算法, GRPO 面试, RLHF 后训练, 滴滴算法岗]
 updated: 2026-09-29
+sourceUrl: https://talent.didiglobal.com/
+sourceName: 滴滴招聘官网（列表入口）
 ---
 
 ## 这条 JD 在招什么人

@@ -1,6 +1,6 @@
 import type { Metadata } from "next"
 import Link from "next/link"
-import { getAllQa, getQaGrouped } from "@/lib/qa"
+import { getAllQa, getQaGrouped, orderQaCategories } from "@/lib/qa"
 import { getCategories } from "@/lib/interview"
 import { COMPANIES, getQaByCompany } from "@/lib/companies"
 import { QaRows, type QaRowGroup } from "@/components/interview/qa-rows"
@@ -11,29 +11,65 @@ const SITE = "https://agentalpha.top"
 export const metadata: Metadata = {
   title: "Agent 面试题大全（含答案，持续更新）",
   description:
-    "大模型 Agent 岗高频面试题大全：LLM 基础、RAG、Agent 架构、训练与微调（LoRA/RLHF/DPO）、推理与部署（KV Cache/量化）、工具调用与 MCP、多智能体、记忆系统、提示工程、多模态、评测、企业落地，一题一页给出口语化参考答案，面试前速刷。",
+    "大模型 Agent 岗高频面试题大全：自进化 Agent、Agentic RL、多智能体、DeepSearch、Code Agent、记忆系统、评测与可观测、工具调用与 MCP、Agent 架构、训练与微调（LoRA/RLHF/DPO）、推理与部署（KV Cache/量化）、企业落地，RAG 与 LLM 基础也持续更新，一题一页给出口语化参考答案，面试前速刷。",
   keywords: [
     "Agent 面试题",
     "大模型面试题",
+    "自进化 Agent 面试题",
+    "Agentic RL 面试题",
+    "DeepSearch 面试题",
+    "多智能体面试题",
     "LLM 面试题及答案",
-    "RAG 面试题",
     "Agent 面试",
+    "vLLM 面试题",
     "LoRA 面试题",
     "RLHF 面试题",
-    "vLLM 面试题",
     "大模型八股文",
     "AI 产品经理面试题",
     "大模型岗面试",
     "Agent 八股文",
+    "RAG 面试题",
   ],
   alternates: { canonical: "/interview/qa" },
 }
 
+/**
+ * 社区实战项目（数字已核实，勿改动）：项目题要结合真实项目讲，
+ * 每卡一句「面试里怎么讲它」，把项目绑定到对应考点。入口统一到 /projects。
+ */
+const QA_PROJECTS = [
+  {
+    name: "Idea2Paper",
+    tag: "AI 科研智能体",
+    metrics: "GitHub 1.4k Star · HF 论文日榜第一",
+    how: "多智能体评审 + 向量知识库：讲项目架构与评测时用它当主案例。",
+  },
+  {
+    name: "InkOS",
+    tag: "AI 小说智能体",
+    metrics: "GitHub 7.8k Star · 150+ 部签约",
+    how: "长程规划与记忆管理：讲记忆系统、长文一致性时用它。",
+  },
+  {
+    name: "潜艇 AI",
+    tag: "TikTok 跨境电商引擎",
+    metrics: "30 天用户破万",
+    how: "工具链编排与内容生成管线：讲 Agent 落地与增长复盘时用它。",
+  },
+  {
+    name: "SellAI Pro",
+    tag: "企业定制电商",
+    metrics: "多模块实战",
+    how: "多模块企业级交付：讲权限边界与成本控制时用它。",
+  },
+]
+
 export default function QaHubPage() {
   const all = getAllQa()
-  const groups = getQaGrouped(getCategories())
+  const cats = orderQaCategories(getCategories())
+  const groups = getQaGrouped(cats)
   const rowGroups: QaRowGroup[] = groups.map((group) => {
-    const category = getCategories().find((c) => c.cat === group.cat)
+    const category = cats.find((c) => c.cat === group.cat)
     return {
       cat: group.cat,
       name: category?.name || group.cat,
@@ -94,7 +130,7 @@ export default function QaHubPage() {
         <p className="ivc-hero-kicker">高频题速答 · QUICK ANSWERS</p>
         <h1 className="ivc-hero-title">Agent 面试题大全</h1>
         <p className="ivc-hero-sub">
-          {all.length} 道真实高频题，一题一页。每页先给一句能直接说出口的结论，再补追问点和常见的坑。面试前速刷，面试中救场。
+          {rowGroups.reduce((n, g) => n + g.items.length, 0)} 道真实高频题，一题一页。每页先给一句能直接说出口的结论，再补追问点和常见的坑。面试前速刷，面试中救场。
         </p>
         <p className="ivq-hero-note">
           题目来自社区成员的真实面经与公开面经汇总，按大家实际会搜的说法组织。
@@ -123,6 +159,28 @@ export default function QaHubPage() {
         </div>
         <DailyQuestion items={dailyItems} />
       </header>
+
+      <div className="ivu-wide">
+        <section className="qap-projects" aria-label="结合真实项目刷题">
+          <div className="qap-projects-head">
+            <p className="qap-projects-t">结合真实项目刷题</p>
+            <p className="qap-projects-d">
+              项目题别只背概念：这四个社区实战项目都有真实用户和线上数据，讲项目时把它们当主案例更有说服力。
+              <Link href="/projects">全部项目 →</Link>
+            </p>
+          </div>
+          <div className="qap-projects-grid">
+            {QA_PROJECTS.map((p) => (
+              <Link key={p.name} href="/projects" className="qap-proj-card">
+                <p className="qap-proj-name">{p.name}</p>
+                <p className="qap-proj-tag">{p.tag}</p>
+                <p className="qap-proj-metrics">{p.metrics}</p>
+                <p className="qap-proj-how">{p.how}</p>
+              </Link>
+            ))}
+          </div>
+        </section>
+      </div>
 
       <div className="ivu-wide">
         <QaRows groups={rowGroups} />

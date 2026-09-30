@@ -10,6 +10,8 @@ cats: [inference]
 qaSlugs: [what-is-kv-cache, kv-cache-quantization, what-is-quantization, vllm-why-fast, continuous-batching, prefix-caching, what-is-pd-disaggregation, ttft-decode-speed]
 keywords: [腾讯混元推理, 混元 Infra 面试, KV Cache 量化, 大模型推理工程师]
 updated: 2026-09-29
+sourceUrl: https://www.nowcoder.com/feed/main/detail/1f52f2424d4b4e9683984f57ddc21a96
+sourceName: 牛客（腾讯 TEG 混元 LLMOps）
 ---
 
 ## 这条 JD 在招什么人

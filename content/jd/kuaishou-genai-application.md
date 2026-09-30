@@ -10,6 +10,8 @@ cats: [rag, agent, finetune]
 qaSlugs: [rag-pipeline, rag-chunking, hybrid-retrieval-rerank, rag-effect-eval, rag-retrieval-debug, gae-critic-ppo, rag-vs-finetune, what-is-grpo]
 keywords: [快手 GenAI 面试, 快手大模型应用, RAG 十连问, 快手 AI 应用岗]
 updated: 2026-09-29
+sourceUrl: https://campus.kuaishou.cn/#/campus/job-info/12691
+sourceName: 快手官网
 ---
 
 ## 这条 JD 在招什么人

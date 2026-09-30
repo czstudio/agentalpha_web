@@ -10,6 +10,8 @@ cats: [enterprise, tooluse, safety]
 qaSlugs: [intent-recognition-choice, agent-human-handoff, llm-content-moderation, fc-vs-mcp-when, agent-guardrails, rag-knowledge-base-update, online-evaluation, prompt-injection-vs-jailbreak]
 keywords: [京东大模型应用, 言犀 面试, 京东客服 Agent, 电商大模型岗位]
 updated: 2026-09-29
+sourceUrl: https://www.nowcoder.com/feed/main/detail/6adbbd21781643b991772710278e2726
+sourceName: 牛客
 ---
 
 ## 这条 JD 在招什么人

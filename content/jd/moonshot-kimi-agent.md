@@ -10,6 +10,8 @@ cats: [agent, memory, tooluse]
 qaSlugs: [what-is-context-window, context-window-limit, lost-in-the-middle, context-compression-minimal-loss, agent-memory-hierarchy, memory-compression, memory-vs-rag, agent-memory-write-verify]
 keywords: [月之暗面面试, Kimi Agent 开发, 长上下文 面试, Agent 记忆系统]
 updated: 2026-09-29
+sourceUrl: https://careers.kimi.com/
+sourceName: Kimi 官方招聘站
 ---
 
 ## 这条 JD 在招什么人

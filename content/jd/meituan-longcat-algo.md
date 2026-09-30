@@ -10,6 +10,8 @@ cats: [finetune, eval]
 qaSlugs: [meituan-sft-dpo-data, meituan-reward-design, meituan-grpo-why-not-ppo, meituan-ood-collapse, meituan-doc-distribution-shift, online-evaluation, llm-as-judge, golden-set]
 keywords: [美团 LongCat, 美团大模型算法, LongCat 后训练, 美团算法岗面试]
 updated: 2026-09-29
+sourceUrl: https://www.nowcoder.com/feed/main/detail/19a96a361e5f4d8f86dd4e5a0f95477e
+sourceName: 牛客（美团 26 秋招内推·含 LongCat）
 ---
 
 ## 这条 JD 在招什么人

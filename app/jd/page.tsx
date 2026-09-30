@@ -70,10 +70,19 @@ export default function JdIndexPage() {
             </div>
             <div className="co-items">
               {docs.map((d) => (
-                <Link key={`${d.company}-${d.slug}`} href={`/jd/${d.company}/${d.slug}`} className="co-item">
-                  <div className="t">{d.role} · {d.level}</div>
-                  <span className="s">{d.summary}</span>
-                </Link>
+                <div key={`${d.company}-${d.slug}`} className="co-item">
+                  <Link href={`/jd/${d.company}/${d.slug}`} className="jdl-item-link">
+                    <div className="t">{d.role} · {d.level}</div>
+                    <span className="s">{d.summary}</span>
+                  </Link>
+                  {d.sourceUrl ? (
+                    <a className="jdl-src-link" href={d.sourceUrl} target="_blank" rel="noopener noreferrer">
+                      查看原 JD ↗{d.sourceName ? ` · ${d.sourceName}` : ""}
+                    </a>
+                  ) : (
+                    <span className="jdl-src-pending">来源：公开 JD 与面经汇总 · 原文链接待补</span>
+                  )}
+                </div>
               ))}
             </div>
           </section>
@@ -82,6 +91,7 @@ export default function JdIndexPage() {
         <p className="jd-claim">
           口径说明：拆解页是该方向公开 JD 与公开面经的高频归纳，不对应某一篇特定 JD；
           业务场景为推断（页面内已标置信度）。招聘要求以官方发布为准。
+          22 条样本中 21 条已附原文链接或官方招聘入口，卡片上的「查看原 JD」可直接跳转；腾讯混元 Agent 方向仍在核实。
           库在持续扩充，想第一时间看到你的目标公司，可以把 JD 发给我们。
         </p>
       </main>

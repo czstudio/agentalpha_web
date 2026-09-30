@@ -115,6 +115,17 @@ export default async function JdDetailPage({ params }: PageProps) {
             <span>层级：{doc.level}</span>
             <span>方向：{doc.cats.map((c) => getCategory(c)?.name ?? c).slice(0, 4).join(" / ")}</span>
           </div>
+          {doc.sourceUrl ? (
+            <p className="jdl-source">
+              <a className="jdl-source-link" href={doc.sourceUrl} target="_blank" rel="noopener noreferrer">
+                查看原 JD ↗{doc.sourceName ? ` · ${doc.sourceName}` : ""}
+              </a>
+            </p>
+          ) : (
+            <p className="jdl-source jdl-source-pending">
+              原文链接待补：本页为该方向公开 JD 与面经的归纳，非单篇 JD 转写
+            </p>
+          )}
           <p className="jd-updated">更新于 {doc.updated} · 口径：该方向公开 JD 与公开面经的高频归纳</p>
         </header>
 

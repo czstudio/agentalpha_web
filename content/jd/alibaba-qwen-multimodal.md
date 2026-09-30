@@ -10,6 +10,8 @@ cats: [multimodal, finetune]
 qaSlugs: [what-is-vlm, vlm-alignment-training, clip-contrastive-pretraining, vlm-hallucination-mitigation, visual-token-cost, vlm-modality-imbalance, alibaba-lora-lowrank-why, vlm-vision-token-reduction]
 keywords: [阿里多模态算法, Qwen-VL 面试, 图文对齐训练, 通义千问多模态]
 updated: 2026-09-29
+sourceUrl: https://careers-tongyi.alibaba.com/
+sourceName: 通义千问招聘官网（列表入口）
 ---
 
 ## 这条 JD 在招什么人

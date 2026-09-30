@@ -10,6 +10,8 @@ cats: [enterprise, inference, safety]
 qaSlugs: [llm-private-deployment, selfhost-vs-api, enterprise-rag-pitfalls, rag-acl-permissions, training-data-compliance, llm-security, what-is-quantization, kv-cache-quantization]
 keywords: [华为盘古 面试, 大模型行业落地, 私有化部署 面试, 华为大模型应用岗]
 updated: 2026-09-29
+sourceUrl: https://www.nowcoder.com/feed/main/detail/9671820d3ba645e3a9819a456fb6dbd0
+sourceName: 牛客（华为 2027 届校招·云计算 BU）
 ---
 
 ## 这条 JD 在招什么人

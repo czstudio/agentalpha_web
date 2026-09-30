@@ -10,6 +10,8 @@ cats: [enterprise, tooluse]
 qaSlugs: [baidu-sft-rlhf-data-diff, llm-private-deployment, enterprise-rag-pitfalls, rag-knowledge-base-update, rag-acl-permissions, model-routing, llm-vendor-switch, tool-schema-design]
 keywords: [百度千帆, 千帆大模型平台, 企业 RAG 岗位, 百度 Agent 开发]
 updated: 2026-09-29
+sourceUrl: https://talent.baidu.com/jobs/position/detail?postId=686957&recruitType=SOCIAL
+sourceName: 百度智能云官网
 ---
 
 ## 这条 JD 在招什么人

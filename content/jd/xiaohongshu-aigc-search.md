@@ -10,6 +10,8 @@ cats: [rag, multimodal, eval]
 qaSlugs: [what-is-vlm, vlm-vs-traditional-ocr, document-parsing, rag-pipeline, visual-token-cost, llm-content-moderation, intent-recognition-choice, rag-evaluation]
 keywords: [小红书 AIGC, 小红书大模型, 小红书 AI 搜索面试, 多模态应用岗]
 updated: 2026-09-28
+sourceUrl: https://www.nowcoder.com/feed/main/detail/4f40cb0fad634a37a214670833443bb5
+sourceName: 牛客
 ---
 
 ## 这条 JD 在招什么人

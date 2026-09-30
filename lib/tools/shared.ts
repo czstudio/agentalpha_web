@@ -53,10 +53,10 @@ export const CAT_TO_TOOLS: Record<string, Array<{ href: string; label: string; w
     { href: "/tools/gap-test", label: "测记忆与上下文域", why: "八域之一,带真题抽验" },
   ],
   finetune: [
-    { href: "/tools/gap-test", label: "选算法方向测训练域", why: "大模型算法方向加权更高" },
+    { href: "/tools/gap-test", label: "测训练与微调域的短板", why: "大模型算法方向此域权重更高" },
   ],
   inference: [
-    { href: "/tools/gap-test", label: "选 Infra 方向测部署域", why: "Infra 方向推理部署权重最高" },
+    { href: "/tools/gap-test", label: "测推理与部署域的短板", why: "Infra 方向此域权重最高" },
   ],
   enterprise: [
     { href: "/tools/jd-analyzer", label: "拆 JD 里的落地要求", why: "企业落地的隐藏考点会标出来" },

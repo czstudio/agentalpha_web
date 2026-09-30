@@ -31,6 +31,10 @@ export interface JdDoc {
   /** 搜索词 */
   keywords: string[]
   updated: string
+  /** 原 JD 原文链接（frontmatter `sourceUrl:`）。红线：只填真实可访问的 URL，绝不编造；缺省时前端显示「原文链接待补」 */
+  sourceUrl?: string
+  /** 原文来源平台名（frontmatter `sourceName:`，如「牛客」「公司官网招聘页」），配合 sourceUrl 显示 */
+  sourceName?: string
   /** 正文 markdown（10 节） */
   content: string
 }
@@ -77,6 +81,8 @@ function toDoc(file: string): JdDoc {
     qaSlugs: parseList(data.qaSlugs),
     keywords: parseList(data.keywords),
     updated: data.updated || "",
+    sourceUrl: data.sourceUrl || undefined,
+    sourceName: data.sourceName || undefined,
     content: body,
   }
 }

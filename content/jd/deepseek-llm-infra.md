@@ -10,6 +10,8 @@ cats: [inference, basics]
 qaSlugs: [what-are-gqa-mqa-mla, what-is-kv-cache, kv-cache-quantization, vllm-why-fast, continuous-batching, speculative-decoding-engineering, moe-load-balance, what-is-pd-disaggregation]
 keywords: [DeepSeek Infra 面试, DeepSeek 推理优化, MLA KV Cache, 大模型推理工程师]
 updated: 2026-09-29
+sourceUrl: https://talent.deepseek.com/
+sourceName: DeepSeek 官方招聘站（列表入口）
 ---
 
 ## 这条 JD 在招什么人

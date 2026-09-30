@@ -10,6 +10,8 @@ cats: [enterprise, agent, safety]
 qaSlugs: [agent-delivery-risk, agent-regression, agent-guardrails, agent-human-handoff, multi-agent-child-fault, llm-security, tool-permission, agent-harness]
 keywords: [蚂蚁 Agent 岗, 蚂蚁 Agent 面试, Agent 回滚机制, 金融 Agent 开发]
 updated: 2026-09-29
+sourceUrl: https://www.nowcoder.com/feed/main/detail/39cc0f08b211441cb8b4576f186be206
+sourceName: 牛客
 ---
 
 ## 这条 JD 在招什么人

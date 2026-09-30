@@ -1,8 +1,26 @@
 import type { Metadata } from "next"
 import Link from "next/link"
-import { getAllInterview, getCategories, getCategoriesWithPosts, hasCover } from "@/lib/interview"
+import {
+  Activity,
+  Building2,
+  ClipboardList,
+  Compass,
+  Crosshair,
+  FileCheck2,
+  FileUser,
+  MessagesSquare,
+  NotebookPen,
+  PenLine,
+  Radar,
+  Route,
+  Scale,
+  ScanSearch,
+  Wrench,
+  Zap,
+  type LucideIcon,
+} from "lucide-react"
+import { getAllInterview, getCategories, getCategoriesWithPosts } from "@/lib/interview"
 import { getAllQa } from "@/lib/qa"
-import { InterviewList } from "@/components/interview/interview-list"
 import {
   CHAPTERS,
   EXAM_MAP,
@@ -17,7 +35,7 @@ import {
 export const metadata: Metadata = {
   title: "Agent 岗面试学习路线 · 面试间",
   description:
-    "12 章面试专栏：RAG、LLM 基础、Agent 架构、工具调用、评测、五厂真题。1500+ 题来自社区真实面经，附 2582 道真题的考点地图，按章复习、项目反推、公司追问三条路径使用。",
+    "12 章面试专栏：RAG、LLM 基础、Agent 架构、工具调用、评测、五厂真题。速答题库一题一页，附 2582 道真题的考点地图与 10 个免费求职工具，按章复习、速答直查、工具落地三条路径使用。",
   alternates: { canonical: "/interview" },
 }
 
@@ -25,7 +43,39 @@ function freqClass(freq: ColumnChapter["freq"]): string {
   return freq === "core" ? "ivc-freq-core" : freq === "high" ? "ivc-freq-high" : "ivc-freq-deep"
 }
 
+/* ── 分区头：图标胶囊 + 衬线标题 ───────────────── */
+function SecHead({
+  icon: Icon,
+  title,
+  lede,
+  aside,
+}: {
+  icon: LucideIcon
+  title: string
+  lede?: string
+  aside?: { href: string; label: string }
+}) {
+  return (
+    <div className="ivt-sec-head">
+      <div className="ivt-sec-titlerow">
+        <span className="ivt-sec-chip">
+          <Icon aria-hidden size={16} />
+        </span>
+        <h2 className="ivt-sec-title">{title}</h2>
+        {aside ? (
+          <Link href={aside.href} className="ivt-sec-more">
+            {aside.label}
+          </Link>
+        ) : null}
+      </div>
+      {lede ? <p className="ivt-sec-lede">{lede}</p> : null}
+    </div>
+  )
+}
+
+/* ── ① Hero：统计保留，行动按钮收敛到 3 个 ─────── */
 function Hero() {
+  const qaTotal = getAllQa().length
   return (
     <header className="ivc-hero">
       <div className="ivc-hero-kicker">AGENTALPHA INTERVIEW ROOM · COLUMN</div>
@@ -35,8 +85,8 @@ function Hero() {
         题干来自面试官原话，解法附论文原文，这里的每场面试都允许翻书。
       </p>
       <div className="ivc-hero-stats">
-        <span><b>12</b> 章</span>
-        <span><b>1500+</b> 题</span>
+        <span><b>{CHAPTERS.length}</b> 章</span>
+        <span><b>{qaTotal}</b> 道速答</span>
         <span><b>52</b> 个考点</span>
         <span><b>2582</b> 道真题图谱</span>
       </div>
@@ -44,128 +94,107 @@ function Hero() {
         <Link className="ivc-hero-btn" href="/interview/quiz">
           模拟面试 · 抽题自测
         </Link>
-        <Link className="ivc-hero-btn ivc-hero-btn--ghost" href="/roadmap">
-          学习路线 · 按方向刷
-        </Link>
-        <Link className="ivc-hero-btn ivc-hero-btn--ghost" href="/jd">
-          大厂 JD 拆解库
-        </Link>
-        <Link className="ivc-hero-btn ivc-hero-btn--ghost" href="/tools/resume">
-          简历体检 · 追问预演
-        </Link>
         <Link className="ivc-hero-btn ivc-hero-btn--ghost" href="/interview/qa">
-          速答题库一键直达
+          高频题速答 · {qaTotal} 题一题一页
         </Link>
-        <Link className="ivc-hero-btn ivc-hero-btn--ghost" href="/interview/glossary">
-          术语表 · 一句话定义
+        <Link className="ivc-hero-btn ivc-hero-btn--ghost" href="/tools">
+          免费求职工具箱 · 10 个工具
         </Link>
       </div>
+      <nav className="ivt-anchor" aria-label="本页分区导航">
+        <a href="#qa-picks">高频速答</a>
+        <a href="#chapters">学习路线</a>
+        <a href="#exam-map">考点地图</a>
+        <a href="#tools">实战工具</a>
+        <a href="#factories">五厂真题</a>
+        <a href="#updates">更新动态</a>
+      </nav>
     </header>
   )
 }
 
-function ReadMe() {
-  return (
-    <section className="ivc-read" aria-label="这个专栏讲什么">
-      <div className="ivc-read-main">
-        <h2 className="ivc-sec-title">这个专栏讲什么</h2>
-        <p>
-          这两年 Agent 岗的面试变了味。以前问你用过哪些框架，现在盯着你连问四层：基础功扎不扎实、
-          怎么判断一个模型好不好、工程上能做到多深、对前沿跟得紧不紧。
-          这个判断来自我们写过的一篇<a href="/interview/agent-interview-2026">一万多字的观察</a>，站内能翻到原文。
-        </p>
-        <p>
-          题目不是编的。社区成员在面试桌上碰到的原题、牛客上的真实面经、CSDN 和掘金的汇总、
-          Datawhale 的开源项目，还有公众号里自己写的解析，都收进来重编过。
-          问过的公司包括字节、阿里、腾讯、DeepSeek、美团、京东、百度、蔚来。
-        </p>
-        <p>
-          题干尽量留了面试官的原话，解法旁边贴着论文原文。你大可以翻书，我们不怕你查。
-          适合备战校招或社招的大模型算法、AI 应用、Agent 工程候选人，也适合想给知识体系查漏补缺的在岗工程师。
-        </p>
-      </div>
-      <div className="ivc-read-aside">
-        <h3 className="ivc-read-aside-t">怎么用</h3>
-        <ol className="ivc-paths">
-          <li>
-            <b>按章复习</b>
-            从目录里挑一章，题目已经标好 P0、P1、P2，从易到难一刷到底。
-          </li>
-          <li>
-            <b>项目反推</b>
-            手里有项目就先看它。在项目类目里找到对应条目，看它能答上哪些面试题，反过来定自己的选题。
-          </li>
-          <li>
-            <b>公司追问</b>
-            按公司练五厂真题。先张口说结论，再往下补原理、方案怎么取舍、项目数据，还有踩过的坑。
-          </li>
-        </ol>
-      </div>
-    </section>
-  )
-}
+/* ── ② 高频速答精选：直接展示题目，一题一页 ─────── */
+const QA_FEATURED = [
+  "what-is-agent",
+  "agentic-rl-vs-sft",
+  "rag-vs-finetune",
+  "mcp-vs-function-calling",
+  "deep-research-architecture",
+  "what-is-react",
+  "agent-memory-design",
+  "code-agent-resume",
+  "what-is-multi-agent",
+  "what-is-hallucination",
+  "function-calling-accuracy",
+  "what-is-kv-cache",
+]
 
-function ExamMap() {
+function QaPicks() {
+  const all = getAllQa()
+  const catNames = new Map(getCategories().map((c) => [c.cat, c.name]))
+  const featured = QA_FEATURED.map((slug) => all.find((item) => item.slug === slug)).filter(
+    (item): item is NonNullable<typeof item> => Boolean(item),
+  )
   return (
-    <section className="ivc-sec-block" aria-label="考点地图">
-      <div className="ivc-sec-head">
-        <h2 className="ivc-sec-title">面试官在考什么</h2>
-        <p className="ivc-sec-lede">
-          2582 道真题按考点聚类，最后归出 52 个考点、8 个大类。哪块问得最多，图上一眼能看出来：
-          RAG 压着 1094 道关联题，往后是 LLM 训练、Agent 架构、评测。
-          这张图不是为了好看，是告诉你面试官的钱花在哪。
-        </p>
-      </div>
-      <div className="ivc-mapgrid">
-        {EXAM_MAP.map((row) => (
-          <div key={row.name} className="ivc-mapcard">
-            <div className="ivc-mapcard-head">
-              <span className="ivc-mapcard-name">{row.name}</span>
-              <span className="ivc-mapcard-nums">
-                {row.points} 考点 · 关联 {row.related} 题
-              </span>
-            </div>
-            <div className="ivc-mapcard-chips">
-              {row.top.map((point) => (
-                <span key={point.name} className="ivc-mapchip">
-                  {point.name} <em>{point.count}</em>
-                </span>
-              ))}
-            </div>
-          </div>
+    <section className="ivt-sec" id="qa-picks" aria-label="高频速答精选">
+      <SecHead
+        icon={Zap}
+        title="高频速答"
+        lede={`${all.length} 道大家真实在搜的题，这里先摆 12 道：先给一句能直接说出口的结论，再补追问点和常见的坑。点开就是完整答案，面试前速刷用。`}
+        aside={{ href: "/interview/qa", label: `全部 ${all.length} 题 →` }}
+      />
+      <div className="ivt-qagrid">
+        {featured.map((item) => (
+          <Link key={item.slug} href={`/interview/qa/${item.slug}`} className="ivt-qcard">
+            <span className="ivt-qcard-q">Q · {item.question}</span>
+            <span className="ivt-qcard-a">{item.oneLine}</span>
+            <span className="ivt-qcard-foot">
+              <em>{catNames.get(item.category) || item.category}</em>
+              <i>看答案 →</i>
+            </span>
+          </Link>
         ))}
       </div>
-      <p className="ivc-map-note">
-        关联题数按「题—考点」关联统计，一道题可以挂多个考点。数据来自社区真题知识图谱（52 考点 · 45 项目类目）。
-      </p>
-
-      <div className="ivc-proj">
-        <h3 className="ivc-proj-t">45 个项目类目，反推你的下一个项目</h3>
-        <p className="ivc-proj-lede">
-          真题图谱还从题目缺口聚出 45 个可执行项目类目，每个类目挂着关联题集和产出形态。
-          面试要的项目深度，可以顺着这些类目做出来。挑了 16 个代表项：
-        </p>
-        <div className="ivc-projgrid">
-          {PROJECTS.map((project) => (
-            <div key={project.name} className="ivc-projcard">
-              <div className="ivc-projcard-name">
-                {project.name}
-                <em>{project.count} 题</em>
-              </div>
-              <div className="ivc-projcard-out">{project.output}</div>
-              <div className="ivc-projcard-group">{project.group}</div>
-            </div>
-          ))}
-        </div>
-      </div>
     </section>
   )
 }
 
-function ChapterRow({ chapter, siteTitles }: { chapter: ColumnChapter; siteTitles: Map<string, { slug: string; no: string; title: string }[]> }) {
-  const sitePosts = siteTitles.get(chapter.id) || []
+/* ── ③ 学习路线：前沿章节提前，老主题收后降权；编号与锚点不变 ── */
+
+/** 前沿主题直达：全部指向站内真实存在的速答题 / 训练营页 */
+const FRONTIER_TOPICS: { href: string; tag: string; name: string }[] = [
+  { href: "/interview/qa/agentic-rl-vs-sft", tag: "速答", name: "Agentic RL 和 SFT 差在哪" },
+  { href: "/interview/qa/agentic-rl-reward-design", tag: "速答", name: "Agent RL 的奖励怎么设计" },
+  { href: "/interview/qa/deep-research-architecture", tag: "速答", name: "Deep Research 怎么实现" },
+  { href: "/interview/qa/code-agent-resume", tag: "速答", name: "Code Agent 断点恢复" },
+  { href: "/learn#courses", tag: "训练营", name: "自进化编码（AlphaEvolve）" },
+]
+
+/** 展示顺序：前沿主题章节在前，RAG / LLM 基础这类基本功收尾；章节编号与锚点 id 不变 */
+const CHAPTER_ORDER = [4, 8, 5, 3, 7, 10, 12, 9, 11, 6, 1, 2]
+/** 挂「前沿」徽章的章节（新主题速答题对应的分类所在章） */
+const FRONTIER_CHAPTERS = new Set([3, 4, 5, 8])
+/** 降权收尾的章节（紧凑排版） */
+const SLIM_CHAPTERS = new Set([1, 2])
+
+function ChapterRow({
+  chapter,
+  siteTitles,
+  slim,
+  frontier,
+}: {
+  chapter: ColumnChapter
+  siteTitles: Map<string, { slug: string; no: string; title: string }[]>
+  slim?: boolean
+  frontier?: boolean
+}) {
+  const allPosts = siteTitles.get(chapter.id) || []
+  // 每章只露出前几条站内详解，全量走分类分页，避免 hub 被长列表淹没
+  const MAX_LINKS = slim ? 4 : 6
+  const sitePosts = [...allPosts].sort((a, b) => Number(a.no) - Number(b.no)).slice(0, MAX_LINKS)
+  const hiddenPosts = allPosts.length - sitePosts.length
   return (
-    <article className="ivc-ch" id={chapter.id}>
+    <article className={`ivc-ch${slim ? " ivt-ch-slim" : ""}`} id={chapter.id}>
       <div className="ivc-ch-rail">
         <span className="ivc-ch-no">{String(chapter.no).padStart(2, "0")}</span>
         <span className="ivc-ch-count">{chapter.count} 题 · {chapter.days}</span>
@@ -174,13 +203,16 @@ function ChapterRow({ chapter, siteTitles }: { chapter: ColumnChapter; siteTitle
         <div className="ivc-ch-head">
           <h3 className="ivc-ch-name">第 {chapter.no} 章 · {chapter.name}</h3>
           <span className={`ivc-ch-freq ${freqClass(chapter.freq)}`}>{FREQ_LABEL[chapter.freq]}</span>
+          {frontier ? <span className="ivt-ch-frontier">前沿</span> : null}
           {chapter.badge ? <span className="ivc-ch-badge">{chapter.badge}</span> : null}
         </div>
         <p className="ivc-ch-intro">{chapter.intro}</p>
-        <p className="ivc-ch-points">
-          <span className="ivc-ch-points-label">考点地图</span>
-          {chapter.points}
-        </p>
+        {!slim ? (
+          <p className="ivc-ch-points">
+            <span className="ivc-ch-points-label">考点地图</span>
+            {chapter.points}
+          </p>
+        ) : null}
         {sitePosts.length ? (
           <div className="ivc-ch-links">
             <span className="ivc-ch-links-label">站内详解</span>
@@ -199,6 +231,9 @@ function ChapterRow({ chapter, siteTitles }: { chapter: ColumnChapter; siteTitle
                   </Link>
                 ) : null
               })}
+              {hiddenPosts > 0 ? (
+                <span className="ivt-ch-linkmore">+{hiddenPosts} 篇进分类页看</span>
+              ) : null}
             </div>
           </div>
         ) : null}
@@ -225,7 +260,6 @@ function ChapterRow({ chapter, siteTitles }: { chapter: ColumnChapter; siteTitle
             </div>
           </details>
         ) : null}
-        <p className="ivc-ch-more">更多题目持续更新中……</p>
       </div>
     </article>
   )
@@ -243,39 +277,167 @@ function Chapters() {
       )
     }
   }
+  const ordered = CHAPTER_ORDER.map((no) => CHAPTERS.find((chapter) => chapter.no === no)).filter(
+    (chapter): chapter is ColumnChapter => Boolean(chapter),
+  )
   return (
-    <section className="ivc-sec-block" aria-label="章节目录">
-      <div className="ivc-sec-head">
-        <h2 className="ivc-sec-title">章节目录</h2>
-        <p className="ivc-sec-lede">
-          十二个章节，每章配了简介、考点地图、题量、建议时长和考频评级。拿不定主意就顺推荐路线走：
-          {RECOMMENDED_ROUTE.slice(0, 5).map((no) => (
-            <a key={no} href={`#ch${no}`} className="ivc-route-chip">
-              Ch{no}
-            </a>
-          ))}
-          ，其余按需补。
-        </p>
+    <section className="ivt-sec" id="chapters" aria-label="学习路线">
+      <SecHead
+        icon={Route}
+        title="学习路线 · 12 章"
+        lede="十二个章节按「前沿优先」重排展示：Agent 架构、工具调用（MCP / A2A）、多智能体、LLM 训练排在前排，RAG、LLM 基础这些基本功收在后面。章节编号、锚点和宝典完全一致，拿不准顺序就照推荐路线走："
+      />
+      <div className="ivt-frontier" aria-label="前沿主题直达">
+        <span className="ivt-frontier-t">2026 前沿主题</span>
+        {FRONTIER_TOPICS.map((topic) => (
+          <Link key={topic.href} href={topic.href} className="ivt-frontier-item">
+            <em>{topic.tag}</em>
+            {topic.name}
+          </Link>
+        ))}
       </div>
+      <p className="ivt-route-note">
+        推荐路线：
+        {RECOMMENDED_ROUTE.slice(0, 5).map((no) => (
+          <a key={no} href={`#ch${no}`} className="ivc-route-chip">
+            Ch{no}
+          </a>
+        ))}
+        ，其余按需补。
+      </p>
       <div className="ivc-chlist">
-        {CHAPTERS.map((chapter) => (
-          <ChapterRow key={chapter.id} chapter={chapter} siteTitles={byChapter} />
+        {ordered.map((chapter) => (
+          <ChapterRow
+            key={chapter.id}
+            chapter={chapter}
+            siteTitles={byChapter}
+            slim={SLIM_CHAPTERS.has(chapter.no)}
+            frontier={FRONTIER_CHAPTERS.has(chapter.no)}
+          />
         ))}
       </div>
     </section>
   )
 }
 
+/* ── ④ 考点地图：紧凑化，项目反推收进折叠 ─────── */
+function ExamMap() {
+  return (
+    <section className="ivt-sec" id="exam-map" aria-label="考点地图">
+      <SecHead
+        icon={Crosshair}
+        title="面试官在考什么"
+        lede="2582 道真题按考点聚类，归出 52 个考点、8 个大类。RAG 压着 1094 道关联题，往后是 LLM 训练、Agent 架构、评测——问得最多的地方，就是复习优先级。"
+      />
+      <div className="ivc-mapgrid ivt-mapgrid">
+        {EXAM_MAP.map((row) => (
+          <div key={row.name} className="ivc-mapcard">
+            <div className="ivc-mapcard-head">
+              <span className="ivc-mapcard-name">{row.name}</span>
+              <span className="ivc-mapcard-nums">
+                {row.points} 考点 · {row.related} 题
+              </span>
+            </div>
+            <div className="ivc-mapcard-chips">
+              {row.top.slice(0, 4).map((point) => (
+                <span key={point.name} className="ivc-mapchip">
+                  {point.name} <em>{point.count}</em>
+                </span>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+      <p className="ivc-map-note">
+        关联题数按「题—考点」关联统计，一道题可以挂多个考点。数据来自社区真题知识图谱（52 考点 · 45 项目类目）。
+      </p>
+      <details className="ivt-fold">
+        <summary>
+          45 个项目类目 · 反推你的下一个项目（{PROJECTS.length} 个代表项）
+          <svg viewBox="0 0 16 16" width="11" height="11" aria-hidden>
+            <path d="M4 6l4 4 4-4" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+          </svg>
+        </summary>
+        <p className="ivt-fold-lede">
+          真题图谱还从题目缺口聚出 45 个可执行项目类目，每个类目挂着关联题集和产出形态。面试要的项目深度，可以顺着这些类目做出来。
+        </p>
+        <div className="ivc-projgrid">
+          {PROJECTS.map((project) => (
+            <div key={project.name} className="ivc-projcard">
+              <div className="ivc-projcard-name">
+                {project.name}
+                <em>{project.count} 题</em>
+              </div>
+              <div className="ivc-projcard-out">{project.output}</div>
+              <div className="ivc-projcard-group">{project.group}</div>
+            </div>
+          ))}
+        </div>
+      </details>
+    </section>
+  )
+}
+
+/* ── ⑤ 实战工具区：紧跟学习路线，10 个工具直接可点 ── */
+
+/** 工具清单与 /tools 页保持同源（app/tools/page.tsx TOOLS），文案缩为一句话 */
+const HUB_TOOLS: { href: string; badge: string; icon: LucideIcon; title: string; desc: string }[] = [
+  { href: "/tools/jd-analyzer", badge: "引流", icon: ScanSearch, title: "JD 人话拆解器", desc: "粘贴 JD，拆出考察词、隐藏考点，匹配站内真题。" },
+  { href: "/tools/gap-test", badge: "诊断", icon: Radar, title: "面试 Gap 自测", desc: "八项能力自评加真题抽验，出雷达图和补课路径。" },
+  { href: "/tools/project-matcher", badge: "诊断", icon: Compass, title: "项目匹配器", desc: "选方向和时间，拿到扛得住追问的项目方案。" },
+  { href: "/tools/resume", badge: "诊断", icon: FileCheck2, title: "AI / Agent 岗简历体检", desc: "逐条批注、追问预演与翻车风险，全在本机。" },
+  { href: "/tools/resume-builder", badge: "陪跑", icon: FileUser, title: "简历生成器", desc: "旧简历重排成一页 A4，本地导出 PDF / Word。" },
+  { href: "/tools/bullet-grader", badge: "诊断", icon: PenLine, title: "简历 Bullet 打分器", desc: "一条经历十秒打分，给问题清单和改写骨架。" },
+  { href: "/tools/mock-interview", badge: "陪跑", icon: MessagesSquare, title: "AI 模拟面试", desc: "五种面试官人格、三种模式，错题自动进错题本。" },
+  { href: "/tools/interview-log", badge: "管理", icon: NotebookPen, title: "面试复盘本", desc: "面完当天记录被问题目，统计你常挂在哪一轮。" },
+  { href: "/tools/application-tracker", badge: "管理", icon: ClipboardList, title: "投递看板", desc: "投递漏斗与进面率自动汇总，看问题出在哪。" },
+  { href: "/tools/offer-compare", badge: "决策", icon: Scale, title: "Offer 对比器", desc: "六维加权对比，附薪资谈判的实用常识。" },
+]
+
+function ToolsSection() {
+  return (
+    <section className="ivt-sec" id="tools" aria-label="实战工具">
+      <SecHead
+        icon={Wrench}
+        title="实战工具 · 浏览器里直接用"
+        lede="从拆 JD 到比 Offer，十个工具覆盖整条求职链路。免费、不用注册，简历和 JD 不出你的浏览器。"
+        aside={{ href: "/tools", label: "工具箱总览 →" }}
+      />
+      <div className="ivt-tools-panel">
+        <div className="ivt-tools-chips" aria-hidden>
+          <span>免费</span>
+          <span>无注册</span>
+          <span>数据不上传</span>
+        </div>
+        <div className="ivt-tools-grid">
+          {HUB_TOOLS.map((tool) => (
+            <Link key={tool.href} href={tool.href} className="ivt-tool">
+              <span className="ivt-tool-top">
+                <span className="ivt-tool-icon">
+                  <tool.icon aria-hidden size={17} />
+                </span>
+                <span className="ivt-tool-badge">{tool.badge}</span>
+              </span>
+              <span className="ivt-tool-name">{tool.title}</span>
+              <span className="ivt-tool-desc">{tool.desc}</span>
+              <span className="ivt-tool-go">打开工具 →</span>
+            </Link>
+          ))}
+        </div>
+      </div>
+    </section>
+  )
+}
+
+/* ── ⑥ 五厂真题 ───────────────────────────── */
 function Factories() {
   return (
-    <section className="ivc-sec-block" aria-label="五厂真题">
-      <div className="ivc-sec-head">
-        <h2 className="ivc-sec-title">五厂真题</h2>
-        <p className="ivc-sec-lede">
-          第 12 章把真题按公司分成五堆，字节、阿里、腾讯、美团、百度各 100 题，每家的侧重都标在卡片上。
-          别贪多，一天啃一家：先张口把结论说清楚，再往下补原理、方案怎么取舍、项目数据，还有失败的那几次。
-        </p>
-      </div>
+    <section className="ivt-sec" id="factories" aria-label="五厂真题">
+      <SecHead
+        icon={Building2}
+        title="五厂真题"
+        lede="第 12 章把真题按公司分成五堆，字节、阿里、腾讯、美团、百度各 100 题，每家的侧重都标在卡片上。一天啃一家：先张口把结论说清楚，再往下补原理、方案怎么取舍、项目数据。"
+      />
       <div className="ivc-facgrid">
         {FACTORIES.map((factory) => (
           <a
@@ -298,54 +460,15 @@ function Factories() {
   )
 }
 
-/** 速答区精选的题目 slug，覆盖不同分类的高搜索量问题 */
-const QA_FEATURED = [
-  "mcp-vs-function-calling",
-  "rag-vs-finetune",
-  "what-is-agent",
-  "what-is-react",
-  "agent-memory-design",
-  "what-is-multi-agent",
-  "what-is-hallucination",
-  "function-calling-accuracy",
-]
-
-function QaTeaser() {
-  const all = getAllQa()
-  const featured = QA_FEATURED.map((slug) => all.find((item) => item.slug === slug)).filter(
-    (item): item is NonNullable<typeof item> => Boolean(item),
-  )
-  return (
-    <section className="ivc-sec-block" aria-label="高频题速答">
-      <div className="ivc-sec-head">
-        <h2 className="ivc-sec-title">高频题速答</h2>
-        <p className="ivc-sec-lede">
-          {all.length} 道大家真实在搜的题，一题一页：先给一句能直接说出口的结论，再补追问点和常见的坑。面试前速刷用。
-        </p>
-      </div>
-      <div className="ivq-grid">
-        {featured.map((item) => (
-          <Link key={item.slug} href={`/interview/qa/${item.slug}`} className="ivq-card">
-            <span className="ivq-card-q">Q · {item.question}</span>
-            <span className="ivq-card-a">{item.oneLine}</span>
-            <span className="ivq-card-go">看答案 →</span>
-          </Link>
-        ))}
-      </div>
-      <p className="ivq-all">
-        <Link href="/interview/qa">看全部 {all.length} 道：Agent 面试题大全 →</Link>
-      </p>
-    </section>
-  )
-}
-
+/* ── ⑦ 更新动态：缩小到底部 ─────────────────── */
 function Updates() {
   return (
-    <section className="ivc-sec-block" aria-label="更新动态">
-      <div className="ivc-sec-head">
-        <h2 className="ivc-sec-title">更新动态</h2>
-        <p className="ivc-sec-lede">这一栏记的是活的。面经实录已经放上来了，新题会持续补，解析系列也还在往下写。</p>
-      </div>
+    <section className="ivt-sec" id="updates" aria-label="更新动态">
+      <SecHead
+        icon={Activity}
+        title="更新动态"
+        lede="面经实录已经放上来了，新题会持续补，解析系列也还在往下写。"
+      />
       <div className="ivc-updgrid">
         <Link href="/mianjing/ali-rl-data-interview" className="ivc-updcard ivc-updcard--mianjing">
           <span className="ivc-updcard-kicker">面经实录 · 新</span>
@@ -356,12 +479,17 @@ function Updates() {
           <span className="ivc-updcard-go">读完整面经 →</span>
         </Link>
         <div className="ivc-updcard">
-          <span className="ivc-updcard-kicker">解析系列 · 在写</span>
-          <ul className="ivc-updlist">
-            <li>面了 7 家大厂的 Agent 岗，发现 Memory 是唯一必考题</li>
-            <li>「手写一个 ReAct 循环」——这道题刷掉了 80% 的候选人</li>
-            <li>GRPO 正在取代 PPO：Agent RL 训练的知识更新</li>
-            <li>MCP vs A2A vs Function Call vs Skills：概念区分题怎么答</li>
+          <span className="ivc-updcard-kicker">解析系列 · 持续更新</span>
+          <ul className="ivc-updlist ivt-updlist">
+            <li>
+              <Link href="/interview/finetune-tk456">DeepSeek 的 GRPO 和 PPO 有什么区别？优劣是什么（真题解析）</Link>
+            </li>
+            <li>
+              <Link href="/interview/tooluse-tk016">Agent 工具生态的未来发展方向（真题解析）</Link>
+            </li>
+            <li>
+              <Link href="/interview/agent-interview-2026">Agent 岗面试都在考什么：一篇一万字的观察</Link>
+            </li>
           </ul>
           <span className="ivc-updcard-foot">Agent 面试题解析系列，写完一篇上一题。</span>
         </div>
@@ -372,69 +500,21 @@ function Updates() {
 
 export default function InterviewPage() {
   const allPosts = getAllInterview()
-  // 精选 60：深度解析/对比/项目包全部保留 + 真题每分类抽代表，全量在分类分页页
-  const featured = allPosts.filter(
-    (post) =>
-      !post.slug.includes("-tk") ||
-      (post.tags || []).some((t) => t.includes("对比选型") || t.includes("项目面试") || t.includes("章节导学")),
-  )
-  const tkByCat = new Map<string, number>()
-  const tkPicks = allPosts.filter((post) => {
-    if (!post.slug.includes("-tk")) return false
-    const cat = post.category
-    const n = tkByCat.get(cat) || 0
-    if (n >= 4) return false
-    tkByCat.set(cat, n + 1)
-    return true
-  })
-  const posts = [...featured, ...tkPicks].slice(0, 60)
-  const covers = Object.fromEntries(posts.map((post) => [post.slug, hasCover(post.slug)]))
   const categories = getCategoriesWithPosts(false)
-  const totalPlanned = categories.reduce((sum, category) => sum + category.planned, 0)
 
   return (
     <div className="ivc-page">
       <Hero />
-      <section className="ivu-wide ivc-intent" aria-label="按你的目标进入">
-        <Link href="/roadmap" className="ivc-intent-card">
-          <span className="ivc-intent-kicker">不知道从哪学</span>
-          <span className="ivc-intent-title">按学习路线走</span>
-          <span className="ivc-intent-desc">Agent 开发 / RAG / LLM 应用 / AI Infra 四条方向化路线</span>
-        </Link>
-        <Link href="#chapters" className="ivc-intent-card">
-          <span className="ivc-intent-kicker">要系统补一块知识</span>
-          <span className="ivc-intent-title">按方向系统学习</span>
-          <span className="ivc-intent-desc">14 个方向的学习路径：术语 → 刷题 → 深挖 → 实战</span>
-        </Link>
-        <Link href="/interview/qa" className="ivc-intent-card">
-          <span className="ivc-intent-kicker">明天就面试</span>
-          <span className="ivc-intent-title">直接刷题</span>
-          <span className="ivc-intent-desc">速答题带答案追问；2500+ 真题解析在真题库</span>
-        </Link>
-        <Link href="/interview/jingchang" className="ivc-intent-card">
-          <span className="ivc-intent-kicker">面特定公司</span>
-          <span className="ivc-intent-title">看目标公司真题</span>
-          <span className="ivc-intent-desc">五厂各 100 题清单 + 17 家公司聚合页</span>
-        </Link>
-      </section>
-      <ReadMe />
-      <ExamMap />
+      <QaPicks />
       <Chapters />
+      <ExamMap />
+      <ToolsSection />
       <Factories />
-      <QaTeaser />
       <Updates />
-      <InterviewList
-        posts={posts}
-        covers={covers}
-        categories={categories}
-        totalPlanned={totalPlanned}
-        variant="archive"
-      />
-      <div className="ivu-wide" style={{ marginTop: -32 }}>
+      <div className="ivu-wide ivt-allentry">
         <div className="ivu-allentry">
           <p>
-            站内已上线 <b>{allPosts.length}</b> 篇深度解析与真题解析。上面是精选入口，
-            全部题目按分类分页浏览：
+            站内已上线 <b>{allPosts.length}</b> 篇深度解析与真题解析，全部题目按分类分页浏览：
           </p>
           <div className="ivu-allentry-cats">
             {categories.map((c) => (

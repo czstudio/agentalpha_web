@@ -10,6 +10,8 @@ cats: [enterprise, tooluse, safety]
 qaSlugs: [agent-human-handoff, enterprise-rag-pitfalls, tool-failure, meituan-langgraph-vs-prompt, llm-app-monitoring, agent-token-billing, rag-acl-permissions, agent-guardrails]
 keywords: [美团 AI Agent, 美团大模型后端, 美团 AI 面试, 交易 Agent 岗]
 updated: 2026-09-28
+sourceUrl: https://zhaopin.meituan.com/web/position/detail?jobId=122969
+sourceName: 美团招聘官网
 ---
 
 ## 这条 JD 在招什么人

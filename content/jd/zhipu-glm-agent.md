@@ -10,6 +10,8 @@ cats: [tooluse, agent, enterprise]
 qaSlugs: [what-is-function-calling, function-calling-principle, tool-schema-design, mcp-what-and-core, fc-vs-mcp-when, agent-evaluation, enterprise-rag-pitfalls, agent-delivery-risk]
 keywords: [智谱 Agent 开发, AutoGLM 面试, 智谱开放平台, GLM 工具调用]
 updated: 2026-09-29
+sourceUrl: https://zhipu-ai.jobs.feishu.cn/s/yd6wXPXy0fQ
+sourceName: 智谱官方飞书招聘
 ---
 
 ## 这条 JD 在招什么人

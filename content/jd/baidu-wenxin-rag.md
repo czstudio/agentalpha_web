@@ -10,6 +10,8 @@ cats: [rag, eval, basics]
 qaSlugs: [rag-pipeline, hybrid-retrieval-rerank, bi-encoder-cross-encoder, advanced-rag-paradigms, rag-effect-eval, rag-retrieval-debug, baidu-sft-rlhf-data-diff, what-is-query-rewrite]
 keywords: [百度文心 RAG, 百度搜索增强, 百度大模型应用, RAG 工程师面试]
 updated: 2026-09-28
+sourceUrl: https://talent.baidu.com/jobs/social-list
+sourceName: 百度招聘官网（列表入口）
 ---
 
 ## 这条 JD 在招什么人

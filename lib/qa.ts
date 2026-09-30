@@ -78,6 +78,43 @@ function toItem(file: string): QaItem {
   }
 }
 
+/**
+ * 题库分类展示顺序（2026-09-30 调整）：新主题在前、经典八股在后。
+ * 自进化 Agent / Deep Research / Code Agent 题集中在 agent 分类，Agentic RL 训练题在 finetune；
+ * RAG 检索增强与 LLM 基础这两类是老牌八股，排到最后。
+ * 分类 id（cat）与页面锚点保持不变，这里只调展示顺序；顺序表没列到的分类按传入相对顺序排最后。
+ */
+const QA_CATEGORY_ORDER: readonly string[] = [
+  "agent", // Agent 架构（自进化 Agent、Deep Research、Code Agent 题集中在这里）
+  "multiagent", // 多智能体
+  "memory", // 记忆系统
+  "eval", // 评测与可观测
+  "tooluse", // 工具调用
+  "enterprise", // 项目实战与企业级
+  "finetune", // 训练与微调（Agentic RL 题在这里）
+  "prompt", // 提示工程
+  "safety", // 安全与合规
+  "multimodal", // 多模态
+  "inference", // 推理与部署
+  "jingchang", // 五厂面经真题集
+  "rag", // RAG 检索增强
+  "basics", // LLM 基础概念
+]
+
+/** 按 QA_CATEGORY_ORDER 显式排序分类词表；不在表内的分类排最后（保持原相对顺序） */
+export function orderQaCategories<T extends { cat: string }>(cats: readonly T[]): T[] {
+  const rank = new Map(QA_CATEGORY_ORDER.map((cat, index) => [cat, index]))
+  const fallback = QA_CATEGORY_ORDER.length
+  return cats
+    .map((c, index) => ({ c, index }))
+    .sort((a, b) => {
+      const ra = rank.get(a.c.cat) ?? fallback
+      const rb = rank.get(b.c.cat) ?? fallback
+      return ra !== rb ? ra - rb : a.index - b.index
+    })
+    .map((entry) => entry.c)
+}
+
 let _qaCache: QaItem[] | null = null
 
 export function getAllQa(): QaItem[] {

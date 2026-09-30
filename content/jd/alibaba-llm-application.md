@@ -10,6 +10,8 @@ cats: [rag, enterprise, agent]
 qaSlugs: [rag-pipeline, enterprise-rag-pitfalls, alibaba-mcp-standard-view, alibaba-skill-eval-trace, hybrid-retrieval-rerank, vector-db-selection, rag-knowledge-base-update, llm-vendor-switch]
 keywords: [阿里大模型应用, 通义应用开发, 百炼平台工程师, 阿里 RAG 岗]
 updated: 2026-09-28
+sourceUrl: https://www.nowcoder.com/feed/main/detail/3344852563ea4bdab57aca179b42f723
+sourceName: 牛客
 ---
 
 ## 这条 JD 在招什么人

@@ -93,9 +93,15 @@ function isEmpty(node: CommunityNode): boolean {
   return !node.children.some((child) => !isEmpty(child))
 }
 
-function collectImages(node: CommunityNode, out: CommunityNode[] = []): CommunityNode[] {
-  if (node.type === "image") out.push(node)
-  else if (node.type === "element") node.children.forEach((child) => collectImages(child, out))
+function collectImages(node: CommunityNode, out: CommunityNode[] = [], seen?: Set<string>): CommunityNode[] {
+  if (node.type === "image") {
+    // 飞书文档里同一张截图可能被引用两次，渲染层按 src 去重
+    if (seen) {
+      if (seen.has(node.src)) return out
+      seen.add(node.src)
+    }
+    out.push(node)
+  } else if (node.type === "element") node.children.forEach((child) => collectImages(child, out, seen))
   return out
 }
 
@@ -472,7 +478,7 @@ function ShotGroup({ table }: { table: CommunityNode }) {
         if (tr.type === "element") tr.children.forEach((th) => head.push(nodeText(th).trim()))
       })
     }
-    if (part.tag === "tbody") collectImages(part, images)
+    if (part.tag === "tbody") collectImages(part, images, new Set())
   })
   return (
     <div className="community-shotgroup">
@@ -678,7 +684,7 @@ function flow(nodes: CommunityNode[], key: string, evidenceMode = false): ReactN
       const media: CommunityNode[] = []
       let cursor = index + 1
       while (cursor < nodes.length && isMediaNode(nodes[cursor])) {
-        collectImages(nodes[cursor], media)
+        collectImages(nodes[cursor], media, new Set())
         cursor += 1
       }
       rendered.push(
@@ -701,7 +707,7 @@ function flow(nodes: CommunityNode[], key: string, evidenceMode = false): ReactN
       const media: CommunityNode[] = []
       let cursor = index
       while (cursor < nodes.length && isMediaNode(nodes[cursor])) {
-        collectImages(nodes[cursor], media)
+        collectImages(nodes[cursor], media, new Set())
         cursor += 1
       }
       rendered.push(
