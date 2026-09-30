@@ -151,7 +151,7 @@ footer.footer .inner{width:min(1080px,calc(100% - clamp(40px,8vw,72px)));margin:
   </nav>
 </div></header>
 
-<div class="strip">十一优惠进行中 · 报名可<b>组队</b>，最高<b>半价</b> · 详情加微信 aistudioyes</div>
+<div class="strip">十一优惠 · <b>10.1–10.8</b> · 报名可组队，<b>两人各 5 折</b> · 详情加微信 aistudioyes</div>
 
 <section class="shero">
   <div class="inner">
@@ -174,17 +174,17 @@ footer.footer .inner{width:min(1080px,calc(100% - clamp(40px,8vw,72px)));margin:
 
 <section class="blk" id="jobs"><div class="inner">
   <div class="ghead" data-r><span class="no">PATH 01</span><h2>求职上岸</h2></div>
-  <p class="gsub" data-r style="--i:1">从双非本科到四年老兵，共同点是：项目不再停在「能演示」，而是能讲清失败、边界与代价。</p>
+  <p class="gsub" data-r style="--i:1">从双非本科到四年老兵，共同点是：项目不再停在「能演示」，而是能讲清<b style="color:var(--ink)">失败、边界与代价</b>。</p>
 
   <article class="case flag" data-r>
     <div class="hd"><span class="no">CASE 00 · 旗舰</span><h3>阿周</h3><span class="bg">南方某 211 计算机本科<br>大三下开始 · 全程约 3 个月</span><span class="pill">小红书算法岗实习转正 45k×16（SSP 档）</span><span class="pill dark">总包约 72W+</span></div>
     <div class="bd">
       <p><b>起点：</b>上一段实习在小厂做前端，简历上看不到大模型或推荐算法的影子；机器学习只会写公式，调不通一个真实模型；LeetCode 只刷过几十道，手撕 medium 容易卡壳。他卡在简历关前面，连面试的池子都进不去。算法岗 HC 收缩、大厂校招泡池子排序，光靠学校牌子排不到前面。</p>
-      <p><b>路线选择：</b>比起海投校招拼运气，他选了更稳的一条：先用一段日常实习把背景补齐，再用实习转正把 offer 从不确定变成已落袋。</p>
+      <p><b>路线选择：</b>比起海投校招拼运气，他选了更稳的一条：<b>先用一段日常实习把背景补齐，再用实习转正把 offer 从不确定变成已落袋</b>。</p>
       <ol class="steps">
         <li><b>第 1 个月 · 集中备战：</b>算法八股（SVM、树模型、深度学习、Transformer、召回排序基础）+ LeetCode 200 道核心题与剑指 Offer + 一个能演示的推荐/大模型项目（多路召回、向量检索、粗排精排，加一段简单 RAG/Agent 链路）。</li>
         <li><b>第 2–3 个月 · 日常实习：</b>扎进小红书信息流推荐的真实业务：召回侧优化、用 A/B Test 验证特征、把用户反馈和线上指标（CTR/CVR/留存）做成复盘，不当 toy demo。</li>
-        <li><b>转正答辩：</b>导师评语 + 转正答辩 + 业务方认可，拿 return offer：45k×16，SSP 档，签字费/期权/房补另算。</li>
+        <li><b>转正答辩：</b>导师评语 + 转正答辩 + 业务方认可，拿 return offer：<b>45k×16，SSP 档</b>，签字费/期权/房补另算。</li>
       </ol>
       <div class="probes"><div class="ph">实习转正答辩 · 项目被追问什么</div>
         <div class="probe"><div class="q"><i>Q1</i>数据从哪里来？召回效果怎么评估？</div><p class="a">项目阶段就补齐了评测口径；实习里用 <b>A/B Test</b> 验证特征与线上指标挂钩，避免只报离线数字。</p></div>
@@ -200,7 +200,7 @@ footer.footer .inner{width:min(1080px,calc(100% - clamp(40px,8vw,72px)));margin:
     <div class="bd">
       <p><b>起点：</b>没有竞赛、论文，也没有大厂实习。简历上真正能打的只有两条项目：企业知识库 RAG 和工作流 Agent。第一次改项目时，最大的误区是把「做过」写成「会了」。这样的描述能过关键词筛选，却经不起第二个问题。</p>
       <div class="probes"><div class="ph">面试实录 · 三轮追问</div>
-        <div class="probe"><div class="q"><i>Q1</i>没有论文，项目深度怎么证明？</div><p class="a">他没有再回答「效果不错」，而是把坏样本拆成<b>事实问答、跨章节、表格、无答案四类</b>，再分别记录分块、Embedding、rerank 的变化。项目从一个 Demo 变成一套能复现、能比较、能解释失败的系统。</p></div>
+        <div class="probe"><div class="q"><i>Q1</i>没有论文，项目深度怎么证明？</div><p class="a">他没有再回答「效果不错」，而是把坏样本拆成<b>事实问答、跨章节、表格、无答案四类</b>，再分别记录分块、Embedding、rerank 的变化。项目从一个 Demo 变成<b>一套能复现、能比较、能解释失败的系统</b>。</p></div>
         <div class="probe"><div class="q"><i>Q2</i>工具调用失败怎么办？</div><p class="a">回答不再是「加重试」：缺参数就追问，权限不足就拒绝，超时走异步重试，写操作必须二次确认，持续失败才转人工，并保留完整 trace。<b>面试官真正想听的是边界和代价，而不是框架名。</b></p></div>
         <div class="probe"><div class="q"><i>Q3</i>同一个项目，为什么能投不同公司？</div><p class="a">项目事实不变，表达重点切换：偏算法的岗位讲<b>召回和评测</b>，偏应用的岗位讲<b>工具调用与状态机</b>，偏业务的岗位讲<b>权限、回退和线上指标</b>。</p></div>
       </div>
@@ -220,7 +220,7 @@ footer.footer .inner{width:min(1080px,calc(100% - clamp(40px,8vw,72px)));margin:
         <figure><img src="assets/img/stories/chat-2.jpg" alt="模拟还原：把模糊的优化改成可验证步骤（2/3）" loading="lazy"><figcaption>模拟还原 2/3 · 可验证步骤</figcaption></figure>
         <figure><img src="assets/img/stories/chat-3.jpg" alt="模拟还原：面试通过后仍然复盘具体追问（3/3）" loading="lazy"><figcaption>模拟还原 3/3 · 面后复盘</figcaption></figure>
       </div>
-      <p>面试官顺着表格解析和局部重试继续问了近 20 分钟。他第一次没有乱，也没有靠背名词硬撑。</p>
+      <p>面试官顺着表格解析和局部重试继续问了<b>近 20 分钟</b>。他第一次没有乱，也没有靠背名词硬撑。</p>
     </div>
   </article>
 
@@ -240,7 +240,7 @@ footer.footer .inner{width:min(1080px,calc(100% - clamp(40px,8vw,72px)));margin:
     <div class="bd">
       <p><b>起点：</b>在职开发，项目包括 Agentic Search v2、知识图谱召回与去重、DeepResearch 和数据泄漏排查。</p>
       <div class="probes"><div class="ph">面试实录 · 面试官顺着开源项目往下问</div>
-        <div class="probe"><div class="q"><i>Q1</i>Idea2Paper 的 Agent 设计边界在哪里？Agent Team、Swarm、Harness 怎么选？</div><p class="a">至少三位面试官主动提到这个项目并追问这些概念。他的答法：<b>少讲「用了哪些框架」，多讲一次错误召回如何定位、一条搜索链路为什么这样拆</b>。</p></div>
+        <div class="probe"><div class="q"><i>Q1</i>Idea2Paper 的 Agent 设计边界在哪里？Agent Team、Swarm、Harness 怎么选？</div><p class="a"><b>至少三位面试官</b>主动提到这个项目并追问这些概念。他的答法：<b>少讲「用了哪些框架」，多讲一次错误召回如何定位、一条搜索链路为什么这样拆</b>。</p></div>
         <div class="probe"><div class="q"><i>Q2</i>系统怎么持续优化？自动化做到哪一步？</div><p class="a">讲清<b>自动化做到哪一步必须停下来交给人</b>。开源项目不是简历装饰，而是面试官可以顺着代码继续验证的入口。</p></div>
       </div>
     </div>
@@ -292,7 +292,7 @@ footer.footer .inner{width:min(1080px,calc(100% - clamp(40px,8vw,72px)));margin:
 
 <section class="blk alt" id="research"><div class="inner">
   <div class="ghead" data-r><span class="no">PATH 02</span><h2>论文与保研</h2></div>
-  <p class="gsub" data-r style="--i:1">本科阶段把一条实验链做完整，比把结果包装成天才故事更重要。</p>
+  <p class="gsub" data-r style="--i:1">本科阶段<b style="color:var(--ink)">把一条实验链做完整</b>，比把结果包装成天才故事更重要。</p>
 
   <article class="case" data-r>
     <div class="hd"><span class="no">CASE 09</span><h3>Leo</h3><span class="bg">211 大三<br>准备 4 个月</span><span class="pill">AAAI 2024 论文 · 中科院推荐</span></div>
@@ -317,7 +317,7 @@ footer.footer .inner{width:min(1080px,calc(100% - clamp(40px,8vw,72px)));margin:
 
 <section class="blk" id="phd"><div class="inner">
   <div class="ghead" data-r><span class="no">PATH 03</span><h2>申博与人才计划</h2></div>
-  <p class="gsub" data-r style="--i:1">成绩短板无法改写时，其他材料必须足够具体、彼此一致；时间更长的路径，门槛也更高。</p>
+  <p class="gsub" data-r style="--i:1">成绩短板无法改写时，其他材料必须<b style="color:var(--ink)">足够具体、彼此一致</b>；时间更长的路径，门槛也更高。</p>
 
   <article class="case" data-r>
     <div class="hd"><span class="no">CASE 11</span><h3>Aiden</h3><span class="bg">中下游 211 计算机专业<br>GPA 约 3.0 · 申请季</span><span class="pill">USC &amp; Duke 计算机博士录取 · USC 四年资助</span></div>
@@ -342,7 +342,7 @@ footer.footer .inner{width:min(1080px,calc(100% - clamp(40px,8vw,72px)));margin:
 
 <section class="blk alt" id="probes"><div class="inner">
   <div class="ghead" data-r><span class="no">PATTERN</span><h2>面试官最爱追问的五类问题</h2></div>
-  <p class="gsub" data-r style="--i:1">把 12 个案例的追问放在一起看，重复出现的就是面试官真正在筛的东西。训练营的项目与教程按这五类组织：每一类，你都有能展开讲的实物。</p>
+  <p class="gsub" data-r style="--i:1">把 12 个案例的追问放在一起看，重复出现的就是<b style="color:var(--ink)">面试官真正在筛的东西</b>。训练营的项目与教程按这五类组织：每一类，你都有能展开讲的实物。</p>
   <div class="topics">
     <div class="topic" data-r><span class="n">01</span><h3>项目深度怎么证明</h3><div class="desc">不是「效果不错」，而是坏样本分类、测试集、实验链。<b>Lucas 整理 300 条测试集</b>；Ethan 把坏样本拆成四类分别记录指标变化；Leo 每一步都要回答「数据为什么这样处理、和基线差在哪」。<span class="src">出现在 CASE 01 / 06 / 09</span></div></div>
     <div class="topic" data-r><span class="n">02</span><h3>失败了怎么办</h3><div class="desc">工具调用失败、输出不合法、生成错误污染后续，面试官要听<b>校验、局部重试、回退、人工接管和完整 trace</b>，而不是一句「加重试」。<span class="src">出现在 CASE 01 / 02 / 05</span></div></div>
@@ -433,7 +433,7 @@ footer.footer .inner{width:min(1080px,calc(100% - clamp(40px,8vw,72px)));margin:
       <a class="btn primary" href="index.html#projects">查看十个项目</a>
       <span class="wx-pill">微信 aistudioyes</span>
     </div>
-    <div class="promo">十一优惠进行中 · 报名可<b>组队</b>，最高<b>半价</b>，加微信了解详情</div>
+    <div class="promo">十一优惠 · <b>10.1–10.8</b> · 报名可组队，<b>两人各 5 折</b> · 加微信 aistudioyes 了解详情</div>
   </div>
 </div></section>
 
