@@ -893,8 +893,22 @@
 .rb-toolbar { display: flex; align-items: center; justify-content: space-between; gap: 10px; flex-wrap: wrap; margin-bottom: 10px; }
 .rb-toolbar-btns { display: inline-flex; gap: 8px; flex-wrap: wrap; align-items: center; }
 .rb-print-btn { display: inline-flex; align-items: center; gap: 6px; padding: 8px 18px; font-size: 13.5px; }
-.rb-preview-col { position: sticky; top: 116px; }
-@media (max-width: 960px) { .rb-preview-col { position: static; } }
+.rb-preview-col { position: relative; }
+/* 长表单下预览列不 sticky(纸面比编辑列短,贴顶会大片留白);
+   真正需要跟随的是导出工具条,单独吸顶 */
+.rb-toolbar-sticky {
+  position: sticky;
+  top: 116px;
+  z-index: 5;
+  margin-bottom: 10px;
+}
+.rb-toolbar-sticky .rb-toolbar {
+  margin-bottom: 0;
+  background: var(--tk-paper);
+  border: 1px solid var(--tk-line);
+  border-radius: 12px;
+  padding: 10px 12px;
+}
 
 /* LaTeX 风纸面:衬线、细目线、en-dash 列表符 */
 .rb-paper {
@@ -926,6 +940,7 @@
 .rb-ul { margin: 2px 0 0; padding: 0 0 0 16px; list-style: none; }
 .rb-ul li { font-size: 13px; line-height: 1.7; margin-bottom: 3px; position: relative; }
 .rb-ul li::before { content: "–"; position: absolute; left: -14px; color: var(--tk-ink-3); }
+.rb-ul li.rb-empty-hint { color: var(--tk-ink-3); font-size: 12px; }
 .rb-skills { margin: 0; font-size: 13px; }
 .rb-tex { margin-top: 12px; border: 1px dashed var(--tk-line-2); border-radius: 10px; padding: 10px 14px; background: var(--tk-paper-2); }
 .rb-tex summary { cursor: pointer; font-size: 13px; font-weight: 600; color: var(--tk-brand-ink); }
@@ -957,7 +972,18 @@
   .print-doc table { width: 100%; border-collapse: collapse; font-size: 12px; margin: 4px 0 10px; }
   .print-doc th, .print-doc td { border: 1px solid #999; padding: 4px 8px; text-align: left; }
   .print-doc li { margin-bottom: 3px; }
-  .rb-toolbar { display: none !important; }
+  .rb-toolbar, .rb-toolbar-sticky { display: none !important; }
   .rb-paper { border: none; border-radius: 0; padding: 0; }
   nav { display: none !important; }
 }
+
+/* 简历生成器:审计与 AI 建议 */
+.rb-audit-item { border-left: 3px solid var(--tk-brand); background: var(--tk-brand-wash); border-radius: 0 10px 10px 0; padding: 8px 12px; margin-bottom: 8px; }
+.rb-audit-text { margin: 0 0 4px; font-size: 13px; color: var(--tk-ink); line-height: 1.6; }
+.rb-audit-flag { margin: 2px 0 0; font-size: 12.5px; color: var(--tk-ink-2); line-height: 1.6; }
+.rb-audit-flag.risk { color: #b3261e; }
+.rb-audit-flag b { font-weight: 700; }
+.rb-ai-item { border: 1px solid var(--tk-line); border-radius: 10px; padding: 10px 12px; margin-bottom: 10px; background: var(--tk-paper-2); }
+.rb-ai-orig { margin: 0 0 6px; font-size: 13px; color: var(--tk-ink-3); text-decoration: line-through; text-decoration-color: rgba(179, 38, 30, 0.4); line-height: 1.6; }
+.rb-ai-new { margin: 0 0 4px; font-size: 13.5px; color: var(--tk-ink); line-height: 1.7; font-weight: 600; }
+.rb-file-label { cursor: pointer; display: inline-flex; align-items: center; }
