@@ -1,3 +1,4 @@
+@import url('/fonts/fonts-slices.css');
 @import "tailwindcss";
 @import "tw-animate-css";
 
@@ -7,36 +8,8 @@ html {
   scroll-padding-top: 84px;
 }
 
-@font-face {
-  font-family: "MiSans";
-  src: url("/fonts/MiSans-Regular.woff2") format("woff2");
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: "MiSans";
-  src: url("/fonts/MiSans-Medium.woff2") format("woff2");
-  font-weight: 500;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: "MiSans";
-  src: url("/fonts/MiSans-Bold.woff2") format("woff2");
-  font-weight: 600 700;
-  font-style: normal;
-  font-display: swap;
-}
 /* 展示衬线：标题/品牌字标用（参考 atria-asi.ai 的 Cormorant+Inter 打法，
    中文等价物为思源宋体；单文件覆盖 600-700 字重，正文仍用 MiSans） */
-@font-face {
-  font-family: "Noto Serif SC";
-  src: url("/fonts/NotoSerifSC-600-subset.woff2") format("woff2");
-  font-weight: 600 700;
-  font-style: normal;
-  font-display: swap;
-}
 
 /*
  * AgentAlpha 统一视觉系统
@@ -2581,7 +2554,6 @@ html.enrollment-dialog-open { overflow: hidden; }
 .aa-paper-chip-title { font-size: 12.5px; line-height: 1.6; color: var(--aa-muted, #6b6557); }
 .aa-paper-chip-meta { font-size: 12px; font-weight: 600; color: var(--brand, #6e22f0); margin-top: auto; }
 @media (max-width: 900px) { .aa-paper-strip-list { grid-template-columns: 1fr; } }
-
 
 /* ── 项目区 3D 浅彩卡（方案 07 · light）────────────
    打法学 Stripe/Apple 浅色卡：白卡为底，色相只出现在
