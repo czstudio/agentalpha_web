@@ -14,6 +14,9 @@ body{background:var(--bg)}
 /* 入场动效：初始隐藏只在 JS 可用时生效，无 JS 全量可见（SEO/截图安全） */
 html.js [data-r]{opacity:0;transform:translateY(16px);transition:opacity var(--dur) var(--ease),transform var(--dur) var(--ease);transition-delay:calc(var(--i,0)*80ms)}
 [data-r].in{opacity:1;transform:none}
+/* 十一优惠条 */
+.strip{background:var(--accent-soft);border-bottom:1px solid var(--hair);font-size:.84rem;color:var(--accent);text-align:center;padding:10px 16px;font-weight:500}
+.strip b{font-weight:700}
 /* Hero 双栏 */
 .hero2{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(300px,.92fr);grid-template-areas:"k reel" "t reel" "s reel" "a reel";gap:14px 48px;align-items:start;width:min(1080px,calc(100% - clamp(40px,8vw,72px)));margin:0 auto;padding:clamp(88px,13vh,150px) 0 clamp(104px,14vh,140px);border-bottom:1px solid var(--hair)}
 .hero2 .k{grid-area:k;color:var(--accent);font-size:.74rem;font-weight:800;letter-spacing:.14em;display:flex;align-items:center;gap:8px}
@@ -116,9 +119,11 @@ section.blk{padding:clamp(56px,9vh,96px) 0}
 <header class="topbar"><div class="wrap">
   <div class="brand"><span class="dot"></span>AgentAlpha <small>大模型 Agent 训练营</small></div>
   <nav class="topnav">
-    <a href="#projects">十个项目</a><a href="#proof">凭什么不同</a><a href="#paths">学习路线</a><a href="#faq">常见问题</a><a href="https://agentalpha.top/learn" target="_blank" rel="noopener">课程大纲</a>
+    <a href="#projects">十个项目</a><a href="stories.html">学员成果</a><a href="#proof">凭什么不同</a><a href="#paths">学习路线</a><a href="#faq">常见问题</a><a href="https://agentalpha.top/learn" target="_blank" rel="noopener">课程大纲</a>
   </nav>
 </div></header>
+
+<div class="strip">十一优惠进行中 · 报名可<b>组队</b>，最高<b>半价</b> · 详情加微信 aistudioyes · <a href="stories.html" style="text-decoration:underline;text-underline-offset:3px">看学员成果</a></div>
 
 <section class="hero2">
   <div class="k" data-r style="--i:0">十个实战项目 · 章章配万字教程</div>
@@ -213,9 +218,11 @@ section.blk{padding:clamp(56px,9vh,96px) 0}
     <h2>十个项目的完整展示页已就绪</h2>
     <p>场景故事、产品界面、指标面板、真实运行区块、JD 覆盖矩阵、面试深挖预演，每个项目一页全览。咨询报名请加微信，备注「训练营」。</p>
     <div class="row">
-      <a class="btn primary" href="#projects">回到项目矩阵</a>
+      <a class="btn primary" href="#projects">查看十个项目</a>
+      <a class="btn" href="stories.html">学员成果 →</a>
       <span class="wx-pill">微信 aistudioyes</span>
     </div>
+    <div class="promo" style="display:inline-block;font-size:.84rem;color:#dcdce2;margin-top:16px;padding-top:14px;border-top:1px solid rgb(255 255 255/.14)">十一优惠进行中 · 报名可<b style="color:#fff">组队</b>，最高<b style="color:#fff">半价</b>，加微信了解详情</div>
   </div>
 </div></section>
 
