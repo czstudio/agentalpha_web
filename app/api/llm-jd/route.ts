@@ -11,6 +11,16 @@ import {
 
 export const runtime = "nodejs"
 
+/** GET 健康检查:暴露 env 是否注入(不含密钥本身),排查部署与变量分配用 */
+export async function GET() {
+  return NextResponse.json({
+    enabled: llmConfigured(),
+    model: process.env.LLM_MODEL || null,
+    baseUrl: process.env.LLM_BASE_URL || null,
+    runtime: "nodejs",
+  })
+}
+
 /**
  * JD 深度拆解(LLM 版)。
  * POST { jd: string } → { enabled, text?, model?, cached?, quota? , error? }
