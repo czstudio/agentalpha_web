@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AgentAlpha 大模型 Agent 训练营 · 十个实战项目</title>
+<meta name="description" content="十个对齐真实大厂 JD 的实战项目：万字教程、62 条 JD 实证、真实运行数据、公开基准评测。往期学员去向：字节 Seed、腾讯青云、京东 TGT、蚂蚁 Plan-A。">
+<link rel="stylesheet" href="assets/showcase.css">
+<style>
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin:34px 0 8px}
+.statx{background:rgba(255,255,255,.55);border:1px solid #DEDEE3;border-radius:12px;padding:18px 20px;text-align:left}
+.statx b{display:block;font-size:24px;letter-spacing:-.02em;color:#0A0A0A}
+.statx span{font-size:12.5px;color:#71717A}
+.trust{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-top:6px}
+.faq details{background:#fff;border:1px solid #E9E9EC;border-radius:10px;padding:14px 18px;margin-bottom:8px}
+.faq summary{font-weight:650;cursor:pointer;list-style:none}
+.faq details p{margin-top:10px;font-size:14px;color:#3F3F46}
+.cta-box{background:#0A0A0A;border-radius:16px;padding:34px 30px;color:#fff;text-align:center;margin-top:44px}
+.cta-box h2{font-size:22px;letter-spacing:-.02em}
+.cta-box p{color:#A1A1AA;font-size:14px;margin:10px 0 18px}
+.wx{display:inline-block;background:#5B24F5;color:#fff;font-weight:650;border-radius:9px;padding:10px 22px;font-size:14.5px}
+.diff{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:12px;margin-top:18px}
+.diff .d{background:#fff;border:1px solid #E9E9EC;border-radius:11px;padding:18px}
+.diff .d b{display:block;margin-bottom:6px}
+.diff .d span{font-size:13.5px;color:#71717A}
+</style>
+</head>
+<body>
+<header class="topbar"><div class="wrap">
+<div class="brand"><span class="dot"></span>AgentAlpha <small>· 大模型 Agent 训练营</small></div>
+<nav class="topnav"><a href="#projects">实战项目</a><a href="#why">凭什么不同</a><a href="#faq">常见问题</a><a href="https://agentalpha.top/learn" target="_blank">课程大纲</a></nav>
+</div></header>
+
+<section class="idx-hero"><div class="wrap">
+<div class="prod-chip" style="margin-bottom:18px"><span class="live"></span>十个实战项目 · 章章配万字教程 · 数据全部可溯源</div>
+<h1>把研究项目做成<br>能拿 offer 的作品</h1>
+<p>十个对齐真实大厂岗位的实战项目：从 RAG 知识引擎到 Agentic RL 训练。评测优先用公开基准，运行数据真实可查，每个项目以 Agent 助手产品形态交付——产品界面、指标面板、带数字的评测报告、面试深挖手册。</p>
+<div class="stats">
+  <div class="statx"><b>10 章</b><span>万字深度教程（猛猿式讲法，每章配论文原图）</span></div>
+  <div class="statx"><b>62 条</b><span>真实大厂 JD 实证（全部带来源链接，逐条映射）</span></div>
+  <div class="statx"><b>1207s</b><span>DeepSearch 全链路真实运行（日志可查）</span></div>
+  <div class="statx"><b>400 步</b><span>GRPO 真实训练曲线（零示意数据）</span></div>
+</div>
+<div class="trust">
+  <span class="scene-tag">往期去向：字节 Seed</span><span class="scene-tag">腾讯青云计划</span>
+  <span class="scene-tag">京东 TGT 人才计划</span><span class="scene-tag">蚂蚁 Plan-A</span>
+  <span class="scene-tag">学员开源 Idea2Paper · GitHub 1400+ star</span>
+</div>
+</div></section>
+
+<div class="wrap"><div class="cards" id="projects">
+<a class="pcard" href="m1-rag.html"><div class="no">MODULE 01</div><h3>金融研报 RAG 系统</h3><p>6200 行真实代码底座：PDF 入库→混合检索→重排→引用问答，配金融数据工具与五角色研报产线</p><div class="tags"><span>RAG</span><span>混合检索</span><span>金融研报</span><span>2841 行可跑</span></div></a>
+<a class="pcard" href="m2-memory.html"><div class="no">MODULE 02</div><h3>Agent 记忆系统</h3><p>会记忆的科研助手：六类文献关系→知识图谱→related work 自动生成；对应网易「Agent Memory 专家」岗全链路</p><div class="tags"><span>记忆</span><span>知识图谱</span><span>mem0</span><span>2500 行</span></div></a>
+<a class="pcard" href="m3-agent.html"><div class="no">MODULE 03</div><h3>ReAct 单 Agent</h3><p>手写不套框架的 ReAct 循环：六金融工具、错误自恢复、合规拒答</p><div class="tags"><span>ReAct</span><span>工具调用</span><span>1146 行</span></div></a>
+<a class="pcard" href="m4-multiagent.html"><div class="no">MODULE 04</div><h3>多 Agent 金融研究系统</h3><p>Coordinator + 三分析师 + 报告撰写，真实 AAPL 研报产物可演示</p><div class="tags"><span>Multi-Agent</span><span>编排</span><span>2214 行</span></div></a>
+<a class="pcard" href="m5-deepsearch.html"><div class="no">MODULE 05</div><h3>DeepSearch 研究系统</h3><p>Search-o1 式推理中检索：不确定性触发、文档内推理、带引用答案——1207 秒真实运行日志</p><div class="tags"><span>Agentic RAG</span><span>真实运行</span><span>引用热区</span></div></a>
+<a class="pcard" href="m6-inference.html"><div class="no">MODULE 06</div><h3>LLM 推理服务优化</h3><p>vLLM 压测矩阵：并发×量化×缓存全组合，吞吐/TTFT/P99 直出报告</p><div class="tags"><span>vLLM</span><span>量化</span><span>压测</span></div></a>
+<a class="pcard" href="m7-codeagent.html"><div class="no">MODULE 07</div><h3>SWE-bench 级 Code Agent</h3><p>issue 进、verified patch 出：沙箱执行、patch 评测管线、失败四桶归因</p><div class="tags"><span>SWE-bench</span><span>12583 行</span><span>评测管线</span></div></a>
+<a class="pcard" href="m8-selfevolve.html"><div class="no">MODULE 08</div><h3>自进化 Code Agent 框架</h3><p>轨迹级四阶段进化：多路 rollout→打分→变异交叉→策略库回注，同预算对照证明净增益</p><div class="tags"><span>自我进化</span><span>策略库</span><span>9012 行自研</span></div></a>
+<a class="pcard" href="m9-agentic-rl.html"><div class="no">MODULE 09</div><h3>Agentic RL 训练</h3><p>GRPO 训练会搜索的推理模型：奖励消融、行为分布分析——400 步真实训练曲线</p><div class="tags"><span>GRPO</span><span>veRL</span><span>真实曲线</span></div></a>
+<a class="pcard" href="m10-capstone.html"><div class="no">MODULE 10</div><h3>毕业考核：可交付系统</h3><p>三选一组装项目：技术报告六件套 + 一键复现仓库 + 视频演示</p><div class="tags"><span>组装</span><span>可复现</span><span>答辩</span></div></a>
+</div></div>
+
+<section class="wrap" id="why" style="padding-bottom:20px">
+<div class="sec-head"><span class="no">WHY</span><h2>和市面课程的不同，用证据说话</h2></div>
+<div class="diff">
+<div class="d"><b>JD 实证，不是自说自话</b><span>五个方向各调研 10+ 条真实岗位（蚂蚁国际、字节 Seed、美团 LongCat、网易 Memory 专家岗…），项目能力逐条映射 JD 原文，全部带来源链接</span></div>
+<div class="d"><b>真实运行，不是设计稿</b><span>DeepSearch 1207 秒全链路日志、GRPO 400 步训练曲线、RAG Dense Recall@10 0.991——实测数字带仓库路径，示意数据明确标注</span></div>
+<div class="d"><b>公开基准，不是自编指标</b><span>SWE-bench Verified、HotpotQA、MMLU——和快手 KAT、美团 LongCat 同一套汇报语言</span></div>
+<div class="d"><b>产品形态交付，不是 notebook</b><span>每个项目有界面、指标面板、可演示的运行过程——面试官 3 分钟看懂你做了什么</span></div>
+</div>
+</section>
+
+<section class="wrap faq" id="faq" style="padding-bottom:10px">
+<div class="sec-head"><span class="no">FAQ</span><h2>常见问题</h2></div>
+<details open><summary>零基础能学吗？</summary><p>会 Python 基本语法即可起步：先跑环境验证 notebook（15 分钟见到第一个能运行的 RAG），每章教程的公式都配逐行人话翻译。深度学习基础不是前置。</p></details>
+<details><summary>项目能直接写简历吗？</summary><p>能，且经得起追问：简历模板按 JD 关键词写好、数字位留给你自己的实测结果；每章配 5 道高频面试深挖题与答题要点。口径是「团队研究项目 + 你的实测增量」，真实可辩护。</p></details>
+<details><summary>算力怎么解决？</summary><p>GPU 实验按 runbook 租云卡（一次完整实验季人均约 50 元 + API 60 美元，组队可分摊）；演示类应用免费托管。部署包、命令、成本表全部给到。</p></details>
+<details><summary>和同行课程最大的区别？</summary><p>证据：同行的指标多为自述口径，我们的每个数字可溯源（论文带编号、实测带路径、示意带标注）——这套三档数字纪律本身就是工程素养，面试里经得起任何追问。</p></details>
+</section>
+
+<section class="wrap"><div class="cta-box">
+<h2>想看十个项目的完整展示页？</h2>
+<p>每个项目页含：场景故事 · 产品界面 · 运行指标面板 · 真实运行区块 · JD 覆盖矩阵 · 面试深挖预演——上面点开任意卡片即可。咨询报名请加微信，备注「训练营」。</p>
+<a class="wx" href="https://agentalpha.top/learn" target="_blank">查看课程大纲</a>
+<span style="display:inline-block;margin:0 10px"></span>
+<span class="wx" style="background:transparent;border:1px solid #5B24F5;color:#B9A6FF">微信：aistudioyes</span>
+</div></section>
+
+<footer class="footer"><div class="wrap"><div>AgentAlpha · 大模型 Agent 训练营 — 项目源于团队研究与开源基座的深度实战</div><div><a href="https://agentalpha.top" style="color:#71717A">返回主站</a></div></div></footer>
+</body></html>

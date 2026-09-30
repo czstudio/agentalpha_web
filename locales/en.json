@@ -25,7 +25,8 @@
     "mianjing": "Mianjing",
     "gzh": "WeChat",
     "learn": "Training",
-    "articles": "Articles"
+    "articles": "Articles",
+    "projects": "Projects"
   },
   "hero": {
     "badge": "Top LLM Agent builder community in China",

@@ -466,6 +466,7 @@ export function HomeContent({ data }: HomeContentProps) {
             </div>
             <div className="aa-join-actions">
               <a href="/learn" className="aa-btn-primary">{t.training.cta_primary}</a>
+              <a href="/projects" className="aa-btn-ghost" style={{ textDecoration: "none" }}>十个实战项目 →</a>
               <button
                 type="button"
                 className="aa-btn-ghost"

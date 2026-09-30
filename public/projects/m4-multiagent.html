@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>研报工厂 · 多 Agent SOP 系统 · AgentAlpha 课程项目</title>
+<link rel="stylesheet" href="assets/showcase.css">
+</head>
+<body>
+<header class="topbar"><div class="wrap"><div class="brand"><span class="dot"></span>AgentAlpha <small>· 课程项目</small></div><nav class="topnav"><a href="index.html">总览</a><a href="../../experiments/metrics-hub/index.html">指标中心</a><a href="m1-rag.html">RAG</a><a href="m2-memory.html">记忆</a><a href="m3-agent.html">单Agent</a><a href="m4-multiagent.html">多Agent</a><a href="m5-deepsearch.html">DeepSearch</a><a href="m6-inference.html">推理服务</a><a href="m7-codeagent.html">Code Agent</a><a href="m8-selfevolve.html">自进化</a><a href="m9-agentic-rl.html">Agentic RL</a><a href="m10-capstone.html">毕业考核</a></nav></div></header>
+<section class="hero"><div class="wrap">
+<div class="prod-chip"><span class="live"></span>AgentAlpha · Multi-Agent Report Factory</div>
+<h1>研报工厂 · 多 Agent SOP 系统</h1>
+<p class="tagline">不是复制模型几份，是把长链路改写成可审查的团队：四角色合同·六字段消息契约·轮次预算仲裁·FSM 非法边拒绝——异常恢复靠结构不靠重试。</p>
+<div class="prod-cta"><a class="btn primary" href="#product">查看产品界面</a><a class="btn" href="#dash">运行指标</a><a class="btn" href="#jd">JD 覆盖</a></div>
+<div class="scene-tags"><span class="scene-tag">投研报告工厂</span><span class="scene-tag">代码评审委员会</span><span class="scene-tag">舆情会商</span><span class="scene-tag">渠道运营协同</span></div>
+</div></section>
+<main class="main wrap">
+
+<section>
+<div class="sec-head"><span class="no">01</span><h2>场景故事</h2></div>
+<p class="sec-sub">从「四个会说话的窗口」到「可审查的团队」：字节飞书在招的协作工程</p>
+<div class="card"><p>没有消息契约、没有停止规则、没有局部回滚的所谓团队，只是四个会说话的采样器——大家都说了，却没人接手。多 Agent 要买的不是更多采样窗口，是专业化分工、只传消息、互相审查、可局部回滚的团队合同。</p><p>这个项目把协作拆成结构：Planner 只拆路径、Researcher 只取证、Coder 只落地、Critic 只判断（issues+pass）；消息六字段校验在理解之前（自由文本过不了 schema）；轮次预算墙杀永动机批评器（budget 6 时 n=6 靠墙停），信息增量耗尽才早停（budget 12 时 n=7 省 5 次生成）。</p><p>流程上升为 FSM：七条合法边之外的结构性跳转抛 ValueError——DONE 之后想改基本面？这条边不存在。研报工厂五角色铁律（协调者不做分析/分析师不爬数/撰写不拉行情）+ 数字进 source JSON 叙述拼 [source]：对抗注入 10/10 拒绝，15 项事实检查全绿。</p>
+<div class="migrate"><b>可迁移场景：</b>代码评审委员会、舆情联合会商、供应链对账协同</div></div>
+</section>
+
+<section id="product">
+<div class="sec-head"><span class="no">02</span><h2>产品界面</h2></div>
+<p class="sec-sub">项目以 Agent 助手产品形态交付——学员拿到的不是 notebook，而是一个可演示、可写进简历的产品级系统</p>
+<div style="display:flex;align-items:baseline;gap:12px;margin-bottom:14px;flex-wrap:wrap"><span style="font-size:15.5px;font-weight:650;letter-spacing:-.01em">Multi-Agent Report Factory</span><span style="font-size:12.5px;color:var(--muted)">AgentAlpha 产品级交付 · 浏览器窗口内为界面设计稿</span></div>
+
+</section>
+
+<section id="dash">
+<div class="sec-head"><span class="no">03</span><h2>运行指标</h2></div>
+<p class="sec-sub">训练 / 评测仪表盘：指标命名、评测协议（avg@k）、Δ 标注与事件日志全部对齐工业级训练面板规范</p>
+<div class="dash"><div class="dash-head"><div class="run"><span class="st run">已验收 LOCAL</span>multiagent / report-factory</div><div class="cfg"><span>LangGraph FSM 七条合法边</span><span>五角色 SOP</span><span>NVDA/AAPL/MSFT/TSLA/AMZN</span><span>vLLM 7B @4090</span></div></div><div class="stats"><div class="stat"><div class="k">对抗注入拒绝</div><div class="v">10/10</div><div class="d up">refusal=1.0</div></div><div class="stat"><div class="k">事实检查</div><div class="v">15/15</div><div class="d up">accuracy=1.0</div></div><div class="stat"><div class="k">非法边处置</div><div class="v">ValueError</div><div class="d up">结构性拒绝</div></div><div class="stat"><div class="k">预算省生成</div><div class="v">5 次</div><div class="d up">budget12 vs 墙停</div></div></div><div class="dash-body"><div class="legend"><span><i style="background:#5B24F5"></i>实际轮数</span><span><i style="background:#A1A1AA"></i>预算上限</span></div><svg viewBox="0 0 940 280" xmlns="http://www.w3.org/2000/svg" role="img"><line x1="56" y1="244.0" x2="844" y2="244.0" stroke="#F0F0F3" stroke-width="1" stroke-dasharray="1.5 4"/><text x="47" y="247.5" font-size="11" fill="#A1A1AA" font-family="SF Mono,ui-monospace,Consolas,monospace" text-anchor="end">6.00</text><line x1="56" y1="167.3" x2="844" y2="167.3" stroke="#F0F0F3" stroke-width="1" stroke-dasharray="1.5 4"/><text x="47" y="170.8" font-size="11" fill="#A1A1AA" font-family="SF Mono,ui-monospace,Consolas,monospace" text-anchor="end">8.00</text><line x1="56" y1="90.7" x2="844" y2="90.7" stroke="#F0F0F3" stroke-width="1" stroke-dasharray="1.5 4"/><text x="47" y="94.2" font-size="11" fill="#A1A1AA" font-family="SF Mono,ui-monospace,Consolas,monospace" text-anchor="end">10.00</text><line x1="56" y1="14.0" x2="844" y2="14.0" stroke="#F0F0F3" stroke-width="1" stroke-dasharray="1.5 4"/><text x="47" y="17.5" font-size="11" fill="#A1A1AA" font-family="SF Mono,ui-monospace,Consolas,monospace" text-anchor="end">12.00</text><text x="56.0" y="268" font-size="11" fill="#A1A1AA" font-family="SF Mono,ui-monospace,Consolas,monospace" text-anchor="middle">budget6</text><text x="844.0" y="268" font-size="11" fill="#A1A1AA" font-family="SF Mono,ui-monospace,Consolas,monospace" text-anchor="middle">budget12</text><text x="936" y="268" font-size="11" fill="#A1A1AA" font-family="SF Mono,ui-monospace,Consolas,monospace" text-anchor="end">step</text><polyline points="56.0,244.0 844.0,205.7" fill="none" stroke="#5B24F5" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"/><circle cx="844.0" cy="205.7" r="3" fill="#5B24F5"/><text x="851.0" y="209.2" font-size="11" fill="#5B24F5" font-family="SF Mono,ui-monospace,Consolas,monospace">7.000</text><polyline points="56.0,244.0 844.0,14.0" fill="none" stroke="#A1A1AA" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"/><circle cx="844.0" cy="14.0" r="3" fill="#A1A1AA"/><text x="851.0" y="17.5" font-size="11" fill="#A1A1AA" font-family="SF Mono,ui-monospace,Consolas,monospace">12.000</text><text x="56" y="12" font-size="11" fill="#71717A" font-family="SF Mono,ui-monospace,Consolas,monospace">消息轮数</text></svg><div style="height:14px"></div><svg viewBox="0 0 940 238" xmlns="http://www.w3.org/2000/svg" role="img"><text x="2" y="16" font-size="12" fill="#71717A" font-family="Noto Sans SC,-apple-system,sans-serif" font-weight="600">对抗注入 10 连拒（每类 1 次）</text><text x="2" y="53" font-size="12.5" fill="#71717A" font-family="Noto Sans SC,-apple-system,sans-serif">直接荐股</text><rect x="190" y="40" width="630" height="14" rx="7" fill="#F5F5F5"/><rect x="190" y="40" width="562.5" height="14" rx="7" fill="#A1A1AA"/><text x="830" y="52" font-size="12" fill="#71717A" font-family="SF Mono,ui-monospace,Consolas,monospace">1.0</text><text x="2" y="93" font-size="12.5" fill="#71717A" font-family="Noto Sans SC,-apple-system,sans-serif">改价 9999</text><rect x="190" y="80" width="630" height="14" rx="7" fill="#F5F5F5"/><rect x="190" y="80" width="562.5" height="14" rx="7" fill="#A1A1AA"/><text x="830" y="92" font-size="12" fill="#71717A" font-family="SF Mono,ui-monospace,Consolas,monospace">1.0</text><text x="2" y="133" font-size="12.5" fill="#71717A" font-family="Noto Sans SC,-apple-system,sans-serif">凭证钓鱼</text><rect x="190" y="120" width="630" height="14" rx="7" fill="#F5F5F5"/><rect x="190" y="120" width="562.5" height="14" rx="7" fill="#A1A1AA"/><text x="830" y="132" font-size="12" fill="#71717A" font-family="SF Mono,ui-monospace,Consolas,monospace">1.0</text><text x="2" y="173" font-size="12.5" fill="#71717A" font-family="Noto Sans SC,-apple-system,sans-serif">伪造授权</text><rect x="190" y="160" width="630" height="14" rx="7" fill="#F5F5F5"/><rect x="190" y="160" width="562.5" height="14" rx="7" fill="#A1A1AA"/><text x="830" y="172" font-size="12" fill="#71717A" font-family="SF Mono,ui-monospace,Consolas,monospace">1.0</text><text x="2" y="213" font-size="12.5" fill="#71717A" font-family="Noto Sans SC,-apple-system,sans-serif">英文绕过</text><rect x="190" y="200" width="630" height="14" rx="7" fill="#F5F5F5"/><rect x="190" y="200" width="562.5" height="14" rx="7" fill="#A1A1AA"/><text x="830" y="212" font-size="12" fill="#71717A" font-family="SF Mono,ui-monospace,Consolas,monospace">1.0</text></svg><div style="height:14px"></div><div class="log"><div><b>08-21</b><span class="ok">第一稿漏 Key 约束 → pass=false 回滚为真</span></div><div><b>08-21</b><span class="warn">第二稿 pass=true 但终稿残留『（漏了 Key 约束）』——假绿灯当失败保留</span></div><div><b>08-21</b><span class="ok">FSM 11 步：PLAN→RETRIEVE→CODE→JOIN→TEST→FIX→…→DONE</span></div><div><b>08-23</b><span class="ok">五标的 15 项数字全部对账 source JSON</span></div></div></div><div class="dash-note"><span class="tag">示意数据</span>界面为设计稿：曲线/数值由真实实验产出后替换</div></div>
+</section>
+
+<section>
+<div class="sec-head"><span class="no">04</span><h2>云端运行</h2></div>
+<p class="sec-sub">本项目按模块有对应云端部署包：平台选型、一键脚本、成本预估与产出物清单（cloud/ 目录）</p>
+<div class="card">
+<table style="width:100%;border-collapse:collapse;font-size:13.5px">
+<tr style="color:var(--muted);font-size:12px;text-align:left"><th style="padding:8px 10px">平台</th><th style="padding:8px 10px">用途</th><th style="padding:8px 10px">单次成本</th><th style="padding:8px 10px">部署包</th></tr>
+<tr style="border-top:1px solid var(--hair)"><td style="padding:9px 10px;font-weight:600">本机 · RTX 4090</td><td style="padding:9px 10px;color:var(--ink-2)">研报工厂+对抗注入+事实检查全套（vLLM 7B）</td><td style="padding:9px 10px;font-family:var(--mono);font-size:12.5px">已含</td><td style="padding:9px 10px;font-family:var(--mono);font-size:12px;color:var(--muted)">reference/航道B-multiagent/</td></tr><tr style="border-top:1px solid var(--hair)"><td style="padding:9px 10px;font-weight:600">4090 协作机</td><td style="padding:9px 10px;color:var(--ink-2)">多标的×多日扩展回归</td><td style="padding:9px 10px;font-family:var(--mono);font-size:12.5px">≈¥4</td><td style="padding:9px 10px;font-family:var(--mono);font-size:12px;color:var(--muted)">RUNBOOK</td></tr><tr style="border-top:1px solid var(--hair)"><td style="padding:9px 10px;font-weight:600">任一环境</td><td style="padding:9px 10px;color:var(--ink-2)">LangGraph checkpointer 断点恢复</td><td style="padding:9px 10px;font-family:var(--mono);font-size:12.5px">本机</td><td style="padding:9px 10px;font-family:var(--mono);font-size:12px;color:var(--muted)">扩充 P1</td></tr>
+</table>
+<div style="margin-top:14px;padding-top:12px;border-top:1px solid var(--hair);font-size:12.5px;color:var(--muted)">选型结论：GPU 实验主选 AutoDL（生态最全）；免费演示托管 ModelScope 创空间；全部实验一次「云端实验季」人均 ≈ ¥50 + API $60。详见 cloud/云平台选型与部署指南.md</div>
+</div>
+</section>
+
+<section>
+<div class="sec-head"><span class="no">05</span><h2>系统架构</h2></div>
+<div class="arch"><svg viewBox="0 0 995 284" xmlns="http://www.w3.org/2000/svg" role="img"><rect x="30" y="10" width="285" height="92" rx="10" fill="#F0F4FE" stroke="#2E5FE8" stroke-width="1.2"/><text x="50" y="40" font-size="14.5" fill="#0A0A0A" font-family="Noto Sans SC,-apple-system,sans-serif" font-weight="700" text-anchor="start">契约层</text><text x="50" y="62" font-size="11.5" fill="#71717A" font-family="Noto Sans SC,-apple-system,sans-serif" font-weight="400" text-anchor="start">六字段消息
+校验先于理解</text><path d="M320 56.0 H348 M341 51.5 L348 56.0 L341 60.5" stroke="#A1A1AA" stroke-width="1.5" fill="none"/><rect x="355" y="10" width="285" height="92" rx="10" fill="#EEEBFE" stroke="#5B24F5" stroke-width="1.2"/><text x="375" y="40" font-size="14.5" fill="#0A0A0A" font-family="Noto Sans SC,-apple-system,sans-serif" font-weight="700" text-anchor="start">拓扑层</text><text x="375" y="62" font-size="11.5" fill="#71717A" font-family="Noto Sans SC,-apple-system,sans-serif" font-weight="400" text-anchor="start">流水线/GroupChat
+Peer Critique</text><path d="M645 56.0 H673 M666 51.5 L673 56.0 L666 60.5" stroke="#A1A1AA" stroke-width="1.5" fill="none"/><rect x="680" y="10" width="285" height="92" rx="10" fill="#EDF8F6" stroke="#0D9488" stroke-width="1.2"/><text x="700" y="40" font-size="14.5" fill="#0A0A0A" font-family="Noto Sans SC,-apple-system,sans-serif" font-weight="700" text-anchor="start">预算层</text><text x="700" y="62" font-size="11.5" fill="#71717A" font-family="Noto Sans SC,-apple-system,sans-serif" font-weight="400" text-anchor="start">轮次墙+twice
+仲裁三件套</text><rect x="30" y="142" width="285" height="92" rx="10" fill="#FCF5E9" stroke="#C77D0A" stroke-width="1.2"/><text x="50" y="172" font-size="14.5" fill="#0A0A0A" font-family="Noto Sans SC,-apple-system,sans-serif" font-weight="700" text-anchor="start">编排层</text><text x="50" y="194" font-size="11.5" fill="#71717A" font-family="Noto Sans SC,-apple-system,sans-serif" font-weight="400" text-anchor="start">LangGraph FSM
+条件边·回滚</text><path d="M320 188.0 H348 M341 183.5 L348 188.0 L341 192.5" stroke="#A1A1AA" stroke-width="1.5" fill="none"/><rect x="355" y="142" width="285" height="92" rx="10" fill="#FDF1F1" stroke="#C93A3A" stroke-width="1.2"/><text x="375" y="172" font-size="14.5" fill="#0A0A0A" font-family="Noto Sans SC,-apple-system,sans-serif" font-weight="700" text-anchor="start">SOP 层</text><text x="375" y="194" font-size="11.5" fill="#71717A" font-family="Noto Sans SC,-apple-system,sans-serif" font-weight="400" text-anchor="start">五角色研报
+合成闸门</text></svg><div class="cap">模型可以填充字段，不能拥有拓扑——拓扑属于 FSM，仲裁属于预算，责任属于角色。</div></div>
+</section>
+
+<section>
+<div class="sec-head"><span class="no">06</span><h2>评测指标口径</h2></div>
+<p class="sec-sub">公开基准优先；自建指标全部带定义。数字由学员实测产出后填入，禁止编造</p>
+<div class="metrics"><div class="metric"><div class="name">预算对照</div><div class="how">budget 6 靠墙停 n=6 vs budget 12 增量耗尽 n=7</div><span class="badge pub">公开基准 · 可复现</span></div><div class="metric"><div class="name">FSM 轨迹</div><div class="how">11 步 trace PLAN→RETRIEVE→CODE→JOIN→TEST→FIX→…→DONE</div><span class="badge pub">公开基准 · 可复现</span></div><div class="metric"><div class="name">对抗注入</div><div class="how">改价/栽赃/钓鱼等 10 类全拒（refusal=1.0）</div><span class="badge pub">公开基准 · 可复现</span></div><div class="metric"><div class="name">事实检查</div><div class="how">五标的 15 项数字全部对账 source JSON（accuracy=1.0）</div><span class="badge pub">公开基准 · 可复现</span></div><div class="metric"><div class="name">假绿灯</div><div class="how">第二轮终稿仍含『漏了约束』——当失败写进成绩单</div><span class="badge pub">公开基准 · 可复现</span></div><div class="metric"><div class="name">非法边</div><div class="how">DONE→FUND 等三条非法边抛 ValueError 非写日志</div><span class="badge pub">公开基准 · 可复现</span></div></div>
+</section>
+
+<section id="jd">
+<div class="sec-head"><span class="no">07</span><h2>岗位 JD 覆盖矩阵</h2></div>
+<p class="sec-sub">基于 10 条真实岗位 JD 的实证映射（来源见 packaging/inputs/）</p>
+<table class="jd"><thead><tr><th style="width:26%">JD 高频要求</th><th>项目中的证据</th><th style="width:11%">覆盖强度</th></tr></thead>
+<tbody><tr><td class="jd-kw">多 Agent 协作架构</td><td>角色/契约/拓扑全件套（8/10 JD；字节飞书『角色编排、共享记忆、Supervisor 模式』）</td><td class="str">●●●</td></tr><tr><td class="jd-kw">工作流编排 DAG/条件/循环</td><td>手写 FSM 355 行 + LangGraph 双实现（月之暗面『DAG 编排、条件分支』）</td><td class="str">●●●</td></tr><tr><td class="jd-kw">容错与回滚</td><td>局部回滚+非法边拒绝+人工态点亮（拼多多『快照回滚』、腾讯『多轮对话容错』）</td><td class="str">●●●</td></tr><tr><td class="jd-kw">长链路成功率</td><td>预算墙+twice 停机+成本公式（快手『长链路任务成功率』）</td><td class="str">●●</td></tr><tr><td class="jd-kw">Memory/上下文路由</td><td>干净上下文设计+接模块 02（字节『上下文路由』）</td><td class="str">●●</td></tr><tr><td class="jd-kw">高并发分布式</td><td>诚实缺口：单机原型级（美团/拼多多硬性要求，如实声明）</td><td class="str">●</td></tr></tbody></table>
+</section>
+
+<section>
+<div class="sec-head"><span class="no">08</span><h2>简历 bullet（数字实测后填入）</h2></div>
+<div class="bullets"><div class="bullet">设计多 Agent 团队合同：四角色只传消息+六字段契约+轮次预算仲裁，预算对照实验（6 vs 7 轮）证明停机谓词省 5 次生成且不损质量</div><div class="bullet">LangGraph FSM 编排研报工厂：非法边结构性拒绝（ValueError 非日志）、数字全部对账 source JSON——对抗注入 10/10 拒绝、15 项事实检查全绿</div></div>
+</section>
+
+<section>
+<div class="sec-head"><span class="no">09</span><h2>面试深挖预演</h2></div>
+<details class="qa"><summary>为什么 FSM 而不是自由 GroupChat？</summary><div class="ans">自由对话里非法跳转只能『再说一遍』；FSM 里这条边不存在，抛 ValueError。异常恢复靠结构不靠再生成一次——月之暗面 JD 要的工作流引擎就是这个判断。</div></details><details class="qa"><summary>轮次预算和 token 预算什么区别？</summary><div class="ans">轮次管交互深度（防永动机批评器），token 管经济账。budget 6 时靠墙杀停（n=6）；budget 12 时连续两轮无新问题才停（n=7 省 5 次生成）——停机谓词的次序本身就是契约。</div></details><details class="qa"><summary>怎么证明协作真的有效？</summary><div class="ans">对照实验+假绿灯保留：第二轮终稿仍含『（漏了 Key 约束）』但 pass=true——另开角色是必要的不是充分的，谓词写窄照样放行，这当失败写进成绩单。</div></details><details class="qa"><summary>研报的数字怎么防编造？</summary><div class="ans">三工人+主编的观测与叙述分离：数字只进 source JSON，叙述由程序拼 [source] 原始浮点——主编不读行情接口，没有改价通道。NVDA 214.72 对 K 线可复核。</div></details><details class="qa"><summary>什么时候不该用多 Agent？</summary><div class="ans">工具少且不重叠、流程短、强依赖串行——单 Agent 更好。多 Agent 的价格是 15× token（对照栏数字），买之前先问值不值。</div></details><details class="qa"><summary>人工干预怎么落地？</summary><div class="ans">MANUAL_REVIEW 是 FSM 的状态不是 wiki 的一句话：fix_attempts 超限自动转人工态，人工边必须可被一次失败点亮——点不亮的人工等于没有。</div></details><details class="qa"><summary>和 A2A/集群运行时的差距？</summary><div class="ans">我们做单进程编排；美团 CatClaw 集群级运行时、A2A 协议是生产化下一层——诚实缺口，列扩充清单。</div></details>
+</section>
+
+<section>
+<div class="sec-head"><span class="no">10</span><h2>学员交付物</h2></div>
+<div class="deliv"><div class="d"><b>研报工厂</b><span>五角色 SOP + source 对账 + 免责闸门</span></div><div class="d"><b>FSM 编排台</b><span>355 行无框架实现 + 11 步 trace 回放 + 人工态点亮</span></div><div class="d"><b>对抗注入集</b><span>10 类攻击全拒记录（refusal=1.0）</span></div><div class="d"><b>预算对照实验</b><span>6 vs 7 轮停机谓词对照表</span></div></div>
+</section>
+
+</main>
+<footer class="footer"><div class="wrap">
+<div>AgentAlpha · 大模型 Agent 训练营 — 团队研究项目与开源基座的深度实战</div>
+<div>模块 04 / 09</div>
+</div></footer>
+</body></html>
