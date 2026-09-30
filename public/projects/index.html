@@ -11,9 +11,11 @@ html{scroll-behavior:smooth}
 body{background:var(--bg)}
 /* 滚动进度 */
 #prog{position:fixed;top:0;left:0;height:2px;background:var(--accent);width:0;z-index:99}
-/* 入场动效：初始隐藏只在 JS 可用时生效，无 JS 全量可见（SEO/截图安全） */
-html.js [data-r]{opacity:0;transform:translateY(16px);transition:opacity var(--dur) var(--ease),transform var(--dur) var(--ease);transition-delay:calc(var(--i,0)*80ms)}
-html.js [data-r].in{opacity:1;transform:none}
+/* 入场动效：纯 CSS，加载即播（below-fold 元素在用户滚到前已播完，稳健性优先） */
+@media (prefers-reduced-motion: no-preference){
+  [data-r]{animation:community-rv .6s var(--ease) both;animation-delay:calc(var(--i,0)*80ms)}
+  @keyframes community-rv{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+}
 /* 十一优惠条 */
 .strip{background:var(--accent-soft);border-bottom:1px solid var(--hair);font-size:.84rem;color:var(--accent);text-align:center;padding:10px 16px;font-weight:500}
 .strip b{font-weight:700}
@@ -124,7 +126,6 @@ section.blk{padding:clamp(56px,9vh,96px) 0}
   .route{grid-template-columns:1fr;gap:6px}
 }
 @media (prefers-reduced-motion: reduce){
-  html.js [data-r]{opacity:1;transform:none;transition:none}
   .mq-track{animation:none;flex-wrap:wrap;width:auto}
   .bcard img,.hero2 .reel figure{transition:none}
 }
@@ -261,17 +262,6 @@ addEventListener('scroll', () => {
 // 跑马灯内容翻倍
 const mq = document.getElementById('mq');
 mq.innerHTML += mq.innerHTML;
-// 入场：IntersectionObserver + 首屏兜底（无头渲染/IO 冻结时 2.6s 后强制首屏可见）
-const io = new IntersectionObserver(es => es.forEach(e => {
-  if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
-}), { threshold: 0.12, rootMargin: '0px 0px -6% 0px' });
-document.querySelectorAll('[data-r]').forEach(el => io.observe(el));
-setTimeout(() => {
-  const vh = innerHeight;
-  document.querySelectorAll('[data-r]:not(.in)').forEach(el => {
-    if (el.getBoundingClientRect().top < vh) el.classList.add('in');
-  });
-}, 2600);
 // 数字滚动：setTimeout 链驱动（rAF 在无头虚拟时间下会冻结）
 const cio = new IntersectionObserver(es => es.forEach(e => {
   if (!e.isIntersecting) return;
