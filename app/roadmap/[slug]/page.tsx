@@ -2,6 +2,7 @@ import type { Metadata } from "next"
 import Link from "next/link"
 import { notFound } from "next/navigation"
 import ReactMarkdown from "react-markdown"
+import remarkGfm from "remark-gfm"
 import {
   ROADMAPS,
   getRoadmap,
@@ -92,7 +93,7 @@ export default async function RoadmapDetailPage({ params }: PageProps) {
 
       <div className="ivu-measure">
         <article className="ivu-prose">
-          {lead ? <ReactMarkdown>{lead}</ReactMarkdown> : null}
+          {lead ? <ReactMarkdown remarkPlugins={[remarkGfm]}>{lead}</ReactMarkdown> : null}
 
           <section className="road-sec">
             <h2 className="road-sec-t">章节路线</h2>

@@ -1,7 +1,8 @@
 .rt-main {
   max-width: 880px;
   margin: 0 auto;
-  padding: 48px 20px 80px;
+  /* 顶部留出吸顶导航高度 */
+  padding: 116px 20px 80px;
 }
 
 .rt-hero {
@@ -435,7 +436,7 @@
 
 @media (max-width: 640px) {
   .rt-hero h1 { font-size: 26px; }
-  .rt-main { padding-top: 32px; }
+  .rt-main { padding-top: 96px; }
 }
 
 .rt-copy-col {
