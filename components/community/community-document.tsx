@@ -35,6 +35,7 @@ import type { CommunityNode } from "@/lib/community/types"
 const COMMUNITY_INTRO_URL = "https://agentalpha.feishu.cn/docx/QtYQddrAFoLIb9xFe7PckJnmn1b"
 const CAMP_URL = "https://agentalpha.feishu.cn/wiki/TjZJwXw70ijEX6kkyKicgortnpb"
 const EMBODIED_URL = "https://qingkelab.feishu.cn/wiki/EWlEwqyOIirxOEktJGgc86YnnMf"
+const ILLUS = (name: string) => `/images/community/illus/${name}.webp`
 
 /** 训练营 10 阶段：名称与顺序核对自《大模型 Agent 训练营》训练营文档（阶段 1–10 标题原文） */
 const CAMP_STAGES: Array<{ no: string; name: string; full: string; icon: typeof BookOpen; hue: string }> = [
@@ -156,6 +157,21 @@ function MediaFigure({ node }: { node: CommunityNode }) {
   )
 }
 
+/** 品牌插画（unikeyx 生成，DeepSeek 女生人设）：装饰位，alt 固定，CSS 控制展示尺寸 */
+function Illus({ name, className }: { name: string; className?: string }) {
+  return (
+    <img
+      className={`community-illus${className ? ` ${className}` : ""}`}
+      src={ILLUS(name)}
+      alt="AgentAlpha 插画"
+      width={1024}
+      height={1024}
+      loading="lazy"
+      decoding="async"
+    />
+  )
+}
+
 /* ── 章节图标 ───────────────────────────── */
 
 const CHAPTER_TAGS: Record<string, { icon: typeof Compass; label: string }> = {
@@ -171,9 +187,9 @@ const CHAPTER_TAGS: Record<string, { icon: typeof Compass; label: string }> = {
 
 /* ── 项目卡头部：图标 + 指标（指标口径来自社区文档与站内品牌口径，未新增数字） ── */
 
-function projectMeta(id: string): { icon: typeof FileText; stats: string[] } {
-  if (id.includes("idea2paper")) return { icon: FileText, stats: ["1.4k Star", "HF 论文日榜第一"] }
-  if (id.includes("inkos")) return { icon: PenTool, stats: ["7.8k Star", "150+ 部签约"] }
+function projectMeta(id: string): { icon: typeof FileText; stats: string[]; illus?: string } {
+  if (id.includes("idea2paper")) return { icon: FileText, stats: ["1.4k Star", "HF 论文日榜第一"], illus: "proj-idea2paper" }
+  if (id.includes("inkos")) return { icon: PenTool, stats: ["7.8k Star", "150+ 部签约"], illus: "proj-inkos" }
   if (id.includes("潜艇")) return { icon: Ship, stats: ["30 天用户破万"] }
   if (id.includes("sell")) return { icon: ShoppingCart, stats: ["企业定制"] }
   if (id === "5") return { icon: Database, stats: ["专业数据 API"] }
@@ -186,6 +202,11 @@ function ProjectHeading({ node }: { node: CommunityNode }) {
   const Icon = meta.icon
   return (
     <h3 id={node.id}>
+      {meta.illus ? (
+        <span className="community-proj-illus" aria-hidden="true">
+          <Illus name={meta.illus} />
+        </span>
+      ) : null}
       <span className="community-proj-ico" aria-hidden="true">
         <Icon size={17} />
       </span>
@@ -494,14 +515,26 @@ const PATH_ICONS: Record<string, typeof Briefcase> = {
   产业落地: Building2,
 }
 
+const PATH_ILLUS: Record<string, string> = {
+  职场实战: "path-career",
+  学术科研: "path-academy",
+  产业落地: "path-industry",
+}
+
 function PathCards({ table }: { table: CommunityNode }) {
   const { head, rows } = tableHeadAndRows(table)
   return (
     <div className="community-paths">
       {rows.map((row) => {
         const Icon = PATH_ICONS[row[0]] ?? Waypoints
+        const illus = PATH_ILLUS[row[0]]
         return (
           <div className="community-path" key={row[0]}>
+            {illus ? (
+              <span className="community-path-illus" aria-hidden="true">
+                <Illus name={illus} />
+              </span>
+            ) : null}
             <div className="community-path-head">
               <span className="community-path-ico" aria-hidden="true">
                 <Icon size={17} />
@@ -723,11 +756,38 @@ function IntroBanner() {
   )
 }
 
+/** 08 CTA 收尾：女生招手插画 + 行动按钮 */
 function CtaActions() {
   return (
-    <div className="community-cta-actions">
-      <a className="community-button" href="/#contact">加入社区</a>
-      <a className="community-button is-secondary" href={COMMUNITY_INTRO_URL} target="_blank" rel="noopener noreferrer">阅读社区介绍 ↗</a>
+    <div className="community-cta-finale">
+      <Illus name="cta" className="community-cta-illus" />
+      <div className="community-cta-actions">
+        <a className="community-button" href="/#contact">加入社区</a>
+        <a className="community-button is-secondary" href={COMMUNITY_INTRO_URL} target="_blank" rel="noopener noreferrer">阅读社区介绍 ↗</a>
+      </div>
+    </div>
+  )
+}
+
+/** 01 是什么：两句定位 + 品牌插画主视觉（其余细节交给后面的章节讲） */
+function identityFlow(nodes: CommunityNode[], key: string): ReactNode {
+  const callouts: string[] = []
+  const extras: CommunityNode[] = []
+  nodes.forEach((node) => {
+    if (node.type === "element" && node.tag === "aside" && callouts.length < 2) {
+      callouts.push(nodeText(node).trim())
+      return
+    }
+    if (!isEmpty(node)) extras.push(node)
+  })
+  return (
+    <div className="community-identity">
+      <div className="community-identity-copy">
+        {callouts.map((text, index) => (
+          <p className="community-identity-line" key={index}>{text}</p>
+        ))}
+      </div>
+      <Illus name="what" className="community-identity-illus" />
     </div>
   )
 }
@@ -764,7 +824,11 @@ export function CommunityDocumentRenderer({ nodes }: { nodes: CommunityNode[] })
               <h2>{title.replace(/^\s*\d+\.\s*/, "")}</h2>
             </header>
             <div className="community-chapter-body">
-              {layout === "curriculum" ? curriculumFlow(lead, `chapter-${chapterIndex}-lead`) : flow(lead, `chapter-${chapterIndex}-lead`)}
+              {layout === "curriculum"
+                ? curriculumFlow(lead, `chapter-${chapterIndex}-lead`)
+                : layout === "identity"
+                  ? identityFlow(lead, `chapter-${chapterIndex}-lead`)
+                  : flow(lead, `chapter-${chapterIndex}-lead`)}
               {subchapters.map((subchapter, subIndex) => {
                 const subheading = subchapter[0]
                 if (subheading.type !== "element") return null
