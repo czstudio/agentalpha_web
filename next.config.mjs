@@ -12,6 +12,9 @@ const nextConfig = {
         source: "/community.md",
         destination: "/community/markdown",
       },
+      // 实战项目展示区（public/projects 静态站）：目录路径落到 index.html
+      { source: "/projects", destination: "/projects/index.html" },
+      { source: "/projects/", destination: "/projects/index.html" },
     ]
   },
   async headers() {
