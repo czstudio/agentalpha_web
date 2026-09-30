@@ -2,7 +2,6 @@
 
 import Link from "next/link"
 import { ArrowDown, ArrowUpRight, Menu, X } from "lucide-react"
-import { BrandLogoReel } from "@/components/brand-logo-reel"
 import { SiteLogo } from "@/components/site-logo"
 import { useGSAP } from "@gsap/react"
 import gsap from "gsap"
@@ -247,7 +246,17 @@ export function CommunityExperience({
           <span className="community-hero-title-line"><span>把 AI 学习</span></span>
           <span className="community-hero-title-line is-accent"><span>变成真实作品。</span></span>
         </h1>
-        <BrandLogoReel className="community-hero-reel" />
+        <div className="community-hero-reel">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            className="community-hero-illus"
+            src="/images/community/illus/hero.webp"
+            alt="AgentAlpha 插画：Q版女生与蓝色小机器人击掌，周围漂浮论文、代码与小火箭贴纸"
+            width={1024}
+            height={1024}
+            fetchPriority="high"
+          />
+        </div>
         <div className="community-hero-statement">
           <p>{heroStatement}</p>
         </div>

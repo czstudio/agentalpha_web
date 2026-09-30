@@ -23,17 +23,16 @@ export function Navigation() {
   const [showFireworks, setShowFireworks] = useState(false)
   const { t } = useLanguage()
 
+  // 导航只留 6 个主入口（用户 2026-09-30 指定缩减）：
+  // 笔记→并入文章、面经/面试题库→统一为「面试」、公众号→文章站内版、分享→首页锚点不占导航。
+  // 路由全部保留可直达，仅不在导航展示。
   const navItems = [
     { label: t.nav.community, href: "/community" },
-    { label: t.nav.notes, href: "/notes" },
     { label: t.nav.articles, href: "/articles" },
     { label: t.nav.interview, href: "/interview" },
     { label: t.nav.tools, href: "/tools" },
-    { label: t.nav.mianjing, href: "/mianjing" },
-    { label: t.nav.gzh, href: "/gzh" },
     { label: t.nav.learn, href: "/learn" },
     { label: t.nav.projects, href: "/projects" },
-    { label: t.nav.talks, href: "/#talks" },
   ]
 
   const clickCountRef = useRef(0)

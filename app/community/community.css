@@ -25,6 +25,9 @@
   --rm-orange-tint: oklch(0.965 0.035 70);
   --rm-purple: oklch(0.47 0.16 268);
   --rm-purple-tint: oklch(0.955 0.03 268);
+  /* 10 维打磨：双层阴影（近接触 + 远漫射），全页卡片统一 */
+  --shadow-card: 0 1px 2px rgb(0 0 0 / 0.04), 0 16px 40px -24px rgb(0 0 0 / 0.16);
+  --shadow-card-hover: 0 2px 4px rgb(0 0 0 / 0.05), 0 22px 48px -22px rgb(0 0 0 / 0.22);
 
   min-height: 100vh;
   overflow: clip;
@@ -185,6 +188,19 @@
   border: 0;
   box-shadow: none;
 }
+.community-hero-illus {
+  display: block;
+  width: 100%;
+  height: auto;
+  animation: community-float 5s ease-in-out infinite;
+}
+@keyframes community-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .community-hero-illus, .community-illus { animation: none; }
+}
 .community-hero-statement {
   grid-area: statement;
   max-width: var(--measure);
@@ -230,7 +246,7 @@
 }
 .dark .community-hero-actions a:last-child { border-color: rgb(255 255 255 / 0.2); }
 @media (hover: hover) {
-  .community-hero-actions a:hover { transform: translateY(-2px); box-shadow: var(--shadow-soft); }
+  .community-hero-actions a:hover { transform: translateY(-2px); box-shadow: var(--shadow-card-hover); }
   .community-hero-actions a:last-child:hover { border-color: color-mix(in oklab, var(--primary) 45%, var(--border)); }
 }
 
@@ -357,7 +373,7 @@
 @media (hover: hover) {
   .community-doc-banner:hover {
     transform: translateY(-2px);
-    box-shadow: var(--shadow-soft);
+    box-shadow: var(--shadow-card-hover);
     border-color: color-mix(in oklab, var(--primary) 45%, var(--border));
   }
 }
@@ -548,8 +564,82 @@
 }
 .community-cta-actions .community-button { margin: 0; }
 @media (hover: hover) {
-  .community-button:hover { transform: translateY(-2px); box-shadow: var(--shadow-soft); }
+  .community-button:hover { transform: translateY(-2px); box-shadow: var(--shadow-card-hover); }
 }
+
+/* —— 品牌插画通用 —— */
+.community-illus {
+  display: block;
+  width: 100%;
+  height: auto;
+  animation: community-float 6s ease-in-out infinite;
+}
+
+/* —— 01 是什么：双句定位 + 插画 —— */
+.community-identity {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(220px, 300px);
+  gap: clamp(24px, 4vw, 48px);
+  align-items: center;
+}
+.community-identity-copy { display: grid; gap: 14px; }
+.community-identity-line {
+  position: relative;
+  margin: 0;
+  padding: 18px 22px 18px 52px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  font-family: var(--font-display);
+  font-size: clamp(1.02rem, 1.4vw, 1.18rem);
+  font-weight: 700;
+  line-height: 1.8;
+}
+.community-identity-line::before {
+  content: "❝";
+  position: absolute;
+  left: 18px;
+  top: 12px;
+  color: var(--primary);
+  font-size: 1.5rem;
+  line-height: 1;
+}
+.community-identity-illus { border-radius: 18px; }
+
+/* —— 02 项目卡头插画（前两个主项目） —— */
+.community-proj-illus {
+  display: none;
+  flex: none;
+  width: 64px;
+  height: 64px;
+  margin-right: 2px;
+  overflow: hidden;
+  border-radius: 14px;
+}
+.community-proj-illus .community-illus { width: 100%; height: 100%; object-fit: cover; animation: none; }
+
+/* —— 06 路径卡插画 —— */
+.community-path-illus {
+  display: block;
+  margin: 0 0 14px;
+  border-radius: 12px;
+  overflow: hidden;
+}
+.community-path-illus .community-illus { width: 100%; height: auto; animation: none; }
+
+/* —— 08 CTA 收尾 —— */
+.community-cta-finale {
+  display: grid;
+  grid-template-columns: minmax(180px, 260px) minmax(0, 1fr);
+  gap: clamp(20px, 4vw, 44px);
+  align-items: center;
+  margin-top: 26px;
+  padding: clamp(20px, 3vw, 32px);
+  background: linear-gradient(135deg, color-mix(in oklab, var(--primary) 7%, var(--card)), var(--card) 55%);
+  border: 1px solid color-mix(in oklab, var(--primary) 22%, var(--border));
+  border-radius: 20px;
+}
+.community-cta-illus { border-radius: 14px; }
 
 /* —— 证据卡基础（07 真实结果） —— */
 .community-evidence-card {
@@ -606,13 +696,15 @@
   letter-spacing: .12em;
 }
 
-/* —— 02 代表项目：卡头图标 + 指标徽章 —— */
+/* —— 02 代表项目：卡头图标 + 指标徽章（主项目卡头带插画） —— */
 .layout-projects .community-subchapter > h3 {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   gap: 12px;
 }
+.layout-projects .community-subchapter:first-of-type > h3 .community-proj-illus,
+.layout-projects .community-subchapter:nth-of-type(2) > h3 .community-proj-illus { display: block; }
 .community-proj-ico {
   display: grid;
   place-items: center;
@@ -705,7 +797,7 @@
 @media (hover: hover) {
   .community-path:hover {
     transform: translateY(-2px);
-    box-shadow: var(--shadow-soft);
+    box-shadow: var(--shadow-card-hover);
     border-color: color-mix(in oklab, var(--primary) 45%, var(--border));
   }
 }
@@ -937,7 +1029,7 @@
 @media (hover: hover) {
   .community-tier:hover {
     transform: translateY(-2px);
-    box-shadow: var(--shadow-soft);
+    box-shadow: var(--shadow-card-hover);
     border-color: color-mix(in oklab, var(--primary) 45%, var(--border));
   }
 }
@@ -1116,6 +1208,24 @@
   border-radius: 0;
 }
 .layout-people .community-callout p { font-size: .95rem; }
+/* 成员条目列表化：每条一行圆点，长句降为次要色，砍推销腔的视觉重量 */
+.layout-people .community-callout > div > p {
+  position: relative;
+  padding-left: 18px;
+  color: var(--foreground);
+}
+.layout-people .community-callout > div > p::before {
+  content: "";
+  position: absolute;
+  left: 2px;
+  top: .72em;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--primary);
+  opacity: .55;
+}
+.layout-people .community-callout > div > p:not(:has(strong)):not(:first-child) { color: var(--muted-foreground); }
 /* 双栏卡内部不再细分栏，避免半宽卡里的嵌套网格挤成一列字 */
 .layout-people .community-grid { display: block; margin: 18px 0; }
 .layout-people .community-column + .community-column { margin-top: 16px; }
@@ -1408,6 +1518,12 @@
   .community-embodied-stages { grid-template-columns: 1fr; }
   .community-gallery { grid-template-columns: 1fr; }
   .community-evidence-media { grid-template-columns: 1fr; }
+  .community-identity { grid-template-columns: 1fr; }
+  .community-identity-illus { max-width: 240px; justify-self: center; }
+  .community-cta-finale { grid-template-columns: 1fr; }
+  .community-cta-illus { max-width: 200px; justify-self: center; }
+  .community-path-illus { max-width: 180px; }
+  .community-proj-illus { display: none !important; }
   .layout-projects .community-subchapter > h3 { padding: 18px 20px; }
   .layout-projects .community-subchapter-body { padding: 4px 20px 24px; }
   .layout-projects .community-subchapter-body > .community-grid { grid-template-columns: minmax(0, 1fr); }
