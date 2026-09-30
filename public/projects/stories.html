@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>学员成果 · 12 位学员，12 条大模型转型路径 | AgentAlpha</title>
+<meta name="description" content="12 位真实学员的完整转型记录：求职上岸、顶会论文、保研、海外申博与人才计划。每个人原来卡在哪里、具体改了什么、面试官追问时怎么答——全过程可查。">
+<link rel="stylesheet" href="assets/showcase.css">
+<script>document.documentElement.classList.add('js')</script>
+<style>
+html{scroll-behavior:smooth}
+body{background:var(--bg)}
+/* 滚动进度 */
+#prog{position:fixed;top:0;left:0;height:2px;background:var(--accent);width:0;z-index:99}
+/* 入场动效：初始隐藏只在 JS 可用时生效（无 JS 全量可见） */
+html.js [data-r]{opacity:0;transform:translateY(16px);transition:opacity var(--dur) var(--ease),transform var(--dur) var(--ease);transition-delay:calc(var(--i,0)*70ms)}
+[data-r].in{opacity:1;transform:none}
+/* 十一优惠条 */
+.strip{background:var(--accent-soft);border-bottom:1px solid var(--hair);font-size:.84rem;color:var(--accent);text-align:center;padding:10px 16px;font-weight:500}
+.strip b{font-weight:700}
+/* Hero */
+.shero{border-bottom:1px solid var(--hair);padding:clamp(64px,9vh,104px) 0 clamp(44px,6vh,64px);position:relative;overflow:hidden}
+.shero::before{content:"";position:absolute;inset:0;background:radial-gradient(560px 260px at 18% -10%, var(--accent-soft), transparent 66%);pointer-events:none}
+.shero>*{position:relative}
+.shero .inner{width:min(1080px,calc(100% - clamp(40px,8vw,72px)));margin:0 auto}
+.kicker2{display:inline-flex;align-items:center;gap:8px;font-size:.74rem;font-weight:800;letter-spacing:.14em;color:var(--accent)}
+.kicker2::before{content:"";width:22px;height:1.5px;background:var(--accent)}
+.shero h1{font-size:clamp(2rem,4vw,3.1rem);line-height:1.18;letter-spacing:-.03em;margin:18px 0 0;max-width:16em}
+.shero .lede{max-width:62ch;color:color-mix(in oklab,var(--ink) 76%,transparent);font-size:clamp(.95rem,1.05vw,1.05rem);line-height:1.85;margin-top:18px}
+/* 阅读说明（诚实边界） */
+.note{display:flex;gap:12px;background:var(--bg-2);border:1px solid var(--hair);border-radius:12px;padding:14px 18px;margin-top:26px;font-size:.84rem;color:var(--ink-2);line-height:1.75;max-width:760px}
+.note .ic{flex:none;width:8px;height:8px;border-radius:50%;background:var(--accent);margin-top:7px}
+/* 指标条 */
+.sbar{border-bottom:1px solid var(--hair);background:var(--bg-2)}
+.sbar .wrap{width:min(1080px,calc(100% - clamp(40px,8vw,72px)));margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:0;padding:22px 0}
+.sb{padding:2px 20px;border-left:1px solid var(--hair)}
+.sb:first-child{border-left:none;padding-left:0}
+.sb b{display:block;font-family:var(--serif);font-size:clamp(1.3rem,2.2vw,1.7rem);font-weight:700;letter-spacing:-.02em}
+.sb span{font-size:.78rem;color:var(--muted)}
+/* 分组标题 */
+.ghead{display:flex;align-items:baseline;gap:12px;margin-bottom:8px}
+.ghead .no{font-family:var(--mono);font-size:11px;color:var(--muted-2);letter-spacing:.14em}
+.ghead h2{font-size:clamp(1.35rem,2.3vw,1.7rem);font-weight:700}
+.gsub{color:var(--muted);font-size:.9rem;max-width:66ch;margin-bottom:26px}
+/* 案例条目 */
+.case{display:grid;grid-template-columns:200px 1fr;gap:24px;padding:30px 0;border-top:1px solid var(--hair)}
+.case .hd{display:flex;flex-direction:column;gap:8px;align-items:flex-start}
+.case .no{font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;color:var(--muted-2)}
+.case h3{font-family:var(--serif);font-size:1.3rem;font-weight:700;letter-spacing:-.01em;line-height:1.3}
+.case .bg{font-size:.78rem;color:var(--muted);line-height:1.6}
+.pill{display:inline-flex;align-items:center;gap:6px;font-size:.78rem;font-weight:600;color:var(--accent);background:var(--accent-soft);border:1px solid var(--accent-line);border-radius:999px;padding:4px 12px;line-height:1.5;margin-top:2px}
+.case .bd{font-size:.93rem;color:var(--ink-2)}
+.case .bd p{line-height:1.88;margin:0 0 12px;text-wrap:pretty}
+.case .bd p:last-child{margin-bottom:0}
+.case .bd b{color:var(--ink);font-weight:600}
+.case .bd h4{font-family:var(--sans);font-size:.9rem;font-weight:700;color:var(--ink);margin:16px 0 8px;display:flex;align-items:baseline;gap:8px}
+.case .bd h4::before{content:"";flex:none;width:14px;height:1.5px;background:var(--accent);transform:translateY(-3px)}
+/* 聊天截图三联 */
+.shots{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;max-width:600px;margin:18px 0 6px}
+.shots figure{margin:0;border:1px solid var(--hair-2);border-radius:12px;overflow:hidden;background:#fff}
+.shots img{width:100%;display:block;aspect-ratio:292/633;object-fit:cover}
+.shots figcaption{font-family:var(--mono);font-size:10.5px;color:var(--muted-2);padding:8px 10px;border-top:1px solid var(--hair);background:var(--bg-2)}
+/* 成果墙 */
+.wallwrap{border:1px solid var(--hair-2);border-radius:16px;overflow:hidden;background:#fff;box-shadow:0 20px 48px rgb(0 0 0/.06)}
+.wallwrap img{width:100%;display:block}
+.wallcap{font-size:.8rem;color:var(--muted);padding:12px 16px;border-top:1px solid var(--hair);background:var(--bg-2);line-height:1.7}
+/* 尾部 CTA */
+.cta{background:var(--btn);color:var(--on-btn);border-radius:20px;padding:clamp(34px,5.5vw,52px);text-align:center;position:relative;overflow:hidden}
+.cta::before{content:"";position:absolute;inset:0;background:radial-gradient(520px 240px at 50% -20%, oklch(0.47 0.16 268/.5), transparent 70%);pointer-events:none}
+.cta>*{position:relative}
+.cta h2{font-size:clamp(1.35rem,2.4vw,1.8rem)}
+.cta p{color:#aeaeb2;font-size:.9rem;margin:12px auto 22px;max-width:58ch}
+.cta .row{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.cta .btn{border-color:rgb(255 255 255/.25);color:var(--on-btn)}
+.cta .btn.primary{background:var(--accent);border-color:var(--accent)}
+.cta .promo{display:inline-block;font-size:.84rem;color:#dcdce2;margin-top:16px;padding-top:14px;border-top:1px solid rgb(255 255 255/.14)}
+.cta .promo b{color:#fff}
+section.blk{padding:clamp(52px,8vh,88px) 0}
+.blk .inner{width:min(1080px,calc(100% - clamp(40px,8vw,72px)));margin:0 auto}
+footer.footer{border-top:1px solid var(--hair);padding:26px 0;font-size:.82rem;color:var(--muted)}
+footer.footer .inner{width:min(1080px,calc(100% - clamp(40px,8vw,72px)));margin:0 auto;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+@media (max-width:960px){
+  .sbar .wrap{grid-template-columns:1fr;gap:14px}
+  .sb{border-left:none;padding-left:0}
+  .case{grid-template-columns:1fr;gap:14px}
+  .shots{max-width:none}
+}
+@media (prefers-reduced-motion: reduce){
+  html.js [data-r]{opacity:1;transform:none;transition:none}
+}
+</style>
+</head>
+<body>
+<div id="prog"></div>
+<header class="topbar"><div class="wrap">
+  <a class="brand" href="index.html"><span class="dot"></span>AgentAlpha <small>大模型 Agent 训练营</small></a>
+  <nav class="topnav">
+    <a href="index.html#projects">十个项目</a><a href="stories.html" class="on">学员成果</a><a href="index.html#proof">凭什么不同</a><a href="index.html#faq">常见问题</a><a href="https://agentalpha.top/learn" target="_blank" rel="noopener">课程大纲</a>
+  </nav>
+</div></header>
+
+<div class="strip">十一优惠进行中 · 报名可<b>组队</b>，最高<b>半价</b> · 详情加微信 aistudioyes</div>
+
+<section class="shero">
+  <div class="inner">
+    <div class="kicker2" data-r>学员成果 · 真实路径</div>
+    <h1 data-r style="--i:1">12 位学员，12 条大模型转型路径</h1>
+    <p class="lede" data-r style="--i:2">真正能让人信服的案例，不是「零基础逆袭」的口号，而是一个人原来卡在哪里、具体改了什么、面试官继续追问时能不能讲下去。以下是完整过程，不是结果海报。</p>
+    <div class="note" data-r style="--i:3"><span class="ic"></span><span>为保护隐私，文中姓名均为化名。聊天图片依据真实案例中的问题与复盘内容模拟还原，并非原始微信记录；Offer 与成果图片来自已有资料并做脱敏处理，汇总图不与单个案例一一对应。</span></div>
+  </div>
+</section>
+
+<div class="sbar"><div class="wrap">
+  <div class="sb" data-r><b>12 位</b><span>学员，覆盖求职、论文、保研、申博、人才计划</span></div>
+  <div class="sb" data-r style="--i:1"><b>26 天 – 5 年</b><span>准备周期跨度，最快的 26 天拿到 offer，最长的走了完整科研路径</span></div>
+  <div class="sb" data-r style="--i:2"><b>3 类追问</b><span>每个案例都写清面试官的追问与当时怎么答</span></div>
+</div></div>
+
+<section class="blk" id="jobs"><div class="inner">
+  <div class="ghead" data-r><span class="no">PATH 01</span><h2>求职上岸</h2></div>
+  <p class="gsub" data-r style="--i:1">从双非本科到四年老兵，共同点是：项目不再停在「能演示」，而是能讲清失败、边界与代价。</p>
+
+  <article class="case" data-r>
+    <div class="hd"><span class="no">CASE 01</span><h3>Ethan</h3><span class="bg">双非本科 · 211 硕士<br>准备 3 个月</span><span class="pill">科大讯飞、美的、TME 相关大模型岗位机会</span></div>
+    <div class="bd">
+      <p><b>起点：</b>没有竞赛、论文，也没有大厂实习。准备了 3 个月，简历上真正能打的只有两条项目：企业知识库 RAG 和工作流 Agent。</p>
+      <p>他第一次改项目时，最大的误区是把「做过」写成「会了」：接入向量库、调用大模型、搭了工作流。这样的描述能过关键词筛选，却经不起第二个问题。</p>
+      <h4>第一轮追问：没有论文，项目深度怎么证明？</h4>
+      <p>他没有再回答「效果不错」，而是把坏样本拆成事实问答、跨章节、表格、无答案四类，再分别记录分块、Embedding、rerank 的变化。项目从一个 Demo 变成了一套能复现、能比较、能解释失败的系统。</p>
+      <h4>第二轮追问：工具调用失败怎么办？</h4>
+      <p>回答也不再是「加重试」：缺参数就追问，权限不足就拒绝，超时走异步重试，写操作必须二次确认，持续失败才转人工，并保留完整 trace。面试官真正想听的是边界和代价，而不是框架名。</p>
+      <h4>第三轮追问：同一个项目，为什么能投不同公司？</h4>
+      <p>项目事实不变，但表达重点改变：偏算法的岗位讲召回和评测，偏应用的岗位讲工具调用与状态机，偏业务的岗位讲权限、回退和线上指标。</p>
+    </div>
+  </article>
+
+  <article class="case" data-r>
+    <div class="hd"><span class="no">CASE 02</span><h3>Liam</h3><span class="bg">普通本科 · 信息管理<br>无大厂实习</span><span class="pill">深圳 Agent 开发岗 Offer</span></div>
+    <div class="bd">
+      <p><b>起点：</b>过去讲项目时总围绕 chunk、Embedding、向量库转，一旦被问「为什么论文表格召回不到」，回答就只剩「换一个模型试试」。</p>
+      <p>这次他先停掉功能堆叠，专门做坏样本。PDF 解析后表格是否还在？表头和数值有没有被切开？论文名、数据集名、指标缩写是不是纯向量的盲区？最后用固定分块和语义分块做对照，并给专有名词补上 BM25。</p>
+      <p>另一条 Agent 线也做了同样的拆解：Reviewer 输出 JSON 不合法时，不重跑整条 pipeline；先校验字段，能修就修，不能修只重跑当前节点，连续失败再回退或人工接管。</p>
+      <div class="shots">
+        <figure><img src="assets/img/stories/chat-1.jpg" alt="模拟还原：从一次真实面试卡点开始拆问题（1/3）" loading="lazy"><figcaption>模拟还原 1/3 · 拆问题</figcaption></figure>
+        <figure><img src="assets/img/stories/chat-2.jpg" alt="模拟还原：把模糊的优化改成可验证步骤（2/3）" loading="lazy"><figcaption>模拟还原 2/3 · 可验证步骤</figcaption></figure>
+        <figure><img src="assets/img/stories/chat-3.jpg" alt="模拟还原：面试通过后仍然复盘具体追问（3/3）" loading="lazy"><figcaption>模拟还原 3/3 · 面后复盘</figcaption></figure>
+      </div>
+      <p>下周面试，面试官顺着表格解析和局部重试继续问了近 20 分钟。他第一次没有乱，也没有靠背名词硬撑。</p>
+    </div>
+  </article>
+
+  <article class="case" data-r>
+    <div class="hd"><span class="no">CASE 03</span><h3>Ryan</h3><span class="bg">双非背景 · 多年全栈<br>转 AI 方向</span><span class="pill">入职儿童 AI 玩具团队</span></div>
+    <div class="bd">
+      <p><b>起点：</b>转 AI 时最大的优势不是「写代码快」，而是知道一个功能要怎样接进真实产品。</p>
+      <p>他在 Idea2Paper 中持续提交代码，做过知识图谱构建界面、后端流水线、跨平台前端与任务进度等工作。到面试时，能展示的不只是最终页面，还有提交记录、模块边界和踩过的坑。</p>
+      <p>入职儿童 AI 玩具团队后，工作很快从网页功能转向 ASR、情绪识别、RAG、Function Call、多 Agent 与设备延迟。他不断压缩语音到回答的链路，并开始承担十余人团队的推进工作。</p>
+      <p>这个案例的关键不是「全栈转 AI」六个字，而是原有工程能力怎样迁移：前端懂交互，后端懂链路，到了端侧产品还要懂延迟、失败和用户等待。</p>
+    </div>
+  </article>
+
+  <article class="case" data-r>
+    <div class="hd"><span class="no">CASE 04</span><h3>Mason</h3><span class="bg">在职开发<br>2026 年 3–4 月集中补 Agent 工程</span><span class="pill">多位面试官主动提起 Idea2Paper</span></div>
+    <div class="bd">
+      <p><b>起点：</b>在职开发，项目包括 Agentic Search v2、知识图谱召回与去重、DeepResearch 和数据泄漏排查。</p>
+      <p>至少三位面试官主动提到了 Idea2Paper，并继续追问 Agent 的设计边界、Agent Team、Swarm、Harness 以及系统如何持续优化。开源项目在这里不是简历装饰，而是面试官可以顺着代码继续验证的入口。</p>
+      <p>他的准备方式也随之改变：少讲「用了哪些框架」，多讲一次错误召回如何定位、一条搜索链路为什么这样拆、自动化做到哪一步必须停下来交给人。</p>
+    </div>
+  </article>
+
+  <article class="case" data-r>
+    <div class="hd"><span class="no">CASE 05</span><h3>Noah</h3><span class="bg">4 年后端经验<br>准备 6 个月 · 目标游戏 AI</span><span class="pill">24K 游戏 AI Offer</span></div>
+    <div class="bd">
+      <p><b>起点：</b>目标不是泛泛的「大模型应用岗」，而是游戏 AI。</p>
+      <p>他做的是 NPC 与任务生成 Agent：故事知识库保存世界设定，玩家记忆记录长期状态，有限状态机限制剧情推进，再用评测检查角色是否出戏、任务是否自相矛盾。</p>
+      <p>后端经验让他更早意识到，生成得像不像只是第一层；状态能不能持续、规则会不会被绕过、一次错误会不会污染后续剧情，才是产品真正会遇到的问题。</p>
+    </div>
+  </article>
+
+  <article class="case" data-r>
+    <div class="hd"><span class="no">CASE 06</span><h3>Lucas</h3><span class="bg">双非本科 · 无论文实习竞赛<br>准备周期 2 个月</span><span class="pill">大模型相关岗位 Offer</span></div>
+    <div class="bd">
+      <p><b>起点：</b>准备周期只有 2 个月。</p>
+      <p>他的企业知识库项目没有停在「上传文档就能问答」：先处理不同文档解析，再分别检查召回、rerank 和引用；链路里保留 trace，出现错答能追到具体文档与分块。</p>
+      <p>为了避免拿几个顺手问题自测，他整理了 300 条测试集。项目的价值因此从「能演示」变成「能知道哪类问题还不行」。</p>
+    </div>
+  </article>
+
+  <article class="case" data-r>
+    <div class="hd"><span class="no">CASE 07</span><h3>Chloe</h3><span class="bg">非计算机专业 · 生物医学背景<br>集中准备 26 天</span><span class="pill">大模型岗位 Offer</span></div>
+    <div class="bd">
+      <p><b>起点：</b>非计算机专业，集中准备 26 天。</p>
+      <p>她没有硬做一个陌生的通用客服，而是选择医学文献 RAG 与安全问答：处理药物别名和术语映射，混合召回文献，检查回答与引用是否一致，并为高风险问题设计拒答。</p>
+      <p>专业背景在这里不是包袱，而是判断系统有没有胡说的参照系。她能解释哪些问题可以辅助检索、哪些问题必须拒绝，以及为什么「有引用」不等于「引用支持结论」。</p>
+    </div>
+  </article>
+
+  <article class="case" data-r>
+    <div class="hd"><span class="no">CASE 08</span><h3>Daniel</h3><span class="bg">2025 年 7 月入职百度<br>7–10 月持续做实验</span><span class="pill">在职实验线：多 Agent · 多模态 · LLM 评分</span></div>
+    <div class="bd">
+      <p><b>起点：</b>2025 年 7 月加入百度，随后用 7–10 月持续做实验。</p>
+      <p>他把多 Agent、多模态知识图谱、LLM 评分串到同一条实验线上，也对比 Gemini 与 GPT-4o 的表现。重点不是宣布「某模型更强」，而是记录任务条件、失败类型和差异出现在哪里。</p>
+      <p>这条路径说明，拿到岗位并不是学习结束。真正进入团队后，问题会从「会不会调用模型」变成「如何设计可复现的比较，以及怎样解释失败」。</p>
+    </div>
+  </article>
+</div></section>
+
+<section class="blk" id="research" style="background:var(--bg-2);border-top:1px solid var(--hair);border-bottom:1px solid var(--hair)"><div class="inner">
+  <div class="ghead" data-r><span class="no">PATH 02</span><h2>论文与保研</h2></div>
+  <p class="gsub" data-r style="--i:1">本科阶段把一条实验链做完整，比把结果包装成天才故事更重要。</p>
+
+  <article class="case" data-r>
+    <div class="hd"><span class="no">CASE 09</span><h3>Leo</h3><span class="bg">211 大三<br>准备 4 个月</span><span class="pill">AAAI 2024 论文 · 中科院推荐</span></div>
+    <div class="bd">
+      <p><b>起点：</b>围绕多模态大模型依次推进数据、模型、优化和对比实验，没有把「跑通一个仓库」当作完成。</p>
+      <p>每一步都要回答：数据为什么这样处理，改动影响了什么，和基线相比究竟差在哪里。</p>
+      <p>对本科生来说，最重要的不是把结果包装成天才故事，而是让四个月的实验链条看得见。</p>
+    </div>
+  </article>
+
+  <article class="case" data-r>
+    <div class="hd"><span class="no">CASE 10</span><h3>Sophia</h3><span class="bg">电子信息专业大四<br>深度学习基础薄弱 · 时间卡在毕业前</span><span class="pill">NeurIPS 2024 Poster · 清华深造</span></div>
+    <div class="bd">
+      <p><b>起点：</b>她没有跳过原有专业基础，而是从信号处理切入，补齐数据、模型、优化与论文写作。</p>
+      <p>遇到实验不稳定时，先回到数据和指标，而不是不断更换更大的模型。</p>
+      <p>转向不是把过去全部推倒，而是找到旧知识与新问题的连接点。</p>
+    </div>
+  </article>
+</div></section>
+
+<section class="blk" id="phd"><div class="inner">
+  <div class="ghead" data-r><span class="no">PATH 03</span><h2>申博与人才计划</h2></div>
+  <p class="gsub" data-r style="--i:1">成绩短板无法改写时，其他材料必须足够具体、彼此一致；时间更长的路径，门槛也更高。</p>
+
+  <article class="case" data-r>
+    <div class="hd"><span class="no">CASE 11</span><h3>Aiden</h3><span class="bg">中下游 211 计算机专业<br>GPA 约 3.0 · 申请季</span><span class="pill">USC &amp; Duke 计算机博士录取 · USC 四年资助</span></div>
+    <div class="bd">
+      <p><b>起点：</b>进入申请季时成绩并不占优势。</p>
+      <p>他把准备重点放在可验证的研究经历：计算机视觉论文、头部互联网实习、模型优化过程，以及材料中如何把这些经历串成同一条研究兴趣。</p>
+      <p>这个结果不是「低 GPA 也没关系」，而是成绩短板无法改写时，其他材料必须足够具体、彼此一致。</p>
+    </div>
+  </article>
+
+  <article class="case" data-r>
+    <div class="hd"><span class="no">CASE 12</span><h3>Oliver</h3><span class="bg">中游 211 · 本科时不熟 Transformer<br>整条路径持续 5 年 · 中科大博士</span><span class="pill">华为「天才少年」 · 阿里星 P7</span></div>
+    <div class="bd">
+      <p><b>起点：</b>本科阶段对 Transformer 并不熟悉。整条路径持续 5 年，最终在中科大完成博士训练。</p>
+      <p>他从复现 Transformer 开始，逐步进入顶会研究、小团队协作和开源工作。长期积累的重点不是多背几个结构，而是能独立复现实验、判断改动是否有效，并把结果交付给团队。</p>
+      <p>这不是几个月速成故事，而是一条时间更长、门槛更高，也更接近真实科研成长的路径。</p>
+    </div>
+  </article>
+</div></section>
+
+<section class="blk" id="wall" style="background:var(--bg-2);border-top:1px solid var(--hair);border-bottom:1px solid var(--hair)"><div class="inner">
+  <div class="ghead" data-r><span class="no">WALL</span><h2>部分成果展示</h2></div>
+  <p class="gsub" data-r style="--i:1">以下为已有资料中的脱敏结果汇总，包含 Offer、录用意向与论文录用等不同类型成果，不与上方某一个案例逐项对应。</p>
+  <div class="wallwrap" data-r style="--i:2">
+    <img src="assets/img/stories/results-wall.jpg" alt="脱敏成果汇总：字节跳动、腾讯等 Offer 与录用意向、NeurIPS 论文录用通知" loading="lazy">
+    <div class="wallcap">全部图片已做脱敏处理（姓名与个人信息打码）。汇总图不与单个案例一一对应。</div>
+  </div>
+</div></section>
+
+<section class="blk"><div class="inner">
+  <div class="ghead" data-r><span class="no">NEXT</span><h2>别复制结果，先找自己的缺口</h2></div>
+  <p class="gsub" data-r style="--i:1">有人缺的是项目深度，有人缺的是岗位匹配，有人缺的是可验证成果。先找出你在面试的哪一个追问上会卡住，再决定下一周该补什么。比起再做一个新 Demo，这往往更接近真正的进步。</p>
+  <div class="cta" data-r style="--i:2">
+    <h2>十个项目的完整展示页已就绪</h2>
+    <p>场景故事、产品界面、指标面板、真实运行区块、JD 覆盖矩阵、面试深挖预演，每个项目一页全览。</p>
+    <div class="row">
+      <a class="btn primary" href="index.html#projects">查看十个项目</a>
+      <span class="wx-pill">微信 aistudioyes</span>
+    </div>
+    <div class="promo">十一优惠进行中 · 报名可<b>组队</b>，最高<b>半价</b>，加微信了解详情</div>
+  </div>
+</div></section>
+
+<footer class="footer"><div class="inner">
+  <div>AgentAlpha · 大模型 Agent 训练营，项目源于团队研究与开源基座的深度实战</div>
+  <div><a href="https://agentalpha.top" style="color:var(--muted)">返回主站</a> · <a href="index.html" style="color:var(--muted)">项目矩阵</a></div>
+</div></footer>
+
+<script>
+// 滚动进度
+const prog = document.getElementById('prog');
+addEventListener('scroll', () => {
+  const h = document.documentElement;
+  prog.style.width = (h.scrollTop / (h.scrollHeight - h.clientHeight) * 100) + '%';
+}, { passive: true });
+// 入场：IntersectionObserver + 首屏兜底
+const io = new IntersectionObserver(es => es.forEach(e => {
+  if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+}), { threshold: 0.08, rootMargin: '0px 0px -4% 0px' });
+document.querySelectorAll('[data-r]').forEach(el => io.observe(el));
+setTimeout(() => {
+  const vh = innerHeight;
+  document.querySelectorAll('[data-r]:not(.in)').forEach(el => {
+    if (el.getBoundingClientRect().top < vh) el.classList.add('in');
+  });
+}, 2600);
+</script>
+</body></html>
