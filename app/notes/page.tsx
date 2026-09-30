@@ -155,7 +155,7 @@ export default function NotesIndexPage() {
             </div>
             <div className="aa-notes-cta-grid">
               <Link className="aa-notes-cta-card" href="/community#3-课程体系"><span>课程入口</span><strong>真正的履历无需修饰，它是公开的代码与论文 <ArrowRight aria-hidden /></strong><small>课程细节全公开</small></Link>
-              <Link className="aa-notes-cta-card aa-notes-cta-card--dark" href="/#join"><span>社区入口</span><strong>一起来做有影响力有意义的项目，改变一点点世界 <ArrowRight aria-hidden /></strong><small>把项目做好，offer 是自然发生的事</small></Link>
+              <Link className="aa-notes-cta-card aa-notes-cta-card--dark" href="/#join"><span>社区入口</span><strong>一起来做有影响力有意义的项目，改变一点点世界 <ArrowRight aria-hidden /></strong></Link>
             </div>
           </div>
         </section>
