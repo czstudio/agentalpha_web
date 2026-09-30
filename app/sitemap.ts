@@ -196,7 +196,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.75,
     },
     {
-      url: "https://agentalpha.top/tools/self-intro",
+      url: "https://agentalpha.top/tools/resume-builder",
       lastModified: new Date(),
       changeFrequency: "weekly",
       priority: 0.75,

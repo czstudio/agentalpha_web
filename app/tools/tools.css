@@ -2,10 +2,10 @@
   /* 工具页共用令牌(与 .jd-/.ivu- 同族色板;改视觉改这里)。
      注意：此前这里误写成 --tk-brand: var(--tk-brand) 自引用，
      所有 var(--tk-*) 引用一直落在失效值上，现改为真实字面值。 */
-  --tk-brand: #6e22f0;
-  --tk-brand-deep: #4c15ac;
-  --tk-brand-tint: #f3ecfe;
-  --tk-brand-ink: #5b1fc4;
+  --tk-brand: #b4532a;
+  --tk-brand-deep: #8f3f1e;
+  --tk-brand-tint: #f8ece3;
+  --tk-brand-ink: #9c4a24;
   --tk-ink: #26211a;
   --tk-ink-2: #6e6557;
   --tk-ink-3: #9a9082;
@@ -13,9 +13,9 @@
   --tk-line-2: #d8cdb5;
   --tk-warn: #b45309;
   --tk-paper: #faf6ef;
-  --tk-paper-2: var(--tk-paper-2);
-  --tk-brand-wash: var(--tk-brand-wash);
-  --tk-brand-rgb: 110, 34, 240;
+  --tk-paper-2: #f7f3ea;
+  --tk-brand-wash: #fbf4ec;
+  --tk-brand-rgb: 180, 83, 42;
   --tk-card: #ffffff;
   --tk-font-serif: "Noto Serif SC", Georgia, "Songti SC", "SimSun", serif;
 }
@@ -148,7 +148,7 @@
   cursor: pointer;
 }
 .tk-run:hover { background: var(--tk-brand-deep); }
-.tk-run:disabled, .tk-run[aria-disabled="true"] { background: #c7c3e8; cursor: not-allowed; }
+.tk-run:disabled, .tk-run[aria-disabled="true"] { background: #ddc2b2; cursor: not-allowed; }
 .tk-run[aria-disabled="true"]:hover { background: #c7c3e8; }
 
 .tk-hint { font-size: 13px; color: var(--tk-ink-3); margin: 10px 0 0; line-height: 1.7; }
@@ -178,9 +178,9 @@
 .tk-score-label { font-size: 13px; color: var(--tk-ink-2); }
 .tk-score-track { height: 8px; background: var(--tk-brand-tint); border-radius: 999px; overflow: hidden; }
 .tk-score-track span { display: block; height: 100%; background: var(--tk-brand); border-radius: 999px; }
-.tk-score-track span.warn { background: var(--tk-warn); }
+.tk-score-track span.warn { background: #b3261e; }
 .tk-score-num { font-size: 14px; font-weight: 700; color: var(--tk-ink-2); text-align: right; }
-.tk-score-num.warn { color: var(--tk-warn); }
+.tk-score-num.warn { color: #b3261e; }
 
 .tk-list { display: grid; gap: 8px; }
 .tk-list a {
@@ -341,10 +341,7 @@
   border-radius: 9px;
   margin-bottom: 6px;
 }
-.tint-amber { background: #fffbeb; color: #b45309; }
-.tint-violet { background: var(--tk-brand-tint); color: var(--tk-brand-ink); }
-.tint-blue { background: #eff6ff; color: #1d4ed8; }
-.tint-green { background: #f0fdf4; color: #15803d; }
+.tint-brand { background: var(--tk-brand-tint); color: var(--tk-brand-ink); }
 .tk-lib-card .t { font-weight: 700; font-size: 14.5px; }
 .tk-lib-card .d { font-size: 12.5px; color: var(--tk-ink-3); line-height: 1.65; }
 
@@ -841,3 +838,117 @@
   z-index: 2;
 }
 .gap-progress-text { font-size: 13px; color: var(--tk-ink-2); }
+
+/* ── 简历生成器 ── */
+.rb-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr); gap: 18px; align-items: start; }
+@media (max-width: 960px) { .rb-grid { grid-template-columns: 1fr; } }
+.rb-input-hint { font-size: 13.5px; color: var(--tk-ink-2); line-height: 1.7; margin: 0 0 8px; }
+.rb-form { display: grid; gap: 8px; }
+.rb-field {
+  width: 100%;
+  box-sizing: border-box;
+  border: 1px solid var(--tk-line-2);
+  border-radius: 8px;
+  padding: 8px 12px;
+  font-size: 13.5px;
+  font-family: inherit;
+  background: var(--tk-paper);
+  color: var(--tk-ink);
+  resize: vertical;
+}
+.rb-field:focus { outline: 2px solid rgba(var(--tk-brand-rgb), 0.35); border-color: var(--tk-brand); background: #fff; }
+.rb-sec-head { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+.rb-entry-card { border: 1px solid var(--tk-line); border-radius: 10px; padding: 12px; margin-bottom: 10px; background: var(--tk-paper-2); }
+.rb-entry-fields { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; margin-bottom: 8px; }
+.rb-entry-fields .rb-field:first-child { grid-column: 1 / -1; }
+.rb-entry-fields .rb-del { grid-column: 1 / -1; justify-self: start; }
+.rb-bullet { margin-bottom: 8px; }
+.rb-bullet-input {
+  width: 100%;
+  box-sizing: border-box;
+  border: 1px solid var(--tk-line-2);
+  border-radius: 8px;
+  padding: 7px 10px;
+  font-size: 13px;
+  line-height: 1.6;
+  font-family: inherit;
+  background: #fff;
+  color: var(--tk-ink);
+  resize: vertical;
+}
+.rb-bullet-input:focus { outline: 2px solid rgba(var(--tk-brand-rgb), 0.35); border-color: var(--tk-brand); }
+.rb-bullet-meta { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; margin-top: 4px; }
+.rb-score { font-size: 12px; font-weight: 700; }
+.rb-score.ok { color: #15803d; }
+.rb-score.mid { color: var(--tk-warn); }
+.rb-score.bad { color: #b3261e; }
+.rb-worst { font-size: 12px; color: var(--tk-ink-3); flex: 1; min-width: 140px; }
+.rb-del { border: none; background: none; color: var(--tk-ink-3); font-size: 12px; cursor: pointer; padding: 2px 4px; }
+.rb-del:hover { color: #b3261e; }
+.rb-loose-row { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; padding: 6px 0; border-bottom: 1px dashed var(--tk-line); }
+.rb-loose-row:last-child { border-bottom: none; }
+.rb-loose-text { font-size: 13px; color: var(--tk-ink); flex: 1; min-width: 200px; }
+.rb-loose-ops { display: flex; gap: 6px; flex-wrap: wrap; }
+.rb-skill-row { display: flex; gap: 6px; align-items: center; }
+.rb-toolbar { display: flex; align-items: center; justify-content: space-between; gap: 10px; flex-wrap: wrap; margin-bottom: 10px; }
+.rb-toolbar-btns { display: inline-flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+.rb-print-btn { display: inline-flex; align-items: center; gap: 6px; padding: 8px 18px; font-size: 13.5px; }
+.rb-preview-col { position: sticky; top: 116px; }
+@media (max-width: 960px) { .rb-preview-col { position: static; } }
+
+/* LaTeX 风纸面:衬线、细目线、en-dash 列表符 */
+.rb-paper {
+  background: #fff;
+  border: 1px solid var(--tk-line);
+  border-radius: 6px;
+  padding: 46px 50px;
+  font-family: var(--tk-font-serif);
+  color: #1c1a16;
+  font-size: 13.5px;
+  line-height: 1.72;
+}
+.rb-name { margin: 0; text-align: center; font-size: 26px; font-weight: 700; letter-spacing: 0.08em; }
+.rb-contact { margin: 6px 0 0; text-align: center; font-size: 12px; color: var(--tk-ink-3); }
+.rb-summary { margin: 14px 0 0; font-size: 13px; color: var(--tk-ink-2); }
+.rb-sec { margin-top: 20px; }
+.rb-sec-t {
+  margin: 0 0 10px;
+  font-size: 14.5px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  border-bottom: 1.5px solid #1c1a16;
+  padding-bottom: 4px;
+}
+.rb-entry { margin-bottom: 12px; }
+.rb-entry-head { margin: 0 0 2px; display: flex; justify-content: space-between; align-items: baseline; gap: 10px; }
+.rb-org { font-weight: 700; font-size: 13.5px; }
+.rb-time { font-size: 12px; color: var(--tk-ink-3); white-space: nowrap; }
+.rb-ul { margin: 2px 0 0; padding: 0 0 0 16px; list-style: none; }
+.rb-ul li { font-size: 13px; line-height: 1.7; margin-bottom: 3px; position: relative; }
+.rb-ul li::before { content: "–"; position: absolute; left: -14px; color: var(--tk-ink-3); }
+.rb-skills { margin: 0; font-size: 13px; }
+.rb-tex { margin-top: 12px; border: 1px dashed var(--tk-line-2); border-radius: 10px; padding: 10px 14px; background: var(--tk-paper-2); }
+.rb-tex summary { cursor: pointer; font-size: 13px; font-weight: 600; color: var(--tk-brand-ink); }
+.rb-tex-pre {
+  margin: 10px 0 0;
+  padding: 12px;
+  background: #fff;
+  border: 1px solid var(--tk-line);
+  border-radius: 8px;
+  font-size: 11.5px;
+  line-height: 1.55;
+  overflow: auto;
+  max-height: 320px;
+  white-space: pre;
+}
+
+/* 打印:只保留纸面 */
+@media print {
+  body { background: #fff !important; }
+  body * { visibility: hidden; }
+  #rb-print-root, #rb-print-root * { visibility: visible; }
+  #rb-print-root { position: absolute; left: 0; top: 0; width: 100%; }
+  .rb-toolbar { display: none !important; }
+  .rb-paper { border: none; border-radius: 0; padding: 0; }
+  nav { display: none !important; }
+}
