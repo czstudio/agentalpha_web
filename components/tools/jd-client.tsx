@@ -1,8 +1,9 @@
 "use client"
 
-import { useEffect, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import Link from "next/link"
 import ReactMarkdown from "react-markdown"
+import remarkGfm from "remark-gfm"
 import { breakdownJd, type JdBreakdown, type QaLite } from "@/lib/tools/jd-analyzer"
 
 const DAILY_BROWSER_QUOTA = 5
@@ -74,6 +75,7 @@ interface JdSample {
 export function JdClient({ qaList, jdSamples }: { qaList: QaLite[]; jdSamples: JdSample[] }) {
   const [text, setText] = useState("")
   const [report, setReport] = useState<JdBreakdown | null>(null)
+  const jdInputRef = useRef<HTMLTextAreaElement>(null)
 
   const [aiText, setAiText] = useState("")
   const [aiModel, setAiModel] = useState("")
@@ -86,6 +88,8 @@ export function JdClient({ qaList, jdSamples }: { qaList: QaLite[]; jdSamples: J
   useEffect(() => {
     setAiUsage(loadUsage())
     setUserCfg(loadUserKey())
+    // SSR 水合前用户就可能粘贴了 JD(React state 还是空,按钮会灰着)——水合完成后回读一次输入框,不让已填的内容丢事件
+    if (jdInputRef.current?.value) setText(jdInputRef.current.value)
   }, [])
 
   const saveUserCfg = (cfg: UserKeyConfig) => {
@@ -167,6 +171,7 @@ export function JdClient({ qaList, jdSamples }: { qaList: QaLite[]; jdSamples: J
     <div className="tk-shell">
       <section className="tk-input-card" aria-label="JD 输入">
         <textarea
+          ref={jdInputRef}
           className="tk-textarea"
           value={text}
           onChange={(e) => setText(e.target.value)}
@@ -396,7 +401,7 @@ export function JdClient({ qaList, jdSamples }: { qaList: QaLite[]; jdSamples: J
             {aiState === "done" && (
               <>
                 <div className="jda-body">
-                  <ReactMarkdown>{aiText}</ReactMarkdown>
+                  <ReactMarkdown remarkPlugins={[remarkGfm]}>{aiText}</ReactMarkdown>
                 </div>
                 <p className="tk-hint">
                   由 {aiModel} 生成,结论按「大概率/可能」的推断口径读,投递决策请结合官方 JD 与公开面经。

@@ -1,6 +1,6 @@
 "use client"
 
-import { useMemo, useState } from "react"
+import { useEffect, useMemo, useRef, useState } from "react"
 import Link from "next/link"
 import {
   PERSONAS,
@@ -52,6 +52,12 @@ export function MockClient({ qaList }: { qaList: QaLite[] }) {
   const [family, setFamily] = useState("agent-app")
   const [personaKey, setPersonaKey] = useState<PersonaKey>("gentle")
   const [resumeText, setResumeText] = useState("")
+  const resumeInputRef = useRef<HTMLTextAreaElement>(null)
+
+  // SSR 水合前粘贴的简历事件会丢(开始按钮灰着)——水合后回读一次
+  useEffect(() => {
+    if (resumeInputRef.current?.value) setResumeText(resumeInputRef.current.value)
+  }, [])
   const [session, setSession] = useState<MockSession | null>(null)
   const [cursor, setCursor] = useState(0)
   const [answers, setAnswers] = useState<Record<string, string>>({})
@@ -129,6 +135,7 @@ export function MockClient({ qaList }: { qaList: QaLite[] }) {
             <>
               <p className="tk-label" style={{ marginTop: 16 }}>粘贴简历（面试官会逐条深挖你写过的经历）</p>
               <textarea
+                ref={resumeInputRef}
                 className="tk-textarea"
                 rows={8}
                 value={resumeText}
