@@ -1,6 +1,6 @@
 "use client"
 
-import { useMemo, useState } from "react"
+import { useEffect, useMemo, useRef, useState } from "react"
 import Link from "next/link"
 import {
   analyzeResume,
@@ -27,6 +27,14 @@ export function ResumeClient() {
   const [report, setReport] = useState<ResumeReport | null>(null)
   const [jdReport, setJdReport] = useState<JdReport | null>(null)
   const [copied, setCopied] = useState(false)
+  const resumeRef = useRef<HTMLTextAreaElement>(null)
+  const jdRef = useRef<HTMLTextAreaElement>(null)
+
+  // SSR 水合前粘贴的内容事件会丢(按钮灰着)——水合后回读一次
+  useEffect(() => {
+    if (resumeRef.current?.value) setText(resumeRef.current.value)
+    if (jdRef.current?.value) setJd(jdRef.current.value)
+  }, [])
 
   const run = () => {
     setReport(analyzeResume(text, profileSlug))
@@ -80,6 +88,7 @@ export function ResumeClient() {
         </div>
         <p className="rt-profile-desc">{activeProfile.desc}</p>
         <textarea
+          ref={resumeRef}
           className="rt-textarea"
           value={text}
           onChange={(e) => setText(e.target.value)}
@@ -88,6 +97,7 @@ export function ResumeClient() {
           spellCheck={false}
         />
         <textarea
+          ref={jdRef}
           className="rt-textarea rt-jd"
           value={jd}
           onChange={(e) => setJd(e.target.value)}
