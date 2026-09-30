@@ -2,6 +2,7 @@ import type { Metadata } from "next"
 import Link from "next/link"
 import { notFound } from "next/navigation"
 import { COMPANIES, getCompany, getQaByCompany } from "@/lib/companies"
+import { FACTORY_QUESTIONS } from "@/lib/factory-questions"
 
 const SITE = "https://agentalpha.top"
 
@@ -33,14 +34,18 @@ export default async function CompanyPage({ params }: PageProps) {
   const { slug } = await params
   const company = getCompany(slug)
   if (!company) notFound()
-  const qa = getQaByCompany(slug)
+  const qaAll = getQaByCompany(slug)
+  // 单厂独占题优先；多厂共考的单独折叠
+  const sole = qaAll.filter((i) => !i.company.includes(","))
+  const shared = qaAll.filter((i) => i.company.includes(","))
+  const factoryGroups = FACTORY_QUESTIONS[slug] || []
 
   const itemListLd = {
     "@context": "https://schema.org",
     "@type": "ItemList",
     name: `${company.name}大模型 Agent 面试题`,
-    numberOfItems: qa.length,
-    itemListElement: qa.map((item, i) => ({
+    numberOfItems: qaAll.length,
+    itemListElement: qaAll.map((item, i) => ({
       "@type": "ListItem",
       position: i + 1,
       name: item.question,
@@ -82,24 +87,78 @@ export default async function CompanyPage({ params }: PageProps) {
         </p>
       </header>
 
-      <div className="ivu-wide">
-        {qa.length > 0 ? (
-          <div className="ivq-rows">
-            {qa.map((item) => (
-              <div className="ivq-row" key={item.slug}>
-                <Link className="ivq-row-main" href={`/interview/qa/${item.slug}`}>
-                  <span className="ivq-row-q">Q · {item.question}</span>
-                  <span className="ivq-row-a">{item.oneLine}</span>
-                  <span className="ivq-row-go" aria-hidden>
-                    查看答案 →
-                  </span>
-                </Link>
-              </div>
+      {factoryGroups.length > 0 ? (
+        <div className="ivu-wide">
+          <div className="ivu-sec">
+            <h2 className="ivu-sec-t">{company.name}真题清单</h2>
+            <p className="ivu-sec-sub">
+              {factoryGroups.reduce((n, g) => n + g.questions.length, 0)} 题 · 来自社区面试宝典第 12 章
+            </p>
+          </div>
+          <div className="fac-groups">
+            {factoryGroups.map((g) => (
+              <details key={g.name} className="fac-group">
+                <summary>
+                  <span className="fac-group-name">{g.name}</span>
+                  <span className="fac-group-count">{g.questions.length} 题</span>
+                </summary>
+                <ol className="fac-qs">
+                  {g.questions.map((q, i) => (
+                    <li key={i}>{q}</li>
+                  ))}
+                </ol>
+              </details>
             ))}
           </div>
-        ) : (
-          <p className="ivq-empty">这个公司的题正在补充，先去<a href="/interview/qa">全部题库</a>按方向刷。</p>
-        )}
+        </div>
+      ) : null}
+
+      <div className="ivu-wide">
+        {sole.length > 0 ? (
+          <>
+            <div className="ivu-sec">
+              <h2 className="ivu-sec-t">带解析的{company.name}高频题</h2>
+              <p className="ivu-sec-sub">单厂独占 {sole.length} 道</p>
+            </div>
+            <div className="ivq-rows">
+              {sole.map((item) => (
+                <div className="ivq-row" key={item.slug}>
+                  <Link className="ivq-row-main" href={`/interview/qa/${item.slug}`}>
+                    <span className="ivq-row-q">Q · {item.question}</span>
+                    <span className="ivq-row-a">{item.oneLine}</span>
+                    <span className="ivq-row-go" aria-hidden>
+                      查看答案 →
+                    </span>
+                  </Link>
+                </div>
+              ))}
+            </div>
+          </>
+        ) : null}
+
+        {shared.length > 0 ? (
+          <details className="fac-shared">
+            <summary>多厂共考的题（{shared.length} 道，非{company.name}独占）</summary>
+            <div className="ivq-rows">
+              {shared.map((item) => (
+                <div className="ivq-row" key={item.slug}>
+                  <Link className="ivq-row-main" href={`/interview/qa/${item.slug}`}>
+                    <span className="ivq-row-q">Q · {item.question}</span>
+                    <span className="ivq-row-a">{item.oneLine}</span>
+                  </Link>
+                </div>
+              ))}
+            </div>
+          </details>
+        ) : null}
+
+        {sole.length === 0 && shared.length === 0 ? (
+          <p className="ivq-empty">
+            这个公司的解析题正在补充，先看上方真题清单，或去
+            <a href="/interview/qa">全部题库</a>
+            按方向刷。
+          </p>
+        ) : null}
       </div>
 
       <div className="ivu-wide">
