@@ -56,10 +56,10 @@ function Radar({ domains }: { domains: GapReport["domains"] }) {
         const [x, y] = pt(i, 1)
         return <line key={i} x1={C} y1={C} x2={x} y2={y} stroke="#e7decc" strokeWidth="1" />
       })}
-      <polygon points={dataPoly} fill="rgba(110, 34, 240, 0.22)" stroke="#6e22f0" strokeWidth="2" />
+      <polygon points={dataPoly} fill="rgba(180, 83, 42, 0.18)" stroke="#b4532a" strokeWidth="2" />
       {domains.map((d, i) => {
         const [x, y] = pt(i, Math.max(d.score, 3) / 100)
-        return <circle key={d.domain.key} cx={x} cy={y} r="3" fill="#6e22f0" />
+        return <circle key={d.domain.key} cx={x} cy={y} r="3" fill="#b4532a" />
       })}
     </svg>
   )

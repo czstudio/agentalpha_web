@@ -63,7 +63,7 @@ export function GET() {
     "- [面试复盘本](https://agentalpha.top/tools/interview-log)：记录真实面试的被问题目与卡壳点，自动统计反复挂在哪一轮（数据只存本机）",
     "- [投递看板](https://agentalpha.top/tools/application-tracker)：未投到 offer 八状态的看板与漏斗统计（数据只存本机）",
     "- [简历 Bullet 打分器](https://agentalpha.top/tools/bullet-grader)：单条经历四维打分与改写骨架",
-    "- [自我介绍生成器](https://agentalpha.top/tools/self-intro)：60 秒逐句稿与 3 分钟五段骨架，附通病检查与追问预演",
+    "- [简历生成器](https://agentalpha.top/tools/resume-builder)：粘贴旧简历或一段话生成一页 A4 简历，逐条打分，本地导出 PDF/Word/LaTeX",
     "- [Offer 对比器](https://agentalpha.top/tools/offer-compare)：六维打分加权对比，附薪资谈判常识",
     "- [工具箱总览](https://agentalpha.top/tools)：看懂岗位 → 测出差距 → 做项目 → 改简历的完整链路",
     "",
