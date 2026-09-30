@@ -89,7 +89,8 @@
 
 | 任务 | 状态 |
 | --- | --- |
-| B8 LLM 增强层第一期(用户拍板:最便宜模型 + 3 元/天预算) | 已上线代码@待部署 env:gemini-3.1-flash-lite + 全站 600 次/单 IP 10 次/浏览器 5 次 + 结果缓存,端点 /api/llm-jd,接入 JD 分析器「AI 深度拆解」;**线上激活需在 Vercel 配 LLM_API_KEY 等三个环境变量,见 docs/LLM-DEPLOY.md** |
+| 工具区视觉与体验整备(暖纸风 v2 + 新工具 2 个) | 完成@92726cb(2026-09-30):视觉改版(暖纸令牌收尾/bento 不等宽/GSAP 入场/lucide 图标 13-16-20 三档/动效全量 reduced-motion 降级)+ 新增 Bullet 打分器与自我介绍生成器(共 10 工具);三路严评(视觉×3 截图+UX agent 实测+设计宪法 agent)修复 30+ 项:lib 孤卡、徽章五色杂陈、em-dash 清零、半角标点统一、aria-disabled 可聚焦 CTA、gap 粘性进度条、mock「10 题」虚标纠正与「非实时生成」诚实行、resume.css 44 处令牌迁移;playwright 冒烟 14+16 全过 |
+| B8 LLM 增强层第一期(用户拍板:最便宜模型 + 3 元/天预算) | 已上线代码@待部署 env:gemini-3.1-flash-lite + 全站 600 次/单 IP 10 次/浏览器 5 次 + 结果缓存,端点 /api/llm-jd,接入 JD 分析器「AI 深度拆解」;**线上激活需在 Vercel 配 LLM_API_KEY 等三个环境变量,见 docs/LLM-DEPLOY.md**(用户自带 key 通道已可用) |
 | JD 样板第三批 8 篇(字节Seed/阿里多模态/腾讯Infra/百度千帆/美团LongCat/蚂蚁/B站/拼多多) | 完成:JD 库 6→22 篇 |
 | 首页工具箱入口 + mock↔quiz 错题数据打通 | 完成 |
 | B4 模拟面试剧本化 + B6 复盘本/投递 CRM + B7 Offer 对比 + 全工具 UX 打磨 | 完成@0e7656a(2026-09-29):8 工具全上线,/tools 索引含六步路径;09-29 审查后补英文技术面模式(题干中文、追问英文) |
