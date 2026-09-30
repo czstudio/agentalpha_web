@@ -16,6 +16,16 @@
    =================================== */
 
 .community-site {
+  /* 路线图阶段分组色：语义识别用，不抢 --primary 的主角位 */
+  --rm-blue: oklch(0.52 0.11 250);
+  --rm-blue-tint: oklch(0.955 0.025 250);
+  --rm-teal: oklch(0.55 0.09 195);
+  --rm-teal-tint: oklch(0.955 0.02 195);
+  --rm-orange: oklch(0.64 0.12 65);
+  --rm-orange-tint: oklch(0.965 0.035 70);
+  --rm-purple: oklch(0.47 0.16 268);
+  --rm-purple-tint: oklch(0.955 0.03 268);
+
   min-height: 100vh;
   overflow: clip;
   color: var(--foreground);
@@ -224,6 +234,36 @@
   .community-hero-actions a:last-child:hover { border-color: color-mix(in oklab, var(--primary) 45%, var(--border)); }
 }
 
+/* —— Hero 真实指标条 —— */
+.community-hero {
+  grid-template-areas:
+    "kicker reel"
+    "title reel"
+    "statement reel"
+    "actions reel"
+    "stats stats";
+}
+.community-hero-stats {
+  display: grid;
+  grid-area: stats;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+  margin: 30px 0 0;
+  padding-top: 24px;
+  border-top: 1px solid var(--border);
+}
+.community-hero-stats div { display: grid; }
+.community-hero-stats dt { order: 2; margin-top: 3px; color: var(--muted-foreground); font-size: .8rem; line-height: 1.5; }
+.community-hero-stats dd {
+  order: 1;
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(1.55rem, 2.2vw, 2.1rem);
+  font-weight: 700;
+  letter-spacing: -.01em;
+  font-variant-numeric: tabular-nums;
+}
+
 /* —— 移动端章节索引条 —— */
 .community-mobile-index { display: none; }
 
@@ -330,21 +370,27 @@
 .community-chapter-head {
   display: grid;
   grid-template-columns: auto minmax(0, 1fr);
-  align-items: baseline;
+  align-items: center;
   column-gap: clamp(18px, 3vw, 34px);
   margin-bottom: clamp(40px, 5vw, 58px);
   padding-top: 22px;
   border-top: 2px solid var(--foreground);
 }
-.community-chapter-head > span {
-  color: color-mix(in oklab, var(--foreground) 24%, transparent);
-  font-family: var(--font-display);
-  font-size: clamp(1.8rem, 3vw, 2.9rem);
-  font-weight: 700;
-  line-height: 1;
-  letter-spacing: -.02em;
-  font-variant-numeric: tabular-nums;
+.community-chapter-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 8px 15px;
+  color: var(--primary);
+  background: color-mix(in oklab, var(--primary) 6%, transparent);
+  border: 1px solid color-mix(in oklab, var(--primary) 30%, var(--border));
+  border-radius: 999px;
+  font-size: .74rem;
+  font-weight: 800;
+  letter-spacing: .1em;
+  white-space: nowrap;
 }
+.community-chapter-tag em { font-style: normal; }
 .community-chapter-head h2 {
   margin: 0;
   font-family: var(--font-display);
@@ -517,6 +563,210 @@
   border-radius: 12px;
 }
 .community-evidence-card > p { margin: 0; max-width: none; font-size: .96rem; line-height: 1.8; }
+.community-evidence-media {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  margin-top: 14px;
+}
+.community-evidence-media img {
+  display: block;
+  width: 100%;
+  height: auto;
+  background: var(--background);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+}
+
+/* —— 内容图片 / 画廊 —— */
+.community-img {
+  display: block;
+  width: 100%;
+  height: auto;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+}
+.community-media { margin: 18px 0; min-width: 0; }
+.community-media img { display: block; width: 100%; height: auto; background: var(--card); border: 1px solid var(--border); border-radius: 12px; }
+.community-media figcaption { margin-top: 8px; color: var(--muted-foreground); font-size: .78rem; line-height: 1.6; }
+.community-gallery {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  margin: 18px 0;
+}
+.community-gallery .community-media { margin: 0; }
+.community-shotgroup { margin: 20px 0; }
+.community-shotgroup-label {
+  margin: 0 0 10px;
+  color: var(--primary);
+  font-size: .74rem;
+  font-weight: 800;
+  letter-spacing: .12em;
+}
+
+/* —— 02 代表项目：卡头图标 + 指标徽章 —— */
+.layout-projects .community-subchapter > h3 {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+}
+.community-proj-ico {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 36px;
+  height: 36px;
+  color: var(--primary);
+  background: var(--rm-purple-tint);
+  border-radius: 10px;
+}
+.community-proj-title { flex: 1 1 auto; min-width: 0; }
+.community-proj-stats { display: inline-flex; flex-wrap: wrap; gap: 6px; }
+.community-proj-stats b {
+  padding: 4px 10px;
+  color: var(--primary);
+  background: var(--rm-purple-tint);
+  border-radius: 999px;
+  font-size: .72rem;
+  font-weight: 800;
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+
+/* —— 05 我们的方法：反对/坚持对比行 —— */
+.community-method { display: grid; gap: 12px; margin: 8px 0 0; }
+.community-method-row {
+  display: grid;
+  grid-template-columns: 148px minmax(0, 1fr);
+  gap: 20px;
+  align-items: center;
+  padding: 18px 22px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+}
+.community-method-name { font-family: var(--font-display); font-size: 1.06rem; font-weight: 700; }
+.community-method-vs { display: grid; gap: 9px; }
+.community-method-vs p {
+  display: flex;
+  gap: 9px;
+  align-items: flex-start;
+  margin: 0;
+  font-size: .92rem;
+  line-height: 1.7;
+}
+.community-method-vs p svg { flex: none; margin-top: 5px; }
+.community-method-vs .is-no { color: var(--muted-foreground); }
+.community-method-vs .is-no svg { color: color-mix(in oklab, var(--destructive) 65%, transparent); }
+.community-method-vs .is-yes { color: var(--foreground); font-weight: 500; }
+.community-method-vs .is-yes svg { color: var(--primary); }
+
+/* —— 06 三类成长方向：路径卡 —— */
+.community-paths {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+  margin: 8px 0 0;
+}
+.community-path {
+  display: grid;
+  gap: 12px;
+  align-content: start;
+  padding: 20px 22px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+}
+.community-path-head { display: flex; align-items: center; gap: 11px; }
+.community-path-ico {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 36px;
+  height: 36px;
+  color: var(--primary);
+  background: var(--rm-purple-tint);
+  border-radius: 10px;
+}
+.community-path-head strong { font-family: var(--font-display); font-size: 1.05rem; }
+.community-path p { margin: 0; color: var(--muted-foreground); font-size: .88rem; line-height: 1.7; }
+.community-path p span {
+  display: block;
+  margin-bottom: 2px;
+  color: var(--primary);
+  font-size: .7rem;
+  font-weight: 800;
+  letter-spacing: .1em;
+}
+@media (hover: hover) {
+  .community-path:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-soft);
+    border-color: color-mix(in oklab, var(--primary) 45%, var(--border));
+  }
+}
+
+/* —— 参与方式：三步卡 —— */
+.community-steps {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+  margin: 8px 0 0;
+}
+.community-step {
+  position: relative;
+  display: grid;
+  gap: 8px;
+  align-content: start;
+  padding: 20px 22px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+}
+.community-step-no {
+  color: color-mix(in oklab, var(--primary) 40%, transparent);
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  font-weight: 700;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+.community-step strong { font-size: 1rem; }
+.community-step p { margin: 0; color: var(--muted-foreground); font-size: .86rem; line-height: 1.7; }
+.community-step p span {
+  display: block;
+  margin-bottom: 2px;
+  color: var(--primary);
+  font-size: .7rem;
+  font-weight: 800;
+  letter-spacing: .1em;
+}
+
+/* —— InkOS 指标条 —— */
+.community-metrics {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+  margin: 16px 0;
+}
+.community-metrics > div {
+  padding: 14px 16px;
+  background: var(--background);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+}
+.community-metrics dt { color: var(--muted-foreground); font-size: .74rem; letter-spacing: .03em; }
+.community-metrics dd {
+  margin: 4px 0 0;
+  font-family: var(--font-display);
+  font-size: 1.12rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
 
 /* ============================================
    分型版式
@@ -587,64 +837,59 @@
 }
 .layout-projects .community-subchapter-body > .community-grid > .community-column { grid-column: auto; }
 
-/* —— 03 课程体系：总览引语 → 课程行 → 分级卡组 → 阶段芯片云 → 训练营横幅 —— */
+/* —— 03 课程体系：总览引语 → 基础课卡 → 分级卡组 → 训练营主卡 → 具身实训营卡 —— */
 .layout-curriculum .community-chapter-body {
   display: grid;
   gap: 16px;
 }
-.layout-curriculum .community-callout {
-  margin: 0;
-  padding: 18px 22px;
-  border-left: 1px solid var(--border);
-  border-radius: 14px;
-  transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
-}
-/* 总览（第一段）：去卡片化，作为章节引语 */
-.layout-curriculum .community-callout:first-of-type {
-  margin: 0 0 4px;
-  padding: 0;
-  background: transparent;
-  border: 0;
-  border-radius: 0;
-}
-.layout-curriculum .community-callout:first-of-type p {
+.community-curriculum-intro {
+  max-width: 68ch;
+  margin: 0 0 6px;
   color: var(--muted-foreground);
   font-size: 1.02rem;
-}
-/* 单段 callout 且非总览（如「大模型专项课」）：作为分组小标题 */
-.layout-curriculum .community-callout:has(> div > p:only-child):not(:first-of-type) {
-  margin: 16px 0 -6px;
-  padding: 0;
-  background: transparent;
-  border: 0;
-  border-radius: 0;
-}
-.layout-curriculum .community-callout:has(> div > p:only-child):not(:first-of-type) p {
-  font-family: var(--font-display);
-  font-size: 1.08rem;
-  font-weight: 700;
-}
-/* 课程行：首段为分类标签，末段为课程链接 */
-.layout-curriculum .community-callout > div > p:first-child:not(:only-child) {
-  margin-bottom: 6px;
-  color: var(--muted-foreground);
-  font-size: .74rem;
-  font-weight: 800;
-  letter-spacing: .12em;
-}
-.layout-curriculum .community-callout a:not(.community-button) { font-weight: 700; }
-@media (hover: hover) {
-  .layout-curriculum .community-callout:hover {
-    transform: translateY(-2px);
-    box-shadow: var(--shadow-soft);
-    border-color: color-mix(in oklab, var(--primary) 45%, var(--border));
-  }
+  line-height: 1.8;
 }
 
-/* 大模型专项课：三层深度分级卡组 */
+/* 基础课卡 */
+.community-course-foundation {
+  margin: 4px 0 0;
+  padding: 22px 26px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+}
+.community-course-head {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+}
+.community-course-ico {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 38px;
+  height: 38px;
+  color: var(--primary);
+  background: var(--rm-purple-tint);
+  border-radius: 11px;
+}
+.community-course-head > div > p:first-child { margin: 0 0 4px; color: var(--muted-foreground); font-size: .74rem; font-weight: 800; letter-spacing: .12em; }
+.community-course-head > div p { margin: 0; font-size: .95rem; line-height: 1.7; }
+.community-course-head a { font-weight: 700; }
+.community-course-foundation .community-media { margin: 18px 0 0; }
+
+/* 分级小标题 */
+.community-course-grouplabel {
+  margin: 18px 0 -4px;
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+/* 大模型专项课：三层深度分级卡组（不等宽：offer 级为主推位） */
 .community-tiers {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 190px), 1fr));
+  grid-template-columns: 1.05fr 1fr 1.3fr;
   gap: 14px;
   counter-reset: tier;
 }
@@ -670,6 +915,10 @@
   letter-spacing: .16em;
   font-variant-numeric: tabular-nums;
 }
+.community-tier:last-child {
+  background: color-mix(in oklab, var(--rm-purple-tint) 55%, var(--card));
+  border-color: color-mix(in oklab, var(--primary) 32%, var(--border));
+}
 .community-tier a:not(.community-button) {
   display: block;
   color: var(--foreground);
@@ -693,64 +942,145 @@
   }
 }
 
-/* Agent 系列课：阶段芯片云 */
-.community-stages {
-  padding: 20px 22px;
+/* 训练营主卡 / 具身实训营卡 */
+.community-camp {
+  position: relative;
+  margin: 14px 0 0;
+  padding: clamp(22px, 3vw, 34px);
   background: var(--card);
   border: 1px solid var(--border);
-  border-radius: 14px;
+  border-radius: 20px;
+  overflow: hidden;
 }
-.community-stages > p {
-  margin: 0 0 14px;
+.community-camp::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto;
+  height: 3px;
+  background: var(--primary);
+}
+.community-camp.is-embodied::before { background: var(--rm-teal); }
+.community-camp-head { display: grid; gap: 10px; justify-items: start; }
+.community-camp-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 13px;
+  color: var(--primary);
+  background: var(--rm-purple-tint);
+  border-radius: 999px;
+  font-size: .72rem;
+  font-weight: 800;
+  letter-spacing: .08em;
+}
+.community-camp.is-embodied .community-camp-badge { color: var(--rm-teal); background: var(--rm-teal-tint); }
+.community-camp h3 {
+  margin: 2px 0 0;
+  font-family: var(--font-display);
+  font-size: clamp(1.45rem, 2.2vw, 1.9rem);
   font-weight: 700;
+  letter-spacing: -.01em;
 }
-.community-stage-chips {
+.community-camp-eq { max-width: 62ch; margin: 0; color: var(--muted-foreground); font-size: .95rem; line-height: 1.8; }
+.community-camp-actions { margin-top: 20px; }
+.community-camp-actions .community-button { margin: 0; }
+.community-camp-actions .is-embodied { color: #fff; background: var(--rm-teal); }
+.community-camp .community-media { margin: 22px 0 0; }
+.community-camp .community-media.is-mindmap figcaption { text-align: center; }
+
+/* 10 阶段路线图 */
+.community-roadmap-wrap { margin: 24px 0 0; overflow-x: auto; scrollbar-width: thin; }
+.community-roadmap { display: block; width: 100%; min-width: 620px; height: auto; }
+.community-roadmap .rm-seg {
+  fill: none;
+  stroke: color-mix(in oklab, var(--foreground) 20%, transparent);
+  stroke-width: 2;
+  stroke-linecap: round;
+}
+.community-roadmap .rm-node { transform-box: fill-box; transform-origin: center; }
+.community-roadmap .rm-node circle {
+  fill: var(--background);
+  stroke: var(--rm-blue);
+  stroke-width: 2;
+}
+.community-roadmap .rm-node .rm-no { fill: var(--rm-blue); font-size: 11.5px; font-weight: 800; font-variant-numeric: tabular-nums; }
+.community-roadmap .rm-node .rm-ico { color: var(--rm-blue); }
+.community-roadmap .rm-node[data-hue="teal"] circle { stroke: var(--rm-teal); }
+.community-roadmap .rm-node[data-hue="teal"] .rm-no { fill: var(--rm-teal); }
+.community-roadmap .rm-node[data-hue="teal"] .rm-ico { color: var(--rm-teal); }
+.community-roadmap .rm-node[data-hue="orange"] circle { stroke: var(--rm-orange); }
+.community-roadmap .rm-node[data-hue="orange"] .rm-no { fill: var(--rm-orange); }
+.community-roadmap .rm-node[data-hue="orange"] .rm-ico { color: var(--rm-orange); }
+.community-roadmap .rm-node[data-hue="purple"] circle { fill: var(--rm-purple); }
+.community-roadmap .rm-node[data-hue="purple"] .rm-no { fill: #fff; }
+.community-roadmap .rm-node[data-hue="purple"] .rm-ico { color: var(--rm-purple); }
+.community-roadmap .rm-name { fill: var(--foreground); font-size: 12.5px; font-weight: 600; }
+.community-roadmap .rm-pill rect {
+  fill: var(--background);
+  stroke: color-mix(in oklab, var(--rm-blue) 45%, var(--border));
+}
+.community-roadmap .rm-pill text { fill: var(--rm-blue); font-size: 11px; font-weight: 700; letter-spacing: .05em; }
+.community-roadmap .rm-pill[data-hue="teal"] rect { stroke: color-mix(in oklab, var(--rm-teal) 45%, var(--border)); }
+.community-roadmap .rm-pill[data-hue="teal"] text { fill: var(--rm-teal); }
+.community-roadmap .rm-pill[data-hue="orange"] rect { stroke: color-mix(in oklab, var(--rm-orange) 50%, var(--border)); }
+.community-roadmap .rm-pill[data-hue="orange"] text { fill: var(--rm-orange); }
+.community-roadmap .rm-pill[data-hue="purple"] rect { stroke: color-mix(in oklab, var(--rm-purple) 45%, var(--border)); }
+.community-roadmap .rm-pill[data-hue="purple"] text { fill: var(--rm-purple); }
+.community-roadmap-legend {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
+  margin: 14px 0 0;
 }
-.community-stage-chips span {
-  padding: 6px 14px;
-  background: var(--background);
+.community-roadmap-legend span {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 5px 12px;
   border: 1px solid var(--border);
   border-radius: 999px;
-  font-size: .82rem;
-  line-height: 1.4;
-}
-.community-stage-chips span.is-more {
   color: var(--muted-foreground);
-  border-style: dashed;
+  font-size: .74rem;
+  font-weight: 600;
 }
+.community-roadmap-legend span::before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--rm-blue);
+}
+.community-roadmap-legend span[data-hue="teal"]::before { background: var(--rm-teal); }
+.community-roadmap-legend span[data-hue="orange"]::before { background: var(--rm-orange); }
+.community-roadmap-legend span[data-hue="purple"]::before { background: var(--rm-purple); }
 
-/* 训练营入口：通栏横幅链接 */
-.layout-curriculum .community-chapter-body > p:last-child {
-  max-width: none;
-  margin: 6px 0 0;
+/* 具身实训营：8 阶段芯片 */
+.community-embodied-stages {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 9px;
+  list-style: none;
+  margin: 20px 0 0;
+  padding: 0;
 }
-.layout-curriculum .community-chapter-body > p:last-child a:not(.community-button) {
+.community-embodied-stages li {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 12px;
-  padding: 18px 22px;
+  gap: 9px;
+  padding: 11px 14px;
+  background: var(--rm-teal-tint);
+  border: 1px solid color-mix(in oklab, var(--rm-teal) 28%, var(--border));
+  border-radius: 11px;
+  font-size: .86rem;
+  font-weight: 600;
   color: var(--foreground);
-  background: var(--card);
-  border: 1px solid var(--border);
-  border-radius: 14px;
-  font-weight: 700;
-  text-decoration: none;
-  transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
 }
-.layout-curriculum .community-chapter-body > p:last-child a::after {
-  content: "↗";
-  color: var(--primary);
-}
-@media (hover: hover) {
-  .layout-curriculum .community-chapter-body > p:last-child a:hover {
-    transform: translateY(-2px);
-    box-shadow: var(--shadow-soft);
-    border-color: color-mix(in oklab, var(--primary) 45%, var(--border));
-  }
+.community-embodied-stages li i {
+  color: var(--rm-teal);
+  font-size: .68rem;
+  font-style: normal;
+  font-weight: 800;
+  font-variant-numeric: tabular-nums;
 }
 
 /* —— 04 导师与成员：产业界 / 学术界双栏卡 —— */
@@ -796,6 +1126,23 @@
 .layout-paths .community-callout { margin-top: 0; }
 
 /* —— 07 真实结果：引号证据卡网格 —— */
+.community-subchapter > h3.community-proof-head {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border-top: 0;
+  padding-top: 0;
+}
+.community-proof-ico {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 34px;
+  height: 34px;
+  color: var(--primary);
+  background: var(--rm-purple-tint);
+  border-radius: 10px;
+}
 .layout-proof .community-subchapter-body {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
@@ -926,7 +1273,8 @@
       "title"
       "reel"
       "statement"
-      "actions";
+      "actions"
+      "stats";
     gap: 18px;
   }
   .community-hero-reel { max-width: 100%; }
@@ -937,6 +1285,11 @@
   }
   .community-toc { display: none; }
   .layout-people .community-chapter-body { grid-template-columns: 1fr; }
+  .community-tiers { grid-template-columns: 1fr; }
+  .community-paths, .community-steps { grid-template-columns: 1fr; }
+  .community-metrics { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .community-embodied-stages { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .community-method-row { grid-template-columns: 1fr; gap: 10px; align-items: start; }
 }
 
 /* —— 手机 —— */
@@ -1048,6 +1401,13 @@
 
   .layout-identity .community-chapter-body { grid-template-columns: 1fr; }
   .layout-identity .community-chapter-body > .community-callout { grid-column: 1; }
+  .community-chapter-tag { justify-self: start; }
+  .community-hero-stats { grid-template-columns: 1fr; gap: 14px; }
+  .community-course-foundation { padding: 18px 18px; }
+  .community-camp { padding: 20px 18px; border-radius: 16px; }
+  .community-embodied-stages { grid-template-columns: 1fr; }
+  .community-gallery { grid-template-columns: 1fr; }
+  .community-evidence-media { grid-template-columns: 1fr; }
   .layout-projects .community-subchapter > h3 { padding: 18px 20px; }
   .layout-projects .community-subchapter-body { padding: 4px 20px 24px; }
   .layout-projects .community-subchapter-body > .community-grid { grid-template-columns: minmax(0, 1fr); }

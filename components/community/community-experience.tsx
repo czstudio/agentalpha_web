@@ -166,7 +166,7 @@ export function CommunityExperience({
       .from(".community-nav", { y: -12, opacity: 0, duration: 0.3, clearProps: "transform" })
       .from(".community-kicker", { y: 10, opacity: 0, duration: 0.25 }, "-=.15")
       .from(".community-hero h1", { y: 10, opacity: 0, duration: 0.35 }, "-=.12")
-      .from(".community-hero-statement, .community-hero-actions", { y: 12, opacity: 0, duration: 0.3, stagger: 0.04 }, "-=.18")
+      .from(".community-hero-statement, .community-hero-actions, .community-hero-stats", { y: 12, opacity: 0, duration: 0.3, stagger: 0.04 }, "-=.18")
       .from(".community-hero-reel", { y: 10, opacity: 0, duration: 0.35, clearProps: "transform" }, "-=.28")
 
     gsap.to(".community-progress > span", {
@@ -186,6 +186,31 @@ export function CommunityExperience({
         onEnter: () => gsap.to(targets, { y: 0, opacity: 1, duration: 0.7, stagger: 0.045, ease: "power2.out", clearProps: "transform,opacity" }),
       })
     })
+
+    // 路线图：线段先画入，节点随进度弹出（SSR 下无 JS 时保持完整可见）
+    const roadmap = root.current?.querySelector<SVGSVGElement>(".community-roadmap")
+    if (roadmap) {
+      const segs = gsap.utils.toArray<SVGPathElement>(".community-roadmap .rm-seg")
+      segs.forEach((seg) => {
+        const length = seg.getTotalLength()
+        gsap.set(seg, { strokeDasharray: length, strokeDashoffset: length })
+      })
+      const nodes = roadmap.querySelectorAll<SVGGElement>(".rm-node")
+      const pills = roadmap.querySelectorAll<SVGGElement>(".rm-pill")
+      gsap.set(nodes, { opacity: 0, scale: 0.5, transformOrigin: "50% 50%" })
+      gsap.set(pills, { opacity: 0, y: 6 })
+      ScrollTrigger.create({
+        trigger: roadmap,
+        start: "top 78%",
+        once: true,
+        onEnter: () => {
+          const tl = gsap.timeline({ defaults: { ease: "power2.out" } })
+          tl.to(segs, { strokeDashoffset: 0, duration: 0.7, stagger: 0.09, ease: "power2.inOut" }, 0)
+          tl.to(nodes, { opacity: 1, scale: 1, duration: 0.4, stagger: 0.09, ease: "back.out(1.7)" }, 0.05)
+          tl.to(pills, { opacity: 1, y: 0, duration: 0.35, stagger: 0.06 }, 0.3)
+        },
+      })
+    }
   }, { scope: root })
 
   return (
@@ -230,6 +255,20 @@ export function CommunityExperience({
           <a href={COMMUNITY_INTRO_URL} target="_blank" rel="noopener noreferrer">阅读社区介绍 <ArrowUpRight size={16} /></a>
           <a href="#1-agentalpha-是什么">了解我们 <ArrowDown size={16} /></a>
         </div>
+        <dl className="community-hero-stats">
+          <div>
+            <dt>孵化开源项目与盈利产品</dt>
+            <dd>5 个</dd>
+          </div>
+          <div>
+            <dt>Idea2Paper GitHub Star</dt>
+            <dd>1.4k</dd>
+          </div>
+          <div>
+            <dt>InkOS GitHub Star</dt>
+            <dd>7.8k</dd>
+          </div>
+        </dl>
       </header>
 
       <nav className={`community-mobile-index${indexHidden ? " is-hidden" : ""}${footerVisible ? " is-closing" : ""}`} aria-label="社区章节快速导航">
