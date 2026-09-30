@@ -5,7 +5,7 @@ import { useEffect, useState } from "react"
 const ITEMS: { id: string; label: string }[] = [
   { id: "projects", label: "代表项目" },
   { id: "courses", label: "课程体系" },
-  { id: "service", label: "带教服务" },
+  { id: "service", label: "学习支持" },
   { id: "fit", label: "适合谁" },
   { id: "mentors", label: "导师" },
   { id: "method", label: "方法" },

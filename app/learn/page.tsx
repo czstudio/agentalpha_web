@@ -96,7 +96,7 @@ const ORGS: { svg?: string; label?: string; text?: string }[] = [
 export const metadata: Metadata = {
   title: "大模型 Agent 训练营 · AgentAlpha",
   description:
-    "项目驱动、导师带教、实战落地：五个可核验的自研项目、三层课程体系与十阶段实战路线、带教服务实录，大厂 offer 与顶会录用结果墙。资料研习、项目实战、深度陪跑三种参与方式，完整介绍见社区文档。",
+    "跟着五个真实运行的开源与商用项目学大模型 Agent：十阶段实战路线，每周有人陪你做项目、答疑。学员拿到大厂 offer、顶会论文与名校博士录取。",
   alternates: { canonical: "/learn" },
   openGraph: {
     type: "website",
@@ -104,7 +104,7 @@ export const metadata: Metadata = {
     siteName: "AgentAlpha",
     title: "大模型 Agent 训练营 · AgentAlpha",
     description:
-      "五个可核验的自研项目、十阶段实战路线、大厂 offer 与顶会录用结果墙。项目驱动、导师带教、实战落地。",
+      "五个真实运行的项目、十阶段实战路线，学员拿到大厂 offer 与顶会录用。",
     images: [
       {
         url: "/ai-agent-network-visualization-with-nodes-and-conn.jpg",
@@ -117,12 +117,12 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "大模型 Agent 训练营 · AgentAlpha",
-    description: "五个可核验的自研项目、十阶段实战路线、真实结果墙。",
+    description: "五个真实运行的项目、十阶段实战路线、真实的学员结果。",
     images: ["/ai-agent-network-visualization-with-nodes-and-conn.jpg"],
   },
 }
 
-/** 社区完整介绍文档（定位、项目战绩、导师、学员结果、参与方式都在这里） */
+/** 社区完整介绍文档（定位、项目、导师、学员结果、参与方式都在这里） */
 const COMMUNITY_DOC_URL = "https://agentalpha.feishu.cn/docx/QtYQddrAFoLIb9xFe7PckJnmn1b"
 
 const IMG = "/images/learn/community/"
@@ -293,7 +293,7 @@ const PROJECTS: {
   {
     name: "潜艇 AI · TikTok 跨境电商 AI 引擎",
     kicker: "COMMERCE · 跨境电商",
-    desc: "社区成员真实创业项目，从 0 到 1 全程带教：一键成片、智能脚本、素材生成、合规优化全流程。",
+    desc: "社区成员的真实创业项目，从 0 到 1 全程有人带：一键成片、智能脚本、素材生成、合规优化全流程。",
     points: [
       "3 人团队 20 天上线，30 天用户破万",
       "帮卖家创造营收 300 万-350 万",
@@ -482,11 +482,11 @@ const STAGES: { no: string; name: string; focus: string; out: string }[] = [
   },
 ]
 
-/** 带教服务（来自训练营课程文档的课程形式与资源） */
+/** 学习支持（来自训练营课程文档的课程形式与资源） */
 const SERVICE: { name: string; desc: string }[] = [
   { name: "直播 + 录播 + 代码库", desc: "企业级 Agent 项目源码随课开放，可复跑、可改进、可写进简历。" },
-  { name: "每周固定答疑", desc: "字节 3-2、NeurIPS Spotlight 得主、大厂 P7-P8 背景的导师每周固定答疑。" },
-  { name: "周报与阶段考核", desc: "每周提交学习周报，阶段性考核跟踪学习成果，不做只打卡的旁观者。" },
+  { name: "每周固定答疑", desc: "大厂骨干与 NeurIPS Spotlight 得主背景的导师，每周固定答疑。" },
+  { name: "周报与阶段小结", desc: "每周提交学习周报，按阶段检查成果。" },
   {
     name: "内推与论文辅导",
     desc: "结业优秀项目获内推机会，已有学员入职 Seed、Kimi 等团队；论文方向有两年课题记录可查。",
@@ -716,12 +716,12 @@ const PARTICIPATION: { level: string; who: string; support: string }[] = [
   {
     level: "项目实战",
     who: "明确想做出一个完整 Agent 项目的人。",
-    support: "周任务、作业、代码 Review、阶段验收、项目说明。",
+    support: "每周有明确要做的东西：作业、代码互审，把项目一步步做完。",
   },
   {
     level: "深度陪跑",
     who: "有求职、申博、比赛、创业或企业落地目标的人。",
-    support: "项目打磨、简历 / 申请材料、讲解稿、模拟面试、高频追问拆解。",
+    support: "从项目打磨到简历、模拟面试，照着你的目标陪你走完一段。",
   },
 ]
 
@@ -736,23 +736,11 @@ const FAQ: { q: string; a: string }[] = [
   },
   {
     q: "训练营怎么上课？怎么跟进我的进度？",
-    a: "直播 + 录播 + 代码库（企业级 Agent 项目源码）。导师每周固定答疑；每周提交学习周报，并有阶段性考核；结业优秀项目有内推机会，已有学员入职 Seed、Kimi 等团队。",
+    a: "直播 + 录播 + 代码库（企业级 Agent 项目源码）。导师每周固定答疑，每周交学习周报；优秀项目有内推机会，已有学员入职 Seed、Kimi 等团队。",
   },
   {
     q: "有论文和升学方面的辅导吗？",
     a: "有。科研方向依托 Idea2Paper 平台与论文辅导课题，两年课题记录见上方截图（学员以合作作者参与期刊与会议论文）；升学方向已有多位学员拿到南加大、杜克、港科大等博士录取。",
-  },
-  {
-    q: "怎么判断我适合哪种参与深度？",
-    a: "把四件事发给我们：你的背景（学生 / 在职 / 科研 / 创业 / 企业）、你的目标、你的基础（编程、论文、产品、运营分别到什么程度）、你能投入的时间和预算。",
-  },
-  {
-    q: "上面的成果可以核验吗？",
-    a: "可以。五个代表项目都给出 GitHub / 官网链接，两个自研项目在 Hugging Face 与 npm 上有公开记录；offer 与论文录用截图已脱敏，扫码可进社区进一步了解。",
-  },
-  {
-    q: "和市面上其他大模型课程的区别是什么？",
-    a: "三点。项目可核验：五个代表项目都有公开链接和第三方平台记录，不是虚构的案例名。产学研一体：导师同时来自产业界和学术界，课程、项目、论文共用一条主线。结果可查：offer、论文录用、博士录取的截图都放在本页，社区文档全程公开。",
   },
 ]
 
@@ -777,11 +765,10 @@ export default function LearnIndexPage() {
           </nav>
 
           <header className="learn-home-hero">
-            <p className="aa-kicker">AGENTALPHA 训练营 · 项目驱动 · 导师带教</p>
+            <p className="aa-kicker">AGENTALPHA 训练营 · 真实项目实战</p>
             <h1>大模型 Agent 训练营</h1>
             <p className="learn-home-lede">
-              以真实项目训练为主线：五个自研开源与商用项目就是课堂案例，课程、带教、验收都围绕它们展开。
-              项目战绩、课程大纲、学员结果全部放在页面上，每一条都可以点开核验。
+              在这里，你做的是真实项目：五个自研开源与商用项目。跟着做，或做出你自己的。
             </p>
             <div className="learn-home-actions">
               <a className="aa-btn-primary" href={COMMUNITY_DOC_URL} target="_blank" rel="noopener noreferrer">
@@ -813,9 +800,9 @@ export default function LearnIndexPage() {
             <div className="aa-section-head">
               <div className="aa-section-head-main">
                 <p className="aa-kicker">01 · REPRESENTATIVE PROJECTS</p>
-                <h2>五个代表项目，链接全部可核验</h2>
+                <h2>五个真实运行的项目</h2>
                 <p className="aa-section-desc">
-                  训练营的实战载体：自研四大学术核心成果加企业定制项目，技术研发、项目实战、人才培养都围绕它们展开。
+                  有 GitHub 上千星的仓库，有签约平台的作品，有上线收钱的产品。
                 </p>
               </div>
               <a className="aa-section-link" href={COMMUNITY_DOC_URL} target="_blank" rel="noopener noreferrer">
@@ -920,7 +907,7 @@ export default function LearnIndexPage() {
 
             <h3 className="learn-sub">Agent 系列课 · 十阶段实战路线</h3>
             <p className="aa-section-desc learn-stages-intro">
-              每个阶段都按「掌握内容 → 实践任务 → 阶段考核 → 实战产出」推进：先跑通经典范式，再做对比分析，最后留下能写进简历的项目。
+              每个阶段都是先学思路、再动手做，学完手里多一个能写进简历的项目。
             </p>
             <div className="learn-stages">
               {STAGES.map((s) => (
@@ -961,9 +948,9 @@ export default function LearnIndexPage() {
             <div className="aa-section-head">
               <div className="aa-section-head-main">
                 <p className="aa-kicker">03 · SERVICE</p>
-                <h2>带教服务与课程形式</h2>
+                <h2>学习支持与课程形式</h2>
                 <p className="aa-section-desc">
-                  训练营不是看课自习：直播带做、每周答疑、周报考核、内推与论文辅导都写在流程里。下面是服务内容与真实的辅导过程记录。
+                  不只是看课：每周有人带你做项目、答疑、改作业。下面是真实的辅导记录。
                 </p>
               </div>
             </div>
@@ -993,7 +980,7 @@ export default function LearnIndexPage() {
               <div className="aa-section-head-main">
                 <p className="aa-kicker">04 · WHO IT'S FOR</p>
                 <h2>课程特色与适合谁</h2>
-                <p className="aa-section-desc">先说清楚训练营怎么教，再说清楚谁适合来、谁不适合来。</p>
+                <p className="aa-section-desc">适合谁、不适合谁，直说。</p>
               </div>
             </div>
             <div className="learn-svc learn-svc--3 learn-fit-features">
@@ -1090,7 +1077,7 @@ export default function LearnIndexPage() {
               <div className="aa-section-head-main">
                 <p className="aa-kicker">07 · TRACKS</p>
                 <h2>三类成长方向</h2>
-                <p className="aa-section-desc">不同人的目标不一样，但训练底层相通：围绕真实 Agent 项目，形成可展示、可解释、可迁移的能力。</p>
+                <p className="aa-section-desc">目标因人而异，练的东西一样：把真实的 Agent 项目做成、讲清、带走。</p>
               </div>
             </div>
             <div className="learn-tracks">
@@ -1115,7 +1102,7 @@ export default function LearnIndexPage() {
               <div className="aa-section-head-main">
                 <p className="aa-kicker">08 · RESULTS</p>
                 <h2>真实结果与学员案例</h2>
-                <p className="aa-section-desc">以下截图均已脱敏，来自社区学员的真实结果；每个项目本身也有公开链接可查。</p>
+                <p className="aa-section-desc">以下截图均来自学员本人，敏感信息已打码。</p>
               </div>
             </div>
 
@@ -1207,14 +1194,6 @@ export default function LearnIndexPage() {
               ))}
             </div>
 
-            <p className="learn-next-step">
-              想核对细节：项目链接都在上方卡片里，结果截图可点开看原图。不确定是否合适，先看
-              <a href="https://meeting.tencent.com/crm/2G4ZrQVAd0" target="_blank" rel="noopener noreferrer">
-                课程介绍会回放
-              </a>
-              ，再对照
-              <a href="#participate">三种参与方式</a>；页底二维码可以直接把你的情况发给我们。
-            </p>
           </section>
 
           <section id="participate" className="learn-home-block">
@@ -1222,7 +1201,7 @@ export default function LearnIndexPage() {
               <div className="aa-section-head-main">
                 <p className="aa-kicker">09 · PARTICIPATION</p>
                 <h2>三种参与方式</h2>
-                <p className="aa-section-desc">不同人需要的不是同一种服务，而是不同深度的参与方式。</p>
+                <p className="aa-section-desc">按你的目标，决定参与多深。</p>
               </div>
             </div>
             <div className="learn-home-part">
@@ -1264,7 +1243,7 @@ export default function LearnIndexPage() {
                   </li>
                 ))}
               </ol>
-              <p className="learn-cta-note">我们据此判断你适合哪种参与深度；也可以先看社区文档和公开教程，判断合适后再来。</p>
+              <p className="learn-cta-note">发这四条，我们告诉你从哪里开始最合适。</p>
               <div className="learn-home-actions">
                 <a
                   className="learn-cta-btn-ghost"
