@@ -395,6 +395,28 @@ export default function InterviewPage() {
   return (
     <div className="ivc-page">
       <Hero />
+      <section className="ivu-wide ivc-intent" aria-label="按你的目标进入">
+        <Link href="/roadmap" className="ivc-intent-card">
+          <span className="ivc-intent-kicker">不知道从哪学</span>
+          <span className="ivc-intent-title">按学习路线走</span>
+          <span className="ivc-intent-desc">Agent 开发 / RAG / LLM 应用 / AI Infra 四条方向化路线</span>
+        </Link>
+        <Link href="#chapters" className="ivc-intent-card">
+          <span className="ivc-intent-kicker">要系统补一块知识</span>
+          <span className="ivc-intent-title">按方向系统学习</span>
+          <span className="ivc-intent-desc">14 个方向的学习路径：术语 → 刷题 → 深挖 → 实战</span>
+        </Link>
+        <Link href="/interview/qa" className="ivc-intent-card">
+          <span className="ivc-intent-kicker">明天就面试</span>
+          <span className="ivc-intent-title">直接刷题</span>
+          <span className="ivc-intent-desc">速答题带答案追问；2500+ 真题解析在真题库</span>
+        </Link>
+        <Link href="/interview/jingchang" className="ivc-intent-card">
+          <span className="ivc-intent-kicker">面特定公司</span>
+          <span className="ivc-intent-title">看目标公司真题</span>
+          <span className="ivc-intent-desc">五厂各 100 题清单 + 17 家公司聚合页</span>
+        </Link>
+      </section>
       <ReadMe />
       <ExamMap />
       <Chapters />

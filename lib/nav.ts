@@ -39,17 +39,17 @@ export function buildInterviewNav(): NavGroup[] {
   return [
     {
       key: "start",
-      title: "开始",
+      title: "从这里开始",
       open: true,
       items: [
-        { label: "面试间首页", href: "/interview" },
+        { label: "面试间总览", href: "/interview" },
+        { label: "学习路线 · 按方向", href: "/roadmap", matchPrefix: "/roadmap" },
         { label: "模拟面试 · 抽题自测", href: "/interview/quiz" },
-        { label: "简历体检", href: "/tools/resume" },
       ],
     },
     {
       key: "learn",
-      title: "系统学习",
+      title: "系统学习（按方向）",
       open: true,
       items: categories.map((c) => ({
         label: c.name,
@@ -59,43 +59,36 @@ export function buildInterviewNav(): NavGroup[] {
     },
     {
       key: "bank",
-      title: "题库与工具",
+      title: "刷题",
       open: true,
       items: [
-        { label: "速答题库", href: "/interview/qa" },
-        { label: "术语表", href: "/interview/glossary" },
-        { label: "五厂真题集", href: "/interview/jingchang" },
+        { label: "速答题库（带答案）", href: "/interview/qa" },
+        { label: "真题解析库（2500+）", href: "/interview/tk" },
+        { label: "术语速查", href: "/interview/glossary" },
       ],
     },
     {
-      key: "roadmap",
-      title: "学习路线",
-      items: ROADMAPS.map((r) => ({
-        label: r.name,
-        href: `/roadmap/${r.slug}`,
-        matchPrefix: `/roadmap/${r.slug}`,
-      })),
+      key: "company",
+      title: "真题与面经",
+      items: [
+        { label: "五厂真题集", href: "/interview/jingchang" },
+        ...companies.map(({ c, n }) => ({
+          label: c.name,
+          href: `/interview/company/${c.slug}`,
+          badge: String(n),
+        })),
+      ],
     },
     {
-      key: "company",
-      title: "按公司刷",
-      items: companies.map(({ c, n }) => ({
-        label: c.name,
-        href: `/interview/company/${c.slug}`,
-        badge: String(n),
-      })),
+      key: "packs",
+      title: "项目与工具",
+      items: [
+        ...packs.map((p) => ({
+          label: p.title.replace("项目面试包 · ", ""),
+          href: `/interview/${p.slug}`,
+        })),
+        { label: "简历体检", href: "/tools/resume" },
+      ],
     },
-    ...(packs.length
-      ? [
-          {
-            key: "packs",
-            title: "项目面试包",
-            items: packs.map((p) => ({
-              label: p.title.replace("项目面试包 · ", ""),
-              href: `/interview/${p.slug}`,
-            })),
-          } as NavGroup,
-        ]
-      : []),
   ]
 }

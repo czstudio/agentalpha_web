@@ -67,9 +67,13 @@ export default async function CategoryPage({ params }: PageProps) {
       (!flagship || post.slug !== flagship.slug) &&
       !(post.tags || []).some((t) => t.includes("对比选型") || t.includes("项目面试")),
   )
-  // 量大时截断：默认只展示前 48，其余进分页视图
-  const restShown = rest.length > 60 ? rest.slice(0, 48) : rest
-  const restHidden = rest.length - restShown.length
+  // 内容类型分区：教程深挖（非 tk）在前，真题解析（tk）独立成区
+  const teach = rest.filter((post) => !post.slug.includes("-tk"))
+  const tkPosts = rest.filter((post) => post.slug.includes("-tk"))
+  const teachShown = teach.length > 40 ? teach.slice(0, 40) : teach
+  const teachHidden = teach.length - teachShown.length
+  const tkShown = tkPosts.length > 36 ? tkPosts.slice(0, 36) : tkPosts
+  const tkHidden = tkPosts.length - tkShown.length
   const other = all.filter((item) => item.cat !== cat && item.count > 0)
   const total = all.reduce((sum, item) => sum + item.count, 0)
 
@@ -250,26 +254,64 @@ export default async function CategoryPage({ params }: PageProps) {
               <h2 className="ivu-sec-t">{flagship ? "分类内题目" : "全部题目"}</h2>
               <p className="ivu-sec-sub">共 {posts.length} 篇</p>
             </div>
-            <div className="ivu-catlist">
-              {restShown.map((post) => (
-                <InterviewRow
-                  key={post.slug}
-                  post={post}
-                  hasCover={hasCover(post.slug)}
-                  showCover
-                />
-              ))}
-              {restHidden > 0 ? (
-                <Link href={`/interview/category/${category.cat}/all`} className="ivu-catlist-more">
-                  还有 {restHidden} 篇真题解析 · 进入分页列表 →
-                </Link>
-              ) : null}
-              {rest.length === 0 ? (
-                <p className="ivu-empty" style={{ padding: "18px 4px" }}>
-                  这个分类暂时只有真题集，配套题解在施工中。
-                </p>
-              ) : null}
-            </div>
+            {teach.length > 0 ? (
+              <>
+                <div className="ivu-sec">
+                  <h2 className="ivu-sec-t">教程深挖</h2>
+                  <p className="ivu-sec-sub">深度解析与对比选型 · {teach.length} 篇</p>
+                </div>
+                <div className="ivu-catlist">
+                  {teachShown.map((post) => (
+                    <InterviewRow
+                      key={post.slug}
+                      post={post}
+                      hasCover={hasCover(post.slug)}
+                      showCover
+                    />
+                  ))}
+                  {teachHidden > 0 ? (
+                    <Link href={`/interview/category/${category.cat}/all`} className="ivu-catlist-more">
+                      还有 {teachHidden} 篇 · 进入分页列表 →
+                    </Link>
+                  ) : null}
+                </div>
+              </>
+            ) : null}
+
+            {tkPosts.length > 0 ? (
+              <>
+                <div className="ivu-sec">
+                  <h2 className="ivu-sec-t">真题解析</h2>
+                  <p className="ivu-sec-sub">
+                    宝典真题完整解析 · {tkPosts.length} 篇 ·{" "}
+                    <Link href="/interview/tk" className="ivu-type-tab">
+                      去真题库总览
+                    </Link>
+                  </p>
+                </div>
+                <div className="ivu-catlist">
+                  {tkShown.map((post) => (
+                    <InterviewRow
+                      key={post.slug}
+                      post={post}
+                      hasCover={hasCover(post.slug)}
+                      showCover
+                    />
+                  ))}
+                  {tkHidden > 0 ? (
+                    <Link href={`/interview/category/${category.cat}/all`} className="ivu-catlist-more">
+                      还有 {tkHidden} 篇真题解析 · 进入分页列表 →
+                    </Link>
+                  ) : null}
+                </div>
+              </>
+            ) : null}
+
+            {rest.length === 0 ? (
+              <p className="ivu-empty" style={{ padding: "18px 4px" }}>
+                这个分类暂时只有真题集，配套题解在施工中。
+              </p>
+            ) : null}
           </>
         ) : (
           <div className="ivu-empty">
