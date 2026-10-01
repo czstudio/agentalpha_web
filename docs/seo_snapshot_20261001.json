@@ -1,5 +1,5 @@
 {
- "taken_at": "2026-09-30T16:00:06.357206+00:00",
+ "taken_at": "2026-10-01T14:31:26.415341+00:00",
  "base": "https://agentalpha.top",
  "pages": {
   "resume-builder": {
@@ -76,10 +76,17 @@
  "structure": {
   "home_tools_cards": 10,
   "home_tools_keywords": true,
-  "llms_txt_tool_mentions": 267,
+  "llms_txt_tool_mentions": 47,
   "llms_full_toolbox_block": true,
   "llms_full_tool_count": 10,
   "mianjing_detail_tool_entry": 1,
+  "jd_page_count": 30,
+  "tool_guides_rendered": {
+   "resume-builder": true,
+   "jd-analyzer": true,
+   "resume": true,
+   "mock-interview": true
+  },
   "robots_ai_bots_allowed": {
    "GPTBot": true,
    "OAI-SearchBot": true,
@@ -91,12 +98,12 @@
  },
  "search_engines": {
   "bing": {
-   "hits": "unknown",
-   "manual_check": true
+   "hits": "62,100",
+   "manual_check": false
   },
   "bing_tools": {
-   "hits": "unknown",
-   "manual_check": true
+   "hits": "110,000",
+   "manual_check": false
   }
  }
 }
