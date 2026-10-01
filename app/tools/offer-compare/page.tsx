@@ -3,6 +3,7 @@ import { Scale } from "lucide-react"
 import { Navigation } from "@/components/navigation"
 import { OfferClient } from "@/components/tools/offer-client"
 import "../tools.css"
+import { ToolsGuide } from "@/components/tools/tools-guide"
 import { ToolsFaq } from "@/components/tools/tools-faq"
 
 const SITE = "https://agentalpha.top"
@@ -42,7 +43,10 @@ export default function OfferComparePage() {
         </header>
 
         <OfferClient />
-              <ToolsFaq slug="offer-compare" />
+
+        <ToolsGuide slug="offer-compare" />
+
+        <ToolsFaq slug="offer-compare" />
       </main>
     </>
   )

@@ -2,6 +2,7 @@
 
 import { useEffect, useMemo, useRef, useState } from "react"
 import Link from "next/link"
+import { radioChipKeyDown } from "@/hooks/use-radio-chips"
 import {
   PERSONAS,
   buildSession,
@@ -158,6 +159,7 @@ export function MockClient({ qaList }: { qaList: QaLite[] }) {
                 aria-checked={family === f.slug}
                 className={`tk-chip ${family === f.slug ? "tk-chip-on" : ""}`}
                 onClick={() => setFamily(f.slug)}
+                onKeyDown={(e) => radioChipKeyDown(e, FAMILY_OPTIONS.map((x) => x.slug), family, setFamily)}
               >
                 {f.name}
               </button>
@@ -165,13 +167,16 @@ export function MockClient({ qaList }: { qaList: QaLite[] }) {
           </div>
 
           <p className="tk-label" style={{ marginTop: 16 }}>面试官人格</p>
-          <div className="mock-mode-grid">
+          <div className="mock-mode-grid" role="radiogroup" aria-label="面试官人格">
             {PERSONAS.map((p) => (
               <button
                 key={p.key}
                 type="button"
+                role="radio"
+                aria-checked={personaKey === p.key}
                 className={`mock-mode-card ${personaKey === p.key ? "mock-mode-on" : ""}`}
                 onClick={() => setPersonaKey(p.key)}
+                onKeyDown={(e) => radioChipKeyDown(e, PERSONAS.map((x) => x.key), personaKey, (v) => setPersonaKey(v as PersonaKey))}
               >
                 <span className="t">{p.name}</span>
                 <span className="d">{p.desc}</span>

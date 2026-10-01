@@ -3,6 +3,7 @@ import { NotebookPen } from "lucide-react"
 import { Navigation } from "@/components/navigation"
 import { LogClient } from "@/components/tools/log-client"
 import "../tools.css"
+import { ToolsGuide } from "@/components/tools/tools-guide"
 import { ToolsFaq } from "@/components/tools/tools-faq"
 
 const SITE = "https://agentalpha.top"
@@ -42,7 +43,10 @@ export default function InterviewLogPage() {
         </header>
 
         <LogClient />
-              <ToolsFaq slug="interview-log" />
+
+        <ToolsGuide slug="interview-log" />
+
+        <ToolsFaq slug="interview-log" />
       </main>
     </>
   )

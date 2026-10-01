@@ -145,6 +145,21 @@ export default function RootLayout({
             <Analytics />
           </LanguageProvider>
         </ThemeProvider>
+        {/* chunk 加载失败兜底:部署窗口期旧页面引用的 chunk 会 404/500,静默无响应最坑——给一句可见提示 */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(){function show(){var b=document.getElementById('chunk-fail-banner');if(b)b.style.display='flex'}function h(e){var t=e.target;if(t&&(t.tagName==='SCRIPT'||t.tagName==='LINK')&&/_next\/static/.test(t.src||t.href||'')){show()}}window.addEventListener('error',h,true);window.addEventListener('unhandledrejection',function(e){if(String(e.reason).indexOf('Failed to fetch dynamically imported module')>-1||String(e.reason).indexOf('Loading chunk')>-1)show()})})();`,
+          }}
+        />
+        <div id="chunk-fail-banner" style={{ display: "none", position: "fixed", left: 12, right: 12, bottom: 12, zIndex: 9999, justifyContent: "center" }}>
+          <div style={{ background: "#26211a", color: "#faf6ef", borderRadius: 12, padding: "10px 18px", fontSize: 14, boxShadow: "0 8px 24px rgba(0,0,0,0.25)" }}>
+            页面资源加载失败,可能是站点刚发布了新版本——
+            <a href="javascript:location.reload()" style={{ color: "#f2b48c", fontWeight: 600 }}>
+              点击刷新
+            </a>
+            即可恢复。
+          </div>
+        </div>
       </body>
     </html>
   )
