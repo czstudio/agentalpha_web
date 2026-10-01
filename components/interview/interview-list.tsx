@@ -117,7 +117,7 @@ export function InterviewList({
       {variant === "full" ? (
         <div className="ivu-cta" style={{ maxWidth: "var(--measure)", margin: "48px auto 0" }}>
           <p className="ivu-cta-text">
-            <b>AgentAlpha，立志打造 AI 界的黄埔军校。</b>题库陪你练面试，训练营陪你做出能改变生活、最后改变世界的项目。
+            <b>和认真做事的人，一起把事做成。</b>题库陪你练面试，训练营陪你把项目做出来。
           </p>
           <div className="ivu-cta-actions">
             <Link href="/learn" className="ivu-btn ivu-btn-primary">

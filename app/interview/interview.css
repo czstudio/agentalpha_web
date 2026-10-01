@@ -2379,3 +2379,12 @@ details.ivq-cat > .ivq-cat-head .ivq-cat-toggle {
 }
 details.ivq-cat[open] > .ivq-cat-head .ivq-cat-toggle { background: var(--brand-tint); }
 details.ivq-cat:not([open]) { padding-bottom: 2px; }
+
+/* ── 公司页：hero 统计行 + JD 外链 ── */
+.ivq-hero-stats { display: flex; flex-wrap: wrap; gap: 10px; margin: 14px 0 0; }
+.ivq-hero-stats span {
+  padding: 5px 13px; background: var(--brand-tint, #f3ecfe); color: var(--brand-deep, #4c15ac);
+  border-radius: 999px; font-size: 12.5px; font-weight: 600;
+}
+.ivq-row-go--ext { color: var(--brand-deep, #4c15ac); font-weight: 600; }
+a.ivq-row-go--ext:hover { text-decoration: underline; text-underline-offset: 3px; }

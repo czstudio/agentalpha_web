@@ -3,6 +3,7 @@
 import Link from "next/link"
 import { ArrowDown, ArrowUpRight, Menu, X } from "lucide-react"
 import { SiteLogo } from "@/components/site-logo"
+import { IDEA_STAR, INKOS_STAR } from "@/lib/stats"
 import { useGSAP } from "@gsap/react"
 import gsap from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
@@ -271,11 +272,11 @@ export function CommunityExperience({
           </div>
           <div>
             <dt>Idea2Paper GitHub Star</dt>
-            <dd>1.4k</dd>
+            <dd>{IDEA_STAR}</dd>
           </div>
           <div>
             <dt>InkOS GitHub Star</dt>
-            <dd>7.8k</dd>
+            <dd>{INKOS_STAR}</dd>
           </div>
         </dl>
       </header>

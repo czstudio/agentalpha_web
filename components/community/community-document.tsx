@@ -31,6 +31,7 @@ import {
   X,
 } from "lucide-react"
 import type { CommunityNode } from "@/lib/community/types"
+import { IDEA_STAR, IDEA_HF, INKOS_STAR, INKOS_SIGNED } from "@/lib/stats"
 
 const COMMUNITY_INTRO_URL = "https://agentalpha.feishu.cn/docx/QtYQddrAFoLIb9xFe7PckJnmn1b"
 const CAMP_URL = "https://agentalpha.feishu.cn/wiki/TjZJwXw70ijEX6kkyKicgortnpb"
@@ -194,8 +195,8 @@ const CHAPTER_TAGS: Record<string, { icon: typeof Compass; label: string }> = {
 /* ── 项目卡头部：图标 + 指标（指标口径来自社区文档与站内品牌口径，未新增数字） ── */
 
 function projectMeta(id: string): { icon: typeof FileText; stats: string[]; illus?: string } {
-  if (id.includes("idea2paper")) return { icon: FileText, stats: ["1.4k Star", "HF 论文日榜第一"], illus: "proj-idea2paper" }
-  if (id.includes("inkos")) return { icon: PenTool, stats: ["7.8k Star", "150+ 部签约"], illus: "proj-inkos" }
+  if (id.includes("idea2paper")) return { icon: FileText, stats: [`${IDEA_STAR} Star`, IDEA_HF], illus: "proj-idea2paper" }
+  if (id.includes("inkos")) return { icon: PenTool, stats: [`${INKOS_STAR} Star`, `${INKOS_SIGNED} 部签约`], illus: "proj-inkos" }
   if (id.includes("潜艇")) return { icon: Ship, stats: ["30 天用户破万"] }
   if (id.includes("sell")) return { icon: ShoppingCart, stats: ["企业定制"] }
   if (id === "5") return { icon: Database, stats: ["专业数据 API"] }

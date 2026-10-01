@@ -34,7 +34,7 @@
     "title_normal": "立志打造 AI 界的黄埔军校",
     "subtitle": "不空谈理论、不追热点。以「技术落地、人才培养、商业共创」为核心，培养能解决真实问题、能落地、能产出的 AI 人才。",
     "cta_primary": "加入社区，一起做项目",
-    "cta_secondary": "先看做出来的东西",
+    "cta_secondary": "看学员成果",
     "cta_quiz": "AI Agent 面试题库"
   },
   "quizlib": {
@@ -82,24 +82,21 @@
   },
   "stats": {
     "stat1_label": "GitHub Stars · InkOS",
-    "stat1_value": "7,800+",
+    "stat1_value": "7.8k",
     "stat1_note": "kimi 首批开源合作伙伴，1,500+ forks",
     "stat2_label": "Hugging Face 日榜 · Idea2Paper",
     "stat2_value": "第 1",
-    "stat2_note": "超越阿里、美团、千问等大厂成果，1.4k stars",
+    "stat2_note": "超越阿里、美团、千问等大厂成果，GitHub 1.4k Star",
     "stat3_label": "学员拿到大厂 offer、顶会论文录用、顶级高校实验室录取",
     "stat3_value": "150+",
     "stat3_note": "训练营页有这些结果的真实记录"
   },
   "vision": {
     "tag": "我们的方法",
-    "title": "我们反对什么，我们坚持什么",
-    "vision_points": [
-      "实战为王：反对只看课、只跑示例、只记概念；坚持围绕真实项目拆需求、写代码、做评估、复盘结果。",
-      "产学研结合：反对科研只讲论文、工程只讲框架、产业只讲变现；坚持把三者放进同一个项目里训练。",
-      "项目驱动：反对学完没有作品、简历和申请材料仍然是空的；坚持每个阶段都留下拿得出手的作品。",
-      "长期主义：反对用焦虑和速成承诺制造冲动；坚持承认能力成长需要周期，用扎实训练代替短期幻觉。"
-    ],
+    "title": "训练营的方法",
+    "summary_line": "训练营以真实项目练人：跟着五个真实运行的开源与商用项目做，每周有产出，从个人项目做到团队协作。",
+    "summary_words": ["实战为王", "项目驱动", "长期主义"],
+    "summary_cta": "了解训练营",
     "offerings_title": "一个训练场，三条线",
     "offerings": [
       "学术研究：把 Agent 用到文献检索、论文生成、学术评审和科研工具里",
@@ -230,7 +227,7 @@
         "desc": "从想法到论文的全流程 auto research，内置 10 万+ 顶会论文向量知识库和多智能体评审，解决「想法好、写不出、投不中」的科研痛点。",
         "points": [
           "Hugging Face Daily Paper 日榜第 1",
-          "GitHub 1.4k stars，1,000+ 内测用户、200+ 付费用户",
+          "GitHub 1.4k Star，1,000+ 内测用户、200+ 付费用户",
           "Agent 自动迭代出 1,800+ 篇论文，正推进约 300 万天使轮合作"
         ],
         "href": "https://github.com/AgentAlphaAGI/Idea2Paper",
@@ -243,7 +240,7 @@
         "name": "InkOS · AI 小说创作智能体",
         "desc": "10 个协作 Agent 的工程化写作管线：世界观搭建、情节编排、伏笔追踪、33 维连续性审计与自动修订，内置反 AIGC 检测。",
         "points": [
-          "GitHub 7,800+ stars、1,500+ forks，npm 下载 3.6 万+",
+          "GitHub 7.8k Star、1,500+ forks，npm 下载 3.6 万+",
           "kimi 首批开源合作伙伴",
           "150+ 部作品签约番茄、七猫，累计产出 10 亿字，头部作者月入 3-5 万"
         ],
