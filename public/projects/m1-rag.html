@@ -7,7 +7,11 @@
 <link rel="stylesheet" href="assets/showcase.css">
 </head>
 <body>
+<<<<<<< HEAD
+<header class="topbar"><div class="wrap"><div class="brand"><span class="dot"></span>AgentAlpha <small>· 课程项目</small></div><nav class="topnav"><a href="index.html">总览</a><a href="../../experiments/metrics-hub/index.html">指标中心</a><a href="results.html">实验结果</a><a href="m1-rag.html" class="on">RAG</a><a href="m2-memory.html">记忆</a><a href="m3-agent.html">单Agent</a><a href="m4-multiagent.html">多Agent</a><a href="m5-deepsearch.html">DeepSearch</a><a href="m6-inference.html">推理服务</a><a href="m7-codeagent.html">Code Agent</a><a href="m8-selfevolve.html">自进化</a><a href="m9-agentic-rl.html">Agentic RL</a><a href="m10-capstone.html">毕业考核</a></nav></div></header>
+=======
 <header class="topbar"><div class="wrap"><div class="brand"><span class="dot"></span>AgentAlpha <small>· 课程项目</small></div><nav class="topnav"><a href="index.html">总览</a><a href="m1-rag.html" class="on">RAG</a><a href="m2-memory.html">记忆</a><a href="m3-agent.html">单Agent</a><a href="m4-multiagent.html">多Agent</a><a href="m5-deepsearch.html">DeepSearch</a><a href="m6-inference.html">推理服务</a><a href="m7-codeagent.html">Code Agent</a><a href="m8-selfevolve.html">自进化</a><a href="m9-agentic-rl.html">Agentic RL</a><a href="m10-capstone.html">毕业考核</a></nav></div></header>
+>>>>>>> 76ddd1395a413d8330f09323b1b079368223cacf
 <section class="hero"><div class="wrap">
 <div class="prod-chip"><span class="live"></span>AgentAlpha · Enterprise KB Console</div>
 <h1>金融研报 RAG 系统</h1>
@@ -64,7 +68,7 @@ FAISS ANN</text><rect x="30" y="142" width="285" height="92" rx="10" fill="#FCF5
 
 <section>
 <div class="sec-head"><span class="no">07</span><h2>写进简历怎么写</h2></div>
-<div class="bullets"><div class="bullet">构建金融研报 RAG 系统（约 6200 行原始代码：2841 行 RAG 全链 + 1146 行金融 ReAct + 2214 行五角色研报）：MS MARCO 220 题黄金集上四级漏斗 Recall@10 从 0.900 提升至 0.991，句级引用 + 无据拒答 0 编造</div><div class="bullet">五角色研报产线（协调者/基本面/技术/风险/撰写）：真实产物 AAPL 结构化研报；对抗注入 10/10 拒绝、15 项事实检查全对——数字只进 source JSON，叙述程序拼引用</div></div>
+<div class="bullets"><div class="bullet">构建金融研报 RAG 系统（约 6200 行原始代码：2841 行 RAG 全链 + 1146 行金融 ReAct + 2214 行五角色研报）：MS MARCO 220 题黄金集上四级漏斗 Recall@10 从 0.900 提升至 0.991，句级引用 + 无据拒答 0 编造</div><div class="bullet">五角色研报产线（协调者/基本面/技术/风险/撰写）：真实产物 AAPL 结构化研报；对抗注入 10/10 拒绝、15 项事实检查全对——数字只进 source JSON，叙述程序拼引用</div><div class="bullet">检索策略网格实测（1280 个真实段落、bge-small GPU 编码、三类查询）：多路查询 max-RRF 融合的召回 0.920，单路向量检索 0.746，多面查询场景差距最大</div></div>
 </section>
 
 <section>
@@ -74,7 +78,7 @@ FAISS ANN</text><rect x="30" y="142" width="285" height="92" rx="10" fill="#FCF5
 
 <section>
 <div class="sec-head"><span class="no">09</span><h2>学员交付物</h2></div>
-<div class="deliv"><div class="d"><b>原始代码（可溯源：可回查来源）</b><span>streamlit_rag2 全链 2841 行 + finance_agent 1146 行 + multi_agent_finance 2214 行</span></div><div class="d"><b>检索回归脚本</b><span>三道门（回归：检查改动是否影响结果/引用覆盖/拒答）一键检查</span></div><div class="d"><b>四级漏斗演示（逐级筛选）</b><span>问制度→原文高亮跳转→无据问题标红拒答</span></div><div class="d"><b>失败样本集</b><span>双漏/误配/门控拦截案例各带复盘</span></div></div>
+<div class="deliv"><div class="d"><b>原始代码（可溯源：可回查来源）</b><span>streamlit_rag2 全链 2841 行 + finance_agent 1146 行 + multi_agent_finance 2214 行</span></div><div class="d"><b>检索回归脚本</b><span>三道门（回归：检查改动是否影响结果/引用覆盖/拒答）一键检查</span></div><div class="d"><b>四级漏斗演示（逐级筛选）</b><span>问制度→原文高亮跳转→无据问题标红拒答</span></div><div class="d"><b>失败样本集</b><span>双漏/误配/门控拦截案例各带复盘</span></div><div class="d"><b>混合检索四合一管线</b><span>BM25 与向量并行召回、RRF 融合、cross-encoder 重排串成一条可审计链路（hybrid_retrieval.py，13 个测试用例）</span></div></div>
 </section>
 
 </main>
