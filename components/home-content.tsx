@@ -149,7 +149,7 @@ export function HomeContent({ data }: HomeContentProps) {
               <Link href="/interview" className="aa-btn-primary aa-btn-quiz">
                 <span>{t.hero.cta_quiz}</span>
               </Link>
-              <a href="#proof" className="aa-btn-ghost">{t.hero.cta_secondary}</a>
+              <a href="/projects/stories.html" className="aa-btn-ghost">{t.hero.cta_secondary} →</a>
             </div>
           </div>
           <BrandLogoReel className="aa-hero-reel" />
@@ -266,12 +266,15 @@ export function HomeContent({ data }: HomeContentProps) {
         <div className="section-shell">
           <SectionHead icon={ShieldCheck} kicker={t.vision.tag} title={t.vision.title} />
           <div className="aa-vision-grid">
-            <div className="aa-vision-points">
-              {t.vision.vision_points.map((point: string) => (
-                <div key={point} className="aa-vision-point">
-                  <p>{point}</p>
-                </div>
-              ))}
+            {/* 训练营方法的摘要卡：完整版在 /learn，这里只留三行 + 入口 */}
+            <div className="aa-vision-card">
+              <p className="aa-vision-line">{t.vision.summary_line}</p>
+              <p className="aa-vision-words">
+                {t.vision.summary_words.map((word: string) => (
+                  <span key={word} className="aa-vision-word">{word}</span>
+                ))}
+              </p>
+              <Link href="/learn" className="aa-vision-go">{t.vision.summary_cta} →</Link>
             </div>
             <aside className="aa-vision-offer">
               <h3>{t.vision.offerings_title}</h3>

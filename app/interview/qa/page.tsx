@@ -5,6 +5,7 @@ import { getCategories } from "@/lib/interview"
 import { COMPANIES, getQaByCompany } from "@/lib/companies"
 import { QaRows, type QaRowGroup } from "@/components/interview/qa-rows"
 import { DailyQuestion, type DailyQaItem } from "@/components/interview/daily-question"
+import { IDEA_STAR, IDEA_HF, INKOS_STAR, INKOS_SIGNED, SUBMARINE_USERS } from "@/lib/stats"
 
 const SITE = "https://agentalpha.top"
 
@@ -41,19 +42,19 @@ const QA_PROJECTS = [
   {
     name: "Idea2Paper",
     tag: "AI 科研智能体",
-    metrics: "GitHub 1.4k Star · HF 论文日榜第一",
+    metrics: `GitHub ${IDEA_STAR} Star · ${IDEA_HF}`,
     how: "多智能体评审 + 向量知识库：讲项目架构与评测时用它当主案例。",
   },
   {
     name: "InkOS",
     tag: "AI 小说智能体",
-    metrics: "GitHub 7.8k Star · 150+ 部签约",
+    metrics: `GitHub ${INKOS_STAR} Star · ${INKOS_SIGNED} 部签约`,
     how: "长程规划与记忆管理：讲记忆系统、长文一致性时用它。",
   },
   {
     name: "潜艇 AI",
     tag: "TikTok 跨境电商引擎",
-    metrics: "30 天用户破万",
+    metrics: SUBMARINE_USERS,
     how: "工具链编排与内容生成管线：讲 Agent 落地与增长复盘时用它。",
   },
   {

@@ -3,11 +3,77 @@ import Link from "next/link"
 import { notFound } from "next/navigation"
 import { COMPANIES, getCompany, getQaByCompany } from "@/lib/companies"
 import { FACTORY_QUESTIONS } from "@/lib/factory-questions"
+import { getMianjingList } from "@/lib/mianjing"
+import { getAllJd } from "@/lib/jd"
 
 const SITE = "https://agentalpha.top"
 
 interface PageProps {
   params: Promise<{ slug: string }>
+}
+
+/** 外部开源题库（链接级参考，内容以原仓库为准；公司覆盖来自仓库自述） */
+const EXTERNAL_REPOS: Array<{ name: string; url: string; note: string; covers: string[] }> = [
+  {
+    name: "ai-engineering-interview-questions-company-wise",
+    url: "https://github.com/pallavi-shekhar/ai-engineering-interview-questions-company-wise",
+    note: "35 家公司 AI 工程面试题（含 DeepSeek / 月之暗面 / 智谱 / 阿里通义 / OpenAI / Google 等），按主题+公司分节",
+    covers: ["deepseek", "moonshot", "zhipu", "alibaba", "openai", "google"],
+  },
+  {
+    name: "AgentGuide · 12-company-interview-cases",
+    url: "https://github.com/adongwanai/AgentGuide/blob/main/docs/04-interview/12-company-interview-cases.md",
+    note: "12 家大厂真实面经案例集锦（中文，按公司整理）",
+    covers: ["cn"],
+  },
+  {
+    name: "AIGC-Interview-Book",
+    url: "https://github.com/WeThinkIn/AIGC-Interview-Book",
+    note: "「三年面试五年模拟」AIGC / LLM / Agent 算法岗面试书，含公司题库与面经（中文）",
+    covers: ["cn"],
+  },
+  {
+    name: "hello-agents · 面试问题总结",
+    url: "https://github.com/datawhalechina/hello-agents/blob/main/Extra-Chapter/Extra01-%E9%9D%A2%E8%AF%95%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93.md",
+    note: "Datawhale 出品的 LLM / VLM / Agent 秋招八股合集（中文）",
+    covers: ["cn"],
+  },
+  {
+    name: "FAANG-Coding-Interview-Questions · AI 公司篇",
+    url: "https://github.com/ombharatiya/FAANG-Coding-Interview-Questions/blob/main/AI-Companies-Interview-Questions.md",
+    note: "基于 1500+ 候选人面经整理的顶级 AI 实验室面试流程与题目（英文）",
+    covers: ["openai", "google"],
+  },
+  {
+    name: "LLM_Interview_Prepare",
+    url: "https://github.com/Joining-AI/LLM_Interview_Prepare",
+    note: "大模型常见面试题与面试经验整理（中文）",
+    covers: ["cn"],
+  },
+  {
+    name: "llm_interview_note",
+    url: "https://github.com/wdndev/llm_interview_note",
+    note: "LLM 知识体系与面试题笔记（中文）",
+    covers: ["cn"],
+  },
+  {
+    name: "llm-interview-questions",
+    url: "https://github.com/MisterBooo/llm-interview-questions",
+    note: "大模型面试题图解 100 题，分 14 个模块（中文）",
+    covers: ["cn"],
+  },
+]
+
+function normalizeCompany(raw: string): string {
+  return raw.replace(/[""\s]/g, "")
+}
+
+/** 面经的公司字段是中文别名（如「字节跳动」「月之暗面（Kimi）」），用名称+别名做包含匹配 */
+function mianjingMatches(mianjingCompany: string, company: { name: string; aliases: string[] }): boolean {
+  const raw = normalizeCompany(mianjingCompany)
+  if (!raw || raw === "某大厂") return false
+  if (raw.includes(company.name)) return true
+  return company.aliases.some((a) => a && (raw.includes(a) || company.name.includes(raw)))
 }
 
 export function generateStaticParams() {
@@ -20,9 +86,10 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const company = getCompany(slug)
   if (!company) return {}
   const qa = getQaByCompany(slug)
-  const description = `${company.name}大模型 Agent 方向面试高频题${qa.length > 0 ? ` ${qa.length} 道` : ""}：来自公开面经与岗位 JD 的高频归纳，覆盖 RAG、Agent、推理部署等方向，一题一页带答案与追问。`.slice(0, 160)
+  const mianjing = getMianjingList().filter((m) => mianjingMatches(m.company, company))
+  const description = `${company.name}大模型 Agent 方向面试准备${qa.length > 0 ? `：${mianjing.length} 篇真实面经实录、${qa.length} 道高频归纳速答` : ""}，附该公司 JD 原文链接与开源题库参考，一题一页带答案与追问。`.slice(0, 160)
   return {
-    title: `${company.name}大模型 Agent 面试题（公开面经高频归纳）· 公司题库`,
+    title: `${company.name}大模型 Agent 面试题（面经实录 + 高频归纳）· 公司题库`,
     description,
     keywords: [`${company.name} 面试题`, `${company.name} 面经`, ...company.aliases.map((a) => `${a} 面试题`), "大模型面试题", "Agent 面试题"],
     alternates: { canonical: `/interview/company/${company.slug}` },
@@ -39,6 +106,11 @@ export default async function CompanyPage({ params }: PageProps) {
   const sole = qaAll.filter((i) => !i.company.includes(","))
   const shared = qaAll.filter((i) => i.company.includes(","))
   const factoryGroups = FACTORY_QUESTIONS[slug] || []
+  const mianjing = getMianjingList()
+    .filter((m) => mianjingMatches(m.company, company))
+    .sort((a, b) => (a.date === b.date ? a.slug.localeCompare(b.slug) : b.date.localeCompare(a.date)))
+  const jdDocs = getAllJd().filter((doc) => doc.company === slug)
+  const external = EXTERNAL_REPOS.filter((r) => r.covers.includes(slug) || r.covers.includes("cn")).slice(0, 4)
 
   const itemListLd = {
     "@context": "https://schema.org",
@@ -85,7 +157,35 @@ export default async function CompanyPage({ params }: PageProps) {
           题目口径：来自 {company.aliases.join("、")} 等公开渠道的面经与岗位 JD 高频归纳，不是内部真题。
           按大家实际被问到的方向整理，每题一页带答案与追问。
         </p>
+        <p className="ivq-hero-stats">
+          {mianjing.length > 0 ? <span>面经实录 {mianjing.length} 篇</span> : null}
+          {qaAll.length > 0 ? <span>归纳速答 {qaAll.length} 道</span> : null}
+          {jdDocs.length > 0 ? <span>JD 样本 {jdDocs.length} 条</span> : null}
+        </p>
       </header>
+
+      {mianjing.length > 0 ? (
+        <div className="ivu-wide">
+          <div className="ivu-sec">
+            <h2 className="ivu-sec-t">面经实录</h2>
+            <p className="ivu-sec-sub">真实轮次与日期的完整复盘，{company.name}怎么考、追问往哪个方向挖，看这几篇最直接。</p>
+          </div>
+          <div className="ivq-rows">
+            {mianjing.map((m) => (
+              <Link className="ivq-row" key={m.slug} href={`/mianjing/${m.slug}`}>
+                <span className="ivq-row-q">{m.title}</span>
+                <span className="ivq-row-a">
+                  {m.company} · {m.round}
+                  {m.date ? ` · ${m.date}` : ""}
+                </span>
+                <span className="ivq-row-go" aria-hidden>
+                  看完整复盘 →
+                </span>
+              </Link>
+            ))}
+          </div>
+        </div>
+      ) : null}
 
       {factoryGroups.length > 0 ? (
         <div className="ivu-wide">
@@ -113,12 +213,38 @@ export default async function CompanyPage({ params }: PageProps) {
         </div>
       ) : null}
 
+      {jdDocs.length > 0 ? (
+        <div className="ivu-wide">
+          <div className="ivu-sec">
+            <h2 className="ivu-sec-t">该公司 JD 样本</h2>
+            <p className="ivu-sec-sub">岗位要求原文可溯源，先看 JD 再刷题，方向不跑偏。</p>
+          </div>
+          <div className="ivq-rows">
+            {jdDocs.map((doc) => (
+              <div className="ivq-row" key={doc.slug}>
+                <Link className="ivq-row-main" href={`/jd/${doc.company}/${doc.slug}`}>
+                  <span className="ivq-row-q">{doc.title}</span>
+                  <span className="ivq-row-a">{doc.summary}</span>
+                </Link>
+                {doc.sourceUrl ? (
+                  <a className="ivq-row-go ivq-row-go--ext" href={doc.sourceUrl} target="_blank" rel="noopener noreferrer">
+                    查看原 JD ↗{doc.sourceName ? ` · ${doc.sourceName}` : ""}
+                  </a>
+                ) : (
+                  <span className="ivq-row-go">来源：公开 JD 与面经汇总</span>
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
+      ) : null}
+
       <div className="ivu-wide">
         {sole.length > 0 ? (
           <>
             <div className="ivu-sec">
               <h2 className="ivu-sec-t">带解析的{company.name}高频题</h2>
-              <p className="ivu-sec-sub">单厂独占 {sole.length} 道</p>
+              <p className="ivu-sec-sub">单厂独占 {sole.length} 道 · 口径为公开面经与 JD 的高频归纳</p>
             </div>
             <div className="ivq-rows">
               {sole.map((item) => (
@@ -160,6 +286,23 @@ export default async function CompanyPage({ params }: PageProps) {
           </p>
         ) : null}
       </div>
+
+      {external.length > 0 ? (
+        <div className="ivu-wide">
+          <div className="ivu-sec">
+            <h2 className="ivu-sec-t">外部题库参考（开源社区）</h2>
+            <p className="ivu-sec-sub">以下为开源社区维护的公司维度题库，内容以原仓库为准，仅作外部参考链接。</p>
+          </div>
+          <div className="ivq-rows">
+            {external.map((repo) => (
+              <a className="ivq-row" key={repo.url} href={repo.url} target="_blank" rel="noopener noreferrer">
+                <span className="ivq-row-q">{repo.name} ↗</span>
+                <span className="ivq-row-a">{repo.note}</span>
+              </a>
+            ))}
+          </div>
+        </div>
+      ) : null}
 
       <div className="ivu-wide">
         <aside className="ivq-cta">
