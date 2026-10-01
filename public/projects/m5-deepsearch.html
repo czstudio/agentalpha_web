@@ -7,7 +7,11 @@
 <link rel="stylesheet" href="assets/showcase.css">
 </head>
 <body>
+<<<<<<< HEAD
+<header class="topbar"><div class="wrap"><div class="brand"><span class="dot"></span>AgentAlpha <small>· 课程项目</small></div><nav class="topnav"><a href="index.html">总览</a><a href="../../experiments/metrics-hub/index.html">指标中心</a><a href="results.html">实验结果</a><a href="m1-rag.html">RAG</a><a href="m2-memory.html">记忆</a><a href="m3-agent.html">单Agent</a><a href="m4-multiagent.html">多Agent</a><a href="m5-deepsearch.html" class="on">DeepSearch</a><a href="m6-inference.html">推理服务</a><a href="m7-codeagent.html">Code Agent</a><a href="m8-selfevolve.html">自进化</a><a href="m9-agentic-rl.html">Agentic RL</a><a href="m10-capstone.html">毕业考核</a></nav></div></header>
+=======
 <header class="topbar"><div class="wrap"><div class="brand"><span class="dot"></span>AgentAlpha <small>· 课程项目</small></div><nav class="topnav"><a href="index.html">总览</a><a href="m1-rag.html">RAG</a><a href="m2-memory.html">记忆</a><a href="m3-agent.html">单Agent</a><a href="m4-multiagent.html">多Agent</a><a href="m5-deepsearch.html" class="on">DeepSearch</a><a href="m6-inference.html">推理服务</a><a href="m7-codeagent.html">Code Agent</a><a href="m8-selfevolve.html">自进化</a><a href="m9-agentic-rl.html">Agentic RL</a><a href="m10-capstone.html">毕业考核</a></nav></div></header>
+>>>>>>> 76ddd1395a413d8330f09323b1b079368223cacf
 <section class="hero"><div class="wrap">
 <div class="prod-chip"><span class="live"></span>AgentAlpha · DeepSearch 研究助手</div>
 <h1>DeepSearch 智能研究系统</h1>
@@ -76,7 +80,7 @@ ReasoningPhase 状态机驱动</text><path d="M320 56.0 H348 M341 51.5 L348 56.0
 
 <section>
 <div class="sec-head"><span class="no">08</span><h2>写进简历怎么写</h2></div>
-<div class="bullets"><div class="bullet">在真实 API 上端到端跑通 Search-o1 全管线（推理主链、搜索子循环、文档内推理三部分）：完整运行 1207 秒、16 个执行步骤全部落盘，推理轨迹可逐段回看</div><div class="bullet">实现可解释的搜索轨迹：每次检索的触发原因、查询内容、停止理由全部记录，最终答案逐句带引用，可以对照原文核查</div></div>
+<div class="bullets"><div class="bullet">在真实 API 上端到端跑通 Search-o1 全管线（推理主链、搜索子循环、文档内推理三部分）：完整运行 1207 秒、16 个执行步骤全部落盘，推理轨迹可逐段回看</div><div class="bullet">实现可解释的搜索轨迹：每次检索的触发原因、查询内容、停止理由全部记录，最终答案逐句带引用，可以对照原文核查</div><div class="bullet">检索规模扩展实测：段落库从 128 扩到 1305（4 种策略 × 60 组固定查询），规模变大后多路查询融合的召回只下降 3.1%，单路向量下降 14%，多路融合的稳健性有数据支撑</div></div>
 </section>
 
 <section>
@@ -86,7 +90,7 @@ ReasoningPhase 状态机驱动</text><path d="M320 56.0 H348 M341 51.5 L348 56.0
 
 <section>
 <div class="sec-head"><span class="no">10</span><h2>学员交付物</h2></div>
-<div class="deliv"><div class="d"><b>可复现代码仓库</b><span>端到端 Search-o1 流程（完整搜索流程）+ 一键运行脚本 + 小规模示例数据</span></div><div class="d"><b>对照评测报告</b><span>纯 RAG（检索增强生成）vs Agentic Search（智能体搜索）vs +RiD 三配置的指标表与分析</span></div><div class="d"><b>搜索轨迹分析</b><span>检索触发分布、饱和判断准确率、失败样本复盘</span></div><div class="d"><b>面试深挖手册</b><span>本项目高频追问 8-10 问与答题要点（随课程发放）</span></div></div>
+<div class="deliv"><div class="d"><b>可复现代码仓库</b><span>端到端 Search-o1 流程（完整搜索流程）+ 一键运行脚本 + 小规模示例数据</span></div><div class="d"><b>对照评测报告</b><span>纯 RAG（检索增强生成）vs Agentic Search（智能体搜索）vs +RiD 三配置的指标表与分析</span></div><div class="d"><b>搜索轨迹分析</b><span>检索触发分布、饱和判断准确率、失败样本复盘</span></div><div class="d"><b>面试深挖手册</b><span>本项目高频追问 8-10 问与答题要点（随课程发放）</span></div><div class="d"><b>RRF 聚合方式消融</b><span>同一批查询上，按维度取最大再融合的召回 0.949，直接求和只有 0.519，聚合语义的选择本身就是实验结论（R16）</span></div></div>
 </section>
 
 </main>

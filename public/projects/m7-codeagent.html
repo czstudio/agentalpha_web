@@ -7,7 +7,11 @@
 <link rel="stylesheet" href="assets/showcase.css">
 </head>
 <body>
+<<<<<<< HEAD
+<header class="topbar"><div class="wrap"><div class="brand"><span class="dot"></span>AgentAlpha <small>· 课程项目</small></div><nav class="topnav"><a href="index.html">总览</a><a href="../../experiments/metrics-hub/index.html">指标中心</a><a href="results.html">实验结果</a><a href="m1-rag.html">RAG</a><a href="m2-memory.html">记忆</a><a href="m3-agent.html">单Agent</a><a href="m4-multiagent.html">多Agent</a><a href="m5-deepsearch.html">DeepSearch</a><a href="m6-inference.html">推理服务</a><a href="m7-codeagent.html" class="on">Code Agent</a><a href="m8-selfevolve.html">自进化</a><a href="m9-agentic-rl.html">Agentic RL</a><a href="m10-capstone.html">毕业考核</a></nav></div></header>
+=======
 <header class="topbar"><div class="wrap"><div class="brand"><span class="dot"></span>AgentAlpha <small>· 课程项目</small></div><nav class="topnav"><a href="index.html">总览</a><a href="m1-rag.html">RAG</a><a href="m2-memory.html">记忆</a><a href="m3-agent.html">单Agent</a><a href="m4-multiagent.html">多Agent</a><a href="m5-deepsearch.html">DeepSearch</a><a href="m6-inference.html">推理服务</a><a href="m7-codeagent.html" class="on">Code Agent</a><a href="m8-selfevolve.html">自进化</a><a href="m9-agentic-rl.html">Agentic RL</a><a href="m10-capstone.html">毕业考核</a></nav></div></header>
+>>>>>>> 76ddd1395a413d8330f09323b1b079368223cacf
 <section class="hero"><div class="wrap">
 <div class="prod-chip"><span class="live"></span>AgentAlpha · Code Agent 工作台</div>
 <h1>SWE-bench 级 Code Agent</h1>
@@ -64,7 +68,7 @@ SWE-smith resolve rate</text></svg><div class="cap">端到端流程包含 issue 
 
 <section>
 <div class="sec-head"><span class="no">07</span><h2>写进简历怎么写</h2></div>
-<div class="bullets"><div class="bullet">基于 mini-swe-agent（80 个文件、12583 行）构建 Code Agent：Docker 沙箱执行、仓库级代码定位、单步四道门控制（上下文、预算、提交、停止），从 GitHub issue 跑出补丁</div><div class="bullet">评测管线对接 SWE-bench Verified：每次运行自动输出失败归因报告（环境、检索、编辑、验证四类），每个失败都能定位到环节</div></div>
+<div class="bullets"><div class="bullet">基于 mini-swe-agent（80 个文件、12583 行）构建 Code Agent：Docker 沙箱执行、仓库级代码定位、单步四道门控制（上下文、预算、提交、停止），从 GitHub issue 跑出补丁</div><div class="bullet">评测管线对接 SWE-bench Verified：每次运行自动输出失败归因报告（环境、检索、编辑、验证四类），每个失败都能定位到环节</div><div class="bullet">执行反馈修复循环实测（phi-2 × 24 个任务 × 94 条沙箱测试用例）：带测试反馈的修复成功率 95.8%，盲重试 87.5%，反馈信息值这个差距</div></div>
 </section>
 
 <section>
@@ -74,7 +78,7 @@ SWE-smith resolve rate</text></svg><div class="cap">端到端流程包含 issue 
 
 <section>
 <div class="sec-head"><span class="no">09</span><h2>学员交付物</h2></div>
-<div class="deliv"><div class="d"><b>复现报告</b><span>SWE-bench Verified 子集（经验证的任务子集）评测结果与失败模式分析</span></div><div class="d"><b>Agent 仓库</b><span>可运行的环境配置、评测脚本与示例轨迹</span></div><div class="d"><b>对照实验记录</b><span>从零生成与仓库复用的成功率、成本数据</span></div><div class="d"><b>轨迹样本库</b><span>成功与失败轨迹各若干，用于复盘与分析</span></div></div>
+<div class="deliv"><div class="d"><b>复现报告</b><span>SWE-bench Verified 子集（经验证的任务子集）评测结果与失败模式分析</span></div><div class="d"><b>Agent 仓库</b><span>可运行的环境配置、评测脚本与示例轨迹</span></div><div class="d"><b>对照实验记录</b><span>从零生成与仓库复用的成功率、成本数据</span></div><div class="d"><b>轨迹样本库</b><span>成功与失败轨迹各若干，用于复盘与分析</span></div><div class="d"><b>EvoAgent 控制台</b><span>Manager-Executor-Auditor 三角色引擎 + FastAPI 实时界面，TerminalBench-Lite 40 题与 FixBench 20 题双向自检全部通过（17 个测试用例）</span></div><div class="d"><b>LLM 自评校准实验</b><span>72 个样本上模型自评与沙箱真值对照：AUC 0.736、ECE 0.199，假阴性 0，教科书级的过度自信样本（R15，直接可讲）</span></div></div>
 </section>
 
 </main>

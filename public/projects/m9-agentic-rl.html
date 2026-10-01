@@ -64,7 +64,7 @@ retrieved token masking</text><path d="M320 188.0 H348 M341 183.5 L348 188.0 L34
 
 <section>
 <div class="sec-head"><span class="no">07</span><h2>写进简历怎么写</h2></div>
-<div class="bullets"><div class="bullet">基于 veRL/EasyR1 复现 Search-R1：3B 模型 GRPO 训练 400 步真实收敛（单卡 24G 显存跑完，峰值 14.7GB），留出集成功率从 0 提升到 0.05（配对 z 检验 p=0.0253）</div><div class="bullet">设计复合奖励（答案对错、格式、检索次数代价），并用 retrieved token masking 堵住奖励漏洞：训练中识别并消除了「照抄检索文本」的作弊行为，奖励曲线稳定收敛</div></div>
+<div class="bullets"><div class="bullet">基于 veRL/EasyR1 复现 Search-R1：3B 模型 GRPO 训练 400 步真实收敛（单卡 24G 显存跑完，峰值 14.7GB），留出集成功率从 0 提升到 0.05（配对 z 检验 p=0.0253）</div><div class="bullet">设计复合奖励（答案对错、格式、检索次数代价），并用 retrieved token masking 堵住奖励漏洞：训练中识别并消除了「照抄检索文本」的作弊行为，奖励曲线稳定收敛</div><div class="bullet">PPO 与 DPO 数值核实现（18 个测试用例）：PPO 含 GAE 优势估计、重要性比率裁剪、KL 锚定；DPO 含偏好对损失、reference 锚定、长度偏置审计，加上 GRPO 后训练全家桶算法齐备</div></div>
 </section>
 
 <section>

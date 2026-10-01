@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AgentAlpha · 实验证据中枢（MiMo 风格）</title>
+<style>
+:root{--bg:#05050a;--bg2:#0a0a14;--card:rgba(255,255,255,.035);--line:rgba(255,255,255,.09);
+--tx:#e8eaf2;--mut:#8b90a5;--mut2:#5c6175;--acc:#7c5cff;--acc2:#4cc9f0;--acc3:#f72585;
+--good:#2ee6a8;--warn:#ffc94d;--mono:'SF Mono',ui-monospace,Consolas,monospace;
+--sans:-apple-system,'Noto Sans SC','PingFang SC',sans-serif}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--tx);font-family:var(--sans);line-height:1.65;overflow-x:hidden}
+::selection{background:rgba(124,92,255,.4)}
+/* ── 极光背景 ── */
+.aurora{position:fixed;inset:0;z-index:-2;overflow:hidden;pointer-events:none}
+.aurora i{position:absolute;border-radius:50%;filter:blur(110px);opacity:.5;will-change:transform}
+.aurora .o1{width:56vw;height:56vw;left:-14vw;top:-22vw;background:radial-gradient(circle,rgba(124,92,255,.5),transparent 65%);animation:drift1 26s ease-in-out infinite alternate}
+.aurora .o2{width:44vw;height:44vw;right:-12vw;top:6vh;background:radial-gradient(circle,rgba(76,201,240,.38),transparent 65%);animation:drift2 32s ease-in-out infinite alternate}
+.aurora .o3{width:50vw;height:50vw;left:22vw;top:64vh;background:radial-gradient(circle,rgba(247,37,133,.24),transparent 65%);animation:drift3 38s ease-in-out infinite alternate}
+.aurora .grid{position:absolute;inset:0;filter:none;opacity:.5;border-radius:0;
+background-image:linear-gradient(rgba(255,255,255,.033) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.033) 1px,transparent 1px);
+background-size:44px 44px;mask-image:radial-gradient(ellipse 90% 60% at 50% 0%,#000 30%,transparent 78%)}
+@keyframes drift1{to{transform:translate(9vw,7vh) scale(1.12)}}
+@keyframes drift2{to{transform:translate(-7vw,9vh) scale(.92)}}
+@keyframes drift3{to{transform:translate(-5vw,-8vh) scale(1.08)}}
+/* ── 顶栏 ── */
+.topbar{position:fixed;top:0;left:0;right:0;z-index:50;backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);
+background:rgba(6,6,12,.62);border-bottom:1px solid var(--line)}
+.topbar .in{max-width:1180px;margin:0 auto;padding:0 24px;height:58px;display:flex;align-items:center;gap:26px}
+.brand{font-weight:800;font-size:15px;letter-spacing:.2px;display:flex;align-items:center;gap:9px;white-space:nowrap}
+.brand .dot{width:9px;height:9px;border-radius:50%;background:linear-gradient(135deg,var(--acc),var(--acc2));box-shadow:0 0 12px var(--acc)}
+.brand small{color:var(--mut);font-weight:400}
+.topnav{display:flex;gap:2px;overflow-x:auto;scrollbar-width:none}
+.topnav::-webkit-scrollbar{display:none}
+.topnav a{color:var(--mut);text-decoration:none;font-size:12.5px;padding:6px 11px;border-radius:99px;white-space:nowrap;transition:.25s}
+.topnav a:hover,.topnav a.on{color:var(--tx);background:rgba(255,255,255,.07)}
+.progress{position:fixed;top:58px;left:0;height:2px;z-index:51;width:0;
+background:linear-gradient(90deg,var(--acc),var(--acc2),var(--acc3));transition:width .1s linear}
+/* ── Hero ── */
+.hero{max-width:1180px;margin:0 auto;padding:158px 24px 66px;text-align:center;position:relative}
+.kicker{display:inline-flex;align-items:center;gap:8px;font-size:11.5px;letter-spacing:2.6px;color:var(--mut);
+border:1px solid var(--line);border-radius:99px;padding:7px 18px;background:rgba(255,255,255,.03)}
+.kicker .live{width:7px;height:7px;border-radius:50%;background:var(--good);box-shadow:0 0 10px var(--good);animation:pulse 2s infinite}
+@keyframes pulse{50%{opacity:.35}}
+.hero h1{font-size:clamp(40px,6.4vw,74px);font-weight:800;line-height:1.12;letter-spacing:-1.5px;margin:26px 0 18px}
+.hero h1 .grad{background:linear-gradient(100deg,#fff 8%,#b8a6ff 42%,#6ee0ff 72%,#ff7ac2 100%);
+background-size:220% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:shimmer 7s ease-in-out infinite alternate}
+@keyframes shimmer{to{background-position:100% 0}}
+.hero p.sub{max-width:760px;margin:0 auto;color:var(--mut);font-size:16px}
+.hero .chips{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:26px}
+.chip{font-family:var(--mono);font-size:11.5px;color:#c9cdf5;border:1px solid rgba(124,92,255,.32);
+background:rgba(124,92,255,.09);border-radius:99px;padding:6px 14px}
+.chip b{color:#fff}
+/* ── 计数器带 ── */
+.band{max-width:1180px;margin:8px auto 0;padding:0 24px;display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:14px}
+.stat{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:22px 24px;position:relative;overflow:hidden;transition:.3s}
+.stat:hover{border-color:rgba(124,92,255,.45);transform:translateY(-3px);box-shadow:0 18px 44px -18px rgba(124,92,255,.35)}
+.stat:before{content:'';position:absolute;top:0;left:24px;right:24px;height:1px;background:linear-gradient(90deg,transparent,rgba(124,92,255,.6),transparent)}
+.stat .num{font-family:var(--mono);font-size:37px;font-weight:700;letter-spacing:-1px;
+background:linear-gradient(120deg,#fff,#b9c6ff);-webkit-background-clip:text;background-clip:text;color:transparent}
+.stat .lab{color:var(--tx);font-size:13.5px;font-weight:600;margin-top:2px}
+.stat .src{color:var(--mut2);font-size:11.5px;font-family:var(--mono);margin-top:5px}
+/* ── 版式 ── */
+main{max-width:1180px;margin:0 auto;padding:0 24px 90px}
+section{padding-top:88px}
+.shead{display:flex;align-items:baseline;gap:16px;margin-bottom:8px}
+.sno{font-family:var(--mono);font-size:12px;color:var(--acc2);letter-spacing:2px}
+h2{font-size:27px;font-weight:750;letter-spacing:-.5px}
+.slead{color:var(--mut);max-width:860px;font-size:14.5px;margin:6px 0 26px}
+.rule{height:1px;background:linear-gradient(90deg,rgba(124,92,255,.5),rgba(76,201,240,.2),transparent);margin-top:14px}
+/* ── 高亮卡 ── */
+.hlgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(255px,1fr));gap:14px}
+.hl{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px 22px;position:relative;overflow:hidden;transition:.3s}
+.hl:hover{transform:translateY(-4px);border-color:rgba(76,201,240,.5);box-shadow:0 20px 50px -20px rgba(76,201,240,.4)}
+.hl .v{font-family:var(--mono);font-size:31px;font-weight:700}
+.hl.good .v{color:var(--good)}.hl.info .v{color:var(--acc2)}.hl.warn .v{color:var(--warn)}
+.hl .k{font-weight:650;font-size:14px;margin-top:3px}
+.hl .d{color:var(--mut);font-size:12px;margin-top:4px}
+.hl .tag{position:absolute;top:16px;right:18px;font-family:var(--mono);font-size:10px;color:var(--mut2);
+border:1px solid var(--line);border-radius:99px;padding:2px 9px}
+/* ── 双栏：图 + 侧数字 ── */
+.duo{display:grid;grid-template-columns:1.65fr 1fr;gap:16px;align-items:stretch}
+.duo .fimg img{max-height:none;width:100%;height:auto}
+@media(max-width:900px){.duo{grid-template-columns:1fr}}
+.fcard{background:var(--card);border:1px solid var(--line);border-radius:16px;overflow:hidden;transition:.35s;cursor:zoom-in}
+.fcard:hover{border-color:rgba(124,92,255,.55);box-shadow:0 22px 60px -22px rgba(124,92,255,.5);transform:translateY(-3px)}
+.fimg{background:#fff;padding:10px}
+.fimg img{width:100%;display:block;border-radius:6px}
+figcaption{padding:11px 16px 13px;font-size:12.5px;color:var(--mut);display:flex;gap:10px;align-items:center}
+.ftag{font-family:var(--mono);font-size:10px;color:var(--acc2);border:1px solid rgba(76,201,240,.4);border-radius:99px;padding:1px 9px;flex-shrink:0}
+.side{display:flex;flex-direction:column;gap:12px}
+.mini{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px 20px;flex:1;transition:.3s}
+.mini:hover{border-color:rgba(46,230,168,.4)}
+.mini .n{font-family:var(--mono);font-size:27px;font-weight:700;color:var(--good)}
+.mini .t{font-size:13px;font-weight:600;margin-top:1px}
+.mini .s{font-size:11.5px;color:var(--mut);margin-top:4px}
+.note{border:1px solid rgba(255,201,77,.25);background:rgba(255,201,77,.06);border-radius:14px;padding:13px 18px;font-size:12.5px;color:#e8d9a8;margin-top:14px}
+.note b{color:var(--warn)}
+/* ── 热力表 ── */
+table.dt{width:100%;border-collapse:collapse;font-size:12.5px;background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden}
+table.dt th{font-family:var(--mono);font-size:10.5px;text-transform:uppercase;letter-spacing:1px;color:var(--mut);
+padding:11px 14px;text-align:left;border-bottom:1px solid var(--line);background:rgba(255,255,255,.03)}
+table.dt td{padding:9.5px 14px;border-bottom:1px solid rgba(255,255,255,.05);font-family:var(--mono);font-size:12px;color:#c9cdd9}
+table.dt tr:last-child td{border-bottom:none}
+table.dt td:first-child{font-family:var(--sans);color:var(--tx)}
+table.dt tr:hover td{background:rgba(124,92,255,.06)}
+table.dt td.hot{color:var(--good);font-weight:700}
+table.dt tr.best td{background:rgba(46,230,168,.07)}
+table.dt tr.best td:first-child:after{content:' ★';color:var(--good)}
+.tbl{margin:16px 0;overflow-x:auto}
+.tbl-cap{font-size:12.5px;color:var(--mut);margin-bottom:8px;font-style:italic}
+/* ── 图库 tab ── */
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin:20px 0}
+.tab{font-size:12.5px;color:var(--mut);border:1px solid var(--line);border-radius:99px;padding:7px 16px;cursor:pointer;transition:.25s;background:transparent;font-family:var(--sans)}
+.tab:hover{color:var(--tx);border-color:rgba(124,92,255,.5)}
+.tab.on{color:#fff;background:linear-gradient(120deg,rgba(124,92,255,.85),rgba(76,201,240,.7));border-color:transparent}
+.gal{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:14px}
+.gal .fcard{display:none}
+.gal .fcard.show{display:flex;flex-direction:column}
+.gal .fcard.show .fimg{flex:1;display:flex;align-items:center;justify-content:center;padding:12px;background:#fff;min-height:0}
+.gal .fcard.show .fimg img{max-height:300px;width:auto;max-width:100%;object-fit:contain;border-radius:6px}
+.gal .fcard.show figcaption{flex-shrink:0}
+.gal .fcard.show{display:block;animation:fadeup .5s both}
+/* ── lightbox ── */
+.lb{position:fixed;inset:0;z-index:99;background:rgba(3,3,8,.9);backdrop-filter:blur(8px);display:none;align-items:center;justify-content:center;padding:4vh 4vw;cursor:zoom-out}
+.lb.open{display:flex}
+.lb img{max-width:100%;max-height:92vh;border-radius:10px;box-shadow:0 30px 90px rgba(0,0,0,.7);animation:fadeup .3s both}
+.lb .x{position:absolute;top:22px;right:30px;font-size:26px;color:var(--mut);cursor:pointer}
+/* ── reveal ── */
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1)}
+.reveal.in{opacity:1;transform:none}
+@keyframes fadeup{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion: reduce){
+.reveal{opacity:1;transform:none;transition:none}
+.aurora i{animation:none}
+.hero h1 .grad{animation:none}
+.kicker .live{animation:none}
+}
+/* ── footer ── */
+footer{border-top:1px solid var(--line);margin-top:70px;padding:38px 24px 46px;text-align:center;color:var(--mut2);font-size:12.5px}
+footer b{color:var(--acc2);font-weight:600}
+footer .meth{max-width:820px;margin:10px auto 0;line-height:1.8;color:var(--mut)}
+</style></head>
+<body>
+<div class="aurora"><i class="o1"></i><i class="o2"></i><i class="o3"></i><div class="grid"></div></div>
+<div class="progress"></div>
+<header class="topbar"><div class="in">
+<div class="brand"><span class="dot"></span>AgentAlpha <small>· 实验证据中枢</small></div>
+<nav class="topnav">
+<a href="#highlights">亮点</a><a href="#main">主表</a><a href="#r11">检索 R11</a>
+<a href="#r12">反馈 R12</a><a href="#r13">进化 R13</a><a href="#r14">统计 R14</a><a href="#round4">Round4</a><a href="#round5">Round5</a>
+<a href="#gallery">图库</a><a href="#tables">四表</a>
+<a href="index.html">课程主页</a><a href="results.html">指标中心</a>
+</nav></div></header>
+
+<section class="hero">
+<div class="kicker reveal"><span class="live"></span>REAL EXPERIMENTS · RTX 4090 · ZERO SIMULATION</div>
+<h1>实验证据中枢<br><span class="grad">顶会水准的数字，全部实测</span></h1>
+<p class="sub">29 组实验 · 30 张出版级图表 · bootstrap / 置换 / McNemar / Welch 全套手写检验。
+每一个数字可复现：脚本、随机种子、原始 JSON 与 300dpi 图一并入库。</p>
+<div class="chips">
+<span class="chip">GPU <b>RTX 4090 24GB</b></span>
+<span class="chip">Torch <b>2.6.0+cu124</b></span>
+<span class="chip">统计 <b>10k bootstrap / 10k perm</b></span>
+<span class="chip">数据 <b>零模拟 · 全链路留痕</b></span>
+</div>
+</section>
+<div class="band"><div class="stat reveal"><div class="num" data-v="29">29</div><div class="lab">组真实实验</div><div class="src">E1-E6 · G1-G4 · R1-R20</div></div><div class="stat reveal"><div class="num" data-v="30">30</div><div class="lab">张 300dpi 图表</div><div class="src">出版级 · 统一色板</div></div><div class="stat reveal"><div class="num" data-v="8">8</div><div class="lab">项统计检验</div><div class="src">4 项 p&lt;0.05</div></div><div class="stat reveal"><div class="num" data-v="94">94</div><div class="lab">个沙箱测试用例</div><div class="src">R12 真实执行</div></div></div>
+
+<main>
+<section id="highlights">
+<div class="shead"><span class="sno">01</span><h2>亮点指标</h2></div>
+<div class="rule"></div>
+<p class="slead">八项核心结果，覆盖训练、检索、安全、推理、自进化与统计检验。悬停查看，全部来自真实运行。</p>
+<div class="hlgrid"><div class="hl good reveal"><span class="tag">E1</span><div class="v">+0.0755</div><div class="k">GRPO Reward Δ</div><div class="d">400 步真实训练 · p=0.0253</div></div><div class="hl good reveal"><span class="tag">R1</span><div class="v">67%</div><div class="k">多层防御拦截率</div><div class="d">12 攻击 × 4 防御 · 误杀 0%</div></div><div class="hl info reveal"><span class="tag">E3</span><div class="v">1.82</div><div class="k">Dense vs BM25 效应量</div><div class="d">Hedges g · large effect</div></div><div class="hl info reveal"><span class="tag">R5</span><div class="v">5.0×</div><div class="k">推测解码加速</div><div class="d">γ=4 · 实测吞吐</div></div><div class="hl warn reveal"><span class="tag">R10</span><div class="v">20.7ms</div><div class="k">Pipeline 总延迟</div><div class="d">6 阶段分解 · ANN 占 98%</div></div><div class="hl good reveal"><span class="tag">R11</span><div class="v">0.920</div><div class="k">多面检索最优 nDCG</div><div class="d">multi_query_rrf vs dense 0.746</div></div><div class="hl good reveal"><span class="tag">R12</span><div class="v">96%</div><div class="k">执行反馈 Pass@4</div><div class="d">blind 88% → fb+test 96%</div></div><div class="hl info reveal"><span class="tag">R13</span><div class="v">0.877</div><div class="k">自进化最终 fitness</div><div class="d">random 0.862 → tournament 0.877</div></div></div>
+</section>
+
+<section id="main">
+<div class="shead"><span class="sno">02</span><h2>主结果表</h2></div>
+<div class="rule"></div>
+<p class="slead">Table 1 — 全部实验的主结果一行汇总（LaTeX / Markdown / PNG 三格式入库）。</p>
+<div class="tbl"><div class="tbl-cap">Table 1. Main results across E1–E6, R1–R14 (all measured on RTX 4090 / local host, zero simulation).</div><table class="dt">
+<thead><tr><th>Exp</th><th>Setting</th><th>Method</th><th>Metric</th><th>Value</th><th>Significance / Note</th></tr></thead><tbody>
+<tr class="best"><td>E1</td><td>GRPO 训练 400 步</td><td>Qwen2.5-1.5B · G=8</td><td>Reward Δ (first→last 20)</td><td>+0.0755</td><td>p=0.0253 (paired-z)</td></tr>
+<tr class="best"><td>E1</td><td>Holdout 成功率</td><td>baseline→GRPO</td><td>提升</td><td>0.00→0.05</td><td>真实评测</td></tr>
+<tr><td>E2</td><td>优势估计对比</td><td>GRPO</td><td>advantage std</td><td>0.9899</td><td>对照组</td></tr>
+<tr><td>E2</td><td>优势估计对比</td><td>Dr.GRPO</td><td>advantage std</td><td>0.0657</td><td>Dr.GRPO 尺度稳定</td></tr>
+<tr class="best"><td>E3</td><td>Dense vs BM25</td><td>Hedges g (Recall@10)</td><td>效应量</td><td>1.82</td><td>large effect</td></tr>
+<tr class="best"><td>E5</td><td>记忆衰减模型选择</td><td>exponential (AIC -269.9)</td><td>R²</td><td>1.000</td><td>λ≈0.100</td></tr>
+<tr class="best"><td>E6</td><td>GRPO 组大小扫描</td><td>G=8</td><td>方差缩减</td><td>75%</td><td>vs G=2</td></tr>
+<tr class="best"><td>R1</td><td>Agent 越狱防御 12 攻击</td><td>多层防御</td><td>拦截率 / 误杀率</td><td>67% / 0%</td><td>Wilson CI 见 T4</td></tr>
+<tr class="best"><td>R5</td><td>推测解码</td><td>γ=4</td><td>加速比</td><td>5.0×</td><td>实测吞吐</td></tr>
+<tr class="best"><td>R6</td><td>量化 4096² 矩阵乘</td><td>INT8</td><td>cos sim</td><td>0.999822</td><td>RMSE 1.650</td></tr>
+<tr><td>R6</td><td>量化 4096² 矩阵乘</td><td>INT4</td><td>cos sim</td><td>0.973499</td><td>RMSE 15.037</td></tr>
+<tr class="best"><td>R11</td><td>多面检索 (n=40)</td><td>multi_query_rrf</td><td>nDCG@10</td><td>0.920</td><td>multi-aspect 最优策略</td></tr>
+<tr><td>R11</td><td>多面检索</td><td>dense baseline</td><td>nDCG@10</td><td>0.746</td><td>对照</td></tr>
+<tr class="best"><td>R12</td><td>执行反馈修复 24 任务</td><td>blind→traceback+test</td><td>Pass@4</td><td>88%→96%</td><td>p=0.500 (McNemar)</td></tr>
+<tr class="best"><td>R13</td><td>自进化 20 代 × 5 种子</td><td>tournament+elite vs random</td><td>最终 fitness</td><td>0.862→0.877</td><td>p=0.000 (Welch t)</td></tr>
+</tbody></table></div>
+
+</section>
+
+<section id="r11">
+<div class="shead"><span class="sno">03</span><h2>R11 · Agentic 检索策略网格</h2></div>
+<div class="rule"></div>
+<p class="slead">三种查询类型（词面锚定 / 语义释义 / 多面拼接）× 五种检索策略的热力矩阵——查询类型决定策略选择，multi-query RRF 在多面查询上拉开差距。</p>
+<div class="duo">
+<figure class="fcard reveal" data-lb="assets/img/results/r11_agentic_retrieval.png"><div class="fimg"><img src="assets/img/results/r11_agentic_retrieval.png" alt="R11 检索策略网格（热力矩阵 + Recall 分组 + 质量-延迟 Pareto）" loading="lazy"></div><figcaption><span class="ftag">R11</span>R11 检索策略网格（热力矩阵 + Recall 分组 + 质量-延迟 Pareto）</figcaption></figure>
+<div class="side">
+<div class="mini reveal"><div class="n">0.920</div><div class="t">multi-aspect 最优：multi_query_rrf</div><div class="s">dense baseline 仅 0.746 —— 单向量检索在多面查询上失效</div></div>
+<div class="mini reveal"><div class="n">92%</div><div class="t">BM25 词面查询 Recall@10</div><div class="s">lexical 类型下 BM25 天然占优（诚实对照）</div></div>
+<div class="mini reveal"><div class="n">0.03ms</div><div class="t">hybrid RRF 增量延迟</div><div class="s">融合两路排名的额外开销近零</div></div>
+</div></div>
+<div style="margin-top:16px"><table class="dt"><thead><tr><th>strategy</th><th>lexical nDCG@10</th><th>paraphrase nDCG@10</th><th>multi_aspect nDCG@10</th><th>overall nDCG</th><th>latency ms</th></tr></thead><tbody><tr><td>bm25</td><td>0.634</td><td>0.853</td><td>0.788</td><td>0.758</td><td>2.01</td></tr><tr><td>dense</td><td>0.074</td><td>0.957</td><td>0.746</td><td>0.592</td><td>8.02</td></tr><tr><td>hybrid_rrf</td><td>0.521</td><td>0.930</td><td>0.808</td><td>0.753</td><td>0.03</td></tr><tr class=best><td>multi_query_rrf</td><td>0.101</td><td>0.859</td><td class=hot>0.920</td><td>0.626</td><td>22.21</td></tr><tr><td>iter2hop_rrf</td><td>0.058</td><td>0.947</td><td>0.741</td><td>0.582</td><td>22.43</td></tr></tbody></table></div>
+<p class="note" style="margin-top:14px">语料：1280 passages · 120 查询 · bge-small-en-v1.5 真实 GPU 编码 · 编码 1s</p>
+</section>
+
+<section id="r12">
+<div class="shead"><span class="sno">04</span><h2>R12 · 执行反馈修复循环</h2></div>
+<div class="rule"></div>
+<p class="slead">phi-2 真实生成代码，subprocess 沙箱真实执行 94 个测试用例：三种反馈臂对比——带 traceback + 失败用例的反馈把 Pass@4 从 88% 推到 96%。</p>
+<div class="duo">
+<figure class="fcard reveal" data-lb="assets/img/results/r12_exec_feedback.png"><div class="fimg"><img src="assets/img/results/r12_exec_feedback.png" alt="R12 三反馈臂：轮次累计通过曲线 + Pass@1/4 + token 成本" loading="lazy"></div><figcaption><span class="ftag">R12</span>R12 三反馈臂：轮次累计通过曲线 + Pass@1/4 + token 成本</figcaption></figure>
+<div class="side">
+<div class="mini reveal"><div class="n">+8pp</div><div class="t">Pass@4 绝对提升</div><div class="s">blind 88% → traceback+test 96%</div></div>
+<div class="mini reveal"><div class="n">+0pp</div><div class="t">Pass@1 首轮即过</div><div class="s">反馈历史让首轮生成也受益</div></div>
+<div class="mini reveal" style="flex:2">
+<div class="t" style="margin-bottom:10px">轮次累计通过率（24 任务）</div>
+<style>.row12{display:flex;align-items:center;gap:10px;margin:7px 0}.row12 span{font-family:var(--mono);font-size:10.5px;color:var(--mut);width:104px;flex-shrink:0}.row12 b{font-family:var(--mono);font-size:12px;color:var(--good);margin-left:auto}.bar12{flex:1;display:flex;flex-direction:column;gap:3px}.bar12 i{display:block;height:5px;border-radius:3px}</style>
+<div class="row12"><span>blind</span><div class="bar12"><i style="width:75%;background:#5c6175;opacity:0.45"></i><i style="width:79%;background:#5c6175;opacity:0.63"></i><i style="width:88%;background:#5c6175;opacity:0.81"></i><i style="width:88%;background:#5c6175;opacity:0.99"></i></div><b>88%</b></div><div class="row12"><span>traceback</span><div class="bar12"><i style="width:71%;background:#4cc9f0;opacity:0.45"></i><i style="width:88%;background:#4cc9f0;opacity:0.63"></i><i style="width:92%;background:#4cc9f0;opacity:0.81"></i><i style="width:96%;background:#4cc9f0;opacity:0.99"></i></div><b>96%</b></div><div class="row12"><span>traceback_test</span><div class="bar12"><i style="width:75%;background:#2ee6a8;opacity:0.45"></i><i style="width:88%;background:#2ee6a8;opacity:0.63"></i><i style="width:96%;background:#2ee6a8;opacity:0.81"></i><i style="width:96%;background:#2ee6a8;opacity:0.99"></i></div><b>96%</b></div>
+</div>
+</div></div>
+<p class="note"><b>方法学：</b>每轮生成 → 沙箱执行 → 失败信息回填 prompt（blind 臂盲重试作对照）→ 最多 4 轮。所有 token 计数与耗时来自真实推理。</p>
+</section>
+
+<section id="r13">
+<div class="shead"><span class="sno">05</span><h2>R13 · 真实进化循环</h2></div>
+<div class="rule"></div>
+<p class="slead">OpenEvolve 范式：源到源变异算子 + evaluator 真实执行 fitness（7 正确性用例 + ~84KB 文本真实计时）。3 种选择算法 × 5 种子 × 20 代。</p>
+<div class="duo">
+<figure class="fcard reveal" data-lb="assets/img/results/r13_self_evolution.png"><div class="fimg"><img src="assets/img/results/r13_self_evolution.png" alt="R13 进化曲线（5 种子误差带）+ 最终 fitness 箱线 + 变异成功率" loading="lazy"></div><figcaption><span class="ftag">R13</span>R13 进化曲线（5 种子误差带）+ 最终 fitness 箱线 + 变异成功率</figcaption></figure>
+<div class="side">
+<div class="mini reveal"><div class="n">0.877</div><div class="t">tournament+elite 最终 fitness</div><div class="s">random search 仅 0.862（Welch t 见 R14）</div></div>
+<div class="mini reveal"><div class="n">54%</div><div class="t">变异算子改进率</div><div class="s">200 次真实源到源变异实测</div></div>
+<div class="mini reveal"><div class="n">20</div><div class="t">代际 × 5 种子</div><div class="s">fitness 每次都是真实执行计时</div></div>
+</div></div>
+</section>
+
+<section id="r14">
+<div class="shead"><span class="sno">06</span><h2>R14 · 统计显著性中枢</h2></div>
+<div class="rule"></div>
+<p class="slead">10,000 次配对 bootstrap + 10,000 次置换检验 + 精确 McNemar + Welch t + Mann-Whitney U（全部手写实现，无 scipy 黑箱）。森林图一屏汇总跨实验效应量。</p>
+<div class="duo">
+<figure class="fcard reveal" data-lb="assets/img/results/r14_forest.png"><div class="fimg"><img src="assets/img/results/r14_forest.png" alt="R14 森林图：效应量 ± 95% CI（绿=显著，灰=不显著）" loading="lazy"></div><figcaption><span class="ftag">R14</span>R14 森林图：效应量 ± 95% CI（绿=显著，灰=不显著）</figcaption></figure>
+<figure class="fcard reveal" data-lb="assets/img/results/r14_radar.png"><div class="fimg"><img src="assets/img/results/r14_radar.png" alt="R14 雷达：方法多维对比 + 项目能力画像（全部真实测量归一化）" loading="lazy"></div><figcaption><span class="ftag">R14</span>R14 雷达：方法多维对比 + 项目能力画像（全部真实测量归一化）</figcaption></figure>
+</div>
+</section>
+
+<section id="round4">
+<div class="shead"><span class="sno">07</span><h2>Round4 · 校准与设计空间</h2></div>
+<div class="rule"></div>
+<p class="slead">R15 LLM 自评校准（自评置信 vs 沙箱真值）、R16 RRF 融合设计空间（聚合×k 全消融）、R17 few-shot 数量消融——补齐 agentic 评测方法学的三块标准拼图。</p>
+
+<div class="duo">
+<figure class="fcard reveal" data-lb="assets/img/results/r15_judge_calibration.png"><div class="fimg"><img src="assets/img/results/r15_judge_calibration.png" alt="R15 可靠性图 + 置信分离（自评 P(correct) vs 沙箱真实通过率）" loading="lazy"></div><figcaption><span class="ftag">R15</span>R15 可靠性图 + 置信分离（自评 P(correct) vs 沙箱真实通过率）</figcaption></figure>
+<div class="side">
+<div class="mini reveal"><div class="n">0.736</div><div class="t">自评 AUC</div><div class="s">n=72 真实生成样本</div></div>
+<div class="mini reveal"><div class="n">0.199</div><div class="t">期望校准误差 ECE</div><div class="s">过度自信：通过样本均值置信 0.93 / 失败 0.90</div></div>
+<div class="mini reveal"><div class="n">72%</div><div class="t">硬判准确率（conf&gt;0.5）</div><div class="s">TP 52 · FP 20 · FN 0 · TN 0</div></div>
+</div></div>
+<div class="duo">
+<figure class="fcard reveal" data-lb="assets/img/results/r16_rrf_grid.png"><div class="fimg"><img src="assets/img/results/r16_rrf_grid.png" alt="R16 RRF 聚合×k 热力（红框=每类型最优组合）" loading="lazy"></div><figcaption><span class="ftag">R16</span>R16 RRF 聚合×k 热力（红框=每类型最优组合）</figcaption></figure>
+<div class="side">
+<div class="mini reveal"><div class="n">0.949</div><div class="t">multi_aspect 最优：max 聚合（对 k 不敏感）</div><div class="s">sum 同 k 仅 0.519 —— 并集 vs 共识语义；sum 随 k 增大崩塌</div></div>
+<div class="mini reveal"><div class="n">120</div><div class="t">查询 × 8 组融合配置</div><div class="s">sum/max × k=10/30/60/100 全消融</div></div>
+</div></div>
+<div class="duo">
+<figure class="fcard reveal" data-lb="assets/img/results/r17_fewshot.png"><div class="fimg"><img src="assets/img/results/r17_fewshot.png" alt="R17 pass@2 随 few-shot 数量爬升 + 生成成本" loading="lazy"></div><figcaption><span class="ftag">R17</span>R17 pass@2 随 few-shot 数量爬升 + 生成成本</figcaption></figure>
+<div class="side">
+<div class="mini reveal"><div class="n">75%→92%</div><div class="t">pass@2：0-shot → 1-shot（+16.7pp）</div><div class="s">24 任务 × 2 样本真实沙箱；2-shot 持平 92%</div></div>
+<div class="mini reveal"><div class="n">+14.6pp</div><div class="t">pass@1 逐样本：0-shot → 2-shot</div><div class="s">62.5%→75.0%→77.1%：边际集中在前 1 个示例</div></div>
+</div></div>
+</section>
+
+<section id="round5">
+<div class="shead"><span class="sno">08</span><h2>Round5 · 规模与部署维度</h2></div>
+<div class="rule"></div>
+<p class="slead">R18 全项目统一成本-质量 Pareto（三族方法一图总览）、R19 检索规模扩展（128→1305 段落）、R20 嵌入量化×检索质量（INT8 近乎免费）——补齐部署视角的三块最后拼图。</p>
+
+<div class="duo">
+<figure class="fcard reveal" data-lb="assets/img/results/r18_pareto.png"><div class="fimg"><img src="assets/img/results/r18_pareto.png" alt="R18 三族方法统一 Pareto（每族最优点都来自结构化信息注入）" loading="lazy"></div><figcaption><span class="ftag">R18</span>R18 三族方法统一 Pareto（每族最优点都来自结构化信息注入）</figcaption></figure>
+<figure class="fcard reveal" data-lb="assets/img/results/r19_scaling.png"><div class="fimg"><img src="assets/img/results/r19_scaling.png" alt="R19 检索规模扩展（128→1305 段落，60 固定多面查询）" loading="lazy"></div><figcaption><span class="ftag">R19</span>R19 检索规模扩展（128→1305 段落，60 固定多面查询）</figcaption></figure>
+</div>
+<div class="duo" style="margin-top:14px">
+<figure class="fcard reveal" data-lb="assets/img/results/r20_embedding_quant.png"><div class="fimg"><img src="assets/img/results/r20_embedding_quant.png" alt="R20 嵌入量化：INT8 近乎免费（-0.05%），INT4 -1.63% 且查询更慢" loading="lazy"></div><figcaption><span class="ftag">R20</span>R20 嵌入量化：INT8 近乎免费（-0.05%），INT4 -1.63% 且查询更慢</figcaption></figure>
+<div class="side">
+<div class="mini reveal"><div class="n">-3.1pp</div><div class="t">multi-query max-RRF 规模退化</div><div class="s">dense 同区间 -12.0pp —— 分解式检索最抗规模</div></div>
+<div class="mini reveal"><div class="n">-0.05%</div><div class="t">INT8 检索 nDCG 损失</div><div class="s">76 个权重矩阵真实量化，逐向量余弦 0.9996</div></div>
+</div></div>
+</section>
+
+<section id="gallery">
+<div class="shead"><span class="sno">09</span><h2>图表总库</h2></div>
+<div class="rule"></div>
+<p class="slead">30 张 300dpi 出版级图表，点击放大。统一 serif 色板，直接可入论文。</p>
+<div class="tabs"><button class="tab on" data-f="all">全部 30</button><button class="tab" data-f="e">E 系列 5</button><button class="tab" data-f="g">G 系列 4</button><button class="tab" data-f="r2">Round2 10</button><button class="tab" data-f="r3">Round3 5</button><button class="tab" data-f="r4">Round4 3</button><button class="tab" data-f="r5">Round5 3</button></div>
+<div class="gal"><figure class="fcard reveal show" data-g="e" data-lb="assets/img/results/e1_grpo_training.png"><div class="fimg"><img src="assets/img/results/e1_grpo_training.png" alt="E1 GRPO 训练：reward 轨迹与收敛" loading="lazy"></div><figcaption><span class="ftag">E 系列 · 训练与统计</span>E1 GRPO 训练：reward 轨迹与收敛</figcaption></figure><figure class="fcard reveal show" data-g="e" data-lb="assets/img/results/e2_rl_algorithm_comparison.png"><div class="fimg"><img src="assets/img/results/e2_rl_algorithm_comparison.png" alt="E2 六算法优势估计对比" loading="lazy"></div><figcaption><span class="ftag">E 系列 · 训练与统计</span>E2 六算法优势估计对比</figcaption></figure><figure class="fcard reveal show" data-g="e" data-lb="assets/img/results/e3_rag_statistical.png"><div class="fimg"><img src="assets/img/results/e3_rag_statistical.png" alt="E3 RAG 统计效应量" loading="lazy"></div><figcaption><span class="ftag">E 系列 · 训练与统计</span>E3 RAG 统计效应量</figcaption></figure><figure class="fcard reveal show" data-g="e" data-lb="assets/img/results/e5_memory_decay.png"><div class="fimg"><img src="assets/img/results/e5_memory_decay.png" alt="E5 记忆衰减模型选择" loading="lazy"></div><figcaption><span class="ftag">E 系列 · 训练与统计</span>E5 记忆衰减模型选择</figcaption></figure><figure class="fcard reveal show" data-g="e" data-lb="assets/img/results/e6_hyperparameter.png"><div class="fimg"><img src="assets/img/results/e6_hyperparameter.png" alt="E6 超参敏感性" loading="lazy"></div><figcaption><span class="ftag">E 系列 · 训练与统计</span>E6 超参敏感性</figcaption></figure><figure class="fcard reveal show" data-g="g" data-lb="assets/img/results/g1_inference_latency.png"><div class="fimg"><img src="assets/img/results/g1_inference_latency.png" alt="G1 推理延迟" loading="lazy"></div><figcaption><span class="ftag">G 系列 · GPU 基准</span>G1 推理延迟</figcaption></figure><figure class="fcard reveal show" data-g="g" data-lb="assets/img/results/g2_kv_cache.png"><div class="fimg"><img src="assets/img/results/g2_kv_cache.png" alt="G2 KV 缓存" loading="lazy"></div><figcaption><span class="ftag">G 系列 · GPU 基准</span>G2 KV 缓存</figcaption></figure><figure class="fcard reveal show" data-g="g" data-lb="assets/img/results/g3_quantization.png"><div class="fimg"><img src="assets/img/results/g3_quantization.png" alt="G3 INT8 量化" loading="lazy"></div><figcaption><span class="ftag">G 系列 · GPU 基准</span>G3 INT8 量化</figcaption></figure><figure class="fcard reveal show" data-g="g" data-lb="assets/img/results/g4_gpu_speedup.png"><div class="fimg"><img src="assets/img/results/g4_gpu_speedup.png" alt="G4 GPU 采样加速" loading="lazy"></div><figcaption><span class="ftag">G 系列 · GPU 基准</span>G4 GPU 采样加速</figcaption></figure><figure class="fcard reveal show" data-g="r2" data-lb="assets/img/round2/r1_agent_security.png"><div class="fimg"><img src="assets/img/round2/r1_agent_security.png" alt="R1 Agent 安全防御" loading="lazy"></div><figcaption><span class="ftag">Round2 · R1-R10</span>R1 Agent 安全防御</figcaption></figure><figure class="fcard reveal show" data-g="r2" data-lb="assets/img/round2/r2_elastic_scheduling.png"><div class="fimg"><img src="assets/img/round2/r2_elastic_scheduling.png" alt="R2 弹性算力调度" loading="lazy"></div><figcaption><span class="ftag">Round2 · R1-R10</span>R2 弹性算力调度</figcaption></figure><figure class="fcard reveal show" data-g="r2" data-lb="assets/img/round2/r3_kv_stress.png"><div class="fimg"><img src="assets/img/round2/r3_kv_stress.png" alt="R3 KV 压力测试" loading="lazy"></div><figcaption><span class="ftag">Round2 · R1-R10</span>R3 KV 压力测试</figcaption></figure><figure class="fcard reveal show" data-g="r2" data-lb="assets/img/round2/r4_algorithm_gpu_benchmark.png"><div class="fimg"><img src="assets/img/round2/r4_algorithm_gpu_benchmark.png" alt="R4 15 算法 GPU 基准" loading="lazy"></div><figcaption><span class="ftag">Round2 · R1-R10</span>R4 15 算法 GPU 基准</figcaption></figure><figure class="fcard reveal show" data-g="r2" data-lb="assets/img/round2/r5_speculative_decoding.png"><div class="fimg"><img src="assets/img/round2/r5_speculative_decoding.png" alt="R5 推测解码" loading="lazy"></div><figcaption><span class="ftag">Round2 · R1-R10</span>R5 推测解码</figcaption></figure><figure class="fcard reveal show" data-g="r2" data-lb="assets/img/round2/r6_quantization_matrix.png"><div class="fimg"><img src="assets/img/round2/r6_quantization_matrix.png" alt="R6 量化全矩阵" loading="lazy"></div><figcaption><span class="ftag">Round2 · R1-R10</span>R6 量化全矩阵</figcaption></figure><figure class="fcard reveal show" data-g="r2" data-lb="assets/img/round2/r7_rag_hyperparam.png"><div class="fimg"><img src="assets/img/round2/r7_rag_hyperparam.png" alt="R7 RAG 超参网格" loading="lazy"></div><figcaption><span class="ftag">Round2 · R1-R10</span>R7 RAG 超参网格</figcaption></figure><figure class="fcard reveal show" data-g="r2" data-lb="assets/img/round2/r8_memory_grid.png"><div class="fimg"><img src="assets/img/round2/r8_memory_grid.png" alt="R8 记忆策略网格" loading="lazy"></div><figcaption><span class="ftag">Round2 · R1-R10</span>R8 记忆策略网格</figcaption></figure><figure class="fcard reveal show" data-g="r2" data-lb="assets/img/round2/r9_pareto_frontier.png"><div class="fimg"><img src="assets/img/round2/r9_pareto_frontier.png" alt="R9 多 Agent Pareto 前沿" loading="lazy"></div><figcaption><span class="ftag">Round2 · R1-R10</span>R9 多 Agent Pareto 前沿</figcaption></figure><figure class="fcard reveal show" data-g="r2" data-lb="assets/img/round2/r10_pipeline_latency.png"><div class="fimg"><img src="assets/img/round2/r10_pipeline_latency.png" alt="R10 Pipeline 延迟分解" loading="lazy"></div><figcaption><span class="ftag">Round2 · R1-R10</span>R10 Pipeline 延迟分解</figcaption></figure><figure class="fcard reveal show" data-g="r3" data-lb="assets/img/results/r11_agentic_retrieval.png"><div class="fimg"><img src="assets/img/results/r11_agentic_retrieval.png" alt="R11 检索策略网格（3 查询类型 × 5 策略）" loading="lazy"></div><figcaption><span class="ftag">Round3 · R11-R14</span>R11 检索策略网格（3 查询类型 × 5 策略）</figcaption></figure><figure class="fcard reveal show" data-g="r3" data-lb="assets/img/results/r12_exec_feedback.png"><div class="fimg"><img src="assets/img/results/r12_exec_feedback.png" alt="R12 执行反馈修复循环" loading="lazy"></div><figcaption><span class="ftag">Round3 · R11-R14</span>R12 执行反馈修复循环</figcaption></figure><figure class="fcard reveal show" data-g="r3" data-lb="assets/img/results/r13_self_evolution.png"><div class="fimg"><img src="assets/img/results/r13_self_evolution.png" alt="R13 真实进化循环（5 种子）" loading="lazy"></div><figcaption><span class="ftag">Round3 · R11-R14</span>R13 真实进化循环（5 种子）</figcaption></figure><figure class="fcard reveal show" data-g="r3" data-lb="assets/img/results/r14_forest.png"><div class="fimg"><img src="assets/img/results/r14_forest.png" alt="R14 跨实验显著性森林图" loading="lazy"></div><figcaption><span class="ftag">Round3 · R11-R14</span>R14 跨实验显著性森林图</figcaption></figure><figure class="fcard reveal show" data-g="r3" data-lb="assets/img/results/r14_radar.png"><div class="fimg"><img src="assets/img/results/r14_radar.png" alt="R14 能力雷达" loading="lazy"></div><figcaption><span class="ftag">Round3 · R11-R14</span>R14 能力雷达</figcaption></figure><figure class="fcard reveal show" data-g="r4" data-lb="assets/img/results/r15_judge_calibration.png"><div class="fimg"><img src="assets/img/results/r15_judge_calibration.png" alt="R15 LLM 自评校准（reliability diagram）" loading="lazy"></div><figcaption><span class="ftag">Round4 · R15-R17</span>R15 LLM 自评校准（reliability diagram）</figcaption></figure><figure class="fcard reveal show" data-g="r4" data-lb="assets/img/results/r16_rrf_grid.png"><div class="fimg"><img src="assets/img/results/r16_rrf_grid.png" alt="R16 RRF 融合设计空间（聚合×k 热力）" loading="lazy"></div><figcaption><span class="ftag">Round4 · R15-R17</span>R16 RRF 融合设计空间（聚合×k 热力）</figcaption></figure><figure class="fcard reveal show" data-g="r4" data-lb="assets/img/results/r17_fewshot.png"><div class="fimg"><img src="assets/img/results/r17_fewshot.png" alt="R17 few-shot 数量消融" loading="lazy"></div><figcaption><span class="ftag">Round4 · R15-R17</span>R17 few-shot 数量消融</figcaption></figure><figure class="fcard reveal show" data-g="r5" data-lb="assets/img/results/r18_pareto.png"><div class="fimg"><img src="assets/img/results/r18_pareto.png" alt="R18 全项目统一成本-质量 Pareto" loading="lazy"></div><figcaption><span class="ftag">Round5 · R18-R20</span>R18 全项目统一成本-质量 Pareto</figcaption></figure><figure class="fcard reveal show" data-g="r5" data-lb="assets/img/results/r19_scaling.png"><div class="fimg"><img src="assets/img/results/r19_scaling.png" alt="R19 检索规模扩展曲线" loading="lazy"></div><figcaption><span class="ftag">Round5 · R18-R20</span>R19 检索规模扩展曲线</figcaption></figure><figure class="fcard reveal show" data-g="r5" data-lb="assets/img/results/r20_embedding_quant.png"><div class="fimg"><img src="assets/img/results/r20_embedding_quant.png" alt="R20 嵌入量化×检索质量" loading="lazy"></div><figcaption><span class="ftag">Round5 · R18-R20</span>R20 嵌入量化×检索质量</figcaption></figure></div>
+</section>
+
+<section id="tables">
+<div class="shead"><span class="sno">10</span><h2>表格六件套</h2></div>
+<div class="rule"></div>
+<p class="slead">主表 / 消融 / 效率 / 显著性 / 校准设计空间 / 规模量化 —— 每张表同步输出 LaTeX（booktabs）、Markdown、300dpi PNG。</p>
+<div class="tbl"><div class="tbl-cap">Table 2. Component ablations: R11 retrieval components (nDCG@10 per query type: lexical / paraphrase / multi-aspect), R12 feedback arms (24 tasks), R13 selection operators (5 seeds).</div><table class="dt">
+<thead><tr><th>Exp</th><th>Component / Arm</th><th>Per-type or per-seed detail</th><th>Aggregate</th></tr></thead><tbody>
+<tr class="best"><td>R11</td><td>bm25</td><td>0.634 / 0.853 / 0.788</td><td>0.758</td></tr>
+<tr><td>R11</td><td>dense</td><td>0.074 / 0.957 / 0.746</td><td>0.592</td></tr>
+<tr><td>R11</td><td>hybrid_rrf</td><td>0.521 / 0.930 / 0.808</td><td>0.753</td></tr>
+<tr><td>R11</td><td>multi_query_rrf</td><td>0.101 / 0.859 / 0.920</td><td>0.626</td></tr>
+<tr><td>R11</td><td>iter2hop_rrf</td><td>0.058 / 0.947 / 0.741</td><td>0.582</td></tr>
+<tr><td>R12</td><td>blind</td><td>pass@1 75%</td><td>pass@4 88%</td></tr>
+<tr><td>R12</td><td>traceback</td><td>pass@1 71%</td><td>pass@4 96%</td></tr>
+<tr class="best"><td>R12</td><td>traceback_test</td><td>pass@1 75%</td><td>pass@4 96%</td></tr>
+<tr><td>R13</td><td>random_search</td><td>mean 0.862±0.001</td><td>best 0.863</td></tr>
+<tr><td>R13</td><td>greedy_es</td><td>mean 0.874±0.002</td><td>best 0.876</td></tr>
+<tr class="best"><td>R13</td><td>tournament_elite</td><td>mean 0.877±0.000</td><td>best 0.877</td></tr>
+</tbody></table></div>
+<div class="tbl"><div class="tbl-cap">Table 3. Efficiency matrix: throughput, latency, memory and quantization cost measured on RTX 4090 (24 GB).</div><table class="dt">
+<thead><tr><th>Exp</th><th>Setting</th><th>Metric</th><th>Value</th><th>Note</th></tr></thead><tbody>
+<tr><td>R10</td><td>Pipeline 总延迟</td><td>20.66 ms</td><td>ANN检索 20.2ms, 重排 0.2ms, LLM生成 0.1ms</td><td></td></tr>
+<tr><td>R6</td><td>量化速度 (dim1024_FP16)</td><td>FP16 vs 参考耗时</td><td>5.394 ms</td><td>INT8/FP16 全矩阵见 R6 图</td></tr>
+<tr><td>G4</td><td>GPU 采样加速</td><td>G=8→G=256</td><td>1.6×→13.3×</td><td></td></tr>
+<tr><td>R11</td><td>检索延迟/查询</td><td>最快→最慢</td><td>hybrid_rrf 0.03ms → iter2hop_rrf 22.4ms</td><td></td></tr>
+<tr><td>R2</td><td>弹性 KV 调度</td><td>可用 KV</td><td>8066 MB</td><td>4 策略实测</td></tr>
+</tbody></table></div>
+<div class="tbl"><div class="tbl-cap">Table 4. Statistical significance summary: 10,000-sample paired bootstrap, 10,000-permutation tests, exact McNemar, Welch t and Mann-Whitney U (hand-implemented, auditable).</div><table class="dt">
+<thead><tr><th>Exp</th><th>Comparison / Test</th><th>Statistic</th><th>95% CI / detail</th><th>p-value</th></tr></thead><tbody>
+<tr><td>R11</td><td>ΔMRR (paired bootstrap)</td><td>+0.096</td><td>[+0.017, +0.175]</td><td>0.058 (perm)</td></tr>
+<tr><td>R11</td><td>ΔMRR (paired bootstrap)</td><td>-0.034</td><td>[-0.074, +0.005]</td><td>0.537 (perm)</td></tr>
+<tr><td>R11</td><td>ΔMRR (paired bootstrap)</td><td>-0.013</td><td>[-0.030, -0.001]</td><td>0.817 (perm)</td></tr>
+<tr class="best"><td>R11</td><td>ΔMRR (paired bootstrap)</td><td>+0.137</td><td>[+0.080, +0.195]</td><td>0.006 (perm)</td></tr>
+<tr><td>R12</td><td>McNemar (blind vs fb+test)</td><td>2 vs 0</td><td>discordant pairs</td><td>0.500 (exact)</td></tr>
+<tr class="best"><td>R13</td><td>random_search vs greedy_es</td><td>Hedges g=-7.54</td><td>t(7.5)=-13.20</td><td>0.000 (Welch) / 0.009 (MW)</td></tr>
+<tr class="best"><td>R13</td><td>random_search vs tournament_elite</td><td>Hedges g=-13.77</td><td>t(5.2)=-24.11</td><td>0.000 (Welch) / 0.009 (MW)</td></tr>
+<tr class="best"><td>R13</td><td>greedy_es vs tournament_elite</td><td>Hedges g=-1.80</td><td>t(4.7)=-3.16</td><td>0.027 (Welch) / 0.009 (MW)</td></tr>
+<tr class="best"><td>E1</td><td>GRPO reward Δ (paired z)</td><td>+0.0755</td><td>—</td><td>0.0253</td></tr>
+</tbody></table></div>
+<div class="tbl"><div class="tbl-cap">Table 5. Round4: judge calibration (R15), RRF fusion design space (R16) and few-shot count ablation (R17).</div><table class="dt">
+<thead><tr><th>Exp</th><th>Comparison</th><th>Metric</th><th>Value</th><th>Note</th></tr></thead><tbody>
+<tr class="best"><td>R15</td><td>phi-2 自评 vs 沙箱真值</td><td>AUC</td><td>0.736</td><td>n=72</td></tr>
+<tr class="best"><td>R15</td><td>phi-2 自评校准误差</td><td>ECE (10 bins)</td><td>0.199</td><td>过度自信为主</td></tr>
+<tr><td>R15</td><td>硬判准确率 (conf>0.5)</td><td>accuracy</td><td>0.722</td><td></td></tr>
+<tr><td>R16</td><td>RRF 融合最优 (lexical)</td><td>sum 最优 k=10</td><td>nDCG@10 0.125</td><td>红框见热力图</td></tr>
+<tr><td>R16</td><td>RRF 融合最优 (paraphrase)</td><td>max（k 无关）</td><td>nDCG@10 0.830</td><td>红框见热力图</td></tr>
+<tr class="best"><td>R16</td><td>RRF 融合最优 (multi_aspect)</td><td>max（k 无关）</td><td>nDCG@10 0.949</td><td>红框见热力图</td></tr>
+<tr class="best"><td>R16</td><td>聚合策略对比 (multi_aspect, k=60)</td><td>sum vs max</td><td>0.519 vs 0.949</td><td>并集语义更优</td></tr>
+<tr class="best"><td>R17</td><td>few-shot 0→1→2</td><td>pass@2 (24 任务)</td><td>75.0% → 91.7% → 91.7%</td><td>边际集中在前 1 个示例</td></tr>
+</tbody></table></div>
+<div class="tbl"><div class="tbl-cap">Table 6. Round5: retrieval scaling (128 to full corpus, 60 fixed multi-aspect queries) and embedding weight quantization (76 matrices, per-channel symmetric).</div><table class="dt">
+<thead><tr><th>Exp</th><th>Setting</th><th>Method</th><th>nDCG@10 across scales / value</th><th>Note</th></tr></thead><tbody>
+<tr><td>R19</td><td>规模 128→1305</td><td>dense</td><td>0.868 → 0.838 → 0.798 → 0.748</td><td>退化 -13.8%</td></tr>
+<tr><td>R19</td><td>规模 128→1305</td><td>BM25</td><td>0.940 → 0.922 → 0.890 → 0.824</td><td>退化 -12.3%</td></tr>
+<tr class="best"><td>R19</td><td>规模 128→1305</td><td>multi-query max-RRF</td><td>0.989 → 0.983 → 0.974 → 0.958</td><td>退化 -3.1%</td></tr>
+<tr><td>R20</td><td>嵌入量化</td><td>FP16</td><td>nDCG 0.9779</td><td>基准</td></tr>
+<tr class="best"><td>R20</td><td>嵌入量化</td><td>INT8</td><td>nDCG 0.9775</td><td>-0.05% · 逐向量余弦 0.9996</td></tr>
+<tr><td>R20</td><td>嵌入量化</td><td>INT4</td><td>nDCG 0.9620</td><td>-1.63% · 逐向量余弦 0.9187</td></tr>
+</tbody></table></div>
+</section>
+</main>
+
+<footer>
+<b>方法学声明</b>
+<div class="meth">本文所有数字来自本机 RTX 4090 真实运行，零模拟、零编造。统计检验为手写实现（betainc 连分数 / 精确二项 / 正态近似含并列校正），透明可审计。
+复现命令：scripts/run_r11_r13.py → run_r14_stats.py → run_tables.py → build_results_page.py。</div>
+<div style="margin-top:14px">AgentAlpha · 实验证据中枢 · E + G + Round2(R) + Round3(R11-R14) + Round4(R15-R17) + Round5(R18-R20) · 2026-10-01</div>
+</footer>
+<script>
+// 滚动进度
+const prog=document.querySelector('.progress');
+addEventListener('scroll',()=>{const h=document.documentElement;
+prog.style.width=(h.scrollTop/(h.scrollHeight-h.clientHeight)*100)+'%'},{passive:true});
+// reveal
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
+const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
+const vh=innerHeight;
+document.querySelectorAll('.reveal').forEach((el,i)=>{
+if(reduced||el.getBoundingClientRect().top<vh*0.96){el.classList.add('in');return}
+el.style.transitionDelay=(i%4*70)+'ms';io.observe(el)});
+// 计数器
+function cnt(el){const t=parseFloat(el.dataset.v),dec=(el.dataset.d||0)|0;
+if(matchMedia('(prefers-reduced-motion: reduce)').matches){el.textContent=t.toFixed(dec);return}
+const dur=1400,st=performance.now();
+function f(n){const p=Math.min(1,(n-st)/dur),e=1-Math.pow(1-p,3);el.textContent=(t*e).toFixed(dec);
+if(p<1)requestAnimationFrame(f)}requestAnimationFrame(f)}
+const io2=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){cnt(e.target);io2.unobserve(e.target)}}),{threshold:.5});
+document.querySelectorAll('[data-v]').forEach(el=>io2.observe(el));
+// 图库 tab
+document.querySelectorAll('.tab').forEach(t=>t.addEventListener('click',()=>{
+document.querySelectorAll('.tab').forEach(x=>x.classList.remove('on'));t.classList.add('on');
+const f=t.dataset.f;document.querySelectorAll('.gal .fcard').forEach(c=>{
+c.classList.toggle('show',f==='all'||c.dataset.g===f)})}));
+// lightbox
+const lb=document.createElement('div');lb.className='lb';lb.innerHTML='<span class=x>✕</span><img>';
+document.body.appendChild(lb);
+lb.addEventListener('click',()=>lb.classList.remove('open'));
+document.querySelectorAll('[data-lb]').forEach(c=>c.addEventListener('click',()=>{
+lb.querySelector('img').src=c.dataset.lb;lb.classList.add('open')}));
+// 顶栏高亮
+const secs=[...document.querySelectorAll('section[id]')];
+const io3=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){
+document.querySelectorAll('.topnav a').forEach(a=>a.classList.toggle('on',a.getAttribute('href')==='#'+e.target.id))}})},{rootMargin:'-30% 0px -60% 0px'});
+secs.forEach(s=>io3.observe(s));
+</script>
+</body></html>
