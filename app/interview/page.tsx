@@ -289,6 +289,10 @@ function Drill() {
         ))}
       </div>
       <div className="ivt-drill-entries">
+        <Link href="/interview/best" className="ivt-drill-entry">
+          <b>高频合集 · 速记版</b>
+          <span>Agent 60 问 / RAG 50 问 / 大模型八股 60 问 / MCP 20 问——同页给全答案</span>
+        </Link>
         <Link href="/interview/qa" className="ivt-drill-entry">
           <b>速答题库 · {all.length} 题</b>
           <span>一题一页，先这样答 → 追问 → 坑（含 AI 产品经理面试题）</span>

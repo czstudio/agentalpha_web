@@ -2411,3 +2411,24 @@ a.ivq-row-go--ext:hover { text-decoration: underline; text-underline-offset: 3px
 .ivq-road-note a { color: rgb(110, 34, 240); }
 .learn-note { margin: 0 0 12px; font-size: 13.5px; color: #8a8a94; }
 .learn-note a { color: rgb(110, 34, 240); }
+
+/* ── 宽泛词聚合大页 ───────────────────────────── */
+.best-toc { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+.best-toc a { padding: 5px 13px; border: 1px solid var(--line); border-radius: 999px; font-size: 13px; color: var(--ink); text-decoration: none; }
+.best-toc a:hover { border-color: rgb(110, 34, 240); color: rgb(110, 34, 240); }
+.best-sec { margin-top: 36px; }
+.best-sec-title { font-size: 20px; font-weight: 700; color: var(--ink); margin: 0 0 16px; padding-bottom: 10px; border-bottom: 2px solid rgb(110, 34, 240); }
+.best-qlist { list-style: none; margin: 0; padding: 0; display: grid; gap: 14px; }
+.best-q { padding: 16px 18px; border: 1px solid var(--line); border-radius: 12px; background: var(--card, transparent); }
+.best-q-head { display: flex; gap: 10px; align-items: baseline; }
+.best-q-no { flex: none; font-size: 13px; font-weight: 700; color: rgb(110, 34, 240); }
+.best-q-title { margin: 0; font-size: 15.5px; font-weight: 700; color: var(--ink); line-height: 1.55; }
+.best-q-a { margin: 8px 0 0; font-size: 14px; color: #5c5c66; line-height: 1.8; }
+.best-q-links { display: flex; align-items: center; gap: 10px; margin-top: 10px; font-size: 13px; }
+.best-q-links a { color: rgb(110, 34, 240); text-decoration: none; }
+.best-q-links a:hover { text-decoration: underline; }
+.best-terms { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 10px; }
+.best-term { display: flex; flex-direction: column; gap: 4px; padding: 12px 14px; border: 1px solid var(--line); border-radius: 10px; text-decoration: none; }
+.best-term:hover { border-color: rgb(110, 34, 240); }
+.best-term b { font-size: 14px; color: var(--ink); }
+.best-term span { font-size: 12.5px; color: #8a8a94; line-height: 1.6; }
