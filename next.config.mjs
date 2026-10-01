@@ -6,6 +6,12 @@ const nextConfig = {
   // 2918+ 静态页的大站：单页生成（KaTeX + 全文 markdown）在资源紧张时
   // 会超过默认 60s（本机多会话并行 build / Vercel 共享构建机都会遇到），放宽到 300s。
   staticPageGenerationTimeout: 300,
+  async redirects() {
+    return [
+      // /projects（无尾斜杠）301 到 /projects/——保证页内相对链接基准正确（双保险，页面已全量绝对化）
+      { source: "/projects", destination: "/projects/", permanent: false },
+    ];
+  },
   async rewrites() {
     return [
       {
