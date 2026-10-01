@@ -2,6 +2,7 @@ import type { Metadata } from "next"
 import Link from "next/link"
 import { MessagesSquare } from "lucide-react"
 import { Navigation } from "@/components/navigation"
+import { ToolsGuide } from "@/components/tools/tools-guide"
 import { MockClient } from "@/components/tools/mock-client"
 import { getAllQa } from "@/lib/qa"
 import "../tools.css"
@@ -76,7 +77,9 @@ export default function MockInterviewPage() {
             </Link>
           </div>
         </section>
-              <ToolsFaq slug="mock-interview" />
+        <ToolsGuide slug="mock-interview" />
+
+        <ToolsFaq slug="mock-interview" />
       </main>
     </>
   )

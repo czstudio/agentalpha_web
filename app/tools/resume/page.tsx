@@ -2,6 +2,7 @@ import type { Metadata } from "next"
 import Link from "next/link"
 import { ClipboardCheck } from "lucide-react"
 import { Navigation } from "@/components/navigation"
+import { ToolsGuide } from "@/components/tools/tools-guide"
 import { ResumeClient } from "@/components/tools/resume-client"
 import "../tools.css"
 import "./resume.css"
@@ -54,7 +55,9 @@ export default function ResumeToolPage() {
             <Link href="/mianjing">真实面经</Link>
           </div>
         </section>
-              <ToolsFaq slug="resume" />
+        <ToolsGuide slug="resume" />
+
+        <ToolsFaq slug="resume" />
       </main>
     </>
   )

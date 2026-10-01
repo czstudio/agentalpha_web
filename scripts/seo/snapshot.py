@@ -67,6 +67,13 @@ def structure_signals(base: str) -> dict:
         mj_entry = 1 if "免费求职工具箱" in detail else 0
     ai_bots = {b: (f"User-Agent: {b}" in robots and "Allow: /" in robots) for b in
                ["GPTBot", "OAI-SearchBot", "ClaudeBot", "PerplexityBot", "Google-Extended", "Bytespider"]}
+    # JD 样板页数量(首页 /jd 列出的拆解卡)+ 指南渲染
+    jd_list = curl(f"{base}/jd")
+    jd_count = len(set(re.findall(r'href="(/jd/[a-z0-9-]+/[a-z0-9-]+)"', jd_list)))
+    guides = {}
+    for slug in ("resume-builder", "jd-analyzer", "resume", "mock-interview"):
+        th = curl(f"{base}/tools/{slug}")
+        guides[slug] = "怎么用" in th
     return {
         "home_tools_cards": len(re.findall(r'class="aa-tool-card"', home)),
         "home_tools_keywords": all(k in home for k in ["免费", "无需注册", "导出 PDF"]),
@@ -74,6 +81,8 @@ def structure_signals(base: str) -> dict:
         "llms_full_toolbox_block": "免费求职工具箱" in llms_full,
         "llms_full_tool_count": llms_full.count("（免费在线工具）"),
         "mianjing_detail_tool_entry": mj_entry,
+        "jd_page_count": jd_count,
+        "tool_guides_rendered": guides,
         "robots_ai_bots_allowed": ai_bots,
     }
 
@@ -118,6 +127,7 @@ def main():
     print(f"工具页 title 关键词: {titles_ok}/{len(snap['pages'])}")
     print(f"首页工具卡: {snap['structure']['home_tools_cards']} | llms-full 工具节: {snap['structure']['llms_full_tool_count']}")
     print(f"面经详情入口: {snap['structure']['mianjing_detail_tool_entry']}")
+    print(f"JD 样板页: {snap['structure']['jd_page_count']} | 工具指南: {sum(1 for v in snap['structure']['tool_guides_rendered'].values() if v)}/4")
     print(f"AI 爬虫放行: {sum(1 for v in snap['structure']['robots_ai_bots_allowed'].values() if v)}/6")
 
 

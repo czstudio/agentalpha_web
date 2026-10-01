@@ -987,3 +987,13 @@
 .rb-ai-orig { margin: 0 0 6px; font-size: 13px; color: var(--tk-ink-3); text-decoration: line-through; text-decoration-color: rgba(179, 38, 30, 0.4); line-height: 1.6; }
 .rb-ai-new { margin: 0 0 4px; font-size: 13.5px; color: var(--tk-ink); line-height: 1.7; font-weight: 600; }
 .rb-file-label { cursor: pointer; display: inline-flex; align-items: center; }
+
+/* ── 工具页长文使用指南(SEO 长尾承接,SSR 渲染) ── */
+.tk-guide { border: 1px solid var(--tk-line); border-radius: 14px; background: #fff; padding: 22px 24px; }
+.tk-guide h2 { margin: 0 0 8px; font-size: 19px; line-height: 1.5; }
+.tk-guide-lead { color: var(--tk-ink-2); line-height: 1.8; margin: 0 0 6px; }
+.tk-guide-sec { margin-top: 16px; }
+.tk-guide-sec h3 { margin: 0 0 6px; font-size: 15px; color: var(--tk-ink); }
+.tk-guide-sec p { margin: 0 0 8px; font-size: 14px; color: var(--tk-ink-2); line-height: 1.85; }
+.tk-guide .tg-link { color: var(--tk-brand-ink); text-decoration: none; border-bottom: 1px solid rgba(var(--tk-brand-rgb), 0.35); }
+.tk-guide .tg-link:hover { color: var(--tk-brand); border-bottom-color: var(--tk-brand); }
