@@ -67,7 +67,7 @@ export default function GlossaryHubPage() {
         <p className="ivc-hero-kicker">术语速查 · GLOSSARY</p>
         <h1 className="ivc-hero-title">AI Agent 术语表</h1>
         <p className="ivc-hero-sub">
-          {all.length} 个面试绕不开的术语，每个给一句话定义、机制展开和常见考法。题目里第一次出现的术语都链到这里，答名词解释题直接照结构说。
+          {all.length} 个面试术语，每页含一句话定义、机制展开、面试考法与追问链。题目里出现的术语都链到这里，5 分钟查漏一个概念。
         </p>
         <div className="ivq-hero-actions">
           <Link className="ivq-hero-btn" href="/interview/qa">

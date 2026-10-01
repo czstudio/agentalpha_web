@@ -2388,3 +2388,26 @@ details.ivq-cat:not([open]) { padding-bottom: 2px; }
 }
 .ivq-row-go--ext { color: var(--brand-deep, #4c15ac); font-weight: 600; }
 a.ivq-row-go--ext:hover { text-decoration: underline; text-underline-offset: 3px; }
+
+/* ── IA 收敛：刷题区入口行 / 字典卡 / 章一行卡 ───── */
+.ivt-drill-entries { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 12px; margin-top: 18px; }
+.ivt-drill-entry { display: flex; flex-direction: column; gap: 6px; padding: 16px 18px; border: 1px solid var(--line); border-radius: 12px; text-decoration: none; transition: border-color .15s ease; }
+.ivt-drill-entry:hover { border-color: rgb(110, 34, 240); }
+.ivt-drill-entry b { font-size: 15px; color: var(--ink); }
+.ivt-drill-entry:hover b { color: rgb(110, 34, 240); }
+.ivt-drill-entry span { font-size: 13px; color: #5c5c66; line-height: 1.6; }
+.ivt-refgrid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 12px; margin-top: 14px; }
+.ivt-refcard { display: flex; flex-direction: column; gap: 6px; padding: 16px 18px; border: 1px solid var(--line); border-radius: 12px; text-decoration: none; transition: border-color .15s ease; }
+.ivt-refcard:hover { border-color: rgb(110, 34, 240); }
+.ivt-refcard b { font-size: 15px; color: var(--ink); }
+.ivt-refcard:hover b { color: rgb(110, 34, 240); }
+.ivt-refcard span { font-size: 13px; color: #5c5c66; line-height: 1.6; }
+.ivt-facchips { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin: 16px 0 0; font-size: 13px; color: #8a8a94; }
+.ivt-facchips a { text-decoration: none; }
+.ivt-updline-link { color: rgb(110, 34, 240); margin-left: auto; }
+.ivt-ch-oneline .ivc-ch-head { flex-wrap: wrap; gap: 10px; }
+.ivt-ch-oneline .ivc-ch-count { font-size: 12.5px; color: #8a8a94; }
+.ivq-road-note { margin: 10px 0 0; font-size: 13.5px; color: #8a8a94; line-height: 1.7; }
+.ivq-road-note a { color: rgb(110, 34, 240); }
+.learn-note { margin: 0 0 12px; font-size: 13.5px; color: #8a8a94; }
+.learn-note a { color: rgb(110, 34, 240); }
