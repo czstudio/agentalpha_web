@@ -1,6 +1,7 @@
 "use client"
 
 import { useMemo, useState } from "react"
+import { radioChipKeyDown } from "@/hooks/use-radio-chips"
 import { downloadWord, escHtml } from "@/lib/tools/report-doc"
 import Link from "next/link"
 import {
@@ -152,6 +153,7 @@ export function GapClient({ qaList }: { qaList: QaLite[] }) {
               aria-checked={f.slug === familySlug}
               className={`tk-chip ${f.slug === familySlug ? "tk-chip-on" : ""}`}
               onClick={() => setFamilySlug(f.slug)}
+              onKeyDown={(e) => radioChipKeyDown(e, GAP_FAMILIES.map((x) => x.slug), familySlug, setFamilySlug)}
             >
               {f.name}
             </button>
@@ -176,6 +178,7 @@ export function GapClient({ qaList }: { qaList: QaLite[] }) {
                     aria-checked={self[d.key] === i}
                     className={`gap-lv ${self[d.key] === i ? "gap-lv-on" : ""}`}
                     onClick={() => setSelfLevel(d.key, i)}
+                    onKeyDown={(e) => radioChipKeyDown(e, d.levels.map((_, di) => String(di)), String(self[d.key]), (v) => setSelfLevel(d.key, Number(v)))}
                   >
                     {lv}
                   </button>

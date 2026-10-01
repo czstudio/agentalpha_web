@@ -3,6 +3,7 @@ import { LayoutList } from "lucide-react"
 import { Navigation } from "@/components/navigation"
 import { TrackerClient } from "@/components/tools/tracker-client"
 import "../tools.css"
+import { ToolsGuide } from "@/components/tools/tools-guide"
 import { ToolsFaq } from "@/components/tools/tools-faq"
 
 const SITE = "https://agentalpha.top"
@@ -42,7 +43,10 @@ export default function ApplicationTrackerPage() {
         </header>
 
         <TrackerClient />
-              <ToolsFaq slug="application-tracker" />
+
+        <ToolsGuide slug="application-tracker" />
+
+        <ToolsFaq slug="application-tracker" />
       </main>
     </>
   )
