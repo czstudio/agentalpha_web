@@ -5,11 +5,11 @@ import { ROADMAPS, roadmapQaCount } from "@/lib/roadmap"
 const SITE = "https://agentalpha.top"
 
 export const metadata: Metadata = {
-  title: "AI Agent 求职学习路线（Agent 开发 / RAG 工程 / LLM 应用 / AI Infra）",
+  title: "求职路线（Agent 开发 / RAG 工程 / LLM 应用 / AI Infra）· 主线课程的岗位读法",
   description:
-    "四条学习路线把 12 章专栏、分类题库、术语表与项目卡组装成方向化刷题路径：Agent 应用开发、RAG 工程师、LLM 应用开发、AI Infra。每条路线给章节顺序、题目范围与岗位画像，按方向准备面试少走弯路。",
+    "四条求职路线是主线课程（12 章）的岗位侧重读法：每条给章节先读哪些、题目范围与岗位画像。学还是跟主线课程走，路线只管你的岗位侧重。",
   keywords: [
-    "AI Agent 学习路线",
+    "AI Agent 求职路线",
     "大模型面试准备",
     "RAG 工程师路线",
     "AI Infra 学习",
@@ -23,12 +23,12 @@ export default function RoadmapIndexPage() {
   const itemListLd = {
     "@context": "https://schema.org",
     "@type": "ItemList",
-    name: "AI Agent 求职学习路线",
+    name: "AI Agent 求职路线",
     numberOfItems: ROADMAPS.length,
     itemListElement: ROADMAPS.map((r, i) => ({
       "@type": "ListItem",
       position: i + 1,
-      name: `${r.name}学习路线`,
+      name: `${r.name}求职路线`,
       url: `${SITE}/roadmap/${r.slug}`,
     })),
   }
@@ -38,7 +38,7 @@ export default function RoadmapIndexPage() {
     itemListElement: [
       { "@type": "ListItem", position: 1, name: "首页", item: SITE },
       { "@type": "ListItem", position: 2, name: "面试间", item: `${SITE}/interview` },
-      { "@type": "ListItem", position: 3, name: "学习路线", item: `${SITE}/roadmap` },
+      { "@type": "ListItem", position: 3, name: "求职路线", item: `${SITE}/roadmap` },
     ],
   }
 
@@ -53,21 +53,21 @@ export default function RoadmapIndexPage() {
           <span className="sep">/</span>
           <Link href="/interview">面试间</Link>
           <span className="sep">/</span>
-          <span className="cur">学习路线</span>
+          <span className="cur">求职路线</span>
         </nav>
       </div>
 
       <header className="ivu-wide ivc-hero ivq-hero">
-        <p className="ivc-hero-kicker">按方向刷 · ROADMAP</p>
-        <h1 className="ivc-hero-title">AI Agent 求职学习路线</h1>
+        <p className="ivc-hero-kicker">求职路线 · CAREER ROUTES</p>
+        <h1 className="ivc-hero-title">求职路线</h1>
         <p className="ivc-hero-sub">
-          同一套题库，四个方向四种走法。每条路线给章节顺序、题目范围、术语与项目卡，先确认方向再刷题，比从第一页刷到最后少花一半时间。
+          这是主线课程（12 章）的岗位侧重读法：每条路线告诉你先读哪几章、跳过哪章、补刷哪些题。学习本身跟主线课程走，路线只管你的岗位侧重。
         </p>
         <div className="ivq-hero-actions">
-          <Link className="ivq-hero-btn" href="/interview/qa">
-            不挑方向，直接刷全部题库
+          <Link className="ivq-hero-btn" href="/interview#chapters">
+            回主线课程
           </Link>
-          <span className="ivq-hero-btnnote">方向路线只是排序，不是围墙</span>
+          <span className="ivq-hero-btnnote">路线 = 主线的岗位读法，不是另一套课</span>
         </div>
       </header>
 

@@ -31,9 +31,9 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   if (!r) return {}
   const description = `${r.name}方向的学习路线：${r.tagline} 按章节顺序组织专栏、题库、术语与项目卡，面向${r.roles.join("、")}岗位。`
   return {
-    title: `${r.name}学习路线（章节顺序 + 题目范围 + 岗位画像）`,
+    title: `${r.name}求职路线（主线课程的岗位读法）`,
     description: description.slice(0, 160),
-    keywords: [`${r.name} 学习路线`, ...r.roles, "大模型面试", "AI Agent 面试"],
+    keywords: [`${r.name} 求职路线`, ...r.roles, "大模型面试", "AI Agent 面试"],
     alternates: { canonical: `/roadmap/${r.slug}` },
     openGraph: { title: `${r.name}学习路线`, description: r.tagline },
   }
@@ -74,7 +74,7 @@ export default async function RoadmapDetailPage({ params }: PageProps) {
           <span className="sep">/</span>
           <Link href="/roadmap">学习路线</Link>
           <span className="sep">/</span>
-          <span className="cur">{r.name}</span>
+          <span className="cur">{r.name}路线</span>
         </nav>
       </div>
 
@@ -87,8 +87,9 @@ export default async function RoadmapDetailPage({ params }: PageProps) {
           ))}
           <span>{roadmapQaCount(r)} 道速答题在范围内</span>
         </div>
-        <h1 className="ivu-h1">{r.name}学习路线</h1>
+        <h1 className="ivu-h1">{r.name}求职路线</h1>
         <p className="ivq-road-tagline">{r.tagline}</p>
+        <p className="ivq-road-note">这是主线课程（12 章）的岗位侧重顺序：先读指定章、跳过非重点章、补刷对应题单。要完整学还是回<Link href="/interview#chapters">主线课程</Link>。</p>
       </header>
 
       <div className="ivu-measure">
@@ -96,7 +97,7 @@ export default async function RoadmapDetailPage({ params }: PageProps) {
           {lead ? <ReactMarkdown remarkPlugins={[remarkGfm]}>{lead}</ReactMarkdown> : null}
 
           <section className="road-sec">
-            <h2 className="road-sec-t">章节路线</h2>
+            <h2 className="road-sec-t">本章读法（章节顺序）</h2>
             <ol className="road-steps">
               {chapters.map((c, i) => (
                 <li key={c.no} className="road-step">

@@ -8,8 +8,8 @@ import {
   hasCover,
 } from "@/lib/interview"
 import { InterviewRow } from "@/components/interview/interview-row"
-import { CategoryCard } from "@/components/interview/category-card"
 import { getCategoryLearnData, GROUP_TO_CATS } from "@/lib/learn-path"
+import { CHAPTERS } from "@/lib/column"
 import { getAllGlossary } from "@/lib/glossary"
 import fs from "node:fs"
 import path from "node:path"
@@ -74,11 +74,10 @@ export default async function CategoryPage({ params }: PageProps) {
   const teachHidden = teach.length - teachShown.length
   const tkShown = tkPosts.length > 36 ? tkPosts.slice(0, 36) : tkPosts
   const tkHidden = tkPosts.length - tkShown.length
-  const other = all.filter((item) => item.cat !== cat && item.count > 0)
-  const total = all.reduce((sum, item) => sum + item.count, 0)
 
   // 教程化学习路径数据：术语 → 速答题 → 深挖 → 实战
   const learn = getCategoryLearnData(cat)
+  const homeChapter = CHAPTERS.find((c) => c.cats.includes(cat))
   const catDiagram = categoryDiagram(cat)
 
   const breadcrumbLd = {
@@ -152,7 +151,7 @@ export default async function CategoryPage({ params }: PageProps) {
 
         {/* ── 系统学习路径：一个分类一站学完 ── */}
         <div className="ivu-sec">
-          <h2 className="ivu-sec-t">系统学习路径</h2>
+          <h2 className="ivu-sec-t">本方向读法</h2>
           <p className="ivu-sec-sub">LEARN PATH</p>
         </div>
         {catDiagram ? (
@@ -162,6 +161,11 @@ export default async function CategoryPage({ params }: PageProps) {
           </figure>
         ) : null}
 
+        <p className="learn-note">
+          本方向的取用顺序。要完整系统学，去
+          <Link href="/interview#chapters">主线课程第 {homeChapter?.no ?? 1} 章「{homeChapter?.name}」</Link>
+          （本方向归属章）。
+        </p>
         <div className="learn-steps">
           <div className="learn-step">
             <span className="learn-step-no">1</span>
@@ -191,7 +195,8 @@ export default async function CategoryPage({ params }: PageProps) {
             <div className="learn-step-body">
               <p className="learn-step-t">刷透高频题</p>
               <p className="learn-step-d">
-                {learn.qa.length} 道速答题，每题一页：先这样答 → 面试官追问 → 回答的坑。往下就是完整题单。
+                {learn.qa.length} 道速答题，每题一页：先这样答 → 面试官追问 → 回答的坑。下方题单收前 8 道，
+                <Link href={`/interview/category/${cat}/all`}>全部进分页列表</Link>。
               </p>
             </div>
           </div>
@@ -233,7 +238,7 @@ export default async function CategoryPage({ params }: PageProps) {
               <p className="ivu-sec-sub">共 {learn.qa.length} 道</p>
             </div>
             <div className="ivq-rows">
-              {learn.qa.map((item) => (
+              {learn.qa.slice(0, 8).map((item) => (
                 <div className="ivq-row" key={item.slug}>
                   <Link className="ivq-row-main" href={`/interview/qa/${item.slug}`}>
                     <span className="ivq-row-q">Q · {item.question}</span>
@@ -318,24 +323,10 @@ export default async function CategoryPage({ params }: PageProps) {
             <p>
               这个分类还在施工中（规划 {category.planned} 篇）。先去
               <Link href="/interview"> 面试间 </Link>
-              看已上线的 {total} 篇。
+              看已上线的全部题目。
             </p>
           </div>
         )}
-
-        {other.length ? (
-          <>
-            <div className="ivu-sec">
-              <h2 className="ivu-sec-t">其他分类</h2>
-              <p className="ivu-sec-sub">{other.length} 个</p>
-            </div>
-            <div className="ivu-catgrid">
-              {other.map((item) => (
-                <CategoryCard key={item.cat} category={item} />
-              ))}
-            </div>
-          </>
-        ) : null}
 
         <div style={{ maxWidth: "var(--measure)", margin: "0 auto" }}>
           <div className="ivu-cta">
