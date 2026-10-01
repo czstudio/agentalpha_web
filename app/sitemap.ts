@@ -6,6 +6,7 @@ import { getAllQa } from "@/lib/qa"
 import { getAllArticles } from "@/lib/articles"
 import { getMianjingList } from "@/lib/mianjing"
 import { getAllGlossary } from "@/lib/glossary"
+import { BEST_PAGES } from "@/lib/best-pages"
 import { COMPANIES, getQaByCompany } from "@/lib/companies"
 import { TRACKS, getQaByTrack } from "@/lib/tracks"
 import { ROADMAPS } from "@/lib/roadmap"
@@ -116,6 +117,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: new Date(),
       changeFrequency: "weekly",
       priority: 0.85,
+    },
+    ...BEST_PAGES.map((b) => ({
+      url: `https://agentalpha.top/interview/best/${b.slug}`,
+      lastModified: new Date(),
+      changeFrequency: "daily" as const,
+      priority: 0.95,
+    })),
+    {
+      url: "https://agentalpha.top/interview/best",
+      lastModified: new Date(),
+      changeFrequency: "weekly",
+      priority: 0.9,
     },
     {
       url: "https://agentalpha.top/interview/jingchang",
