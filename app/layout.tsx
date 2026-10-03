@@ -164,7 +164,7 @@ export default function RootLayout({
         />
         <div id="chunk-fail-banner" style={{ display: "none", position: "fixed", left: 12, right: 12, bottom: 12, zIndex: 9999, justifyContent: "center" }}>
           <div style={{ background: "#26211a", color: "#faf6ef", borderRadius: 12, padding: "10px 18px", fontSize: 14, boxShadow: "0 8px 24px rgba(0,0,0,0.25)" }}>
-            页面资源加载失败,可能是站点刚发布了新版本——
+            页面资源加载失败,可能是站点刚发布了新版本，
             <a href="javascript:location.reload()" style={{ color: "#f2b48c", fontWeight: 600 }}>
               点击刷新
             </a>
