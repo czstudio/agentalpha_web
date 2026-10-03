@@ -6,6 +6,24 @@ const nextConfig = {
   // 2918+ 静态页的大站：单页生成（KaTeX + 全文 markdown）在资源紧张时
   // 会超过默认 60s（本机多会话并行 build / Vercel 共享构建机都会遇到），放宽到 300s。
   staticPageGenerationTimeout: 300,
+    async redirects() {
+      return [
+        // 根路径旧版页面地址永久重定向（修复旧缓存/书签/搜索引擎收录的根路径 404）
+      { source: "/m1-rag.html", destination: "/projects/m1-rag.html", permanent: true },
+      { source: "/m2-memory.html", destination: "/projects/m2-memory.html", permanent: true },
+      { source: "/m3-agent.html", destination: "/projects/m3-agent.html", permanent: true },
+      { source: "/m4-multiagent.html", destination: "/projects/m4-multiagent.html", permanent: true },
+      { source: "/m5-deepsearch.html", destination: "/projects/m5-deepsearch.html", permanent: true },
+      { source: "/m6-inference.html", destination: "/projects/m6-inference.html", permanent: true },
+      { source: "/m7-codeagent.html", destination: "/projects/m7-codeagent.html", permanent: true },
+      { source: "/m8-selfevolve.html", destination: "/projects/m8-selfevolve.html", permanent: true },
+      { source: "/m9-agentic-rl.html", destination: "/projects/m9-agentic-rl.html", permanent: true },
+      { source: "/m10-capstone.html", destination: "/projects/m10-capstone.html", permanent: true },
+      { source: "/stories.html", destination: "/projects/stories.html", permanent: true },
+      { source: "/results.html", destination: "/projects/results.html", permanent: true },
+      { source: "/playground.html", destination: "/projects/playground.html", permanent: true },
+      ];
+    },
   async rewrites() {
     return [
       {
