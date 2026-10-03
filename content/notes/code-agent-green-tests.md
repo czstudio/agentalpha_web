@@ -80,7 +80,7 @@ minutes: 11
 ![SWE-bench 原论文的数据收集与评测样本构造](/images/notes/evidence/swe-bench/figure-2-collection.svg)
 *论文图：SWE-bench: Can Language Models Resolve Real-world GitHub Issues? Figure 2；[原文](https://arxiv.org/abs/2310.06770)。*
 
-![SWE-agent 原论文的仓库级软件工程 Agent 总览](/images/notes/evidence/swe-agent/figure-1-overview.png)
+![SWE-agent 原论文的仓库级软件工程 Agent 总览](/images/notes/evidence/swe-agent/figure-1-overview.webp)
 *论文图：SWE-agent: Agent-Computer Interfaces Enable Automated Software Engineering Figure 1；[原文](https://arxiv.org/abs/2405.15793)。*
 
 这张验证栈可以直接变成 Agent 的停止检查：底层命令没真正执行，上层的断言再漂亮也没有意义；局部单测通过，仍要问组合协议、静态约束和业务不变量有没有证据。每一层都应该返回自己的状态，而不是把所有结果压成一个绿色布尔值。

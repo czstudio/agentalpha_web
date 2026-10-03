@@ -103,7 +103,7 @@ SIABench 的另一个测试集（TII-SRC-23，50 真 50 假）把这事看得更
 
 升级侧的兜底逻辑可以用结构写死。CORTEX 是 George Mason 大学和 Fluency Security 合作做的多智能体研判架构，行为分析 Agent 把告警路由进不同工作流，证据收集 Agent 去外部系统查证，推理 Agent 汇总，最后用一个「任何一路证据可疑就升级」的保守规则出结论。在它那个评测上，单智能体工具调用基线的 actionable F1 是 0.66，误报率 24.9%，CORTEX 做到 F1 0.78、误报率 14.2%，代价是更多的协调开销，仍然压在每张工单 3 分钟的处置时限内。方向很清楚，用结构换召回，用路由换精确，两个数同时改善的路径存在，但每一条都要拿评测数字说话。
 
-![](/images/articles/jd-security-agent-soc-alert-triage-eval/fig04.png)
+![](/images/articles/jd-security-agent-soc-alert-triage-eval/fig04.webp)
 
 图：CORTEX 的四阶段研判流水线（告警经编排、行为分析、按工作流收集证据、推理协调四个阶段，输出升级或四类不升级判定，任一路升级即整体升级）
 
@@ -129,7 +129,7 @@ SIABench 的另一个测试集（TII-SRC-23，50 真 50 假）把这事看得更
 
 换模型必回归。回到开头那个坑，为什么不同模型偏的方向差那么多，因为阈值行为、指令跟随、长度偏好都变了，模型一换等于工作点自己漂移。改 prompt、换模型、加工具，评测全量重跑，这个数字就是发布门禁，这和上篇讲授权层「当攻击面测」是同一层纪律。
 
-![](/images/articles/jd-security-agent-soc-alert-triage-eval/fig07.png)
+![](/images/articles/jd-security-agent-soc-alert-triage-eval/fig07.webp)
 
 图：SIABench 的模型一致性分析（各模型在不同任务类别与难度下的准确率分布，难度上升后模型间差距和方差同步放大，分数不能外推）
 

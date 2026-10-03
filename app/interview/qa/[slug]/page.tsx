@@ -2,6 +2,7 @@ import type { Metadata } from "next"
 import Link from "next/link"
 import { notFound } from "next/navigation"
 import ReactMarkdown from "react-markdown"
+import { MarkdownImg } from "@/components/markdown-img"
 import remarkGfm from "remark-gfm"
 import type { Components } from "react-markdown"
 import { getAllQa, getQa, getRelatedQa, qaPlainBody } from "@/lib/qa"
@@ -48,6 +49,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 function createQaComponents(): Components {
   let h2Cursor = 0
   return {
+    img: MarkdownImg,
     h2({ children, ...props }) {
       const no = String(++h2Cursor).padStart(2, "0")
       return (

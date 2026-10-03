@@ -64,7 +64,7 @@ claude
 - **范围**：先调查，不立即修改；
 - **限制**：哪些现有行为不能改变。
 
-![一个可执行任务由现象、目标、范围和限制组成](/images/learn/claude-code/01-foundations/03-prompt-anatomy.png)
+![一个可执行任务由现象、目标、范围和限制组成](/images/learn/claude-code/01-foundations/03-prompt-anatomy.webp)
 
 *图 2：任务越具体，Claude Code 越容易知道从哪里开始，也越容易知道何时停下。*
 
@@ -182,7 +182,7 @@ Received: 登录失败
 
 Claude Code 有权限控制。只读调查通常风险较低；修改文件、运行某些命令时，界面可能要求确认；涉及更高风险的操作，你更应该先看清命令和影响范围。
 
-![不同动作需要不同程度的确认](/images/learn/claude-code/01-foundations/04-permission-stop.png)
+![不同动作需要不同程度的确认](/images/learn/claude-code/01-foundations/04-permission-stop.webp)
 
 *图 4：是否需要确认，取决于动作会改变什么，而不是对话进行到第几步。*
 
@@ -206,7 +206,7 @@ Claude Code 有权限控制。只读调查通常风险较低；修改文件、�
 
 测试回答另一个问题：“项目运行后，期望的行为真的出现了吗？”一个修改可能看起来合理，却因为变量取错、边界条件遗漏而无法工作。
 
-![代码差异和测试结果检查不同问题](/images/learn/claude-code/01-foundations/05-two-checks.png)
+![代码差异和测试结果检查不同问题](/images/learn/claude-code/01-foundations/05-two-checks.webp)
 
 *图 5：diff 检查修改范围，测试检查运行结果；两者不能互相替代。*
 

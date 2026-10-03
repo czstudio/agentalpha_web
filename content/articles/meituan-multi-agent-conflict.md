@@ -30,13 +30,13 @@ source: "https://mp.weixin.qq.com/s"
 
 【顿悟时刻】这一问下来才发现，多智能体面试的考点根本不是「会不会搭」，而是**「该不该拆」和「拆了之后错误怎么管」**。架构图画得越漂亮，答不上这两个问题就越难看——因为那是演示思维，不是生产思维。
 
-![](/images/articles/meituan-multi-agent-conflict/fig01.png)
+![](/images/articles/meituan-multi-agent-conflict/fig01.webp)
 
 💡 简要回答
 
 **一句话总结：Multi-Agent 不是「人多力量大」，而是用通信成本、错误传播链和调试复杂度，去换并行广度和上下文隔离——先证明「单 Agent + 好工具」不够，再谈拆分。**
 
-![](/images/articles/meituan-multi-agent-conflict/fig02.png)
+![](/images/articles/meituan-multi-agent-conflict/fig02.webp)
 
 三个必须答到的认知：
 
@@ -54,7 +54,7 @@ source: "https://mp.weixin.qq.com/s"
 
 面试里先主动算账，是展现工程成熟度的最快方式。一个 N 个 Agent 的系统，成本至少有三块：
 
-![](/images/articles/meituan-multi-agent-conflict/fig03.png)
+![](/images/articles/meituan-multi-agent-conflict/fig03.webp)
 
 · **通信开销**：Agent 之间传递的不是免费信号，是实打实的 token。A 把调研结果给 B，等于把这份内容再「读」一遍——N 个 Agent 两两通信，通信组合数按 N(N-1)/2 接近平方级增长；每对都要交换完整内容时，token 总量随之平方级膨胀。
 
@@ -66,7 +66,7 @@ source: "https://mp.weixin.qq.com/s"
 
 二、拆分的两条正当理由，以及「不要拆」的判断
 
-![](/images/articles/meituan-multi-agent-conflict/fig04.png)
+![](/images/articles/meituan-multi-agent-conflict/fig04.webp)
 
 **理由一：并行广度优先。** 深度调研、多方案权衡这类任务，几个 Agent 分头检索、各自探索，最后汇总——快且全，总耗时约等于最慢的那个。
 
@@ -78,7 +78,7 @@ source: "https://mp.weixin.qq.com/s"
 
 决定拆了，工程上就要用图结构编排（如 LangGraph 的状态图），把下面四件事写进系统，而不是指望 Agent 自觉：
 
-![](/images/articles/meituan-multi-agent-conflict/fig05.png)
+![](/images/articles/meituan-multi-agent-conflict/fig05.webp)
 
 · **状态集中管理**：任务状态放在显式的共享状态结构里，每个节点（Agent）只读写自己职责内的字段——谁改了什么，一目了然。
 

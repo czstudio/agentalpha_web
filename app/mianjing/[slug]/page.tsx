@@ -10,6 +10,7 @@ import { getNoteHeadings, slugifyHeading } from "@/lib/notes"
 import { ReadingExtras } from "@/components/mianjing/reading-extras"
 import "../detail-enhance.css"
 import ReactMarkdown from "react-markdown"
+import { MarkdownImg } from "@/components/markdown-img"
 import remarkGfm from "remark-gfm"
 import type { Components } from "react-markdown"
 import type { ReactNode } from "react"
@@ -61,6 +62,7 @@ function headingText(children: ReactNode): string {
 function createMarkdownComponents(headings: { id: string; title: string }[]): Components {
   let cursor = 0
   return {
+    img: MarkdownImg,
     h2({ children, ...props }) {
       const current = headings[cursor++]
       const id = current?.id || slugifyHeading(headingText(children))

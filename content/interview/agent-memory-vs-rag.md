@@ -54,7 +54,7 @@ RAG 解决「去哪找知识」：对语料做相似度检索，把相关内容�
 
 
 
-![记忆流与检索打分：相关性 × 时效 × 重要性的加权组合](/images/interview/agent-memory-vs-rag/paper-2304.03442.png)
+![记忆流与检索打分：相关性 × 时效 × 重要性的加权组合](/images/interview/agent-memory-vs-rag/paper-2304.03442.webp)
 图：Generative Agents 的记忆流与检索打分（左侧是 Agent 经历过的每条观察，带时间戳逐条写入记忆流；右侧是同一查询在不同权重组合下检索出的不同记忆——相关性、时效、重要性三个分数加权，决定哪些记忆进入上下文）
 ## 三、写入决策与遗忘：Memory 的门和闸
 

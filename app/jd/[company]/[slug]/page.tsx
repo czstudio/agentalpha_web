@@ -2,6 +2,7 @@ import type { Metadata } from "next"
 import Link from "next/link"
 import { notFound } from "next/navigation"
 import ReactMarkdown from "react-markdown"
+import { MarkdownImg } from "@/components/markdown-img"
 import remarkGfm from "remark-gfm"
 import { Navigation } from "@/components/navigation"
 import { getAllJd, getJd, getJdCompany, getSimilarJd, getJdQa } from "@/lib/jd"
@@ -132,6 +133,7 @@ export default async function JdDetailPage({ params }: PageProps) {
         <article className="jd-body">
           <ReactMarkdown remarkPlugins={[remarkGfm]}
             components={{
+    img: MarkdownImg,
               a({ href, children }) {
                 return <a href={href}>{children}</a>
               },

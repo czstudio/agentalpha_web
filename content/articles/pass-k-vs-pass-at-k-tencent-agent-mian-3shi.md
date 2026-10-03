@@ -57,7 +57,7 @@ minutes: 22
 
 τ-bench 是 Sierra 团队 2024 年 6 月放出来的 Agent 评测基准\[1\]。它跟传统 Agent 基准的区别在两点。第一，它把「用户」也做成模拟：LLM 扮演客户，会追问、会改口、会给不完整信息；第二，它把「领域规则」也做成约束：retail 域有退换货政策、airline 域有改签规则，Agent 违反政策就算错。这两条一叠，Agent 面对的就是一个真实的客服对话环境，而不是一条静态查询。
 
-![τ-bench 论文 Figure 1：Agent 与数据库、API、模拟用户交互的整体框架](/images/articles/pass-k-vs-pass-at-k-tencent-agent-mian-3shi/fig04.png)
+![τ-bench 论文 Figure 1：Agent 与数据库、API、模拟用户交互的整体框架](/images/articles/pass-k-vs-pass-at-k-tencent-agent-mian-3shi/fig04.webp)
 
 图注：论文 τ-bench Figure 1（图片来源：arXiv:2406.12045）
 
@@ -77,7 +77,7 @@ minutes: 22
 
 这里有个可以直接背下来的判断：**pass^8 相对 pass^1 掉得慢，说明任务难度分层严重；掉得快，说明任务同质性高、模型对每道题都没把握**。这两种情况在生产上处置方式完全不同。前者应该按难度桶分别核算 pass^k，后者应该看模型本身。
 
-![τ-bench 论文 Figure 7：τ-retail 里每个任务单独成功率排序，p 值明显右偏](/images/articles/pass-k-vs-pass-at-k-tencent-agent-mian-3shi/fig06.png)
+![τ-bench 论文 Figure 7：τ-retail 里每个任务单独成功率排序，p 值明显右偏](/images/articles/pass-k-vs-pass-at-k-tencent-agent-mian-3shi/fig06.webp)
 
 图注：论文 τ-bench Figure 7（图片来源：arXiv:2406.12045）
 
@@ -97,7 +97,7 @@ minutes: 22
 
 论文 §5 开头那句原话很值得贴在工位上：「self-reflection is unrealistic as real-world agents only have one chance to serve the user」\[1\]。用户不是让你反思完再来一遍，他这一次就要拿到对的结果。工业界的直觉口径基本就是：任何用户直接看的接口，指标必须切到 pass^k；任何后台能重试或人来兜底的流程，可以用 pass@k 做上限筛选。
 
-![知识图解：pass@k（至少 1 次成功，看上限）与 pass^k（k 次全部成功，看可靠性）方向相反](/images/articles/pass-k-vs-pass-at-k-tencent-agent-mian-3shi/fig08.png)
+![知识图解：pass@k（至少 1 次成功，看上限）与 pass^k（k 次全部成功，看可靠性）方向相反](/images/articles/pass-k-vs-pass-at-k-tencent-agent-mian-3shi/fig08.webp)
 
 ### 落地：把 k 次跑成一次成本核算
 

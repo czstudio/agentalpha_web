@@ -3,6 +3,7 @@ import Link from "next/link"
 import { notFound } from "next/navigation"
 import { ArrowLeft, ArrowRight, Calendar, Clock3, ExternalLink } from "lucide-react"
 import ReactMarkdown from "react-markdown"
+import { MarkdownImg } from "@/components/markdown-img"
 import remarkGfm from "remark-gfm"
 import remarkMath from "remark-math"
 import rehypeKatex from "rehype-katex"
@@ -58,6 +59,7 @@ function flattenText(value: ReactNode): string {
 function createMarkdownComponents(headings: ArticleHeading[]): Components {
   let headingCursor = 0
   return {
+    img: MarkdownImg,
     h2({ children, ...props }) {
       const title = headingText(children)
       const current = headings[headingCursor++]

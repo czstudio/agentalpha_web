@@ -60,7 +60,7 @@ minutes: 11
 
 对比的思想走到头就是 OpenRubrics 的做法，对比偏好回答和非偏好回答，同时逼出两类条目，一类是硬规则，比如「必须包含引用来源」，一类是原则，比如「解释要贴合用户水平」，再按偏好标签一致性把噪声条目筛掉。普渡大学团队训出的 Rubric-RM 在多个奖励建模基准上超过同规模基线 8.4%。这套方法的本质是让每条细则都背上「为什么」，说不清它淘汰了哪类差回答的条目，大概率是凑数的。
 
-![](/images/articles/rubric-bytedance-agent-mian-3shi/fig02.png)
+![](/images/articles/rubric-bytedance-agent-mian-3shi/fig02.webp)
 
 图：一份自动生成的评分细则长这样。上面是被评的任务，下面按主题分成四组条目，每条细则带正分或负分，负分条目负责扣分，这就是裁判实际在读的打分标准（论文 GenRubric Figure 2）
 
@@ -72,7 +72,7 @@ minutes: 11
 
 另一条路是无监督长出来的细则。清华团队 8 月底挂出的 GenRubric 走自演化路线，从无标注查询出发生成细则。它的核心原则叫细则诱导的自洽，同一道题在不同细则下得出的回答应该互相说得通。这个信号被拿来当奖励做强化学习，训出 4B 到 14B 三档模型。结果是自演化后的细则与专家细则的诱导评估更一致，还能泛化到没训过的领域，整个过程不需要人工标注。
 
-![](/images/articles/rubric-bytedance-agent-mian-3shi/fig03.png)
+![](/images/articles/rubric-bytedance-agent-mian-3shi/fig03.webp)
 
 图：GenRubric 的自演化流程。不同细则各自诱导出回答，再用一致性矩阵衡量这些回答互相当不准（红色高亮），把一致性信号拆成组级和条目级两档奖励，喂给 GRPO 训练细则生成器（论文 GenRubric Figure 1）
 
@@ -92,7 +92,7 @@ minutes: 11
 
 同月另一篇 EMNLP 2026 接收的审计补了刀。只用细则文本、完全不给看被评回答训出来的分类器，就能在裁判输出上拿到不可忽视的预测准确率，说明分数有一部分根本不依赖回答本身，细则的措辞自己就在泄漏评分倾向。反事实扰动实验里，把候选或细则条目反转过来，裁判经常不更新判决。两篇合起来的意思是，细则验证要做两件事，拿对抗样本测被利用率，拿扰动测判决稳定性，缺一样你都不知道自己的裁判在按什么打分。
 
-![](/images/articles/rubric-bytedance-agent-mian-3shi/fig05.png)
+![](/images/articles/rubric-bytedance-agent-mian-3shi/fig05.webp)
 
 图：左半边是正常评判，裁判看着对话、候选回答和细则给分；右半边把对话和回答全部拿掉，只留细则文本喂给分类器，它照样能把裁判的判决预测个八九不离十（论文 Rubric Artifacts Figure 1）
 

@@ -8,17 +8,18 @@ export function SiteLogo({ className = "", showText = false }: SiteLogoProps) {
     <div className={`aa-site-logo ${className}`.trim()}>
       <span className="aa-site-logo-crop">
         <img
-          src="/logo-light.png"
+          src="/logo-light.webp"
           alt=""
-          width={1201}
-          height={256}
+          width={720}
+          height={153}
           className="dark:hidden"
+          fetchPriority="high"
         />
         <img
-          src="/logo-dark.png"
+          src="/logo-dark.webp"
           alt=""
-          width={1201}
-          height={256}
+          width={720}
+          height={153}
           className="hidden dark:block"
         />
       </span>

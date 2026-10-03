@@ -45,11 +45,11 @@ updated: "2026-09-14"
 
 
 
-![AutoGen：可对话、可定制的多智能体协作框架总览](/images/interview/why-multiagent/paper-2308.08155.png)
+![AutoGen：可对话、可定制的多智能体协作框架总览](/images/interview/why-multiagent/paper-2308.08155.webp)
 图：AutoGen 的多智能体协作框架（每个 Agent 都可对话、可定制，背后可以接大模型、人类输入或工具，多个 Agent 通过多轮对话合作完成任务）
 
 
-![CAMEL 的角色扮演式双 Agent 协作框架](/images/interview/why-multiagent/paper-2303.17760.png)
+![CAMEL 的角色扮演式双 Agent 协作框架](/images/interview/why-multiagent/paper-2303.17760.webp)
 图：CAMEL 的角色扮演协作框架（AI 用户与 AI 助手两个角色先做任务细化，再通过多轮对话推进任务——最早验证「角色分工 + 对话驱动」可行性的工作之一）
 ## 消息协议与共享状态
 

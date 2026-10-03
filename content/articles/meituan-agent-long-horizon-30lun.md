@@ -142,7 +142,7 @@ LongDS-Bench 那篇论文做了一件很有用的事：把长程失败按类型�
 
 级联错误的形态值得单独记住：当前轮算得完全正确，错的是更早生成、被它当作前提沿用的中间状态。代码运行成功，用的却是错误版本的数据；统计口径在第五轮改过一次，第七轮还在按旧口径聚合。这类错误不抛异常，不产生任何可观测的失败信号，只会在最后交付时表现为结论莫名其妙。
 
-![](/images/articles/meituan-agent-long-horizon-30lun/fig03.png)
+![](/images/articles/meituan-agent-long-horizon-30lun/fig03.webp)
 
 图：LongDS-Bench 错误归因（纵轴为各错误类型占比，级联是最大一类）
 

@@ -3,6 +3,7 @@ import Link from "next/link"
 import { notFound } from "next/navigation"
 import { ArrowLeft, ArrowRight, Check, Clock3, GitBranch } from "lucide-react"
 import ReactMarkdown from "react-markdown"
+import { MarkdownImg } from "@/components/markdown-img"
 import remarkGfm from "remark-gfm"
 import remarkMath from "remark-math"
 import rehypeKatex from "rehype-katex"
@@ -62,6 +63,7 @@ function normalizeMathDelimiters(markdown: string): string {
 function createMarkdownComponents(headings: NoteHeading[]): Components {
   let headingCursor = 0
   return {
+    img: MarkdownImg,
     p({ children, ...props }) {
       const arr = Array.isArray(children) ? [...children] : [children]
       const first = arr[0]

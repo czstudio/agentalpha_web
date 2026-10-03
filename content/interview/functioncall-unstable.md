@@ -92,7 +92,7 @@ Reflexion把「反馈驱动修正」推得更远：它让 Agent 在任务失败�
 
 
 
-![Reflexion 的 Actor–Evaluator–自我反思架构](/images/interview/functioncall-unstable/paper-2303.11366.png)
+![Reflexion 的 Actor–Evaluator–自我反思架构](/images/interview/functioncall-unstable/paper-2303.11366.webp)
 图：Reflexion 的自我反思架构（Actor 负责生成动作，Evaluator 给结果打分，反思模型把失败原因写成文字反馈存进记忆，下一轮 Actor 带着教训重试）
 ## 把稳定性当成系统属性来验收
 

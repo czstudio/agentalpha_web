@@ -66,7 +66,7 @@ minutes: 10
 
 这不是我编的经验，HAS-Bench 把它做成了实验。团队把人在环切成从全自动到人类主导的多个档位，跑了 397 道题、六个业务域。人机平等协作相对全自动，pass@1 宏平均高 8.4 分、任务分高 11.5 分，人的反馈确实值钱，最难的调研域里，头部模型约三分之二的自动化失败单被人机协作救了回来。冷的那半，增益几乎全被头部模型拿走，能力最弱的模型加人只动零点几分，人救场的比例低到可以忽略。同一个动作换个人接，效果天差地别。
 
-![](/images/articles/kuaishou-agent-mian-3shi/fig02.png)
+![](/images/articles/kuaishou-agent-mian-3shi/fig02.webp)
 
 图：HAS-Bench 总览。同一道改签机票任务跑三种配置，全自动档擅自写库判 FAIL，人机平等协作档先澄清再授权判 PASS，人主导档也能过但轮次多五成、介入率更高（论文 Figure 1，图片来源：arXiv:2607.04329）
 
@@ -113,7 +113,7 @@ minutes: 10
 | 人工接管时长/返工完结周期 | 升级触发到有人接手 | 超过值班 SLA |
 | 复核抽审通过率 | 定期随机抽高置信单 | 与翻案率背离 |
 
-![](/images/articles/kuaishou-agent-mian-3shi/fig03.png)
+![](/images/articles/kuaishou-agent-mian-3shi/fig03.webp)
 
 图：HAS-Bench 分档实验结果。Coding 与 Research 两域上，Pass@1 和任务分随人的参与度上升而抬升，下排三张小图分别给出协作质量、人工介入率和主动权分布（论文 Figure 3，图片来源：arXiv:2607.04329）
 

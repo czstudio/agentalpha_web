@@ -19,7 +19,7 @@ minutes: 19
 ![LLaVA 原论文的视觉编码器—投影层—语言模型结构](/images/notes/evidence/llava/figure-1-architecture.svg)
 *论文图：LLaVA: Visual Instruction Tuning，Figure 1；[原文](https://arxiv.org/abs/2304.08485)。*
 
-![图片经过 patch、视觉 token 和投影层进入语言模型](/images/notes/multimodal-to-transformer/vision-token-route.png)
+![图片经过 patch、视觉 token 和投影层进入语言模型](/images/notes/multimodal-to-transformer/vision-token-route.webp)
 
 图 1：同一张图片要经过多个表示空间，语言模型接收到的不是原始像素。
 

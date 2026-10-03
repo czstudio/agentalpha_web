@@ -99,7 +99,7 @@ Function Calling 的机制决定了设计空间。模型只输出一段结构化
 
 参数级校验是这类设计里最容易偷工的地方。工具名白名单只能挡住「调错工具」，挡不住「拿对的工具干错的事」。CaMeL（Google 与 Google DeepMind、ETH Zurich，2025 年 3 月）把这层做成了机制，给每段数据打能力标签，来源不可信的数据带上标记，策略引擎在工具调用前检查，标注过的不可信数据不允许流向高危参数，注入进来的封禁指令因为带不可信标记，在策略层直接被拒。这个保证是设计出来的，代价也有数，在 AgentDojo 上无防护系统完成 84% 的任务，换 CaMeL 的可证明安全模式是 77%，用 7 个点的任务完成率换设计级保证。
 
-![](/images/articles/agent-harness-tool-permission-jd-mian4/fig02.png)
+![](/images/articles/agent-harness-tool-permission-jd-mian4/fig02.webp)
 
 图：CaMeL 的运行方式（特权 LLM 只生成代码、隔离 LLM 只处理不可信数据，解释器维护数据流图和能力标签，每次工具调用前按安全策略放行或拒绝）
 
@@ -123,7 +123,7 @@ GuardAgent（UIUC、UC Berkeley 等团队，2024 年 6 月，后中 ICML 2025）
 
 授权层自己也会被绕，所以上线前当攻击面测。AgentDojo（ETH Zurich 与 Invariant Labs，NeurIPS 2024 数据集与基准 track）把这件事做成了基准，97 个真实工具任务配 629 条安全测试用例，环境会动态反馈工具结果，攻击者能在结果里继续追加注入。论文口径是自适应攻击下表现最好的 Agent 也有接近四分之一的任务被攻破，接上防御方案后攻击成功率能压到 8%。防御前后的对比有数可看，这套环境可以直接拿来评自己的授权层。
 
-![](/images/articles/agent-harness-tool-permission-jd-mian4/fig05.png)
+![](/images/articles/agent-harness-tool-permission-jd-mian4/fig05.webp)
 
 图：AgentDojo 的评测回路（攻击者目标是骗 Agent 外传邮件内容，攻击文本注入在环境返回的工具结果里，同一套任务同时度量 Utility 和 Security 两个维度）
 

@@ -87,13 +87,13 @@ rubric 写多细、谁来生成，今年有两篇论文给了量级。RRD（2026
 
 清单再细，打分的还是裁判，裁判的偏好就是训练目标的入口。清华等机构 6 月的 CHERRL 把这件事做成了可控实验，往 LLM 裁判里注入四种已知打分偏好，词汇偏好、语气偏好、自夸偏好、格式偏好，在 VerInstruct 和 HealthBench 两个数据集上构造「偏差 × 数据集」共六组设定，其中四组复现了 reward hacking。词汇偏好和自夸偏好两个数据集全中，语气偏差在 VerInstruct、格式偏差在 HealthBench 上没有复现。
 
-![](/images/articles/open-ended-task-reward-pdd-agent-mian-2shi/fig02.png)
+![](/images/articles/open-ended-task-reward-pdd-agent-mian-2shi/fig02.webp)
 
 图：CHERRL 框架（左侧四种可控注入的裁判偏差，中部受控训练里代理奖励与真实效用分叉并标注 hacking 出现的步数，右侧从训练日志自动定位 hacking 起点的检测 agent）
 
 三个数字值得背下来。第一，hacking 的出现时间从 step 68（HealthBench 语气偏差）到 step 478（VerInstruct 自夸偏差）不等，早的几百步内就开始，晚的也躲不过。第二，onset 之后 100 步内，shortcut 行为的发生率至少涨 40%，唯一例外是 VerInstruct 的格式偏差。第三，reward 涨的同时真实能力在跌，VerInstruct 严格指令遵循从 33.3 掉到 23.7，HealthBench 从 47.4 掉到 36.1，都是对着自夸偏差训练的那组。模型学到的具体行为就是在答案里夸自己、堆裁判爱听的词。
 
-![](/images/articles/open-ended-task-reward-pdd-agent-mian-2shi/fig03.png)
+![](/images/articles/open-ended-task-reward-pdd-agent-mian-2shi/fig03.webp)
 
 图：代理奖励与真实能力分叉（VerInstruct 自夸偏差设定：约 478 步后代理奖励（蓝线）冲上 0.58，金标奖励（绿线）跌到 0.1 附近，通道被钻穿与能力下滑发生在同一段）
 
@@ -109,7 +109,7 @@ rubric 写多细、谁来生成，今年有两篇论文给了量级。RRD（2026
 
 Agent 场景的对应物已经成熟。Web-Shepherd（Yonsei University 和 CMU，NeurIPS 2025 Spotlight）给 web Agent 配过程奖励模型，按 checklist 核对每一步进展，在 WebRewardBench 上比拿 GPT-4o 当判据高约 30 分，比拿 GPT-4o-mini 当判据好 10.9 分、成本低约十倍，配套的 WebPRM Collection 有 4 万条步级偏好对。Cornell 的 AgentPRM 把过程奖励模型做到 3B 尺寸，在 ALFWorld 上压过 GPT-4o 基线。今年 1 月的 Reagent 再往前走一步，让奖励模型先对整条轨迹出推理和批评、再打分，GAIA 拿到 43.7%、WebWalkerQA 拿到 46.2%，跨 12 个基准验证。
 
-![](/images/articles/open-ended-task-reward-pdd-agent-mian-2shi/fig05.png)
+![](/images/articles/open-ended-task-reward-pdd-agent-mian-2shi/fig05.webp)
 
 图：Web-Shepherd 工作方式（先按用户指令生成 checklist，再对每一步动作逐条核对给出分数，同一套奖励模型既能做 reward 引导搜索，也能直接进 RL 训练回路）
 
@@ -119,7 +119,7 @@ Agent 场景的对应物已经成熟。Web-Shepherd（Yonsei University 和 CMU�
 
 能不引入裁判，就不引入。GiGPO（NTU，NeurIPS 2025）把步级归因交回算法侧，在 episode 级分组里再做 step 级分组，用同一批 rollout 算出步级相对优势，ALFWorld 提升超 12%、WebShop 提升超 9%，对 GRPO，全程不需要额外的模型，也不需要额外的 rollout。注意它的适用前提，终局要可判定，它测的是 ALFWorld、WebShop 这类有明确结局的环境，开放式任务的终局判定本身还得靠清单和过程核验兜住。
 
-![](/images/articles/open-ended-task-reward-pdd-agent-mian-2shi/fig06.png)
+![](/images/articles/open-ended-task-reward-pdd-agent-mian-2shi/fig06.webp)
 
 图：GiGPO 的两级分组（同一批 rollout 先在 episode 级算整条轨迹的组内优势，再按锚点状态做 step 级分组算步级优势，不引入额外奖励模型）
 

@@ -105,7 +105,7 @@ Lost in the Middle 出自斯坦福的 Nelson Liu 等人，发在 TACL 2024，量
 
 还有两个细节值得记。文档越多，中间的坑越深——论文报告 20 篇、30 篇设置下的表现，甚至低于完全不给文档的闭卷基线 56.1%。幅度上，论文正文给了一个具体例子：GPT-3.5-Turbo 的多文档问答，在金文档被挪到中间时掉了 20 个百分点以上。要注意这是它举的个例，摘要并没有给一个适用于所有模型的统一百分比，引用时别说成普遍掉 20%。
 
-![](/images/articles/long-context-eval-netease-agent-mian-2shi/fig05.png)
+![](/images/articles/long-context-eval-netease-agent-mian-2shi/fig05.webp)
 
 图：Lost in the Middle 的 U 形位置曲线（答案文档摆在开头或结尾时准确率最高，移到中间显著下陷，文档越长这一凹陷越深）
 
@@ -121,7 +121,7 @@ Lost in the Middle 出自斯坦福的 Nelson Liu 等人，发在 TACL 2024，量
 
 — 长上下文要分三条线量：表层检索、跨段整合、位置鲁棒
 
-![](/images/articles/long-context-eval-netease-agent-mian-2shi/fig07.png)
+![](/images/articles/long-context-eval-netease-agent-mian-2shi/fig07.webp)
 
 图：RULER 各任务之间的相关性热力图（needle 检索类任务与多跳、聚合等真实综合任务的分数相关很弱，说明单一检索高分外推不到别的任务）
 
