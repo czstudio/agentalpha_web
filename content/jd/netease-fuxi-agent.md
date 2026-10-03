@@ -28,7 +28,7 @@ sourceName: 网易招聘官网（列表入口）
 - 循环控制：Agent 循环的退出条件、轮数与成本控制（[Agent 循环](/interview/qa/agent-loop)）
 - 多轮状态：NPC 长对话的状态恢复与人设一致性（[多轮状态恢复](/interview/qa/multi-turn-state-recovery)）
 - 工具调用：原理与 schema 设计，游戏内动作怎么暴露给模型（[Function Calling](/interview/qa/what-is-function-calling)、[工具 Schema 设计](/interview/qa/tool-schema-design)）
-- 机器人 Agent：GUI Agent 的感知与操作闭环（[GUI Agent 设计](/interview/qa/gui-agent-design)）
+- 机器人 Agent：GUI Agent 的感知与操作全流程（[GUI Agent 设计](/interview/qa/gui-agent-design)）
 - 评测：Agent 效果怎么量化、NPC 行为怎么回归（[Agent 评测](/interview/qa/agent-evaluation)）
 - 模型与工程底子：Transformer 结构讲得清（[Transformer](/interview/qa/what-is-transformer)），Python 与游戏服务端或引擎侧至少一门扎实
 
