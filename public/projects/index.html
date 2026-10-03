@@ -28,7 +28,7 @@ body{background:var(--bg)}
 .hero2 h1 em{font-style:normal;color:var(--accent);display:block;font-size:.8em;margin-top:.12em}
 .hero2 .st{grid-area:s;max-width:56ch;margin:20px 0 0;padding-top:18px;border-top:1px solid var(--hair)}
 .hero2 .st p{color:color-mix(in oklab,var(--ink) 76%,transparent);font-size:clamp(.95rem,1.05vw,1.05rem);line-height:1.85;text-wrap:pretty}
-.hero2 .acts{grid-area:a;display:flex;gap:10px;flex-wrap:wrap;margin-top:24px}
+.hero2 .acts{grid-area:a;display:flex;gap:10px;flex-wrap:wrap;margin-top:clamp(44px,7vh,96px)}
 .hero2 .reel{grid-area:reel;align-self:center}
 .hero2 .reel figure{margin:0 14px 18px;border:1px solid var(--hair-2);border-radius:18px;overflow:hidden;background:#fff;box-shadow:0 24px 60px rgb(0 0 0/.07);transform:rotate(.8deg);transition:transform .5s var(--ease)}
 .hero2 .reel figure:hover{transform:rotate(0deg) translateY(-4px)}
@@ -40,9 +40,9 @@ body{background:var(--bg)}
 .mb{padding:4px 20px;border-left:1px solid var(--hair)}
 .mb:first-child{border-left:none;padding-left:0}
 .mb b{display:block;font-family:var(--serif);font-size:clamp(1.7rem,3vw,2.5rem);font-weight:700;letter-spacing:-.03em;font-variant-numeric:tabular-nums;line-height:1.1}
-.mb span{font-size:.78rem;color:var(--muted)}
+.mb span{font-size:.78rem;color:var(--muted);display:block;min-height:2.6em}
 /* 跑马灯 */
-.marquee{overflow:hidden;border-bottom:1px solid var(--hair);background:var(--bg-2)}
+.marquee{overflow:hidden;border-bottom:1px solid var(--hair);background:var(--bg-2);mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent)}
 .mq-track{display:flex;gap:12px;width:max-content;animation:mq 36s linear infinite;padding:13px 0}
 .marquee:hover .mq-track{animation-play-state:paused}
 @keyframes mq{to{transform:translateX(-50%)}}
@@ -65,13 +65,14 @@ section.blk{padding:clamp(56px,9vh,96px) 0}
 .bcard h3{font-size:1.05rem;font-weight:700}
 .bcard p{font-size:.8rem;color:var(--muted);line-height:1.65;margin:0}
 .bcard .go{margin-top:auto;padding-top:10px;font-size:.78rem;font-weight:600;color:var(--accent);display:inline-flex;gap:6px;align-items:center}
-.bcard .go::after{content:"→";transition:transform .28s var(--ease);display:inline-block}
-.bcard:hover .go::after{transform:translateX(4px)}
+.bcard .go::after{content:"→";display:inline-block;transition:transform .28s var(--ease)}
+.bcard:hover .go::after{transform:translateX(5px)}
 .bcard:hover h3{color:var(--accent)}
 .bcard h3{transition:color .28s var(--ease)}
 .bcard.wide{grid-column:span 3}
 .bcard.tall{grid-column:span 3;grid-row:span 2}
-.bcard.tall img{aspect-ratio:auto;flex:1;min-height:200px}
+.bcard.tall img{aspect-ratio:auto;flex:1;min-height:200px;object-fit:cover}
+.bcard.tall .bc{flex:0 0 auto}
 .bcard.std{grid-column:span 2}
 .bcard.is-proof{background:var(--accent-soft);border-color:var(--accent-line)}
 .bcard.is-proof .go{font-size:.84rem}
@@ -92,7 +93,8 @@ section.blk{padding:clamp(56px,9vh,96px) 0}
 .cta .girl{display:block;width:100%;height:auto;background:#fff;border-radius:16px;animation:girl-float 5s ease-in-out infinite}
 @keyframes girl-float{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
 @media (prefers-reduced-motion:reduce){.cta .girl{animation:none}}
-.cta .copy h2{margin:0}
+.cta .copy h2{margin:0;font-size:clamp(1.5rem,2.4vw,2rem);font-family:var(--serif);letter-spacing:-.02em;line-height:1.3}
+.cta .copy p{color:#aeaeb2;font-size:.92rem;line-height:1.85;margin:12px 0 24px;max-width:30em}
 @media (max-width:720px){.cta .inner{grid-template-columns:1fr}.cta .girl{max-width:190px;margin:0 auto}.cta .copy{text-align:center}.cta .row{justify-content:center}}
 /* 路线 */
 .routes{display:grid;gap:0;border:1px solid var(--hair);border-radius:14px;overflow:hidden;background:#fff}
@@ -110,16 +112,19 @@ section.blk{padding:clamp(56px,9vh,96px) 0}
 .faq details[open] summary{border-bottom:1px solid var(--hair)}
 .faq details p{padding:14px 20px 18px;font-size:.88rem;color:var(--ink-2);line-height:1.8}
 /* CTA */
-.cta{background:var(--btn);color:var(--on-btn);border-radius:20px;padding:clamp(36px,6vw,56px);text-align:center;position:relative;overflow:hidden}
+.cta{background:var(--btn);color:var(--on-btn);border-radius:20px;padding:clamp(36px,6vw,56px);position:relative;overflow:hidden}
 .cta::before{content:"";position:absolute;inset:0;background:radial-gradient(520px 240px at 50% -20%, oklch(0.47 .16 268/.5), transparent 70%);pointer-events:none}
 .cta>*{position:relative}
-.cta h2{font-size:clamp(1.4rem,2.6vw,1.9rem)}
-.cta p{color:#aeaeb2;font-size:.9rem;margin:12px auto 24px;max-width:56ch}
-.cta .row{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.cta h2{font-size:clamp(1.6rem,2.8vw,2.3rem);font-family:var(--serif);letter-spacing:-.02em;text-align:left}
+.cta p{color:#aeaeb2;font-size:.92rem;margin:12px 0 26px;max-width:30em;text-align:left;line-height:1.85}
+.cta .row{display:flex;gap:12px;flex-wrap:wrap}
 .cta .btn{border-color:rgb(255 255 255/.25);color:var(--on-btn)}
 .cta .btn.primary{background:var(--accent);border-color:var(--accent)}
 .cta .btn.primary:hover{box-shadow:0 10px 30px oklch(0.47 .16 268/.45)}
 .wx-pill{display:inline-flex;align-items:center;gap:8px;font-size:.86rem;font-weight:500;min-height:44px;padding:12px 22px;border-radius:10px;border:1px solid rgb(255 255 255/.25)}
+.cta .promo{grid-column:1/-1;text-align:center;border-top:1px solid rgb(255 255 255/.14);padding-top:16px;margin-top:6px;font-size:.84rem;color:#dcdce2}
+.cta .promo b{color:#fff}
+
 @media (max-width:960px){
   .hero2{grid-template-columns:1fr;grid-template-areas:"k" "t" "s" "a" "reel";padding-top:72px}
   .hero2 .reel{max-width:420px}
@@ -180,27 +185,27 @@ section.blk{padding:clamp(56px,9vh,96px) 0}
       <img src="/projects/assets/img/cover-m1.webp" alt="金融研报 RAG 系统封面插画" loading="lazy">
       <div class="bc"><span class="no">MODULE 01</span><h3>金融研报 RAG 系统</h3>
       <p>6200 行真实代码底座：PDF 入库、混合检索、重排、引用问答，配金融数据工具与五角色研报产线。Dense Recall@10 实测 0.991。</p>
-      <span class="go">查看项目 →</span></div>
+      <span class="go">查看项目</span></div>
     </a>
     <a class="bcard wide" href="/projects/m5-deepsearch.html" data-r style="--i:2">
       <img src="/projects/assets/img/cover-m5.webp" alt="DeepSearch 研究系统封面插画" loading="lazy">
       <div class="bc"><span class="no">MODULE 05</span><h3>DeepSearch 研究系统</h3>
       <p>Search-o1 式推理中检索：不确定性触发、文档内推理、带引用答案。1207 秒全链路真实运行，日志与轨迹可查。</p>
-      <span class="go">查看项目 →</span></div>
+      <span class="go">查看项目</span></div>
     </a>
     <a class="bcard wide" href="/projects/m9-agentic-rl.html" data-r style="--i:3">
       <img src="/projects/assets/img/cover-m9.webp" alt="Agentic RL 训练封面插画" loading="lazy">
       <div class="bc"><span class="no">MODULE 09</span><h3>Agentic RL 训练</h3>
       <p>GRPO 训练会搜索的推理模型：奖励消融、行为分布分析。400 步真实训练曲线，EasyR1 与 veRL 同款技术栈。</p>
-      <span class="go">查看项目 →</span></div>
+      <span class="go">查看项目</span></div>
     </a>
-    <a class="bcard std" href="/projects/m2-memory.html" data-r style="--i:4"><img src="/projects/assets/img/cover-m2.webp" alt="Agent 记忆系统封面插画" loading="lazy"><div class="bc"><span class="no">MODULE 02</span><h3>Agent 记忆系统</h3><p>六类文献关系到知识图谱，对应网易 Memory 专家岗全链路。</p><span class="go">查看项目 →</span></div></a>
-    <a class="bcard std" href="/projects/m3-agent.html" data-r style="--i:5"><img src="/projects/assets/img/cover-m3.webp" alt="ReAct 单 Agent 封面插画" loading="lazy"><div class="bc"><span class="no">MODULE 03</span><h3>ReAct 单 Agent</h3><p>手写不套框架的工具循环，错误自恢复与合规拒答。</p><span class="go">查看项目 →</span></div></a>
-    <a class="bcard std" href="/projects/m4-multiagent.html" data-r style="--i:6"><img src="/projects/assets/img/cover-m4.webp" alt="多 Agent 协作封面插画" loading="lazy"><div class="bc"><span class="no">MODULE 04</span><h3>多 Agent 金融研究</h3><p>五角色协作产线，真实 AAPL 研报产物可直接演示。</p><span class="go">查看项目 →</span></div></a>
-    <a class="bcard std" href="/projects/m6-inference.html" data-r style="--i:1"><img src="/projects/assets/img/cover-m6.webp" alt="LLM 推理服务优化封面插画" loading="lazy"><div class="bc"><span class="no">MODULE 06</span><h3>推理服务优化</h3><p>vLLM 压测矩阵：并发、量化、缓存全组合出报告。</p><span class="go">查看项目 →</span></div></a>
-    <a class="bcard std" href="/projects/m7-codeagent.html" data-r style="--i:2"><img src="/projects/assets/img/cover-m7.webp" alt="Code Agent 封面插画" loading="lazy"><div class="bc"><span class="no">MODULE 07</span><h3>SWE-bench 级 Code Agent</h3><p>issue 进、verified patch 出，失败四桶自动归因。</p><span class="go">查看项目 →</span></div></a>
-    <a class="bcard std" href="/projects/m8-selfevolve.html" data-r style="--i:3"><img src="/projects/assets/img/cover-m8.webp" alt="自进化框架封面插画" loading="lazy"><div class="bc"><span class="no">MODULE 08</span><h3>自进化框架</h3><p>轨迹级四阶段进化，同预算对照证明净增益。</p><span class="go">查看项目 →</span></div></a>
-    <a class="bcard wide" href="/projects/m10-capstone.html" data-r style="--i:4"><img src="/projects/assets/img/cover-m10.webp" alt="毕业考核封面插画" loading="lazy"><div class="bc"><span class="no">MODULE 10</span><h3>毕业考核：可交付系统</h3><p>三选一组装项目：技术报告六件套、一键复现仓库、视频演示与答辩。</p><span class="go">查看项目 →</span></div></a>
+    <a class="bcard std" href="/projects/m2-memory.html" data-r style="--i:4"><img src="/projects/assets/img/cover-m2.webp" alt="Agent 记忆系统封面插画" loading="lazy"><div class="bc"><span class="no">MODULE 02</span><h3>Agent 记忆系统</h3><p>六类文献关系到知识图谱，对应网易 Memory 专家岗全链路。</p><span class="go">查看项目</span></div></a>
+    <a class="bcard std" href="/projects/m3-agent.html" data-r style="--i:5"><img src="/projects/assets/img/cover-m3.webp" alt="ReAct 单 Agent 封面插画" loading="lazy"><div class="bc"><span class="no">MODULE 03</span><h3>ReAct 单 Agent</h3><p>手写不套框架的工具循环，错误自恢复与合规拒答。</p><span class="go">查看项目</span></div></a>
+    <a class="bcard std" href="/projects/m4-multiagent.html" data-r style="--i:6"><img src="/projects/assets/img/cover-m4.webp" alt="多 Agent 协作封面插画" loading="lazy"><div class="bc"><span class="no">MODULE 04</span><h3>多 Agent 金融研究</h3><p>五角色协作产线，真实 AAPL 研报产物可直接演示。</p><span class="go">查看项目</span></div></a>
+    <a class="bcard std" href="/projects/m6-inference.html" data-r style="--i:1"><img src="/projects/assets/img/cover-m6.webp" alt="LLM 推理服务优化封面插画" loading="lazy"><div class="bc"><span class="no">MODULE 06</span><h3>推理服务优化</h3><p>vLLM 压测矩阵：并发、量化、缓存全组合出报告。</p><span class="go">查看项目</span></div></a>
+    <a class="bcard std" href="/projects/m7-codeagent.html" data-r style="--i:2"><img src="/projects/assets/img/cover-m7.webp" alt="Code Agent 封面插画" loading="lazy"><div class="bc"><span class="no">MODULE 07</span><h3>SWE-bench 级 Code Agent</h3><p>issue 进、verified patch 出，失败四桶自动归因。</p><span class="go">查看项目</span></div></a>
+    <a class="bcard std" href="/projects/m8-selfevolve.html" data-r style="--i:3"><img src="/projects/assets/img/cover-m8.webp" alt="自进化框架封面插画" loading="lazy"><div class="bc"><span class="no">MODULE 08</span><h3>自进化框架</h3><p>轨迹级四阶段进化，同预算对照证明净增益。</p><span class="go">查看项目</span></div></a>
+    <a class="bcard wide" href="/projects/m10-capstone.html" data-r style="--i:4"><img src="/projects/assets/img/cover-m10.webp" alt="毕业考核封面插画" loading="lazy"><div class="bc"><span class="no">MODULE 10</span><h3>毕业考核：可交付系统</h3><p>三选一组装项目：技术报告六件套、一键复现仓库、视频演示与答辩。</p><span class="go">查看项目</span></div></a>
     <a class="bcard wide is-proof" href="/projects/stories.html" data-r style="--i:5"><div class="bc" style="flex:1;justify-content:space-evenly;gap:6px;text-align:left;padding:24px 26px"><span class="no">PROOF · 学员成果</span><h3 style="font-size:1.25rem">做完的项目，长成了什么？</h3><p style="font-size:.88rem">往期学员的去向全部可溯源：</p><span class="proof-chips"><i>SSP 旗舰案例</i><i>追问实录</i><i>offer 薪资带</i></span><p class="proof-stats"><b>45k×16</b> SSP 实习转正 · <b>80W+</b> 算法岗 offer · <b>1400+</b> Idea2Paper star</p><span class="go" style="margin-top:0">看学员成果 →</span></div></a>
   </div>
 </div></section>
@@ -239,18 +244,19 @@ section.blk{padding:clamp(56px,9vh,96px) 0}
 <section class="blk" style="padding-top:0"><div class="wrap">
   <div class="cta" data-r><div class="inner">
     <img class="girl" src="/images/community/illus/cta.webp" alt="AgentAlpha 插画：Q版女生在写有「一起把事做成」的白板旁招手" width="1024" height="1024" loading="lazy">
-    十个项目的完整展示页已就绪
-      <p>场景故事、产品界面、指标面板、真实运行区块、JD 覆盖矩阵、页面包含面试深挖预演，每个项目可一页全览。咨询报名请添加微信，备注「训练营」。</p>
+    <div class="copy">
+      <h2>十个项目的完整展示页已就绪</h2>
+      <p>场景故事、产品界面、指标面板、真实运行区块、JD 覆盖矩阵、面试深挖预演，每个项目一页全览。</p>
       <div class="row">
         <a class="btn primary" href="#projects">查看十个项目</a>
         <a class="btn" href="/projects/stories.html">学员成果 →</a>
-      <a class="btn" href="/projects/results.html">实验证据中枢 →</a>
+        <a class="btn" href="/projects/results.html">实验证据中枢 →</a>
         <span class="wx-pill">微信 aistudioyes</span>
       </div>
-      <div class="promo" style="display:inline-block;font-size:.84rem;color:#dcdce2;margin-top:16px;padding-top:14px;border-top:1px solid rgb(255 255 255/.14)">十一优惠进行中 · 报名可<b style="color:#fff">组队</b>，最高<b style="color:#fff">半价</b>，加微信了解详情</div>
     </div>
+    <div style="grid-column:1/-1;text-align:center;border-top:1px solid rgb(255 255 255/.14);padding-top:16px;font-size:.88rem;color:#dcdce2">十一优惠 · <b style="color:#fff">10.1–10.8</b> · 报名可组队，<b style="color:#fff">两人各 5 折</b> · 加微信 aistudioyes 了解详情</div>
   </div></div>
-</div></section>
+</section>
 
 <footer class="footer"><div class="wrap" style="padding-top:34px;padding-bottom:38px">
   <div style="font-family:var(--serif);font-size:clamp(1.15rem,2vw,1.5rem);font-weight:700;letter-spacing:-.02em">AgentAlpha <span style="color:var(--muted);font-weight:400">· 大模型 Agent 训练营</span></div>

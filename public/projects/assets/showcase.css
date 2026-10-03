@@ -85,7 +85,7 @@ h1,h2,h3{font-family:var(--serif);letter-spacing:-.02em;text-wrap:balance}
 .sec-sub{font-size:14px;color:var(--muted);margin-bottom:22px;max-width:68ch}
 
 .card{background:#fff;border:1px solid var(--hair);border-radius:var(--radius);padding:26px 28px}
-.card p{font-size:14.5px;color:var(--ink-2)}
+.card p{font-size:14.5px;color:var(--ink-2);max-width:44em;text-wrap:pretty}
 .card p + p{margin-top:13px}
 .card .migrate{margin-top:18px;padding:13px 16px;border:1px solid var(--hair);border-radius:10px;background:var(--bg-2);font-size:13px;color:var(--muted)}
 .card .migrate b{color:var(--ink)}
@@ -129,7 +129,8 @@ h1,h2,h3{font-family:var(--serif);letter-spacing:-.02em;text-wrap:balance}
 .log .ok{color:var(--good)} .log .wr{color:var(--warn)} .log .in{color:var(--accent)}
 
 /* 指标口径 */
-.metrics{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px}
+.metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+@media (max-width:960px){.metrics{grid-template-columns:1fr 1fr}}
 .metric{background:#fff;border:1px solid var(--hair);border-radius:11px;padding:17px 19px}
 .metric .name{font-weight:600;font-size:14px}
 .metric .how{font-size:12.8px;color:var(--muted);margin-top:5px;line-height:1.62}
@@ -152,7 +153,7 @@ table.jd tr:first-child td{border-top:none}
 
 /* 简历 bullet */
 .bullets{display:grid;gap:10px}
-.bullet{background:#fff;border:1px solid var(--hair);border-left:2px solid var(--accent);border-radius:9px;padding:13px 17px;font-size:14px;color:var(--ink-2)}
+.bullet{max-width:42em;background:#fff;border:1px solid var(--hair);border-left:2px solid var(--accent);border-radius:9px;padding:13px 17px;font-size:14px;color:var(--ink-2)}
 
 /* 面试问答 */
 details.qa{background:#fff;border:1px solid var(--hair);border-radius:10px;margin-bottom:8px;overflow:hidden}
@@ -210,3 +211,6 @@ details.qa .ans{padding:13px 18px 15px 36px;font-size:13.5px;color:var(--ink-2)}
 .jdsrc .jds a:hover{text-decoration:underline;text-underline-offset:3px}
 .jdsrc .jds span{font-size:.82rem;color:var(--ink-2);line-height:1.7}
 
+
+/* 实测图表装裱（matplotlib → 设计体系） */
+img.figw{border:1px solid var(--hair);border-radius:12px;padding:18px 20px;background:#fff;box-shadow:0 10px 28px rgb(0 0 0/.05)}
