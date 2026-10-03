@@ -28,10 +28,10 @@ minutes: 19
 
 ![DPO 将带 KL 约束的奖励优化改写为 chosen/rejected 的相对 log-prob 目标](/images/notes/llm-dpo-vs-ppo/objective-bridge.svg)
 
-![DPO 原论文对直接偏好优化与传统 RLHF 链路的对照](/images/notes/evidence/dpo/figure-1-teaser.png)
+![DPO 原论文对直接偏好优化与传统 RLHF 链路的对照](/images/notes/evidence/dpo/figure-1-teaser.webp)
 *论文图：Direct Preference Optimization: Your Language Model is Secretly a Reward Model，Figure 1；[原文](https://arxiv.org/abs/2305.18290)。*
 
-![DPO 与 PPO：离线偏好对和在线 rollout 的对照](/images/notes/llm-dpo-vs-ppo/dpo-ppo-contrast.png)
+![DPO 与 PPO：离线偏好对和在线 rollout 的对照](/images/notes/llm-dpo-vs-ppo/dpo-ppo-contrast.webp)
 
 | 方法 | 训练数据 | 中间模型 | 是否在线探索 | 主要旋钮 |
 | --- | --- | --- | --- | --- |

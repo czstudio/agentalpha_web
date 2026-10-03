@@ -21,7 +21,7 @@ updated: "2026-09-14"
 图：四种提示方法的对比实验（同一组任务上：Standard 直接答题、CoT 先写推理再答、Act-only 只执行不思考、ReAct 想一步做一步再看观察结果；带环境反馈的 ReAct 在 HotpotQA 与 ALFWorld 上成功率都明显更高）
 
 
-![标准提示与思维链提示的推理链对比](/images/interview/react-over-cot/paper-2201.11903.png)
+![标准提示与思维链提示的推理链对比](/images/interview/react-over-cot/paper-2201.11903.webp)
 图：同一道数学题的两种提示（标准提示直接要答案，一步猜错全错；思维链提示先写出中间推理步骤再作答——多步推理任务的准确率因此大幅提升）
 ![会想 ≠ 会做：CoT 与 ReAct 的差别就在这条循环](/images/interview/react-over-cot/meme-1.webp)
 会想 ≠ 会做：CoT 与 ReAct 的差别就在这条循环。

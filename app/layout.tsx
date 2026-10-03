@@ -127,22 +127,7 @@ export default function RootLayout({
 
   return (
     <html lang="zh-CN" suppressHydrationWarning>
-      <head>
-        <link
-          rel="preload"
-          href="/fonts/MiSans-Regular.woff2"
-          as="font"
-          type="font/woff2"
-          crossOrigin="anonymous"
-        />
-        <link
-          rel="preload"
-          href="/fonts/MiSans-Bold.woff2"
-          as="font"
-          type="font/woff2"
-          crossOrigin="anonymous"
-        />
-      </head>
+      <head>{/* 字体已按 unicode-range 切片（@font-face 指向 /fonts/slices/*），按需加载即可；整包 woff2 未被任何 @font-face 引用，preload 只会让每个访客白下 1.5MB */}</head>
       <body className="antialiased" suppressHydrationWarning>
         <script
           type="application/ld+json"

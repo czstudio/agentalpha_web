@@ -3,14 +3,14 @@ import { HomeContent } from "@/components/home-content"
 import { prisma } from "@/lib/prisma"
 import { getAllQa } from "@/lib/qa"
 import { getAllInterview } from "@/lib/interview"
-import { unstable_noStore as noStore } from "next/cache"
 
-export const dynamic = "force-dynamic"
-export const revalidate = 0
+// 首页走 ISR：HTML 边缘缓存、后台按 60s 粒度再生。
+// 之前是 force-dynamic 每次访问都实时查库（Prisma + 青稞外站），TTFB 实测 1.7~2.8s；
+// 后台改内容最多延迟 60s 生效，换全站入口秒开。
+export const revalidate = 60
 
 // 获取数据的服务端函数 - 直接使用 Prisma
 async function getData() {
-  noStore()
   try {
     // 并行获取所有数据
     const [members, mentors, projects, papers, partners, news, socialPlatforms, quickLinks, resources, siteContents] = await Promise.all([

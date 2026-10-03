@@ -85,7 +85,7 @@
       "caption": "从项目目录启动后，Claude Code 才能搜索、阅读和修改这套项目里的文件。",
       "sourceLabel": "AgentAlpha 自制解释图"
     },
-    "/images/learn/claude-code/01-foundations/03-prompt-anatomy.png": {
+    "/images/learn/claude-code/01-foundations/03-prompt-anatomy.webp": {
       "alt": "一个可执行任务由现象、目标、范围和限制组成",
       "caption": "任务越具体，Claude Code 越容易知道从哪里开始，也越容易知道何时停下。",
       "sourceLabel": "AgentAlpha 自制解释图"
@@ -95,12 +95,12 @@
       "caption": "失败的测试会回到下一轮，帮助 Claude Code 判断还需要修改哪里。",
       "sourceLabel": "AgentAlpha 自制解释图"
     },
-    "/images/learn/claude-code/01-foundations/04-permission-stop.png": {
+    "/images/learn/claude-code/01-foundations/04-permission-stop.webp": {
       "alt": "不同动作需要不同程度的确认",
       "caption": "是否需要确认，取决于动作会改变什么，而不是对话进行到第几步。",
       "sourceLabel": "AgentAlpha 自制解释图"
     },
-    "/images/learn/claude-code/01-foundations/05-two-checks.png": {
+    "/images/learn/claude-code/01-foundations/05-two-checks.webp": {
       "alt": "代码差异和测试结果检查不同问题",
       "caption": "diff 检查修改范围，测试检查运行结果；两者不能互相替代。",
       "sourceLabel": "AgentAlpha 自制解释图"
