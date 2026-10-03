@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AgentAlpha · 实验对比 Playground</title>
+<style>
+:root{--bg:#05050a;--card:rgba(255,255,255,.035);--line:rgba(255,255,255,.09);
+--tx:#e8eaf2;--mut:#8b90a5;--mut2:#5c6175;--acc:#7c5cff;--acc2:#4cc9f0;--good:#2ee6a8;
+--warn:#ffc94d;--mono:'SF Mono',ui-monospace,Consolas,monospace;
+--sans:-apple-system,'Noto Sans SC','PingFang SC',sans-serif}
+*{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--tx);font-family:var(--sans);line-height:1.65;overflow-x:hidden}
+::selection{background:rgba(124,92,255,.4)}
+.aurora{position:fixed;inset:0;z-index:-2;overflow:hidden;pointer-events:none}
+.aurora i{position:absolute;border-radius:50%;filter:blur(110px);opacity:.5}
+.aurora .o1{width:56vw;height:56vw;left:-14vw;top:-22vw;background:radial-gradient(circle,rgba(124,92,255,.5),transparent 65%);animation:d1 26s ease-in-out infinite alternate}
+.aurora .o2{width:44vw;height:44vw;right:-12vw;top:8vh;background:radial-gradient(circle,rgba(76,201,240,.38),transparent 65%);animation:d2 32s ease-in-out infinite alternate}
+@keyframes d1{to{transform:translate(9vw,7vh) scale(1.12)}}
+@keyframes d2{to{transform:translate(-7vw,9vh) scale(.92)}}
+.hero{max-width:1120px;margin:0 auto;padding:96px 24px 40px;text-align:center}
+.kicker{display:inline-flex;gap:8px;font-size:11.5px;letter-spacing:2.6px;color:var(--mut);
+border:1px solid var(--line);border-radius:99px;padding:7px 18px;background:rgba(255,255,255,.03)}
+.kicker b{color:var(--acc2)}
+h1{font-size:clamp(32px,5vw,54px);font-weight:800;letter-spacing:-1px;margin:22px 0 12px;
+background:linear-gradient(100deg,#fff 8%,#b8a6ff 45%,#6ee0ff 90%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero p{color:var(--mut);max-width:720px;margin:0 auto;font-size:15px}
+main{max-width:1120px;margin:0 auto;padding:0 24px 90px}
+section{padding-top:64px}
+.shead{display:flex;align-items:baseline;gap:14px;margin-bottom:6px}
+.sno{font-family:var(--mono);font-size:12px;color:var(--acc2);letter-spacing:2px}
+h2{font-size:23px;font-weight:750;letter-spacing:-.4px}
+.slead{color:var(--mut);font-size:13.5px;margin:4px 0 18px}
+.rule{height:1px;background:linear-gradient(90deg,rgba(124,92,255,.5),rgba(76,201,240,.2),transparent);margin-top:12px}
+.panel{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:22px 24px;margin-bottom:16px}
+.controls{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px}
+.chip{font-size:12.5px;color:var(--mut);border:1px solid var(--line);border-radius:99px;
+padding:7px 16px;cursor:pointer;transition:.25s;background:transparent;user-select:none;font-family:var(--sans)}
+.chip:hover{color:var(--tx);border-color:rgba(124,92,255,.5)}
+.chip.on{color:#fff;background:linear-gradient(120deg,rgba(124,92,255,.85),rgba(76,201,240,.7));border-color:transparent}
+.chip .dot{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:6px;vertical-align:1px}
+.bar-row{display:grid;grid-template-columns:170px 1fr 74px;align-items:center;gap:12px;margin:9px 0}
+.bar-row .lb{font-family:var(--mono);font-size:12px;color:#c9cdd9;text-align:right;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.bar-row .val{font-family:var(--mono);font-size:12.5px;font-weight:700}
+.track{height:14px;border-radius:7px;background:rgba(255,255,255,.05);overflow:hidden}
+.fill{height:100%;border-radius:7px;width:0;transition:width .9s cubic-bezier(.2,.7,.2,1)}
+.note{font-size:12px;color:var(--mut2);margin-top:12px;font-family:var(--mono)}
+.duo{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media(max-width:860px){.duo{grid-template-columns:1fr}}
+.big{font-family:var(--mono);font-size:44px;font-weight:700;letter-spacing:-1px;
+background:linear-gradient(120deg,#fff,#b9c6ff);-webkit-background-clip:text;background-clip:text;color:transparent}
+.big-l{font-family:var(--mono);font-size:26px;font-weight:700;color:var(--good)}
+.stat-lab{font-size:12.5px;color:var(--mut);margin-top:2px}
+.sw{position:relative;width:52px;height:28px;border-radius:99px;background:rgba(255,255,255,.08);border:1px solid var(--line);cursor:pointer;transition:.25s;flex-shrink:0}
+.sw:after{content:'';position:absolute;top:3px;left:3px;width:20px;height:20px;border-radius:50%;background:var(--mut);transition:.25s}
+.sw.on{background:linear-gradient(120deg,rgba(124,92,255,.9),rgba(76,201,240,.75));border-color:transparent}
+.sw.on:after{left:27px;background:#fff}
+.cfg-row{display:flex;align-items:center;gap:12px;margin:12px 0;font-size:13px}
+svg text{font-family:var(--mono)}
+.reveal{opacity:0;transform:translateY(24px);transition:all .7s cubic-bezier(.2,.7,.2,1)}
+.reveal.in{opacity:1;transform:none}
+footer{border-top:1px solid var(--line);padding:32px 24px;text-align:center;color:var(--mut2);font-size:12.5px}
+footer a{color:var(--acc2);text-decoration:none}
+@media (prefers-reduced-motion: reduce){.reveal{opacity:1;transform:none;transition:none}.aurora i{animation:none}}
+</style></head>
+<body>
+<div class="aurora"><i class="o1"></i><i class="o2"></i></div>
+<header class="hero">
+<div class="kicker"><b>PLAYGROUND</b> · 全部交互由真实实验 JSON 驱动 · 零模拟</div>
+<h1>实验对比 Playground</h1>
+<p>像产品一样的交互面板：切换查询类型、勾选检索器、播放进化曲线、组合部署配置——每个数字来自 33 组真实实验的原始 JSON。</p>
+<div id="heroStats" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;margin-top:28px"></div>
+</header>
+<main>
+
+<section class="reveal">
+<div class="shead"><span class="sno">01</span><h2>检索模块替换对比器</h2></div>
+<div class="rule"></div>
+<p class="slead">R21 换模块矩阵：4 个可插拔检索器（同一接口 RetrieverBase.retrieve）× 3 类查询。勾选策略、切换类型，看排名实时变化。</p>
+<div class="panel">
+<div class="controls" id="swapChips">
+<button class="chip on" data-k="bm25"><span class="dot" style="background:#7c5cff"></span>bm25</button><button class="chip on" data-k="dense"><span class="dot" style="background:#4cc9f0"></span>dense</button><button class="chip on" data-k="hybrid-rrf"><span class="dot" style="background:#2ee6a8"></span>hybrid-rrf</button><button class="chip on" data-k="multiquery-max-rrf"><span class="dot" style="background:#ffc94d"></span>multiquery-max-rrf</button>
+<select id="swapType" style="background:rgba(255,255,255,.06);color:var(--tx);border:1px solid var(--line);border-radius:99px;padding:7px 14px;font-family:var(--sans);font-size:12.5px;outline:none">
+<option value="lexical">lexical</option><option value="paraphrase">paraphrase</option><option value="multi_aspect">multi_aspect</option>
+</select>
+</div>
+<div id="swapBars"></div>
+<div class="note" id="swapNote"></div>
+</div>
+</section>
+
+<section class="reveal">
+<div class="shead"><span class="sno">02</span><h2>自进化曲线播放器</h2></div>
+<div class="rule"></div>
+<p class="slead">R13 真实进化循环：3 种选择算法 × 5 种子 × 20 代，fitness 每次都是真实执行（7 正确性用例 + 336KB 计时）。点击播放逐代重放。</p>
+<div class="panel">
+<div class="controls" id="evoChips">
+<button class="chip" style="border-color:#7c5cff66">random_search</button><button class="chip" style="border-color:#4cc9f066">greedy_es</button><button class="chip" style="border-color:#2ee6a866">tournament_elite</button>
+<button class="chip on" id="evoPlay">▶ 播放逐代收敛</button>
+<span style="font-family:var(--mono);font-size:12px;color:var(--acc2);align-self:center" id="evoGen"></span>
+</div>
+<div id="evoChart"></div>
+<div class="note">阴影 = 5 种子 ±1 std；random_search 无法爬升（只能从种子池重抽），tournament+elite 靠精英保留持续改进 —— Welch t p=1.5e-6</div>
+</div>
+</section>
+
+<section class="reveal">
+<div class="shead"><span class="sno">03</span><h2>部署配置器</h2></div>
+<div class="rule"></div>
+<p class="slead">R22 部署矩阵：精度（FP16/INT8/INT4 权重量化）× 查询策略（单查询/多面分解+max-RRF）。扳动开关看真实测量的质量与延迟组合。</p>
+<div class="duo">
+<div class="panel">
+<div class="cfg-row"><span style="width:96px;color:var(--mut)">精度</span><span id="dpPrec" style="display:flex;gap:10px">
+<span class="sw" data-v="fp16"></span><span style="font-family:var(--mono);font-size:12px;color:var(--mut)">fp16</span><span class="sw" data-v="int8"></span><span style="font-family:var(--mono);font-size:12px;color:var(--mut)">int8</span><span class="sw" data-v="int4"></span><span style="font-family:var(--mono);font-size:12px;color:var(--mut)">int4</span>
+</span></div>
+<div class="cfg-row"><span style="width:96px;color:var(--mut)">查询策略</span><span id="dpPolicy" style="display:flex;gap:10px">
+<span class="sw" data-v="single"></span><span style="font-family:var(--mono);font-size:12px;color:var(--mut)">single</span>
+<span class="sw" data-v="multi_max"></span><span style="font-family:var(--mono);font-size:12px;color:var(--mut)">multi_max</span>
+</span></div>
+<div style="display:flex;gap:34px;margin-top:20px;align-items:flex-end">
+<div><div class="big" id="dpNdcg">—</div><div class="stat-lab">nDCG@10（120 查询）</div></div>
+<div><div class="big-l" id="dpLat">—</div><div class="stat-lab">查询延迟</div></div>
+<div><div style="font-family:var(--mono);font-size:15px;color:var(--warn)" id="dpGain">—</div><div class="stat-lab">多面分解 vs 单查询</div></div>
+</div>
+<div style="margin-top:18px">
+<div class="bar-row"><span class="lb">quality</span><div class="track" id="dpBarQ"><div class="fill" style="background:linear-gradient(90deg,#7c5cff88,#7c5cff)"></div></div><span class="val"></span></div>
+<div class="bar-row"><span class="lb">latency</span><div class="track" id="dpBarL"><div class="fill" style="background:linear-gradient(90deg,#4cc9f088,#4cc9f0)"></div></div><span class="val"></span></div>
+</div>
+<div class="note">当前组合：<span id="dpKey">—</span> · 诚实负结果：INT8 权重反量化在 GPU 上未带来延迟收益——量化省显存不省时间</div>
+</div>
+<div class="panel">
+<div class="stat-lab" style="margin-bottom:10px">为什么这页存在（教程 §6 魔改指南摘要）</div>
+<p style="font-size:13.5px;color:#c9cdd9">① 检索器实现 <b>RetrieverBase.retrieve</b>，注册进 LOOKUP，自动进入 R21 矩阵；<br>
+② 查询类型/条数/种子在 <b>scripts/experiment_config.py</b> 一处改；<br>
+③ <b>make round6 tables site</b> 三条命令刷新全部产物与本页。<br><br>
+你的对比实验 = 换一个模块实现 + 改一行配置 + 跑一次 make。</p>
+</div>
+</div>
+</section>
+
+</main>
+<footer>AgentAlpha · Playground · 数据源 experiments/round3-6 真实 JSON · <a href="/projects/results.html">实验证据中枢</a> · <a href="/projects/index.html">课程主页</a></footer>
+<script>
+const D = {"swap": {"bm25": {"lexical": {"recall@5": 0.8625, "mrr": 0.7154166666666667, "ndcg@10": 0.7481294446832887}, "paraphrase": {"recall@5": 0.975, "mrr": 0.913425925925926, "ndcg@10": 0.9288662191964322}, "multi_aspect": {"recall@5": 0.775, "mrr": 0.9625, "ndcg@10": 0.8053491019951599}, "overall": {"recall@5": 0.8708333333333333, "mrr": 0.863780864197531, "ndcg@10": 0.8274482552916269, "latency_ms": 3.727124134699504}}, "dense": {"lexical": {"recall@5": 0.075, "mrr": 0.08062643305307256, "ndcg@10": 0.057257874777884285}, "paraphrase": {"recall@5": 0.9, "mrr": 0.8624404761904761, "ndcg@10": 0.8873551706607193}, "multi_aspect": {"recall@5": 0.6875, "mrr": 0.9349999999999999, "ndcg@10": 0.7481544300190736}, "overall": {"recall@5": 0.5541666666666667, "mrr": 0.6260223030811829, "ndcg@10": 0.564255825152559, "latency_ms": 31.865374247233078}}, "hybrid-rrf": {"lexical": {"recall@5": 0.5375, "mrr": 0.5297916666666667, "ndcg@10": 0.5636672561260975}, "paraphrase": {"recall@5": 0.975, "mrr": 0.8981060606060606, "ndcg@10": 0.9163662191964322}, "multi_aspect": {"recall@5": 0.8, "mrr": 0.940625, "ndcg@10": 0.836768308506679}, "overall": {"recall@5": 0.7708333333333334, "mrr": 0.7895075757575758, "ndcg@10": 0.7722672612764029, "latency_ms": 31.915183862050377}}, "multiquery-max-rrf": {"lexical": {"recall@5": 0.05, "mrr": 0.0851916686740519, "ndcg@10": 0.08141113205770104}, "paraphrase": {"recall@5": 0.85, "mrr": 0.8414625188643651, "ndcg@10": 0.8432926638434344}, "multi_aspect": {"recall@5": 0.975, "mrr": 0.9458333333333334, "ndcg@10": 0.9497590627025877}, "overall": {"recall@5": 0.625, "mrr": 0.6241625069572502, "ndcg@10": 0.6248209528679076, "latency_ms": 80.63544631004333}}}, "swapTypes": ["lexical", "paraphrase", "multi_aspect"], "evo": {"random_search": {"best_mean": [0.8346811183728278, 0.836455584038049, 0.8383111879229546, 0.8601239374838769, 0.8601798415184021, 0.8607547455467284, 0.8607547455467284, 0.8608159315772355, 0.8608159315772355, 0.8608159315772355, 0.8608159315772355, 0.8613036638125777, 0.8613036638125777, 0.8613036638125777, 0.8613036638125777, 0.8614544519223273, 0.8615193641744554, 0.8615193641744554, 0.8615193641744554, 0.8615193641744554], "best_std": [0.0430553131207227, 0.04254434566889853, 0.0415594135377908, 0.001979893341691249, 0.0019247617078613762, 0.0015490872062320325, 0.0015490872062320325, 0.0014521883683023895, 0.0014521883683023895, 0.0014521883683023895, 0.0014521883683023895, 0.001531840268409445, 0.001531840268409445, 0.001531840268409445, 0.001531840268409445, 0.0012992226159943465, 0.0011879575512757385, 0.0011879575512757385, 0.0011879575512757385, 0.0011879575512757385], "mean_mean": [0.6414579158788546, 0.7127992230817853, 0.7433974621016975, 0.7122874534884024, 0.6895722412404471, 0.6900785466811309, 0.7000908461743078, 0.6766845294116952, 0.6951667996777576, 0.7093817667004518, 0.6433037930068426, 0.7336703584629244, 0.7737949275289706, 0.7220308552773315, 0.7421797051894966, 0.7201216966306258, 0.7117079596667152, 0.7357028204604007, 0.7201467598114341, 0.7124237040574439], "mean_std": [0.0799153495066884, 0.05770738395137148, 0.07105343855788851, 0.023832487909177455, 0.06487985616234218, 0.07033294015766298, 0.07056936976706252, 0.03800046543002467, 0.08890071304377464, 0.01983917481989805, 0.037019931477656205, 0.07206049120072072, 0.03566250854292869, 0.05267127837213168, 0.04204763351006633, 0.048482310874979034, 0.031956636132654814, 0.04078530050047495, 0.049455663559049234, 0.042459050955773556]}, "greedy_es": {"best_mean": [0.8559049898758531, 0.8633515294641256, 0.8659815136343241, 0.8670752458274364, 0.8727086819708347, 0.8732939204201102, 0.8739252942614257, 0.8739252942614257, 0.8739252942614257, 0.874114278703928, 0.874114278703928, 0.8741246466524899, 0.8741265223361552, 0.8741265223361552, 0.8743117600679398, 0.8743117600679398, 0.8743622065521777, 0.8743622065521777, 0.8743622065521777, 0.8743622065521777], "best_std": [0.0013327288349551105, 0.008663575035394989, 0.00885143402480643, 0.007864832687952437, 0.0017799192595278576, 0.0017178506544671996, 0.0015367016887059973, 0.0015367016887059973, 0.0015367016887059973, 0.0016134571958963907, 0.0016134571958963907, 0.0016193610635942238, 0.0016157789996583262, 0.0016157789996583262, 0.001634548928445963, 0.001634548928445963, 0.0015409692928610977, 0.0015409692928610977, 0.0015409692928610977, 0.0015409692928610977], "mean_mean": [0.6521802767927182, 0.6528008217584077, 0.6530199871059241, 0.6531111314553502, 0.6535805844672999, 0.6536293543380729, 0.6536819688248492, 0.6536819688248492, 0.6536819688248492, 0.6536977175283911, 0.6536977175283911, 0.6536985815241045, 0.6536987378310768, 0.6536987378310768, 0.6537141743087255, 0.6537141743087255, 0.653718378182412, 0.653718378182412, 0.653718378182412, 0.653718378182412], "mean_std": [0.06372056509099691, 0.06352121012575318, 0.06367500792619295, 0.06378836574494046, 0.06363219859839303, 0.06357290085538043, 0.0636193041726036, 0.0636193041726036, 0.0636193041726036, 0.06359918148838561, 0.06359918148838561, 0.06359987346275246, 0.06360007745419803, 0.06360007745419803, 0.06361432872201851, 0.06361432872201851, 0.06361981438639171, 0.06361981438639171, 0.06361981438639171, 0.06361981438639171]}, "tournament_elite": {"best_mean": [0.8581285062246025, 0.8697986085899172, 0.8726552124135194, 0.873312511947006, 0.8737516961991787, 0.8737765420228243, 0.8738950900733471, 0.8738950900733471, 0.8738950900733471, 0.8738950900733471, 0.8738950900733471, 0.8738950900733471, 0.8738950900733471, 0.874450093600899, 0.8747962336055934, 0.8747962336055934, 0.8747962336055934, 0.8747962336055934, 0.8747962336055934, 0.8759723138064146], "best_std": [0.0014051935614909502, 0.00767301974465164, 0.004044209133707651, 0.004135276059234087, 0.0039032016017142685, 0.0038955823493776274, 0.0038678211360768594, 0.0038678211360768594, 0.0038678211360768594, 0.0038678211360768594, 0.0038678211360768594, 0.0038678211360768594, 0.0038678211360768594, 0.003930182257589131, 0.004110664732383375, 0.004110664732383375, 0.004110664732383375, 0.004110664732383375, 0.004110664732383375, 0.0020886853952342965], "mean_mean": [0.6550598721729504, 0.7847408141220165, 0.8455881347569326, 0.8529989275460442, 0.8552531897633647, 0.8556982315300654, 0.8562386533400664, 0.8513801392012587, 0.8521517415453369, 0.853389896840478, 0.8530554949538782, 0.8489752473154415, 0.838563745530943, 0.8508355624166628, 0.8559072578791529, 0.8554005974826093, 0.8548675659500683, 0.8567938772418225, 0.8545157541132843, 0.8597225799846152], "mean_std": [0.06815349129254755, 0.0640137122738638, 0.03322580756818776, 0.03389033379520671, 0.031976122009820446, 0.03206725872670106, 0.03228712092553168, 0.03021973428001281, 0.031071474374355538, 0.03478248145500799, 0.035206618443522714, 0.03237446141760508, 0.034259303684448225, 0.03240070675259062, 0.03353457818839265, 0.03477893207499891, 0.03413037945348087, 0.03264562004352125, 0.031559458848036515, 0.023657229593504386]}}, "evoGens": 20, "deploy": {"fp16+single": {"ndcg@10": 0.564255825152559, "recall@5": 0.5541666666666667, "mrr": 0.6260223030811829, "ndcg_by_type": {"lexical": 0.057257874777884285, "paraphrase": 0.8873551706607193, "multi_aspect": 0.7481544300190736}, "latency_ms": 37.514944871266685}, "fp16+multi_max": {"ndcg@10": 0.6314573693803972, "recall@5": 0.65, "mrr": 0.6296334141922941, "ndcg_by_type": {"lexical": 0.057257874777884285, "paraphrase": 0.8873551706607193, "multi_aspect": 0.9497590627025877}, "latency_ms": 89.36258951822916}, "int8+single": {"ndcg@10": 0.5679760784219232, "recall@5": 0.5541666666666667, "mrr": 0.6318140341610657, "ndcg_by_type": {"lexical": 0.05572548103385253, "paraphrase": 0.8931276410513338, "multi_aspect": 0.7550751131805831}, "latency_ms": 97.59863018989563}, "int8+multi_max": {"ndcg@10": 0.6338939339681076, "recall@5": 0.6541666666666667, "mrr": 0.6326473674943991, "ndcg_by_type": {"lexical": 0.05572548103385253, "paraphrase": 0.8931276410513338, "multi_aspect": 0.9528286798191363}, "latency_ms": 81.07144633928935}, "int4+single": {"ndcg@10": 0.5667334612094944, "recall@5": 0.5625, "mrr": 0.6228139198624075, "ndcg_by_type": {"lexical": 0.038006232410810734, "paraphrase": 0.9029516673562735, "multi_aspect": 0.759242483861399}, "latency_ms": 41.08438094456991}, "int4+multi_max": {"ndcg@10": 0.6264370817328242, "recall@5": 0.6583333333333333, "mrr": 0.6214250309735186, "ndcg_by_type": {"lexical": 0.038006232410810734, "paraphrase": 0.9029516673562735, "multi_aspect": 0.9383533454313884}, "latency_ms": 55.0568679968516}}, "quant": {"fp16": {"recall@5": 0.975, "mrr": 0.9916666666666667, "ndcg@10": 0.9779376117826301, "query_latency_ms": 9.882005055745442}, "int8": {"recall@5": 0.975, "mrr": 0.9916666666666667, "ndcg@10": 0.9774897716192418, "query_latency_ms": 9.756608804066977}, "int4": {"recall@5": 0.9666666666666667, "mrr": 0.9735042735042735, "ndcg@10": 0.9619561779358322, "query_latency_ms": 12.297260761260986}}, "r11": {"bm25": {"recall@2": 0.6166666666666667, "recall@5": 0.8083333333333333, "recall@10": 0.9166666666666666, "mrr": 0.7525730519480519, "ndcg@10": 0.7583665752083685, "latency_ms_mean": 2.012377977371216, "latency_ms_p95": 4.806983470916745}, "dense": {"recall@2": 0.5458333333333333, "recall@5": 0.5916666666666667, "recall@10": 0.6166666666666667, "mrr": 0.6563043657692315, "ndcg@10": 0.5922948702701517, "latency_ms_mean": 8.021082480748495, "latency_ms_p95": 12.119865417480469}, "multi_query_rrf": {"recall@2": 0.5791666666666667, "recall@5": 0.6666666666666666, "recall@10": 0.7125, "mrr": 0.6223987655990016, "ndcg@10": 0.6264231789446895, "latency_ms_mean": 22.205273310343426, "latency_ms_p95": 34.11188125610351}, "iter2hop_rrf": {"recall@2": 0.5375, "recall@5": 0.5833333333333334, "recall@10": 0.6125, "mrr": 0.6431330185685283, "ndcg@10": 0.5819561204124136, "latency_ms_mean": 22.43459423383077, "latency_ms_p95": 36.06070280075073}, "hybrid_rrf": {"recall@2": 0.6333333333333333, "recall@5": 0.75, "recall@10": 0.8666666666666667, "mrr": 0.7931583694083694, "ndcg@10": 0.7529152627924052, "latency_ms_mean": 0.026690959930419922, "latency_ms_p95": 0.04080533981323242}}, "fewshot": {"0": 0.75, "1": 0.9166666666666666, "2": 0.9166666666666666}, "judge": {"n_samples": 72, "pass_rate": 0.7222222222222222, "auc": 0.7355769230769231, "ece": 0.1994276378818835, "accuracy@0.5": 0.7222222222222222, "confusion@0.5": {"tp": 52, "fp": 20, "fn": 0, "tn": 0}, "mean_conf_when_pass": 0.92858013657187, "mean_conf_when_fail": 0.9036311412879184, "reliability_bins": [{"bin_center": 0.85, "conf": 0.8838849969663339, "emp_acc": 0.47058823529411764, "n": 17}, {"bin_center": 0.95, "conf": 0.9333226359830534, "emp_acc": 0.8, "n": 55}]}};
+const $=q=>document.querySelector(q), $$=q=>[...document.querySelectorAll(q)];
+const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+// reveal
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.1});
+$$('.reveal').forEach(el=>reduced?el.classList.add('in'):io.observe(el));
+const COLORS=['#7c5cff','#4cc9f0','#2ee6a8','#ffc94d','#f72585','#8b90a5'];
+const fmt=(v,d=3)=>v.toFixed(d);
+
+// ── 1. 检索策略对比器 ──
+const swapOn=new Set(Object.keys(D.swap));
+function renderSwap(){
+  const t=$('#swapType').value;
+  const rows=Object.keys(D.swap).filter(k=>swapOn.has(k))
+    .map((k,i)=>({k, v:D.swap[k][t]?.ndcg10 ?? D.swap[k][t]?.['ndcg@10'], c:COLORS[i%COLORS.length]}))
+    .filter(r=>r.v!==undefined).sort((a,b)=>b.v-a.v);
+  const max=Math.max(...rows.map(r=>r.v),0.0001);
+  $('#swapBars').innerHTML=rows.map(r=>`
+    <div class="bar-row"><span class="lb">${r.k}</span>
+    <div class="track"><div class="fill" data-w="${r.v/max*100}" style="background:linear-gradient(90deg,${r.c}88,${r.c})"></div></div>
+    <span class="val" style="color:${r.c}">${fmt(r.v)}</span></div>`).join('');
+  requestAnimationFrame(()=>$$('#swapBars .fill').forEach(f=>f.style.width=f.dataset.w+'%'));
+  const best=rows[0];
+  $('#swapNote').textContent = best? `当前查询类型下最优：${best.k}（nDCG@10 ${fmt(best.v)}）—— 换个查询类型再试，最优者会换人，这正是 R21 换模块实验的结论` : '';
+}
+$('#swapType').addEventListener('change',renderSwap);
+$$('#swapChips .chip').forEach(c=>c.addEventListener('click',()=>{
+  const k=c.dataset.k;
+  if(swapOn.size>1||!swapOn.has(k)){c.classList.toggle('on');swapOn.has(k)?swapOn.delete(k):swapOn.add(k)}
+  renderSwap();
+}));
+
+// ── 2. 进化曲线播放器 ──
+function evoPaths(gen){
+  return Object.keys(D.evo).map((alg,i)=>{
+    const m=D.evo[alg].best_mean.slice(0,gen), s=D.evo[alg].best_std.slice(0,gen);
+    const all=m.map((v,j)=>[v-s[j],v+s[j]]).flat();
+    return {alg,i,m,s,lo:Math.min(...all),hi:Math.max(...all)};
+  });
+}
+function drawEvo(gen){
+  const W=640,H=300,L=44,R=52,T=14,B=30;
+  const frames=evoPaths(D.evoGens);
+  const lo=Math.min(...frames.map(f=>f.lo)),hi=Math.max(...frames.map(f=>f.hi));
+  const X=i=>L+(W-L-R)*i/(D.evoGens-1), Y=v=>T+(H-T-B)*(1-(v-lo)/(hi-lo));
+  let svg=`<svg viewBox="0 0 ${W} ${H}" style="width:100%">`;
+  for(let g=0;g<D.evoGens;g+=4)
+    svg+=`<line x1="${X(g)}" y1="${T}" x2="${X(g)}" y2="${H-B}" stroke="rgba(255,255,255,.06)"/>
+          <text x="${X(g)}" y="${H-10}" font-size="9" fill="#5c6175" text-anchor="middle">g${g+1}</text>`;
+  for(let v=0;v<=1.001;v+=0.25)
+    svg+=`<line x1="${L}" y1="${Y(v)}" x2="${W-R}" y2="${Y(v)}" stroke="rgba(255,255,255,.06)"/>
+          <text x="${L-5}" y="${Y(v)+3}" font-size="9" fill="#5c6175" text-anchor="end">${v.toFixed(2)}</text>`;
+  frames.forEach(f=>{
+    const c=COLORS[f.i%COLORS.length];
+    if(f.m.length>1){
+      const pts=f.m.map((v,j)=>`${X(j)},${Y(v)}`).join(' ');
+      const band=f.m.map((v,j)=>`${X(j)},${Y(Math.min(1.05,v+f.s[j]))}`).join(' ')
+        +' '+f.m.map((v,j)=>`${X(f.m.length-1-j)},${Y(Math.max(0,v-f.s[f.m.length-1-j]))}`).join(' ');
+      svg+=`<polygon points="${band}" fill="${c}" opacity="0.12"/>`;
+      svg+=`<polyline points="${pts}" fill="none" stroke="${c}" stroke-width="2"/>`;
+      const last=f.m[f.m.length-1];
+      svg+=`<circle cx="${X(f.m.length-1)}" cy="${Y(last)}" r="3.2" fill="${c}"/>
+            <text x="${X(f.m.length-1)+6}" y="${Y(last)+3}" font-size="9.5" fill="${c}">${fmt(last)}</text>`;
+    }});
+  svg+=`</svg>`;
+  $('#evoChart').innerHTML=svg;
+  $('#evoGen').textContent=`generation ${gen} / ${D.evoGens}`;
+}
+let evoTimer=null;
+function playEvo(){
+  clearInterval(evoTimer);let g=1;
+  if(reduced){drawEvo(D.evoGens);return}
+  evoTimer=setInterval(()=>{g++;drawEvo(g);if(g>=D.evoGens)clearInterval(evoTimer)},110);
+}
+$('#evoPlay').addEventListener('click',playEvo);
+$$('#evoChips .chip').forEach(c=>c.addEventListener('click',()=>c.classList.toggle('dim')));
+drawEvo(D.evoGens);playEvo();
+
+// ── 3. 部署配置器 ──
+const cfg={prec:'int8',policy:'multi_max'};
+function renderDeploy(){
+  const k=`${cfg.prec}+${cfg.policy}`;
+  const c=D.deploy[k];
+  $('#dpNdcg').textContent=fmt(c['ndcg@10'],4);
+  $('#dpLat').textContent=c.latency_ms.toFixed(1)+' ms';
+  $('#dpKey').textContent=k;
+  $('#dpBarQ .fill').style.width=c['ndcg@10']*100+'%';
+  $('#dpBarL .fill').style.width=Math.min(100,c.latency_ms/100*100)+'%';
+  const other='multi_max'===cfg.policy?'single':'multi_max';
+  const gain=(D.deploy[`${cfg.prec}+${cfg.policy}`]['ndcg@10']-D.deploy[`${cfg.prec}+${other}`]['ndcg@10'])*100;
+  $('#dpGain').textContent=(gain>=0?'+':'')+gain.toFixed(1)+' pp';
+  $$('#dpPrec .sw').forEach(s=>s.classList.toggle('on',s.dataset.v===cfg.prec));
+  $$('#dpPolicy .sw').forEach(s=>s.classList.toggle('on',s.dataset.v===cfg.policy));
+}
+$$('#dpPrec .sw').forEach(s=>s.addEventListener('click',()=>{cfg.prec=s.dataset.v;renderDeploy()}));
+$$('#dpPolicy .sw').forEach(s=>s.addEventListener('click',()=>{cfg.policy=s.dataset.v;renderDeploy()}));
+renderDeploy();
+
+// ── 初始化（含 01 组件首渲染）──
+renderSwap();
+// ── 4. 顶部大数字 ──
+const hero=[['33','组真实实验','E/G/R1-R22 全部实测'],['34','张 300dpi 图表','出版级统一色板'],
+  ['94','个沙箱用例','R12/R17 真实执行'],['0','条模拟数据','每个数字可复现']];
+$('#heroStats').innerHTML=hero.map(([v,l,s])=>`
+  <div class="panel reveal" style="padding:18px 22px"><div class="big">${v}</div>
+  <div class="stat-lab" style="color:var(--tx);font-weight:600">${l}</div>
+  <div class="stat-lab" style="font-family:var(--mono)">${s}</div></div>`).join('');
+$$('#heroStats .reveal').forEach(el=>el.classList.add('in'));
+</script>
+</body></html>
