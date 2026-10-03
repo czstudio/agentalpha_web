@@ -430,12 +430,12 @@ export interface FactoryRow {
   focus: string
 }
 
-export const FACTORIES: FactoryRow[] = [
-  { name: "字节跳动", count: 100, focus: "推荐/搜索、Agent 工程、训练、推理与高并发" },
-  { name: "阿里巴巴", count: 100, focus: "电商/企业服务、RAG、工具平台、模型训练与部署" },
-  { name: "腾讯", count: 100, focus: "社交/内容场景、Memory、多 Agent、系统设计与工程实现" },
-  { name: "美团", count: 100, focus: "搜索推荐、本地生活、RAG、训练、算法与稳定性" },
-  { name: "百度", count: 100, focus: "搜索、知识增强、Agent、模型训练、推理与平台能力" },
+export const FACTORIES: (FactoryRow & { slug: string })[] = [
+  { name: "字节跳动", slug: "bytedance", count: 100, focus: "推荐/搜索、Agent 工程、训练、推理与高并发" },
+  { name: "阿里巴巴", slug: "alibaba", count: 100, focus: "电商/企业服务、RAG、工具平台、模型训练与部署" },
+  { name: "腾讯", slug: "tencent", count: 100, focus: "社交/内容场景、Memory、多 Agent、系统设计与工程实现" },
+  { name: "美团", slug: "meituan", count: 100, focus: "搜索推荐、本地生活、RAG、训练、算法与稳定性" },
+  { name: "百度", slug: "baidu", count: 100, focus: "搜索、知识增强、Agent、模型训练、推理与平台能力" },
 ]
 
 export const FACTORY_DOC_HREF = "https://agentalpha.feishu.cn/docx/EeMIdOtiMokxEExLSPwcqqUFnCe"

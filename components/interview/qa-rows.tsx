@@ -8,6 +8,7 @@ export interface QaRowItem {
   question: string
   oneLine: string
   category: string
+  company?: string
 }
 
 export interface QaRowGroup {
@@ -37,10 +38,26 @@ function loadMastery(): MasteryMap {
 
 type MasteryFilter = "all" | "open" | "done"
 
+const COMPANY_SHORT: Record<string, string> = {
+  bytedance: "字节", alibaba: "阿里", tencent: "腾讯", baidu: "百度", meituan: "美团",
+  jd: "京东", kuaishou: "快手", pdd: "拼多多", xiaohongshu: "小红书", didi: "滴滴",
+  netease: "网易", moonshot: "月之暗面", zhipu: "智谱", minimax: "MiniMax", deepseek: "DeepSeek",
+  antgroup: "蚂蚁", bilibili: "B站", huawei: "华为", xiaomi: "小米", douyin: "抖音",
+  google: "谷歌", openai: "OpenAI", microsoft: "微软", sensetime: "商汤", iflytek: "讯飞", nio: "蔚来",
+}
+
+function companyMeta(company?: string): { count: number; names: string } {
+  if (!company) return { count: 0, names: "" }
+  const parts = company.split(",").map((s) => s.trim()).filter(Boolean)
+  const names = parts.map((p) => COMPANY_SHORT[p] || p)
+  return { count: parts.length, names: names.slice(0, 2).join("、") }
+}
+
 export function QaRows({ groups }: { groups: QaRowGroup[] }) {
   const [mastery, setMastery] = useState<MasteryMap>({})
   const [query, setQuery] = useState("")
   const [filter, setFilter] = useState<MasteryFilter>("all")
+  const [view, setView] = useState<"tree" | "hot">("tree")
   const [ready, setReady] = useState(false)
 
   useEffect(() => {
@@ -89,6 +106,15 @@ export function QaRows({ groups }: { groups: QaRowGroup[] }) {
     [groups, q, filter, mastery],
   )
 
+  // 🔥先刷视图：多厂共考题按公司数排序，截前 40
+  const hotItems = useMemo(() => {
+    const flat = groups.flatMap((g) => g.items.map((it) => ({ ...it, count: companyMeta(it.company).count })))
+    return flat
+      .filter((it) => it.count >= 2)
+      .sort((a, b) => b.count - a.count || a.question.localeCompare(b.question))
+      .slice(0, 40)
+  }, [groups])
+
   return (
     <div className="ivq-tools-wrap">
       <div className="ivq-tools">
@@ -119,6 +145,19 @@ export function QaRows({ groups }: { groups: QaRowGroup[] }) {
             </button>
           ))}
         </div>
+        <div className="ivq-views" role="radiogroup" aria-label="列表视图">
+          {([["tree", "按分类"], ["hot", "🔥先刷"]] as const).map(([value, label]) => (
+            <button
+              key={value}
+              role="radio"
+              aria-checked={view === value}
+              className={`ivq-filter${view === value ? " is-on" : ""}`}
+              onClick={() => setView(value)}
+            >
+              {label}
+            </button>
+          ))}
+        </div>
         {ready && (
           <span className="ivq-progress">
             已掌握 <b>{masteredCount}</b> / {groups.reduce((n, g) => n + g.items.length, 0)}
@@ -126,13 +165,49 @@ export function QaRows({ groups }: { groups: QaRowGroup[] }) {
         )}
       </div>
 
+      {view === "hot" && hotItems.length === 0 && (
+        <p className="ivq-empty">暂无多厂共考的题。</p>
+      )}
+
+      {view === "hot" ? (
+        <div className="ivq-rows">
+          {hotItems.map((item) => {
+            const on = isMastered(mastery[item.slug])
+            const meta = companyMeta(item.company)
+            return (
+              <div className="ivq-row" key={item.slug}>
+                <Link className="ivq-row-main" href={`/interview/qa/${item.slug}`}>
+                  <span className="ivq-row-q">
+                    {on && <span className="ivq-row-dot" aria-hidden />}
+                    Q · {item.question}
+                  </span>
+                  <span className="ivq-row-a">{item.oneLine}</span>
+                  <span className="ivq-row-companies">{meta.names} 等 {meta.count} 家考过</span>
+                  <span className="ivq-row-go" aria-hidden>
+                    查看答案 →
+                  </span>
+                </Link>
+                <button
+                  className={`ivq-row-mark${on ? " is-on" : ""}`}
+                  onClick={() => toggle(item.slug)}
+                  aria-pressed={on}
+                  title={on ? "点一下取消掌握标记" : "点一下标记为已掌握"}
+                >
+                  {on ? "已掌握" : "标记掌握"}
+                </button>
+              </div>
+            )
+          })}
+        </div>
+      ) : null}
+
       {ready && visibleGroups.length === 0 && (
         <p className="ivq-empty">
           {q ? "没有命中的题目，换个关键词试试。" : "这个筛选下没有题，换个筛选条件。"}
         </p>
       )}
 
-      {visibleGroups.map((group, gi) => {
+      {view !== "hot" ? visibleGroups.map((group, gi) => {
         const done = group.items.filter((it) => isMastered(mastery[it.slug])).length
         // 首屏降噪：默认只展开第一组，其余折叠；搜索/筛选命中时全展开
         const expanded = q.trim().length > 0 || filter !== "all" || gi === 0
@@ -161,6 +236,15 @@ export function QaRows({ groups }: { groups: QaRowGroup[] }) {
                         Q · {item.question}
                       </span>
                       <span className="ivq-row-a">{item.oneLine}</span>
+                      {(() => {
+                        const meta = companyMeta(item.company)
+                        return meta.count >= 2 ? (
+                          <span className="ivq-row-companies">
+                            {meta.count >= 10 ? <i className="is-hot">🔥高频</i> : null}
+                            {meta.names} 等 {meta.count} 家考过
+                          </span>
+                        ) : null
+                      })()}
                       <span className="ivq-row-go" aria-hidden>
                         查看答案 →
                       </span>
@@ -179,7 +263,7 @@ export function QaRows({ groups }: { groups: QaRowGroup[] }) {
             </div>
           </details>
         )
-      })}
+      }) : null}
     </div>
   )
 }

@@ -2438,3 +2438,15 @@ a.ivq-row-go--ext:hover { text-decoration: underline; text-underline-offset: 3px
 .best-stats { display: flex; flex-wrap: wrap; gap: 16px; margin: 14px 0 0; font-size: 13px; color: #5c5c66; }
 .best-stats b { color: rgb(110, 34, 240); font-weight: 700; }
 .best-author { margin: 8px 0 0; font-size: 12px; color: #a0a0aa; }
+
+/* ── 题库：公司考过标注 + 🔥先刷视图 ── */
+.ivq-views { display: flex; gap: 6px; }
+.ivq-row-companies {
+  grid-column: 1 / -1;
+  display: inline-flex; align-items: center; gap: 6px; flex-wrap: wrap;
+  color: var(--ink-2, #6e6557); font-size: 12px;
+}
+.ivq-row-companies .is-hot {
+  font-style: normal; font-weight: 700; color: var(--brand-deep, #4c15ac);
+  background: var(--brand-tint, #f3ecfe); border-radius: 999px; padding: 1px 8px;
+}

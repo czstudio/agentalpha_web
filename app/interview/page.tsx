@@ -309,10 +309,13 @@ function Drill() {
       <p className="ivt-facchips" aria-label="五厂真题直达">
         <Building2 aria-hidden size={13} />
         {FACTORIES.map((f) => (
-          <Link key={f.name} href="/interview/jingchang" className="ivc-route-chip">
+          <Link key={f.slug} href={`/interview/company/${f.slug}`} className="ivc-route-chip">
             {f.name} {f.count} 题
           </Link>
         ))}
+        <Link href="/interview/jingchang" className="ivc-route-chip">
+          20 厂总览 →
+        </Link>
         <Link href="/mianjing" className="ivt-updline-link">
           面经实录：阿里 RL Data 一面 15 题复盘 →
         </Link>
