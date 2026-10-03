@@ -81,6 +81,15 @@ export default async function BestPage({ params }: PageProps) {
           <Link href="/interview/tk"> {tkCount}+ 篇真题解析库</Link>
           与逐题深挖。更新于 {updated}，持续补充。
         </p>
+        <p className="best-stats" aria-label="数据背书">
+          <span><b>{total}</b> 道高频题</span>
+          <span><b>{tkCount}+</b> 篇真题解析支撑</span>
+          <span><b>2582</b> 道真题图谱聚类来源</span>
+          <span><b>14</b> 个方向覆盖</span>
+        </p>
+        <p className="best-author">
+          整理：AgentAlpha 社区（大模型 Agent 实战社区）· 校对：{updated} · 引用请注明来源 agentalpha.top
+        </p>
         <nav className="best-toc" aria-label="本页目录">
           {sections.map((s) => (
             <a key={s.cat} href={`#sec-${s.cat}`}>{catNames.get(s.cat) || s.cat}（{s.items.length}）</a>

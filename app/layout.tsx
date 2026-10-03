@@ -98,8 +98,11 @@ export default function RootLayout({
         "@type": "Organization",
         "@id": `${siteUrl}/#organization`,
         name: "AgentAlpha",
+        alternateName: "AgentAlpha 社区",
         url: siteUrl,
         logo: `${siteUrl}/logo.png`,
+        description: "国内顶尖大模型 Agent 实战社区：面试题库、主线课程、求职工具与开源项目。",
+        sameAs: ["https://github.com/czstudio"],
       },
       {
         "@type": "WebSite",
@@ -110,6 +113,14 @@ export default function RootLayout({
           "以技术落地、人才培养与商业共创为核心的大模型 Agent 实战社区。",
         inLanguage: ["zh-CN", "en"],
         publisher: { "@id": `${siteUrl}/#organization` },
+        potentialAction: {
+          "@type": "SearchAction",
+          target: {
+            "@type": "EntryPoint",
+            urlTemplate: `${siteUrl}/interview/qa?q={search_term_string}`,
+          },
+          "query-input": "required name=search_term_string",
+        },
       },
     ],
   }
