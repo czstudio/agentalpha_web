@@ -80,7 +80,6 @@ h2{font-size:27px;font-weight:750;letter-spacing:-.5px}
 border:1px solid var(--line);border-radius:99px;padding:2px 9px}
 /* ── 双栏：图 + 侧数字 ── */
 .duo{display:grid;grid-template-columns:1.65fr 1fr;gap:16px;align-items:stretch}
-.duo .fimg img{max-height:none;width:100%;height:auto}
 @media(max-width:900px){.duo{grid-template-columns:1fr}}
 .fcard{background:var(--card);border:1px solid var(--line);border-radius:16px;overflow:hidden;transition:.35s;cursor:zoom-in}
 .fcard:hover{border-color:rgba(124,92,255,.55);box-shadow:0 22px 60px -22px rgba(124,92,255,.5);transform:translateY(-3px)}
@@ -148,15 +147,16 @@ footer .meth{max-width:820px;margin:10px auto 0;line-height:1.8;color:var(--mut)
 <div class="brand"><span class="dot"></span>AgentAlpha <small>· 实验证据中枢</small></div>
 <nav class="topnav">
 <a href="#highlights">亮点</a><a href="#main">主表</a><a href="#r11">检索 R11</a>
-<a href="#r12">反馈 R12</a><a href="#r13">进化 R13</a><a href="#r14">统计 R14</a><a href="#round4">Round4</a><a href="#round5">Round5</a>
+<a href="#r12">反馈 R12</a><a href="#r13">进化 R13</a><a href="#r14">统计 R14</a><a href="#round4">Round4</a><a href="#round5">Round5</a><a href="#round7">Round7</a><a href="#round8">R26-37</a>
 <a href="#gallery">图库</a><a href="#tables">四表</a>
-<a href="/projects/index.html">课程主页</a><a href="/projects/results.html">指标中心</a>
+<a href="playground.html">Playground</a><a href="../docs/TUTORIAL.md">教程</a>
+<a href="/projects/index.html">课程主页</a><a href="../experiments/metrics-hub/index.html">指标中心</a>
 </nav></div></header>
 
 <section class="hero">
 <div class="kicker reveal"><span class="live"></span>REAL EXPERIMENTS · RTX 4090 · ZERO SIMULATION</div>
 <h1>实验证据中枢<br><span class="grad">顶会水准的数字，全部实测</span></h1>
-<p class="sub">29 组实验 · 30 张出版级图表 · bootstrap / 置换 / McNemar / Welch 全套手写检验。
+<p class="sub">37 组实验 · 34 张出版级图表 · bootstrap / 置换 / McNemar / Welch 全套手写检验。
 每一个数字可复现：脚本、随机种子、原始 JSON 与 300dpi 图一并入库。</p>
 <div class="chips">
 <span class="chip">GPU <b>RTX 4090 24GB</b></span>
@@ -165,7 +165,7 @@ footer .meth{max-width:820px;margin:10px auto 0;line-height:1.8;color:var(--mut)
 <span class="chip">数据 <b>零模拟 · 全链路留痕</b></span>
 </div>
 </section>
-<div class="band"><div class="stat reveal"><div class="num" data-v="29">29</div><div class="lab">组真实实验</div><div class="src">E1-E6 · G1-G4 · R1-R20</div></div><div class="stat reveal"><div class="num" data-v="30">30</div><div class="lab">张 300dpi 图表</div><div class="src">出版级 · 统一色板</div></div><div class="stat reveal"><div class="num" data-v="8">8</div><div class="lab">项统计检验</div><div class="src">4 项 p&lt;0.05</div></div><div class="stat reveal"><div class="num" data-v="94">94</div><div class="lab">个沙箱测试用例</div><div class="src">R12 真实执行</div></div></div>
+<div class="band"><div class="stat reveal"><div class="num" data-v="37">37</div><div class="lab">组真实实验</div><div class="src">E1-E6 · G1-G4 · R1-R25</div></div><div class="stat reveal"><div class="num" data-v="34">34</div><div class="lab">张 300dpi 图表</div><div class="src">出版级 · 统一色板</div></div><div class="stat reveal"><div class="num" data-v="8">8</div><div class="lab">项统计检验</div><div class="src">4 项 p&lt;0.05</div></div><div class="stat reveal"><div class="num" data-v="94">94</div><div class="lab">个沙箱测试用例</div><div class="src">R12/R17 真实执行</div></div></div>
 
 <main>
 <section id="highlights">
@@ -205,7 +205,7 @@ footer .meth{max-width:820px;margin:10px auto 0;line-height:1.8;color:var(--mut)
 <div class="rule"></div>
 <p class="slead">三种查询类型（词面锚定 / 语义释义 / 多面拼接）× 五种检索策略的热力矩阵——查询类型决定策略选择，multi-query RRF 在多面查询上拉开差距。</p>
 <div class="duo">
-<figure class="fcard reveal" data-lb="assets/img/results/r11_agentic_retrieval.png"><div class="fimg"><img src="/projects/assets/img/results/r11_agentic_retrieval.png" alt="R11 检索策略网格（热力矩阵 + Recall 分组 + 质量-延迟 Pareto）" loading="lazy"></div><figcaption><span class="ftag">R11</span>R11 检索策略网格（热力矩阵 + Recall 分组 + 质量-延迟 Pareto）</figcaption></figure>
+<figure class="fcard reveal" data-lb="../experiments/round3/figures/r11_agentic_retrieval.png"><div class="fimg"><img src="../experiments/round3/figures/r11_agentic_retrieval.png" alt="R11 检索策略网格（热力矩阵 + Recall 分组 + 质量-延迟 Pareto）" loading="lazy"></div><figcaption><span class="ftag">R11</span>R11 检索策略网格（热力矩阵 + Recall 分组 + 质量-延迟 Pareto）</figcaption></figure>
 <div class="side">
 <div class="mini reveal"><div class="n">0.920</div><div class="t">multi-aspect 最优：multi_query_rrf</div><div class="s">dense baseline 仅 0.746 —— 单向量检索在多面查询上失效</div></div>
 <div class="mini reveal"><div class="n">92%</div><div class="t">BM25 词面查询 Recall@10</div><div class="s">lexical 类型下 BM25 天然占优（诚实对照）</div></div>
@@ -220,7 +220,7 @@ footer .meth{max-width:820px;margin:10px auto 0;line-height:1.8;color:var(--mut)
 <div class="rule"></div>
 <p class="slead">phi-2 真实生成代码，subprocess 沙箱真实执行 94 个测试用例：三种反馈臂对比——带 traceback + 失败用例的反馈把 Pass@4 从 88% 推到 96%。</p>
 <div class="duo">
-<figure class="fcard reveal" data-lb="assets/img/results/r12_exec_feedback.png"><div class="fimg"><img src="/projects/assets/img/results/r12_exec_feedback.png" alt="R12 三反馈臂：轮次累计通过曲线 + Pass@1/4 + token 成本" loading="lazy"></div><figcaption><span class="ftag">R12</span>R12 三反馈臂：轮次累计通过曲线 + Pass@1/4 + token 成本</figcaption></figure>
+<figure class="fcard reveal" data-lb="../experiments/round3/figures/r12_exec_feedback.png"><div class="fimg"><img src="../experiments/round3/figures/r12_exec_feedback.png" alt="R12 三反馈臂：轮次累计通过曲线 + Pass@1/4 + token 成本" loading="lazy"></div><figcaption><span class="ftag">R12</span>R12 三反馈臂：轮次累计通过曲线 + Pass@1/4 + token 成本</figcaption></figure>
 <div class="side">
 <div class="mini reveal"><div class="n">+8pp</div><div class="t">Pass@4 绝对提升</div><div class="s">blind 88% → traceback+test 96%</div></div>
 <div class="mini reveal"><div class="n">+0pp</div><div class="t">Pass@1 首轮即过</div><div class="s">反馈历史让首轮生成也受益</div></div>
@@ -238,7 +238,7 @@ footer .meth{max-width:820px;margin:10px auto 0;line-height:1.8;color:var(--mut)
 <div class="rule"></div>
 <p class="slead">OpenEvolve 范式：源到源变异算子 + evaluator 真实执行 fitness（7 正确性用例 + ~84KB 文本真实计时）。3 种选择算法 × 5 种子 × 20 代。</p>
 <div class="duo">
-<figure class="fcard reveal" data-lb="assets/img/results/r13_self_evolution.png"><div class="fimg"><img src="/projects/assets/img/results/r13_self_evolution.png" alt="R13 进化曲线（5 种子误差带）+ 最终 fitness 箱线 + 变异成功率" loading="lazy"></div><figcaption><span class="ftag">R13</span>R13 进化曲线（5 种子误差带）+ 最终 fitness 箱线 + 变异成功率</figcaption></figure>
+<figure class="fcard reveal" data-lb="../experiments/round3/figures/r13_self_evolution.png"><div class="fimg"><img src="../experiments/round3/figures/r13_self_evolution.png" alt="R13 进化曲线（5 种子误差带）+ 最终 fitness 箱线 + 变异成功率" loading="lazy"></div><figcaption><span class="ftag">R13</span>R13 进化曲线（5 种子误差带）+ 最终 fitness 箱线 + 变异成功率</figcaption></figure>
 <div class="side">
 <div class="mini reveal"><div class="n">0.877</div><div class="t">tournament+elite 最终 fitness</div><div class="s">random search 仅 0.862（Welch t 见 R14）</div></div>
 <div class="mini reveal"><div class="n">54%</div><div class="t">变异算子改进率</div><div class="s">200 次真实源到源变异实测</div></div>
@@ -251,8 +251,8 @@ footer .meth{max-width:820px;margin:10px auto 0;line-height:1.8;color:var(--mut)
 <div class="rule"></div>
 <p class="slead">10,000 次配对 bootstrap + 10,000 次置换检验 + 精确 McNemar + Welch t + Mann-Whitney U（全部手写实现，无 scipy 黑箱）。森林图一屏汇总跨实验效应量。</p>
 <div class="duo">
-<figure class="fcard reveal" data-lb="assets/img/results/r14_forest.png"><div class="fimg"><img src="/projects/assets/img/results/r14_forest.png" alt="R14 森林图：效应量 ± 95% CI（绿=显著，灰=不显著）" loading="lazy"></div><figcaption><span class="ftag">R14</span>R14 森林图：效应量 ± 95% CI（绿=显著，灰=不显著）</figcaption></figure>
-<figure class="fcard reveal" data-lb="assets/img/results/r14_radar.png"><div class="fimg"><img src="/projects/assets/img/results/r14_radar.png" alt="R14 雷达：方法多维对比 + 项目能力画像（全部真实测量归一化）" loading="lazy"></div><figcaption><span class="ftag">R14</span>R14 雷达：方法多维对比 + 项目能力画像（全部真实测量归一化）</figcaption></figure>
+<figure class="fcard reveal" data-lb="../experiments/round3/figures/r14_forest.png"><div class="fimg"><img src="../experiments/round3/figures/r14_forest.png" alt="R14 森林图：效应量 ± 95% CI（绿=显著，灰=不显著）" loading="lazy"></div><figcaption><span class="ftag">R14</span>R14 森林图：效应量 ± 95% CI（绿=显著，灰=不显著）</figcaption></figure>
+<figure class="fcard reveal" data-lb="../experiments/round3/figures/r14_radar.png"><div class="fimg"><img src="../experiments/round3/figures/r14_radar.png" alt="R14 雷达：方法多维对比 + 项目能力画像（全部真实测量归一化）" loading="lazy"></div><figcaption><span class="ftag">R14</span>R14 雷达：方法多维对比 + 项目能力画像（全部真实测量归一化）</figcaption></figure>
 </div>
 </section>
 
@@ -262,20 +262,20 @@ footer .meth{max-width:820px;margin:10px auto 0;line-height:1.8;color:var(--mut)
 <p class="slead">R15 LLM 自评校准（自评置信 vs 沙箱真值）、R16 RRF 融合设计空间（聚合×k 全消融）、R17 few-shot 数量消融——补齐 agentic 评测方法学的三块标准拼图。</p>
 
 <div class="duo">
-<figure class="fcard reveal" data-lb="assets/img/results/r15_judge_calibration.png"><div class="fimg"><img src="/projects/assets/img/results/r15_judge_calibration.png" alt="R15 可靠性图 + 置信分离（自评 P(correct) vs 沙箱真实通过率）" loading="lazy"></div><figcaption><span class="ftag">R15</span>R15 可靠性图 + 置信分离（自评 P(correct) vs 沙箱真实通过率）</figcaption></figure>
+<figure class="fcard reveal" data-lb="../experiments/round4/figures/r15_judge_calibration.png"><div class="fimg"><img src="../experiments/round4/figures/r15_judge_calibration.png" alt="R15 可靠性图 + 置信分离（自评 P(correct) vs 沙箱真实通过率）" loading="lazy"></div><figcaption><span class="ftag">R15</span>R15 可靠性图 + 置信分离（自评 P(correct) vs 沙箱真实通过率）</figcaption></figure>
 <div class="side">
 <div class="mini reveal"><div class="n">0.736</div><div class="t">自评 AUC</div><div class="s">n=72 真实生成样本</div></div>
 <div class="mini reveal"><div class="n">0.199</div><div class="t">期望校准误差 ECE</div><div class="s">过度自信：通过样本均值置信 0.93 / 失败 0.90</div></div>
 <div class="mini reveal"><div class="n">72%</div><div class="t">硬判准确率（conf&gt;0.5）</div><div class="s">TP 52 · FP 20 · FN 0 · TN 0</div></div>
 </div></div>
 <div class="duo">
-<figure class="fcard reveal" data-lb="assets/img/results/r16_rrf_grid.png"><div class="fimg"><img src="/projects/assets/img/results/r16_rrf_grid.png" alt="R16 RRF 聚合×k 热力（红框=每类型最优组合）" loading="lazy"></div><figcaption><span class="ftag">R16</span>R16 RRF 聚合×k 热力（红框=每类型最优组合）</figcaption></figure>
+<figure class="fcard reveal" data-lb="../experiments/round4/figures/r16_rrf_grid.png"><div class="fimg"><img src="../experiments/round4/figures/r16_rrf_grid.png" alt="R16 RRF 聚合×k 热力（红框=每类型最优组合）" loading="lazy"></div><figcaption><span class="ftag">R16</span>R16 RRF 聚合×k 热力（红框=每类型最优组合）</figcaption></figure>
 <div class="side">
 <div class="mini reveal"><div class="n">0.949</div><div class="t">multi_aspect 最优：max 聚合（对 k 不敏感）</div><div class="s">sum 同 k 仅 0.519 —— 并集 vs 共识语义；sum 随 k 增大崩塌</div></div>
 <div class="mini reveal"><div class="n">120</div><div class="t">查询 × 8 组融合配置</div><div class="s">sum/max × k=10/30/60/100 全消融</div></div>
 </div></div>
 <div class="duo">
-<figure class="fcard reveal" data-lb="assets/img/results/r17_fewshot.png"><div class="fimg"><img src="/projects/assets/img/results/r17_fewshot.png" alt="R17 pass@2 随 few-shot 数量爬升 + 生成成本" loading="lazy"></div><figcaption><span class="ftag">R17</span>R17 pass@2 随 few-shot 数量爬升 + 生成成本</figcaption></figure>
+<figure class="fcard reveal" data-lb="../experiments/round4/figures/r17_fewshot.png"><div class="fimg"><img src="../experiments/round4/figures/r17_fewshot.png" alt="R17 pass@2 随 few-shot 数量爬升 + 生成成本" loading="lazy"></div><figcaption><span class="ftag">R17</span>R17 pass@2 随 few-shot 数量爬升 + 生成成本</figcaption></figure>
 <div class="side">
 <div class="mini reveal"><div class="n">75%→92%</div><div class="t">pass@2：0-shot → 1-shot（+16.7pp）</div><div class="s">24 任务 × 2 样本真实沙箱；2-shot 持平 92%</div></div>
 <div class="mini reveal"><div class="n">+14.6pp</div><div class="t">pass@1 逐样本：0-shot → 2-shot</div><div class="s">62.5%→75.0%→77.1%：边际集中在前 1 个示例</div></div>
@@ -288,29 +288,94 @@ footer .meth{max-width:820px;margin:10px auto 0;line-height:1.8;color:var(--mut)
 <p class="slead">R18 全项目统一成本-质量 Pareto（三族方法一图总览）、R19 检索规模扩展（128→1305 段落）、R20 嵌入量化×检索质量（INT8 近乎免费）——补齐部署视角的三块最后拼图。</p>
 
 <div class="duo">
-<figure class="fcard reveal" data-lb="assets/img/results/r18_pareto.png"><div class="fimg"><img src="/projects/assets/img/results/r18_pareto.png" alt="R18 三族方法统一 Pareto（每族最优点都来自结构化信息注入）" loading="lazy"></div><figcaption><span class="ftag">R18</span>R18 三族方法统一 Pareto（每族最优点都来自结构化信息注入）</figcaption></figure>
-<figure class="fcard reveal" data-lb="assets/img/results/r19_scaling.png"><div class="fimg"><img src="/projects/assets/img/results/r19_scaling.png" alt="R19 检索规模扩展（128→1305 段落，60 固定多面查询）" loading="lazy"></div><figcaption><span class="ftag">R19</span>R19 检索规模扩展（128→1305 段落，60 固定多面查询）</figcaption></figure>
+<figure class="fcard reveal" data-lb="../experiments/round5/figures/r18_pareto.png"><div class="fimg"><img src="../experiments/round5/figures/r18_pareto.png" alt="R18 三族方法统一 Pareto（每族最优点都来自结构化信息注入）" loading="lazy"></div><figcaption><span class="ftag">R18</span>R18 三族方法统一 Pareto（每族最优点都来自结构化信息注入）</figcaption></figure>
+<figure class="fcard reveal" data-lb="../experiments/round5/figures/r19_scaling.png"><div class="fimg"><img src="../experiments/round5/figures/r19_scaling.png" alt="R19 检索规模扩展（128→1305 段落，60 固定多面查询）" loading="lazy"></div><figcaption><span class="ftag">R19</span>R19 检索规模扩展（128→1305 段落，60 固定多面查询）</figcaption></figure>
 </div>
 <div class="duo" style="margin-top:14px">
-<figure class="fcard reveal" data-lb="assets/img/results/r20_embedding_quant.png"><div class="fimg"><img src="/projects/assets/img/results/r20_embedding_quant.png" alt="R20 嵌入量化：INT8 近乎免费（-0.05%），INT4 -1.63% 且查询更慢" loading="lazy"></div><figcaption><span class="ftag">R20</span>R20 嵌入量化：INT8 近乎免费（-0.05%），INT4 -1.63% 且查询更慢</figcaption></figure>
+<figure class="fcard reveal" data-lb="../experiments/round5/figures/r20_embedding_quant.png"><div class="fimg"><img src="../experiments/round5/figures/r20_embedding_quant.png" alt="R20 嵌入量化：INT8 近乎免费（-0.05%），INT4 -1.63% 且查询更慢" loading="lazy"></div><figcaption><span class="ftag">R20</span>R20 嵌入量化：INT8 近乎免费（-0.05%），INT4 -1.63% 且查询更慢</figcaption></figure>
 <div class="side">
 <div class="mini reveal"><div class="n">-3.1pp</div><div class="t">multi-query max-RRF 规模退化</div><div class="s">dense 同区间 -12.0pp —— 分解式检索最抗规模</div></div>
 <div class="mini reveal"><div class="n">-0.05%</div><div class="t">INT8 检索 nDCG 损失</div><div class="s">76 个权重矩阵真实量化，逐向量余弦 0.9996</div></div>
 </div></div>
 </section>
 
-<section id="gallery">
-<div class="shead"><span class="sno">09</span><h2>图表总库</h2></div>
+<section id="round6">
+<div class="shead"><span class="sno">09</span><h2>Round6 · 模块化与产品化</h2></div>
 <div class="rule"></div>
-<p class="slead">30 张 300dpi 出版级图表，点击放大。统一 serif 色板，直接可入论文。</p>
-<div class="tabs"><button class="tab on" data-f="all">全部 30</button><button class="tab" data-f="e">E 系列 5</button><button class="tab" data-f="g">G 系列 4</button><button class="tab" data-f="r2">Round2 10</button><button class="tab" data-f="r3">Round3 5</button><button class="tab" data-f="r4">Round4 3</button><button class="tab" data-f="r5">Round5 3</button></div>
-<div class="gal"><figure class="fcard reveal show" data-g="e" data-lb="assets/img/results/e1_grpo_training.png"><div class="fimg"><img src="/projects/assets/img/results/e1_grpo_training.png" alt="E1 GRPO 训练：reward 轨迹与收敛" loading="lazy"></div><figcaption><span class="ftag">E 系列 · 训练与统计</span>E1 GRPO 训练：reward 轨迹与收敛</figcaption></figure><figure class="fcard reveal show" data-g="e" data-lb="assets/img/results/e2_rl_algorithm_comparison.png"><div class="fimg"><img src="/projects/assets/img/results/e2_rl_algorithm_comparison.png" alt="E2 六算法优势估计对比" loading="lazy"></div><figcaption><span class="ftag">E 系列 · 训练与统计</span>E2 六算法优势估计对比</figcaption></figure><figure class="fcard reveal show" data-g="e" data-lb="assets/img/results/e3_rag_statistical.png"><div class="fimg"><img src="/projects/assets/img/results/e3_rag_statistical.png" alt="E3 RAG 统计效应量" loading="lazy"></div><figcaption><span class="ftag">E 系列 · 训练与统计</span>E3 RAG 统计效应量</figcaption></figure><figure class="fcard reveal show" data-g="e" data-lb="assets/img/results/e5_memory_decay.png"><div class="fimg"><img src="/projects/assets/img/results/e5_memory_decay.png" alt="E5 记忆衰减模型选择" loading="lazy"></div><figcaption><span class="ftag">E 系列 · 训练与统计</span>E5 记忆衰减模型选择</figcaption></figure><figure class="fcard reveal show" data-g="e" data-lb="assets/img/results/e6_hyperparameter.png"><div class="fimg"><img src="/projects/assets/img/results/e6_hyperparameter.png" alt="E6 超参敏感性" loading="lazy"></div><figcaption><span class="ftag">E 系列 · 训练与统计</span>E6 超参敏感性</figcaption></figure><figure class="fcard reveal show" data-g="g" data-lb="assets/img/results/g1_inference_latency.png"><div class="fimg"><img src="/projects/assets/img/results/g1_inference_latency.png" alt="G1 推理延迟" loading="lazy"></div><figcaption><span class="ftag">G 系列 · GPU 基准</span>G1 推理延迟</figcaption></figure><figure class="fcard reveal show" data-g="g" data-lb="assets/img/results/g2_kv_cache.png"><div class="fimg"><img src="/projects/assets/img/results/g2_kv_cache.png" alt="G2 KV 缓存" loading="lazy"></div><figcaption><span class="ftag">G 系列 · GPU 基准</span>G2 KV 缓存</figcaption></figure><figure class="fcard reveal show" data-g="g" data-lb="assets/img/results/g3_quantization.png"><div class="fimg"><img src="/projects/assets/img/results/g3_quantization.png" alt="G3 INT8 量化" loading="lazy"></div><figcaption><span class="ftag">G 系列 · GPU 基准</span>G3 INT8 量化</figcaption></figure><figure class="fcard reveal show" data-g="g" data-lb="assets/img/results/g4_gpu_speedup.png"><div class="fimg"><img src="/projects/assets/img/results/g4_gpu_speedup.png" alt="G4 GPU 采样加速" loading="lazy"></div><figcaption><span class="ftag">G 系列 · GPU 基准</span>G4 GPU 采样加速</figcaption></figure><figure class="fcard reveal show" data-g="r2" data-lb="assets/img/round2/r1_agent_security.png"><div class="fimg"><img src="/projects/assets/img/round2/r1_agent_security.png" alt="R1 Agent 安全防御" loading="lazy"></div><figcaption><span class="ftag">Round2 · R1-R10</span>R1 Agent 安全防御</figcaption></figure><figure class="fcard reveal show" data-g="r2" data-lb="assets/img/round2/r2_elastic_scheduling.png"><div class="fimg"><img src="/projects/assets/img/round2/r2_elastic_scheduling.png" alt="R2 弹性算力调度" loading="lazy"></div><figcaption><span class="ftag">Round2 · R1-R10</span>R2 弹性算力调度</figcaption></figure><figure class="fcard reveal show" data-g="r2" data-lb="assets/img/round2/r3_kv_stress.png"><div class="fimg"><img src="/projects/assets/img/round2/r3_kv_stress.png" alt="R3 KV 压力测试" loading="lazy"></div><figcaption><span class="ftag">Round2 · R1-R10</span>R3 KV 压力测试</figcaption></figure><figure class="fcard reveal show" data-g="r2" data-lb="assets/img/round2/r4_algorithm_gpu_benchmark.png"><div class="fimg"><img src="/projects/assets/img/round2/r4_algorithm_gpu_benchmark.png" alt="R4 15 算法 GPU 基准" loading="lazy"></div><figcaption><span class="ftag">Round2 · R1-R10</span>R4 15 算法 GPU 基准</figcaption></figure><figure class="fcard reveal show" data-g="r2" data-lb="assets/img/round2/r5_speculative_decoding.png"><div class="fimg"><img src="/projects/assets/img/round2/r5_speculative_decoding.png" alt="R5 推测解码" loading="lazy"></div><figcaption><span class="ftag">Round2 · R1-R10</span>R5 推测解码</figcaption></figure><figure class="fcard reveal show" data-g="r2" data-lb="assets/img/round2/r6_quantization_matrix.png"><div class="fimg"><img src="/projects/assets/img/round2/r6_quantization_matrix.png" alt="R6 量化全矩阵" loading="lazy"></div><figcaption><span class="ftag">Round2 · R1-R10</span>R6 量化全矩阵</figcaption></figure><figure class="fcard reveal show" data-g="r2" data-lb="assets/img/round2/r7_rag_hyperparam.png"><div class="fimg"><img src="/projects/assets/img/round2/r7_rag_hyperparam.png" alt="R7 RAG 超参网格" loading="lazy"></div><figcaption><span class="ftag">Round2 · R1-R10</span>R7 RAG 超参网格</figcaption></figure><figure class="fcard reveal show" data-g="r2" data-lb="assets/img/round2/r8_memory_grid.png"><div class="fimg"><img src="/projects/assets/img/round2/r8_memory_grid.png" alt="R8 记忆策略网格" loading="lazy"></div><figcaption><span class="ftag">Round2 · R1-R10</span>R8 记忆策略网格</figcaption></figure><figure class="fcard reveal show" data-g="r2" data-lb="assets/img/round2/r9_pareto_frontier.png"><div class="fimg"><img src="/projects/assets/img/round2/r9_pareto_frontier.png" alt="R9 多 Agent Pareto 前沿" loading="lazy"></div><figcaption><span class="ftag">Round2 · R1-R10</span>R9 多 Agent Pareto 前沿</figcaption></figure><figure class="fcard reveal show" data-g="r2" data-lb="assets/img/round2/r10_pipeline_latency.png"><div class="fimg"><img src="/projects/assets/img/round2/r10_pipeline_latency.png" alt="R10 Pipeline 延迟分解" loading="lazy"></div><figcaption><span class="ftag">Round2 · R1-R10</span>R10 Pipeline 延迟分解</figcaption></figure><figure class="fcard reveal show" data-g="r3" data-lb="assets/img/results/r11_agentic_retrieval.png"><div class="fimg"><img src="/projects/assets/img/results/r11_agentic_retrieval.png" alt="R11 检索策略网格（3 查询类型 × 5 策略）" loading="lazy"></div><figcaption><span class="ftag">Round3 · R11-R14</span>R11 检索策略网格（3 查询类型 × 5 策略）</figcaption></figure><figure class="fcard reveal show" data-g="r3" data-lb="assets/img/results/r12_exec_feedback.png"><div class="fimg"><img src="/projects/assets/img/results/r12_exec_feedback.png" alt="R12 执行反馈修复循环" loading="lazy"></div><figcaption><span class="ftag">Round3 · R11-R14</span>R12 执行反馈修复循环</figcaption></figure><figure class="fcard reveal show" data-g="r3" data-lb="assets/img/results/r13_self_evolution.png"><div class="fimg"><img src="/projects/assets/img/results/r13_self_evolution.png" alt="R13 真实进化循环（5 种子）" loading="lazy"></div><figcaption><span class="ftag">Round3 · R11-R14</span>R13 真实进化循环（5 种子）</figcaption></figure><figure class="fcard reveal show" data-g="r3" data-lb="assets/img/results/r14_forest.png"><div class="fimg"><img src="/projects/assets/img/results/r14_forest.png" alt="R14 跨实验显著性森林图" loading="lazy"></div><figcaption><span class="ftag">Round3 · R11-R14</span>R14 跨实验显著性森林图</figcaption></figure><figure class="fcard reveal show" data-g="r3" data-lb="assets/img/results/r14_radar.png"><div class="fimg"><img src="/projects/assets/img/results/r14_radar.png" alt="R14 能力雷达" loading="lazy"></div><figcaption><span class="ftag">Round3 · R11-R14</span>R14 能力雷达</figcaption></figure><figure class="fcard reveal show" data-g="r4" data-lb="assets/img/results/r15_judge_calibration.png"><div class="fimg"><img src="/projects/assets/img/results/r15_judge_calibration.png" alt="R15 LLM 自评校准（reliability diagram）" loading="lazy"></div><figcaption><span class="ftag">Round4 · R15-R17</span>R15 LLM 自评校准（reliability diagram）</figcaption></figure><figure class="fcard reveal show" data-g="r4" data-lb="assets/img/results/r16_rrf_grid.png"><div class="fimg"><img src="/projects/assets/img/results/r16_rrf_grid.png" alt="R16 RRF 融合设计空间（聚合×k 热力）" loading="lazy"></div><figcaption><span class="ftag">Round4 · R15-R17</span>R16 RRF 融合设计空间（聚合×k 热力）</figcaption></figure><figure class="fcard reveal show" data-g="r4" data-lb="assets/img/results/r17_fewshot.png"><div class="fimg"><img src="/projects/assets/img/results/r17_fewshot.png" alt="R17 few-shot 数量消融" loading="lazy"></div><figcaption><span class="ftag">Round4 · R15-R17</span>R17 few-shot 数量消融</figcaption></figure><figure class="fcard reveal show" data-g="r5" data-lb="assets/img/results/r18_pareto.png"><div class="fimg"><img src="/projects/assets/img/results/r18_pareto.png" alt="R18 全项目统一成本-质量 Pareto" loading="lazy"></div><figcaption><span class="ftag">Round5 · R18-R20</span>R18 全项目统一成本-质量 Pareto</figcaption></figure><figure class="fcard reveal show" data-g="r5" data-lb="assets/img/results/r19_scaling.png"><div class="fimg"><img src="/projects/assets/img/results/r19_scaling.png" alt="R19 检索规模扩展曲线" loading="lazy"></div><figcaption><span class="ftag">Round5 · R18-R20</span>R19 检索规模扩展曲线</figcaption></figure><figure class="fcard reveal show" data-g="r5" data-lb="assets/img/results/r20_embedding_quant.png"><div class="fimg"><img src="/projects/assets/img/results/r20_embedding_quant.png" alt="R20 嵌入量化×检索质量" loading="lazy"></div><figcaption><span class="ftag">Round5 · R18-R20</span>R20 嵌入量化×检索质量</figcaption></figure></div>
+<p class="slead">R21 换模块矩阵（4 个可插拔检索器 × 120 查询——"魔改"主张的实证）与 R22 部署场景矩阵（精度×查询策略）。配套交互面板见 Playground，改造方法见教程 §6。</p>
+
+<div class="duo">
+<figure class="fcard reveal" data-lb="../experiments/round6/figures/r21_swap_matrix.png"><div class="fimg"><img src="../experiments/round6/figures/r21_swap_matrix.png" alt="R21 换模块矩阵：4 检索器 × 3 查询类型（红框=最优）+ 质量-延迟" loading="lazy"></div><figcaption><span class="ftag">R21</span>R21 换模块矩阵：4 检索器 × 3 查询类型（红框=最优）+ 质量-延迟</figcaption></figure>
+<div class="side">
+<div class="mini reveal"><div class="n">0.950</div><div class="t">multi-aspect 最优模块：multiquery-max-rrf</div><div class="s">一个接口 RetrieverBase.retrieve，注册即自动进对比</div></div>
+<div class="mini reveal"><div class="n">0.827</div><div class="t">BM25 overall 仍最高</div><div class="s">词面+语义两类它都稳——按场景选模块，没有全能冠军</div></div>
+</div></div>
+<div class="duo">
+<figure class="fcard reveal" data-lb="../experiments/round6/figures/r22_deploy_matrix.png"><div class="fimg"><img src="../experiments/round6/figures/r22_deploy_matrix.png" alt="R22 部署矩阵：精度×查询策略（质量 + 延迟双面板）" loading="lazy"></div><figcaption><span class="ftag">R22</span>R22 部署矩阵：精度×查询策略（质量 + 延迟双面板）</figcaption></figure>
+<div class="side">
+<div class="mini reveal"><div class="n">0.6339</div><div class="t">最优部署组合：int8+multi_max</div><div class="s">INT8 权重不提速（97.6ms vs FP16 37.5ms）——量化省显存不省时间（诚实负结果）</div></div>
+<div class="mini reveal"><div class="n">+6.6pp</div><div class="t">查询策略的部署收益</div><div class="s">同精度下 multi_max vs single——策略比精度更值钱</div></div>
+</div></div>
+</section>
+
+<section id="round7">
+<div class="shead"><span class="sno">10</span><h2>Round7 · 实验方法学打磨</h2></div>
+<div class="rule"></div>
+<p class="slead">R23 冒烟质量门（AA_QUICK=1 与全量的结论方向一致性——"冒烟可信"的实证）、R24 反馈信息量消融（显存被并行任务占用时如实跳过）、R25 加权 RRF 扫描（推翻等权假设：overall 最优是纯 BM25，且每类查询最优比例不同）。</p>
+
+<div class="duo">
+<figure class="fcard reveal" data-lb="../experiments/round7/figures/r23_quick_gate.png"><div class="fimg"><img src="../experiments/round7/figures/r23_quick_gate.png" alt="R23 冒烟质量门：quick(30 查询) vs full(120 查询)，ρ=1.00 → PASS" loading="lazy"></div><figcaption><span class="ftag">R23</span>R23 冒烟质量门：quick(30 查询) vs full(120 查询)，ρ=1.00 → PASS</figcaption></figure>
+<div class="side">
+<div class="mini reveal"><div class="n">1.000</div><div class="t">quick vs full 策略排名相关</div><div class="s">Top-1 最优策略三类全部一致 —— AA_QUICK 冒烟可信任</div></div>
+<div class="mini reveal"><div class="n">30→120</div><div class="t">冒烟规模 → 全量规模</div><div class="s">管线自检 3 分钟，方向不丢</div></div>
+</div></div>
+<div class="duo">
+<figure class="fcard reveal" data-lb="../experiments/round7/figures/r25_weighted_rrf.png"><div class="fimg"><img src="../experiments/round7/figures/r25_weighted_rrf.png" alt="R25 加权 RRF：w_dense:w_bm25 七档扫描，最优 0:1=0.821（等权 1:1 仅 0.761）" loading="lazy"></div><figcaption><span class="ftag">R25</span>R25 加权 RRF：w_dense:w_bm25 七档扫描，最优 0:1=0.821（等权 1:1 仅 0.761）</figcaption></figure>
+<div class="side">
+<div class="mini reveal"><div class="n">0.821</div><div class="t">最优权重 0:1（overall）</div><div class="s">推翻"等权 RRF 默认最优"——repo 语料上稠密路反而稀释</div></div>
+<div class="mini reveal"><div class="n">0.761</div><div class="t">等权 1:1 的真实位置</div><div class="s">multi-aspect 上恰好最优（0.778）——按查询类型自适应权重是正确方向</div></div>
+</div></div><p class="note">R24 反馈信息量消融：显存被并行任务占用（需 phi-2 约 7GB），本轮如实跳过——协议见 run_r23_r25.py，GPU 空闲后 `make round7` 重跑。</p>
+</section>
+
+<section id="round8">
+<div class="rhead"><span class="rk">07</span><h2>Round 8-10 · 边界与诚实负结果</h2><p class="slead">R26-R37：把「假设被推翻」也写进页面。这一轮全是边界实验——哪里失效、为什么失效、哪个前提不成立。面试里讲失败实验，这组素材比任何成功都硬。</p></div>
+<div class="duo">
+<figure class="fcard reveal" data-lb="assets/img/results/r28b_judgement.png"><div class="fimg"><img src="/projects/assets/img/results/r28b_judgement.png" alt="R28b 预算截断伪影判定" loading="lazy"></div><figcaption><span class="ftag">R28b</span>R28b 预算截断伪影判定——评测预算截断会制造假提升，判定协议返工</figcaption></figure>
+<div class="side">
+<div class="mini reveal"><div class="n">MAJOR</div><div class="t">R28b 预算截断伪影</div><div class="s">本轮最大发现：截断的评测会奖励「写得长」而不是「答得对」，判定协议返工重测</div></div>
+<div class="mini reveal"><div class="n">pass_rate 0.0</div><div class="t">R34 子集外测</div><div class="s">口径错配的边界证据，0 分如实记录，换来口径边界的清晰刻画</div></div>
+</div>
+</div>
+<div class="duo">
+<figure class="fcard reveal" data-lb="assets/img/results/r35_zh_encoder.png"><div class="fimg"><img src="/projects/assets/img/results/r35_zh_encoder.png" alt="R35 中文编码器重跑" loading="lazy"></div><figcaption><span class="ftag">R35</span>R35 中文编码器重跑——假设推翻，查询侧错配主导</figcaption></figure>
+<div class="side">
+<div class="mini reveal"><div class="n">推翻</div><div class="t">R35 假设检验</div><div class="s">「换中文编码器能救回检索」被数据推翻——错配主导在查询侧，不在编码器</div></div>
+<div class="mini reveal"><div class="n">不显著</div><div class="t">R36 三方法同预算</div><div class="s">「甜点配置」带前提，在教学规模证伪（best 0.0417 vs baseline，p&gt;0.05），负结果同样是结论</div></div>
+<div class="mini reveal"><div class="n">+0.046</div><div class="t">R37 遗忘半衰网格</div><div class="s">105 组网格找最优半衰，默认参数仅排 35/105；重放验证零偏差</div></div>
+</div>
+</div>
+<div class="duo">
+<figure class="fcard reveal" data-lb="assets/img/results/r33_flywheel_cost.png"><div class="fimg"><img src="/projects/assets/img/results/r33_flywheel_cost.png" alt="R33 飞轮成本核算" loading="lazy"></div><figcaption><span class="ftag">R33</span>R33 数据飞轮一圈成本核算——可离线段 15.7s，query 合成占 82%</figcaption></figure>
+<div class="side">
+<div class="mini reveal"><div class="n">82%</div><div class="t">R33 成本大头</div><div class="s">飞轮里最贵的是 query 合成，成本结构清楚才知道优化哪里</div></div>
+<div class="mini reveal"><div class="n">@1=1.0</div><div class="t">R32 饱和记录</div><div class="s">held-out 三臂全部饱和，阶梯失去区分度，指标失效本身被记录下来</div></div>
+</div>
+</div>
+</section>
+
+
+<section id="gallery">
+<div class="shead"><span class="sno">11</span><h2>图表总库</h2></div>
+<div class="rule"></div>
+<p class="slead">34 张 300dpi 出版级图表，点击放大。统一 serif 色板，直接可入论文。</p>
+<div class="tabs"><button class="tab on" data-f="all">全部 34</button><button class="tab" data-f="e">E 系列 5</button><button class="tab" data-f="g">G 系列 4</button><button class="tab" data-f="r2">Round2 10</button><button class="tab" data-f="r3">Round3 5</button><button class="tab" data-f="r4">Round4 3</button><button class="tab" data-f="r5">Round5 3</button><button class="tab" data-f="r6">Round6 2</button><button class="tab" data-f="r7">Round7 2</button></div>
+<div class="gal"><figure class="fcard reveal show" data-g="e" data-lb="../experiments/real_results/figures/e1_grpo_training.png"><div class="fimg"><img src="../experiments/real_results/figures/e1_grpo_training.png" alt="E1 GRPO 训练：reward 轨迹与收敛" loading="lazy"></div><figcaption><span class="ftag">E 系列 · 训练与统计</span>E1 GRPO 训练：reward 轨迹与收敛</figcaption></figure><figure class="fcard reveal show" data-g="e" data-lb="../experiments/real_results/figures/e2_rl_algorithm_comparison.png"><div class="fimg"><img src="../experiments/real_results/figures/e2_rl_algorithm_comparison.png" alt="E2 六算法优势估计对比" loading="lazy"></div><figcaption><span class="ftag">E 系列 · 训练与统计</span>E2 六算法优势估计对比</figcaption></figure><figure class="fcard reveal show" data-g="e" data-lb="../experiments/real_results/figures/e3_rag_statistical.png"><div class="fimg"><img src="../experiments/real_results/figures/e3_rag_statistical.png" alt="E3 RAG 统计效应量" loading="lazy"></div><figcaption><span class="ftag">E 系列 · 训练与统计</span>E3 RAG 统计效应量</figcaption></figure><figure class="fcard reveal show" data-g="e" data-lb="../experiments/real_results/figures/e5_memory_decay.png"><div class="fimg"><img src="../experiments/real_results/figures/e5_memory_decay.png" alt="E5 记忆衰减模型选择" loading="lazy"></div><figcaption><span class="ftag">E 系列 · 训练与统计</span>E5 记忆衰减模型选择</figcaption></figure><figure class="fcard reveal show" data-g="e" data-lb="../experiments/real_results/figures/e6_hyperparameter.png"><div class="fimg"><img src="../experiments/real_results/figures/e6_hyperparameter.png" alt="E6 超参敏感性" loading="lazy"></div><figcaption><span class="ftag">E 系列 · 训练与统计</span>E6 超参敏感性</figcaption></figure><figure class="fcard reveal show" data-g="g" data-lb="../experiments/gpu_results/figures/g1_inference_latency.png"><div class="fimg"><img src="../experiments/gpu_results/figures/g1_inference_latency.png" alt="G1 推理延迟" loading="lazy"></div><figcaption><span class="ftag">G 系列 · GPU 基准</span>G1 推理延迟</figcaption></figure><figure class="fcard reveal show" data-g="g" data-lb="../experiments/gpu_results/figures/g2_kv_cache.png"><div class="fimg"><img src="../experiments/gpu_results/figures/g2_kv_cache.png" alt="G2 KV 缓存" loading="lazy"></div><figcaption><span class="ftag">G 系列 · GPU 基准</span>G2 KV 缓存</figcaption></figure><figure class="fcard reveal show" data-g="g" data-lb="../experiments/gpu_results/figures/g3_quantization.png"><div class="fimg"><img src="../experiments/gpu_results/figures/g3_quantization.png" alt="G3 INT8 量化" loading="lazy"></div><figcaption><span class="ftag">G 系列 · GPU 基准</span>G3 INT8 量化</figcaption></figure><figure class="fcard reveal show" data-g="g" data-lb="../experiments/gpu_results/figures/g4_gpu_speedup.png"><div class="fimg"><img src="../experiments/gpu_results/figures/g4_gpu_speedup.png" alt="G4 GPU 采样加速" loading="lazy"></div><figcaption><span class="ftag">G 系列 · GPU 基准</span>G4 GPU 采样加速</figcaption></figure><figure class="fcard reveal show" data-g="r2" data-lb="../experiments/round2/figures/r1_agent_security.png"><div class="fimg"><img src="../experiments/round2/figures/r1_agent_security.png" alt="R1 Agent 安全防御" loading="lazy"></div><figcaption><span class="ftag">Round2 · R1-R10</span>R1 Agent 安全防御</figcaption></figure><figure class="fcard reveal show" data-g="r2" data-lb="../experiments/round2/figures/r2_elastic_scheduling.png"><div class="fimg"><img src="../experiments/round2/figures/r2_elastic_scheduling.png" alt="R2 弹性算力调度" loading="lazy"></div><figcaption><span class="ftag">Round2 · R1-R10</span>R2 弹性算力调度</figcaption></figure><figure class="fcard reveal show" data-g="r2" data-lb="../experiments/round2/figures/r3_kv_stress.png"><div class="fimg"><img src="../experiments/round2/figures/r3_kv_stress.png" alt="R3 KV 压力测试" loading="lazy"></div><figcaption><span class="ftag">Round2 · R1-R10</span>R3 KV 压力测试</figcaption></figure><figure class="fcard reveal show" data-g="r2" data-lb="../experiments/round2/figures/r4_algorithm_gpu_benchmark.png"><div class="fimg"><img src="../experiments/round2/figures/r4_algorithm_gpu_benchmark.png" alt="R4 15 算法 GPU 基准" loading="lazy"></div><figcaption><span class="ftag">Round2 · R1-R10</span>R4 15 算法 GPU 基准</figcaption></figure><figure class="fcard reveal show" data-g="r2" data-lb="../experiments/round2/figures/r5_speculative_decoding.png"><div class="fimg"><img src="../experiments/round2/figures/r5_speculative_decoding.png" alt="R5 推测解码" loading="lazy"></div><figcaption><span class="ftag">Round2 · R1-R10</span>R5 推测解码</figcaption></figure><figure class="fcard reveal show" data-g="r2" data-lb="../experiments/round2/figures/r6_quantization_matrix.png"><div class="fimg"><img src="../experiments/round2/figures/r6_quantization_matrix.png" alt="R6 量化全矩阵" loading="lazy"></div><figcaption><span class="ftag">Round2 · R1-R10</span>R6 量化全矩阵</figcaption></figure><figure class="fcard reveal show" data-g="r2" data-lb="../experiments/round2/figures/r7_rag_hyperparam.png"><div class="fimg"><img src="../experiments/round2/figures/r7_rag_hyperparam.png" alt="R7 RAG 超参网格" loading="lazy"></div><figcaption><span class="ftag">Round2 · R1-R10</span>R7 RAG 超参网格</figcaption></figure><figure class="fcard reveal show" data-g="r2" data-lb="../experiments/round2/figures/r8_memory_grid.png"><div class="fimg"><img src="../experiments/round2/figures/r8_memory_grid.png" alt="R8 记忆策略网格" loading="lazy"></div><figcaption><span class="ftag">Round2 · R1-R10</span>R8 记忆策略网格</figcaption></figure><figure class="fcard reveal show" data-g="r2" data-lb="../experiments/round2/figures/r9_pareto_frontier.png"><div class="fimg"><img src="../experiments/round2/figures/r9_pareto_frontier.png" alt="R9 多 Agent Pareto 前沿" loading="lazy"></div><figcaption><span class="ftag">Round2 · R1-R10</span>R9 多 Agent Pareto 前沿</figcaption></figure><figure class="fcard reveal show" data-g="r2" data-lb="../experiments/round2/figures/r10_pipeline_latency.png"><div class="fimg"><img src="../experiments/round2/figures/r10_pipeline_latency.png" alt="R10 Pipeline 延迟分解" loading="lazy"></div><figcaption><span class="ftag">Round2 · R1-R10</span>R10 Pipeline 延迟分解</figcaption></figure><figure class="fcard reveal show" data-g="r3" data-lb="../experiments/round3/figures/r11_agentic_retrieval.png"><div class="fimg"><img src="../experiments/round3/figures/r11_agentic_retrieval.png" alt="R11 检索策略网格（3 查询类型 × 5 策略）" loading="lazy"></div><figcaption><span class="ftag">Round3 · R11-R14</span>R11 检索策略网格（3 查询类型 × 5 策略）</figcaption></figure><figure class="fcard reveal show" data-g="r3" data-lb="../experiments/round3/figures/r12_exec_feedback.png"><div class="fimg"><img src="../experiments/round3/figures/r12_exec_feedback.png" alt="R12 执行反馈修复循环" loading="lazy"></div><figcaption><span class="ftag">Round3 · R11-R14</span>R12 执行反馈修复循环</figcaption></figure><figure class="fcard reveal show" data-g="r3" data-lb="../experiments/round3/figures/r13_self_evolution.png"><div class="fimg"><img src="../experiments/round3/figures/r13_self_evolution.png" alt="R13 真实进化循环（5 种子）" loading="lazy"></div><figcaption><span class="ftag">Round3 · R11-R14</span>R13 真实进化循环（5 种子）</figcaption></figure><figure class="fcard reveal show" data-g="r3" data-lb="../experiments/round3/figures/r14_forest.png"><div class="fimg"><img src="../experiments/round3/figures/r14_forest.png" alt="R14 跨实验显著性森林图" loading="lazy"></div><figcaption><span class="ftag">Round3 · R11-R14</span>R14 跨实验显著性森林图</figcaption></figure><figure class="fcard reveal show" data-g="r3" data-lb="../experiments/round3/figures/r14_radar.png"><div class="fimg"><img src="../experiments/round3/figures/r14_radar.png" alt="R14 能力雷达" loading="lazy"></div><figcaption><span class="ftag">Round3 · R11-R14</span>R14 能力雷达</figcaption></figure><figure class="fcard reveal show" data-g="r4" data-lb="../experiments/round4/figures/r15_judge_calibration.png"><div class="fimg"><img src="../experiments/round4/figures/r15_judge_calibration.png" alt="R15 LLM 自评校准（reliability diagram）" loading="lazy"></div><figcaption><span class="ftag">Round4 · R15-R17</span>R15 LLM 自评校准（reliability diagram）</figcaption></figure><figure class="fcard reveal show" data-g="r4" data-lb="../experiments/round4/figures/r16_rrf_grid.png"><div class="fimg"><img src="../experiments/round4/figures/r16_rrf_grid.png" alt="R16 RRF 融合设计空间（聚合×k 热力）" loading="lazy"></div><figcaption><span class="ftag">Round4 · R15-R17</span>R16 RRF 融合设计空间（聚合×k 热力）</figcaption></figure><figure class="fcard reveal show" data-g="r4" data-lb="../experiments/round4/figures/r17_fewshot.png"><div class="fimg"><img src="../experiments/round4/figures/r17_fewshot.png" alt="R17 few-shot 数量消融" loading="lazy"></div><figcaption><span class="ftag">Round4 · R15-R17</span>R17 few-shot 数量消融</figcaption></figure><figure class="fcard reveal show" data-g="r5" data-lb="../experiments/round5/figures/r18_pareto.png"><div class="fimg"><img src="../experiments/round5/figures/r18_pareto.png" alt="R18 全项目统一成本-质量 Pareto" loading="lazy"></div><figcaption><span class="ftag">Round5 · R18-R20</span>R18 全项目统一成本-质量 Pareto</figcaption></figure><figure class="fcard reveal show" data-g="r5" data-lb="../experiments/round5/figures/r19_scaling.png"><div class="fimg"><img src="../experiments/round5/figures/r19_scaling.png" alt="R19 检索规模扩展曲线" loading="lazy"></div><figcaption><span class="ftag">Round5 · R18-R20</span>R19 检索规模扩展曲线</figcaption></figure><figure class="fcard reveal show" data-g="r5" data-lb="../experiments/round5/figures/r20_embedding_quant.png"><div class="fimg"><img src="../experiments/round5/figures/r20_embedding_quant.png" alt="R20 嵌入量化×检索质量" loading="lazy"></div><figcaption><span class="ftag">Round5 · R18-R20</span>R20 嵌入量化×检索质量</figcaption></figure><figure class="fcard reveal show" data-g="r6" data-lb="../experiments/round6/figures/r21_swap_matrix.png"><div class="fimg"><img src="../experiments/round6/figures/r21_swap_matrix.png" alt="R21 换模块矩阵（可插拔检索器）" loading="lazy"></div><figcaption><span class="ftag">Round6 · R21-R22</span>R21 换模块矩阵（可插拔检索器）</figcaption></figure><figure class="fcard reveal show" data-g="r6" data-lb="../experiments/round6/figures/r22_deploy_matrix.png"><div class="fimg"><img src="../experiments/round6/figures/r22_deploy_matrix.png" alt="R22 部署场景矩阵" loading="lazy"></div><figcaption><span class="ftag">Round6 · R21-R22</span>R22 部署场景矩阵</figcaption></figure><figure class="fcard reveal show" data-g="r7" data-lb="../experiments/round7/figures/r23_quick_gate.png"><div class="fimg"><img src="../experiments/round7/figures/r23_quick_gate.png" alt="R23 冒烟质量门（quick vs full）" loading="lazy"></div><figcaption><span class="ftag">Round7 · R23-R25</span>R23 冒烟质量门（quick vs full）</figcaption></figure><figure class="fcard reveal show" data-g="r7" data-lb="../experiments/round7/figures/r25_weighted_rrf.png"><div class="fimg"><img src="../experiments/round7/figures/r25_weighted_rrf.png" alt="R25 加权 RRF 扫描" loading="lazy"></div><figcaption><span class="ftag">Round7 · R23-R25</span>R25 加权 RRF 扫描</figcaption></figure></div>
 </section>
 
 <section id="tables">
-<div class="shead"><span class="sno">10</span><h2>表格六件套</h2></div>
+<div class="shead"><span class="sno">12</span><h2>表格八件套</h2></div>
 <div class="rule"></div>
-<p class="slead">主表 / 消融 / 效率 / 显著性 / 校准设计空间 / 规模量化 —— 每张表同步输出 LaTeX（booktabs）、Markdown、300dpi PNG。</p>
+<p class="slead">主表 / 消融 / 效率 / 显著性 / 校准设计空间 / 规模量化 / 换模块矩阵 / 方法学 —— 每张表同步输出 LaTeX（booktabs）、Markdown、300dpi PNG。</p>
 <div class="tbl"><div class="tbl-cap">Table 2. Component ablations: R11 retrieval components (nDCG@10 per query type: lexical / paraphrase / multi-aspect), R12 feedback arms (24 tasks), R13 selection operators (5 seeds).</div><table class="dt">
 <thead><tr><th>Exp</th><th>Component / Arm</th><th>Per-type or per-seed detail</th><th>Aggregate</th></tr></thead><tbody>
 <tr class="best"><td>R11</td><td>bm25</td><td>0.634 / 0.853 / 0.788</td><td>0.758</td></tr>
@@ -365,6 +430,28 @@ footer .meth{max-width:820px;margin:10px auto 0;line-height:1.8;color:var(--mut)
 <tr class="best"><td>R20</td><td>嵌入量化</td><td>INT8</td><td>nDCG 0.9775</td><td>-0.05% · 逐向量余弦 0.9996</td></tr>
 <tr><td>R20</td><td>嵌入量化</td><td>INT4</td><td>nDCG 0.9620</td><td>-1.63% · 逐向量余弦 0.9187</td></tr>
 </tbody></table></div>
+<div class="tbl"><div class="tbl-cap">Table 7. Module swap matrix (4 pluggable retrievers under one interface, 120 queries) and deployment scenario matrix (precision x query policy).</div><table class="dt">
+<thead><tr><th>Exp</th><th>Module / Config</th><th>lex / para / multi nDCG</th><th>Overall</th><th>Best</th></tr></thead><tbody>
+<tr><td>R21</td><td>bm25</td><td>0.748 / 0.929 / 0.805</td><td>0.827 @ 3.7ms</td></tr>
+<tr><td>R21</td><td>dense</td><td>0.057 / 0.887 / 0.748</td><td>0.564 @ 31.9ms</td></tr>
+<tr><td>R21</td><td>hybrid-rrf</td><td>0.564 / 0.916 / 0.837</td><td>0.772 @ 31.9ms</td></tr>
+<tr class="best"><td>R21</td><td>multiquery-max-rrf</td><td>0.081 / 0.843 / 0.950</td><td>0.625 @ 80.6ms</td></tr>
+<tr><td>R22</td><td>fp16+single</td><td>nDCG@10</td><td>0.5643</td><td>37.5ms</td></tr>
+<tr><td>R22</td><td>fp16+multi_max</td><td>nDCG@10</td><td>0.6315</td><td>89.4ms</td></tr>
+<tr><td>R22</td><td>int8+single</td><td>nDCG@10</td><td>0.5680</td><td>97.6ms</td></tr>
+<tr class="best"><td>R22</td><td>int8+multi_max</td><td>nDCG@10</td><td>0.6339</td><td>81.1ms</td></tr>
+<tr><td>R22</td><td>int4+single</td><td>nDCG@10</td><td>0.5667</td><td>41.1ms</td></tr>
+<tr><td>R22</td><td>int4+multi_max</td><td>nDCG@10</td><td>0.6264</td><td>55.1ms</td></tr>
+</tbody></table></div>
+<div class="tbl"><div class="tbl-cap">Table 8. Round7: quick-mode quality gate (R23), feedback-information ablation (R24; skipped when VRAM is occupied) and weighted RRF scan (R25).</div><table class="dt">
+<thead><tr><th>Exp</th><th>Setting</th><th>Metric</th><th>Value</th><th>Note</th></tr></thead><tbody>
+<tr class="best"><td>R23</td><td>AA_QUICK=1 冒烟质量门</td><td>Spearman ρ (策略排名)</td><td>1.000</td><td>verdict=PASS · Top-1 全一致</td></tr>
+<tr><td>R24</td><td>反馈信息量消融</td><td>—</td><td>跳过</td><td>显存不足（并行任务），待重跑</td></tr>
+<tr class="best"><td>R25</td><td>加权 RRF w_dn:w_bm=0:1</td><td>overall nDCG@10</td><td>0.821</td><td>最优</td></tr>
+<tr><td>R25</td><td>加权 RRF w_dn:w_bm=1:1</td><td>overall nDCG@10</td><td>0.761</td><td>等权</td></tr>
+<tr><td>R25</td><td>加权 RRF w_dn:w_bm=1:3</td><td>overall nDCG@10</td><td>0.798</td><td></td></tr>
+<tr><td>R25</td><td>加权 RRF w_dn:w_bm=1:0</td><td>overall nDCG@10</td><td>0.604</td><td></td></tr>
+</tbody></table></div>
 </section>
 </main>
 
@@ -372,7 +459,7 @@ footer .meth{max-width:820px;margin:10px auto 0;line-height:1.8;color:var(--mut)
 <b>方法学声明</b>
 <div class="meth">本文所有数字来自本机 RTX 4090 真实运行，零模拟、零编造。统计检验为手写实现（betainc 连分数 / 精确二项 / 正态近似含并列校正），透明可审计。
 复现命令：scripts/run_r11_r13.py → run_r14_stats.py → run_tables.py → build_results_page.py。</div>
-<div style="margin-top:14px">AgentAlpha · 实验证据中枢 · E + G + Round2(R) + Round3(R11-R14) + Round4(R15-R17) + Round5(R18-R20) · 2026-10-01</div>
+<div style="margin-top:14px">AgentAlpha · 实验证据中枢 · E + G + Round2(R) + Round3(R11-R14) + Round4(R15-R17) + Round5(R18-R20) + Round6(R21-R22) + Round7(R23-R25) · 2026-10-03</div>
 </footer>
 <script>
 // 滚动进度
