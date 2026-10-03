@@ -177,7 +177,7 @@ export function HomeContent({ data }: HomeContentProps) {
               </p>
             }
           />
-          <div className="aa-proof-grid">
+          <div className="aa-proof-grid aa-proof-grid--two">
             {t.quizlib.cards.map((card: any) => (
               <article key={card.name} className={`aa-proof-card aa-pg ${card.tone}`} data-tilt>
                 <span className="aa-pg-glow" aria-hidden />
@@ -236,6 +236,18 @@ export function HomeContent({ data }: HomeContentProps) {
                 </div>
               </article>
             ))}
+            {/* 第 6 张卡补齐 3×2 网格，兜住全部项目入口 */}
+            <article className="aa-proof-card aa-pg aa-pg--more" data-tilt>
+              <span className="aa-pg-glow" aria-hidden />
+              <div className="aa-pg-body aa-pg-body--center">
+                <span className="aa-pg-kicker">10 个实战项目</span>
+                <h3>查看全部实战项目</h3>
+                <p className="aa-pg-desc">10 模块课程项目、37 组实验与每个数字的口径，全部可复查。</p>
+                <Link className="aa-pg-go" href="/projects">
+                  进入项目展示区 →
+                </Link>
+              </div>
+            </article>
           </div>
 
           <div className="aa-paper-strip">

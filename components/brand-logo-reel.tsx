@@ -4,8 +4,8 @@ import Image from "next/image"
 import { useEffect, useRef, useState } from "react"
 
 /**
- * 品牌标识动画：亮色系播放 logo 生长视频（静音循环），
- * 深色系或偏好减少动态 / 视频加载失败时回退到静态标识图。
+ * 品牌标识动画：亮色系进场时播放一次 logo 生长视频（静音，不循环），
+ * 播完/深色系/偏好减少动态/加载失败都回退到静态字标——品牌名大部分时间保持完整。
  * 视频 2.4MB：滚动进入视口才开始加载和播放，不占首屏带宽。
  */
 export function BrandLogoReel({
@@ -48,10 +48,10 @@ export function BrandLogoReel({
         {useStill || !inView ? (
           <Image
             className="aa-logo-reel-logo dark:hidden"
-            src="/brand/logo-animation-poster.webp"
+            src="/logo-light.webp"
             alt="AgentAlpha 标识"
-            width={1280}
-            height={720}
+            width={720}
+            height={153}
             priority
           />
         ) : (
@@ -61,11 +61,11 @@ export function BrandLogoReel({
             poster="/brand/logo-animation-poster.webp"
             autoPlay
             muted
-            loop
             playsInline
             preload="none"
             aria-label="AgentAlpha 标识动画"
             onError={() => setUseStill(true)}
+            onEnded={() => setUseStill(true)}
           />
         )}
         <Image
