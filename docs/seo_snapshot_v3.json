@@ -1,0 +1,109 @@
+{
+ "taken_at": "2026-10-03T03:23:39.077085+00:00",
+ "base": "https://agentalpha.top",
+ "pages": {
+  "resume-builder": {
+   "title": "免费在线简历生成器 - 导出 PDF 和 Word,无需注册｜AgentAlpha",
+   "title_keywords_ok": true,
+   "missing_keywords": [],
+   "canonical": "https://agentalpha.top/tools/resume-builder",
+   "has_software_app_ld": true
+  },
+  "jd-analyzer": {
+   "title": "JD 分析工具 - 免费在线拆解招聘 JD,匹配面试题｜AgentAlpha",
+   "title_keywords_ok": true,
+   "missing_keywords": [],
+   "canonical": "https://agentalpha.top/tools/jd-analyzer",
+   "has_software_app_ld": true
+  },
+  "resume": {
+   "title": "简历在线分析 - AI 岗简历体检,免费查匹配度与追问风险｜AgentAlpha",
+   "title_keywords_ok": true,
+   "missing_keywords": [],
+   "canonical": "https://agentalpha.top/tools/resume",
+   "has_software_app_ld": true
+  },
+  "gap-test": {
+   "title": "面试 Gap 自测 - 测你离 AI 岗位 Offer 差多远｜AgentAlpha",
+   "title_keywords_ok": true,
+   "missing_keywords": [],
+   "canonical": "https://agentalpha.top/tools/gap-test",
+   "has_software_app_ld": true
+  },
+  "mock-interview": {
+   "title": "AI 模拟面试 - 免费在线练岗位剧本/简历深挖/压力追问｜AgentAlpha",
+   "title_keywords_ok": true,
+   "missing_keywords": [],
+   "canonical": "https://agentalpha.top/tools/mock-interview",
+   "has_software_app_ld": true
+  },
+  "interview-log": {
+   "title": "面试复盘模板 - 记录被问题目,统计反复挂在哪｜AgentAlpha",
+   "title_keywords_ok": true,
+   "missing_keywords": [],
+   "canonical": "https://agentalpha.top/tools/interview-log",
+   "has_software_app_ld": true
+  },
+  "application-tracker": {
+   "title": "求职投递管理 - 免费投递记录看板与漏斗统计｜AgentAlpha",
+   "title_keywords_ok": true,
+   "missing_keywords": [],
+   "canonical": "https://agentalpha.top/tools/application-tracker",
+   "has_software_app_ld": true
+  },
+  "bullet-grader": {
+   "title": "简历经历打分 - Bullet 一条值多少分,给改写骨架｜AgentAlpha",
+   "title_keywords_ok": true,
+   "missing_keywords": [],
+   "canonical": "https://agentalpha.top/tools/bullet-grader",
+   "has_software_app_ld": true
+  },
+  "offer-compare": {
+   "title": "Offer 对比器 - 多个 offer 怎么选,六维加权对比｜AgentAlpha",
+   "title_keywords_ok": true,
+   "missing_keywords": [],
+   "canonical": "https://agentalpha.top/tools/offer-compare",
+   "has_software_app_ld": true
+  },
+  "project-matcher": {
+   "title": "AI 项目推荐 - 按方向和时间匹配能写进简历的项目｜AgentAlpha",
+   "title_keywords_ok": true,
+   "missing_keywords": [],
+   "canonical": "https://agentalpha.top/tools/project-matcher",
+   "has_software_app_ld": true
+  }
+ },
+ "structure": {
+  "home_tools_cards": 10,
+  "home_tools_keywords": true,
+  "llms_txt_tool_mentions": 563,
+  "llms_full_toolbox_block": true,
+  "llms_full_tool_count": 10,
+  "mianjing_detail_tool_entry": 1,
+  "jd_page_count": 38,
+  "tool_guides_rendered": {
+   "resume-builder": true,
+   "jd-analyzer": true,
+   "resume": true,
+   "mock-interview": true
+  },
+  "robots_ai_bots_allowed": {
+   "GPTBot": true,
+   "OAI-SearchBot": true,
+   "ClaudeBot": true,
+   "PerplexityBot": true,
+   "Google-Extended": true,
+   "Bytespider": true
+  }
+ },
+ "search_engines": {
+  "bing": {
+   "hits": "62,600",
+   "manual_check": false
+  },
+  "bing_tools": {
+   "hits": "50",
+   "manual_check": false
+  }
+ }
+}
