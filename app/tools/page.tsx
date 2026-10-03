@@ -142,7 +142,7 @@ const LIBS: { href: string; icon: LucideIcon; tint: string; title: string; desc:
     icon: BookOpenCheck,
     tint: "tint-brand",
     title: "面试题库",
-    desc: "179 道高频题速答，一题一页带答案与追问",
+    desc: "500+ 道高频题速答，一题一页带答案与追问",
   },
   {
     href: "/roadmap",
