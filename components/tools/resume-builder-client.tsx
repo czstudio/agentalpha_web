@@ -28,20 +28,20 @@ const EXAMPLE = `张三
 
 实习经历
 某信息科技公司 | 后端开发实习生 2025.06-2025.09
-- 负责开发 RAG 问答系统,使用 LangChain 和 FAISS,提升了问答效果。
-- 参与向量检索服务维护,协助排查线上召回问题。
+- 负责开发 RAG 问答系统，使用 LangChain 和 FAISS，提升了问答效果。
+- 参与向量检索服务维护，协助排查线上召回问题。
 
 项目经历
 企业知识库问答机器人 2025.03-2025.06
-- 独立搭建检索问答服务,针对表格类文档解析丢失问题改用版面感知分块。
-- 基于 300 条 badcase 迭代 chunk 与 prompt 约束,答案忠实度从 71% 提升到 89%。
+- 独立搭建检索问答服务，针对表格类文档解析丢失问题改用版面感知分块。
+- 基于 300 条 badcase 迭代 chunk 与 prompt 约束，答案忠实度从 71% 提升到 89%。
 
 专业技能
 Python、LangChain、FAISS、MySQL、Docker`
 
 const SECTION_TITLES: Array<{ key: "education" | "experience" | "projects" | "extras"; title: string; hint: string }> = [
   { key: "education", title: "教育背景", hint: "学校 | 专业与学历 | 时间" },
-  { key: "experience", title: "实习与工作", hint: "公司 | 职位 | 时间,下面一条一条写经历" },
+  { key: "experience", title: "实习与工作", hint: "公司 | 职位 | 时间，下面一条一条写经历" },
   { key: "projects", title: "项目经历", hint: "项目名 | 角色可选 | 时间" },
   { key: "extras", title: "其他经历", hint: "获奖、开源、校园经历都放这里" },
 ]
@@ -103,7 +103,7 @@ function BulletRow({
             <span className={v.score < 50 ? "rb-score bad" : v.score < 75 ? "rb-score mid" : "rb-score ok"}>
               {v.score} 分
             </span>
-            <span className="rb-worst">{v.problems[0] || "能撑住追问,保持"}</span>
+            <span className="rb-worst">{v.problems[0] || "能撑住追问，保持"}</span>
             {!text.includes("〔") && (
               <button type="button" className="mock-end-btn" onClick={() => onChange(v.rewrite)}>
                 按骨架改写
@@ -111,7 +111,7 @@ function BulletRow({
             )}
           </>
         ) : (
-          <span className="rb-worst">空条目:写你做了什么、难在哪、结果如何</span>
+          <span className="rb-worst">空条目：写你做了什么、难在哪、结果如何</span>
         )}
         <button type="button" className="rb-del" aria-label="删除这条" onClick={onRemove}>
           删除
@@ -137,7 +137,7 @@ export function ResumeBuilderClient() {
   const [aiQuota, setAiQuota] = useState(RESUME_DAILY_LIMIT)
   const [userCfg, setUserCfg] = useState<UserKeyCfg>({ apiKey: "", baseUrl: "", model: "" })
   const [showKeyPanel, setShowKeyPanel] = useState(false)
-  const [aiNote, setAiNote] = useState("AI 只改写表达,不编造经历;数字缺了留〔〕占位")
+  const [aiNote, setAiNote] = useState("AI 只改写表达，不编造经历；数字缺了留〔〕占位")
   const rawRef = useRef<HTMLTextAreaElement>(null)
 
   // 挂载:回读水合前的粘贴 + 恢复本地草稿 + 读取用户 key 配置
@@ -219,7 +219,7 @@ export function ResumeBuilderClient() {
     if (!data || aiState === "loading") return
     if (aiQuota <= 0 && !userCfg.apiKey) {
       setAiState("error")
-      setAiError("今天的免费次数(5 次)用完了。明天再来,或在下面填自己的 API key(不计免费额度)。")
+      setAiError("今天的免费次数(5 次)用完了。明天再来，或在下面填自己的 API key(不计免费额度)。")
       return
     }
     setAiState("loading")
@@ -245,14 +245,14 @@ export function ResumeBuilderClient() {
       }
       if (!res.ok || json.error) {
         const map: Record<string, string> = {
-          too_short: "简历内容太短,至少 30 字再试。",
+          too_short: "简历内容太短，至少 30 字再试。",
           not_configured: "AI 深度改写还没开放。可以在下面填自己的 API key 立即使用。",
-          bad_key: "你填的 API key 格式不对(少于 20 个字符),请求被拒绝;请在下方面板检查是否复制完整。",
-          quota: "免费额度用完了(全站或本机)。明天再来,或用自己的 API key(不计免费额度)。",
-          upstream: `模型通道出了问题(${json.detail || "未知"}),稍后再试,或换自己的 key/模型。`,
-          bad_output: "模型这次没按格式返回,再试一次通常就好。",
+          bad_key: "你填的 API key 格式不对(少于 20 个字符)，请求被拒绝；请在下方面板检查是否复制完整。",
+          quota: "免费额度用完了(全站或本机)。明天再来，或用自己的 API key(不计免费额度)。",
+          upstream: `模型通道出了问题(${json.detail || "未知"})，稍后再试，或换自己的 key/模型。`,
+          bad_output: "模型这次没按格式返回，再试一次通常就好。",
         }
-        throw new Error(map[json.error || ""] || "请求失败,稍后再试。")
+        throw new Error(map[json.error || ""] || "请求失败，稍后再试。")
       }
       setAiItems(json.items || [])
       setAiModel(json.model || "")
@@ -369,9 +369,9 @@ export function ResumeBuilderClient() {
     <div className="tk-shell">
       {/* ── 输入区(打印时隐藏) ── */}
       <section className="tk-input-card rb-chrome" aria-label="简历来源">
-        <p className="tk-label">第一步:把简历给过来</p>
+        <p className="tk-label">第一步：把简历给过来</p>
         <p className="rb-input-hint">
-          三种都行:把旧简历全文粘进来重新优化；或者胡乱写一段你的学校、实习、项目，乱一点没关系，解析完你可以逐条改。
+          三种都行：把旧简历全文粘进来重新优化；或者胡乱写一段你的学校、实习、项目，乱一点没关系，解析完你可以逐条改。
         </p>
         <textarea
           ref={rawRef}
@@ -384,7 +384,7 @@ export function ResumeBuilderClient() {
           placeholder={EXAMPLE.slice(0, 60) + "……"}
         />
         <div className="tk-input-actions">
-          <span className="tk-privacy">解析和排版全部在你的浏览器本地完成,文本不发送到任何服务器</span>
+          <span className="tk-privacy">解析和排版全部在你的浏览器本地完成，文本不发送到任何服务器</span>
           <button
             type="button"
             className="tk-run"
@@ -410,7 +410,7 @@ export function ResumeBuilderClient() {
               <div className="rb-form">
                 <input className="rb-field" aria-label="姓名" value={data.name} placeholder="姓名" onChange={(e) => patch((d) => { d.name = e.target.value })} />
                 <input className="rb-field" aria-label="联系方式" value={data.contact} placeholder="电话 | 邮箱 | 主页" onChange={(e) => patch((d) => { d.contact = e.target.value })} />
-                <textarea className="rb-field" aria-label="一句话简介(可选)" rows={2} value={data.summary} placeholder="一句话简介(可选):求职方向 + 最硬的一条证据" onChange={(e) => patch((d) => { d.summary = e.target.value })} />
+                <textarea className="rb-field" aria-label="一句话简介(可选)" rows={2} value={data.summary} placeholder="一句话简介(可选)：求职方向 + 最硬的一条证据" onChange={(e) => patch((d) => { d.summary = e.target.value })} />
               </div>
             </section>
 
@@ -441,7 +441,7 @@ export function ResumeBuilderClient() {
               {showAlign && (
                 <>
                   <p className="tk-hint" style={{ marginTop: 0 }}>
-                    贴上目标 JD,工具逐词对照你的简历:命中的是你已有的证据,缺失的只代表「简历里没写」,不代表你不能干。缺的部分优先回去补真实经历,而不是硬塞词。
+                    贴上目标 JD，工具逐词对照你的简历：命中的是你已有的证据，缺失的只代表「简历里没写」，不代表你不能干。缺的部分优先回去补真实经历，而不是硬塞词。
                   </p>
                   <textarea
                     className="tk-textarea"
@@ -454,11 +454,11 @@ export function ResumeBuilderClient() {
                   />
                   {align && (
                     <p className="tk-hint">
-                      词面命中 {align.hits.length}/{align.total}。{align.hits.length > 0 && `已覆盖:${align.hits.slice(0, 8).join("、")}${align.hits.length > 8 ? "…" : ""}。`}
+                      词面命中 {align.hits.length}/{align.total}。{align.hits.length > 0 && `已覆盖：${align.hits.slice(0, 8).join("、")}${align.hits.length > 8 ? "…" : ""}。`}
                       {align.missing.length > 0 && (
                         <>
-                          简历里没出现:{align.missing.join("、")}。
-                          {align.missing.length > align.hits.length ? "缺失多于命中:这份 JD 和你的现有经历差距偏大,考虑先补项目再投。" : "核心词基本覆盖,投前把 JD 关键词对应的经历放到更显眼的位置。"}
+                          简历里没出现：{align.missing.join("、")}。
+                          {align.missing.length > align.hits.length ? "缺失多于命中：这份 JD 和你的现有经历差距偏大，考虑先补项目再投。" : "核心词基本覆盖，投前把 JD 关键词对应的经历放到更显眼的位置。"}
                         </>
                       )}
                     </p>
@@ -470,9 +470,9 @@ export function ResumeBuilderClient() {
             {/* ── 证据审计(本地规则) ── */}
             {audit.length > 0 && (
               <section className="tk-input-card" aria-label="证据审计">
-                <p className="tk-label">证据体检:这几条面试时容易被问穿({audit.length} 条)</p>
+                <p className="tk-label">证据体检：这几条面试时容易被问穿({audit.length} 条)</p>
                 <p className="tk-hint" style={{ marginTop: 0 }}>
-                  规则来自真实面试官的审查习惯:规划写成已交付、「第一/首个」说不清比较范围、指标没有口径、团队成果算成个人的。被标出的条目要么补证据,要么改表述。
+                  规则来自真实面试官的审查习惯：规划写成已交付、「第一/首个」说不清比较范围、指标没有口径、团队成果算成个人的。被标出的条目要么补证据，要么改表述。
                 </p>
                 {audit.map((item, i) => (
                   <div key={i} className="rb-audit-item">
@@ -494,11 +494,11 @@ export function ResumeBuilderClient() {
                 <span className="tk-note">{userCfg.apiKey ? "用自己的 key" : `今日免费 ${aiQuota}/${RESUME_DAILY_LIMIT} 次`}</span>
               </div>
               <p className="tk-hint" style={{ marginTop: 0 }}>
-                把每条经历交给模型改写:动词、量化、难点、结果四个维度重排,输出「原文 → 改写 → 问题说明」,
-                你逐条决定要不要采用。AI 不编造经历:数字缺了留〔〕占位,公司学校职位原样保留。
+                把每条经历交给模型改写：动词、量化、难点、结果四个维度重排，输出「原文 → 改写 → 问题说明」,
+                你逐条决定要不要采用。AI 不编造经历：数字缺了留〔〕占位，公司学校职位原样保留。
               </p>
               <div className="tk-input-actions">
-                <span className="tk-privacy">简历全文会发送到服务端调用大模型(这是本页唯一需要联网的一步,其余全部本地)</span>
+                <span className="tk-privacy">简历全文会发送到服务端调用大模型(这是本页唯一需要联网的一步，其余全部本地)</span>
                 <button type="button" className="tk-run" onClick={runAi} disabled={aiState === "loading" || !data}>
                   {aiState === "loading" ? "改写中…" : "AI 改写全部经历"}
                 </button>
@@ -507,12 +507,12 @@ export function ResumeBuilderClient() {
                 <summary>
                   {userCfg.apiKey
                     ? "已配置自己的 API key(点击可修改或清除)"
-                    : "用自己的 API key(不计免费额度,更快更稳)"}
+                    : "用自己的 API key(不计免费额度，更快更稳)"}
                 </summary>
                 <div className="jda-keypanel-body">
                   <p className="jda-keypanel-hint">
-                    Key 只存在你这台浏览器(localStorage),请求时经本站转发但不落库、不记录。兼容 OpenAI 接口格式的中转或官方 API 都可以用。
-                    {userCfg.apiKey && " 已保存的 key 会优先于站点免费额度使用;想恢复免费额度就清除 key。"}
+                    Key 只存在你这台浏览器(localStorage)，请求时经本站转发但不落库、不记录。兼容 OpenAI 接口格式的中转或官方 API 都可以用。
+                    {userCfg.apiKey && " 已保存的 key 会优先于站点免费额度使用；想恢复免费额度就清除 key。"}
                   </p>
                   <input
                     className="trk-input jda-key-input"
@@ -565,7 +565,7 @@ export function ResumeBuilderClient() {
                   </div>
                   {userCfg.apiKey && userCfg.apiKey.length < 20 && (
                     <p className="jda-keypanel-hint" style={{ color: "#b3261e" }}>
-                      这个 key 不到 20 个字符,发请求会被拒绝;请检查是否复制完整,或清空改用站点免费额度。
+                      这个 key 不到 20 个字符，发请求会被拒绝；请检查是否复制完整，或清空改用站点免费额度。
                     </p>
                   )}
                 </div>
@@ -574,7 +574,7 @@ export function ResumeBuilderClient() {
               {aiState === "done" && (
                 <div style={{ marginTop: 12 }}>
                   <p className="tk-hint" style={{ marginTop: 0 }}>
-                    {aiModel && `模型 ${aiModel} · `}建议 {aiItems.length} 条。点「采用」写回简历,不合适的不用。
+                    {aiModel && `模型 ${aiModel} · `}建议 {aiItems.length} 条。点「采用」写回简历，不合适的不用。
                   </p>
                   {aiItems.map((item, i) => (
                     <div className="rb-ai-item" key={i}>
@@ -610,7 +610,7 @@ export function ResumeBuilderClient() {
                   </button>
                 </div>
                 <p className="tk-hint" style={{ marginTop: 0 }}>{hint}</p>
-                {(data[key] as ResumeEntry[]).length === 0 && <p className="tk-hint">还没有内容。点右上角「加一条」,或回到第一步重新解析。</p>}
+                {(data[key] as ResumeEntry[]).length === 0 && <p className="tk-hint">还没有内容。点右上角「加一条」，或回到第一步重新解析。</p>}
                 {(data[key] as ResumeEntry[]).map((entry, ei) => (
                   <div className="rb-entry-card" key={ei}>
                     <div className="rb-entry-fields">
@@ -637,7 +637,7 @@ export function ResumeBuilderClient() {
                   加一项
                 </button>
               </div>
-              {data.skills.length === 0 && <p className="tk-hint">写你真的会用东西:语言、框架、工具。别堆名词,面试官会挑一个问到底。</p>}
+              {data.skills.length === 0 && <p className="tk-hint">写你真的会用东西：语言、框架、工具。别堆名词，面试官会挑一个问到底。</p>}
               <div className="rb-form">
                 {data.skills.map((s, i) => (
                   <div className="rb-skill-row" key={i}>
@@ -654,7 +654,7 @@ export function ResumeBuilderClient() {
             <div className="rb-toolbar-sticky rb-chrome">
             <div className="rb-toolbar">
               <span className="tk-privacy">
-                {savedAt ? `已自动保存到本机(${savedAt})` : "A4 排版;指标位〔〕留空,自己填真实数字"}
+                {savedAt ? `已自动保存到本机(${savedAt})` : "A4 排版；指标位〔〕留空，自己填真实数字"}
               </span>
               <span className="rb-toolbar-btns">
                 <button type="button" className="tk-run rb-print-btn" onClick={() => window.print()}>
@@ -670,7 +670,7 @@ export function ResumeBuilderClient() {
             </div>
             </div>
             <div className="rb-toolbar rb-chrome" style={{ marginTop: -4 }}>
-              <span className="tk-privacy">换个地方继续编辑或备份:</span>
+              <span className="tk-privacy">换个地方继续编辑或备份：</span>
               <span className="rb-toolbar-btns">
                 <button type="button" className="mock-end-btn" onClick={() => download(buildMarkdown(data), "简历.md", "text/markdown")}>
                   Markdown
@@ -696,7 +696,7 @@ export function ResumeBuilderClient() {
                   type="button"
                   className="mock-end-btn"
                   onClick={() => {
-                    if (window.confirm("清空当前简历,回到第一步重新开始?(本机自动保存的草稿也会清掉)")) {
+                    if (window.confirm("清空当前简历，回到第一步重新开始？(本机自动保存的草稿也会清掉)")) {
                       setData(null)
                       setLoose([])
                       setRaw("")
@@ -755,7 +755,7 @@ export function ResumeBuilderClient() {
             </div>
 
             <details className="rb-tex rb-chrome">
-              <summary>LaTeX 源码(贴进 Overleaf,编译器选 XeLaTeX)</summary>
+              <summary>LaTeX 源码(贴进 Overleaf，编译器选 XeLaTeX)</summary>
               <pre className="rb-tex-pre">{latex}</pre>
               <div className="tk-input-actions">
                 <span className="tk-privacy">{copiedTex ? "已复制" : "想自己调排版就复制源码去改"}</span>

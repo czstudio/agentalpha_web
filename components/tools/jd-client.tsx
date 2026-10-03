@@ -205,7 +205,7 @@ export function JdClient({ qaList, jdSamples }: { qaList: QaLite[]; jdSamples: J
               {report.plain.map((line) => (
                 <p key={line.slice(0, 16)}>{line}</p>
               ))}
-              <p className="jda-seniority">级别判断:{report.seniority}</p>
+              <p className="jda-seniority">级别判断：{report.seniority}</p>
             </div>
           </div>
 
@@ -324,8 +324,8 @@ export function JdClient({ qaList, jdSamples }: { qaList: QaLite[]; jdSamples: J
               <span className="tk-note">大模型生成 · 需人工核验</span>
             </h3>
             <p className="tk-block-desc">
-              规则拆解看词面命中，AI 拆解看岗位判断:把这份 JD 再交给大模型按面试官视角过一遍。
-              免费额度:每个浏览器每天 {DAILY_BROWSER_QUOTA} 次（今天已用 {aiUsage.count} 次），输入与结果都不出你的浏览器和服务端，不用于其他用途。
+              规则拆解看词面命中，AI 拆解看岗位判断：把这份 JD 再交给大模型按面试官视角过一遍。
+              免费额度：每个浏览器每天 {DAILY_BROWSER_QUOTA} 次（今天已用 {aiUsage.count} 次），输入与结果都不出你的浏览器和服务端，不用于其他用途。
             </p>
 
             {aiState === "idle" && (
@@ -351,7 +351,7 @@ export function JdClient({ qaList, jdSamples }: { qaList: QaLite[]; jdSamples: J
                   <summary>用自己的 API key（立即解锁，额度算你自己的）</summary>
                   <div className="jda-keypanel-body">
                     <p className="jda-keypanel-hint">
-                      填一个 OpenAI 兼容中转/官方的 key。key 只存你这台浏览器（localStorage),请求经本站转发但不落库、不记录；
+                      填一个 OpenAI 兼容中转/官方的 key。key 只存你这台浏览器（localStorage)，请求经本站转发但不落库、不记录；
                       默认按 huohua 中转 + deepseek-v4-flash 填好，可改成你自己的端点与模型。
                     </p>
                     <input

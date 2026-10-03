@@ -4,12 +4,12 @@ import { useEffect, useRef, useState } from "react"
 import Link from "next/link"
 import { gradeBullet, type BulletVerdict } from "@/lib/tools/bullet-grader"
 
-const PLACEHOLDER = `粘一条简历经历，例如:
+const PLACEHOLDER = `粘一条简历经历，例如：
 
-负责开发 RAG 问答系统，使用 LangChain 和 FAISS,提升了问答效果。`
+负责开发 RAG 问答系统，使用 LangChain 和 FAISS，提升了问答效果。`
 
-const EXAMPLE_BAD = "负责开发 RAG 问答系统，使用 LangChain 和 FAISS,提升了问答效果。"
-const EXAMPLE_GOOD = "独立搭建企业知识库 RAG 服务:针对表格类文档解析丢失问题改用版面感知分块，基于 300 条 badcase 迭代 chunk 与 prompt 约束，答案忠实度从 71% 提升到 89%,P95 延迟控制在 800ms 内。"
+const EXAMPLE_BAD = "负责开发 RAG 问答系统，使用 LangChain 和 FAISS，提升了问答效果。"
+const EXAMPLE_GOOD = "独立搭建企业知识库 RAG 服务：针对表格类文档解析丢失问题改用版面感知分块，基于 300 条 badcase 迭代 chunk 与 prompt 约束，答案忠实度从 71% 提升到 89%,P95 延迟控制在 800ms 内。"
 
 export function BulletClient() {
   const [text, setText] = useState("")

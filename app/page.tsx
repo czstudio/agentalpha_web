@@ -3,14 +3,31 @@ import { HomeContent } from "@/components/home-content"
 import { prisma } from "@/lib/prisma"
 import { getAllQa } from "@/lib/qa"
 import { getAllInterview } from "@/lib/interview"
+import { deepNormalizeCjkPunct } from "@/lib/utils"
 
 // 首页走 ISR：HTML 边缘缓存、后台按 60s 粒度再生。
 // 之前是 force-dynamic 每次访问都实时查库（Prisma + 青稞外站），TTFB 实测 1.7~2.8s；
 // 后台改内容最多延迟 60s 生效，换全站入口秒开。
 export const revalidate = 60
 
+// 题库统计（server 端读 content，客户端组件不能碰 fs）。
+// 只读本地文件、与数据库无关：数据库挂了也不能让首页数字归零。
+function getInterviewStats() {
+  try {
+    const qa = getAllQa()
+    return {
+      qaCount: qa.length,
+      catCount: new Set(qa.map((item) => item.category)).size,
+      deepCount: getAllInterview().length,
+    }
+  } catch {
+    return { qaCount: 0, catCount: 0, deepCount: 0 }
+  }
+}
+
 // 获取数据的服务端函数 - 直接使用 Prisma
 async function getData() {
+  const interview = getInterviewStats()
   try {
     // 并行获取所有数据
     const [members, mentors, projects, papers, partners, news, socialPlatforms, quickLinks, resources, siteContents] = await Promise.all([
@@ -186,21 +203,8 @@ async function getData() {
       }
     })
 
-    // 题库统计（server 端读 content，客户端组件不能碰 fs）
-    const interview = (() => {
-      try {
-        const qa = getAllQa()
-        return {
-          qaCount: qa.length,
-          catCount: new Set(qa.map((item) => item.category)).size,
-          deepCount: getAllInterview().length,
-        }
-      } catch {
-        return { qaCount: 0, catCount: 0, deepCount: 0 }
-      }
-    })()
-
-    return {
+    // 题库统计已在本函数入口计算（见 getInterviewStats）
+    return deepNormalizeCjkPunct({
       members,
       mentors,
       projects,
@@ -215,10 +219,10 @@ async function getData() {
       qingkeTalks,
       qingkeVideos,
       interview,
-    }
+    })
   } catch (error) {
     console.error('获取数据失败:', error)
-    // 返回空数据
+    // 返回空数据（题库统计照常读文件）
     return {
       members: [],
       mentors: [],
@@ -233,7 +237,7 @@ async function getData() {
       siteContent: {},
       qingkeTalks: [],
       qingkeVideos: [],
-      interview: { qaCount: 0, catCount: 0, deepCount: 0 },
+      interview,
     }
   }
 }
