@@ -4,6 +4,7 @@ import { notFound } from "next/navigation"
 import { COMPANIES, getCompany, getQaByCompany } from "@/lib/companies"
 import { FACTORY_QUESTIONS } from "@/lib/factory-questions"
 import { getMianjingList } from "@/lib/mianjing"
+import { EXTERNAL_QUESTIONS, EXTERNAL_SOURCES, EXTERNAL_PROCESS } from "@/lib/company-external-questions"
 import { getAllJd } from "@/lib/jd"
 
 const SITE = "https://agentalpha.top"
@@ -111,6 +112,12 @@ export default async function CompanyPage({ params }: PageProps) {
     .sort((a, b) => (a.date === b.date ? a.slug.localeCompare(b.slug) : b.date.localeCompare(a.date)))
   const jdDocs = getAllJd().filter((doc) => doc.company === slug)
   const external = EXTERNAL_REPOS.filter((r) => r.covers.includes(slug) || r.covers.includes("cn")).slice(0, 4)
+  const extQ = EXTERNAL_QUESTIONS[slug] || []
+  const extProcess = EXTERNAL_PROCESS[slug] || ""
+  const extQBySrc = extQ.reduce<Record<string, string[]>>((acc, item) => {
+    ;(acc[item.src] ||= []).push(item.q)
+    return acc
+  }, {})
 
   const itemListLd = {
     "@context": "https://schema.org",
@@ -286,6 +293,43 @@ export default async function CompanyPage({ params }: PageProps) {
           </p>
         ) : null}
       </div>
+
+      {extQ.length > 0 ? (
+        <div className="ivu-wide">
+          <div className="ivu-sec">
+            <h2 className="ivu-sec-t">开源社区真题补充 · {extQ.length} 题</h2>
+            <p className="ivu-sec-sub">
+              从开源公司题库仓库整理的{company.name}方向真题，保持原文（英文原题不译），仅作外部参考补充，内容以原仓库为准。
+            </p>
+          </div>
+          {extProcess ? (
+            <div className="cqe-process">
+              <b>面试流程（社区整理）</b>
+              <p>{extProcess}</p>
+            </div>
+          ) : null}
+          {Object.entries(extQBySrc).map(([src, questions]) => {
+            const repo = EXTERNAL_SOURCES[src]
+            if (!repo) return null
+            return (
+              <details className="fac-group" key={src} open={src === "agentguide"}>
+                <summary>
+                  <span className="fac-group-name">{repo.name}</span>
+                  <span className="fac-group-count">{questions.length} 题</span>
+                </summary>
+                <ol className="fac-qs">
+                  {questions.map((q, i) => (
+                    <li key={i}>{q}</li>
+                  ))}
+                </ol>
+                <p className="cqe-src">
+                  来源：<a href={repo.url} target="_blank" rel="noopener noreferrer">{repo.url}</a>
+                </p>
+              </details>
+            )
+          })}
+        </div>
+      ) : null}
 
       {external.length > 0 ? (
         <div className="ivu-wide">

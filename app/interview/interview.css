@@ -2450,3 +2450,10 @@ a.ivq-row-go--ext:hover { text-decoration: underline; text-underline-offset: 3px
   font-style: normal; font-weight: 700; color: var(--brand-deep, #4c15ac);
   background: var(--brand-tint, #f3ecfe); border-radius: 999px; padding: 1px 8px;
 }
+
+/* ── 公司页：开源真题补充 ── */
+.cqe-process { padding: 16px 20px; background: var(--brand-tint, #f3ecfe); border-radius: 12px; margin: 0 0 16px; }
+.cqe-process b { display: block; margin-bottom: 6px; color: var(--brand-deep, #4c15ac); font-size: 13px; }
+.cqe-process p { margin: 0; color: var(--ink-2, #6e6557); font-size: 13.5px; line-height: 1.75; }
+.cqe-src { margin: 12px 0 4px; font-size: 12px; color: var(--ink-3, #9a9082); overflow-wrap: anywhere; }
+.cqe-src a { color: var(--brand-deep, #4c15ac); }
