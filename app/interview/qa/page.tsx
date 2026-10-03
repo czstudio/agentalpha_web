@@ -80,6 +80,7 @@ export default function QaHubPage() {
         question: it.question,
         oneLine: it.oneLine,
         category: it.category,
+        company: it.company,
       })),
     }
   })
