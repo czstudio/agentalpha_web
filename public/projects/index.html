@@ -28,7 +28,9 @@ body{background:var(--bg)}
 .hero2 h1 em{font-style:normal;color:var(--accent);display:block;font-size:.8em;margin-top:.12em}
 .hero2 .st{grid-area:s;max-width:56ch;margin:20px 0 0;padding-top:18px;border-top:1px solid var(--hair)}
 .hero2 .st p{color:color-mix(in oklab,var(--ink) 76%,transparent);font-size:clamp(.95rem,1.05vw,1.05rem);line-height:1.85;text-wrap:pretty}
-.hero2 .acts{grid-area:a;display:flex;gap:10px;flex-wrap:wrap;margin-top:clamp(44px,7vh,96px)}
+.hero2 .micro{grid-area:a;font-family:var(--mono);font-size:12px;letter-spacing:.05em;color:var(--muted);margin-top:clamp(36px,6vh,80px)}
+.hero2 .micro span{color:var(--accent);margin:0 10px}
+.hero2 .acts{grid-area:a;display:flex;gap:10px;flex-wrap:wrap;margin-top:26px}
 .hero2 .reel{grid-area:reel;align-self:center}
 .hero2 .reel figure{margin:0 14px 18px;border:1px solid var(--hair-2);border-radius:18px;overflow:hidden;background:#fff;box-shadow:0 24px 60px rgb(0 0 0/.07);transform:rotate(.8deg);transition:transform .5s var(--ease)}
 .hero2 .reel figure:hover{transform:rotate(0deg) translateY(-4px)}
@@ -156,7 +158,8 @@ section.blk{padding:clamp(56px,9vh,96px) 0}
   <div class="k" data-r style="--i:0">十个实战项目 · 章章配万字教程</div>
   <h1 data-r style="--i:1">把研究项目做成<em>能拿 offer 的作品</em></h1>
   <div class="st" data-r style="--i:2"><p>课程包含十个对齐真实大厂岗位的实战项目。每个项目以 Agent 助手产品形态交付，包含<b>界面、指标面板、带数字的评测报告、面试深挖手册</b>。</p></div>
-  <div class="acts" data-r style="--i:3">
+  <div class="micro" data-r style="--i:3">10 个实战项目<span>·</span>37 组编号实验<span>·</span>95 项测试<span>·</span>每个数字可复查</div>
+  <div class="acts" data-r style="--i:4">
     <a class="btn primary" href="#projects">查看十个项目</a>
     <a class="btn" href="https://agentalpha.top/learn" target="_blank" rel="noopener">课程大纲</a>
   </div>
