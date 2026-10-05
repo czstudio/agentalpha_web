@@ -74,7 +74,7 @@ section[id]{scroll-margin-top:76px}
   <div>
     <span class="kicker">课程项目 01 · 企业知识库方向</span>
     <h1>金融研报 RAG 系统</h1>
-    <p class="sub">把几百页的研报和公告变成一个「随问随答、句句有出处」的知识库：分析师问「某标的最新风险提示在第几页」，系统一次检索直接给答案。这是大模型应用岗位面试出现频率最高的项目类型，也是本课程的第一块基石。</p>
+    <p class="sub">企业级 RAG 系统落地实战：基于 LangChain、SiliconFlow 与混合检索架构（BM25 + 向量召回）的通用智能知识引擎，让任何企业把非结构化文档变成可对话的知识资产。它并非凭空设计——原型是我们为北美一家顶级金融独角兽交付的定制化 RAG 系统（上万份财报与风控文件的实时问答、可审计访问），这次把那套企业级架构轻量化成实战模板，保留四个核心能力：<b>高速检索、低幻觉率、可追溯来源、可控生成</b>。</p>
     <div class="nums">
       <div><b>2,841</b><span>行教学应用代码</span></div>
       <div><b>220 题</b><span>公开数据集评测</span></div>
@@ -94,15 +94,26 @@ section[id]{scroll-margin-top:76px}
 <section class="blk" id="intro"><div class="inner">
   <div class="blk-h"><span class="no">01</span><h2>项目介绍</h2></div>
   <p class="blk-sub">它是什么、解决什么问题、做完效果如何。</p>
-  <div class="card"><p>金融独角兽的投研团队每天面对几百页研报、公告与政策文件。分析师问「某标的最新风险提示在原文怎么写」，传统做法翻文档半小时；这个系统一次检索直接给答案，<b>每句话都标注来自哪份文档哪一段</b>，内审可以逐句点回原文。</p>
-  <p>这个项目把一条完整的 RAG 链路做成可动手的教学系统：PDF 上传 → 解析 → 切块 → 建索引 → 双路检索 → 融合精排 → 带引用回答 → 资料外问题拒绝编造。你看的不是别人的代码，是<b>自己一步步搭出来的系统</b>——教程提供完整答案代码和一个纯 TODO 骨架，骨架搭完，系统就是你的。</p></div>
+  <div class="card"><p>一句话定位：<b>我们不是在做一个问答机器人，而是在用 RAG 重塑知识的组织方式，让数据自己开口说话。</b></p>
+  <p>系统从底层数据采集、语义切分、向量索引、语义重排到答案生成全流程闭环、可追溯、可扩展。更重要的是它的出身——我们并非凭空设计，而是参考并提炼了曾为北美顶级金融独角兽交付的定制化 RAG 系统：那套系统支撑上万份财报、风控文件的实时问答与可审计访问。这次我们把那套企业级架构理念「轻量化」，做成一套通用的 RAG 实战模板，保留核心能力——高速检索、低幻觉率、可追溯来源、可控生成，让任何团队都能以极低门槛复刻出自己的智能知识中枢。</p>
+  <p>对学习者，它是一条完整的动手链路：PDF 上传 → 解析 → 切块 → 建索引 → 双路检索 → 融合精排 → 带引用回答 → 资料外问题拒绝编造。教程提供完整答案代码和一个纯 TODO 骨架——骨架搭完，系统就是你的。</p></div>
   <div style="height:22px"></div>
   <img class="fig" src="/projects/assets/img/m1/m1-rag-pipeline.png" alt="RAG 全链路图解：解析→分块→索引→双路召回→融合→带引用回答" loading="lazy">
   <div class="figcap">一条研报在 RAG 系统里的旅行 · 七个站台</div>
 </div></section>
 
+
+<section class="blk" id="born"><div class="inner">
+  <div class="blk-h"><span class="no">02</span><h2>项目出身：课程群里的真实交付记录</h2></div>
+  <p class="blk-sub">和市面上「套壳 demo 课程」的区别：项目讲解直播、源码包、逐章 notebook 全部真实存在于课程交付里。以下截图来自课程群（成员昵称已打码）。</p>
+  <div class="duo2">
+    <div style="background:#fff;border:1px solid var(--hair);border-radius:14px;overflow:hidden"><img src="/projects/assets/img/m1/born-group-intro.jpg" alt="课程群：项目介绍直播与代码交付记录" loading="lazy" style="width:100%;display:block"><div style="font-family:var(--mono);font-size:11px;color:#86868b;padding:10px 14px;border-top:1px solid rgb(0 0 0/.06);background:var(--bg-2)">课程群 · 项目介绍直播通知（小鹅通 19:00 直播）</div></div>
+    <div style="background:#fff;border:1px solid var(--hair);border-radius:14px;overflow:hidden"><img src="/projects/assets/img/m1/born-code-drive.jpg" alt="课程云盘：agent 模块 1 RAG 代码清单" loading="lazy" style="width:100%;display:block"><div style="font-family:var(--mono);font-size:11px;color:#86868b;padding:10px 14px;border-top:1px solid rgb(0 0 0/.06);background:var(--bg-2)">课程云盘 · 模块 1 RAG 代码清单（8 个 notebook + 作业项目包）</div></div>
+  </div>
+</div></section>
+
 <section class="blk" id="arch"><div class="inner">
-  <div class="blk-h"><span class="no">02</span><h2>项目架构</h2></div>
+  <div class="blk-h"><span class="no">03</span><h2>项目架构</h2></div>
   <p class="blk-sub">整条链路像开一家图书馆：先采购 books（解析），再按章节上架（切块索引），读者来提问时，两个管理员同时去找（双路检索），馆长汇总挑出最相关的几本（融合精排），最后只允许根据挑出的书作答（引用回答）。</p>
   <img class="fig" src="/projects/assets/img/m1/m1-hybrid-retrieval.png" alt="双路检索对比图解：关键词检索与语义检索，天平融合" loading="lazy">
   <div class="figcap">为什么一个检索器不够 · 两路召回一台天平</div>
@@ -114,7 +125,7 @@ section[id]{scroll-margin-top:76px}
 </div></section>
 
 <section class="blk" id="matrix"><div class="inner">
-  <div class="blk-h"><span class="no">03</span><h2>项目亮点</h2></div>
+  <div class="blk-h"><span class="no">04</span><h2>项目亮点</h2></div>
   <p class="blk-sub">从面试官视角看，这个项目能聊的 10 个点——每一条都有代码和实验撑着。</p>
   <img class="fig" src="/projects/assets/img/m1/m1-capability-matrix.png" alt="能力全景环：解析 PDF / 分块策略 / 向量索引 / 关键词检索 / 语义检索 / 融合排序 / 按需再搜 / 引用标注 / 拒答门控 / 评测报告" loading="lazy">
   <div class="figcap">一条链路全都会 · 十个能力点</div>
@@ -134,14 +145,14 @@ section[id]{scroll-margin-top:76px}
 </div></section>
 
 <section class="blk" id="ui"><div class="inner">
-  <div class="blk-h"><span class="no">04</span><h2>产品界面</h2></div>
+  <div class="blk-h"><span class="no">05</span><h2>产品界面</h2></div>
   <p class="blk-sub">你交付的是一个能打开就用的系统，不是一堆 notebook。</p>
   <img class="fig" src="/projects/assets/img/m1/m1-ui-concept.png" alt="RAG 问答系统界面概念图" loading="lazy">
   <div class="figcap">界面概念图 · 左侧问答区 + 右侧文档管理台（教学中你将亲手实现这个布局）</div>
 </div></section>
 
 <section class="blk" id="stack"><div class="inner">
-  <div class="blk-h"><span class="no">05</span><h2>项目技术栈</h2></div>
+  <div class="blk-h"><span class="no">06</span><h2>项目技术栈</h2></div>
   <p class="blk-sub">全部是招聘要求里最常见的开源组件，没有一个私有黑盒。</p>
   <div class="duo2">
     <div class="techcard"><h3>应用与数据</h3><div class="chips"><span>Python 3.10+</span><span>Streamlit</span><span>PyPDF2</span><span>LangChain</span><span>Chroma 向量库</span><span>rank_bm25</span></div></div>
@@ -150,7 +161,7 @@ section[id]{scroll-margin-top:76px}
 </div></section>
 
 <section class="blk" id="docs"><div class="inner">
-  <div class="blk-h"><span class="no">06</span><h2>项目文档</h2></div>
+  <div class="blk-h"><span class="no">07</span><h2>项目文档</h2></div>
   <p class="blk-sub">六章配套讲解，从「RAG 是什么」讲到「上线前怎么评测」；每章有动手任务，做完一章系统就多一块。</p>
   <img class="fig" src="/projects/assets/img/m1/m1-course-directory.png" alt="课程目录插画：六章目录" loading="lazy">
   <div class="figcap">六章 · 每章都动手</div>
@@ -166,7 +177,7 @@ section[id]{scroll-margin-top:76px}
 </div></section>
 
 <section class="blk" id="harvest"><div class="inner">
-  <div class="blk-h"><span class="no">07</span><h2>学完项目能收获什么</h2></div>
+  <div class="blk-h"><span class="no">08</span><h2>学完项目能收获什么</h2></div>
   <p class="blk-sub">不是「了解了 RAG 概念」，是这十件事你真的会做。</p>
   <img class="fig" src="/projects/assets/img/m1/m1-skill-tree.png" alt="技能树插画：建库 / 检索 / 可信 三大枝" loading="lazy">
   <div class="figcap">从「会 Python」到「企业级 RAG 系统」的一棵技能树</div>
@@ -186,7 +197,7 @@ section[id]{scroll-margin-top:76px}
 </div></section>
 
 <section class="blk" id="learn"><div class="inner">
-  <div class="blk-h"><span class="no">08</span><h2>项目学习方式</h2></div>
+  <div class="blk-h"><span class="no">09</span><h2>项目学习方式</h2></div>
   <p class="blk-sub">每周 8-10 小时，四周走完；每一步都有可运行代码和排查指引。</p>
   <img class="fig" src="/projects/assets/img/m1/m1-learning-path.png" alt="学习路线插画：四周四个里程碑" loading="lazy">
   <div class="figcap">四周 · 四个里程碑 · 终点是一面旗</div>
@@ -198,7 +209,7 @@ section[id]{scroll-margin-top:76px}
 </div></section>
 
 <section class="blk" id="eval"><div class="inner">
-  <div class="blk-h"><span class="no">09</span><h2>实验证据</h2></div>
+  <div class="blk-h"><span class="no">10</span><h2>实验证据</h2></div>
   <p class="blk-sub">页面上的每个数字都能在你自己的电脑上跑出来。</p>
   <img class="fig" src="/projects/assets/img/m1/m1-eval-method.png" alt="评测方法图解：黄金集与逐级召回数字" loading="lazy">
   <div class="figcap">0.900 → 0.991 怎么测出来的 · 换对检索器 +9.1 个百分点，之后如实记录饱和</div>
@@ -207,19 +218,19 @@ section[id]{scroll-margin-top:76px}
 </div></section>
 
 <section class="blk" id="career"><div class="inner">
-  <div class="blk-h"><span class="no">10</span><h2>求职怎么用</h2></div>
-  <p class="blk-sub">这个项目对齐的岗位要求和简历写法。</p>
+  <div class="blk-h"><span class="no">11</span><h2>求职怎么用</h2></div>
+  <p class="blk-sub">按 2026 年大厂在招岗位的真实要求逐条对标——RAG 岗位在 2026 年的考察已经从「搭过 demo」升级为四条硬线：检索质量可评测、系统工程化（权限/审计/增量更新）、Agentic 化（模型自主决定检索策略）、与最新架构对话（GraphRAG / 多模态检索 / 长上下文权衡）。这个项目覆盖前三条的全部地基，第四条在教程「最新进展」节逐篇讲。</p>
   <img class="fig" src="/projects/assets/img/m1/m1-interview.png" alt="面试场景插画：面试官三连问" loading="lazy">
   <div class="figcap">面试官最爱问的三个问题，项目里都有现成答案</div>
   <div style="height:20px"></div>
   <div class="duo2">
-    <div class="techcard"><h3>对齐的岗位要求（真实在招岗位原文）</h3><div class="chips"><span>RAG 全链路落地（字节·知识库后端）</span><span>多路召回/重排/效果评测（美团·智能问答）</span><span>向量检索与 ES（多家 JD 加分项）</span><span>幻觉治理</span><span>评测体系设计</span></div></div>
+    <div class="techcard"><h3>对齐的岗位要求（真实在招岗位原文）</h3><div class="chips"><span>RAG 全链路落地（字节·知识库后端）</span><span>多路召回/重排/效果评测（美团·智能问答）</span><span>向量检索与 ES（多家 JD 加分项）</span><span>幻觉治理与引用溯源</span><span>评测体系设计（文基智能 JD 原词）</span><span>Agentic 检索（阿里国际 JD 原词）</span></div><p style="font-size:.82rem;color:#86868b;margin:12px 0 0;line-height:1.8">2026 年新趋势怎么接：教程「最新进展」节覆盖 Agentic RAG 与 GraphRAG 论文；按需再搜一章就是 Agentic 检索的最小实现——JD 里出现的新词，你在这门课里有对应的动手章节，而不是只听过名词。</p></div>
     <div class="techcard"><h3>简历怎么写（一条可直接用的）</h3><p style="font-size:.9rem;color:var(--ink-2);line-height:1.9;margin:8px 0 0">构建金融研报 RAG 系统（2,841 行教学应用 + 220 题黄金评测）：混合检索将召回 Recall@10 从 0.900 提升至 0.991，带编号引用与无据拒答门控，0 编造；逐题分歧归因定位每级检索的贡献。</p></div>
   </div>
 </div></section>
 
 <section class="blk faq" id="faq"><div class="inner">
-  <div class="blk-h"><span class="no">11</span><h2>常见问题</h2></div>
+  <div class="blk-h"><span class="no">12</span><h2>常见问题</h2></div>
   <details><summary>零基础能做这个项目吗？</summary><p>会 Python 基本语法就可以。第 1 章 15 分钟跑通第一个可运行 RAG；深度学习基础不是前置，教程里公式都有逐行的人话解释。</p></details>
   <details><summary>需要 GPU 吗？</summary><p>学习主线（建库、检索、界面）一台普通笔记本就能跑；第 4 章的再搜实验用到了本地推理模型，教程给了云端按小时租用的替代方案和一键脚本。</p></details>
   <details><summary>需要调用付费大模型 API 吗？</summary><p>问答演示需要一个对话模型 API（各家都有免费额度）；评测链路和夹具全部离线可跑，不花钱。</p></details>
