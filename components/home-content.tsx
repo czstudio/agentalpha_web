@@ -162,63 +162,6 @@ export function HomeContent({ data }: HomeContentProps) {
         </div>
       </section>
 
-      <section id="quizlib" className="aa-section">
-        <div className="section-shell">
-          <SectionHead
-            icon={BookOpen}
-            kicker={t.quizlib.tag}
-            title={t.quizlib.title}
-            desc={t.quizlib.desc}
-            aside={
-              <p className="aa-quizlib-stats">
-                {t.quizlib.stats
-                  .replace("{qa}", String(data.interview?.qaCount ?? 0))
-                  .replace("{deep}", String(data.interview?.deepCount ?? 0))
-                  .replace("{cat}", String(data.interview?.catCount ?? 0))}
-              </p>
-            }
-          />
-          <div className="aa-proof-grid aa-proof-grid--two">
-            {t.quizlib.cards.map((card: any, cardIndex: number) => (
-              <article
-                key={card.name}
-                className={`aa-proof-card aa-pg ${card.tone}`}
-                data-tilt
-                data-reveal
-                style={{ "--rd": `${(cardIndex % 2) * 80}ms` } as CSSProperties}
-              >
-                <span className="aa-pg-glow" aria-hidden />
-                <span className="aa-pg-noise" aria-hidden />
-                <span className="aa-pg-ghost" aria-hidden>{card.ghost}</span>
-                <div className="aa-pg-body">
-                  <span className="aa-pg-kicker">{card.kicker}</span>
-                  <h3>{card.name}</h3>
-                  <p className="aa-pg-desc">{card.desc}</p>
-                  {card.href ? (
-                    <Link className="aa-pg-go" href={card.href}>
-                      {t.quizlib.cta} →
-                    </Link>
-                  ) : null}
-                </div>
-              </article>
-            ))}
-          </div>
-          <div className="aa-quizlib-actions">
-            <Link href="/interview" className="aa-btn-primary">
-              <span>{t.quizlib.cta}</span>
-            </Link>
-            <Link href="/interview/quiz" className="aa-btn-ghost">
-              {t.quizlib.quiz_cta}
-            </Link>
-            <Link href="/tools" className="aa-btn-ghost">
-              {t.quizlib.tools_cta}
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      <HomeTools />
-
       <section id="proof" className="aa-section">
         <div className="section-shell">
           <SectionHead icon={ShieldCheck} kicker={t.proof.tag} title={t.proof.title} desc={t.proof.desc} />
@@ -292,6 +235,63 @@ export function HomeContent({ data }: HomeContentProps) {
           </div>
         </div>
       </section>
+
+      <section id="quizlib" className="aa-section">
+        <div className="section-shell">
+          <SectionHead
+            icon={BookOpen}
+            kicker={t.quizlib.tag}
+            title={t.quizlib.title}
+            desc={t.quizlib.desc}
+            aside={
+              <p className="aa-quizlib-stats">
+                {t.quizlib.stats
+                  .replace("{qa}", String(data.interview?.qaCount ?? 0))
+                  .replace("{deep}", String(data.interview?.deepCount ?? 0))
+                  .replace("{cat}", String(data.interview?.catCount ?? 0))}
+              </p>
+            }
+          />
+          <div className="aa-proof-grid aa-proof-grid--two">
+            {t.quizlib.cards.map((card: any, cardIndex: number) => (
+              <article
+                key={card.name}
+                className={`aa-proof-card aa-pg ${card.tone}`}
+                data-tilt
+                data-reveal
+                style={{ "--rd": `${(cardIndex % 2) * 80}ms` } as CSSProperties}
+              >
+                <span className="aa-pg-glow" aria-hidden />
+                <span className="aa-pg-noise" aria-hidden />
+                <span className="aa-pg-ghost" aria-hidden>{card.ghost}</span>
+                <div className="aa-pg-body">
+                  <span className="aa-pg-kicker">{card.kicker}</span>
+                  <h3>{card.name}</h3>
+                  <p className="aa-pg-desc">{card.desc}</p>
+                  {card.href ? (
+                    <Link className="aa-pg-go" href={card.href}>
+                      {t.quizlib.cta} →
+                    </Link>
+                  ) : null}
+                </div>
+              </article>
+            ))}
+          </div>
+          <div className="aa-quizlib-actions">
+            <Link href="/interview" className="aa-btn-primary">
+              <span>{t.quizlib.cta}</span>
+            </Link>
+            <Link href="/interview/quiz" className="aa-btn-ghost">
+              {t.quizlib.quiz_cta}
+            </Link>
+            <Link href="/tools" className="aa-btn-ghost">
+              {t.quizlib.tools_cta}
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      <HomeTools />
 
       <section id="vision" className="aa-section">
         <div className="section-shell">
