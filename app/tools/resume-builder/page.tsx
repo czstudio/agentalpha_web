@@ -2,6 +2,7 @@ import type { Metadata } from "next"
 import { FileUser } from "lucide-react"
 import { Navigation } from "@/components/navigation"
 import { ToolsGuide } from "@/components/tools/tools-guide"
+import { ToolsCrossLinks } from "@/components/tools/tools-cross-links"
 import { ToolsFaq } from "@/components/tools/tools-faq"
 import { ResumeBuilderClient } from "@/components/tools/resume-builder-client"
 import "../tools.css"
@@ -70,6 +71,8 @@ export default function ResumeBuilderPage() {
         </header>
 
         <ResumeBuilderClient />
+
+        <ToolsCrossLinks slug="resume-builder" />
 
         <ToolsGuide slug="resume-builder" />
 

@@ -3,6 +3,7 @@ import Link from "next/link"
 import { FileSearch } from "lucide-react"
 import { Navigation } from "@/components/navigation"
 import { ToolsGuide } from "@/components/tools/tools-guide"
+import { ToolsCrossLinks } from "@/components/tools/tools-cross-links"
 import { JdClient } from "@/components/tools/jd-client"
 import { getAllJd } from "@/lib/jd"
 import { getAllQa } from "@/lib/qa"
@@ -72,6 +73,8 @@ export default function JdAnalyzerPage() {
             ))}
           </div>
         </section>
+        <ToolsCrossLinks slug="jd-analyzer" />
+
         <ToolsGuide slug="jd-analyzer" />
 
         <ToolsFaq slug="jd-analyzer" />

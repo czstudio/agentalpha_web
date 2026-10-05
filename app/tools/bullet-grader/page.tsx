@@ -2,6 +2,7 @@ import type { Metadata } from "next"
 import { PenLine } from "lucide-react"
 import { Navigation } from "@/components/navigation"
 import { ToolsGuide } from "@/components/tools/tools-guide"
+import { ToolsCrossLinks } from "@/components/tools/tools-cross-links"
 import { ToolsFaq } from "@/components/tools/tools-faq"
 import { BulletClient } from "@/components/tools/bullet-client"
 import "../tools.css"
@@ -41,6 +42,8 @@ export default function BulletGraderPage() {
         </header>
 
         <BulletClient />
+
+        <ToolsCrossLinks slug="bullet-grader" />
 
         <ToolsGuide slug="bullet-grader" />
 

@@ -203,6 +203,22 @@ export default async function NoteDetailPage({ params }: NotePageProps) {
                 }))}
               />
 
+              <aside className="aa-note-promo" aria-label="免费求职工具">
+                <p className="aa-note-promo-kicker">免费求职工具箱</p>
+                <p className="aa-note-promo-text">
+                  把这篇笔记用起来:到
+                  <Link href="/tools/gap-test">面试 Gap 自测</Link>
+                  测一下这个知识域你差在哪,用
+                  <Link href="/tools/mock-interview">AI 模拟面试</Link>
+                  让面试官就这个考点往下追问,再把结论写进简历——
+                  <Link href="/tools/resume-builder">免费在线简历生成器</Link>
+                  直接排版导出。全部免费、不注册、浏览器本地运行。
+                </p>
+                <Link href="/tools" className="aa-note-promo-cta">
+                  进入工具箱 <ArrowRight aria-hidden />
+                </Link>
+              </aside>
+
               <nav className="aa-note-pager">
                 {previous ? (
                   <Link href={`/notes/${previous.slug}`} className="aa-note-pager-card">

@@ -4,6 +4,7 @@ import { Navigation } from "@/components/navigation"
 import { TrackerClient } from "@/components/tools/tracker-client"
 import "../tools.css"
 import { ToolsGuide } from "@/components/tools/tools-guide"
+import { ToolsCrossLinks } from "@/components/tools/tools-cross-links"
 import { ToolsFaq } from "@/components/tools/tools-faq"
 
 const SITE = "https://agentalpha.top"
@@ -43,6 +44,8 @@ export default function ApplicationTrackerPage() {
         </header>
 
         <TrackerClient />
+
+        <ToolsCrossLinks slug="application-tracker" />
 
         <ToolsGuide slug="application-tracker" />
 

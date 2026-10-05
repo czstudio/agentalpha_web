@@ -5,6 +5,7 @@ import { GapClient } from "@/components/tools/gap-client"
 import { getAllQa } from "@/lib/qa"
 import "../tools.css"
 import { ToolsGuide } from "@/components/tools/tools-guide"
+import { ToolsCrossLinks } from "@/components/tools/tools-cross-links"
 import { ToolsFaq } from "@/components/tools/tools-faq"
 
 const SITE = "https://agentalpha.top"
@@ -52,6 +53,8 @@ export default function GapTestPage() {
         </header>
 
         <GapClient qaList={qaList} />
+
+        <ToolsCrossLinks slug="gap-test" />
 
         <ToolsGuide slug="gap-test" />
 

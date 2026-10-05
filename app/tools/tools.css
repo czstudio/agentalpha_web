@@ -972,6 +972,26 @@
 .rb-factgroup-label::after { content: ":"; }
 .rb-factgroup-hint { font-size: 12px; color: var(--tk-ink-3); flex: 1; }
 .rb-contact-row { display: flex; gap: 6px; align-items: center; margin-bottom: 6px; }
+/* 证件照编辑 */
+.rb-photo-row { display: flex; gap: 12px; align-items: flex-start; }
+.rb-photo-preview { width: 78px; height: 90px; object-fit: cover; border: 1px solid var(--tk-line-2); border-radius: 4px; background: #fff; }
+.rb-photo-controls { display: flex; flex-direction: column; gap: 4px; flex: 1; }
+.rb-photo-controls label { display: flex; align-items: center; gap: 8px; font-size: 12.5px; color: var(--tk-ink-2); }
+.rb-photo-controls input[type="range"] { flex: 1; accent-color: var(--tk-brand); }
+/* AI 包装强度 */
+.rb-strength { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; margin-top: 8px; }
+.rb-strength-opt {
+  display: inline-flex; align-items: center; gap: 5px;
+  border: 1px solid var(--tk-line-2); border-radius: 999px;
+  padding: 4px 12px; font-size: 12.5px; color: var(--tk-ink-2); cursor: pointer;
+}
+.rb-strength-opt.is-active { border-color: var(--tk-brand); color: var(--tk-brand-ink); background: var(--tk-brand-wash); font-weight: 600; }
+.rb-strength-opt input { accent-color: var(--tk-brand); margin: 0; }
+.rb-prep { color: var(--tk-brand-ink); }
+.rb-prep b { font-weight: 700; }
+.rb-audit-links { margin: 6px 0 0; display: flex; gap: 12px; flex-wrap: wrap; }
+.rb-audit-links a { font-size: 12px; color: var(--tk-brand-ink); text-decoration: none; border-bottom: 1px solid rgba(var(--tk-brand-rgb), 0.35); }
+.rb-audit-links a:hover { color: var(--tk-brand); border-bottom-color: var(--tk-brand); }
 .rb-highlight-input { font-size: 12px; padding: 5px 10px; margin-top: 4px; background: var(--tk-paper-2); }
 .rb-json-area { font-family: var(--tk-mono, Consolas, monospace); font-size: 12px; line-height: 1.5; }
 
@@ -1029,3 +1049,23 @@
 .tk-guide-sec p { margin: 0 0 8px; font-size: 14px; color: var(--tk-ink-2); line-height: 1.85; }
 .tk-guide .tg-link { color: var(--tk-brand-ink); text-decoration: none; border-bottom: 1px solid rgba(var(--tk-brand-rgb), 0.35); }
 .tk-guide .tg-link:hover { color: var(--tk-brand); border-bottom-color: var(--tk-brand); }
+
+/* ── 工具页互链模块:配套工具 + 全部工具 + 站内资源 ── */
+.tk-cross { margin-top: 26px; display: grid; gap: 20px; }
+.tk-cross-sec h2 { margin: 0 0 4px; font-size: 17px; line-height: 1.5; }
+.tk-cross-lead { font-size: 13px; color: var(--tk-ink-3); margin: 0 0 10px; }
+.tk-cross-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 10px; }
+.tk-cross-card { display: grid; gap: 4px; padding: 12px 14px; background: #fff; border: 1px solid var(--tk-line); border-radius: 10px; text-decoration: none; }
+.tk-cross-card .t { font-weight: 700; font-size: 13.5px; color: var(--tk-ink); }
+.tk-cross-card .w { font-size: 12.5px; color: var(--tk-ink-3); line-height: 1.6; }
+.tk-cross-card:hover { border-color: var(--tk-brand); }
+.tk-cross-card:hover .t { color: var(--tk-brand-ink); }
+.tk-cross-all { display: flex; flex-wrap: wrap; gap: 8px; }
+.tk-cross-chip { padding: 6px 14px; border: 1px solid var(--tk-line-2); border-radius: 999px; font-size: 13px; color: var(--tk-ink-2); text-decoration: none; background: var(--tk-paper-2); }
+.tk-cross-chip:hover { border-color: var(--tk-brand); color: var(--tk-brand-ink); }
+.tk-cross-res { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px; }
+.tk-cross-res-item { display: grid; gap: 3px; padding: 10px 13px; background: var(--tk-paper-2); border: 1px solid var(--tk-line); border-radius: 10px; text-decoration: none; }
+.tk-cross-res-item .t { font-weight: 700; font-size: 13px; color: var(--tk-ink); }
+.tk-cross-res-item .w { font-size: 12px; color: var(--tk-ink-3); line-height: 1.6; }
+.tk-cross-res-item:hover { border-color: var(--tk-brand); }
+.tk-cross-res-item:hover .t { color: var(--tk-brand-ink); }

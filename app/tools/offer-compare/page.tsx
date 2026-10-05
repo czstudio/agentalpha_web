@@ -4,6 +4,7 @@ import { Navigation } from "@/components/navigation"
 import { OfferClient } from "@/components/tools/offer-client"
 import "../tools.css"
 import { ToolsGuide } from "@/components/tools/tools-guide"
+import { ToolsCrossLinks } from "@/components/tools/tools-cross-links"
 import { ToolsFaq } from "@/components/tools/tools-faq"
 
 const SITE = "https://agentalpha.top"
@@ -43,6 +44,8 @@ export default function OfferComparePage() {
         </header>
 
         <OfferClient />
+
+        <ToolsCrossLinks slug="offer-compare" />
 
         <ToolsGuide slug="offer-compare" />
 

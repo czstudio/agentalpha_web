@@ -4,6 +4,7 @@ import { Navigation } from "@/components/navigation"
 import { MatcherClient } from "@/components/tools/matcher-client"
 import "../tools.css"
 import { ToolsGuide } from "@/components/tools/tools-guide"
+import { ToolsCrossLinks } from "@/components/tools/tools-cross-links"
 import { ToolsFaq } from "@/components/tools/tools-faq"
 
 const SITE = "https://agentalpha.top"
@@ -50,6 +51,8 @@ export default function ProjectMatcherPage() {
             一个能被三层追问的项目，胜过五个跑完教程的 demo。简历上写不出〔指标〕的项目，先补指标再写。
           </p>
         </section>
+
+        <ToolsCrossLinks slug="project-matcher" />
 
         <ToolsGuide slug="project-matcher" />
 
