@@ -9,9 +9,9 @@ import "../tools.css"
 const SITE = "https://agentalpha.top"
 
 export const metadata: Metadata = {
-  title: "免费在线简历生成器 - AI 岗简历模板,导出 PDF/Word,无需注册",
+  title: "免费在线简历生成器 - 上传PDF自动重排,多模板,AI岗简历,无需注册",
   description:
-    "免费在线简历制作工具:粘贴旧简历或写一段话,自动解析重排成带配色和多页分页的 A4 简历,数字指标自动加粗,直接导出 PDF、Word、HTML,无水印、无需注册。内置逐条经历打分、证据体检和 AI 改写(AI 只改表达不编经历),也支持 JSON 导入导出与 LaTeX 源码。全部在你的浏览器本地完成,简历不上传。",
+    "免费在线简历制作工具:上传 PDF/Word 或粘贴旧简历,自动解析重排成结构化简历,三套模板(高密度/经典正式/极简)×四色可换,数字指标自动加粗,内容多了自动分页,支持证件照。直接导出 PDF、Word、HTML,无水印、无需注册。内置逐条经历打分、证据体检、面试真题承接和 AI 改写(稳妥/大胆两档,不编造经历)。全部在你的浏览器本地完成,简历不上传。",
   keywords: [
     "免费简历制作",
     "在线简历生成器",
@@ -25,6 +25,7 @@ export const metadata: Metadata = {
     "算法岗简历模板",
     "AI简历优化",
     "简历制作免费无水印",
+    "PDF简历转换",
     "LaTeX简历",
   ],
   alternates: { canonical: "/tools/resume-builder" },
@@ -47,7 +48,7 @@ export default function ResumeBuilderPage() {
     applicationCategory: "BusinessApplication",
     operatingSystem: "Web",
     description:
-      "免费在线简历制作工具:粘贴旧简历或一段话,自动排版成带配色和分页的 A4 简历,导出 PDF、Word、HTML、LaTeX,内置经历打分、证据体检与 AI 改写,本地处理不上传,无需注册无水印。",
+      "免费在线简历制作工具:上传 PDF/Word 或粘贴旧简历,自动重排成多模板、可分页、可带证件照的 A4 简历,导出 PDF、Word、HTML、LaTeX,内置经历打分、证据体检、面试真题承接与 AI 改写(不编造),本地处理不上传,无需注册无水印。",
     offers: { "@type": "Offer", price: "0", priceCurrency: "CNY" },
   }
 
@@ -61,9 +62,10 @@ export default function ResumeBuilderPage() {
           <p className="tk-kicker"><FileUser size={13} strokeWidth={2} aria-hidden /> 免费工具 · RESUME BUILDER</p>
           <h1>简历生成器</h1>
           <p className="tk-lede">
-            旧简历粘进来重新优化，或者只写一段话，解析成结构化简历后逐条改：公司条色带、章节衬线标题、数字指标自动加粗，
-            预览里每一页都是真实 A4，内容多了自动分页、页码页边距可调。导出打印 PDF、Word、HTML 和 LaTeX 源码，
-            每条经历旁边就是打分和证据体检，AI 改写不编造、缺数字留〔〕占位。全部在你浏览器里完成，简历不上传。
+            上传 PDF/Word 或粘贴旧简历，自动解析成结构化简历后逐条改：三套排版模板 × 四色可换，
+            公司条色带、数字指标自动加粗、证件照裁剪、内容多了自动分页。导出打印 PDF、Word、HTML 和 LaTeX 源码；
+            每条经历旁边就是打分、证据体检和对应的站内真题，AI 改写分稳妥/大胆两档、不编造、缺数字留〔〕占位。
+            全部在你浏览器里完成，简历不上传。
           </p>
         </header>
 

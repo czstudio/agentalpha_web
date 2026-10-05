@@ -11,6 +11,7 @@ import { Download, FileText, Printer, Redo2, Sparkles, Undo2 } from "lucide-reac
 import {
   applyRewrite,
   auditResume,
+  classifyProjectInPlace,
   docToLatex,
   docToMarkdown,
   docToWordHtml,
@@ -20,12 +21,15 @@ import {
   migrateV1,
   normalizeDoc,
   parseResumeText,
+  projectMetricHints,
+  qaLinksFor,
   type AuditItem,
   type BulletObj,
   type ExperienceItem,
   type ResumeDoc,
 } from "@/lib/tools/resume-builder"
 import { buildResumeHtml } from "@/lib/tools/resume-render"
+import { analyzeTextQuality, extractFileText } from "@/lib/tools/resume-import"
 import { gradeBullet } from "@/lib/tools/bullet-grader"
 
 const DOC_STORE_KEY = "resume-builder-doc-v2"
@@ -117,6 +121,8 @@ interface AiSuggestion {
   original: string
   rewritten: string
   notes: string[]
+  /** 面试承接:这条强表述面试官会追问什么、要准备什么(大胆档必带) */
+  prep?: string
 }
 
 interface UserKeyCfg {
@@ -278,7 +284,11 @@ export function ResumeBuilderClient() {
   const [aiError, setAiError] = useState("")
   const [aiModel, setAiModel] = useState("")
   const [aiQuota, setAiQuota] = useState(RESUME_DAILY_LIMIT)
+  const [aiStrength, setAiStrength] = useState<"safe" | "bold">("safe")
   const [userCfg, setUserCfg] = useState<UserKeyCfg>({ apiKey: "", baseUrl: "", model: "" })
+  // 文件导入
+  const [importState, setImportState] = useState<"idle" | "loading">("idle")
+  const [importNote, setImportNote] = useState("")
   // JD 对齐
   const [jd, setJd] = useState("")
   // JSON 页签草稿
@@ -471,8 +481,59 @@ export function ResumeBuilderClient() {
     }
   }
 
+  /* ── 文件导入(PDF/DOCX → 本地文本 → 填进粘贴框,由用户点「解析并生成」) ── */
+  const importFile = async (file: File) => {
+    setImportState("loading")
+    setImportNote(`正在解析 ${file.name}…`)
+    try {
+      const { text, method, quality } = await extractFileText(file)
+      const q = quality.passed ? "" : `（检测提示：${quality.reasons.join("；")}，建议校对后再解析）`
+      setRaw((prev) => (prev.trim() ? `${prev}\n\n${text}` : text))
+      setImportNote(`${method}${q}：文字已填进下面的输入框，确认无误后点「解析并生成」。`)
+    } catch (e) {
+      setImportNote(e instanceof Error ? e.message : "解析失败，请复制文字粘贴。")
+    } finally {
+      setImportState("idle")
+    }
+  }
+
+  /* ── 证件照:本地压缩成 data URL 存进文档 ── */
+  const importPhoto = (file: File) => {
+    if (!/^image\/(?:png|jpeg|webp)$/i.test(file.type)) {
+      window.alert("请选择 PNG、JPG 或 WebP 图片。")
+      return
+    }
+    const reader = new FileReader()
+    reader.onerror = () => window.alert("照片读取失败。")
+    reader.onload = () => {
+      const img = new Image()
+      img.onerror = () => window.alert("照片格式无法识别。")
+      img.onload = () => {
+        const scale = Math.min(1, 700 / Math.max(img.naturalWidth, img.naturalHeight))
+        const canvas = document.createElement("canvas")
+        canvas.width = Math.max(1, Math.round(img.naturalWidth * scale))
+        canvas.height = Math.max(1, Math.round(img.naturalHeight * scale))
+        canvas.getContext("2d")?.drawImage(img, 0, 0, canvas.width, canvas.height)
+        const src = canvas.toDataURL("image/jpeg", 0.9)
+        patch((d) => {
+          d.profile.photo = { src, crop: { x: 50, y: 50, zoom: 1 }, confirmed: true }
+        })
+      }
+      img.src = String(reader.result || "")
+    }
+    reader.readAsDataURL(file)
+  }
+
+  const setPhotoCrop = (key: "x" | "y" | "zoom", value: number) =>
+    patch((d) => {
+      if (!d.profile.photo) return
+      d.profile.photo.crop[key] = value
+      d.profile.photo.confirmed = true
+    })
+
   /* ── 审计 / JD / AI ── */
   const audit: AuditItem[] = useMemo(() => (doc ? auditResume(doc) : []), [docJson]) // eslint-disable-line react-hooks/exhaustive-deps
+  const metricHints = useMemo(() => (doc ? projectMetricHints(doc) : []), [docJson]) // eslint-disable-line react-hooks/exhaustive-deps
   const align = useMemo(() => (doc && jd.trim().length >= 20 ? matchJd(doc, jd) : null), [docJson, jd]) // eslint-disable-line react-hooks/exhaustive-deps
 
   const runAi = useCallback(async () => {
@@ -491,6 +552,7 @@ export function ResumeBuilderClient() {
         body: JSON.stringify({
           resume: docToMarkdown(doc),
           jd: jd.trim() || undefined,
+          strength: aiStrength,
           apiKey: userCfg.apiKey || undefined,
           baseUrl: userCfg.apiKey ? userCfg.baseUrl || undefined : undefined,
           model: userCfg.apiKey ? userCfg.model || undefined : undefined,
@@ -516,7 +578,7 @@ export function ResumeBuilderClient() {
       setAiState("error")
       setAiError(e instanceof Error ? e.message : "请求失败")
     }
-  }, [doc, aiState, aiQuota, userCfg, jd]) // eslint-disable-line react-hooks/exhaustive-deps
+  }, [doc, aiState, aiQuota, userCfg, jd, aiStrength]) // eslint-disable-line react-hooks/exhaustive-deps
 
   const applySuggestion = (item: AiSuggestion) => {
     patch((d) => {
@@ -617,8 +679,8 @@ export function ResumeBuilderClient() {
         <section className="tk-input-card rb-chrome" aria-label="简历来源">
           <p className="tk-label">第一步：把简历给过来</p>
           <p className="rb-input-hint">
-            三种都行：把旧简历全文粘进来重新优化；或者胡乱写一段你的学校、实习、项目，乱一点没关系，解析完在编辑区逐条改；
-            也可以点「载入示例简历」从一份完整的示范开始。
+            四种都行：上传 PDF/Word 简历（本地解析，扫描件不支持）；把旧简历全文粘进来重新优化；胡乱写一段你的学校、实习、项目，乱一点没关系；
+            或者点「载入示例简历」从一份完整的示范开始。解析完在编辑区逐条改。
           </p>
           <textarea
             className="tk-textarea"
@@ -636,6 +698,20 @@ export function ResumeBuilderClient() {
             </button>
           </div>
           <div className="bullet-examples">
+            <label className="mock-end-btn rb-file-label">
+              {importState === "loading" ? "解析中…" : "上传 PDF / Word"}
+              <input
+                type="file"
+                accept=".pdf,.docx,application/pdf,application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+                aria-label="上传 PDF 或 Word 简历"
+                style={{ display: "none" }}
+                onChange={(e) => {
+                  const f = e.target.files?.[0]
+                  if (f) importFile(f)
+                  e.target.value = ""
+                }}
+              />
+            </label>
             <button type="button" className="mock-end-btn" onClick={() => setRaw(EXAMPLE_TEXT)}>
               填入示例文本
             </button>
@@ -657,6 +733,9 @@ export function ResumeBuilderClient() {
               />
             </label>
           </div>
+          {importNote && (
+            <p className="tk-hint" style={{ marginTop: 8 }}>{importNote}</p>
+          )}
         </section>
       )}
 
@@ -695,6 +774,48 @@ export function ResumeBuilderClient() {
                     </div>
                     <input className="rb-field" aria-label="一句话定位" value={doc.profile.headline} placeholder="一句话定位：求职方向 + 两个最硬的技术域" onChange={(e) => patch((d) => { d.profile.headline = e.target.value })} />
                     <textarea className="rb-field" aria-label="个人概述(可选)" rows={3} value={doc.profile.summary} placeholder="个人概述(可选)：2-3 行说清方向、做过的最完整的事、可迁移的能力。会显示在绿色概述条里" onChange={(e) => patch((d) => { d.profile.summary = e.target.value })} />
+                  </div>
+                  <div className="rb-factgroup" style={{ marginTop: 12 }}>
+                    <div className="rb-factgroup-head">
+                      <span className="rb-factgroup-label">证件照(可选)</span>
+                      {doc.profile.photo?.confirmed ? (
+                        <button
+                          type="button"
+                          className="rb-del"
+                          onClick={() => patch((d) => { delete d.profile.photo })}
+                        >
+                          移除照片
+                        </button>
+                      ) : (
+                        <label className="mock-end-btn rb-file-label">
+                          上传照片
+                          <input
+                            type="file"
+                            accept="image/png,image/jpeg,image/webp"
+                            aria-label="上传证件照"
+                            style={{ display: "none" }}
+                            onChange={(e) => {
+                              const f = e.target.files?.[0]
+                              if (f) importPhoto(f)
+                              e.target.value = ""
+                            }}
+                          />
+                        </label>
+                      )}
+                    </div>
+                    {doc.profile.photo?.confirmed ? (
+                      <div className="rb-photo-row">
+                        <img className="rb-photo-preview" src={doc.profile.photo.src} alt="证件照预览" />
+                        <div className="rb-photo-controls">
+                          <label>水平 <input type="range" min={0} max={100} value={doc.profile.photo.crop.x} aria-label="照片水平位置" onChange={(e) => setPhotoCrop("x", Number(e.target.value))} /></label>
+                          <label>垂直 <input type="range" min={0} max={100} value={doc.profile.photo.crop.y} aria-label="照片垂直位置" onChange={(e) => setPhotoCrop("y", Number(e.target.value))} /></label>
+                          <label>缩放 <input type="range" min={100} max={200} value={Math.round(doc.profile.photo.crop.zoom * 100)} aria-label="照片缩放" onChange={(e) => setPhotoCrop("zoom", Number(e.target.value) / 100)} /></label>
+                          <p className="tk-hint">照片只存你本机浏览器，导出文件里才会带上。</p>
+                        </div>
+                      </div>
+                    ) : (
+                      <p className="tk-hint">国内投递常要证件照；不上传就排无照片版，版面自动留白。</p>
+                    )}
                   </div>
                   <div className="rb-factgroup" style={{ marginTop: 12 }}>
                     <div className="rb-factgroup-head">
@@ -780,6 +901,16 @@ export function ResumeBuilderClient() {
                           <div className="rb-entry-fields">
                             <input className="rb-field" aria-label="项目名" value={proj.name} placeholder="项目名" onChange={(ev) => patch((d) => { d.experience[ei].projects[pi].name = ev.target.value })} />
                             <input className="rb-field" aria-label="副标题" value={proj.subtitle} placeholder="副标题(可选)：一句话说明项目规模/对象" onChange={(ev) => patch((d) => { d.experience[ei].projects[pi].subtitle = ev.target.value })} />
+                          </div>
+                          <div className="rb-factgroup-head" style={{ marginBottom: 4 }}>
+                            <span className="tk-hint" style={{ margin: 0 }}>把所有条目按「背景/指标与效果/我的职责」自动重新分层</span>
+                            <button
+                              type="button"
+                              className="mock-end-btn"
+                              onClick={() => patch((d) => { classifyProjectInPlace(d.experience[ei].projects[pi]) })}
+                            >
+                              一键分层
+                            </button>
                           </div>
                           <FactGroup label="背景" hint="为什么做这件事" bullets={proj.background} onChange={(next) => patch((d) => { d.experience[ei].projects[pi].background = next })} />
                           <FactGroup label="指标与效果" hint="结果数字，写口径" bullets={proj.impact} onChange={(next) => patch((d) => { d.experience[ei].projects[pi].impact = next })} />
@@ -929,22 +1060,47 @@ export function ResumeBuilderClient() {
                     </section>
                   )}
 
+                  {metricHints.length > 0 && (
+                    <section className="tk-input-card" aria-label="缺指标提示">
+                      <p className="tk-label">这几个项目整块没有数字({metricHints.length} 个)</p>
+                      <p className="tk-hint" style={{ marginTop: 0 }}>
+                        面试官读项目先扫数字。不是让你编：规模、耗时、效果任选其一，做过测量就有——没测过的先回去把口径补上再写。
+                      </p>
+                      {metricHints.map((h, i) => (
+                        <div key={i} className="rb-audit-item">
+                          <p className="rb-audit-text"><b>{h.where}</b></p>
+                          <p className="rb-audit-flag">{h.hint}</p>
+                        </div>
+                      ))}
+                    </section>
+                  )}
+
                   {audit.length > 0 && (
                     <section className="tk-input-card" aria-label="证据审计">
                       <p className="tk-label">证据体检：这几条面试时容易被问穿({audit.length} 条)</p>
                       <p className="tk-hint" style={{ marginTop: 0 }}>
-                        规则来自真实面试官的审查习惯：规划写成已交付、「第一/首个」说不清比较范围、指标没有口径、团队成果算成个人的。被标出的条目要么补证据，要么改表述。
+                        规则来自真实面试官的审查习惯：规划写成已交付、「第一/首个」说不清比较范围、指标没有口径、团队成果算成个人的。被标出的条目要么补证据，要么改表述；
+                        右边的真题链接是你补证据时要过的关。
                       </p>
-                      {audit.map((item, i) => (
-                        <div key={i} className="rb-audit-item">
-                          <p className="rb-audit-text">{item.text}</p>
-                          {item.flags.map((f, j) => (
-                            <p key={j} className={f.level === "risk" ? "rb-audit-flag risk" : "rb-audit-flag"}>
-                              <b>{f.kind}</b>:{f.note}
+                      {audit.map((item, i) => {
+                        const links = qaLinksFor(item.text)
+                        return (
+                          <div key={i} className="rb-audit-item">
+                            <p className="rb-audit-text">{item.text}</p>
+                            {item.flags.map((f, j) => (
+                              <p key={j} className={f.level === "risk" ? "rb-audit-flag risk" : "rb-audit-flag"}>
+                                <b>{f.kind}</b>:{f.note}
+                              </p>
+                            ))}
+                            <p className="rb-audit-links">
+                              <a href="/tools/mock-interview">用 AI 模拟面试练这条追问</a>
+                              {links.map((l) => (
+                                <a key={l.href} href={l.href}>{l.label}</a>
+                              ))}
                             </p>
-                          ))}
-                        </div>
-                      ))}
+                          </div>
+                        )
+                      })}
                     </section>
                   )}
 
@@ -973,9 +1129,25 @@ export function ResumeBuilderClient() {
                       <span className="tk-note">{userCfg.apiKey ? "用自己的 key" : `今日免费 ${aiQuota}/${RESUME_DAILY_LIMIT} 次`}</span>
                     </div>
                     <p className="tk-hint" style={{ marginTop: 0 }}>
-                      把每条经历交给模型改写：动词、量化、难点、结果四个维度重排，输出「原文 → 改写 → 问题说明」，你逐条决定要不要采用。
-                      AI 不编造经历：数字缺了留〔〕占位，公司学校职位原样保留。
+                      把每条经历交给模型改写，你逐条决定要不要采用。AI 不编造经历：数字缺了留〔〕占位，公司学校职位原样保留。
                     </p>
+                    <div className="rb-strength" role="radiogroup" aria-label="包装强度">
+                      <span className="tk-note">包装强度：</span>
+                      <label className={aiStrength === "safe" ? "rb-strength-opt is-active" : "rb-strength-opt"}>
+                        <input type="radio" name="rb-strength" value="safe" checked={aiStrength === "safe"} onChange={() => setAiStrength("safe")} />
+                        稳妥（只重排表达，不升级角色）
+                      </label>
+                      <label className={aiStrength === "bold" ? "rb-strength-opt is-active" : "rb-strength-opt"}>
+                        <input type="radio" name="rb-strength" value="bold" checked={aiStrength === "bold"} onChange={() => setAiStrength("bold")} />
+                        大胆（owner 式框定，每条配「面试怎么接」）
+                      </label>
+                    </div>
+                    {aiStrength === "bold" && (
+                      <p className="tk-hint" style={{ marginTop: 4 }}>
+                        大胆档的边界：可以写「负责核心模块」这类职责框定，但公司、学校、岗位、数字和事实边界一律不升级；
+                        每条建议都会给「面试怎么接」——答不住就按里面的降级说法改回去。
+                      </p>
+                    )}
                     <div className="tk-input-actions">
                       <span className="tk-privacy">{AI_PRIVACY_NOTE}</span>
                       <button type="button" className="tk-run" onClick={runAi} disabled={aiState === "loading" || !doc}>
@@ -1063,6 +1235,11 @@ export function ResumeBuilderClient() {
                             {item.notes?.map((n, j) => (
                               <p key={j} className="rb-audit-flag">· {n}</p>
                             ))}
+                            {item.prep && (
+                              <p className="rb-audit-flag rb-prep">
+                                <b>面试怎么接</b>:{item.prep}
+                              </p>
+                            )}
                             <div style={{ display: "flex", gap: 8, marginTop: 6 }}>
                               <button type="button" className="mock-end-btn" onClick={() => applySuggestion(item)}>
                                 采用
@@ -1087,6 +1264,14 @@ export function ResumeBuilderClient() {
                     分页、页边距、页眉页脚都在这里调。预览里每一页就是一张 A4，打印和导出 HTML 是同一个排版。
                   </p>
                   <div className="rb-form-row" style={{ marginTop: 10 }}>
+                    <label className="rb-ps-label">
+                      排版模板
+                      <select className="rb-field" aria-label="排版模板" value={doc.page_setup.template} onChange={(e) => patch((d) => { d.page_setup.template = e.target.value as ResumeDoc["page_setup"]["template"] })}>
+                        <option value="asu">高密度（色带 · 信息密）</option>
+                        <option value="classic">经典正式（黑白 · HR 通用）</option>
+                        <option value="clean">极简留白（弱装饰 · 大间距）</option>
+                      </select>
+                    </label>
                     <label className="rb-ps-label">
                       主色
                       <select className="rb-field" aria-label="简历主色" value={doc.page_setup.accent} onChange={(e) => patch((d) => { d.page_setup.accent = e.target.value as ResumeDoc["page_setup"]["accent"] })}>

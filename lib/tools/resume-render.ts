@@ -73,8 +73,9 @@ function renderBody(doc: ResumeDoc): string {
   const p = doc.profile
   const out: string[] = []
 
-  // 头部:姓名 + 右侧眉标 + 联系方式 chips + 一句话定位
-  out.push('<header class="masthead"><div class="identity">')
+  // 头部:姓名 + 右侧眉标 + 联系方式 chips + 一句话定位(+ 证件照)
+  const photo = p.photo && p.photo.confirmed && /^data:image\/(?:png|jpeg|webp);base64,/i.test(p.photo.src) ? p.photo : null
+  out.push(`<header class="masthead${photo ? " has-photo" : ""}"><div class="identity">`)
   out.push('<div class="name-row">')
   out.push(`<h1 class="name">${esc(clean(p.name) || "姓名")}</h1>`)
   if (clean(p.eyebrow)) out.push(`<p class="masthead-eyebrow">${esc(clean(p.eyebrow))}</p>`)
@@ -90,7 +91,12 @@ function renderBody(doc: ResumeDoc): string {
   }
   if (chips.length) out.push(`<div class="contact">${chips.join("")}</div>`)
   if (clean(p.headline)) out.push(`<p class="masthead-tagline">${esc(clean(p.headline))}</p>`)
-  out.push("</div></header>")
+  out.push("</div>")
+  if (photo) {
+    const crop = photo.crop
+    out.push(`<div class="photo-frame"><img class="profile-photo" alt="${esc(clean(p.name) || "候选人")}照片" src="${esc(photo.src)}" style="object-position:${crop.x}% ${crop.y}%;transform:scale(${crop.zoom})" onerror="this.parentElement.remove()" /></div>`)
+  }
+  out.push("</header>")
 
   // 定位概述(绿条)
   if (clean(p.summary)) {
@@ -227,6 +233,9 @@ a:hover { border-bottom-color: currentColor; }
 .sushen-content.sushen-compact .card + .card { margin-top: 1.5mm; }
 .sushen-content.sushen-compact .compact-row + .compact-row { margin-top: .8mm; }
 .masthead { display: grid; grid-template-columns: minmax(0, 1fr); gap: 6mm 8mm; align-items: center; margin-bottom: 4.5mm; }
+.masthead.has-photo { grid-template-columns: minmax(0, 1fr) auto; align-items: center; }
+.photo-frame { width: 26mm; height: 30mm; overflow: hidden; border: 1px solid var(--gray-300); border-radius: 2px; background: var(--gray-100); }
+.profile-photo { width: 100%; height: 100%; object-fit: cover; transform-origin: center; }
 .name-row { display: flex; flex-wrap: wrap; align-items: center; gap: 3mm 5mm; min-height: 8.5mm; }
 .masthead-eyebrow { margin: 0 0 0 auto; color: #475467; font-size: 9.5px; font-weight: 800; letter-spacing: .18em; line-height: 1.3; text-transform: uppercase; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 70%; }
 .name { margin: 0; font-size: 30px; line-height: 1.1; font-weight: 800; letter-spacing: .01em; }
@@ -303,9 +312,43 @@ a:hover { border-bottom-color: currentColor; }
 }
 @media (max-width: 760px) {
   #resume { width: 100%; min-height: 0; margin: 0; padding: 20px 16px; }
+  .masthead.has-photo { grid-template-columns: 1fr; }
   .company-bar { grid-template-columns: 1fr; }
   .compact-row { grid-template-columns: 1fr; gap: .8mm; }
 }
+/* ── 模板:classic 经典正式(HR/ATS 友好:黑白灰、无衬线、去装饰) ── */
+#resume[data-template="classic"] .section-title { color: #111; font-family: var(--sans); letter-spacing: .12em; font-size: 13.5px; }
+#resume[data-template="classic"] .section-title::after { background: linear-gradient(90deg, #9a9a94, rgba(153,153,153,.05)); }
+#resume[data-template="classic"] .education-row { border-left: 3px solid #55524c; background: #f7f7f5; }
+#resume[data-template="classic"] .education-school { color: #111; font-family: var(--sans); }
+#resume[data-template="classic"] .company-bar { background: #f7f7f5; border-left: 4px solid #55524c; }
+#resume[data-template="classic"] .company-name { color: #111; font-family: var(--sans); }
+#resume[data-template="classic"] .project-title { color: #111; font-family: var(--sans); }
+#resume[data-template="classic"] .fact-lead .fact-label { color: #111; }
+#resume[data-template="classic"] .card { border-left: 3px solid #c4c1b8; background: #fafaf8; }
+#resume[data-template="classic"] .card-title { color: #111; font-family: var(--sans); }
+#resume[data-template="classic"] .compact-label { color: #111; }
+#resume[data-template="classic"] .professional-summary { border-left: 3px solid #55524c; background: #f7f7f5; }
+#resume[data-template="classic"] .masthead-eyebrow { color: #55524c; }
+#resume[data-template="classic"] .contact-item { background: #fff; border-color: #d6d3cb; }
+#resume[data-template="classic"] .highlight { color: #000; }
+/* ── 模板:clean 极简留白(无底色无边框,靠间距与字重分层) ── */
+#resume[data-template="clean"] .section-title { color: #111; font-family: var(--sans); letter-spacing: .22em; font-size: 12.5px; }
+#resume[data-template="clean"] .section-title::after { background: transparent; }
+#resume[data-template="clean"] .education-row { border-left: 0; background: transparent; padding: 1.4mm 0; }
+#resume[data-template="clean"] .company-bar { background: transparent; border-left: 0; padding: 1mm 0; min-height: 0; border-bottom: 1px solid #e2e0da; }
+#resume[data-template="clean"] .company-name { color: #111; font-family: var(--sans); }
+#resume[data-template="clean"] .project { border-left: 0; margin-left: 0; padding-left: 0; }
+#resume[data-template="clean"] .project + .project { border-top: 0; margin-top: 3.2mm; padding-top: 0; }
+#resume[data-template="clean"] .project-title { color: #111; font-family: var(--sans); }
+#resume[data-template="clean"] .fact-lead .fact-label { color: #55524c; font-weight: 700; }
+#resume[data-template="clean"] .card { border-left: 0; background: transparent; padding: 1.2mm 0; }
+#resume[data-template="clean"] .card-title { color: #111; font-family: var(--sans); }
+#resume[data-template="clean"] .professional-summary { border-left: 0; background: transparent; padding: 0 0 1mm; }
+#resume[data-template="clean"] .contact-item { background: transparent; border: 0; padding: 0; min-height: 0; }
+#resume[data-template="clean"] .masthead { margin-bottom: 6mm; }
+#resume[data-template="clean"] .compact-row { padding: 1mm 0; }
+#resume[data-template="clean"] .highlight { color: #000; }
 `
 
 /** 分页引擎(移植酥神 v6 flow,含事实块悬挂缩进测量;渲染完自动把页数写到 html[data-page-count]) */
@@ -470,7 +513,7 @@ export function buildResumeHtml(doc: ResumeDoc, opts: RenderOptions = {}): strin
     `<style>${TEMPLATE_CSS}\n#resume[data-accent]{${accent}}</style>`,
     "</head>",
     "<body>",
-    `<main id="resume" class="page" data-accent="${esc(doc.page_setup.accent || "ink")}">`,
+    `<main id="resume" class="page" data-accent="${esc(doc.page_setup.accent || "ink")}" data-template="${esc(doc.page_setup.template || "asu")}">`,
     renderBody(doc),
     "</main>",
     paged ? `<script id="resume-data" type="application/json">${setupJson}</script>` : "",

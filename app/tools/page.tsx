@@ -103,7 +103,7 @@ const TOOLS: {
     badge: "陪练",
     icon: FileUser,
     title: "简历生成器",
-    desc: "粘贴旧简历或一段话，解析重排成带配色和自动分页的 A4 简历；逐条打分、证据体检、AI 改写，本地导出 PDF/Word/HTML。",
+    desc: "上传 PDF/Word 或粘贴文本，三套模板自动分页成 A4；逐条打分、证据体检、真题承接、AI 改写，导出 PDF/Word/HTML。",
   },
   {
     href: "/tools/offer-compare",

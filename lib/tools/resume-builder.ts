@@ -72,6 +72,13 @@ export interface ContactItem {
   url?: string
 }
 
+export interface ProfilePhoto {
+  /** data:image/png|jpeg|webp;base64 格式,只存本机 */
+  src: string
+  crop: { x: number; y: number; zoom: number }
+  confirmed: boolean
+}
+
 export interface PageSetup {
   marginTopMm: number
   marginBottomMm: number
@@ -84,6 +91,8 @@ export interface PageSetup {
   contentLineHeight: string
   /** 简历主色:ink 经典蓝墨(默认)/ clay 陶土暖 / olive 橄榄 / slate 石墨 */
   accent: "ink" | "clay" | "olive" | "slate"
+  /** 排版模板:asu 高密度(默认)/ classic 经典正式(HR/ATS 友好)/ clean 极简留白 */
+  template: "asu" | "classic" | "clean"
 }
 
 export interface SectionTitles {
@@ -108,6 +117,7 @@ export interface ResumeDoc {
     eyebrow: string
     summary: string
     contacts: ContactItem[]
+    photo?: ProfilePhoto
   }
   education: EducationItem[]
   experience: ExperienceItem[]
@@ -134,6 +144,7 @@ export const PAGE_SETUP_DEFAULTS: PageSetup = {
   contentFontSize: "",
   contentLineHeight: "",
   accent: "ink",
+  template: "asu",
 }
 
 export const SECTION_TITLES_DEFAULTS: Required<SectionTitles> = {
@@ -210,6 +221,17 @@ export function normalizeDoc(value: unknown): ResumeDoc {
       }))
       .filter((c) => c.label || c.value)
       .slice(0, 8)
+  }
+  // 照片:只收本机 data URL(与酥神同字段结构)
+  const photo = profile.photo && typeof profile.photo === "object" ? (profile.photo as Record<string, unknown>) : null
+  if (photo && /^data:image\/(?:png|jpeg|webp);base64,/i.test(str(photo.src))) {
+    const crop = (photo.crop && typeof photo.crop === "object" ? photo.crop : {}) as Record<string, unknown>
+    const num = (v: unknown, d: number) => (Number.isFinite(Number(v)) ? Number(v) : d)
+    doc.profile.photo = {
+      src: str(photo.src),
+      crop: { x: Math.min(100, Math.max(0, num(crop.x, 50))), y: Math.min(100, Math.max(0, num(crop.y, 50))), zoom: Math.min(2, Math.max(1, num(crop.zoom, 1))) },
+      confirmed: photo.confirmed === true,
+    }
   }
 
   doc.education = (Array.isArray(src.education) ? src.education : []).filter((e): e is Record<string, unknown> => Boolean(e) && typeof e === "object").map((e) => ({
@@ -308,6 +330,7 @@ export function normalizeDoc(value: unknown): ResumeDoc {
     contentFontSize: Number(setup.contentFontSize) > 0 ? String(Number(setup.contentFontSize)) : "",
     contentLineHeight: Number(setup.contentLineHeight) > 0 ? String(Number(setup.contentLineHeight)) : "",
     accent: (["ink", "clay", "olive", "slate"].includes(str(setup.accent)) ? str(setup.accent) : "ink") as PageSetup["accent"],
+    template: (["asu", "classic", "clean"].includes(str(setup.template)) ? str(setup.template) : "asu") as PageSetup["template"],
   }
   return doc
 }
@@ -501,17 +524,20 @@ export function parseResumeText(raw: string): ParseResult {
     else loose.push(line)
   }
 
-  // 映射到 v2 文档
+  // 映射到 v2 文档(经历 bullets 自动分三层:背景/指标与效果/我的职责)
   doc.education = buckets.education.map((e) => ({ institution: e.org, program: e.role, degree: "", dates: e.time, bullets: toBullets(e.bullets) }))
-  doc.experience = buckets.experience.map((e) => ({
-    company: e.org,
-    team: e.role,
-    dates: e.time,
-    tags: [],
-    links: [],
-    tone: "",
-    projects: [{ name: e.role || e.org || "工作内容", subtitle: "", background: [], impact: [], responsibilities: toBullets(e.bullets) }],
-  }))
+  doc.experience = buckets.experience.map((e) => {
+    const c = classifyBullets(toBullets(e.bullets))
+    return {
+      company: e.org,
+      team: e.role,
+      dates: e.time,
+      tags: [],
+      links: [],
+      tone: "",
+      projects: [{ name: e.role || e.org || "工作内容", subtitle: "", background: c.background, impact: c.impact, responsibilities: c.responsibilities }],
+    }
+  })
   doc.projects = buckets.projects.map((e) => ({ name: e.org, role: e.role, dates: e.time, scope: "", bullets: toBullets(e.bullets) }))
   doc.skills = skills
   if (buckets.extras.length) {
@@ -624,6 +650,105 @@ export function applyRewrite(doc: ResumeDoc, original: string, rewritten: string
   for (const p of doc.open_source) if (tryReplace(p.bullets)) return true
   for (const s of doc.customs) for (const it of s.items) if (tryReplace(it.bullets)) return true
   return false
+}
+
+/* ── bullets 三层自动分类(规则移植自酥神 transform.js classifyFacts:背景/指标与效果/我的职责) ── */
+
+const OUTCOME_RE = /(?:由|从).{0,18}(?:提升|增长|降低|缩短|下降)(?:至|到)?\s*\d|(?:提升|增长|降低|缩短|下降)(?:至|到|约|为)\s*\d|(?:累计|最高|覆盖|支撑|服务).{0,18}\d|上线|交付|落地|沉淀|产出/i
+const CONTEXT_RE = /^(?:项目)?(?:背景|目标|问题|痛点|需求)|^(?:面向|围绕|针对|为了解决)|业务(?:背景|场景)|^为什么/i
+const METRIC_LABEL_RE = /^(?:指标(?:体系)?|数据(?:监控|分析)?|结果|效果|成绩)[：:]/
+const METRIC_SYSTEM_RE = /指标体系|数据监控|监测口径|数据漏斗|转化漏斗|持续跟踪|追踪.{0,30}(?:率|指标)|QPS|DAU|UV|CTR|CVR|GMV|AUC|延迟/i
+
+/** 文本里的量化数字(排除年份日期) */
+export function metricsInText(text: string): string[] {
+  const masked = text.replace(DATE_MASK_RE, (m) => "\u0001".repeat(m.length))
+  return (masked.match(/\d+(?:\.\d+)?(?:%|\+|万\+?|亿|倍|QPS|qps|ms|GB|TB|token|条|次|万次|人|家|个|场|路|份)?/g) || []).filter(
+    (t) => !/^[.:]*\u0001/.test(t) && /\d/.test(t),
+  )
+}
+
+export interface ClassifiedBullets {
+  background: BulletObj[]
+  impact: BulletObj[]
+  responsibilities: BulletObj[]
+}
+
+/** 规则分类:背景 = 讲为什么/痛点且无硬结果;指标与效果 = 有结果数字或已交付;其余 = 职责 */
+export function classifyBullets(bullets: BulletObj[]): ClassifiedBullets {
+  const result: ClassifiedBullets = { background: [], impact: [], responsibilities: [] }
+  const cleaned = bullets.filter((b) => b.text.trim())
+  for (const item of cleaned) {
+    const text = item.text
+    const hasOutcome = OUTCOME_RE.test(text)
+    const hasHardOutcome = hasOutcome && (metricsInText(text).length > 0 || /上线|交付|落地|沉淀|产出/i.test(text))
+    if (CONTEXT_RE.test(text) && !hasHardOutcome) result.background.push(item)
+    else if (hasHardOutcome || (METRIC_LABEL_RE.test(text) && METRIC_SYSTEM_RE.test(text))) result.impact.push(item)
+    else result.responsibilities.push(item)
+  }
+  // 背景空且有多个职责:首条职责提为背景(酥神同款兜底)
+  if (!result.background.length && result.responsibilities.length > 1) {
+    result.background.push(result.responsibilities.shift() as BulletObj)
+  }
+  return result
+}
+
+/** 就地把一个经历内项目重排成三层(编辑区「一键分层」用) */
+export function classifyProjectInPlace(project: ExpProject): void {
+  const merged = [...project.background, ...project.impact, ...project.responsibilities]
+  if (!merged.length) return
+  const c = classifyBullets(merged)
+  project.background = c.background
+  project.impact = c.impact
+  project.responsibilities = c.responsibilities
+}
+
+/** 项目级缺指标提示(吸收自酥神 missingMetrics):整块没有任何数字才提示 */
+export function projectMetricHints(doc: ResumeDoc): Array<{ where: string; hint: string }> {
+  const out: Array<{ where: string; hint: string }> = []
+  const hint = "整块没有任何数字:补规模、效率、效果任一真实数据(没做过测量就先去测,别编)"
+  for (const exp of doc.experience) {
+    for (const p of exp.projects) {
+      const texts = [...p.background, ...p.impact, ...p.responsibilities].map((b) => b.text).join(" ")
+      if (texts.trim() && metricsInText(texts).length === 0) {
+        out.push({ where: `${exp.company || "未命名经历"} · ${p.name || "未命名项目"}`, hint })
+      }
+    }
+  }
+  for (const p of [...doc.projects, ...doc.open_source]) {
+    const texts = p.bullets.map((b) => b.text).join(" ")
+    if (texts.trim() && metricsInText(texts).length === 0) {
+      out.push({ where: `${p.name || "未命名项目"}${p.role ? `（${p.role}）` : ""}`, hint })
+    }
+  }
+  return out
+}
+
+/* ── 面试承接(方法论吸收自 GodSu-Resume claim-to-knowledge-map:强表达要配面试准备) ── */
+
+const QA_CATEGORY_MAP: Array<{ re: RegExp; cat: string; name: string }> = [
+  { re: /rag|检索|embedding|向量|召回|重排|rerank|分块|知识库/i, cat: "rag", name: "RAG 检索增强" },
+  { re: /agent|智能体|多步|规划|反思|react|编排/i, cat: "agent", name: "Agent 架构" },
+  { re: /工具调用|function\s*call|tool\s*use|mcp/i, cat: "tooluse", name: "工具调用" },
+  { re: /多智能体|multi-?agent|swarm|协作agent/i, cat: "multiagent", name: "多智能体" },
+  { re: /记忆|memory|长期记忆|压缩上下文/i, cat: "memory", name: "记忆系统" },
+  { re: /评测|评估|benchmark|badcase|基线|评测集/i, cat: "eval", name: "评测与可观测" },
+  { re: /微调|lora|sft|rlhf|训练|全参/i, cat: "finetune", name: "训练与微调" },
+  { re: /推理|部署|vllm|量化|延迟|qps|吞吐|gpu/i, cat: "inference", name: "推理与部署" },
+  { re: /多模态|vlm|图像|语音|视频理解/i, cat: "multimodal", name: "多模态" },
+  { re: /prompt|提示词|上下文工程|few-?shot/i, cat: "prompt", name: "提示工程" },
+  { re: /transformer|token|注意力|采样|moe|温度|top-?p/i, cat: "basics", name: "LLM 基础概念" },
+]
+
+/** 按 bullet 文本给出站内真题分类页链接(最多 2 个) */
+export function qaLinksFor(text: string): Array<{ label: string; href: string }> {
+  const out: Array<{ label: string; href: string }> = []
+  for (const m of QA_CATEGORY_MAP) {
+    if (m.re.test(text)) {
+      out.push({ label: `${m.name}真题`, href: `/interview/category/${m.cat}` })
+      if (out.length >= 2) break
+    }
+  }
+  return out
 }
 
 /* ── 证据审计(方法论吸收自 ASu-resume-audit-skill:时态边界/最高级比较全集/指标口径/团队指标归因/角色强度) ── */
