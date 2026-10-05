@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server"
 import { LLM_INPUT_CHAR_LIMIT, cacheGet, cachePut, callLlm, consumeQuota, inputKey } from "@/lib/tools/llm-server"
-import { buildMarkdown, emptyResume, parseResumeText } from "@/lib/tools/resume-builder"
+import { docToMarkdown, isEmptyDoc, parseResumeText } from "@/lib/tools/resume-builder"
 
 export const runtime = "nodejs"
 
@@ -84,7 +84,7 @@ export async function POST(request: Request) {
   }
 
   const parsed = parseResumeText(resumeInput)
-  const resumeText = JSON.stringify(parsed.data) === JSON.stringify(emptyResume()) ? resumeInput : buildMarkdown(parsed.data)
+  const resumeText = isEmptyDoc(parsed.data) ? resumeInput : docToMarkdown(parsed.data)
 
   const user = [
     jd ? `目标 JD(只用于对齐用词,不许照抄 JD 编造经历):\n${jd.slice(0, 1200)}` : "",

@@ -20,7 +20,7 @@ import {
  */
 
 const TOOLS = [
-  { href: "/tools/resume-builder", icon: FileUser, name: "简历生成器", desc: "免费在线制作简历：粘贴旧简历或一段话，排成一页 A4，导出 PDF 和 Word，不注册不水印。" },
+  { href: "/tools/resume-builder", icon: FileUser, name: "简历生成器", desc: "免费在线制作简历：粘贴旧简历或一段话，解析重排成带配色、自动分页的 A4，数字加粗，导出 PDF/Word，不注册不水印。" },
   { href: "/tools/jd-analyzer", icon: ScanSearch, name: "JD 分析工具", desc: "粘贴招聘 JD，免费拆出考察词、隐藏考点，并匹配站内真实面试题。" },
   { href: "/tools/resume", icon: FileCheck2, name: "简历体检", desc: "简历和 JD 逐词对比，能力证据评级，逐条批注，预演面试官会追问什么。" },
   { href: "/tools/bullet-grader", icon: PenLine, name: "简历 Bullet 打分器", desc: "一条简历经历值多少分，十秒见分晓，给改写骨架。" },

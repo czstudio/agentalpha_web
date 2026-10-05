@@ -844,6 +844,34 @@
 @media (max-width: 960px) { .rb-grid { grid-template-columns: 1fr; } }
 .rb-input-hint { font-size: 13.5px; color: var(--tk-ink-2); line-height: 1.7; margin: 0 0 8px; }
 .rb-form { display: grid; gap: 8px; }
+.rb-form-row { display: flex; gap: 8px; flex-wrap: wrap; }
+.rb-form-row .rb-field { flex: 1; min-width: 120px; }
+.rb-tabs { display: flex; gap: 4px; flex-wrap: wrap; margin-bottom: 10px; }
+.rb-tab {
+  border: 1px solid var(--tk-line-2);
+  background: var(--tk-paper);
+  color: var(--tk-ink-2);
+  border-radius: 999px;
+  padding: 6px 14px;
+  font-size: 13px;
+  font-family: inherit;
+  cursor: pointer;
+}
+.rb-tab:hover { border-color: var(--tk-brand); color: var(--tk-brand-ink); }
+.rb-tab.is-active { background: var(--tk-brand); border-color: var(--tk-brand); color: #fff; font-weight: 600; }
+.rb-tab-badge {
+  display: inline-block;
+  margin-left: 5px;
+  min-width: 17px;
+  padding: 0 4px;
+  border-radius: 999px;
+  background: #b3261e;
+  color: #fff;
+  font-size: 11px;
+  line-height: 17px;
+  text-align: center;
+}
+.rb-tabpanel { min-height: 200px; }
 .rb-field {
   width: 100%;
   box-sizing: border-box;
@@ -894,8 +922,6 @@
 .rb-toolbar-btns { display: inline-flex; gap: 8px; flex-wrap: wrap; align-items: center; }
 .rb-print-btn { display: inline-flex; align-items: center; gap: 6px; padding: 8px 18px; font-size: 13.5px; }
 .rb-preview-col { position: relative; }
-/* 长表单下预览列不 sticky(纸面比编辑列短,贴顶会大片留白);
-   真正需要跟随的是导出工具条,单独吸顶 */
 .rb-toolbar-sticky {
   position: sticky;
   top: 116px;
@@ -910,38 +936,45 @@
   padding: 10px 12px;
 }
 
-/* LaTeX 风纸面:衬线、细目线、en-dash 列表符 */
-.rb-paper {
-  background: #fff;
+/* A4 预览 iframe:纸面在 iframe 里自渲染(分页/配色/加粗由 resume-render.ts 输出);
+   外层按 zoom 缩放,高度按页数动态设置 */
+.rb-frame-viewport {
+  overflow: hidden;
   border: 1px solid var(--tk-line);
-  border-radius: 6px;
-  padding: 46px 50px;
-  font-family: var(--tk-font-serif);
-  color: #1c1a16;
-  font-size: 13.5px;
-  line-height: 1.72;
+  border-radius: 10px;
+  background: var(--tk-paper-2);
 }
-.rb-name { margin: 0; text-align: center; font-size: 26px; font-weight: 700; letter-spacing: 0.08em; }
-.rb-contact { margin: 6px 0 0; text-align: center; font-size: 12px; color: var(--tk-ink-3); }
-.rb-summary { margin: 14px 0 0; font-size: 13px; color: var(--tk-ink-2); }
-.rb-sec { margin-top: 20px; }
-.rb-sec-t {
-  margin: 0 0 10px;
-  font-size: 14.5px;
-  font-weight: 700;
-  letter-spacing: 0.16em;
-  border-bottom: 1.5px solid #1c1a16;
-  padding-bottom: 4px;
+.rb-frame {
+  width: 210mm;
+  border: 0;
+  transform-origin: top left;
+  background: var(--tk-paper-2);
 }
-.rb-entry { margin-bottom: 12px; }
-.rb-entry-head { margin: 0 0 2px; display: flex; justify-content: space-between; align-items: baseline; gap: 10px; }
-.rb-org { font-weight: 700; font-size: 13.5px; }
-.rb-time { font-size: 12px; color: var(--tk-ink-3); white-space: nowrap; }
-.rb-ul { margin: 2px 0 0; padding: 0 0 0 16px; list-style: none; }
-.rb-ul li { font-size: 13px; line-height: 1.7; margin-bottom: 3px; position: relative; }
-.rb-ul li::before { content: "–"; position: absolute; left: -14px; color: var(--tk-ink-3); }
-.rb-ul li.rb-empty-hint { color: var(--tk-ink-3); font-size: 12px; }
-.rb-skills { margin: 0; font-size: 13px; }
+.rb-zoom { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; color: var(--tk-ink-2); }
+.rb-zoom select {
+  border: 1px solid var(--tk-line-2);
+  border-radius: 8px;
+  padding: 5px 8px;
+  font-size: 13px;
+  font-family: inherit;
+  background: var(--tk-paper);
+  color: var(--tk-ink);
+}
+/* 页面设置页签 */
+.rb-ps-label { display: flex; flex-direction: column; gap: 4px; font-size: 12.5px; color: var(--tk-ink-2); min-width: 110px; }
+.rb-ps-wide { flex: 1 1 100%; }
+.rb-ps-check { display: flex; align-items: center; gap: 8px; font-size: 13px; color: var(--tk-ink); margin-top: 10px; cursor: pointer; }
+/* 经历内项目分组(背景/指标与效果/我的职责) */
+.rb-proj { border: 1px dashed var(--tk-line-2); border-radius: 10px; padding: 10px 10px 4px; margin: 8px 0; background: #fff; }
+.rb-factgroup { margin: 8px 0 4px; }
+.rb-factgroup-head { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; margin-bottom: 4px; }
+.rb-factgroup-label { font-size: 13px; font-weight: 700; color: var(--tk-brand-ink); }
+.rb-factgroup-label::after { content: ":"; }
+.rb-factgroup-hint { font-size: 12px; color: var(--tk-ink-3); flex: 1; }
+.rb-contact-row { display: flex; gap: 6px; align-items: center; margin-bottom: 6px; }
+.rb-highlight-input { font-size: 12px; padding: 5px 10px; margin-top: 4px; background: var(--tk-paper-2); }
+.rb-json-area { font-family: var(--tk-mono, Consolas, monospace); font-size: 12px; line-height: 1.5; }
+
 .rb-tex { margin-top: 12px; border: 1px dashed var(--tk-line-2); border-radius: 10px; padding: 10px 14px; background: var(--tk-paper-2); }
 .rb-tex summary { cursor: pointer; font-size: 13px; font-weight: 600; color: var(--tk-brand-ink); }
 .rb-tex-pre {
@@ -957,13 +990,13 @@
   white-space: pre;
 }
 
-/* 打印:只保留纸面(简历)与 .print-root 报告(其他工具通用) */
+/* 打印:简历预览在 iframe 内自行走 @page 规则(打印按钮直接打 iframe);
+   这里只保留 .print-root 报告页(其他工具通用)与外部壳隐藏 */
 .print-root { display: none; }
 @media print {
   body { background: #fff !important; }
   body * { visibility: hidden; }
-  #rb-print-root, #rb-print-root *, .print-root, .print-root * { visibility: visible; }
-  #rb-print-root { position: absolute; left: 0; top: 0; width: 100%; }
+  .print-root, .print-root * { visibility: visible; }
   .print-root { display: block !important; position: absolute; left: 0; top: 0; width: 100%; background: #fff; padding: 6px; }
   .print-doc { font-family: var(--tk-font-serif); color: #1c1a16; font-size: 12.5px; line-height: 1.7; }
   .print-doc h1 { text-align: center; font-size: 21px; margin: 0 0 4px; }
@@ -973,7 +1006,6 @@
   .print-doc th, .print-doc td { border: 1px solid #999; padding: 4px 8px; text-align: left; }
   .print-doc li { margin-bottom: 3px; }
   .rb-toolbar, .rb-toolbar-sticky { display: none !important; }
-  .rb-paper { border: none; border-radius: 0; padding: 0; }
   nav { display: none !important; }
 }
 
