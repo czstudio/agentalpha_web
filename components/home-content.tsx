@@ -1,5 +1,6 @@
 "use client"
 
+import type { CSSProperties } from "react"
 import Link from "next/link"
 import { useLanguage } from "@/contexts/language-context"
 import { EnrollmentQrDialog } from "@/components/enrollment-qr-dialog"
@@ -39,7 +40,7 @@ function SectionHead({
   aside?: ReactNode
 }) {
   return (
-    <header className="aa-section-head">
+    <header className="aa-section-head" data-reveal>
       <div className="aa-section-head-main">
         <p className="aa-kicker">
           <Icon aria-hidden />
@@ -178,8 +179,14 @@ export function HomeContent({ data }: HomeContentProps) {
             }
           />
           <div className="aa-proof-grid aa-proof-grid--two">
-            {t.quizlib.cards.map((card: any) => (
-              <article key={card.name} className={`aa-proof-card aa-pg ${card.tone}`} data-tilt>
+            {t.quizlib.cards.map((card: any, cardIndex: number) => (
+              <article
+                key={card.name}
+                className={`aa-proof-card aa-pg ${card.tone}`}
+                data-tilt
+                data-reveal
+                style={{ "--rd": `${(cardIndex % 2) * 80}ms` } as CSSProperties}
+              >
                 <span className="aa-pg-glow" aria-hidden />
                 <span className="aa-pg-noise" aria-hidden />
                 <span className="aa-pg-ghost" aria-hidden>{card.ghost}</span>
@@ -216,8 +223,14 @@ export function HomeContent({ data }: HomeContentProps) {
         <div className="section-shell">
           <SectionHead icon={ShieldCheck} kicker={t.proof.tag} title={t.proof.title} desc={t.proof.desc} />
           <div className="aa-proof-grid">
-            {t.proof.projects.map((project: any) => (
-              <article key={project.name} className={`aa-proof-card aa-pg ${project.tone}`} data-tilt>
+            {t.proof.projects.map((project: any, projectIndex: number) => (
+              <article
+                key={project.name}
+                className={`aa-proof-card aa-pg ${project.tone}`}
+                data-tilt
+                data-reveal
+                style={{ "--rd": `${(projectIndex % 3) * 80}ms` } as CSSProperties}
+              >
                 <span className="aa-pg-glow" aria-hidden />
                 <span className="aa-pg-noise" aria-hidden />
                 <span className="aa-pg-ghost" aria-hidden>{project.ghost}</span>
@@ -253,8 +266,14 @@ export function HomeContent({ data }: HomeContentProps) {
           <div className="aa-paper-strip">
             <p className="aa-paper-strip-t">{t.proof.papers_title}</p>
             <div className="aa-paper-strip-list">
-              {t.proof.papers.map((paper: any) => (
-                <article key={paper.name} className="aa-proof-card aa-pg aa-pg--paper" data-tilt>
+              {t.proof.papers.map((paper: any, paperIndex: number) => (
+                <article
+                  key={paper.name}
+                  className="aa-proof-card aa-pg aa-pg--paper"
+                  data-tilt
+                  data-reveal
+                  style={{ "--rd": `${(paperIndex % 3) * 80}ms` } as CSSProperties}
+                >
                   <span className="aa-pg-glow" aria-hidden />
                   <span className="aa-pg-noise" aria-hidden />
                   <span className="aa-pg-ghost" aria-hidden>{paper.ghost}</span>
@@ -323,24 +342,37 @@ export function HomeContent({ data }: HomeContentProps) {
         <div className="section-shell">
           <SectionHead icon={Users} kicker={t.mentors.tag} title={t.mentors.title} />
           <div className="aa-mentor-grid">
-            <div className="aa-mentor-col">
-              <h3>{t.mentors.industry_title}</h3>
-              <ul>
-                {t.mentors.industry.map((item: string) => (
-                  <li key={item}>{item}</li>
-                ))}
-              </ul>
-            </div>
-            <div className="aa-mentor-col">
-              <h3>{t.mentors.academia_title}</h3>
-              <ul>
-                {t.mentors.academia.map((item: string) => (
-                  <li key={item}>{item}</li>
-                ))}
-              </ul>
-            </div>
+            {t.mentors.industry.map((item: string, mentorIndex: number) => {
+              // 文案口径「头衔：详情」，拆成档案卡的两行
+              const sep = item.indexOf("：")
+              const headline = sep > 0 ? item.slice(0, sep) : item
+              const detail = sep > 0 ? item.slice(sep + 1) : ""
+              return (
+                <article
+                  key={item}
+                  className="aa-mentor-card"
+                  data-reveal
+                  style={{ "--rd": `${(mentorIndex % 2) * 80}ms` } as CSSProperties}
+                >
+                  <span className="aa-mentor-no" aria-hidden>
+                    {String(mentorIndex + 1).padStart(2, "0")}
+                  </span>
+                  <h3>{headline}</h3>
+                  {detail ? <p>{detail}</p> : null}
+                </article>
+              )
+            })}
           </div>
-          <p className="aa-mentor-note">{t.mentors.note}</p>
+          <div className="aa-mentor-aux" data-reveal>
+            <div className="aa-mentor-chips" aria-label={t.mentors.academia_title}>
+              {t.mentors.academia.map((item: string) => (
+                <span key={item} className="aa-mentor-chip">
+                  {item}
+                </span>
+              ))}
+            </div>
+            <p className="aa-mentor-note">{t.mentors.note}</p>
+          </div>
         </div>
       </section>
 
