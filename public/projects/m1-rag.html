@@ -207,7 +207,7 @@ section[id]{scroll-margin-top:76px}
     </div>
     <div style="height:20px"></div>
     <div class="card">
-      <p><b>先把话说明白：这个项目练的，就是大厂 RAG 岗 JD 上那些词。</b></p>
+      <p><b>先把话说明白：单纯的「RAG 岗位」现在很少，但大模型应用、Agent 开发这些在招岗位的 JD 里，RAG、检索、评测是高频词。</b></p>
       <p>下面四条要求摘自 2026 年在招岗位的 JD 原文（第 10 节附可点开的官网链接），右边是你在四周里亲手写的部分：</p>
       <p>
       「<b>基于 RAG 的知识库/检索系统建设</b>」——字节·飞书 → 八步数据流，从 PDF 解析到带编号引用的回答，每一步自己实现<br>
@@ -218,6 +218,9 @@ section[id]{scroll-margin-top:76px}
       <p>别的项目让你「了解概念」，这个项目让你把这四行 JD 原话逐条变成「我写过、我测过、我知道边界在哪」——面试官问到哪一条，你都有代码和数字接住。</p>
     </div>
     <div style="height:20px"></div>
+    <img class="fig-wide" src="assets/img/m1/wr-live-demo.gif" alt="真实录屏：上传 PDF、构建知识库、提问并获得带编号引用的回答全过程">
+    <div class="figcap">真实录屏，66 秒完整流程：上传课程 PDF → 一键构建知识库 → 提问 → 系统先检索再回答，答案带 [1][2] 编号引用，点开可看原文和相关度</div>
+    <div style="height:16px"></div>
     <div class="duofig"><figure><img class="fig-half" src="assets/img/m1/ui-build.png" alt="真实运行截图：上传课程 PDF 构建知识库"><figcaption class="figcap">真实运行截图：上传课程 PDF，点「处理文档并构建知识库」，侧栏显示「知识库已就绪」</figcaption></figure><figure><img class="fig-half" src="assets/img/m1/ui-answer.png" alt="真实运行截图：答案带编号引用与相关度"><figcaption class="figcap">真实运行截图：提问后返回带 [1][2] 编号引用的答案，引用块展开显示相关度与原文</figcaption></figure></div>
     <div class="figcap">WhaleRAG 运行界面：上传 PDF → 提问 → 答案带编号引用，点编号可展开原文块</div>
   </div>
@@ -256,6 +259,14 @@ section[id]{scroll-margin-top:76px}
     <p class="blk-sub">把 RAG 想象成一个图书管理员。你问他问题，他不是凭记忆回答，而是先去书架找书、翻到具体页、确认内容、然后指着书上的段落告诉你答案。</p>
     <img class="fig-wide" src="assets/img/m1/wr-arch-pipeline.png" alt="WhaleRAG 八步数据流架构图">
     <div class="figcap">八步数据流：解析→切块→编号→索引→召回→精排→引用→拒答</div>
+<div style="height:20px"></div>
+    <p class="blk-sub">一句话说清它厉害在哪：不是某一步特别新，而是企业级系统该有的四件事，它同时做到，而且每一件都有数字或代码兜底。</p>
+    <div class="stats4">
+      <div class="stat"><div class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4.5"/><circle cx="12" cy="12" r="1"/></svg></div><b>检索准</b><span>双路召回再加精排，Recall@10 实测 0.991（220 题封存评测集）</span></div>
+      <div class="stat"><div class="ic"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg></div><b>敢拒答</b><span>两道门控，知识库里没有就直说没有——企业场景的底线能力</span></div>
+      <div class="stat"><div class="ic"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M9 13h6M9 17h4"/></svg></div><b>可追溯</b><span>编号级引用，答案里每个论断都能点开回看原文块</span></div>
+      <div class="stat"><div class="ic"><svg viewBox="0 0 24 24"><path d="M3 3v18h18"/><path d="m7 14 4-4 4 3 5-6"/></svg></div><b>可验证</b><span>数字全部带口径：固定种子、受控候选池、bootstrap 置信区间</span></div>
+    </div>
     <div style="height:20px"></div>
     <div class="duo2">
       <div class="card">
@@ -282,7 +293,7 @@ section[id]{scroll-margin-top:76px}
 <section class="blk" id="highlights">
   <div class="inner">
     <div class="blk-h"><span class="no">04</span><h2>项目亮点</h2></div>
-    <p class="blk-sub">每条亮点都挂着对应的 JD 要求和面试考点——学一个，认领一个。前六条直接来自字节、网易在招岗位的 JD 原文。</p>
+    <p class="blk-sub">每条亮点都挂着对应的 JD 要求和面试考点——学一个，认领一个。前六条直接对应字节、网易在招岗位 JD 里写明的要求。</p>
     <img class="fig-wide" src="assets/img/m1/wr-capability-matrix.png" alt="WhaleRAG 能力矩阵环：10 项能力环绕鲸鱼女孩">
     <div class="figcap">一条链路全都会 · 十个能力点</div>
     <div style="height:18px"></div>
