@@ -51,7 +51,16 @@ const nextConfig = {
         value: "public, max-age=604800, stale-while-revalidate=2592000",
       },
     ]
-    const staticDirs = ["/images/:path*", "/fonts/:path*", "/brand/:path*", "/logos/:path*", "/projects/:path*"]
+    const staticDirs = ["/images/:path*", "/fonts/:path*", "/brand/:path*", "/logos/:path*"]
+    // HTML 页面必须 max-age=0：/projects 项目页会频繁迭代，7 天强缓存会让访客
+    // 长期看到旧版（2026-10-05 事故：m1 重做后用户浏览器仍缓存旧页 7 天）。
+    // 二级规则把图片/字体的长缓存加回来（后定义的规则覆盖先定义的，资产不受影响）。
+    const htmlNoCache = [
+      {
+        key: "Cache-Control",
+        value: "public, max-age=0, must-revalidate",
+      },
+    ]
 
     return [
       {
@@ -62,6 +71,8 @@ const nextConfig = {
         source: "/api/:path*",
         headers: noIndexHeaders,
       },
+      { source: "/projects/:path*", headers: htmlNoCache },
+      { source: "/projects/assets/:path*", headers: staticCache },
       ...staticDirs.map((source) => ({ source, headers: staticCache })),
     ]
   },
