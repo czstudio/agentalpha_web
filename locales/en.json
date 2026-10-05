@@ -40,7 +40,7 @@
   "quizlib": {
     "tag": "Interview Library · Free",
     "title": "AI Agent Interview Library & Self-Test",
-    "desc": "One question per page with follow-up chains and common wrong answers; deep dives cover mechanisms and engineering trade-offs; a self-test mode draws questions at random. Every page is searchable and citable.",
+    "desc": "One question per page with follow-up chains and common wrong answers; deep dives cover mechanisms and engineering trade-offs; a self-test mode draws questions at random.",
     "cards": [
       {
         "name": "Quick Answers",
@@ -95,7 +95,11 @@
     "tag": "我们的方法",
     "title": "训练营的方法",
     "summary_line": "训练营以真实项目练人：跟着五个真实运行的开源与商用项目做，每周有产出，从个人项目做到团队协作。",
-    "summary_words": ["实战为王", "项目驱动", "长期主义"],
+    "summary_words": [
+      "实战为王",
+      "项目驱动",
+      "长期主义"
+    ],
     "summary_cta": "了解训练营",
     "offerings_title": "一个训练场，三条线",
     "offerings": [

@@ -2896,3 +2896,13 @@ html.enrollment-dialog-open { overflow: hidden; }
   .aa-footer-top { grid-template-columns: 1fr; gap: 32px; }
   .aa-footer-cols { grid-template-columns: repeat(2, 1fr); }
 }
+
+/* ── 中文断行优化 ──
+   pretty：避免段末孤字（「我/们」跨行这类观感问题），老旧浏览器自动忽略；
+   balance：标题行间更均衡。只作用文本块，不影响布局。 */
+p, li, dd, dt, blockquote, figcaption, summary {
+  text-wrap: pretty;
+}
+h1, h2, h3, h4, h5, h6 {
+  text-wrap: balance;
+}
