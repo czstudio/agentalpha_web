@@ -36,7 +36,7 @@ export function HomeTools() {
   return (
     <section id="tools" className="aa-section">
       <div className="section-shell">
-        <div className="aa-sec-head" style={{ marginBottom: 24 }}>
+        <div className="aa-sec-head" style={{ marginBottom: 24 }} data-reveal>
           <p className="aa-kicker">
             <Sparkles size={13} strokeWidth={2} aria-hidden style={{ verticalAlign: "-1px", marginRight: 6 }} />
             免费求职工具箱 · 10 个在线工具
@@ -48,8 +48,14 @@ export function HomeTools() {
           </p>
         </div>
         <div className="aa-tools-grid">
-          {TOOLS.map((tool) => (
-            <Link key={tool.href} href={tool.href} className="aa-tool-card">
+          {TOOLS.map((tool, toolIndex) => (
+            <Link
+              key={tool.href}
+              href={tool.href}
+              className="aa-tool-card"
+              data-reveal
+              style={{ "--rd": `${(toolIndex % 2) * 60}ms` } as React.CSSProperties}
+            >
               <span className="aa-tool-icon">
                 <tool.icon size={18} strokeWidth={2} aria-hidden />
               </span>

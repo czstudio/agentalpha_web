@@ -2531,13 +2531,41 @@ html.enrollment-dialog-open { overflow: hidden; }
 }
 
 /* ── 首页 · 导师与学员结果区 ── */
+/* 成员区：产业界档案卡（「头衔：详情」拆两行）+ 学术界胶囊 */
 .aa-mentor-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
-.aa-mentor-col { border: 1px solid var(--aa-rule, #e5e1d8); border-radius: 14px; padding: 22px 24px; background: var(--card, #fffdf8); }
-.aa-mentor-col h3 { font-size: 15.5px; font-weight: 700; margin: 0 0 12px; }
-.aa-mentor-col ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 10px; }
-.aa-mentor-col li { font-size: 13.5px; line-height: 1.75; padding-left: 16px; position: relative; }
-.aa-mentor-col li::before { content: ""; position: absolute; left: 2px; top: 0.6em; width: 6px; height: 6px; border-radius: 2px; background: var(--brand, #6e22f0); }
-.aa-mentor-note { margin: 14px 2px 0; font-size: 13.5px; color: var(--aa-muted, #6b6557); }
+.aa-mentor-card {
+  position: relative;
+  border: 1px solid var(--aa-rule, #e5e1d8);
+  border-radius: 16px;
+  padding: 24px 26px 22px;
+  background: var(--card, #fffdf8);
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+.aa-mentor-card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(110, 34, 240, 0.32);
+  box-shadow: 0 12px 30px rgba(38, 33, 26, 0.07);
+}
+.aa-mentor-no {
+  font-family: var(--font-display, Georgia, serif);
+  font-size: 30px;
+  line-height: 1;
+  color: rgba(110, 34, 240, 0.38);
+}
+.aa-mentor-card h3 { font-size: 16.5px; font-weight: 800; margin: 12px 0 8px; color: var(--ink, #26211a); text-wrap: balance; }
+.aa-mentor-card p { font-size: 13px; line-height: 1.78; color: var(--aa-muted, #6b6557); margin: 0; }
+.aa-mentor-aux { margin-top: 16px; display: flex; flex-wrap: wrap; align-items: center; gap: 12px 20px; }
+.aa-mentor-chips { display: flex; flex-wrap: wrap; gap: 10px; }
+.aa-mentor-chip {
+  font-size: 13px;
+  line-height: 1;
+  padding: 9px 15px;
+  border: 1px solid var(--aa-rule, #e5e1d8);
+  border-radius: 999px;
+  background: var(--card, #fffdf8);
+  color: #4d4739;
+}
+.aa-mentor-note { margin: 0; font-size: 13.5px; color: var(--aa-muted, #6b6557); }
 
 .aa-result-rows { display: grid; gap: 0; border-top: 1px solid var(--aa-rule, #e5e1d8); }
 .aa-result-row { display: grid; grid-template-columns: 150px 1fr; gap: 14px; padding: 14px 2px; border-bottom: 1px solid var(--aa-rule, #e5e1d8); }
@@ -2905,4 +2933,67 @@ p, li, dd, dt, blockquote, figcaption, summary {
 }
 h1, h2, h3, h4, h5, h6 {
   text-wrap: balance;
+}
+
+/* ── 动效体系：滚动显影 + hero 进场 + 页面转场 ──
+   隐藏态只在 html.js 下生效（无 JS 内容照常可见）；prefers-reduced-motion 全部跳过 */
+.js [data-reveal] {
+  opacity: 0;
+  transform: translateY(18px);
+  transition:
+    opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  transition-delay: var(--rd, 0ms);
+}
+.js [data-reveal].is-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .js .aa-hero .aa-kicker,
+  .js .aa-hero h1,
+  .js .aa-hero .aa-lede,
+  .js .aa-hero .aa-hero-actions,
+  .js .aa-hero .aa-hero-reel,
+  .js .aa-hero .aa-stat-row {
+    opacity: 0;
+    transform: translateY(16px);
+    animation: aa-hero-in 0.85s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+  .js .aa-hero .aa-kicker { animation-delay: 0.05s; }
+  .js .aa-hero h1 { animation-delay: 0.14s; }
+  .js .aa-hero .aa-lede { animation-delay: 0.26s; }
+  .js .aa-hero .aa-hero-actions { animation-delay: 0.38s; }
+  .js .aa-hero .aa-hero-reel { animation-delay: 0.3s; }
+  .js .aa-hero .aa-stat-row { animation-delay: 0.5s; }
+}
+@keyframes aa-hero-in {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.page-enter { animation: aa-page-in 0.32s ease both; }
+@keyframes aa-page-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .js [data-reveal],
+  .page-enter {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+    animation: none !important;
+  }
+  .js .aa-hero .aa-kicker,
+  .js .aa-hero h1,
+  .js .aa-hero .aa-lede,
+  .js .aa-hero .aa-hero-actions,
+  .js .aa-hero .aa-hero-reel,
+  .js .aa-hero .aa-stat-row {
+    opacity: 1 !important;
+    transform: none !important;
+    animation: none !important;
+  }
 }

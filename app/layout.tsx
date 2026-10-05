@@ -1,6 +1,7 @@
 import type React from "react"
 import type { Metadata } from "next"
 import { Analytics } from "@vercel/analytics/next"
+import { ScrollReveal } from "@/components/scroll-reveal"
 import { ThemeProvider } from "@/components/theme-provider"
 import { LanguageProvider } from "@/contexts/language-context"
 import "katex/dist/katex.min.css"
@@ -129,7 +130,14 @@ export default function RootLayout({
 
   return (
     <html lang="zh-CN" suppressHydrationWarning>
-      <head>{/* 字体已按 unicode-range 切片（@font-face 指向 /fonts/slices/*），按需加载即可；整包 woff2 未被任何 @font-face 引用，preload 只会让每个访客白下 1.5MB */}</head>
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: "document.documentElement.classList.add('js')",
+          }}
+        />
+        {/* 字体已按 unicode-range 切片（@font-face 指向 /fonts/slices/*），按需加载即可；整包 woff2 未被任何 @font-face 引用，preload 只会让每个访客白下 1.5MB */}
+      </head>
       <body className="antialiased" suppressHydrationWarning>
         <script
           type="application/ld+json"
@@ -140,6 +148,7 @@ export default function RootLayout({
         <ThemeProvider attribute="class" defaultTheme="light" forcedTheme="light" enableSystem={false}>
           <LanguageProvider>
             {children}
+            <ScrollReveal />
             <Analytics />
           </LanguageProvider>
         </ThemeProvider>
