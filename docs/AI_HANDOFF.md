@@ -185,3 +185,19 @@ cd /Users/cz/.codex/worktrees/agentalpha-web-snapshot-20260908
 ```
 
 然后根据任务进入对应目录修改代码，完成后执行构建和 Vercel 部署命令即可。
+
+---
+
+## 项目展示页（public/projects/）生产规范 v5（2026-10-05 定稿，强制）
+
+**任何 agent 修改 `public/projects/` 下的项目页（m1-m12），必须先读源仓的完整 SOP**：
+`agentalpha-projects` 仓库 → `docs/PROJECT-PAGE-SOP.md`（GitHub: czstudio/agentalpha-projects，main 分支），
+仓库根 `AGENTS.md` 是强制入口。要点：
+
+- 固定 12 节小林式结构；样板 `public/projects/m1-rag.html`（WhaleRAG v5.2）；
+- 文案必须经 huohua 多模型任务书管线生成（模板在源仓 `_research/v5_gen/`），禁止 agent 直写；
+- 图卡三类：AI 插画枚举 8-13 节点标签（密度标准）／运行界面必须真跑截图或录屏 GIF（本地适配器管线，见 SOP 第六节）／文字密集图 HTML 渲染；
+- 开头 JD 化（hero 对标岗位行 + JD 原话对照卡 + 亮点 JD/考点标签）；**禁「RAG 岗」措辞**；
+- 数字唯一来源=项目事实包；负结果如实写；JD 引用必须真实可点开；
+- 闸门：oil-tone 0 FAIL + 红线扫描（页面禁价格/私仓链接/承诺词，报名只到微信 aistudioyes）+ visual-judge 每段 ≥9 分 + 线上 curl 验证；
+- 部署：源仓 main 提交 → 本仓 worktree master 拷贝 `public/projects/` 文件推送 → ls-remote 核对 → Vercel 等 3-5 分钟 → curl 验证。
