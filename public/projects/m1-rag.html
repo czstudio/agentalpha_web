@@ -140,6 +140,50 @@ section[id]{scroll-margin-top:76px}
 .jdtags{display:flex;gap:6px;flex-wrap:wrap;margin-top:9px}
 .jdtags span{font-size:.68rem;line-height:1.5;border:1px solid var(--hair);border-radius:6px;padding:2.5px 8px;color:var(--muted-2);background:var(--bg)}
 .jdtags span.j1{color:#b5533c;border-color:#e8cfc5;background:#faf3ef}
+
+/* ═══════ v6 · feishu-paper-note 设计体系覆盖（2026-10-05 用户指定） ═══════ */
+:root{
+  --ink:#1f2329; --ink-2:#4e5969; --muted:#86909c; --muted-2:#a9b0b8;
+  --hair:#e5e6eb; --hair-2:#c9cdd4;
+  --accent:#3370ff; --accent-soft:rgba(51,112,255,.08); --accent-line:rgba(51,112,255,.35);
+  --btn:#3370ff; --on-btn:#ffffff;
+  --serif:"MiSans","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+}
+/* 版心：阅读宽度 920（对齐小林 ~800 / 飞书 760 的阅读尺寸） */
+.blk .inner,.mhero .inner{width:min(920px,calc(100% - clamp(32px,6vw,72px)))}
+/* 文字容器必须占满版心——禁止右侧空白带（用户红线） */
+.card p,.faq details p,.blk-sub,.mhero .sub{max-width:100%}
+/* hero 改上下结构：文字块 + 满版心大海报（首图变大） */
+.mhero .inner{display:block}
+.mhero .cover{margin:30px 0 0;max-width:100%}
+.mhero .cover img{width:100%;height:auto;display:block;border-radius:12px;border:1px solid var(--hair)}
+.mhero .nums{margin-top:26px}
+/* h2 飞书蓝条（4px #3370ff） */
+.blk-h h2{border-left:4px solid var(--accent);padding-left:13px;line-height:1.25}
+/* 卡片：飞书浅灰面板 + 发丝线 */
+.card{background:#f7f8fa;border:1px solid var(--hair);border-radius:10px}
+.card p b{color:var(--ink)}
+/* 图卡：满版心显示（16:9 约 920×518），截图加发丝边 */
+.fig-wide{width:100%;height:auto;display:block;border-radius:10px;border:1px solid var(--hair)}
+.fig-narrow{width:100%;max-width:800px;height:auto;display:block;margin:0 auto;border-radius:10px;border:1px solid var(--hair)}
+.duofig{gap:20px}
+.duofig img{border-radius:10px;border:1px solid var(--hair)}
+/* JD/考点标签 → 飞书四色高亮（蓝=JD 原话/术语，黄=考点/要点） */
+.jdtags span{background:#fff7e6;border:1px solid #ffd666;color:#7c4a03}
+.jdtags span.j1{background:#e6f4ff;border-color:#91caff;color:#0e42d2}
+.jdrow span{background:#f7f8fa;border:1px solid var(--hair);color:#4e5969}
+.jdrow b{color:var(--ink)}
+/* 简历四成分标签 → 飞书四色 */
+.resume .tags .t1{color:#0e42d2;background:#e6f4ff;border:1px solid #91caff}
+.resume .tags .t2{color:#274e13;background:#f6ffed;border:1px solid #b7eb8f}
+.resume .tags .t3{color:#7c4a03;background:#fff7e6;border:1px solid #ffd666}
+.resume .tags .t4{color:#820014;background:#fff1f0;border:1px solid #ffa39e}
+/* CTA → 飞书浅蓝面板 */
+.cta{background:#e6f4ff;color:var(--ink);border:1px solid #91cffc}
+.cta h2{color:#1f2329}
+.cta p{color:#4e5969;max-width:100%}
+.cta .btn{border-color:#91caff;color:#0e42d2;background:#fff}
+.cta .btn.primary{background:#3370ff;color:#fff;border-color:#3370ff}
 </style>
 </head>
 <body>
@@ -213,16 +257,16 @@ section[id]{scroll-margin-top:76px}
       「<b>基于 RAG 的知识库/检索系统建设</b>」——字节·飞书 → 八步数据流，从 PDF 解析到带编号引用的回答，每一步自己实现<br>
       「<b>深入理解 Agentic 架构、RAG</b>」——字节·飞书 → Agentic 按需再搜，系统自己决定查几轮，实测平均 2.16 轮、65% 触发二次搜索<br>
       「<b>知识库/RAG 检索系统后端研发，加分：向量检索</b>」——字节 → Chroma 向量库 + BM25/向量双路召回 + RRF 融合<br>
-      「<b>RAG 提升输出质量；评测体系与回归机制</b>」——网易·知识工程 → 220 题封存评测集 + bootstrap 置信区间 + 逐题分歧归因
+      「<b>RAG 提升输出质量；评测体系与回归机制</b>」——网易·知识工程 → 220 题封存评测集 + bootstrap 置信区间 + 逐题分歧归因<br>
+      「<b>向量检索（Embedding 选型 + Rerank 策略）工程化落地</b>」——某大厂 AI Agent 架构岗任职资格原文 → Qwen3-Embedding-4B 选型 + bge-reranker 精排策略，Recall@10 实测 0.991
       </p>
       <p>别的项目让你「了解概念」，这个项目让你把这四行 JD 原话逐条变成「我写过、我测过、我知道边界在哪」——面试官问到哪一条，你都有代码和数字接住。</p>
     </div>
     <div style="height:20px"></div>
-    <img class="fig-wide" src="assets/img/m1/wr-live-demo.gif" alt="真实录屏：上传 PDF、构建知识库、提问并获得带编号引用的回答全过程">
-    <div class="figcap">真实录屏，66 秒完整流程：上传课程 PDF → 一键构建知识库 → 提问 → 系统先检索再回答，答案带 [1][2] 编号引用，点开可看原文和相关度</div>
+    <img class="fig-narrow" loading="eager" src="assets/img/m1/wr-live-demo.gif" alt="真实录屏：上传 PDF、构建知识库、提问并获得带编号引用的回答全过程">
+    <div class="figcap">真实录屏，49 秒完整流程：上传课程 PDF → 一键构建知识库 → 提问 → 系统先检索再回答，答案带 [1][2] 编号引用，点开可看原文和相关度</div>
     <div style="height:16px"></div>
     <div class="duofig"><figure><img class="fig-half" src="assets/img/m1/ui-build.png" alt="真实运行截图：上传课程 PDF 构建知识库"><figcaption class="figcap">真实运行截图：上传课程 PDF，点「处理文档并构建知识库」，侧栏显示「知识库已就绪」</figcaption></figure><figure><img class="fig-half" src="assets/img/m1/ui-answer.png" alt="真实运行截图：答案带编号引用与相关度"><figcaption class="figcap">真实运行截图：提问后返回带 [1][2] 编号引用的答案，引用块展开显示相关度与原文</figcaption></figure></div>
-    <div class="figcap">WhaleRAG 运行界面：上传 PDF → 提问 → 答案带编号引用，点编号可展开原文块</div>
   </div>
 </section>
 
@@ -237,16 +281,15 @@ section[id]{scroll-margin-top:76px}
       <p>所以你在 WhaleRAG 里看到的每一个设计决策，背后都有一个企业级场景在压着：为什么拒答门控要做两道？因为风控场景「宁可不答，不可编造」。为什么每个答案都要编号引用？因为监管要求可审计。这些不是「最佳实践」，是<b>被真实业务逼出来的设计</b>。</p>
     </div>
     <div style="height:20px"></div>
-    <div class="duofig">
-      <figure>
-        <img class="fig-half" src="assets/img/m1/born-group-intro.jpg" alt="课程群内创始人解释项目出身原话截图">
-        <figcaption class="figcap">课程群内创始人原话：讲这套系统的企业出身</figcaption>
-      </figure>
-      <figure>
-        <img class="fig-half" src="assets/img/m1/born-code-drive.jpg" alt="课程群内创始人解释轻量化思路原话截图">
-        <figcaption class="figcap">课程群内创始人原话：讲「轻量化」具体砍掉了什么、保留了什么</figcaption>
-      </figure>
-    </div>
+    <figure style="max-width:720px;margin:0 auto">
+      <img class="fig-wide" src="assets/img/m1/born-group-intro.jpg" alt="课程群真实截图：项目介绍与云盘交付文件列表">
+      <figcaption class="figcap">课程群真实截图：创始人介绍项目出身（某金融独角兽内部项目），下方云盘是交付给学员的真实代码文件列表</figcaption>
+    </figure>
+    <div style="height:16px"></div>
+    <figure style="max-width:720px;margin:0 auto">
+      <img class="fig-wide" src="assets/img/m1/born-code-drive.jpg" alt="创始人原话：企业出身与轻量化思路">
+      <figcaption class="figcap">创始人原话：那套系统支撑上万份财报、风控文件的实时问答与可审计访问；课程版保留核心能力——高速检索、低幻觉率、可追溯来源、可控生成</figcaption>
+    </figure>
     <div style="height:12px"></div>
     <p class="blk-sub">企业版是多服务部署 + 权限审计 + 私有化；课程版保留完整链路，跑在笔记本上，API 走 SiliconFlow 免费额度。核心能力一个没少。</p>
   </div>
@@ -257,7 +300,7 @@ section[id]{scroll-margin-top:76px}
   <div class="inner">
     <div class="blk-h"><span class="no">03</span><h2>项目架构</h2></div>
     <p class="blk-sub">把 RAG 想象成一个图书管理员。你问他问题，他不是凭记忆回答，而是先去书架找书、翻到具体页、确认内容、然后指着书上的段落告诉你答案。</p>
-    <img class="fig-wide" src="assets/img/m1/wr-arch-pipeline.png" alt="WhaleRAG 八步数据流架构图">
+    <img class="fig-narrow" src="assets/img/m1/wr6-arch-pipeline.png" alt="WhaleRAG 八步数据流架构图">
     <div class="figcap">八步数据流：解析→切块→编号→索引→召回→精排→引用→拒答</div>
 <div style="height:20px"></div>
     <p class="blk-sub">一句话说清它厉害在哪：不是某一步特别新，而是企业级系统该有的四件事，它同时做到，而且每一件都有数字或代码兜底。</p>
@@ -293,22 +336,22 @@ section[id]{scroll-margin-top:76px}
 <section class="blk" id="highlights">
   <div class="inner">
     <div class="blk-h"><span class="no">04</span><h2>项目亮点</h2></div>
-    <p class="blk-sub">每条亮点都挂着对应的 JD 要求和面试考点——学一个，认领一个。前六条直接对应字节、网易在招岗位 JD 里写明的要求。</p>
-    <img class="fig-wide" src="assets/img/m1/wr-capability-matrix.png" alt="WhaleRAG 能力矩阵环：10 项能力环绕鲸鱼女孩">
+    <p class="blk-sub">这八条逐条对应企业级 AI Agent 岗 JD 的原文要求（标签里是 JD 原话），每一条都有代码、实测数字或可点开的交付物兜底——面试官问到哪条，你都能接住。</p>
+    <img class="fig-narrow" src="assets/img/m1/wr6-capability-matrix.png" alt="WhaleRAG 能力矩阵环：10 项能力环绕鲸鱼女孩">
     <div class="figcap">一条链路全都会 · 十个能力点</div>
     <div style="height:18px"></div>
     <div class="grid10">
-      <div class="g10"><span class="n">01</span><div><b>检索换路线 +9.1pp</b><p>BM25 单路 0.900，换向量检索后 0.991，面试官问「优化有数据吗」，这就是答案。</p><div class="jdtags"><span class="j1">JD：向量检索/ES 加分</span><span class="">考点：优化怎么量化</span></div></div></div>
-      <div class="g10"><span class="n">02</span><div><b>220 题黄金集</b><p>题目提前封存，改代码重考，bootstrap 1000 次算置信区间。</p><div class="jdtags"><span class="j1">JD：评测体系与回归</span><span class="">考点：评测集怎么搭</span></div></div></div>
-      <div class="g10"><span class="n">03</span><div><b>逐题分歧归因</b><p>逐题人工对拍——向量路救回 BM25 21 题，BM25 只救回 1 题，Hybrid 反丢 2 题、补回 1 题，另有 1 题两路都漏。</p><div class="jdtags"><span class="j1">JD：Bad Case 归因回流</span><span class="">考点：检索分歧怎么查</span></div></div></div>
-      <div class="g10"><span class="n">04</span><div><b>按需再搜</b><p>让系统自己判断资料够不够，平均 2.16 轮、65% 查询触发二次搜索。</p><div class="jdtags"><span class="j1">JD：Agentic 架构</span><span class="">考点：Agentic 的边界</span></div></div></div>
-      <div class="g10"><span class="n">05</span><div><b>编号级引用</b><p>答案里每个论断标 [1][2]，点编号展开原文块——可追溯、可审计。</p><div class="jdtags"><span class="j1">JD：幻觉问题与处理</span><span class="">考点：可追溯怎么落地</span></div></div></div>
-      <div class="g10"><span class="n">06</span><div><b>两道拒答门控</b><p>检索最高分低于阈值直接拒；引用编号对不上已有块再拒一次。</p><div class="jdtags"><span class="j1">JD：幻觉问题与处理</span><span class="">考点：宁可不答不编造</span></div></div></div>
-      <div class="g10"><span class="n">07</span><div><b>四种检索策略对照</b><p>BM25 / Dense / Hybrid / Agentic 全跑一遍，数字摆出来看。</p><div class="jdtags"><span class="">考点：技术选型怎么讲</span></div></div></div>
-      <div class="g10"><span class="n">08</span><div><b>负结果如实归档</b><p>Hybrid 0.986 没超过 Dense 0.991，原因写清楚——这叫工程诚实。</p><div class="jdtags"><span class="">考点：被追问时怎么答</span></div></div></div>
-      <div class="g10"><span class="n">09</span><div><b>teacher / student 双版本</b><p>完整答案 + 纯 TODO 骨架，学习过程就是实现过程。</p><div class="jdtags"><span class="">考点：工程化习惯</span></div></div></div>
-      <div class="g10"><span class="n">10</span><div><b>可迁移</b><p>换语料（法务/医疗/电商）就是另一个行业的知识库系统。</p><div class="jdtags"><span class="">考点：换行业怎么办</span></div></div></div>
+      <div class="g10"><span class="n">01</span><div><b>Embedding 选型 + Rerank 策略工程化</b><p>教学链选型 Qwen3-Embedding-4B，精排 bge-reranker-v2-m3，召回 top-20、精排取 top-5；在 220 题封存评测集上 Recall@10 实测 0.991。</p><div class="jdtags"><span class="j1">JD：向量检索（Embedding 选型 + Rerank 策略）工程化落地</span><span>数字：0.991</span></div></div></div>
+      <div class="g10"><span class="n">02</span><div><b>检索 Agent Loop：评估→再查→收敛</b><p>让系统自己判断首轮证据够不够、决定要不要再查，3 轮硬上限；实测平均 2.16 轮、65% 查询触发二次搜索。任务规划、工具调用、多轮循环在检索域的完整落地。</p><div class="jdtags"><span class="j1">JD：基于 Agent Loop 实现任务规划、工具调用</span><span>数字：平均 2.16 轮</span></div></div></div>
+      <div class="g10"><span class="n">03</span><div><b>置信度评估与两道拒答门控</b><p>检索最高分低于阈值直接拒答；生成答案的引用编号对不上已有块再拒一次。知识库里没有的，系统直说没有——幻觉治理的工程底线。</p><div class="jdtags"><span class="j1">JD：置信度评估</span><span>考点：幻觉治理</span></div></div></div>
+      <div class="g10"><span class="n">04</span><div><b>Prompt Engineering 全链路</b><p>系统提示、[1][2] 引用格式强约束、拒答话术、检索器工具描述全部进代码库；temperature 固定 0.2 保证同题同答，每次改动有实验对照。</p><div class="jdtags"><span class="j1">JD：Prompt Engineering 全链路设计及持续迭代</span></div></div></div>
+      <div class="g10"><span class="n">05</span><div><b>自动化评测体系（可复跑的四臂 A/B）</b><p>220 题封存黄金集（MS MARCO 真实查询、种子固定 42），BM25 / Dense / Hybrid / Agentic 四臂同口径对照，bootstrap 1000 次报 95% 置信区间，再叠加逐题人工归因。</p><div class="jdtags"><span class="j1">JD：模型评测与 A/B 测试体系</span><span>数字：95% CI</span></div></div></div>
+      <div class="g10"><span class="n">06</span><div><b>从原型到生产的完整交付</b><p>Streamlit 交互应用、Chroma 持久化（重启不丢）、SiliconFlow API 服务化、14 条真实故障速查表——一个人从原型走到可演示的生产系统。</p><div class="jdtags"><span class="j1">JD：独立完成从原型到生产的交付</span></div></div></div>
+      <div class="g10"><span class="n">07</span><div><b>RAG 数据链路全自实现</b><p>PDF 解析、1000/100 语义切块、块 ID 编号、Chroma 向量索引，八步数据流每一步自己写，为 Graph RAG 等进阶检索架构打好数据底座。</p><div class="jdtags"><span class="j1">JD：知识检索工程化</span><span>考点：数据链路</span></div></div></div>
+      <div class="g10"><span class="n">08</span><div><b>可迁移的系统骨架</b><p>换语料（法务/医疗/电商）就是另一行业的知识库系统；评估→再查的循环骨架可直接迁移到工具调用与多轮对话场景。</p><div class="jdtags"><span>考点：举一反三</span></div></div></div>
     </div>
+    <div style="height:14px"></div>
+    <p class="blk-sub">诚实边界：这类 JD 里的「多智能体协同」「四层记忆体系」由同系列项目覆盖——m2 做记忆系统、m4 做多 Agent 协作，本项目页面不冒领。</p>
   </div>
 </section>
 
@@ -369,7 +412,7 @@ section[id]{scroll-margin-top:76px}
       <div class="ch"><span class="no">02</span><b>三十分钟看懂 RAG 全景</b><p>从「模型不懂你的文件」到「让文件自己说话」的完整逻辑。</p></div>
       <div class="ch"><span class="no">03</span><b>解析与切块：项目从哪里开始</b><p>PDF 解析的坑、三种切块策略对照、1000/100 是怎么定的。</p></div>
       <div class="ch"><span class="no">04</span><b>索引与检索：两个管理员怎么找书</b><p>BM25 和向量检索各自擅长什么，RRF 怎么把两路名次合起来。</p></div>
-      <div class="ch"><span class="no">05</span><b>精排、引用与拒答：从「找到」到「敢用」</b><p>精排模型为什么必要、引用编号怎么落地、两道门控怎么设。</p></div>
+      <div class="ch"><span class="no">05</span><b>精排、引用与拒答：从找到到敢用</b><p>精排模型为什么必要、引用编号怎么落地、两道门控怎么设。</p></div>
       <div class="ch"><span class="no">06</span><b>按需再搜：让系统自己决定查几轮</b><p>Agentic 检索的逻辑、实现方式、以及它的小语料边界。</p></div>
       <div class="ch"><span class="no">07</span><b>评测：0.900→0.991 是怎么测出来的</b><p>黄金集四要素、指标定义、bootstrap 置信区间、逐题归因。</p></div>
       <div class="ch"><span class="no">08</span><b>金融工具与多 Agent 产线</b><p>企业版的多 Agent 架构思路，以及课程版的简化取舍。</p></div>
@@ -393,8 +436,8 @@ section[id]{scroll-margin-top:76px}
   <div class="inner">
     <div class="blk-h"><span class="no">07</span><h2>学完项目能有什么收获？</h2></div>
     <p class="blk-sub">不是「我听说过 RAG」，而是「我亲手写过、改过、测过、优化过一套 RAG」。</p>
-    <img class="fig-wide" src="assets/img/m1/wr-skill-tree.png" alt="WhaleRAG 技能树：六大分支覆盖完整 RAG 能力">
-    <div class="figcap">六大技能分支：检索、排序、生成、评测、工程、面试</div>
+    <img class="fig-narrow" src="assets/img/m1/wr6-skill-tree.png" alt="WhaleRAG 技能树：六大分支覆盖完整 RAG 能力">
+    <div class="figcap">四大技能分支：检索、精排、评测、面试——每张卡都是面试能直接讲的能力</div>
     <div style="height:18px"></div>
     <div class="duo2">
       <div class="gain">
@@ -513,7 +556,7 @@ section[id]{scroll-margin-top:76px}
       <p style="margin-top:14px"><b>映射关系</b>：八步数据流 ↔「RAG 知识库建设」；BM25/向量/RRF ↔「向量检索/ES 检索加分」；220 题评测 + bootstrap + 分歧归因 ↔「评测体系与回归机制」；拒答门控 + 编号级引用 ↔「幻觉问题与处理」；Streamlit 界面 ↔「应用交付全生命周期」。</p>
     </div>
     <div style="height:18px"></div>
-    <img class="fig-wide" src="assets/img/m1/wr-interview-scene.png" alt="面试场景：候选人指着评测报告讲 RAG 优化">
+    <img class="fig-narrow" src="assets/img/m1/wr6-interview-scene.png" alt="面试场景：候选人指着评测报告讲 RAG 优化">
     <div class="figcap">面试官追问「Hybrid 为什么没超过 Dense」——你翻开评测报告第 7 章</div>
     <div style="height:18px"></div>
     <div class="resume">
