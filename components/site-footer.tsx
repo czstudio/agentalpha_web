@@ -63,7 +63,6 @@ export function SiteFooter() {
         </div>
         <div className="aa-footer-bottom">
           <span>© {new Date().getFullYear()} AgentAlpha · 大模型 Agent 实战社区</span>
-          <span className="aa-footer-meta">持续更新 · 全部页面可搜索、可被 AI 引用</span>
         </div>
       </div>
     </footer>
