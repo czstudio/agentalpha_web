@@ -133,6 +133,13 @@ section[id]{scroll-margin-top:76px}
 .cta .row{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
 .cta .btn{border-color:rgb(255 255 255/.25);color:var(--on-btn)}
 .cta .btn.primary{background:var(--accent);border-color:var(--accent)}
+
+.jdrow{display:flex;align-items:center;gap:9px;flex-wrap:wrap;margin-top:20px}
+.jdrow>b{font-size:.8rem;color:var(--ink);letter-spacing:.02em}
+.jdrow span{font-size:.78rem;border:1px solid var(--hair);border-radius:999px;padding:6px 13px;color:var(--muted);background:#fff}
+.jdtags{display:flex;gap:6px;flex-wrap:wrap;margin-top:9px}
+.jdtags span{font-size:.68rem;line-height:1.5;border:1px solid var(--hair);border-radius:6px;padding:2.5px 8px;color:var(--muted-2);background:var(--bg)}
+.jdtags span.j1{color:#b5533c;border-color:#e8cfc5;background:#faf3ef}
 </style>
 </head>
 <body>
@@ -153,13 +160,14 @@ section[id]{scroll-margin-top:76px}
         <div><b>8 步</b><span>全链路自己实现</span></div>
         <div><b>0.900→0.991</b><span>MS MARCO 220 题实测</span></div>
         <div><b>12 章</b><span>深度讲解</span></div>
-        <div><b>3 份源码</b><span>三套版本各司其职</span></div>
+        <div><b>4 条 JD</b><span>大厂岗位逐条对上</span></div>
         <div><b>4 周</b><span>每周 8-10 小时</span></div>
       </div>
       <div class="herocta">
         <a class="btn primary" href="#docs">看项目文档</a>
         <a class="btn" href="#cta">添加微信 aistudioyes 报名</a>
       </div>
+      <div class="jdrow"><b>学完直接对标在招岗位：</b><span>字节 · 知识库 RAG 后端</span><span>字节 · 飞书大模型应用</span><span>网易 · Agent 应用开发</span><span>网易 · 知识工程</span></div>
     </div>
     <figure class="cover">
       <img src="assets/img/m1/wr-hero-poster.png" alt="WhaleRAG 主视觉海报">
@@ -196,6 +204,18 @@ section[id]{scroll-margin-top:76px}
       <p>WhaleRAG 不是让你调一个现成的 API 就完事。你要从 PDF 解析开始，一步步实现语义切块、向量索引、混合检索、精排、引用标注、拒答门控——每一步都有代码、有实验、有「为什么这么选」的解释。</p>
       <p>它源自真实的企业交付。我们参考并提炼了曾为北美顶级金融独角兽交付的定制化 RAG 系统：那套系统支撑了<b>上万份财报、风控文件的实时问答与可审计访问</b>。这次我们把那套企业级架构理念「轻量化」，做成一套通用的 RAG 实战模板，保留核心能力——<b>高速检索、低幻觉率、可追溯来源、可控生成</b>——让任何团队都能以极低门槛复刻出自己的智能知识中枢。</p>
       <p>对你来说，学完它你能交出三样东西：<b>一个能写进简历的项目、一份带置信区间的评测报告、一套能扛住面试追问的讲法</b>。</p>
+    </div>
+    <div style="height:20px"></div>
+    <div class="card">
+      <p><b>先把话说明白：这个项目练的，就是大厂 RAG 岗 JD 上那些词。</b></p>
+      <p>下面四条要求摘自 2026 年在招岗位的 JD 原文（第 10 节附可点开的官网链接），右边是你在四周里亲手写的部分：</p>
+      <p>
+      「<b>基于 RAG 的知识库/检索系统建设</b>」——字节·飞书 → 八步数据流，从 PDF 解析到带编号引用的回答，每一步自己实现<br>
+      「<b>深入理解 Agentic 架构、RAG</b>」——字节·飞书 → Agentic 按需再搜，系统自己决定查几轮，实测平均 2.16 轮、65% 触发二次搜索<br>
+      「<b>知识库/RAG 检索系统后端研发，加分：向量检索</b>」——字节 → Chroma 向量库 + BM25/向量双路召回 + RRF 融合<br>
+      「<b>RAG 提升输出质量；评测体系与回归机制</b>」——网易·知识工程 → 220 题封存评测集 + bootstrap 置信区间 + 逐题分歧归因
+      </p>
+      <p>别的项目让你「了解概念」，这个项目让你把这四行 JD 原话逐条变成「我写过、我测过、我知道边界在哪」——面试官问到哪一条，你都有代码和数字接住。</p>
     </div>
     <div style="height:20px"></div>
     <div class="duofig"><figure><img class="fig-half" src="assets/img/m1/ui-build.png" alt="真实运行截图：上传课程 PDF 构建知识库"><figcaption class="figcap">真实运行截图：上传课程 PDF，点「处理文档并构建知识库」，侧栏显示「知识库已就绪」</figcaption></figure><figure><img class="fig-half" src="assets/img/m1/ui-answer.png" alt="真实运行截图：答案带编号引用与相关度"><figcaption class="figcap">真实运行截图：提问后返回带 [1][2] 编号引用的答案，引用块展开显示相关度与原文</figcaption></figure></div>
@@ -262,21 +282,21 @@ section[id]{scroll-margin-top:76px}
 <section class="blk" id="highlights">
   <div class="inner">
     <div class="blk-h"><span class="no">04</span><h2>项目亮点</h2></div>
-    <p class="blk-sub">从面试官视角看，这个项目能聊的 10 个点——每一条都有代码和实验撑着。</p>
+    <p class="blk-sub">每条亮点都挂着对应的 JD 要求和面试考点——学一个，认领一个。前六条直接来自字节、网易在招岗位的 JD 原文。</p>
     <img class="fig-wide" src="assets/img/m1/wr-capability-matrix.png" alt="WhaleRAG 能力矩阵环：10 项能力环绕鲸鱼女孩">
     <div class="figcap">一条链路全都会 · 十个能力点</div>
     <div style="height:18px"></div>
     <div class="grid10">
-      <div class="g10"><span class="n">01</span><div><b>检索换路线 +9.1pp</b><p>BM25 单路 0.900，换向量检索后 0.991，面试官问「优化有数据吗」，这就是答案。</p></div></div>
-      <div class="g10"><span class="n">02</span><div><b>220 题黄金集</b><p>题目提前封存，改代码重考，bootstrap 1000 次算置信区间。</p></div></div>
-      <div class="g10"><span class="n">03</span><div><b>逐题分歧归因</b><p>逐题人工对拍——向量路救回 BM25 21 题，BM25 只救回 1 题，Hybrid 反丢 2 题、补回 1 题，另有 1 题两路都漏。</p></div></div>
-      <div class="g10"><span class="n">04</span><div><b>按需再搜</b><p>让系统自己判断资料够不够，平均 2.16 轮、65% 查询触发二次搜索。</p></div></div>
-      <div class="g10"><span class="n">05</span><div><b>编号级引用</b><p>答案里每个论断标 [1][2]，点编号展开原文块——可追溯、可审计。</p></div></div>
-      <div class="g10"><span class="n">06</span><div><b>两道拒答门控</b><p>检索最高分低于阈值直接拒；引用编号对不上已有块再拒一次。</p></div></div>
-      <div class="g10"><span class="n">07</span><div><b>四种检索策略对照</b><p>BM25 / Dense / Hybrid / Agentic 全跑一遍，数字摆出来看。</p></div></div>
-      <div class="g10"><span class="n">08</span><div><b>负结果如实归档</b><p>Hybrid 0.986 没超过 Dense 0.991，原因写清楚——这叫工程诚实。</p></div></div>
-      <div class="g10"><span class="n">09</span><div><b>teacher / student 双版本</b><p>完整答案 + 纯 TODO 骨架，学习过程就是实现过程。</p></div></div>
-      <div class="g10"><span class="n">10</span><div><b>可迁移</b><p>换语料（法务/医疗/电商）就是另一个行业的知识库系统。</p></div></div>
+      <div class="g10"><span class="n">01</span><div><b>检索换路线 +9.1pp</b><p>BM25 单路 0.900，换向量检索后 0.991，面试官问「优化有数据吗」，这就是答案。</p><div class="jdtags"><span class="j1">JD：向量检索/ES 加分</span><span class="">考点：优化怎么量化</span></div></div></div>
+      <div class="g10"><span class="n">02</span><div><b>220 题黄金集</b><p>题目提前封存，改代码重考，bootstrap 1000 次算置信区间。</p><div class="jdtags"><span class="j1">JD：评测体系与回归</span><span class="">考点：评测集怎么搭</span></div></div></div>
+      <div class="g10"><span class="n">03</span><div><b>逐题分歧归因</b><p>逐题人工对拍——向量路救回 BM25 21 题，BM25 只救回 1 题，Hybrid 反丢 2 题、补回 1 题，另有 1 题两路都漏。</p><div class="jdtags"><span class="j1">JD：Bad Case 归因回流</span><span class="">考点：检索分歧怎么查</span></div></div></div>
+      <div class="g10"><span class="n">04</span><div><b>按需再搜</b><p>让系统自己判断资料够不够，平均 2.16 轮、65% 查询触发二次搜索。</p><div class="jdtags"><span class="j1">JD：Agentic 架构</span><span class="">考点：Agentic 的边界</span></div></div></div>
+      <div class="g10"><span class="n">05</span><div><b>编号级引用</b><p>答案里每个论断标 [1][2]，点编号展开原文块——可追溯、可审计。</p><div class="jdtags"><span class="j1">JD：幻觉问题与处理</span><span class="">考点：可追溯怎么落地</span></div></div></div>
+      <div class="g10"><span class="n">06</span><div><b>两道拒答门控</b><p>检索最高分低于阈值直接拒；引用编号对不上已有块再拒一次。</p><div class="jdtags"><span class="j1">JD：幻觉问题与处理</span><span class="">考点：宁可不答不编造</span></div></div></div>
+      <div class="g10"><span class="n">07</span><div><b>四种检索策略对照</b><p>BM25 / Dense / Hybrid / Agentic 全跑一遍，数字摆出来看。</p><div class="jdtags"><span class="">考点：技术选型怎么讲</span></div></div></div>
+      <div class="g10"><span class="n">08</span><div><b>负结果如实归档</b><p>Hybrid 0.986 没超过 Dense 0.991，原因写清楚——这叫工程诚实。</p><div class="jdtags"><span class="">考点：被追问时怎么答</span></div></div></div>
+      <div class="g10"><span class="n">09</span><div><b>teacher / student 双版本</b><p>完整答案 + 纯 TODO 骨架，学习过程就是实现过程。</p><div class="jdtags"><span class="">考点：工程化习惯</span></div></div></div>
+      <div class="g10"><span class="n">10</span><div><b>可迁移</b><p>换语料（法务/医疗/电商）就是另一个行业的知识库系统。</p><div class="jdtags"><span class="">考点：换行业怎么办</span></div></div></div>
     </div>
   </div>
 </section>
