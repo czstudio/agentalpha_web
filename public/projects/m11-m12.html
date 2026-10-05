@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>VerdictCore 判定引擎 & RelayAgent 长程接力 · AgentAlpha 社区新项目</title>
+<link rel="stylesheet" href="/projects/assets/showcase.css">
+</head>
+<body>
+<header class="topbar"><div class="wrap"><div class="brand"><span class="dot"></span>AgentAlpha <small>· 课程项目</small></div><nav class="topnav"><a href="/projects/index.html">总览</a><a href="/projects/results.html">实验结果</a><a href="/projects/m1-rag.html">RAG</a><a href="/projects/m2-memory.html">记忆</a><a href="/projects/m3-agent.html">单Agent</a><a href="/projects/m4-multiagent.html">多Agent</a><a href="/projects/m5-deepsearch.html">DeepSearch</a><a href="/projects/m6-inference.html">推理服务</a><a href="/projects/m7-codeagent.html">Code Agent</a><a href="/projects/m8-selfevolve.html">自进化</a><a href="/projects/m9-agentic-rl.html">Agentic RL</a><a href="/projects/m10-capstone.html">毕业考核</a><a href="m11-m12.html" class="on">新项目</a></nav></div></header>
+
+<section class="hero"><div class="wrap">
+<div class="prod-chip"><span class="live"></span>AgentAlpha · 社区新项目（2026-10）</div>
+<h1>第 11 &amp; 12 项目：判定引擎与长程接力</h1>
+<p class="tagline">两个来自真实业务痛点的社区新项目：VerdictCore 验证「判定任务不需要生成」（快 184×），RelayAgent 验证「harness 故障不冒充模型故障」。负结果与显著结论一起上墙，全部数字可在仓库复现。</p>
+<div class="prod-cta"><a class="btn primary" href="#m11">VerdictCore</a><a class="btn" href="#m12">RelayAgent</a><a class="btn" href="/projects/results.html">实验结果</a></div>
+<div class="scene-tags"><span class="scene-tag">前置 · 会 Python 基础语法即可，教程从零讲起</span><span class="scene-tag">支付风控 / 游戏审核 / 数据科学 / 代码修复</span><span class="scene-tag">全部本机模型，单卡可复现</span></div>
+</div></section>
+<main class="main wrap">
+
+<section id="m11">
+<div class="sec-head"><span class="no">01</span><h2>VerdictCore · 多场景判定引擎</h2></div>
+<p class="sec-sub">第 11 项目 · 开源 JEV（判定模型生态）品类的自研实现 · R41-R43 已验收（2026-10-04）</p>
+<div class="card"><p><b>它解决的真实问题：</b>支付风控和游戏审核业务里反复出现同一类需求——给一段完整上下文，对一组结构化问题给出离散判定（是/否、三选一、风险分级），并且要求毫秒级延迟、逐问可审计（每个判定带置信度留痕）、成本按「每千次判定」计价、规则改动后零成本重造训练数据。通用对话模型在这类需求上是三重浪费：答案只有一个 token、思考链付不起延迟、按 token 计费算不过账。</p>
+<p><b>第一性假设：</b>判定任务不需要生成。做法是把这条路线固化成四层：形状契约（互操作参考，实现全部自研）→ 可验证任务源（真值由程序给出——井字棋用 minimax 全智真值、风控用规则引擎，零标注成本）→ prefill-only 打分器（每问一次前向，答案位读 logits，没有一步生成）→ 三轴基准（正确率带置信区间、延迟实测、选项序敏感性）。</p></div>
+
+<div class="metrics">
+<div class="metric"><div class="name">判定训练+打分</div><div class="how">宏正确率 0.422（240 题 heldout，Wilson CI 0.392-0.517）</div><span class="badge pub">实验 R41 · 可复现</span></div>
+<div class="metric"><div class="name">p50 延迟 14.7ms</div><div class="how">batch=1 实测墙钟，CoT 臂 2054.7ms 的 1/139</div><span class="badge pub">实验 R41 · 可复现</span></div>
+<div class="metric"><div class="name">CoT 是负资产</div><div class="how">零样本 CoT 0.350 比不打分还低 3.8pp（配对置换 p=0.045），延迟贵 184×</div><span class="badge pub">实验 R41 · 显著</span></div>
+<div class="metric"><div class="name">0.5B 平手 2.7B</div><div class="how">Qwen2.5-0.5B 判定训练后 0.490 = phi-2（2.7B），能力瓶颈在对齐不在参数量</div><span class="badge pub">实验 R42 · 可复现</span></div>
+</div>
+
+<div class="card"><p><b>如实的边界（与结论一起上墙）：</b>训练净增益 +3.4pp 在教学规模下不显著（p=0.44），不硬说「训练有效」；score 细粒度分级（0-5）在 ≤2.7B 模型上按本协议不可学，修复尝试是负结果——但找到了它为什么修不好（模型学到「分数大概大」，没学到规则权重计数），主指标降级为三档 action 判定。跑间方差（三次运行 0.422/0.460/0.490）如实记录，「反超」不声称，「平手+更稳」是可辩护表述。</p></div>
+</section>
+
+<section id="m12">
+<div class="sec-head"><span class="no">02</span><h2>RelayAgent · 长程接力引擎</h2></div>
+<p class="sec-sub">第 12 项目 · 自研 RLM 式 Harness · 立项 2026-10-04，Slice 1 已验收</p>
+<div class="card"><p><b>它解决的真实问题：</b>多小时/多文件/多阶段的长程任务里，工具框架自身的缺陷常被误归咎于模型——上下文溢出、中断后从零重来、同一场失败反复踩。RelayAgent 把「接力」做成四件套：持久会话内核（REPL+断点恢复）、跨轨迹记忆（分层寿命）、技能沉淀（失败教训入库）、递归子代理。核心主张：同底座同预算下，接力四件套对长程任务成功率的净增益可测、可复现、可归因——<b>让 harness 故障不再冒充模型故障</b>。</p></div>
+
+<div class="metrics">
+<div class="metric"><div class="name">6 场景 × 真实基准</div><div class="how">DS-1000 / SWE-bench Lite / HotpotQA / MATH / ALFWorld / FinQA，全本机模型</div><span class="badge pub">预注册协议</span></div>
+<div class="metric"><div class="name">接力硬门</div><div class="how">kill 进程后 resume 与一次跑完全等（20/20 单测），轨迹级实测进 Slice 2</div><span class="badge pub">单测验证</span></div>
+<div class="metric"><div class="name">省 44% token</div><div class="how">HotpotQA 检索链 807 vs 直答 1425 token/题——质量-成本权衡证据</div><span class="badge pub">实验 R46 · 可复现</span></div>
+<div class="metric"><div class="name">27/55 题死因归因</div><div class="s how">多轮 prompt 膨胀吃掉 token 预算——失败在协议不在模型，修法进 Slice 2</div><span class="badge pub">可审计归因</span></div>
+</div>
+
+<div class="card"><p><b>Slice 1 是合格的负结果：</b>两场景双臂全量跑完（20 测试全绿、16 条诚实边界）——数学直答 0.236 vs 接力 0.127（p=0.106）、多跳直答 0.32 vs 检索链 0.27（p=0.47），方向都为负、如实入档。但逐题归因找到真死因：27/55 题死于 token 总预算被多轮 prompt 膨胀吃掉——这正是「harness 故障不冒充模型故障」的正面实录。预注册协议写死：负结果如实入档（R36/R39/R43 先例），统计门 p&lt;0.05 且方向为正才算数。</p></div>
+</section>
+
+<section>
+<div class="sec-head"><span class="no">03</span><h2>这两个项目怎么进课程</h2></div>
+<p class="sec-sub">第 11/12 项目作为选修深入模块：第 8 章（Code Agent）学员接 RelayAgent 的持久内核改造，第 9 章（自进化）学员接 VerdictCore 的判定训练对照——两个项目都有完整的「失效分析进教程」素材。</p>
+<div class="card"><p><b>学生能拿走什么：</b>VerdictCore 的四层架构每一层都可以单独拆出来做自己的项目（可验证任务源的出题器约 200 行、prefill 打分器约 150 行）；RelayAgent 的接力硬门（kill→resume 等价性）是可以直接写进简历的工程验证。两个项目共用同一套诚实边界纪律：合成任务不声称覆盖真实分布、教学规模只声称方法路线、延迟报保守值、无答案不抢救。</p></div>
+</section>
+
+</main>
+<footer class="footer"><div class="wrap">
+<div>AgentAlpha · 大模型 Agent 训练营 — 团队研究项目与开源基座的深度实战</div>
+<div>社区新项目 · 第 11 &amp; 12</div>
+</div></footer>
+</body></html>

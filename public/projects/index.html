@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>AgentAlpha 大模型 Agent 训练营 · 十个实战项目</title>
-<meta name="description" content="十个对齐真实大厂 JD 的实战项目：万字教程、62 条 JD 实证、真实运行数据、公开基准评测。往期学员去向：字节 Seed、腾讯青云、京东 TGT、蚂蚁 Plan-A。">
+<meta name="description" content="十个源自真实工程实践的大厂级项目 + 五大自研引擎（价值信号校准/任务环境合成/状态外置搜索/查询改写训练器/自进化安全栏）：47 组对照实验每个带 p 值、45 条核验 JD、万字教程 + 二创指南。往期学员去向：字节 Seed、腾讯青云、京东 TGT、蚂蚁 Plan-A。">
 <link rel="stylesheet" href="/projects/assets/showcase.css">
 <script>document.documentElement.classList.add('js')</script>
 <style>
@@ -148,23 +148,29 @@ section.blk{padding:clamp(56px,9vh,96px) 0}
 <header class="topbar"><div class="wrap">
   <div class="brand"><span class="dot"></span>AgentAlpha <small>大模型 Agent 训练营</small></div>
   <nav class="topnav">
-    <a href="#projects">十个项目</a><a href="/projects/stories.html">学员成果</a><a href="/projects/results.html">实验证据</a><a href="/projects/playground.html">Playground</a><a href="#proof">凭什么不同</a><a href="#paths">学习路线</a><a href="#faq">常见问题</a><a href="https://agentalpha.top/learn" target="_blank" rel="noopener">课程大纲</a>
+    <a href="#projects">十二个项目</a><a href="/projects/stories.html">学员成果</a><a href="/projects/results.html">实验证据</a><a href="/projects/playground.html">Playground</a><a href="#proof">凭什么不同</a><a href="#paths">学习路线</a><a href="#faq">常见问题</a><a href="https://agentalpha.top/learn" target="_blank" rel="noopener">课程大纲</a>
   </nav>
 </div></header>
 
 <div class="strip">十一优惠 · <b>10.1–10.8</b> · 报名可组队，<b>两人各 5 折</b> · 详情加微信 aistudioyes · <a href="/projects/stories.html" style="text-decoration:underline;text-underline-offset:3px">看学员成果</a></div>
 
 <section class="hero2">
-  <div class="k" data-r style="--i:0">十个实战项目 · 章章配万字教程</div>
+  <div class="k" data-r style="--i:0">十二个实战项目 · 章章配万字教程</div>
   <h1 data-r style="--i:1">把研究项目做成<em>能拿 offer 的作品</em></h1>
-  <div class="st" data-r style="--i:2"><p>课程包含十个对齐真实大厂岗位的实战项目。每个项目以 Agent 助手产品形态交付，包含<b>界面、指标面板、带数字的评测报告、面试深挖手册</b>。</p></div>
-  <div class="micro" data-r style="--i:3">10 个实战项目<span>·</span>37 组编号实验<span>·</span>95 项测试<span>·</span>每个数字可复查</div>
+  <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:22px" data-r>
+    <span style="border:1px solid var(--hair);border-radius:8px;padding:8px 14px;font-size:.86rem"><b>理论 35%</b> · 夯实基础</span>
+    <span style="border:1px solid var(--hair);border-radius:8px;padding:8px 14px;font-size:.86rem"><b>实战 65%</b> · 项目驱动</span>
+    <span style="border:1px solid var(--hair);border-radius:8px;padding:8px 14px;font-size:.86rem"><b>基础 40%</b> · 零基础可入</span>
+    <span style="border:1px solid var(--hair);border-radius:8px;padding:8px 14px;font-size:.86rem"><b>进阶 60%</b> · 直指生产</span>
+  </div>
+  <div class="st" data-r style="--i:2"><p>配比按企业面试考察权重设计。课程包含十个对齐真实大厂岗位的实战项目。每个项目以 Agent 助手产品形态交付，包含<b>界面、指标面板、带数字的评测报告、面试深挖手册</b>。</p></div>
+  <div class="micro" data-r style="--i:3">12 个实战项目<span>·</span>37 组编号实验<span>·</span>95 项测试<span>·</span>每个数字可复查</div>
   <div class="acts" data-r style="--i:4">
-    <a class="btn primary" href="#projects">查看十个项目</a>
+    <a class="btn primary" href="#projects">查看十二个项目</a>
     <a class="btn" href="https://agentalpha.top/learn" target="_blank" rel="noopener">课程大纲</a>
   </div>
   <div class="reel" data-r style="--i:2">
-    <figure><img src="/projects/assets/img/hero.webp" alt="AgentAlpha 十个实战项目总览插画" width="1024" height="1024">
+    <figure><img src="/projects/assets/img/hero.webp" alt="AgentAlpha 十二个实战项目总览插画" width="1024" height="1024">
     <figcaption>agentalpha.top/projects · 十模块能力地图</figcaption></figure>
   </div>
 </section>
@@ -181,18 +187,18 @@ section.blk{padding:clamp(56px,9vh,96px) 0}
 </div></div>
 
 <section class="blk" id="projects"><div class="wrap">
-  <div class="blk-h" data-r><span class="blk-ico"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg></span><span class="no">01</span><h2>十个实战项目</h2></div>
+  <div class="blk-h" data-r><span class="blk-ico"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg></span><span class="no">01</span><h2>十二个实战项目</h2></div>
   <p class="blk-sub" data-r style="--i:1">每个项目页包含场景故事、产品界面、运行指标面板、真实运行区块、JD 覆盖矩阵与面试深挖预演。你可以点开任意卡片查看完整展示。</p>
   <div class="bento">
     <a class="bcard tall" href="/projects/m1-rag.html" data-r style="--i:1">
       <img src="/projects/assets/img/cover-m1.webp" alt="金融研报 RAG 系统封面插画" loading="lazy">
-      <div class="bc"><span class="no">MODULE 01</span><h3>金融研报 RAG 系统</h3>
+      <div class="bc"><span class="no">MODULE 01</span><h3>RAGLab · 企业级检索实验台（金融研报 RAG） 系统</h3>
       <p>6200 行真实代码底座：PDF 入库、混合检索、重排、引用问答，配金融数据工具与五角色研报产线。Dense Recall@10 实测 0.991。</p>
       <span class="go">查看项目</span></div>
     </a>
     <a class="bcard wide" href="/projects/m5-deepsearch.html" data-r style="--i:2">
       <img src="/projects/assets/img/cover-m5.webp" alt="DeepSearch 研究系统封面插画" loading="lazy">
-      <div class="bc"><span class="no">MODULE 05</span><h3>DeepSearch 研究系统</h3>
+      <div class="bc"><span class="no">MODULE 05</span><h3>DeepScholar · 深度研究智能体（自主查询与验证）究系统</h3>
       <p>Search-o1 式推理中检索：不确定性触发、文档内推理、带引用答案。1207 秒全链路真实运行，日志与轨迹可查。</p>
       <span class="go">查看项目</span></div>
     </a>
@@ -209,6 +215,8 @@ section.blk{padding:clamp(56px,9vh,96px) 0}
     <a class="bcard std" href="/projects/m7-codeagent.html" data-r style="--i:2"><img src="/projects/assets/img/cover-m7.webp" alt="Code Agent 封面插画" loading="lazy"><div class="bc"><span class="no">MODULE 07</span><h3>SWE-bench 级 Code Agent</h3><p>issue 进、verified patch 出，失败四桶自动归因。</p><span class="go">查看项目</span></div></a>
     <a class="bcard std" href="/projects/m8-selfevolve.html" data-r style="--i:3"><img src="/projects/assets/img/cover-m8.webp" alt="自进化框架封面插画" loading="lazy"><div class="bc"><span class="no">MODULE 08</span><h3>自进化框架</h3><p>轨迹级四阶段进化，同预算对照证明净增益。</p><span class="go">查看项目</span></div></a>
     <a class="bcard wide" href="/projects/m10-capstone.html" data-r style="--i:4"><img src="/projects/assets/img/cover-m10.webp" alt="毕业考核封面插画" loading="lazy"><div class="bc"><span class="no">MODULE 10</span><h3>毕业考核：可交付系统</h3><p>三选一组装项目：技术报告六件套、一键复现仓库、视频演示与答辩。</p><span class="go">查看项目</span></div></a>
+    <a class="bcard wide" href="/projects/m11-m12.html#m11" target="_blank" rel="noopener" data-r style="--i:5"><div class="bc"><span class="no">MODULE 11 · 新</span><h3>VerdictCore · 多场景判定引擎（开源 JEV）</h3><p>判定任务不需要生成：真值程序化（minimax/规则引擎，零标注成本）+ prefill 一次前向打分。判定训练 0.422 显著超 CoT 0.350（p=0.045）、快 184×；Qwen-0.5B 训后 0.490 平手 2.7B phi-2，决策 65% 深度即稳定。</p><span class="go">查看项目 →</span></div></a>
+    <a class="bcard wide" href="/projects/m11-m12.html#m12" target="_blank" rel="noopener" data-r style="--i:6"><div class="bc"><span class="no">MODULE 12 · 新</span><h3>RelayAgent · 长程接力引擎（自研 RLM Harness）</h3><p>持久 REPL+断点续跑+gist 压缩+递归子代理：长程任务中断可续、失败可查、经验可留。六大真实行业场景×真实 benchmark（MATH/HotpotQA/DS-1000/FixBench/ALFWorld/FinQA），负结果照发、失效可归因。</p><span class="go">查看项目 →</span></div></a>
     <a class="bcard wide is-proof" href="/projects/stories.html" data-r style="--i:5"><div class="bc" style="flex:1;justify-content:space-evenly;gap:6px;text-align:left;padding:24px 26px"><span class="no">PROOF · 学员成果</span><h3 style="font-size:1.25rem">做完的项目，长成了什么？</h3><p style="font-size:.88rem">往期学员的去向全部可溯源：</p><span class="proof-chips"><i>SSP 旗舰案例</i><i>追问实录</i><i>offer 薪资带</i></span><p class="proof-stats"><b>45k×16</b> SSP 实习转正 · <b>80W+</b> 算法岗 offer · <b>1400+</b> Idea2Paper star</p><span class="go" style="margin-top:0">看学员成果 →</span></div></a>
   </div>
 </div></section>
@@ -221,6 +229,8 @@ section.blk{padding:clamp(56px,9vh,96px) 0}
     <div class="spec" data-r style="--i:2"><h3><span class="spec-ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></span>真实运行</h3><p>DeepSearch <b>1207 秒全链路日志</b>、GRPO <b>400 步训练曲线</b>、RAG Dense Recall@10 <b>0.991</b>。实测数字带仓库路径可复查，示意数据明确标注，两者从不混写。</p></div>
     <div class="spec" data-r style="--i:3"><h3><span class="spec-ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.5 13 17 22l-5-3-5 3 1.5-9"/></svg></span>公开基准</h3><p>评测基准包括 SWE-bench Verified、HotpotQA、MMLU。课程使用与快手 KAT、美团 LongCat 相同的汇报语言，你的分数放在同一套坐标系里对比。</p></div>
     <div class="spec" data-r style="--i:4"><h3><span class="spec-ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8 12 3 3 8v8l9 5 9-5V8Z"/><path d="m3 8 9 5 9-5"/><path d="M12 13v8"/></svg></span>产品形态交付</h3><p>每个项目包含界面、指标面板和可演示的运行过程，便于面试官在三分钟内了解你的工作。每章教程配有五道深挖题与答题要点。</p></div>
+    <div class="spec" data-r style="--i:5"><h3><span class="spec-ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v4M12 18v4M4.9 4.9l2.8 2.8M16.3 16.3l2.8 2.8M2 12h4M18 12h4M4.9 19.1l2.8-2.8M16.3 7.7l2.8-2.8"/></svg></span>五大自研引擎（2026-10 新增）</h3><p>我们在真实工程项目里沉淀的五个可复用引擎：<b>价值信号校准引擎</b>（发现内部成功信号会反向追踪表面指标——管线自动校正）、<b>任务环境合成流水线</b>（64/64 三段校验全过）、<b>状态外置搜索框架</b>（多面检索 R@5 0.517 vs 0.350，p=0.022）、<b>查询改写训练器</b>（实测并绕开 Goodhart 塌陷）、<b>自进化安全栏</b>（噪声地板/成本规则/泄漏预筛，让自动优化不伤线上）。这些引擎你在项目里直接调用，也可以带走改造成自己业务的组件。</p></div>
+    <div class="spec" data-r style="--i:6"><h3><span class="spec-ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M17 3a2.85 2.85 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"/></svg></span>上线级工程护栏</h3><p>大厂和课堂最大的差别是护栏：每条自动化优化都要过<b>噪声地板、显著性闸、泄漏预筛</b>三道门才准上线；九条真实工程教训（预算伪影、指标饱和、护栏拦截）全部写进台账——<b>你学到的不是跑通，是敢不敢拦</b>。面试官问「上线怎么保证不翻车」，你有一整套自己拦过的案例。</p></div>
   </div>
 </div></section>
 
@@ -234,8 +244,42 @@ section.blk{padding:clamp(56px,9vh,96px) 0}
   </div>
 </div></section>
 
+<section class="blk" id="for-students"><div class="wrap">
+  <div class="blk-h" data-r><span class="blk-ico"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></span><span class="no">04</span><h2>不同起点的你，从这里进</h2></div>
+  <p class="blk-sub" data-r style="--i:1">三个真实画像，对应三条已验证的路径——每条路的第一个动作都是「今天就能做的」。</p>
+  <div class="specs">
+    <div class="spec" data-r style="--i:1"><h3>在校生 · 简历空白</h3><p><b>你的痛点：</b>项目经历只有课程作业，投简历石沉大海。<br><b>第一步（今天）：</b>跑通 <b>code/m1_rag/01_RAG_minimal_DEMO.ipynb</b>，15 分钟看到第一个能运行的 RAG。<br><b>本路线产出：</b>主攻 RAGLab 或 AlphaDesk（1 主攻 + 2 辅证），简历三行已写好（docs/projects/简历弹药.md），面试深挖题 34 道。</p></div>
+    <div class="spec" data-r style="--i:2"><h3>在职工程师 · 想转 Agent</h3><p><b>你的痛点：</b>业务代码写了多年，Agent 面试被问「训练细节」就露怯。<br><b>第一步（今天）：</b>打开 <b>experiments/metrics-hub/index.html</b>——先看懂 47 组实验里 GRPO 为什么前期 97.5% 在学格式，再去读 m9 推导。<br><b>本路线产出：</b>主攻 TurboServe 或 Seed2Train，你已有的工程直觉 + 我们的统计纪律 = 面试降维。</p></div>
+    <div class="spec" data-r style="--i:3"><h3>算法背景 · 冲后训练岗</h3><p><b>你的痛点：</b>会调库跑 RL，但讲不清「为什么 GRPO 不要 critic」「reward hacking 怎么检测」。<br><b>第一步（今天）：</b>读 m9 教程 §9.2 的 σ*=σ_r/√G 判据——三行推导让你在白板上赢过背答案的人。<br><b>本路线产出：</b>主攻 EvoAgent（GateClimb 三闸 + EvalForge 是面试王牌），配 R25/R31 两组机制实验。</p></div>
+  </div>
+</div></section>
+
+<section class="blk" id="engines"><div class="wrap">
+  <div class="blk-h" data-r><span class="blk-ico"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></span><span class="no">05</span><h2>五大自研引擎：真实工程里长出来的可复用组件</h2></div>
+  <p class="blk-sub" data-r style="--i:1">不是框架教学，是我们在自己的数据管线和自动优化系统里反复迭代出的引擎——每个都有实测数字、失效模式和护栏。学完可以把引擎整个带走，改造成你业务里的组件。</p>
+  <div class="specs">
+    <div class="spec" data-r style="--i:1"><h3><span class="no">01</span>价值信号校准引擎</h3><p><b>解决什么：</b>模型的内部成功信号会「说谎」——表面漂亮的输出拿到更高自信，正确答案反而被打低分。<br><b>怎么做的：</b>自评坐标提取 + 三重对照校验（随机基线/反向供体/任务内配对）+ 上线前自动校正。<br><b>实测：</b>反向追踪在 12 任务簇级 p=0.0005 显著；校准后错例自评平均下移。失效模式：信号与结果词面强相关时判别力会被词面解释——已在文档写明边界。</p></div>
+    <div class="spec" data-r style="--i:2"><h3><span class="no">02</span>任务环境合成流水线</h3><p><b>解决什么：</b>训 RL 没有可验证环境——手工出题慢、质量不稳、难度不可控。<br><b>怎么做的：</b>四任务族参数化生成 + 上下文/难度双轴演化 + 三段验收（可构建/参考解可过/错解必拒）。<br><b>实测：</b>64/64 三段全过；难度轴把 7B 模型 pass@1 从 0.500 压到 0.000（配对 p=0.0078）；对 SETA 开源 1013 个真实任务做了兼容校验。失效教训：评测预算 40-token 会把「更难」误判成「不会」——已写进协议。</p></div>
+    <div class="spec" data-r style="--i:3"><h3><span class="no">03</span>状态外置搜索框架</h3><p><b>解决什么：</b>把搜索状态全塞进上下文，多面查询下注意力稀释、小模型丢细节。<br><b>怎么做的：</b>候选池/重要性策展/证据链接/验证记录/预算渲染全部外置给框架，模型只做四个语义决策。<br><b>实测：</b>多面查询 R@5 0.517 vs 单发 0.350（配对置换 p=0.022）；去词面消融显示策展项贡献主要增益——边界如实写明，不吹「一个框架解决一切」。</p></div>
+    <div class="spec" data-r style="--i:4"><h3><span class="no">04</span>查询改写训练器</h3><p><b>解决什么：</b>检索查询质量靠人肉试 prompt；自动训练改写器又容易「为奖励走捷径」。<br><b>怎么做的：</b>分档阶梯奖励 + 格式门控 + 长度锚定 + Goodhart 检测（奖励饱和时辅助惩罚会接管——实测并在管线里拦住）。<br><b>实测：</b>复现了完整失效链（0.878→0.805）并给出修复方向；格式冷启动必须预热（0/256 合法率实测）——这两个坑你不用再踩。</p></div>
+    <div class="spec" data-r style="--i:5"><h3><span class="no">05</span>自进化安全栏</h3><p><b>解决什么：</b>让 Agent 自动优化自己，最大的风险是「优化了个寂寞」：在训练题上涨分、上线就失效。<br><b>怎么做的：</b>噪声地板（增益低于评测方差不放行）+ 成本规则（新增推理开销必须被增益覆盖）+ 泄漏预筛（题面泄漏在评估前拦截）+ 剪枝。<br><b>实测：</b>正则化版本在 held-out 上保留增益的能力显著优于裸贪心基线；这就是我们 EvoAgent 平台 GateClimb 三闸的完整版。</p></div>
+    <div class="spec" data-r style="--i:6"><h3><span class="no">+</span>引擎怎么用</h3><p>每个引擎 = 一个 ≤400 行的纯 Python 模块 + 全套测试 + 一键实验脚本 + 失效台账。你可以：直接调用 / 改成自己业务的组件 / 当成面试里「我造过轮子还知道它哪里会坏」的证据。全部源码在仓库里，无黑盒。</p></div>
+  </div>
+</div></section>
+
+<section class="blk" id="evidence-wall"><div class="wrap">
+  <div class="blk-h" data-r><span class="blk-ico"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></span><span class="no">06</span><h2>证据墙：能点开核对的，才是你的</h2></div>
+  <p class="blk-sub" data-r style="--i:1">下面每一格都可点开——这是我们与「PPT 课程」的本质区别。面试官点开哪个，你都能接住。</p>
+  <div class="specs">
+    <div class="spec" data-r style="--i:1"><h3>实验证据中枢</h3><p><a href="results.html"><b>results.html</b></a>：47 组真实实验、九组失败台账、四篇论文复现的图表全部入库。每个数字带产物文件路径。</p></div>
+    <div class="spec" data-r style="--i:2"><h3>机制动画中心</h3><p><a href="../experiments/animation-hub/index.html"><b>animation-hub</b></a>：七个机制循环动画（GRPO 组优势/价值移植/数据飞轮/PPO-Clip…），看懂机制再看数字。</p></div>
+    <div class="spec" data-r style="--i:3"><h3>指标中心</h3><p><a href="../experiments/metrics-hub/index.html"><b>metrics-hub</b></a>：GRPO 400 步真实曲线 + 七轮实验分区总表，MiMo 式训练可视化。</p></div>
+    <div class="spec" data-r style="--i:4"><h3>吸收章程与看板</h3><p><a href="../docs/absorption/吸收章程与看板.md"><b>多 AI 互审制度</b></a>：顶会审稿人三 MAJOR 返工闭合、口径审计 62 点、13 处文档修正——造假在本仓库是流程不可能事件。</p></div>
+  </div>
+</div></section>
+
 <section class="blk faq" id="faq"><div class="wrap">
-  <div class="blk-h" data-r><span class="blk-ico"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M9.1 9a3 3 0 0 1 5.8 1c0 2-3 3-3 3"/><path d="M12 17h.01"/></svg></span><span class="no">04</span><h2>常见问题</h2></div>
+  <div class="blk-h" data-r><span class="blk-ico"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M9.1 9a3 3 0 0 1 5.8 1c0 2-3 3-3 3"/><path d="M12 17h.01"/></svg></span><span class="no">06</span><h2>常见问题</h2></div>
   <div data-r style="--i:1">
   <details open><summary>零基础能学吗？</summary><p>掌握 Python 基本语法即可起步。你可以先运行环境验证 notebook，15 分钟内完成第一个可运行的 RAG。每章教程的公式均配有逐行解释，不要求具备深度学习基础。</p></details>
   <details><summary>项目能直接写简历吗？</summary><p>可以。每个项目的展示页里已经写好了一条能直接用的简历描述，数字来自真实运行结果。每章另配五道高频面试深挖题与答题要点，面试官追问时有东西可讲。</p></details>
@@ -248,10 +292,10 @@ section.blk{padding:clamp(56px,9vh,96px) 0}
   <div class="cta" data-r><div class="inner">
     <img class="girl" src="/images/community/illus/cta.webp" alt="AgentAlpha 插画：Q版女生在写有「一起把事做成」的白板旁招手" width="1024" height="1024" loading="lazy">
     <div class="copy">
-      <h2>十个项目的完整展示页已就绪</h2>
+      <h2>十二个项目的完整展示页已就绪</h2>
       <p>场景故事、产品界面、指标面板、真实运行区块、JD 覆盖矩阵、面试深挖预演，每个项目一页全览。</p>
       <div class="row">
-        <a class="btn primary" href="#projects">查看十个项目</a>
+        <a class="btn primary" href="#projects">查看十二个项目</a>
         <a class="btn" href="/projects/stories.html">学员成果 →</a>
         <a class="btn" href="/projects/results.html">实验证据中枢 →</a>
         <span class="wx-pill">微信 aistudioyes</span>
@@ -299,3 +343,15 @@ const cio = new IntersectionObserver(es => es.forEach(e => {
 document.querySelectorAll('[data-count]').forEach(el => cio.observe(el));
 </script>
 </body></html>
+
+<section class="blk" id="deliver"><div class="wrap">
+  <div class="blk-h" data-r><span class="blk-ico"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 2 7l10 5 10-5-10-5Z"/><path d="m2 17 10 5 10-5M2 12l10 5 10-5"/></svg></span><span class="no">07</span><h2>交付内容：看得懂、跑得动、抄得走、改得动</h2></div>
+  <p class="blk-sub" data-r style="--i:1">五件交付，每件都有验收标准——不是「资料包」，是能直接进你简历和工作流的资产。</p>
+  <div class="specs">
+    <div class="spec" data-r style="--i:1"><h3>可跑 · 代码</h3><p>完整可运行源码 + 一键启动脚本 + 全套测试（当前 235 项用例持续全绿）。本地或云端均可，<b>每个实验能复出报告里的主数字</b>。</p></div>
+    <div class="spec" data-r style="--i:2"><h3>可读 · 教程</h3><p>十章万字教程 + 十份配套习题（关键词/习题/面试题三段式），每一步含设计取舍说明——为什么这么做、为什么不那么做。</p></div>
+    <div class="spec" data-r style="--i:3"><h3>可验 · 数据</h3><p>47 组真实实验的原始 JSON、300dpi 图表与失败台账。你报告里写的每个数字，都能指到一个产物文件。</p></div>
+    <div class="spec" data-r style="--i:4"><h3>可写 · 简历</h3><p>每项目配简历三行 + 30 秒开场 + 面试追问树（34 道深问），按目标岗位三选一定制主攻线。</p></div>
+    <div class="spec" data-r style="--i:5"><h3>可带走 · 引擎</h3><p>五大自研引擎（≤400 行/个，235 项测试护航）——直接调用或改造成你业务里的组件，无黑盒。</p></div>
+  </div>
+</div></section>
