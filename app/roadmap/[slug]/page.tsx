@@ -3,6 +3,7 @@ import Link from "next/link"
 import { notFound } from "next/navigation"
 import ReactMarkdown from "react-markdown"
 import remarkGfm from "remark-gfm"
+import "../../interview/interview.css"
 import {
   ROADMAPS,
   getRoadmap,
@@ -63,7 +64,7 @@ export default async function RoadmapDetailPage({ params }: PageProps) {
   }
 
   return (
-    <main>
+    <main className="ivu-root">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }} />
 
       <div className="ivu-measure">

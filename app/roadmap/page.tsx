@@ -1,6 +1,7 @@
 import type { Metadata } from "next"
 import Link from "next/link"
 import { ROADMAPS, roadmapQaCount } from "@/lib/roadmap"
+import "../interview/interview.css"
 
 const SITE = "https://agentalpha.top"
 
@@ -43,7 +44,7 @@ export default function RoadmapIndexPage() {
   }
 
   return (
-    <main>
+    <main className="ivu-root">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(itemListLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }} />
 

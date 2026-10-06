@@ -66,6 +66,9 @@ html {
   --sidebar-accent-foreground: #1d1d1f;
   --sidebar-border: rgb(0 0 0 / 0.08);
   --sidebar-ring: oklch(0.47 0.16 268);
+  /* 旧类名的品牌兜底（.aa-proof-card、.aa-footer 等处的 var(--brand, #6e22f0)）：
+     首页维持原值；内容子页由 kami.css 在 body:has 作用域内覆盖为陶土 */
+  --brand: #6e22f0;
 }
 
 .dark {
@@ -1514,13 +1517,13 @@ html.enrollment-dialog-open { overflow: hidden; }
   color: inherit; text-decoration: none; flex: 1; display: inline-flex;
   align-items: center; gap: 6px; min-height: 24px;
 }
-.learn-directory-group li a:hover { color: #4c15ac; }
+.learn-directory-group li a:hover { color: var(--brand); }
 .learn-dir-arrow { width: 14px; height: 14px; opacity: .55; flex: none; }
 .learn-dir-local {
-  flex: none; font-size: .78rem; color: #4c15ac; border: 1px solid rgba(110,34,240,.35);
+  flex: none; font-size: .78rem; color: var(--brand); border: 1px solid color-mix(in srgb, var(--brand) 35%, transparent);
   border-radius: 999px; padding: 2px 10px;
 }
-.learn-dir-local:hover { background: rgba(110,34,240,.08); }
+.learn-dir-local:hover { background: rgba(180,83,42,.08); }
 @media (max-width: 640px) {
   .learn-directory-group li { flex-wrap: wrap; padding: 9px 6px; }
   .learn-directory-group li a { min-height: 44px; }
@@ -1905,13 +1908,14 @@ html.enrollment-dialog-open { overflow: hidden; }
 .dark .note-code-card { background: oklch(0.13 0.02 265); }
 .dark .note-code-card summary { background: oklch(0.16 0.02 265); }
 
-/* ═══ 面经 · 面试笔记（feishu-paper-note 骨架 × kami.tw93.fun 暖纸吸收）═══ */
+/* ═══ 面经 · 面试笔记（feishu-paper-note 骨架 × kami.tw93.fun 暖纸吸收）═══
+   强调色 2026-10-06 统一为暖纸 v3 宪法陶土 #b4532a（原 kami 墨蓝 #1b365d） */
 .mj-page {
-  --mj-paper: #faf9f5;
+  --mj-paper: #faf6ef;
   --mj-card: #fffefb;
   --mj-warm-line: #e8e6dc;
   --mj-warm-code: #f0eee6;
-  --mj-brand: #1b365d;
+  --mj-brand: #b4532a;
   background: var(--mj-paper);
 }
 .mj-page .aa-note-article { max-width: 1180px; }
@@ -1943,11 +1947,11 @@ html.enrollment-dialog-open { overflow: hidden; }
   color: #504e49;
   font-size: 0.78rem;
 }
-/* 飞书式 h2 蓝条（覆盖 notes 的上边线样式） */
+/* 飞书式 h2 侧条（覆盖 notes 的上边线样式；色随单强调纪律改陶土） */
 .mj-page .note-prose h2 {
   border-top: 0;
   padding: 0 0 0 14px;
-  border-left: 4px solid #3370ff;
+  border-left: 4px solid #b4532a;
   letter-spacing: 0.01em;
 }
 .mj-page .note-prose { font-size: 1rem; line-height: 1.95; color: #26211a; }
@@ -2616,10 +2620,10 @@ html.enrollment-dialog-open { overflow: hidden; }
 .aa-pg {
   overflow: hidden;
   --pg-accent: var(--brand, #6e22f0);
-  --pg-glow: rgba(110, 34, 240, 0.16);
-  --pg-line: rgba(110, 34, 240, 0.16);
-  --pg-ghost: rgba(110, 34, 240, 0.1);
-  --pg-shadow: rgba(110, 34, 240, 0.35);
+  --pg-glow: rgba(180, 83, 42, 0.16);
+  --pg-line: rgba(180, 83, 42, 0.16);
+  --pg-ghost: rgba(180, 83, 42, 0.1);
+  --pg-shadow: rgba(180, 83, 42, 0.35);
   position: relative;
   display: flex;
   flex-direction: column;
@@ -2687,13 +2691,13 @@ html.enrollment-dialog-open { overflow: hidden; }
 /* 项目区第 6 张：虚线幽灵卡，负责把网格补齐并承接「看全部」 */
 .aa-pg--more {
   background: transparent;
-  border: 1.5px dashed rgba(110, 34, 240, 0.28);
+  border: 1.5px dashed rgba(180, 83, 42, 0.28);
   box-shadow: none;
   transition: border-color 0.2s ease, background 0.2s ease, transform 0.2s ease;
 }
 .aa-pg--more:hover {
-  border-color: rgba(110, 34, 240, 0.55);
-  background: rgba(110, 34, 240, 0.04);
+  border-color: rgba(180, 83, 42, 0.55);
+  background: rgba(180, 83, 42, 0.04);
 }
 .aa-pg-body--center {
   margin-top: 0;
@@ -2711,8 +2715,8 @@ html.enrollment-dialog-open { overflow: hidden; }
 .aa-pg-go:hover { border-color: var(--pg-accent); }
 
 /* 五个项目色系：淡彩底 + 深色相强调 */
-.aa-pg.g1 { --pg-tint: #ece5ff; --pg-accent: #6e22f0; --pg-glow: rgba(110, 34, 240, 0.16); --pg-line: rgba(110, 34, 240, 0.18); --pg-ghost: rgba(110, 34, 240, 0.1); --pg-shadow: rgba(110, 34, 240, 0.32); }
-.aa-pg.g2 { --pg-tint: #fdeaf6; --pg-accent: #a81890; --pg-glow: rgba(168, 24, 144, 0.15); --pg-line: rgba(168, 24, 144, 0.16); --pg-ghost: rgba(168, 24, 144, 0.1); --pg-shadow: rgba(168, 24, 144, 0.3); }
+.aa-pg.g1 { --pg-tint: #f8ece3; --pg-accent: #b4532a; --pg-glow: rgba(180, 83, 42, 0.16); --pg-line: rgba(180, 83, 42, 0.18); --pg-ghost: rgba(180, 83, 42, 0.1); --pg-shadow: rgba(180, 83, 42, 0.32); }
+.aa-pg.g2 { --pg-tint: #e9f0e4; --pg-accent: #3f6b48; --pg-glow: rgba(63, 107, 72, 0.15); --pg-line: rgba(63, 107, 72, 0.16); --pg-ghost: rgba(63, 107, 72, 0.1); --pg-shadow: rgba(63, 107, 72, 0.3); }
 .aa-pg.g3 { --pg-tint: #e2f5f8; --pg-accent: #0d7c8f; --pg-glow: rgba(13, 124, 143, 0.15); --pg-line: rgba(13, 124, 143, 0.16); --pg-ghost: rgba(13, 124, 143, 0.1); --pg-shadow: rgba(13, 124, 143, 0.3); }
 .aa-pg.g4 { --pg-tint: #faf0d8; --pg-accent: #96700f; --pg-glow: rgba(150, 112, 15, 0.16); --pg-line: rgba(150, 112, 15, 0.18); --pg-ghost: rgba(150, 112, 15, 0.11); --pg-shadow: rgba(150, 112, 15, 0.3); }
 .aa-pg.g5 { --pg-tint: #ffe8da; --pg-accent: #bf4f14; --pg-glow: rgba(191, 79, 20, 0.15); --pg-line: rgba(191, 79, 20, 0.17); --pg-ghost: rgba(191, 79, 20, 0.1); --pg-shadow: rgba(191, 79, 20, 0.3); }

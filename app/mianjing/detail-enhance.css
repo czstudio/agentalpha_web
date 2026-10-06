@@ -1,4 +1,6 @@
-/* 面经详情页视觉增强（独立于 globals.css，仅本页引入；用更高优先级覆盖） */
+/* 面经详情页视觉增强（独立于 globals.css，仅本页引入；用更高优先级覆盖）
+   2026-10-06 kami 化：单强调=陶土 #b4532a（青绿退场）；表格发丝线无框；
+   公司徽章品牌色保留（识别数据，不算装饰）。 */
 
 /* 1) 公司徽章品牌色（data-co 属性驱动；详情页 .mj-page 与列表页 .mj-index 共用） */
 .mj-company-pill[data-co="bytedance"] { background: #e6f7f7; color: #0f766e; border-color: #99e2dd; }
@@ -20,7 +22,7 @@
   letter-spacing: 0.02em;
 }
 
-/* 2) 目录激活态：当前节高亮 + 左侧色条 */
+/* 2) 目录激活态：当前节高亮 + 左侧色条（陶土，与 theme-soft 一致） */
 .mj-page .aa-note-toc a {
   border-left: 2px solid transparent;
   transition: color 0.15s ease, border-color 0.15s ease;
@@ -28,51 +30,52 @@
   display: inline-block;
 }
 .mj-page .aa-note-toc a.on {
-  color: #15b7a3;
-  border-left-color: #15b7a3;
+  color: #8f3f1e;
+  border-left-color: #b4532a;
   font-weight: 600;
 }
 .mj-page .aa-note-toc > p {
   font-weight: 600;
-  color: #374151;
+  color: #4a4336;
   letter-spacing: 0.06em;
 }
 
 /* 3) 正文 h2：底部细线 + 悬停锚点 */
 .mj-page .mj-prose h2 {
   padding-bottom: 0.4em;
-  border-bottom: 1px solid #e8eaee;
+  border-bottom: 1px solid #e8e6dc;
   scroll-margin-top: 84px;
 }
 .mj-prose h2 .mj-anchor {
   opacity: 0;
   margin-left: 8px;
-  color: #15b7a3;
+  color: #b4532a;
   text-decoration: none;
   font-weight: 400;
   transition: opacity 0.15s ease;
 }
 .mj-prose h2:hover .mj-anchor { opacity: 1; }
 
-/* 4) 表格：表头底色 + 斑马纹 + 圆角容器 */
+/* 4) 表格：kami 发丝线——去外框/斑马纹/冷灰表头底，行距与细线分层 */
 .mj-page .mj-table-wrap {
-  border-radius: 10px;
-  overflow: hidden;
-  border: 1px solid #e5e7eb;
+  border-radius: 0;
+  overflow: visible;
+  border: none;
 }
 .mj-page .mj-table-wrap table { border: none; margin: 0; }
 .mj-page .mj-table-wrap thead th {
-  background: #f5f6fa;
+  background: transparent;
   font-weight: 600;
-  border-bottom: 1px solid #e5e7eb;
+  color: #4a4336;
+  border-bottom: 1.5px solid #d8cdb5;
 }
-.mj-page .mj-table-wrap tbody tr:nth-child(even) { background: #fafbfd; }
-.mj-page .mj-table-wrap td, .mj-page .mj-table-wrap th { border: none; }
+.mj-page .mj-table-wrap tbody tr:nth-child(even) { background: transparent; }
+.mj-page .mj-table-wrap td, .mj-page .mj-table-wrap th { border: none; border-bottom: 1px solid #e8e6dc; }
 
-/* 5) 引用/提示块：品牌色左条 + 更柔和底色 */
+/* 5) 引用/提示块：暖洗底 + 陶土左条（状态标记） */
 .mj-page .mj-callout {
-  border-left: 4px solid #15b7a3;
-  background: #f2fbf9;
+  border-left: 4px solid #b4532a;
+  background: #f7f3ea;
   border-radius: 0 10px 10px 0;
 }
 .mj-page .mj-callout p { margin: 0.6em 0; }
@@ -84,16 +87,16 @@
   left: 0;
   height: 3px;
   width: 0;
-  background: linear-gradient(90deg, #15b7a3, #6b5bd6);
+  background: #b4532a;
   z-index: 60;
   transition: width 0.08s linear;
 }
 
-/* 7) 标签更克制 */
+/* 7) 标签更克制（暖灰） */
 .mj-page .mj-tag {
-  background: #f5f6fa;
-  border: 1px solid #e8eaee;
-  color: #4b5563;
+  background: #f2ecdf;
+  border: 1px solid #e7decc;
+  color: #6e6557;
 }
 
 @media (max-width: 1024px) {

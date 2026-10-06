@@ -7,6 +7,7 @@ import { LanguageProvider } from "@/contexts/language-context"
 import "katex/dist/katex.min.css"
 import "./globals.css"
 import "./theme-soft.css"
+import "./kami.css"
 import { SiteFooter } from "@/components/site-footer"
 
 

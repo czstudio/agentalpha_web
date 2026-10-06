@@ -1,15 +1,16 @@
 /* =====================================================
    主题可读性修正层（theme-soft）
    站点已锁定浅色主题（layout forcedTheme="light"），
-   本层只保留浅色下的两处文字对比修正（WCAG AA 实测）：
+   本层只保留浅色下的文字对比修正（WCAG AA 实测）：
    - muted 说明文字 #86868b/#f7f7f9 = 3.39:1 → #62626d = 5.63:1
-   - 青绿作文字（目录高亮）2.52:1 → 深青 #0b6e63 ≈ 5.4:1，
-     装饰线条（进度条/左色条/引用块边）保留亮青 #15b7a3。
+   - 目录高亮：原青绿 2.52:1 → kami 化后改陶土族（暖纸 v3 宪法
+     单强调色纪律），deep #8f3f1e ≈ 7:1，active 左条 #b4532a。
+     TOC 只出现在内容子页，首页无 TOC，不受影响。
    ===================================================== */
 
 :root {
   --muted-foreground: #62626d;
 }
 
-.aa-note-toc a:hover { color: #0b6e63; }
-.mj-page .aa-note-toc a.on { color: #0b6e63; border-left-color: #15b7a3; }
+.aa-note-toc a:hover { color: var(--brand, #b4532a); }
+.mj-page .aa-note-toc a.on { color: #8f3f1e; border-left-color: #b4532a; }

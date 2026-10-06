@@ -1,0 +1,177 @@
+/* ============================================================
+   kami 层 —— tw93/kami 纸感排版规范（羊皮纸暖底、单一陶土强调、
+   衬线承担层级、发丝线只做分隔、平面卡片、暖灰禁冷灰）映射到
+   本站的内容子页。设计语言出处：~/.agents/skills/kami（tw93/kami）。
+   作用域：body:has(.aa-notes / .mj-* / .community-site) 才生效，
+   即 notes、articles、learn、mianjing、gzh、community 等子页；
+   首页（home-content）不带这些 wrapper，完全不受影响。
+   强调色沿用 2026-09-30 暖纸 v3 宪法的陶土 #b4532a（紫/靛蓝禁用）。
+   ============================================================ */
+
+/* ── 1. 令牌统一：暖纸 + 陶土 + 暖灰 ───────────────────────── */
+body:has(.aa-notes),
+body:has(.mj-page),
+body:has(.mj-index),
+body:has(.community-site) {
+  --background: #faf6ef;
+  --foreground: #26211a;
+  --card: #fffdf8;
+  --card-foreground: #26211a;
+  --popover: #fffdf8;
+  --popover-foreground: #26211a;
+  --primary: #b4532a;
+  --primary-foreground: #fdf8f2;
+  --secondary: #f2ecdf;
+  --secondary-foreground: #26211a;
+  --muted: #f2ecdf;
+  --muted-foreground: #6e6557;
+  --accent: #f2ecdf;
+  --accent-foreground: #26211a;
+  --border: #e7decc;
+  --input: #e7decc;
+  --ring: #b4532a;
+  --btn: #2a241c;
+  --btn-hover: #453c2e;
+  --btn-fg: #faf6ef;
+  --faint: #9a9082;
+  /* globals 里 var(--brand, #6e22f0) 的兜底在子页改为跟随陶土 */
+  --brand: #b4532a;
+  --sidebar: #f2ecdf;
+  --sidebar-foreground: #26211a;
+  --sidebar-primary: #b4532a;
+  --sidebar-primary-foreground: #fdf8f2;
+  --sidebar-accent: #f2ecdf;
+  --sidebar-accent-foreground: #26211a;
+  --sidebar-border: #e7decc;
+  --sidebar-ring: #b4532a;
+  /* 阴影减为暖色轻影：平面为主，轻影只做悬浮提示 */
+  --shadow-soft: 0 24px 60px -36px rgb(38 33 26 / 0.16);
+  --shadow-lift: 0 24px 60px -36px rgb(38 33 26 / 0.16);
+
+  /* 关键：globals 在 :root 声明的 --aa-* 别名是在 :root 处完成 var()
+     解析再被继承的，body 级覆盖基础令牌改不动它们；必须在这里把
+     别名层整套重声明，才能让子页的 --aa-blue 等真正跟随陶土。 */
+  --aa-paper: var(--background);
+  --aa-paper-deep: var(--card);
+  --aa-card: var(--card);
+  --aa-ink: var(--foreground);
+  --aa-muted: var(--muted-foreground);
+  --aa-blue: var(--primary);
+  --aa-on-blue: var(--primary-foreground);
+  --aa-apricot: #f2ecdf;
+  --aa-coral: var(--primary);
+  --aa-sky: #f2ecdf;
+  --aa-mint: #f2ecdf;
+  --aa-peach: #f2ecdf;
+  --aa-rule: var(--border);
+  --aa-soft-shadow: var(--shadow-soft);
+  --aa-soft-shadow-lg: var(--shadow-lift);
+}
+
+/* ── 2. 标题：衬线 600（实际加载字重），层级靠字号与留白 ─────── */
+.aa-notes h1, .aa-notes h2, .aa-notes h3,
+.mj-page h1, .mj-page h2, .mj-page h3,
+.mj-index h1, .mj-index h2, .mj-index h3,
+.community-site h1, .community-site h2, .community-site h3 {
+  font-weight: 600;
+}
+
+/* ── 3. 表格：kami-table 发丝线（无竖线、无外框、无色底表头） ── */
+.aa-notes .note-table-wrap,
+.mj-page .note-table-wrap {
+  border: none;
+  border-radius: 0;
+  background: transparent;
+}
+.aa-notes .note-prose table,
+.mj-page .note-prose table {
+  background: transparent;
+}
+.aa-notes .note-prose th,
+.aa-notes .note-prose td,
+.mj-page .note-prose th,
+.mj-page .note-prose td {
+  border: none;
+  border-bottom: 1px solid #e7decc;
+}
+.aa-notes .note-prose th,
+.mj-page .note-prose th {
+  border-bottom: 1.5px solid #d8cdb5;
+  background: transparent;
+  font-weight: 600;
+  color: #4a4336;
+}
+
+/* ── 4. 引用：缩进橄榄灰文，不加侧栏条与底色（kami quote） ──── */
+.aa-notes .note-prose blockquote,
+.mj-page .note-prose blockquote {
+  border-left: none;
+  background: transparent;
+  border-radius: 0;
+  color: #6e6557;
+  padding: 4px 0 4px 18px;
+}
+
+/* ── 5. 链接契约：品牌色可点，悬停加下划线（kami links） ─────── */
+.aa-notes .note-prose a,
+.mj-page .note-prose a {
+  text-decoration: none;
+}
+.aa-notes .note-prose a:hover,
+.mj-page .note-prose a:hover {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* ── 6. 行内码与代码面：暖色化，去冷蓝 ───────────────────────── */
+.aa-notes .note-prose code,
+.mj-page .note-prose code {
+  background: #f0eee6;
+  color: #3d3a33;
+  border-radius: 4px;
+}
+.aa-notes .note-prose pre,
+.aa-notes .note-code-card,
+.mj-page .note-prose pre {
+  background: #30302e;
+}
+.aa-notes .note-prose pre {
+  border-radius: 10px;
+}
+.aa-notes .note-code-card {
+  border-color: #e7decc;
+}
+.aa-notes .note-code-card summary {
+  background: #26241f;
+}
+.aa-notes .note-prose .katex-display {
+  background: transparent;
+  border-top: 1px solid #e7decc;
+  border-bottom: 1px solid #e7decc;
+}
+
+/* ── 7. 列表标记：品牌色 500 字重，去加粗 ────────────────────── */
+.aa-notes .note-prose li::marker,
+.mj-page .note-prose li::marker {
+  font-weight: 500;
+}
+
+/* ── 8. 分隔线暖化 ───────────────────────────────────────────── */
+.aa-notes .note-prose hr,
+.mj-page .note-prose hr {
+  border-color: #e7decc;
+}
+
+/* ── 9. 选区与焦点环：子页陶土化（首页共享样式不动） ─────────── */
+body:has(.aa-notes) ::selection,
+body:has(.mj-page) ::selection,
+body:has(.mj-index) ::selection,
+body:has(.community-site) ::selection {
+  background: rgba(180, 83, 42, 0.18);
+}
+body:has(.aa-notes) :focus-visible,
+body:has(.mj-page) :focus-visible,
+body:has(.mj-index) :focus-visible,
+body:has(.community-site) :focus-visible {
+  outline-color: rgba(180, 83, 42, 0.55);
+}

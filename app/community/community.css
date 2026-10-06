@@ -16,18 +16,19 @@
    =================================== */
 
 .community-site {
-  /* 路线图阶段分组色：语义识别用，不抢 --primary 的主角位 */
+  /* 路线图阶段分组色：语义识别用，不抢 --primary 的主角位。
+     kami 化调整：紫组改陶土（暖纸 v3 宪法禁蓝紫）；阴影降为单层轻影，
+     层级交给象牙底与发丝线（tw93/kami：平面默认，轻影只做悬浮） */
   --rm-blue: oklch(0.52 0.11 250);
   --rm-blue-tint: oklch(0.955 0.025 250);
   --rm-teal: oklch(0.55 0.09 195);
   --rm-teal-tint: oklch(0.955 0.02 195);
   --rm-orange: oklch(0.64 0.12 65);
   --rm-orange-tint: oklch(0.965 0.035 70);
-  --rm-purple: oklch(0.47 0.16 268);
-  --rm-purple-tint: oklch(0.955 0.03 268);
-  /* 10 维打磨：双层阴影（近接触 + 远漫射），全页卡片统一 */
-  --shadow-card: 0 1px 2px rgb(0 0 0 / 0.04), 0 16px 40px -24px rgb(0 0 0 / 0.16);
-  --shadow-card-hover: 0 2px 4px rgb(0 0 0 / 0.05), 0 22px 48px -22px rgb(0 0 0 / 0.22);
+  --rm-purple: #b4532a;
+  --rm-purple-tint: #f8ece3;
+  --shadow-card: 0 1px 2px rgb(38 33 26 / 0.04);
+  --shadow-card-hover: 0 10px 30px -18px rgb(38 33 26 / 0.18);
 
   min-height: 100vh;
   overflow: clip;

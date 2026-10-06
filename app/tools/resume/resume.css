@@ -462,4 +462,4 @@
 }
 .rt-copy-btn:hover { border-color: var(--tk-brand); color: var(--tk-brand-deep); }
 
-.rt-kicker svg { color: #6e22f0; }
+.rt-kicker svg { color: var(--tk-brand); }

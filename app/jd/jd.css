@@ -1,5 +1,6 @@
 /* ============================================================
-   JD 拆解库设计系统 —— 令牌与面试间 .ivu- 同源（暖纸底 + 品牌紫），
+   JD 拆解库设计系统 —— 令牌与面试间 .ivu- 同源（暖纸底 + 陶土强调，
+   2026-09-30 暖纸 v3 宪法：蓝紫类 AI 配色禁用），
    全部样式收在 .jd- 前缀内，不动 globals.css。
    ============================================================ */
 
@@ -9,8 +10,9 @@
   --jd-ink: #26211a;
   --jd-ink-2: #6e6557;
   --jd-ink-3: #9a9082;
-  --jd-brand: #6e22f0;
-  --jd-brand-tint: #f3ecfe;
+  --jd-brand: #b4532a;
+  --jd-brand-deep: #8f3f1e;
+  --jd-brand-tint: #f8ece3;
   --jd-mark: #b31b1b;
   --jd-line: #e7decc;
   --jd-font-sans: "MiSans", -apple-system, BlinkMacSystemFont, "PingFang SC",
@@ -102,7 +104,7 @@
 .jd-body p { color: var(--jd-ink); margin: 0 0 12px; }
 .jd-body ul { margin: 0 0 14px; padding-left: 1.2em; }
 .jd-body li { margin-bottom: 6px; }
-.jd-body a { color: var(--jd-brand); text-decoration: none; border-bottom: 1px solid rgba(110, 34, 240, 0.3); }
+.jd-body a { color: var(--jd-brand); text-decoration: none; border-bottom: 1px solid rgba(180, 83, 42, 0.3); }
 .jd-body a:hover { border-bottom-color: var(--jd-brand); }
 .jd-body table {
   width: 100%;
@@ -231,7 +233,7 @@
 
 .jd-tool-banner {
   background: var(--jd-brand-tint);
-  border: 1px solid rgba(110, 34, 240, 0.25);
+  border: 1px solid rgba(180, 83, 42, 0.25);
   border-radius: var(--jd-radius);
   padding: 18px 20px;
   margin: 26px 0;
@@ -252,7 +254,7 @@
   text-decoration: none;
   white-space: nowrap;
 }
-.jd-tool-banner a:hover { background: #4c15ac; }
+.jd-tool-banner a:hover { background: var(--jd-brand-deep); }
 
 @media (max-width: 640px) {
   .jd-main { padding: 96px 16px 56px; }
@@ -286,7 +288,7 @@
   color: var(--jd-brand);
   text-decoration: none;
   font-weight: 600;
-  border-bottom: 1px solid rgba(110, 34, 240, 0.3);
+  border-bottom: 1px solid rgba(180, 83, 42, 0.3);
 }
 .jd-index-co .jdl-src-link:hover { border-bottom-color: var(--jd-brand); }
 .jd-index-co .jdl-src-pending { color: var(--jd-ink-3); }
@@ -299,7 +301,7 @@
   color: var(--jd-brand);
   text-decoration: none;
   font-weight: 600;
-  border-bottom: 1px solid rgba(110, 34, 240, 0.3);
+  border-bottom: 1px solid rgba(180, 83, 42, 0.3);
 }
 .jdl-source-link:hover { border-bottom-color: var(--jd-brand); }
 .jdl-source-pending {
