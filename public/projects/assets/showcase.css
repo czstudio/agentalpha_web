@@ -1,16 +1,16 @@
 @import url('/fonts/fonts-slices.css');
-/* AgentAlpha 课程项目展示 · v3 对齐主站设计体系（sess_260d 令牌）
-   纸白 oklch(0.987 .002 250) / 墨 #1d1d1f / 卡 #f5f5f7 / 品牌 oklch(0.47 .16 268)
-   发丝线 rgb(0 0 0/.08) / Noto Serif SC 展示标题 / MiSans 正文 / expo 560ms
-   品味规则：eyebrow 每屏≤1、无三等宽灰卡、无 em-dash、无 AI 紫渐变 */
+/* AgentAlpha 课程项目展示 · v3.1 kami 化（tw93/kami × 暖纸 v3 宪法，2026-10-06）
+   暖纸 #faf6ef / 墨 #26211a / 陶土 #b4532a 单强调 / 暖灰阶 / 发丝线 #e7decc
+   Noto Serif SC 展示标题 / MiSans 正文 / expo 560ms
+   品味规则：eyebrow 每屏≤1、无三等宽灰卡、无 em-dash、无 AI 紫渐变、冷灰禁用 */
 
 :root{
-  --bg: oklch(0.987 0.002 250);
-  --bg-2: #f5f5f7; --bg-3: #f0f0f2;
-  --ink: #1d1d1f; --ink-2: #424245; --muted: #86868b; --muted-2: #aeaeb2;
-  --hair: rgb(0 0 0 / 0.08); --hair-2: rgb(0 0 0 / 0.14);
-  --accent: oklch(0.47 0.16 268); --accent-soft: oklch(0.47 0.16 268 / 0.08); --accent-line: oklch(0.47 0.16 268 / 0.3);
-  --btn: #1d1d1f; --on-btn: #f5f5f7;
+  --bg: #faf6ef;
+  --bg-2: #f2ecdf; --bg-3: #ede4d3;
+  --ink: #26211a; --ink-2: #4a4336; --muted: #6e6557; --muted-2: #9a9082;
+  --hair: #e7decc; --hair-2: #d8cdb5;
+  --accent: #b4532a; --accent-soft: rgba(180, 83, 42, 0.08); --accent-line: rgba(180, 83, 42, 0.3);
+  --btn: #2a241c; --on-btn: #faf6ef;
   --good: oklch(0.55 0.12 160); --good-bg: oklch(0.55 0.12 160 / 0.09);
   --warn: oklch(0.62 0.12 70);  --warn-bg: oklch(0.62 0.12 70 / 0.1);
   --bad: oklch(0.58 0.18 25);   --bad-bg: oklch(0.58 0.18 25 / 0.08);
@@ -45,6 +45,15 @@ h1,h2,h3{font-family:var(--serif);letter-spacing:-.02em;text-wrap:balance}
 .topnav a:hover{color:var(--ink)}
 .topnav a.on{color:var(--ink);font-weight:600}
 
+/* ── 交互精修 ── */
+.qa summary:hover{color:var(--accent)}
+.qa[open] summary{color:var(--ink)}
+.jd tbody tr{transition:background .18s var(--ease)}
+.jd tbody tr:hover{background:var(--accent-soft)}
+.metric{transition:transform .28s var(--ease),border-color .28s}
+.metric:hover{transform:translateY(-2px);border-color:var(--accent-line)}
+.d .b{color:var(--ink)}
+
 /* ── Hero ── */
 .hero{padding:clamp(72px,10vh,120px) 0 clamp(48px,7vh,76px);text-align:center;border-bottom:1px solid var(--hair);position:relative;overflow:hidden}
 .hero::before{content:"";position:absolute;inset:0;background:radial-gradient(640px 300px at 50% -12%, var(--accent-soft), transparent 68%);pointer-events:none}
@@ -71,6 +80,8 @@ h1,h2,h3{font-family:var(--serif);letter-spacing:-.02em;text-wrap:balance}
 .sec-head{display:flex;align-items:baseline;gap:12px;margin-bottom:6px}
 .sec-head .no{font-family:var(--mono);font-size:11.5px;color:var(--muted-2);letter-spacing:.14em}
 .sec-head h2{font-size:clamp(20px,2.6vw,25px);font-weight:700}
+.sec-head::after{content:"";flex:1;height:1px;background:var(--hair);transform:translateY(-4px)}
+.sec-head{flex-wrap:wrap}
 .sec-sub{font-size:14px;color:var(--muted);margin-bottom:22px;max-width:68ch}
 
 .card{background:#fff;border:1px solid var(--hair);border-radius:var(--radius);padding:26px 28px}

@@ -3,17 +3,17 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>AgentAlpha · 实验对比 Playground</title>
 <style>
-:root{--bg:#05050a;--card:rgba(255,255,255,.035);--line:rgba(255,255,255,.09);
---tx:#e8eaf2;--mut:#8b90a5;--mut2:#5c6175;--acc:#7c5cff;--acc2:#4cc9f0;--good:#2ee6a8;
+:root{--bg:#141413;--card:rgba(255,255,255,.035);--line:rgba(255,255,255,.09);
+--tx:#cfcabf;--mut:#8f897c;--mut2:#6b665b;--acc:#d68b5e;--acc2:#cbb682;--good:#2ee6a8;
 --warn:#ffc94d;--mono:'SF Mono',ui-monospace,Consolas,monospace;
 --sans:-apple-system,'Noto Sans SC','PingFang SC',sans-serif}
 *{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}
 body{background:var(--bg);color:var(--tx);font-family:var(--sans);line-height:1.65;overflow-x:hidden}
-::selection{background:rgba(124,92,255,.4)}
+::selection{background:rgba(214,139,94,.4)}
 .aurora{position:fixed;inset:0;z-index:-2;overflow:hidden;pointer-events:none}
-.aurora i{position:absolute;border-radius:50%;filter:blur(110px);opacity:.5}
-.aurora .o1{width:56vw;height:56vw;left:-14vw;top:-22vw;background:radial-gradient(circle,rgba(124,92,255,.5),transparent 65%);animation:d1 26s ease-in-out infinite alternate}
-.aurora .o2{width:44vw;height:44vw;right:-12vw;top:8vh;background:radial-gradient(circle,rgba(76,201,240,.38),transparent 65%);animation:d2 32s ease-in-out infinite alternate}
+.aurora i{position:absolute;border-radius:50%;filter:blur(110px);opacity:.35}
+.aurora .o1{width:56vw;height:56vw;left:-14vw;top:-22vw;background:radial-gradient(circle,rgba(214,139,94,.5),transparent 65%);animation:d1 26s ease-in-out infinite alternate}
+.aurora .o2{width:44vw;height:44vw;right:-12vw;top:8vh;background:radial-gradient(circle,rgba(203,182,130,.38),transparent 65%);animation:d2 32s ease-in-out infinite alternate}
 @keyframes d1{to{transform:translate(9vw,7vh) scale(1.12)}}
 @keyframes d2{to{transform:translate(-7vw,9vh) scale(.92)}}
 .hero{max-width:1120px;margin:0 auto;padding:96px 24px 40px;text-align:center}
@@ -21,7 +21,7 @@ body{background:var(--bg);color:var(--tx);font-family:var(--sans);line-height:1.
 border:1px solid var(--line);border-radius:99px;padding:7px 18px;background:rgba(255,255,255,.03)}
 .kicker b{color:var(--acc2)}
 h1{font-size:clamp(32px,5vw,54px);font-weight:800;letter-spacing:-1px;margin:22px 0 12px;
-background:linear-gradient(100deg,#fff 8%,#b8a6ff 45%,#6ee0ff 90%);-webkit-background-clip:text;background-clip:text;color:transparent}
+background:linear-gradient(100deg,#fff 8%,#e8b48f 45%,#d68b5e 90%);-webkit-background-clip:text;background-clip:text;color:transparent}
 .hero p{color:var(--mut);max-width:720px;margin:0 auto;font-size:15px}
 main{max-width:1120px;margin:0 auto;padding:0 24px 90px}
 section{padding-top:64px}
@@ -29,13 +29,13 @@ section{padding-top:64px}
 .sno{font-family:var(--mono);font-size:12px;color:var(--acc2);letter-spacing:2px}
 h2{font-size:23px;font-weight:750;letter-spacing:-.4px}
 .slead{color:var(--mut);font-size:13.5px;margin:4px 0 18px}
-.rule{height:1px;background:linear-gradient(90deg,rgba(124,92,255,.5),rgba(76,201,240,.2),transparent);margin-top:12px}
+.rule{height:1px;background:linear-gradient(90deg,rgba(214,139,94,.5),rgba(203,182,130,.2),transparent);margin-top:12px}
 .panel{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:22px 24px;margin-bottom:16px}
 .controls{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px}
 .chip{font-size:12.5px;color:var(--mut);border:1px solid var(--line);border-radius:99px;
 padding:7px 16px;cursor:pointer;transition:.25s;background:transparent;user-select:none;font-family:var(--sans)}
-.chip:hover{color:var(--tx);border-color:rgba(124,92,255,.5)}
-.chip.on{color:#fff;background:linear-gradient(120deg,rgba(124,92,255,.85),rgba(76,201,240,.7));border-color:transparent}
+.chip:hover{color:var(--tx);border-color:rgba(214,139,94,.5)}
+.chip.on{color:#fff;background:linear-gradient(120deg,rgba(214,139,94,.85),rgba(203,182,130,.7));border-color:transparent}
 .chip .dot{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:6px;vertical-align:1px}
 .bar-row{display:grid;grid-template-columns:170px 1fr 74px;align-items:center;gap:12px;margin:9px 0}
 .bar-row .lb{font-family:var(--mono);font-size:12px;color:#c9cdd9;text-align:right;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
@@ -46,12 +46,12 @@ padding:7px 16px;cursor:pointer;transition:.25s;background:transparent;user-sele
 .duo{display:grid;grid-template-columns:1fr 1fr;gap:16px}
 @media(max-width:860px){.duo{grid-template-columns:1fr}}
 .big{font-family:var(--mono);font-size:44px;font-weight:700;letter-spacing:-1px;
-background:linear-gradient(120deg,#fff,#b9c6ff);-webkit-background-clip:text;background-clip:text;color:transparent}
+background:linear-gradient(120deg,#fff,#d9cdb4);-webkit-background-clip:text;background-clip:text;color:transparent}
 .big-l{font-family:var(--mono);font-size:26px;font-weight:700;color:var(--good)}
 .stat-lab{font-size:12.5px;color:var(--mut);margin-top:2px}
 .sw{position:relative;width:52px;height:28px;border-radius:99px;background:rgba(255,255,255,.08);border:1px solid var(--line);cursor:pointer;transition:.25s;flex-shrink:0}
 .sw:after{content:'';position:absolute;top:3px;left:3px;width:20px;height:20px;border-radius:50%;background:var(--mut);transition:.25s}
-.sw.on{background:linear-gradient(120deg,rgba(124,92,255,.9),rgba(76,201,240,.75));border-color:transparent}
+.sw.on{background:linear-gradient(120deg,rgba(214,139,94,.9),rgba(203,182,130,.75));border-color:transparent}
 .sw.on:after{left:27px;background:#fff}
 .cfg-row{display:flex;align-items:center;gap:12px;margin:12px 0;font-size:13px}
 svg text{font-family:var(--mono)}
@@ -77,7 +77,7 @@ footer a{color:var(--acc2);text-decoration:none}
 <p class="slead">R21 换模块矩阵：4 个可插拔检索器（同一接口 RetrieverBase.retrieve）× 3 类查询。勾选策略、切换类型，看排名实时变化。</p>
 <div class="panel">
 <div class="controls" id="swapChips">
-<button class="chip on" data-k="bm25"><span class="dot" style="background:#7c5cff"></span>bm25</button><button class="chip on" data-k="dense"><span class="dot" style="background:#4cc9f0"></span>dense</button><button class="chip on" data-k="hybrid-rrf"><span class="dot" style="background:#2ee6a8"></span>hybrid-rrf</button><button class="chip on" data-k="multiquery-max-rrf"><span class="dot" style="background:#ffc94d"></span>multiquery-max-rrf</button>
+<button class="chip on" data-k="bm25"><span class="dot" style="background:#d68b5e"></span>bm25</button><button class="chip on" data-k="dense"><span class="dot" style="background:#cbb682"></span>dense</button><button class="chip on" data-k="hybrid-rrf"><span class="dot" style="background:#2ee6a8"></span>hybrid-rrf</button><button class="chip on" data-k="multiquery-max-rrf"><span class="dot" style="background:#ffc94d"></span>multiquery-max-rrf</button>
 <select id="swapType" style="background:rgba(255,255,255,.06);color:var(--tx);border:1px solid var(--line);border-radius:99px;padding:7px 14px;font-family:var(--sans);font-size:12.5px;outline:none">
 <option value="lexical">lexical</option><option value="paraphrase">paraphrase</option><option value="multi_aspect">multi_aspect</option>
 </select>
@@ -93,7 +93,7 @@ footer a{color:var(--acc2);text-decoration:none}
 <p class="slead">R13 真实进化循环：3 种选择算法 × 5 种子 × 20 代，fitness 每次都是真实执行（7 正确性用例 + 336KB 计时）。点击播放逐代重放。</p>
 <div class="panel">
 <div class="controls" id="evoChips">
-<button class="chip" style="border-color:#7c5cff66">random_search</button><button class="chip" style="border-color:#4cc9f066">greedy_es</button><button class="chip" style="border-color:#2ee6a866">tournament_elite</button>
+<button class="chip" style="border-color:#d68b5e66">random_search</button><button class="chip" style="border-color:#cbb68266">greedy_es</button><button class="chip" style="border-color:#2ee6a866">tournament_elite</button>
 <button class="chip on" id="evoPlay">▶ 播放逐代收敛</button>
 <span style="font-family:var(--mono);font-size:12px;color:var(--acc2);align-self:center" id="evoGen"></span>
 </div>
@@ -121,8 +121,8 @@ footer a{color:var(--acc2);text-decoration:none}
 <div><div style="font-family:var(--mono);font-size:15px;color:var(--warn)" id="dpGain">—</div><div class="stat-lab">多面分解 vs 单查询</div></div>
 </div>
 <div style="margin-top:18px">
-<div class="bar-row"><span class="lb">quality</span><div class="track" id="dpBarQ"><div class="fill" style="background:linear-gradient(90deg,#7c5cff88,#7c5cff)"></div></div><span class="val"></span></div>
-<div class="bar-row"><span class="lb">latency</span><div class="track" id="dpBarL"><div class="fill" style="background:linear-gradient(90deg,#4cc9f088,#4cc9f0)"></div></div><span class="val"></span></div>
+<div class="bar-row"><span class="lb">quality</span><div class="track" id="dpBarQ"><div class="fill" style="background:linear-gradient(90deg,#d68b5e88,#d68b5e)"></div></div><span class="val"></span></div>
+<div class="bar-row"><span class="lb">latency</span><div class="track" id="dpBarL"><div class="fill" style="background:linear-gradient(90deg,#cbb68288,#cbb682)"></div></div><span class="val"></span></div>
 </div>
 <div class="note">当前组合：<span id="dpKey">—</span> · 诚实负结果：INT8 权重反量化在 GPU 上未带来延迟收益——量化省显存不省时间</div>
 </div>
@@ -145,7 +145,7 @@ const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
 // reveal
 const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.1});
 $$('.reveal').forEach(el=>reduced?el.classList.add('in'):io.observe(el));
-const COLORS=['#7c5cff','#4cc9f0','#2ee6a8','#ffc94d','#f72585','#8b90a5'];
+const COLORS=['#d68b5e','#cbb682','#2ee6a8','#ffc94d','#b95846','#8f897c'];
 const fmt=(v,d=3)=>v.toFixed(d);
 
 // ── 1. 检索策略对比器 ──
@@ -187,10 +187,10 @@ function drawEvo(gen){
   let svg=`<svg viewBox="0 0 ${W} ${H}" style="width:100%">`;
   for(let g=0;g<D.evoGens;g+=4)
     svg+=`<line x1="${X(g)}" y1="${T}" x2="${X(g)}" y2="${H-B}" stroke="rgba(255,255,255,.06)"/>
-          <text x="${X(g)}" y="${H-10}" font-size="9" fill="#5c6175" text-anchor="middle">g${g+1}</text>`;
+          <text x="${X(g)}" y="${H-10}" font-size="9" fill="#6b665b" text-anchor="middle">g${g+1}</text>`;
   for(let v=0;v<=1.001;v+=0.25)
     svg+=`<line x1="${L}" y1="${Y(v)}" x2="${W-R}" y2="${Y(v)}" stroke="rgba(255,255,255,.06)"/>
-          <text x="${L-5}" y="${Y(v)+3}" font-size="9" fill="#5c6175" text-anchor="end">${v.toFixed(2)}</text>`;
+          <text x="${L-5}" y="${Y(v)+3}" font-size="9" fill="#6b665b" text-anchor="end">${v.toFixed(2)}</text>`;
   frames.forEach(f=>{
     const c=COLORS[f.i%COLORS.length];
     if(f.m.length>1){
