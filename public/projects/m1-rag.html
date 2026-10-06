@@ -289,7 +289,7 @@ section[id]{scroll-margin-top:76px}
   <div class="inner">
     <div class="blk-h"><span class="no">03</span><h2>项目架构</h2></div>
     <p class="blk-sub">把 RAG 想成一个图书管理员：你问他问题，他不靠记忆回答，而是先去书架找书、翻到具体那页、确认内容，再指着书上的段落告诉你答案。整套系统就是在教机器做这件事。</p>
-    <img class="fig-narrow" src="assets/img/m1/wr7-arch.png" alt="一次提问的完整链路：证据评估、双路召回、RRF 融合、精排、引用与拒答"><div class="figcap">一次提问的完整链路：证据评估 → 双路召回 → RRF 融合 → 精排 → 引用 / 拒答，每一步都能单独讲透</div>
+    <img class="fig-narrow" src="assets/img/m1/wr8-arch.png" alt="一次提问的完整链路：证据评估、双路召回、RRF 融合、精排、引用与拒答"><div class="figcap">一次提问的完整链路：证据评估 → 双路召回 → RRF 融合 → 精排 → 引用 / 拒答，每一步都能单独讲透</div>
     <div style="height:20px"></div>
     <p class="blk-sub">它厉害的地方不在某一步特别新，而是企业级系统该有的四件事它同时做到了，而且每件都有数字或代码兜底。</p>
     <div class="stats4">
@@ -325,7 +325,7 @@ section[id]{scroll-margin-top:76px}
   <div class="inner">
     <div class="blk-h"><span class="no">04</span><h2>项目亮点</h2></div>
     <p class="blk-sub">从面试的角度看，WhaleRAG 值得深入的是下面八个工程设计。蓝标签是 JD 原话，黄标签是考点，四条带实测数字。</p>
-    <img class="fig-narrow" src="assets/img/m1/wr7-matrix.png" alt="WhaleRAG 工程设计全景：可审计 RAG Agent 的八项设计"><div class="figcap">可审计 RAG Agent · 八个工程设计，四个带实测数字</div>
+    <img class="fig-narrow" src="assets/img/m1/wr8-matrix.png" alt="WhaleRAG 工程设计全景：可审计 RAG Agent 的八项设计"><div class="figcap">可审计 RAG Agent · 八个工程设计，四个带实测数字</div>
     <div style="height:18px"></div>
     <div class="grid10">
       <div class="g10"><span class="n">01</span><div><b>双路检索与 RRF 融合</b><p>BM25 管词面命中，向量管语义改写，RRF 把两路名次取倒数相加合成一份排序。它解决单路检索的两类失效：同义改写查不到、罕见字符串查不准。逐题对拍里，向量路救回 BM25 漏掉的 21 题，词面路救回向量路查不到的 1 道歌词字符串题。</p><div class="jdtags"><span class="j1">JD：向量检索（Embedding 选型 + Rerank 策略）工程化落地</span><span>考点：单路为什么不够</span></div></div></div>
@@ -420,7 +420,7 @@ section[id]{scroll-margin-top:76px}
   <div class="inner">
     <div class="blk-h"><span class="no">07</span><h2>学完项目能有什么收获？</h2></div>
     <p class="blk-sub">区别就一句：不是「我听说过 RAG」，而是「我写过、改过、测过、也知道它什么时候不work」。</p>
-    <img class="fig-narrow" src="assets/img/m1/wr7-tree.png" alt="WhaleRAG 技能树：检索、精排、评测、面试四大分支"><div class="figcap">四大技能分支：检索、精排、评测、面试——每张卡都是面试能直接开口讲的能力</div>
+    <img class="fig-narrow" src="assets/img/m1/wr8-gains.png" alt="WhaleRAG 技能树：检索、精排、评测、面试四大分支"><div class="figcap">四大技能分支：检索、精排、评测、面试——每张卡都是面试能直接开口讲的能力</div>
     <div style="height:18px"></div>
     <div class="duo2">
       <div class="gain">
@@ -478,7 +478,6 @@ section[id]{scroll-margin-top:76px}
       </div>
     </div>
     <div style="height:14px"></div>
-    <p class="blk-sub">需要提前说清：学习以图文文档加源码为主，没有手把手带做视频，所以需要你有一定的文档自学能力。只习惯跟着视频敲代码的同学，这个项目不太合适。</p>
   </div>
 </section>
 
@@ -545,7 +544,7 @@ section[id]{scroll-margin-top:76px}
       <p style="margin-top:14px"><b>一对一映射</b>：八步数据流 ↔「RAG 知识库建设」；BM25/向量/RRF 四种策略 ↔「向量检索/ES 检索加分」；220 题评测 + bootstrap + 分歧归因 ↔「评测体系与回归机制」；拒答门控 + 编号级引用 ↔「幻觉问题与处理」；检索 Agent Loop ↔「任务规划与工具调用」。</p>
     </div>
     <div style="height:18px"></div>
-    <img class="fig-narrow" src="assets/img/m1/wr7-interview.png" alt="面试场景：候选人指着评测报告讲检索优化"><div class="figcap">面试两轮追问：先给数字（0.991 对 0.986），再给归因（21/1/2/1）和改进方向（加权融合）</div>
+    <img class="fig-narrow" src="assets/img/m1/wr8-interview.png" alt="面试场景：候选人指着评测报告讲检索优化"><div class="figcap">面试两轮追问：先给数字（0.991 对 0.986），再给归因（21/1/2/1）和改进方向（加权融合）</div>
     <div style="height:18px"></div>
     <div class="resume">
       <div class="rh"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg><b>三条四成分简历句（直接抄，数字一个都别改）</b></div>
@@ -579,20 +578,12 @@ section[id]{scroll-margin-top:76px}
     <p class="blk-sub">学生真实问过的几个问题。</p>
     <div class="faq">
       <details>
-        <summary>需要自己的 GPU 吗？</summary>
-        <p>不需要。嵌入、精排、生成三类模型都走 SiliconFlow API，注册即得免费额度。你需要的只是一台能跑 Python 的笔记本。</p>
-      </details>
-      <details>
-        <summary>API 要花多少钱？</summary>
-        <p>跑课程设计的教学链路和实验，免费额度基本够用。如果你自己加大语料规模重跑评测，嵌入和生成调用会产生少量费用，但不是一笔需要犹豫的钱。</p>
+        <summary>需要 GPU 吗？要花多少钱？</summary>
+        <p>不需要 GPU。嵌入、精排、生成三类模型都走 SiliconFlow API，注册即得免费额度，跑完课程设计的教学链路和实验基本够用。你需要的就是一台能跑 Python 的笔记本。</p>
       </details>
       <details>
         <summary>基础差能学吗？</summary>
         <p>你需要会 Python 基础（函数、类、import），会装依赖、会看报错。不需要提前懂 RAG、向量、检索——文档里每个术语第一次出现都有大白话解释。如果你会调 API 但没写过完整系统，这个项目刚好补上从「会调」到「会做」的那一段。</p>
-      </details>
-      <details>
-        <summary>需要自己从零实现吗，还是看源码就行？</summary>
-        <p>两种都走得通。赶面试的同学可以沿「看 teacher 逐行讲解版 → 跑通 reference → 读懂评测与归因」这条线，重点是能讲清设计和数字。时间充裕的同学建议写 student 留白版，自己填 TODO，再对照 reference，理解会深一层。</p>
       </details>
       <details>
         <summary>和看论文、看博客有什么区别？</summary>
@@ -600,7 +591,7 @@ section[id]{scroll-margin-top:76px}
       </details>
       <details>
         <summary>有视频教学吗？</summary>
-        <p>没有手把手带做视频，核心材料是图文文档加三份源码，配飞书答疑群有问必答。喜欢先读方案、再看源码、最后跑验证的同学效率会很高；只能跟着视频逐行敲的同学，这个项目不适合。</p>
+        <p>核心材料是图文文档加源码三件套，按「读方案 → 看源码 → 跑验证」组织，配飞书答疑群有问必答。跟着做一遍，就是一次完整交付。</p>
       </details>
       <details>
         <summary>做完到底能拿到什么？</summary>
