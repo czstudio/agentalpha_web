@@ -199,7 +199,7 @@ section[id]{scroll-margin-top:76px}
     <div class="left">
       <div class="kicker">AGENTALPHA 训练营 · 旗舰项目</div>
       <h1>WhaleRAG</h1>
-      <p class="sub">一套从<b>北美顶级金融独角兽交付项目</b>里提炼出来的企业级 RAG 实战。RAG 就是「先从你自己的文档里查到证据，再让大模型照着证据回答」。你会在自己的笔记本上，把「解析→切块→编号→索引→召回→精排→引用→拒答」这条链路一步步写出来，最后交出一份带置信区间的评测报告，和一套能讲 30 分钟的面试话术。<b>让数据自己开口说话。</b></p>
+      <p class="sub">从<b>北美顶级金融独角兽交付项目</b>里提炼出来的企业级 RAG 实战：先从你自己的文档里查到证据，再让大模型照着证据回答。你在笔记本上把「解析→切块→编号→索引→召回→精排→引用→拒答」整条链路写出来，交出一份带置信区间的评测报告和一套能讲 30 分钟的面试话术。</p>
       <div class="nums">
         <div><b>0.900→0.991</b><span>Recall@10 · 220 题封存评测集</span></div>
         <div><b>两级排序</b><span>召回 20 · 精排 5</span></div>
@@ -221,44 +221,19 @@ section[id]{scroll-margin-top:76px}
 <section class="blk" id="intro">
   <div class="inner">
     <div class="blk-h"><span class="no">01</span><h2>项目介绍</h2></div>
-    <p class="blk-sub">它是什么、解决什么问题、做完你手上多了什么。</p>
+    <p class="blk-sub">它是什么，做完你手上多了什么。</p>
     <div class="stats4">
-      <div class="stat">
-        <div class="ic"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg></div>
-        <b>整条链路自己写</b><span>解析、切块、编号、索引、召回、精排、引用、拒答，一步不跳</span>
-      </div>
-      <div class="stat">
-        <div class="ic"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg></div>
-        <b>双路检索</b><span>BM25 按词面找、向量按语义找，再用 RRF 把两路名次合起来</span>
-      </div>
-      <div class="stat">
-        <div class="ic"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg></div>
-        <b>答案可验证</b><span>每个论断带 [1][2] 编号，点开就是原文块；没证据就拒答</span>
-      </div>
-      <div class="stat">
-        <div class="ic"><svg viewBox="0 0 24 24"><path d="M3 3v18h18"/><path d="m7 14 4-4 4 3 5-6"/></svg></div>
-        <b>效果能复现</b><span>220 题封存评测集，固定种子，bootstrap 给置信区间</span>
-      </div>
+      <div class="stat"><div class="ic"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg></div><b>整条链路自己写</b><span>解析、切块、编号、索引、召回、精排、引用、拒答，一步不跳</span></div>
+      <div class="stat"><div class="ic"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg></div><b>双路检索</b><span>BM25 按词面找、向量按语义找，RRF 把两路名次合起来</span></div>
+      <div class="stat"><div class="ic"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg></div><b>答案可验证</b><span>每个论断带 [1][2] 编号，点开就是原文块；没证据就拒答</span></div>
+      <div class="stat"><div class="ic"><svg viewBox="0 0 24 24"><path d="M3 3v18h18"/><path d="m7 14 4-4 4 3 5-6"/></svg></div><b>效果能复现</b><span>220 题封存评测集，固定种子，bootstrap 给置信区间</span></div>
     </div>
     <div style="height:20px"></div>
     <div class="card">
-      <p><b>一句话定位：我们不是在做一个问答机器人，而是在用 RAG 重塑知识的组织方式，让数据自己开口说话。</b></p>
-      <p>WhaleRAG 不是调一个现成 API 就结束的 demo。你要从 PDF 解析开始，自己实现语义切块、向量索引、双路检索、精排、引用标注、拒答门控。每一步都有代码、有实验、有「为什么这么选」的解释。</p>
-      <p>它有真实的企业出身。我们参考并提炼了曾为北美顶级金融独角兽交付的定制化 RAG 系统，那套系统支撑了<b>上万份财报、风控文件的实时问答与可审计访问</b>。这次把企业级架构理念「轻量化」，做成一套通用的 RAG 实战模板，核心能力一个没少——<b>高速检索、低幻觉率、可追溯来源、可控生成</b>。</p>
-      <p>对你来说，做完它你手上会多三样东西：<b>一个能写进简历的项目、一份带置信区间的评测报告、一套能扛住面试追问的讲法</b>。</p>
-    </div>
-    <div style="height:20px"></div>
-    <div class="card">
-      <p><b>先把话说明白：单纯叫「RAG 工程师」的岗位现在很少，但大模型应用、Agent 开发这些在招岗位的 JD 里，RAG、检索、评测是高频词。</b></p>
-      <p>下面五条摘自 2026 年在招岗位的 JD 原文（第 10 节附可点开的官网链接），箭头右边是你亲手写的部分：</p>
-      <p>
-      「<b>基于 RAG 的知识库/检索系统建设</b>」——字节·飞书 → 八步数据流，从 PDF 解析到带编号引用的回答，每一步自己实现<br>
-      「<b>深入理解 Agentic 架构、RAG</b>」——字节·飞书 → 检索 Agent Loop，系统自己判断证据够不够、要不要再查一轮，实测平均 2.16 轮<br>
-      「<b>知识库/RAG 检索系统后端研发，加分：向量检索</b>」——字节 → Chroma 向量库 + BM25/向量双路召回 + RRF 融合<br>
-      「<b>RAG 提升输出质量；评测体系与回归机制</b>」——网易·知识工程 → 220 题封存评测集 + bootstrap 置信区间 + 逐题分歧归因<br>
-      「<b>向量检索（Embedding 选型 + Rerank 策略）工程化落地</b>」——某大厂 AI Agent 架构岗 → Qwen3-Embedding-4B 选型 + bge-reranker 精排策略，Recall@10 实测 0.991
-      </p>
-      <p>别的项目让你「了解概念」，这个项目让你把这五行 JD 原话逐条变成「我写过、我测过、我知道边界在哪」。面试官问到哪条，你都有代码和数字接住。</p>
+      <p><b>不是在做一个问答机器人，而是用 RAG 重塑知识的组织方式，让数据自己开口说话。</b></p>
+      <p>每一步都有代码、有实验、有「为什么这么选」的解释，不是调一个现成 API 就结束的 demo。</p>
+      <p>做完它你手上多三样东西：<b>一个能写进简历的项目、一份带置信区间的评测报告、一套扛得住面试追问的讲法</b>。</p>
+      <p class="note">单纯叫「RAG 工程师」的岗位很少，但 RAG、检索、评测是大模型应用与 Agent 岗 JD 里的高频词——第 10 节逐条对照。</p>
     </div>
     <div style="height:20px"></div>
     <img class="fig-narrow" src="assets/img/m1/wr-live-demo.gif" alt="真实录屏：提问、双路召回、精排、带编号引用的回答全过程"><figcaption class="figcap">真实录屏，15 秒：提问 → 双路召回 → 精排 → 带 [1][2] 编号引用的回答 → 点开引用回看原文与相关度</figcaption>
@@ -269,18 +244,17 @@ section[id]{scroll-margin-top:76px}
 <section class="blk" id="origin">
   <div class="inner">
     <div class="blk-h"><span class="no">02</span><h2>项目出身</h2></div>
-    <p class="blk-sub">它不是教学团队凭空设计的练习题，而是从一个真实的企业交付项目里拆下来的。</p>
+    <p class="blk-sub">不是凭空设计的练习题，是从一个真实企业交付项目里拆下来的。</p>
     <div class="card">
-      <p><b>Project Aurora（极光计划 · 化名）</b>，是我们为某北美顶级金融独角兽交付的那套系统的内部代号。客户需求很具体：<b>投研团队</b>要快速横跨上百份财报找证据，<b>风控团队</b>要求每个判定可回溯、可审计——监管在盯着，不能出错。</p>
-      <p>那套系统跑在生产环境里，支撑了上万份财报和风控文件的实时问答。它做的不是闲聊，而是让每份文件里的每个论断都能被找到、被引用、被验证。我们把其中最核心的检索-精排-引用-拒答链路完整保留，砍掉多服务部署、权限审计、私有化这些企业级包装，把它装进一台普通笔记本。</p>
-      <p>所以 WhaleRAG 里每个设计决策背后都压着一个企业场景：为什么拒答要做两道门控？因为风控场景宁可不答，不可编造。为什么答案必须带编号引用？因为监管要求可审计。这些不是「业界最佳实践」四个字，是<b>被真实业务逼出来的设计</b>。</p>
+      <p><b>Project Aurora（极光计划 · 化名）</b>是那套系统的内部代号，支撑过上万份财报与风控文件的实时问答：投研团队要横跨上百份财报找证据，风控团队要求每个判定可回溯、可审计。</p>
+      <p>所以每个设计背后都压着一个企业场景——<b>拒答做两道门控，因为风控宁可不答不可编造；答案必须带编号引用，因为监管要求可审计</b>。</p>
     </div>
     <div style="height:20px"></div>
-    <figure style="max-width:720px;margin:0 auto"><img class="fig-wide" src="assets/img/m1/born-group-intro.jpg" alt="课程群真实截图：项目介绍与云盘交付文件列表"><figcaption class="figcap">课程群真实截图：创始人介绍项目出身（某金融独角兽内部项目），下方云盘是交付给学员的真实代码文件列表</figcaption></figure>
+    <figure style="max-width:720px;margin:0 auto"><img class="fig-wide" src="assets/img/m1/born-group-intro.jpg" alt="课程群真实截图：项目介绍与云盘交付文件列表"><figcaption class="figcap">课程群真实截图：创始人介绍项目出身，下方云盘是交付给学员的真实代码文件列表</figcaption></figure>
     <div style="height:16px"></div>
-    <figure style="max-width:720px;margin:0 auto"><img class="fig-wide" src="assets/img/m1/born-code-drive.jpg" alt="创始人原话：企业出身与轻量化思路"><figcaption class="figcap">创始人原话：那套系统支撑上万份财报、风控文件的实时问答与可审计访问；课程版保留核心能力——高速检索、低幻觉率、可追溯来源、可控生成</figcaption></figure>
+    <figure style="max-width:720px;margin:0 auto"><img class="fig-wide" src="assets/img/m1/born-code-drive.jpg" alt="创始人原话：企业出身与轻量化思路"><figcaption class="figcap">创始人原话：课程版保留核心能力——高速检索、低幻觉率、可追溯来源、可控生成</figcaption></figure>
     <div style="height:12px"></div>
-    <p class="blk-sub">企业版是多服务部署 + 权限审计 + 私有化，课程版跑在笔记本上。两者差的是部署复杂度，不是工程决策。</p>
+    <p class="blk-sub">企业版是多服务部署 + 权限审计 + 私有化，课程版跑在笔记本上。差的是部署复杂度，不是工程决策。</p>
   </div>
 </section>
 
@@ -288,35 +262,34 @@ section[id]{scroll-margin-top:76px}
 <section class="blk" id="arch">
   <div class="inner">
     <div class="blk-h"><span class="no">03</span><h2>项目架构</h2></div>
-    <p class="blk-sub">把 RAG 想成一个图书管理员：你问他问题，他不靠记忆回答，而是先去书架找书、翻到具体那页、确认内容，再指着书上的段落告诉你答案。整套系统就是在教机器做这件事。</p>
-    <img class="fig-narrow" src="assets/img/m1/wr8-arch.png" alt="一次提问的完整链路：证据评估、双路召回、RRF 融合、精排、引用与拒答"><div class="figcap">一次提问的完整链路：证据评估 → 双路召回 → RRF 融合 → 精排 → 引用 / 拒答，每一步都能单独讲透</div>
+    <p class="blk-sub">八步数据流，前四步建库，后四步问答。</p>
+    <img class="fig-narrow" src="assets/img/m1/wr8-arch.png" alt="一次提问的完整链路：证据评估、双路召回、RRF 融合、精排、引用与拒答"><div class="figcap">一次提问的完整链路：证据评估 → 双路召回 → RRF 融合 → 精排 → 引用 / 拒答</div>
     <div style="height:20px"></div>
-    <p class="blk-sub">它厉害的地方不在某一步特别新，而是企业级系统该有的四件事它同时做到了，而且每件都有数字或代码兜底。</p>
     <div class="stats4">
-      <div class="stat"><div class="ic"><svg viewBox="0 0 24 24"><path d="m16 18 6-6-6-6"/><path d="m8 6-6 6 6 6"/></svg></div><b>检索准</b><span>双路召回加精排，Recall@10 实测 0.991（220 题封存评测集）</span></div>
-      <div class="stat"><div class="ic"><svg viewBox="0 0 24 24"><path d="m12 2 10 6-10 6L2 8z"/><path d="m2 14 10 6 10-6"/></svg></div><b>敢拒答</b><span>两道门控，知识库里没有就直说没有，不硬编一个答案</span></div>
-      <div class="stat"><div class="ic"><svg viewBox="0 0 24 24"><path d="M4 21v-7"/><path d="M4 10V3"/><path d="M12 21v-9"/><path d="M12 8V3"/><path d="M20 21v-5"/><path d="M20 12V3"/><path d="M2 14h4"/><path d="M10 8h4"/><path d="M18 16h4"/></svg></div><b>可追溯</b><span>编号级引用，答案里每个论断都能点开回看原文块</span></div>
-      <div class="stat"><div class="ic"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div><b>可验证</b><span>数字全部带口径：固定种子、受控候选池、bootstrap 置信区间</span></div>
+      <div class="stat"><div class="ic"><svg viewBox="0 0 24 24"><path d="m16 18 6-6-6-6"/><path d="m8 6-6 6 6 6"/></svg></div><b>检索准</b><span>双路召回加精排，Recall@10 实测 0.991</span></div>
+      <div class="stat"><div class="ic"><svg viewBox="0 0 24 24"><path d="m12 2 10 6-10 6L2 8z"/><path d="m2 14 10 6 10-6"/></svg></div><b>敢拒答</b><span>两道门控，知识库里没有就直说没有</span></div>
+      <div class="stat"><div class="ic"><svg viewBox="0 0 24 24"><path d="M4 21v-7"/><path d="M4 10V3"/><path d="M12 21v-9"/><path d="M12 8V3"/><path d="M20 21v-5"/><path d="M20 12V3"/><path d="M2 14h4"/><path d="M10 8h4"/><path d="M18 16h4"/></svg></div><b>可追溯</b><span>编号级引用，每个论断能点开回看原文块</span></div>
+      <div class="stat"><div class="ic"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div><b>可验证</b><span>固定种子、受控候选池、bootstrap 置信区间</span></div>
     </div>
     <div style="height:20px"></div>
     <div class="duo2">
       <div class="card">
-        <p><b>建库阶段（前四步）</b></p>
-        <p>① <b>解析</b>：PyPDF2 把 PDF 里的文字抽出来。<br>
-        ② <b>切块</b>：切块就是把长文档拆成小段。RecursiveCharacterTextSplitter 按 1000 字符一块切，相邻块重叠 100 字符，防止一句话刚好被切在边界上断掉。<br>
-        ③ <b>编号</b>：每块分配唯一 ID，这是后面「引用可追溯」的地基。<br>
-        ④ <b>索引</b>：每块文字用嵌入模型（把文字转成一串数字、让语义相近的文字数值也相近）变成向量，存进 Chroma 向量库，落盘持久化，重启不丢。</p>
+        <p><b>建库阶段</b></p>
+        <p>① <b>解析</b>：PyPDF2 抽出 PDF 文字。<br>
+        ② <b>切块</b>：按 1000 字符一块切、相邻重叠 100，防止一句话被切断。<br>
+        ③ <b>编号</b>：每块分配唯一 ID，这是引用可追溯的地基。<br>
+        ④ <b>索引</b>：嵌入模型把每块转成向量，存进 Chroma 落盘，重启不丢。</p>
       </div>
       <div class="card">
-        <p><b>问答阶段（后四步）</b></p>
-        <p>⑤ <b>召回</b>：两条路同时找。BM25 按词面匹配，你写「利润」就找含「利润」的块；向量按语义匹配，你问「赚了多少钱」也能找到写「净利润」的块。RRF（把两路的名次取倒数再相加）负责把两份排序合成一份。<br>
-        ⑥ <b>精排</b>：bge-reranker 这类精排模型会把问题和候选块放在一起重新打分，从前 20 块里挑出最相关的 5 块。<br>
-        ⑦ <b>引用</b>：生成答案时每个论断后面标 [1][2]，点编号展开对应原文块。<br>
-        ⑧ <b>拒答</b>：两道门控，知识库里没有的内容直接说没有。</p>
+        <p><b>问答阶段</b></p>
+        <p>⑤ <b>召回</b>：BM25 按词面找、向量按语义找，RRF 把两路名次取倒数相加合成一份排序。<br>
+        ⑥ <b>精排</b>：bge-reranker 把问题和候选块一起重打分，20 里挑 5。<br>
+        ⑦ <b>引用</b>：每个论断标 [1][2]，点编号展开原文块。<br>
+        ⑧ <b>拒答</b>：两道门控，没证据不编。</p>
       </div>
     </div>
     <div style="height:14px"></div>
-    <p class="blk-sub">这八步不是看一遍就懂的抽象概念。每一步你都要写代码、跑起来、看到中间结果，才会明白 RAG 为什么被设计成这样。</p>
+    <p class="blk-sub">每一步你都要写代码、跑起来、看中间结果，才会明白 RAG 为什么被设计成这样。</p>
   </div>
 </section>
 
@@ -324,21 +297,21 @@ section[id]{scroll-margin-top:76px}
 <section class="blk" id="highlights">
   <div class="inner">
     <div class="blk-h"><span class="no">04</span><h2>项目亮点</h2></div>
-    <p class="blk-sub">从面试的角度看，WhaleRAG 值得深入的是下面八个工程设计。蓝标签是 JD 原话，黄标签是考点，四条带实测数字。</p>
+    <p class="blk-sub">从面试的角度看，值得深入的是下面八个工程设计。蓝标签是 JD 原话，黄标签是考点。</p>
     <img class="fig-narrow" src="assets/img/m1/wr8-matrix.png" alt="WhaleRAG 工程设计全景：可审计 RAG Agent 的八项设计"><div class="figcap">可审计 RAG Agent · 八个工程设计，四个带实测数字</div>
     <div style="height:18px"></div>
     <div class="grid10">
-      <div class="g10"><span class="n">01</span><div><b>双路检索与 RRF 融合</b><p>BM25 管词面命中，向量管语义改写，RRF 把两路名次取倒数相加合成一份排序。它解决单路检索的两类失效：同义改写查不到、罕见字符串查不准。逐题对拍里，向量路救回 BM25 漏掉的 21 题，词面路救回向量路查不到的 1 道歌词字符串题。</p><div class="jdtags"><span class="j1">JD：向量检索（Embedding 选型 + Rerank 策略）工程化落地</span><span>考点：单路为什么不够</span></div></div></div>
-      <div class="g10"><span class="n">02</span><div><b>两级排序：宽召回、窄输入</b><p>先宽召回 top-20 保证答案别漏，再用 bge-reranker 精排挑 top-5 送进生成，噪声和成本一起压住。Recall@10 实测 0.991。宽到多少、窄到多少，这个取舍本身就是能讲的工程判断。</p><div class="jdtags"><span class="j1">JD：Rerank 策略工程化落地</span><span>数字：Recall@10 0.991</span></div></div></div>
-      <div class="g10"><span class="n">03</span><div><b>编号级引用</b><p>答案里每个论断标 [1][2]，编号对应唯一文本块，点开回看原文和相关度。它解决「答案对不对没法验证」这个最要命的问题——面试官可以当场抽查任意一条。</p><div class="jdtags"><span class="j1">JD：幻觉问题与处理</span><span>考点：答案可验证</span></div></div></div>
-      <div class="g10"><span class="n">04</span><div><b>两道拒答门控</b><p>第一道：检索最高相关度低于阈值直接拒。第二道：生成答案里的引用编号对不上已有块，再拒一次。它解决「知识库里没有还硬编」——无据不编是企业场景的底线，不是加分项。</p><div class="jdtags"><span class="j1">JD：置信度评估与幻觉治理</span><span>考点：无据不编</span></div></div></div>
-      <div class="g10"><span class="n">05</span><div><b>检索 Agent Loop</b><p>评估首轮证据够不够 → 决定要不要再查 → 3 轮硬上限。任务规划、工具调用、多轮循环、停止条件在检索这个场景里的完整落地。实测平均 2.16 轮、65% 的查询触发二次搜索。</p><div class="jdtags"><span class="j1">JD：基于 Agent Loop 实现任务规划、工具调用</span><span>数字：平均 2.16 轮</span></div></div></div>
-      <div class="g10"><span class="n">06</span><div><b>封存评测集</b><p>MS MARCO 真实查询 220 题、候选池 1810 段落、随机种子固定 42；四种检索策略同口径对照，bootstrap 重采样 1000 次报 95% 置信区间。它解决「自夸不可验证」——谁重跑都是同一份数字。</p><div class="jdtags"><span class="j1">JD：模型评测与 A/B 测试体系</span><span>数字：95% CI</span></div></div></div>
-      <div class="g10"><span class="n">07</span><div><b>逐题分歧归因</b><p>每处检索分歧逐题人工对拍，得出 21/1/2/1 这组数；Hybrid 没超过 Dense 的负结果如实入档。它解决「只报好消息」——能回答「为什么融合反而降了」，比一个好看的分数有说服力得多。</p><div class="jdtags"><span class="j1">JD：自动化评测 + 人工评审</span><span>考点：负结果怎么讲</span></div></div></div>
-      <div class="g10"><span class="n">08</span><div><b>企业级链路轻量化</b><p>Project Aurora（化名）为北美顶级金融独角兽交付的检索-精排-引用-拒答链路，支撑过上万份财报与风控文件的可审计问答。课程版保留全部工程决策，只裁剪部署复杂度，所以你讲的是真实场景里的取舍。</p><div class="jdtags"><span>考点：企业场景怎么讲</span></div></div></div>
+      <div class="g10"><span class="n">01</span><div><b>双路检索与 RRF 融合</b><p>BM25 管词面命中，向量管语义改写，RRF 把两路名次倒数相加。解决单路的两类失效：实测向量路救回 BM25 漏掉的 21 题，词面路救回语义路查不到的 1 道歌词字符串题。</p><div class="jdtags"><span class="j1">JD：向量检索（Embedding 选型 + Rerank 策略）工程化落地</span><span>考点：单路为什么不够</span></div></div></div>
+      <div class="g10"><span class="n">02</span><div><b>两级排序：宽召回、窄输入</b><p>先召回 top-20 保证不漏，再用 bge-reranker 精排挑 top-5 送进生成，噪声和成本一起压住。宽到多少、窄到多少，这个取舍本身就是能讲的工程判断。</p><div class="jdtags"><span class="j1">JD：Rerank 策略工程化落地</span><span>数字：Recall@10 0.991</span></div></div></div>
+      <div class="g10"><span class="n">03</span><div><b>编号级引用</b><p>每个论断标 [1][2]，编号对应唯一文本块，点开回看原文和相关度。解决「答案对不对没法验证」——面试官可以当场抽查任意一条。</p><div class="jdtags"><span class="j1">JD：幻觉问题与处理</span><span>考点：答案可验证</span></div></div></div>
+      <div class="g10"><span class="n">04</span><div><b>两道拒答门控</b><p>检索最高相关度低于阈值直接拒；生成答案里引用编号对不上已有块，再拒一次。解决「库里没有还硬编」，无据不编是企业场景的底线。</p><div class="jdtags"><span class="j1">JD：置信度评估与幻觉治理</span><span>考点：无据不编</span></div></div></div>
+      <div class="g10"><span class="n">05</span><div><b>检索 Agent Loop</b><p>评估首轮证据够不够 → 决定要不要再查 → 3 轮硬上限。任务规划、工具调用、停止条件在检索场景里的完整落地，实测平均 2.16 轮、65% 触发二次搜索。</p><div class="jdtags"><span class="j1">JD：基于 Agent Loop 实现任务规划、工具调用</span><span>数字：平均 2.16 轮</span></div></div></div>
+      <div class="g10"><span class="n">06</span><div><b>封存评测集</b><p>MS MARCO 真实查询 220 题、候选池 1810 段落、种子固定 42，四种策略同口径对照，bootstrap 1000 次报 95% CI。解决「自夸不可验证」——谁重跑都是同一份数字。</p><div class="jdtags"><span class="j1">JD：模型评测与 A/B 测试体系</span><span>数字：95% CI</span></div></div></div>
+      <div class="g10"><span class="n">07</span><div><b>逐题分歧归因</b><p>每处检索分歧人工逐题对拍，得出 21/1/2/1，Hybrid 没超过 Dense 的负结果如实入档。能回答「为什么融合反而降了」，比一个好看的分数有说服力。</p><div class="jdtags"><span class="j1">JD：自动化评测 + 人工评审</span><span>考点：负结果怎么讲</span></div></div></div>
+      <div class="g10"><span class="n">08</span><div><b>企业级链路轻量化</b><p>Project Aurora 为北美顶级金融独角兽交付的检索-精排-引用-拒答链路，支撑过上万份财报与风控文件的可审计问答。课程版保留全部工程决策，只裁剪部署复杂度。</p><div class="jdtags"><span>考点：企业场景怎么讲</span></div></div></div>
     </div>
     <div style="height:14px"></div>
-    <p class="blk-sub">八个设计串起来，你能展示的是一套覆盖<b>检索融合、两级排序、可信回答、按需检索、效果验证</b>的完整 RAG 工程。诚实边界：这类 JD 里还会写「多智能体协同」「分层记忆体系」，这两块由同系列项目覆盖——m2 做记忆系统、m4 做多 Agent 协作，本页不冒领。</p>
+    <p class="blk-sub">八个设计串起来，你能展示的是一套覆盖<b>检索融合、两级排序、可信回答、按需检索、效果验证</b>的完整 RAG 工程。诚实边界：JD 里的「多智能体协同」「分层记忆体系」由同系列 m2、m4 覆盖，本页不冒领。</p>
   </div>
 </section>
 
@@ -349,43 +322,24 @@ section[id]{scroll-margin-top:76px}
     <p class="blk-sub">选型只看三条：能跑在笔记本上、能免费注册、能讲清楚原理。</p>
     <div class="stack4">
       <div class="s4">
-        <div class="h"><svg viewBox="0 0 24 24"><path d="m16 18 6-6-6-6"/><path d="m8 6-6 6 6 6"/></svg><b>语言与框架</b></div>
-        <div class="chips">
-          <span>Python</span>
-          <span>LangChain</span>
-          <span>Chroma</span>
-          <span>Streamlit</span>
-        </div>
+        <div class="h"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg><b>语言与框架</b></div>
+        <div class="chips"><span>Python</span><span>LangChain</span><span>Chroma</span><span>Streamlit</span></div>
       </div>
       <div class="s4">
-        <div class="h"><svg viewBox="0 0 24 24"><path d="m16 18 6-6-6-6"/><path d="m8 6-6 6 6 6"/></svg><b>检索与排序</b></div>
-        <div class="chips">
-          <span>BM25</span>
-          <span>RRF 融合</span>
-          <span>bge-reranker-v2-m3</span>
-        </div>
+        <div class="h"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg><b>检索与排序</b></div>
+        <div class="chips"><span>BM25</span><span>RRF 融合</span><span>bge-reranker-v2-m3</span></div>
       </div>
       <div class="s4">
-        <div class="h"><svg viewBox="0 0 24 24"><path d="m16 18 6-6-6-6"/><path d="m8 6-6 6 6 6"/></svg><b>模型服务</b></div>
-        <div class="chips">
-          <span>Qwen3-Embedding-4B</span>
-          <span>Qwen2.5-7B-Instruct</span>
-          <span>SiliconFlow API</span>
-        </div>
+        <div class="h"><svg viewBox="0 0 24 24"><path d="M4 21v-7"/><path d="M4 10V3"/><path d="M12 21v-9"/><path d="M12 8V3"/><path d="M20 21v-5"/><path d="M20 12V3"/><path d="M2 14h4"/><path d="M10 8h4"/><path d="M18 16h4"/></svg><b>模型服务</b></div>
+        <div class="chips"><span>Qwen3-Embedding-4B</span><span>Qwen2.5-7B-Instruct</span><span>SiliconFlow API</span></div>
       </div>
       <div class="s4">
-        <div class="h"><svg viewBox="0 0 24 24"><path d="m16 18 6-6-6-6"/><path d="m8 6-6 6 6 6"/></svg><b>工程参数与评测</b></div>
-        <div class="chips">
-          <span>切块 1000/100</span>
-          <span>top-20→top-5</span>
-          <span>temperature 0.2</span>
-          <span>MS MARCO 评测集</span>
-          <span>bootstrap CI</span>
-        </div>
+        <div class="h"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg><b>工程参数与评测</b></div>
+        <div class="chips"><span>切块 1000/100</span><span>top-20→top-5</span><span>temperature 0.2</span><span>MS MARCO 评测集</span><span>bootstrap CI</span></div>
       </div>
     </div>
     <div style="height:14px"></div>
-    <p class="blk-sub">不需要自己的 GPU。嵌入、精排、生成三类模型都走 SiliconFlow API，注册即得免费额度，课程里设计的实验规模在额度内能跑完。</p>
+    <p class="blk-sub">不需要自己的 GPU，三类模型都走 SiliconFlow API，注册即得免费额度。</p>
   </div>
 </section>
 
@@ -393,25 +347,25 @@ section[id]{scroll-margin-top:76px}
 <section class="blk" id="docs">
   <div class="inner">
     <div class="blk-h"><span class="no">06</span><h2>项目文档</h2></div>
-    <p class="blk-sub">12 章深度讲解，约 1.5 万字。每章对应项目里一个具体模块或一次实验，不是知识科普。</p>
+    <p class="blk-sub">12 章约 1.5 万字，每章对应一个模块或一次实验，不是知识科普。</p>
     <div class="chapters">
-      <div class="ch"><span class="no">01</span><b>为什么你的第一个项目应该是 RAG</b><p>大模型应用开发岗最高频的落地场景，没有之一。</p></div>
-      <div class="ch"><span class="no">02</span><b>三十分钟看懂 RAG 全景</b><p>从「模型不认识你的文件」到「让文件自己说话」的完整逻辑。</p></div>
-      <div class="ch"><span class="no">03</span><b>解析与切块：项目从哪里开始</b><p>PDF 解析的坑、三种切块策略对照、1000/100 这组参数是怎么定的。</p></div>
-      <div class="ch"><span class="no">04</span><b>索引与检索：两条路各擅长什么</b><p>BM25 和向量检索分别在什么查询上失效，RRF 怎么把两路名次合起来。</p></div>
-      <div class="ch"><span class="no">05</span><b>精排、引用与拒答：从找到到敢用</b><p>精排为什么必要、引用编号怎么落地、两道门控的阈值怎么设。</p></div>
-      <div class="ch"><span class="no">06</span><b>按需再搜：让系统自己决定查几轮</b><p>检索 Agent Loop 的判断逻辑、实现方式，以及它在小语料上的边界。</p></div>
-      <div class="ch"><span class="no">07</span><b>评测：0.900→0.991 是怎么测出来的</b><p>评测集四要素、指标定义、bootstrap 置信区间、逐题归因怎么做。</p></div>
-      <div class="ch"><span class="no">08</span><b>金融工具与多 Agent 产线</b><p>企业版的多 Agent 架构思路，以及课程版砍掉了什么、为什么砍。</p></div>
-      <div class="ch"><span class="no">09</span><b>常见故障速查</b><p>14 条真实故障 → 原因 → 修法，自己踩过的坑都在这。</p></div>
-      <div class="ch"><span class="no">10</span><b>动手练习</b><p>6 道练习，每道带验收标准——做完就知道自己到底会没会。</p></div>
-      <div class="ch"><span class="no">11</span><b>面试怎么讲</b><p>STAR-R 脚本（情境-任务-动作-结果-复盘）加追问弹药。</p></div>
-      <div class="ch"><span class="no">12</span><b>诚实边界与下一步</b><p>Hybrid 为什么没超过 Dense、Agentic 的适用条件、接下来往哪走。</p></div>
+      <div class="ch"><span class="no">01</span><b>为什么你的第一个项目应该是 RAG</b><p>大模型应用开发岗最高频的落地场景。</p></div>
+      <div class="ch"><span class="no">02</span><b>三十分钟看懂 RAG 全景</b><p>从「模型不认识你的文件」到「让文件自己说话」。</p></div>
+      <div class="ch"><span class="no">03</span><b>解析与切块：项目从哪里开始</b><p>PDF 解析的坑、三种切块策略、1000/100 怎么定的。</p></div>
+      <div class="ch"><span class="no">04</span><b>索引与检索：两条路各擅长什么</b><p>两路分别在什么查询上失效，RRF 怎么合名次。</p></div>
+      <div class="ch"><span class="no">05</span><b>精排、引用与拒答：从找到到敢用</b><p>精排为什么必要、引用怎么落地、阈值怎么设。</p></div>
+      <div class="ch"><span class="no">06</span><b>按需再搜：让系统自己决定查几轮</b><p>Agent Loop 的判断逻辑、实现方式与边界。</p></div>
+      <div class="ch"><span class="no">07</span><b>评测：0.900→0.991 是怎么测出来的</b><p>评测集四要素、指标定义、bootstrap、逐题归因。</p></div>
+      <div class="ch"><span class="no">08</span><b>金融工具与多 Agent 产线</b><p>企业版架构思路，课程版砍了什么、为什么砍。</p></div>
+      <div class="ch"><span class="no">09</span><b>常见故障速查</b><p>14 条真实故障 → 原因 → 修法。</p></div>
+      <div class="ch"><span class="no">10</span><b>动手练习</b><p>6 道练习，每道带验收标准。</p></div>
+      <div class="ch"><span class="no">11</span><b>面试怎么讲</b><p>STAR-R 脚本加追问弹药。</p></div>
+      <div class="ch"><span class="no">12</span><b>诚实边界与下一步</b><p>Hybrid 为什么没超过 Dense、Agentic 的适用条件。</p></div>
     </div>
     <div style="height:20px"></div>
     <figure><img class="fig-wide" src="assets/img/m1/wr-doc-toc.png" alt="WhaleRAG 12 章文档目录长图"><figcaption class="figcap">12 章文档全目录，每章对应一个可动手验证的模块</figcaption></figure>
     <div style="height:14px"></div>
-    <p class="blk-sub">它更像一份<b>项目说明书</b>：读完一章就去改对应代码、跑对应实验。读完第 7 章，你手上就有一份属于自己的评测报告。</p>
+    <p class="blk-sub">它更像一份<b>项目说明书</b>：读完一章就去改对应代码、跑对应实验。读完第 7 章，你手上就有自己的评测报告。</p>
   </div>
 </section>
 
@@ -419,23 +373,23 @@ section[id]{scroll-margin-top:76px}
 <section class="blk" id="gains">
   <div class="inner">
     <div class="blk-h"><span class="no">07</span><h2>学完项目能有什么收获？</h2></div>
-    <p class="blk-sub">区别就一句：不是「我听说过 RAG」，而是「我写过、改过、测过、也知道它什么时候不work」。</p>
-    <img class="fig-narrow" src="assets/img/m1/wr8-gains.png" alt="WhaleRAG 技能树：检索、精排、评测、面试四大分支"><div class="figcap">四大技能分支：检索、精排、评测、面试——每张卡都是面试能直接开口讲的能力</div>
+    <p class="blk-sub">区别就一句：不是「我听说过 RAG」，而是「我写过、测过，也知道它什么时候不 work」。</p>
+    <img class="fig-narrow" src="assets/img/m1/wr8-gains.png" alt="WhaleRAG 技能树：检索、精排、评测、面试四大分支"><div class="figcap">四大技能分支：检索、精排、评测、面试</div>
     <div style="height:18px"></div>
     <div class="duo2">
       <div class="gain">
-        <div class="g"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg><p>你能<b>讲清 RAG 的八步数据流</b>，每一步的输入输出，以及为什么这么设计</p></div>
-        <div class="g"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg><p>你能<b>实现 BM25 + 向量双路检索和 RRF 融合</b>，并说清两路各自在什么查询上失效</p></div>
-        <div class="g"><svg viewBox="0 0 24 24"><path d="M4 21v-7"/><path d="M4 10V3"/><path d="M12 21v-9"/><path d="M12 8V3"/><path d="M20 21v-5"/><path d="M20 12V3"/><path d="M2 14h4"/><path d="M10 8h4"/><path d="M18 16h4"/></svg><p>你能<b>接入精排模型</b>，解释「召回 20、精排 5」这组参数背后的取舍</p></div>
-        <div class="g"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg><p>你能<b>实现编号级引用和两道拒答门控</b>，正面回答「幻觉怎么治」</p></div>
-        <div class="g"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg><p>你能<b>写出检索 Agent Loop</b>，说出平均 2.16 轮这个数怎么来的，以及收益边界在哪</p></div>
+        <div class="g"><svg viewBox="0 0 24 24"><path d="M3 3v18h18"/><path d="m7 14 4-4 4 3 5-6"/></svg><p><b>讲清八步数据流</b>：每步的输入输出和设计理由</p></div>
+        <div class="g"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg><p><b>实现双路检索与 RRF 融合</b>，说清两路各自的失效场景</p></div>
+        <div class="g"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg><p><b>接入精排模型</b>，解释「召回 20、精排 5」的取舍</p></div>
+        <div class="g"><svg viewBox="0 0 24 24"><path d="m16 18 6-6-6-6"/><path d="m8 6-6 6 6 6"/></svg><p><b>实现编号级引用与两道拒答门控</b>，正面回答「幻觉怎么治」</p></div>
+        <div class="g"><svg viewBox="0 0 24 24"><path d="m12 2 10 6-10 6L2 8z"/><path d="m2 14 10 6 10-6"/></svg><p><b>写出检索 Agent Loop</b>，说出 2.16 轮怎么来的、收益边界在哪</p></div>
       </div>
       <div class="gain">
-        <div class="g"><svg viewBox="0 0 24 24"><path d="M3 3v18h18"/><path d="m7 14 4-4 4 3 5-6"/></svg><p>你能<b>搭一个 220 题封存评测集</b>，用 bootstrap 算出 95% 置信区间</p></div>
-        <div class="g"><svg viewBox="0 0 24 24"><path d="m16 18 6-6-6-6"/><path d="m8 6-6 6 6 6"/></svg><p>你能<b>逐题归因检索分歧</b>，说出哪条路救回了哪道题、为什么</p></div>
-        <div class="g"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg><p>你能<b>把系统交付成可交互界面</b>，别人能直接用，不是一个黑箱脚本</p></div>
-        <div class="g"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg><p>你能<b>回答「Hybrid 为什么没超过 Dense」</b>——主动讲负结果，这是面试加分题</p></div>
-        <div class="g"><svg viewBox="0 0 24 24"><path d="M4 21v-7"/><path d="M4 10V3"/><path d="M12 21v-9"/><path d="M12 8V3"/><path d="M20 21v-5"/><path d="M20 12V3"/><path d="M2 14h4"/><path d="M10 8h4"/><path d="M18 16h4"/></svg><p>你能<b>把项目写进简历</b>，用四成分公式写出 3 条带数字、经得起追问的简历句</p></div>
+        <div class="g"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg><p><b>搭 220 题封存评测集</b>，用 bootstrap 算 95% 置信区间</p></div>
+        <div class="g"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg><p><b>逐题归因检索分歧</b>，说出哪条路救回了哪道题</p></div>
+        <div class="g"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg><p><b>交付成可交互界面</b>，别人能直接用，不是黑箱脚本</p></div>
+        <div class="g"><svg viewBox="0 0 24 24"><path d="M3 3v18h18"/><path d="m7 14 4-4 4 3 5-6"/></svg><p><b>回答「Hybrid 为什么没超过 Dense」</b>，主动讲负结果</p></div>
+        <div class="g"><svg viewBox="0 0 24 24"><path d="M4 21v-7"/><path d="M4 10V3"/><path d="M12 21v-9"/><path d="M12 8V3"/><path d="M20 21v-5"/><path d="M20 12V3"/><path d="M2 14h4"/><path d="M10 8h4"/><path d="M18 16h4"/></svg><p><b>把项目写进简历</b>：3 条带数字、经得起追问的简历句</p></div>
       </div>
     </div>
   </div>
@@ -445,39 +399,26 @@ section[id]{scroll-margin-top:76px}
 <section class="blk" id="method">
   <div class="inner">
     <div class="blk-h"><span class="no">08</span><h2>项目学习方式是怎样的？</h2></div>
-    <p class="blk-sub">不是看视频，是改代码、跑实验、写报告。模块化推进，每章有验收标准——做完一章，会一章。</p>
+    <p class="blk-sub">不是看视频，是改代码、跑实验、写报告。4 周，每周 8-10 小时，每章有验收标准。</p>
     <div class="card">
-      <p><b>模块一 · 建库链路</b>：读懂解析和切块，跑通「PDF → 向量库」。练习：换成自己的语料建一个知识库。</p>
-      <p><b>模块二 · 问答链路</b>：实现双路检索 + RRF 融合 + 精排 + 引用 + 拒答。练习：改召回数量和切块参数，看效果怎么变。</p>
+      <p><b>模块一 · 建库链路</b>：跑通「PDF → 向量库」。练习：换自己的语料建一个知识库。</p>
+      <p><b>模块二 · 问答链路</b>：双路检索 + RRF + 精排 + 引用 + 拒答。练习：改召回数量和切块参数看效果变化。</p>
       <p><b>模块三 · 评测体系</b>：搭评测集、算 Recall 和 MRR、跑 bootstrap。练习：做一次逐题分歧归因。</p>
-      <p><b>模块四 · 按需再搜与面试</b>：实现检索 Agent Loop、写评测报告、练面试话术。练习：把项目写成三条简历句。</p>
+      <p><b>模块四 · 按需再搜与面试</b>：实现 Agent Loop、写评测报告、练话术。练习：把项目写成三条简历句。</p>
     </div>
     <div style="height:18px"></div>
     <div class="duo2">
       <div class="techcard">
         <h3>配套材料</h3>
-        <div class="chips">
-          <span>12 章讲解文档</span>
-          <span>reference 完整源码</span>
-          <span>teacher 逐行讲解版</span>
-          <span>student 留白练习版</span>
-          <span>6 道练习带验收标准</span>
-          <span>14 条故障速查表</span>
-        </div>
-        <p class="note">三份源码是同一套系统的三种形态：reference 是完整参考实现，teacher 加了逐行注释，student 留了 TODO 让你自己填。推荐路径是「看 teacher → 写 student → 对照 reference」。另外配飞书答疑群，卡住了随时问。</p>
+        <div class="chips"><span>12 章讲解文档</span><span>reference 完整源码</span><span>teacher 逐行讲解版</span><span>student 留白练习版</span><span>6 道练习带验收标准</span><span>14 条故障速查表</span></div>
+        <p class="note">三份源码是同一套系统的三种形态，推荐路径「看 teacher → 写 student → 对照 reference」；配飞书答疑群。</p>
       </div>
       <div class="techcard">
         <h3>最后交出什么</h3>
-        <div class="chips">
-          <span>可写进简历的项目</span>
-          <span>带置信区间的评测报告</span>
-          <span>30 分钟面试话术</span>
-          <span>自己的知识库系统</span>
-        </div>
-        <p class="note">评测报告有固定模板，你填自己的数字和归因分析就行；面试话术按 STAR-R 脚本走，对着文档练两遍能脱稿。知识库换一批语料，就是你简历上另一个场景的项目。</p>
+        <div class="chips"><span>可写进简历的项目</span><span>带置信区间的评测报告</span><span>30 分钟面试话术</span><span>自己的知识库系统</span></div>
+        <p class="note">评测报告有固定模板，填自己的数字即可；话术按 STAR-R 脚本走，练两遍能脱稿。</p>
       </div>
     </div>
-    <div style="height:14px"></div>
   </div>
 </section>
 
@@ -485,42 +426,39 @@ section[id]{scroll-margin-top:76px}
 <section class="blk" id="evidence">
   <div class="inner">
     <div class="blk-h"><span class="no">09</span><h2>实验证据</h2></div>
-    <p class="blk-sub">别人自夸，我们给数据。而且给的是「谁重跑都能拿到同一份数字」的口径。</p>
+    <p class="blk-sub">给的是「谁重跑都能拿到同一份数字」的口径。</p>
     <div class="card">
       <p><b>评测方法</b></p>
-      <p>评测集用 <b>MS MARCO v1.1</b>（微软发布的真实搜索问答数据集，查询来自真实用户），取 220 条查询 + 1810 个段落构成受控候选池，随机种子固定 42——任何人重跑拿到的是同一份数据。两个指标：<b>Recall@10</b> 是正确答案进前 10 的比例，衡量「找没找到」；<b>MRR@10</b> 是答案排名倒数的平均，衡量「排得靠不靠前」。置信区间用 bootstrap（有放回重采样）跑 1000 次，取 2.5% 和 97.5% 分位报 95% CI。</p>
+      <p><b>MS MARCO v1.1</b> 取 220 条真实查询 + 1810 个段落构成受控候选池，随机种子固定 42。指标两个：<b>Recall@10</b> 看找没找到，<b>MRR@10</b> 看排得靠不靠前；置信区间用 bootstrap 重采样 1000 次，取 2.5%/97.5% 分位报 95% CI。</p>
     </div>
     <div style="height:16px"></div>
     <img class="fig-wide" src="assets/img/m1/wr-eval-method.png" alt="评测方法四要素与指标定义信息图"><div class="figcap">四问四答 + 四种策略同口径对照：每个数字都附带验证方式</div>
     <div style="height:18px"></div>
     <div class="card">
-      <p><b>主结果</b></p>
-      <p>四行数字，跑在同一个 220 题评测集上：</p>
-      <p>
-      BM25（纯词面检索）：Recall@10 = <b>0.900</b>，MRR@10 = <b>0.456</b><br>
-      Dense（向量语义检索）：Recall@10 = <b>0.991</b>，MRR@10 = <b>0.536</b><br>
+      <p><b>主结果</b>（同一个 220 题评测集）</p>
+      <p>BM25（纯词面）：Recall@10 = <b>0.900</b>，MRR@10 = <b>0.456</b><br>
+      Dense（向量语义）：Recall@10 = <b>0.991</b>，MRR@10 = <b>0.536</b><br>
       Hybrid（RRF 融合）：Recall@10 = <b>0.986</b><br>
-      Agentic（按需再搜）：Recall@10 = <b>0.986</b>
-      </p>
+      Agentic（按需再搜）：Recall@10 = <b>0.986</b></p>
     </div>
     <div style="height:16px"></div>
     <div class="card">
-      <p><b>负结果：Hybrid 和 Agentic 都没有超过 Dense</b></p>
-      <p>这是这个项目最诚实的一组数字。Hybrid 和 Agentic 的 Recall@10 都是 0.986，没超过 Dense 的 0.991。原因很清楚：220 题的小语料上 Dense 已经跑到 0.991，距离上限不足 1 个百分点，融合和再搜没有提升空间。逐题归因也对上了——Hybrid 相比 Dense 反丢 2 道题，因为 RRF 取名次平均，把表现好的那一路的好名次稀释掉了。</p>
-      <p>这组负结果的教育价值在于：<b>技术的收益边界在语料规模</b>。你学到的不只是「上融合会更好」，而是「上了不一定更好，以及怎么用实验把这件事证明出来」。面试时主动讲负结果，比吹一个「全面提升」可信得多。</p>
+      <p><b>负结果：Hybrid 和 Agentic 都没超过 Dense</b></p>
+      <p>两者都是 0.986，低于 Dense 的 0.991。原因是 220 题小语料上 Dense 已饱和，距上限不足 1 个百分点，融合和再搜没有提升空间；归因也对得上——Hybrid 反丢 2 道题，RRF 取名次平均把强臂的好名次稀释了。</p>
+      <p>这组负结果的价值：<b>技术的收益边界在语料规模</b>。你学到的不是「上融合会更好」，而是「上了不一定更好，以及怎么用实验证明」。</p>
     </div>
     <div style="height:16px"></div>
     <div class="card">
       <p><b>逐题分歧归因（21 / 1 / 2 / 1）</b></p>
-      <p>向量路救回 BM25 漏掉的 <b>21 道题</b>——查询里有改写和同义表达，词面匹配直接失效；BM25 只救回向量路 <b>1 道题</b>——一道歌词字符串题，字面精确命中反而更可靠；Hybrid 相比 Dense 反丢 <b>2 道题</b>、补回 1 道；还有 <b>1 道题</b>两条路都漏了。每个数字背后都有具体题目和具体原因，是人工逐题对拍出来的。</p>
+      <p>向量路救回 BM25 漏掉的 <b>21 道</b>（查询有改写和同义表达，词面失效）；BM25 只救回向量路 <b>1 道</b>（歌词字符串题，字面精确命中更可靠）；Hybrid 相比 Dense 反丢 <b>2 道</b>、补回 1 道；<b>1 道</b>两路都漏。每个数字背后都有具体题目，人工逐题对拍得出。</p>
     </div>
     <div style="height:16px"></div>
     <div class="card">
-      <p><b>检索 Agent Loop 的实测行为</b></p>
-      <p>让系统自己判断首轮证据够不够、要不要再查，上限 3 轮。结果是平均每条查询 <b>2.16 轮</b>，<b>65%</b> 的查询触发了二次搜索。这组数字说明两件事：多数查询一轮确实不够；但在这个语料规模上，多查一轮没能换来 Recall 提升。</p>
+      <p><b>检索 Agent Loop 实测行为</b></p>
+      <p>系统自行判断是否再查、上限 3 轮，结果平均 <b>2.16 轮</b>、<b>65%</b> 触发二次搜索。说明多数查询一轮确实不够，但在这个语料规模上多查一轮换不来 Recall 提升。</p>
     </div>
     <div style="height:16px"></div>
-    <p class="blk-sub">一条口径纪律：评测链用 all-MiniLM-L6-v2，教学链用 Qwen3-Embedding-4B，两套链的数字不混用。你报告里写哪套，就用哪套的数。</p>
+    <p class="blk-sub">口径纪律：评测链用 all-MiniLM-L6-v2，教学链用 Qwen3-Embedding-4B，两套数字不混用。</p>
   </div>
 </section>
 
@@ -528,46 +466,42 @@ section[id]{scroll-margin-top:76px}
 <section class="blk" id="career">
   <div class="inner">
     <div class="blk-h"><span class="no">10</span><h2>求职怎么用</h2></div>
-    <p class="blk-sub">这个项目练的就是 JD 上那些词。不是「沾点关系」，是逐条对应。</p>
+    <p class="blk-sub">先看 JD 原话，再看能直接粘进简历的三条句子。</p>
     <div class="card">
-      <p><b>真实 JD 映射</b>（全部官网核实过，链接可点开）：</p>
-      <p>
-      <b>字节 · 飞书｜大模型应用开发工程师（服务端）</b>——职责含「基于 RAG 的知识库/检索系统建设、Agentic 架构、Function/Tool Calling」<br>
-      <span style="font-size:.8rem;color:var(--muted)"><a href="https://jobs.bytedance.com/experienced/position/7659631655392872709/detail" target="_blank" rel="noopener">jobs.bytedance.com/experienced/position/7659631655392872709/detail</a></span><br><br>
-      <b>字节｜知识库 RAG 后端工程师</b>——职责即「知识库/RAG 检索系统后端研发，加分：向量检索/ES 检索」<br>
-      <span style="font-size:.8rem;color:var(--muted)"><a href="https://jobs.bytedance.com/experienced/position/7361735023907670298/detail" target="_blank" rel="noopener">jobs.bytedance.com/experienced/position/7361735023907670298/detail</a></span><br><br>
-      <b>网易 · 严选｜Agent 应用开发工程师</b>——要求「RAG/工具调用/提示词工程；LangGraph 等框架」<br>
-      <span style="font-size:.8rem;color:var(--muted)"><a href="https://hr.163.com/job-detail?id=76697" target="_blank" rel="noopener">hr.163.com/job-detail?id=76697</a></span><br><br>
-      <b>网易 · 游戏互娱｜AI 应用工程师（知识工程）</b>——职责含「RAG 提升输出质量；评测体系与回归机制（离线评测/在线 A/B）」<br>
-      <span style="font-size:.8rem;color:var(--muted)"><a href="https://hr.163.com/job-detail?id=73898" target="_blank" rel="noopener">hr.163.com/job-detail?id=73898</a></span>
-      </p>
-      <p style="margin-top:14px"><b>一对一映射</b>：八步数据流 ↔「RAG 知识库建设」；BM25/向量/RRF 四种策略 ↔「向量检索/ES 检索加分」；220 题评测 + bootstrap + 分歧归因 ↔「评测体系与回归机制」；拒答门控 + 编号级引用 ↔「幻觉问题与处理」；检索 Agent Loop ↔「任务规划与工具调用」。</p>
+      <p><b>真实 JD（官网核实，链接可点开）</b></p>
+      <p><b>字节 · 飞书｜大模型应用开发工程师</b>——「基于 RAG 的知识库/检索系统建设、Agentic 架构、Function/Tool Calling」 <a href="https://jobs.bytedance.com/experienced/position/7659631655392872709/detail" target="_blank" rel="noopener">查看</a><br>
+      <b>字节｜知识库 RAG 后端工程师</b>——「知识库/RAG 检索系统后端研发，加分：向量检索/ES 检索」 <a href="https://jobs.bytedance.com/experienced/position/7361735023907670298/detail" target="_blank" rel="noopener">查看</a><br>
+      <b>网易 · 严选｜Agent 应用开发工程师</b>——「RAG/工具调用/提示词工程；LangGraph 等框架」 <a href="https://hr.163.com/job-detail?id=76697" target="_blank" rel="noopener">查看</a><br>
+      <b>网易 · 游戏互娱｜AI 应用工程师（知识工程）</b>——「RAG 提升输出质量；评测体系与回归机制（离线评测/在线 A/B）」 <a href="https://hr.163.com/job-detail?id=73898" target="_blank" rel="noopener">查看</a></p>
+      <p><b>一对一映射</b>：八步数据流 ↔「RAG 知识库建设」；BM25/向量/RRF ↔「向量检索/ES 检索加分」；220 题评测 + bootstrap + 分歧归因 ↔「评测体系与回归机制」；拒答门控 + 编号引用 ↔「幻觉问题与处理」；检索 Agent Loop ↔「任务规划与工具调用」。</p>
     </div>
     <div style="height:18px"></div>
     <img class="fig-narrow" src="assets/img/m1/wr8-interview.png" alt="面试场景：候选人指着评测报告讲检索优化"><div class="figcap">面试两轮追问：先给数字（0.991 对 0.986），再给归因（21/1/2/1）和改进方向（加权融合）</div>
     <div style="height:18px"></div>
     <div class="resume">
-      <div class="rh"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg><b>三条四成分简历句（直接抄，数字一个都别改）</b></div>
+      <div class="rh"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg><b>三条现成简历句（数字一个都别改）</b></div>
       <div class="bullet">
-        <p>将单路 BM25 检索改造为 BM25+向量双路 RRF 融合，在 MS MARCO 220 题封存评测集上 Recall@10 从 0.900 提升至 0.991；小语料下向量召回已饱和、融合未再提升（如实归档）；全部数字经 bootstrap 1000 次重采样给出置信区间并做逐题分歧归因。</p>
-        <div class="tags"><span class="t1">t1 我改了什么</span><span class="t2">t2 量化结果</span><span class="t3">t3 代价边界</span><span class="t4">t4 怎么验证</span></div>
+        <p>将单路 BM25 检索<b>改造为 BM25+向量双路 RRF 融合</b>，在 MS MARCO 220 题封存评测集上 <b>Recall@10 从 0.900 提升至 0.991</b>；小语料下向量召回已饱和、融合未再提升（如实归档）；全部数字经 <b>bootstrap 1000 次重采样</b>给出置信区间并做逐题分歧归因。</p>
+        <p class="note"><b>面试承接</b>：最可能被追问「融合为什么没赢」——用 21/1/2/1 归因和文档第 7、12 章接住。</p>
       </div>
       <div class="bullet">
-        <p>实现「召回-精排-引用-拒答」完整链路：top-20 召回 + bge-reranker 精排 top-5，答案带编号级引用、无证据时两道门控拒答；教学语料端到端延迟秒级（不夸大为生产性能）；每个引用块可展开回看原文，人工抽检引用正确。</p>
-        <div class="tags"><span class="t1">t1 我改了什么</span><span class="t2">t2 量化结果</span><span class="t3">t3 代价边界</span><span class="t4">t4 怎么验证</span></div>
+        <p>实现<b>「召回-精排-引用-拒答」完整链路</b>：top-20 召回 + bge-reranker 精排 top-5，答案带<b>编号级引用</b>、无证据时<b>两道门控拒答</b>；教学语料端到端延迟秒级（不夸大为生产性能）；每个引用块可展开回看原文，人工抽检引用正确。</p>
+        <p class="note"><b>面试承接</b>：最可能被追问「拒答阈值怎么定、引用怎么保证对得上」——用两道门控的实现细节和文档第 5 章接住。</p>
       </div>
       <div class="bullet">
-        <p>构建 Agentic 按需再搜：系统按首轮证据充分度自行决定是否二次检索（上限 3 轮），实测平均 2.16 轮、65% 查询触发二次搜索；收益受语料规模限制，220 题小池上 Recall 持平 0.986（如实归档）；对比实验固定种子 42 可复现。</p>
-        <div class="tags"><span class="t1">t1 我改了什么</span><span class="t2">t2 量化结果</span><span class="t3">t3 代价边界</span><span class="t4">t4 怎么验证</span></div>
+        <p>构建 <b>Agentic 按需再搜</b>：系统按首轮证据充分度自行决定是否二次检索（上限 3 轮），实测<b>平均 2.16 轮、65% 查询触发二次搜索</b>；收益受语料规模限制，220 题小池上 Recall 持平 0.986（如实归档）；对比实验<b>固定种子 42 可复现</b>。</p>
+        <p class="note"><b>面试承接</b>：最可能被追问「怎么判断证据够了、为什么卡 3 轮」——用 Agent Loop 的判断逻辑和文档第 6 章接住。</p>
       </div>
       <div class="formula">四成分公式：<code>我改了什么</code> + <code>量化结果</code> + <code>代价或边界</code> + <code>怎么验证</code>。少一个成分，面试官一追就倒。</div>
     </div>
     <div style="height:16px"></div>
     <div class="card">
-      <p><b>面试官追问「Hybrid 为什么没超过 Dense？」你这样答</b></p>
-      <p>第一步给数字：0.986 对 0.991。第二步给原因：220 题的小语料上 Dense 已经饱和，融合没有提升空间。第三步给证据：分歧归因里 Hybrid 相比 Dense 反丢 2 题，RRF 取名次平均把强的那一路稀释了。第四步给方向：换加权融合，或者按查询类型做路由。主动把负结果讲完整的候选人很少，你讲了就出挑了。</p>
-      <p>另外两道高频追问也备好了答法：<b>拒答怎么实现</b>——两道门控，检索最高分低于阈值直接拒，引用编号对不上已有块再拒一次。<b>切块为什么是 1000/100</b>——按教学语料的段落粒度实测出来的，1000 保语义完整、100 防边界截断，并且你能说出「如果换语料我会怎么做实验调」。</p>
+      <p><b>怎么再往上包装一档</b></p>
+      <p>大胆版可以把「实现」升成<b>「主导」「从 0 到 1 搭建」</b>，把「教学语料」升成<b>「可审计问答链路」</b>。但升档前必须补准备：能画出完整链路图、能说出每个参数的实验依据、能现场定位一次故障（用第 9 章 14 条故障表练）。</p>
+      <p><b>红线</b>：不编学校、学历、公司；不写「生产环境支撑」这类你没跑过的场景；不写事实包以外的任何数字。准备不足就降级表达——「主导」降回「实现」，「提升」降回「对照实验验证」。</p>
     </div>
+    <div style="height:16px"></div>
+    <p class="blk-sub">上面的句子和数字可以直接粘进 <a href="https://agentalpha.top/tools/resume" target="_blank" rel="noopener">agentalpha.top/tools/resume</a> 的简历生成器，选强度档导出。</p>
   </div>
 </section>
 
@@ -579,23 +513,23 @@ section[id]{scroll-margin-top:76px}
     <div class="faq">
       <details>
         <summary>需要 GPU 吗？要花多少钱？</summary>
-        <p>不需要 GPU。嵌入、精排、生成三类模型都走 SiliconFlow API，注册即得免费额度，跑完课程设计的教学链路和实验基本够用。你需要的就是一台能跑 Python 的笔记本。</p>
+        <p>不需要 GPU。嵌入、精排、生成都走 SiliconFlow API，注册即得免费额度，跑完课程设计的实验够用；你只需要一台能跑 Python 的笔记本。</p>
       </details>
       <details>
         <summary>基础差能学吗？</summary>
-        <p>你需要会 Python 基础（函数、类、import），会装依赖、会看报错。不需要提前懂 RAG、向量、检索——文档里每个术语第一次出现都有大白话解释。如果你会调 API 但没写过完整系统，这个项目刚好补上从「会调」到「会做」的那一段。</p>
+        <p>需要 Python 基础（函数、类、import）、会装依赖会看报错。不需要提前懂 RAG、向量、检索，文档里每个术语第一次出现都有大白话解释。</p>
       </details>
       <details>
         <summary>和看论文、看博客有什么区别？</summary>
-        <p>看论文你知道「有人提出过一种方法」。做 WhaleRAG 你知道「这个方法在 220 题上跑出来是多少、换一种变多少、为什么变、怎么验证」。区别就在你有没有自己跑过数字。</p>
+        <p>看论文你知道「有人提出过一种方法」；做这个项目你知道「在 220 题上跑出来是多少、换一种变多少、为什么变」。区别在你有没有自己跑过数字。</p>
       </details>
       <details>
         <summary>有视频教学吗？</summary>
-        <p>核心材料是图文文档加源码三件套，按「读方案 → 看源码 → 跑验证」组织，配飞书答疑群有问必答。跟着做一遍，就是一次完整交付。</p>
+        <p>核心材料是图文文档加源码三件套，按「读方案 → 看源码 → 跑验证」组织，配飞书答疑群有问必答。</p>
       </details>
       <details>
         <summary>做完到底能拿到什么？</summary>
-        <p>三样：一个能写进简历的项目（完整代码加评测报告）、一套能讲 30 分钟并扛住追问的面试话术、一个你自己搭的知识库系统——换一批语料，它就是新场景下的新项目。</p>
+        <p>三样：一个能写进简历的项目（代码加评测报告）、一套能讲 30 分钟并扛住追问的话术、一个你自己搭的知识库系统——换一批语料就是新场景下的新项目。</p>
       </details>
     </div>
   </div>
@@ -606,7 +540,7 @@ section[id]{scroll-margin-top:76px}
   <div class="inner">
     <div class="cta">
       <h2>让数据自己开口说话</h2>
-      <p>一条完整链路，一份带置信区间的评测报告，一套能扛追问的讲法。把简历上那句「熟悉 RAG」，换成「我亲手写过一套 RAG，并且知道它的边界在哪」。</p>
+      <p>把简历上那句「熟悉 RAG」，换成「我亲手写过一套 RAG，并且知道它的边界在哪」。</p>
       <div class="row">
         <a class="btn primary" href="#docs">看项目文档</a>
         <a class="btn" href="#">添加微信 aistudioyes 报名</a>
