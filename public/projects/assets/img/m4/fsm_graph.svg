@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1040" height="340" viewBox="0 0 1040 340">
+<rect width="100%" height="100%" fill="none"/>
+<text x="520" y="28" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="16" fill="#1f2933">LangGraph FSM · 7 legal edges (teal) + 3 blocked illegal edges (coral)</text>
+<line x1="80" y1="80" x2="250" y2="80" stroke="#2a9d8f" stroke-width="2.4"/>
+<line x1="250" y1="80" x2="420" y2="80" stroke="#2a9d8f" stroke-width="2.4"/>
+<line x1="420" y1="80" x2="590" y2="80" stroke="#2a9d8f" stroke-width="2.4"/>
+<line x1="590" y1="80" x2="760" y2="80" stroke="#2a9d8f" stroke-width="2.4"/>
+<line x1="760" y1="80" x2="590" y2="220" stroke="#2a9d8f" stroke-width="2.4"/>
+<line x1="590" y1="220" x2="760" y2="220" stroke="#2a9d8f" stroke-width="2.4"/>
+<line x1="760" y1="220" x2="930" y2="220" stroke="#2a9d8f" stroke-width="2.4"/>
+<path d="M760,236 C700,300 500,300 420,96" fill="none" stroke="#e76f51" stroke-width="2" stroke-dasharray="6 4"/>
+<path d="M590,236 C540,280 470,200 420,96" fill="none" stroke="#e76f51" stroke-width="2" stroke-dasharray="6 4"/>
+<path d="M250,96 C250,170 700,170 760,204" fill="none" stroke="#e76f51" stroke-width="2" stroke-dasharray="6 4"/>
+<text x="560" y="310" font-family="Segoe UI, sans-serif" font-size="11" fill="#e76f51">blocked: DONE→FUND · SYNTH→FUND · ORCH→DONE (ValueError)</text>
+<rect x="40" y="62" width="80" height="36" rx="6" fill="#3d6b8a" fill-opacity="0.92"/><text x="80" y="85" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="12" fill="#f4f1de">START</text>
+<rect x="210" y="62" width="80" height="36" rx="6" fill="#3d6b8a" fill-opacity="0.92"/><text x="250" y="85" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="12" fill="#f4f1de">ORCH</text>
+<rect x="380" y="62" width="80" height="36" rx="6" fill="#3d6b8a" fill-opacity="0.92"/><text x="420" y="85" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="12" fill="#f4f1de">FUND</text>
+<rect x="550" y="62" width="80" height="36" rx="6" fill="#3d6b8a" fill-opacity="0.92"/><text x="590" y="85" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="12" fill="#f4f1de">TECH</text>
+<rect x="720" y="62" width="80" height="36" rx="6" fill="#3d6b8a" fill-opacity="0.92"/><text x="760" y="85" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="12" fill="#f4f1de">RISK</text>
+<rect x="550" y="202" width="80" height="36" rx="6" fill="#3d6b8a" fill-opacity="0.92"/><text x="590" y="225" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="12" fill="#f4f1de">SYNTH</text>
+<rect x="720" y="202" width="80" height="36" rx="6" fill="#3d6b8a" fill-opacity="0.92"/><text x="760" y="225" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="12" fill="#f4f1de">DONE</text>
+<rect x="890" y="202" width="80" height="36" rx="6" fill="#3d6b8a" fill-opacity="0.92"/><text x="930" y="225" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="12" fill="#f4f1de">END</text>
+</svg>

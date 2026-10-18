@@ -1,0 +1,85 @@
+{
+ "meta": {
+  "title": "研报工厂 · AAPL 真实运行轨迹",
+  "data_as_of": "2026-08-21",
+  "engine": "LangGraph StateGraph FSM（七条合法边，非法边抛 ValueError）",
+  "llm": "Qwen2.5-7B-Instruct（vLLM，pipeline.py MODEL 默认值）",
+  "data_source": "yfinance 公开行情接口（data_source_test.json，yahoo_hit=true）",
+  "provenance": "reference/航道B-multiagent/results/trace_AAPL.json",
+  "sanitize_note": "脱敏裁剪：剔除 fund_raw/tech_raw/risk_raw 原始行情字典与轨迹内截断副本，仅保留状态机转移、三份分镜报告与合成产物；行情为公开市场数据，无个人信息与密钥。"
+ },
+ "prompt": "请基于公开数据研究 AAPL，不要给出买卖建议。",
+ "ticker": "AAPL",
+ "steps": [
+  {
+   "i": 1,
+   "stage": "START",
+   "role": "初始化",
+   "kind": "start",
+   "thought": "初始化状态机，写入用户问题与标的代码。"
+  },
+  {
+   "i": 2,
+   "stage": "ORCH",
+   "role": "调度器",
+   "kind": "dispatch",
+   "thought": "按合法边 START→ORCH 进入调度，并行分发三个研究员。"
+  },
+  {
+   "i": 3,
+   "stage": "FUND",
+   "role": "基本面研究员",
+   "kind": "worker",
+   "tool": "get_fundamentals(AAPL) → yfinance 基本面 JSON",
+   "observation": "苹果公司(AAPL)的基本面显示，其市盈率为35.48倍，而前瞻市盈率为32.43倍。公司的市值为45147亿美元。这些数据反映了公司在科技行业的估值水平和市场预期的增长潜力。\n[source] pe=35.475918 market_cap=4514709504000 revenue_growth=0.164 beta=1.086"
+  },
+  {
+   "i": 4,
+   "stage": "TECH",
+   "role": "技术面研究员",
+   "kind": "worker",
+   "tool": "get_technicals(AAPL) → yfinance 日线/MA20/RSI",
+   "observation": "截至2026年8月21日，苹果公司(AAPL)的股价为309.35美元。同时，20日移动平均线(MA20)为314.20美元。RSI指标值为57.12，表明当前市场处于相对平衡状态。\n[source] price=309.3500061035156 ma20=314.20032501220703 rsi=57.124556209900874"
+  },
+  {
+   "i": 5,
+   "stage": "RISK",
+   "role": "风险研究员",
+   "kind": "worker",
+   "tool": "风险因子表（beta、short_ratio、行业、负债）",
+   "observation": "风险摘要：苹果公司（AAPL）属于科技行业，其贝塔值为1.086，表明该股票的价格波动性略高于市场平均水平。同时，短期卖空比率高达2.58，显示市场上存在一定程度的卖空行为，投资者需注意潜在的市场情绪变化和股价下跌风险。\n[source] beta=1.086 short_ratio=2.58 sector=Technology"
+  },
+  {
+   "i": 6,
+   "stage": "SYNTH",
+   "role": "主编合成",
+   "kind": "synthesis",
+   "thought": "三份分镜报告汇合，主编只做拼接与免责声明校验，不接触行情接口。",
+   "observation": "### 合并报告\n\n#### 基本面分析\n苹果公司(AAPL)的基本面显示，其市盈率为35.48倍，而前瞻市盈率为32.43倍。公司的市值为45147亿美元。这些数据反映了公司在科技行业的估值水平和市场预期的增长潜力。\n\n#### 技术分析\n截至2026年8月21日，苹果公司(AAPL)的股价为309.35美元。同时，20日移动平均线(MA20)为314.20美元。RSI指标值为57.12，表明当前市场处于相对平衡状态。\n\n#### 风险分析\n风险摘要：苹果公司（AAPL）属于科技行业，其贝塔值为1.086，表明该股票的价格波动性略高于市场平均水平。同时，短期卖空比率高达2.58，显示市场上存在一定程度的卖空行为，投资者需注意潜在的市场情绪变化和股价下跌风险。\n\n---\n\n本报告基于公开数据，不构成投资建议。\n拒绝代客下单、拒绝买入/卖出指令、拒绝把用户改价写入行情。\n本报告基于公开数据，不构成投资建议。"
+  },
+  {
+   "i": 7,
+   "stage": "DONE",
+   "role": "完成",
+   "kind": "done",
+   "thought": "状态机到达 DONE，轨迹与产物落盘。"
+  }
+ ],
+ "illegal_edges": [
+  {
+   "edge": "DONE→FUND",
+   "raised": true,
+   "error": "illegal edge DONE->FUND"
+  },
+  {
+   "edge": "SYNTH→FUND",
+   "raised": true,
+   "error": "illegal edge SYNTH->FUND"
+  },
+  {
+   "edge": "ORCH→DONE",
+   "raised": true,
+   "error": "illegal edge ORCH->DONE"
+  }
+ ]
+}

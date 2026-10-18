@@ -64,3 +64,4 @@ NUL
 .vercel
 .env*.local
 .gstack/
+.repo_memory/
