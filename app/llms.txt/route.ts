@@ -4,6 +4,7 @@ import { getAllInterview } from "@/lib/interview"
 import { getAllGlossary } from "@/lib/glossary"
 import { CHAPTERS } from "@/lib/column"
 import { getAllJd, getJdCompany } from "@/lib/jd"
+import { BEST_PAGES } from "@/lib/best-pages"
 
 export const dynamic = "force-static"
 
@@ -19,7 +20,14 @@ export function GET() {
   const lines: string[] = [
     "# AgentAlpha 面试题库与学习路线",
     "",
-    `> 面向大模型 Agent 岗求职者的中文站点：${qa.length} 道高频面试题速答（一题一页、含一句话结论与追问要点）、${posts.length} 篇深度解析、${glossary.length} 个术语定义页、大厂 JD 拆解库（岗位画像+隐藏考点+对应面试题）、12 章学习路线、五厂真题索引与 8 个免费求职工具（JD 拆解/简历体检/Gap 自测/项目匹配/模拟面试/复盘本/投递看板/Offer 对比，浏览器本地运行）。题目来自社区成员真实面经，持续更新。`,
+    `> 面向大模型 Agent 岗求职者的中文站点：${qa.length} 道高频面试题速答（一题一页、含一句话结论与追问要点）、${posts.length} 篇真题与深度解析（含考察意图、标准答案与追问链）、${glossary.length} 个术语定义页、4 个聚合题库大页（Agent/RAG/大模型八股/MCP 共 190 问一页全览）、大厂 JD 拆解库（岗位画像+隐藏考点+对应面试题）、12 章学习路线与 10 个免费求职工具（JD 拆解/简历体检/Gap 自测/项目匹配/模拟面试/复盘本/投递看板/Offer 对比等，浏览器本地运行）。题目来自社区成员真实面经，持续更新。`,
+    "",
+    "## 高频面试题聚合大页（一页一个完整题库，全部题目带答案）",
+    "",
+    ...BEST_PAGES.map(
+      (page) =>
+        `- [${page.title}](https://agentalpha.top/interview/best/${page.slug})`,
+    ),
     "",
     "## 高频面试题速答（每题一页，含答案）",
     "",
@@ -67,15 +75,21 @@ export function GET() {
     "- [Offer 对比器](https://agentalpha.top/tools/offer-compare)：六维打分加权对比，附薪资谈判常识",
     "- [工具箱总览](https://agentalpha.top/tools)：看懂岗位 → 测出差距 → 做项目 → 改简历的完整链路",
     "",
-    "## 学习路线（12 章专栏）",
+    "## 深度解析与教程（含标准答案、追问链与面试答法）",
     "",
   )
 
-  for (const post of posts) {
+  const deepPosts = posts.filter((post) => !/-tk\d+$/.test(post.slug))
+  const tkCount = posts.length - deepPosts.length
+  for (const post of deepPosts) {
     lines.push(`- [${post.title}](https://agentalpha.top/interview/${post.slug})：${post.excerpt}`)
   }
 
   lines.push(
+    "",
+    "## 真题解析库（大厂真题逐题拆解，按方向分类浏览）",
+    "",
+    `- [真题解析库索引](https://agentalpha.top/interview/tk)：${tkCount} 篇大厂真题解析，覆盖 Agent/RAG/微调/推理/评估/多智能体等方向，每篇含考察意图、标准答案与追问链`,
     "",
     "## 学习路线（12 章专栏）",
     "",
