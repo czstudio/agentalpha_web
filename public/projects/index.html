@@ -1,727 +1,449 @@
-<!DOCTYPE html>
-<html lang="zh-CN" class="no-js">
+<!doctype html>
+<html lang="zh-CN">
 <head>
-<meta charset="UTF-8">
+<meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>MemSync：让每个 AI 都记住你 · AgentAlpha 旗舰项目</title>
-<meta name="description" content="跑在你自己电脑上的个人记忆中台：能记、能想起、能改、能忘，还能告诉你每句话出自哪条记忆。检索、记忆、Agent、强化学习、推理加速，全在一个项目里打通。">
+<title>EverSelf：会越用越像你的个人分身 Agent · AgentAlpha 旗舰项目</title>
+<meta name="description" content="Agent 记忆、长任务执行、自进化、后训练一个项目全打通。对标阿里、字节、腾讯 Agent 岗位 JD 的实战项目。">
 <style>
-/* ═══════════════ 设计令牌 ═══════════════ */
 :root{
-  --paper:#FAF6EF; --surface:#FFFCF7; --ink:#1F1B16; --ink2:#4A433A; --muted:#7A7064;
-  --hair:#E8DFD0; --clay:#B4532A; --clay-deep:#8E3D1C; --clay-soft:#F6E6DA;
-  --night:#1A1612; --night2:#25201A; --night-ink:#EFE6D8; --amber:#E3A13B;
-  --serif:"Noto Serif SC","Songti SC","STSong","SimSun",serif;
-  --sans:-apple-system,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
-  --mono:ui-monospace,"SF Mono",Consolas,"Courier New",monospace;
-  --shadow:0 1px 0 rgba(31,27,22,.04),0 18px 40px -18px rgba(142,61,28,.22);
-  --shadow-hi:0 2px 0 rgba(31,27,22,.05),0 26px 52px -20px rgba(142,61,28,.30);
-  --wrap:1120px; --r-card:20px; --r-img:14px; --r-btn:12px;
+  --paper:#FBF7EF; --paper2:#F4ECDF; --card:#FFFFFF; --ink:#1E1A16; --ink2:#4B443B; --muted:#8A8073; --hair:#E6DBC8;
+  --clay:#E0652A; --clay-d:#A8441A; --clay-s:#FDEBDF;
+  --blue:#2B5FD9; --blue-s:#E6EEFF; --green:#1E9A66; --green-s:#E1F5EA; --amber:#E8A020; --amber-s:#FFF2D4;
+  --violet:#7C4FD6; --violet-s:#EEE8FC; --rose:#D9436F; --rose-s:#FCE6EC;
+  --serif:"Noto Serif SC","Songti SC","STSong",serif; --sans:-apple-system,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif; --mono:ui-monospace,"SF Mono",Consolas,monospace;
+  --wrap:980px;
 }
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
-@media (prefers-reduced-motion:reduce){
-  html{scroll-behavior:auto}
-  *,*::before,*::after{transition-duration:.01ms!important;animation-duration:.01ms!important}
+body{background:var(--paper);color:var(--ink);font:17px/1.9 var(--sans);-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%;height:auto}
+a{color:var(--clay-d)}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 22px}
+section{scroll-margin-top:72px}
+h1,h2,h3{font-family:var(--serif);letter-spacing:-.01em}
+h2{font-size:clamp(1.65rem,3.4vw,2.35rem);line-height:1.3;font-weight:800;margin:0 0 14px}
+h2 .hl{background:linear-gradient(transparent 60%,#FFE08A 60%);padding:0 2px}
+h3{font-size:1.15rem;font-weight:700;line-height:1.45}
+p{margin:0 0 14px}
+.sec{padding:72px 0}
+.sec.alt{background:var(--paper2)}
+.num{display:inline-block;font:800 12.5px/1 var(--mono);letter-spacing:.14em;color:#fff;background:var(--clay);padding:7px 11px;border-radius:8px;margin-bottom:16px}
+.lede{color:var(--ink2);font-size:1.03rem;margin-bottom:26px}
+.fig{margin:26px 0 8px;border:2.5px solid var(--ink);border-radius:18px;overflow:hidden;background:#fff;box-shadow:6px 6px 0 #E6DBC8}
+.cap{font-size:13.5px;color:var(--muted);text-align:center;margin:12px 0 28px}
+.hook{margin-top:26px;padding:14px 18px;border-left:5px solid var(--clay);background:var(--clay-s);border-radius:0 12px 12px 0;color:var(--clay-d);font-weight:700}
+/* topbar */
+#bar{position:fixed;inset:0 0 auto 0;height:60px;z-index:50;background:rgba(251,247,239,.9);backdrop-filter:blur(12px);border-bottom:1px solid var(--hair);display:flex;align-items:center}
+#bar .wrap{display:flex;align-items:center;gap:22px;width:100%;max-width:1180px}
+.logo{font:800 18px var(--serif);color:var(--ink);text-decoration:none;white-space:nowrap}
+.logo b{color:var(--clay)}
+#bar nav{display:flex;gap:18px;overflow-x:auto;scrollbar-width:none;font-size:14px;flex:1}
+#bar nav::-webkit-scrollbar{display:none}
+#bar nav a{color:var(--ink2);text-decoration:none;white-space:nowrap}
+#bar nav a:hover{color:var(--clay)}
+.btn{display:inline-block;padding:11px 22px;border-radius:12px;background:var(--clay);color:#fff;text-decoration:none;font-weight:800;font-size:15px;border:2.5px solid var(--ink);box-shadow:3px 3px 0 var(--ink)}
+.btn.ghost{background:#fff;color:var(--ink)}
+/* hero */
+.hero{padding:118px 0 56px;background:
+  radial-gradient(900px 420px at 90% -20%,#FBDCC6 0%,transparent 60%),
+  repeating-linear-gradient(0deg,transparent 0 31px,#EFE4D2 31px 32px),
+  repeating-linear-gradient(90deg,transparent 0 31px,#EFE4D2 31px 32px),var(--paper)}
+.hero .wrap{max-width:1100px}
+.hero .top{display:grid;grid-template-columns:1.1fr .9fr;gap:36px;align-items:center;margin-bottom:34px}
+.tag{display:inline-block;font:800 12.5px var(--mono);letter-spacing:.1em;color:var(--clay-d);background:#fff;border:2px solid var(--ink);padding:5px 12px;border-radius:99px;margin-bottom:18px;box-shadow:2px 2px 0 var(--ink)}
+.hero h1{font-size:clamp(2.8rem,7vw,4.8rem);line-height:1;font-weight:900;margin-bottom:12px}
+.hero h1 em{font-style:normal;color:var(--clay)}
+.hero .slogan{font:800 clamp(1.25rem,2.4vw,1.7rem)/1.45 var(--serif);margin-bottom:12px}
+.hero p.lead{color:var(--ink2);margin-bottom:22px;font-size:1.02rem}
+.cta{display:flex;gap:12px;flex-wrap:wrap}
+.chips{margin-top:22px;display:flex;flex-wrap:wrap;gap:8px;align-items:center;font-size:13.5px;color:var(--muted)}
+.chips span.c{background:#fff;border:1.5px solid var(--ink);color:var(--ink);padding:4px 11px;border-radius:99px;font-weight:600}
+.hero .fig{margin:0}
+.hero .fig img{width:100%;aspect-ratio:16/12;object-fit:cover;object-position:88% 50%}
+.stats{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
+.stat{background:#fff;border:2.5px solid var(--ink);border-radius:16px;padding:16px 14px;box-shadow:4px 4px 0 var(--ink)}
+.stat b{display:block;font:900 32px/1.1 var(--serif);color:var(--clay)}
+.stat span{font-size:13.5px;color:var(--ink2);font-weight:600}
+/* generic grids */
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.g3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.g4{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.kv{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+.kv div{background:#fff;border:2px solid var(--ink);border-radius:12px;padding:10px 14px;font-size:14.5px;line-height:1.6;color:var(--ink2)}
+.kv b{color:var(--ink);display:block;font-size:15px}
+.card{background:var(--card);border:2px solid var(--ink);border-radius:16px;padding:20px 22px;box-shadow:4px 4px 0 var(--hair)}
+.card p:last-child{margin:0}
+.card h3{margin-bottom:6px}
+.card.c{border-top:8px solid var(--cc)}
+.card .big{font:900 34px/1 var(--serif);color:var(--cc);margin-bottom:6px}
+/* feature list */
+.feat{background:#fff;border:2px solid var(--ink);border-radius:18px;padding:4px 24px;box-shadow:4px 4px 0 var(--hair)}
+.feat li{list-style:none;padding:14px 0;border-bottom:1.5px dashed var(--hair);display:flex;gap:14px;align-items:flex-start}
+.feat li:last-child{border:0}
+.feat .n{flex:none;width:30px;height:30px;border-radius:50%;background:var(--clay);color:#fff;font:800 14px/30px var(--mono);text-align:center;margin-top:4px}
+.feat b{color:var(--blue)}
+/* steps */
+.steps{counter-reset:s;display:grid;grid-template-columns:repeat(7,1fr);gap:8px}
+.steps div{background:#fff;border:2px solid var(--ink);border-radius:12px;padding:12px 10px;font-size:13.5px;line-height:1.5;color:var(--ink2);counter-increment:s}
+.steps div::before{content:counter(s);display:block;font:900 20px/1 var(--serif);color:var(--clay);margin-bottom:6px}
+.steps b{display:block;color:var(--ink);font-size:14.5px;margin-bottom:2px}
+/* table */
+.tbl{width:100%;border-collapse:collapse;background:#fff;border:2px solid var(--ink);border-radius:14px;overflow:hidden;font-size:15px}
+.tbl th{background:var(--amber-s);text-align:left;padding:11px 14px;font-weight:800;border-bottom:2px solid var(--ink)}
+.tbl td{padding:11px 14px;border-top:1px solid var(--hair);vertical-align:top}
+/* jd */
+.jdq{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:30px}
+.jdq .card{border-top:8px solid var(--cc);display:flex;flex-direction:column}
+.jdq h3{font-size:1rem;margin-bottom:8px}
+.jdq q{display:block;color:var(--ink2);font-size:14px;line-height:1.75;quotes:none;flex:1}
+.jdq a{font-size:13.5px;font-weight:700;margin-top:10px}
+.ab{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.ab>div{background:#fff;border:2px solid var(--ink);border-radius:14px;padding:14px 16px;display:flex;gap:12px;align-items:flex-start}
+.ab>div>div{flex:1;min-width:0}
+.ab i{flex:none;font:800 13px/28px var(--mono);font-style:normal;width:28px;height:28px;border-radius:8px;text-align:center;background:var(--ink);color:#fff;margin-top:2px}
+.ab b{display:block;font-size:15.5px}
+.ab small{display:block;font-size:13.5px;color:var(--ink2);line-height:1.6}
+.ab em{display:inline-block;font:700 11.5px var(--mono);font-style:normal;color:var(--clay-d);background:var(--clay-s);padding:1px 7px;border-radius:5px;margin-top:4px}
+/* highlights */
+.hl2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.hl2 .card{padding:16px 18px}
+.hl2 h3{font-size:1.02rem;margin-bottom:4px}
+.hl2 p{font-size:14.5px;color:var(--ink2);margin-bottom:8px}
+.t1{display:inline-block;font:700 11.5px var(--mono);background:var(--rose-s);color:var(--rose);padding:2px 7px;border-radius:5px;margin-right:5px}
+.t2{display:inline-block;font:700 11.5px var(--mono);background:var(--blue-s);color:var(--blue);padding:2px 7px;border-radius:5px}
+/* faq */
+details{background:#fff;border:2px solid var(--ink);border-radius:14px;padding:14px 20px;margin-bottom:10px}
+summary{cursor:pointer;font-weight:800;list-style:none}
+summary::-webkit-details-marker{display:none}
+summary::before{content:"Q";font:800 12px var(--mono);color:#fff;background:var(--clay);border-radius:6px;padding:2px 7px;margin-right:10px}
+details p{margin:10px 0 0;color:var(--ink2);font-size:15.5px}
+.final{background:#1E1A16;color:#EFE6D8;text-align:center;padding:80px 0}
+.final h2{color:#fff}.final p{color:#CDBFA9}
+footer{padding:28px 0;text-align:center;color:var(--muted);font-size:14px}
+@media(max-width:860px){
+  .hero .top,.g2,.g3,.jdq,.ab,.hl2,.kv{grid-template-columns:1fr}.g4{grid-template-columns:1fr 1fr}
+  .stats{grid-template-columns:repeat(2,1fr)}.stat:last-child{grid-column:1/-1}
+  .steps{grid-template-columns:repeat(2,1fr)}
+  .sec{padding:54px 0}.feat{padding:2px 16px}
+  .tbl{display:block;overflow-x:auto}
 }
-body{background:var(--paper);color:var(--ink);font:17px/1.8 var(--sans);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
-body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;opacity:.035;
-  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)'/%3E%3C/svg%3E")}
-main{position:relative;z-index:1}
-.wrap{max-width:var(--wrap);margin:0 auto;padding:0 28px}
-section{scroll-margin-top:84px}
-h1,h2{font-family:var(--serif);text-wrap:balance;letter-spacing:-.01em}
-h2{font-size:clamp(1.9rem,3.6vw,2.8rem);line-height:1.18;font-weight:800;margin-bottom:14px}
-h3{font-size:1.25rem;font-weight:700}
-p{text-wrap:pretty}
-a{color:var(--clay-deep)}
-.eyebrow{font:700 12.5px/1 var(--mono);letter-spacing:.16em;text-transform:uppercase;color:var(--clay);margin-bottom:16px}
-.lede{color:var(--ink2);font-size:1.06rem;max-width:46em}
-.figcap{font-size:13px;color:var(--muted);margin-top:10px}
-.sec{padding:88px 0}
-/* ═══════════════ 顶栏 ═══════════════ */
-#bar{position:fixed;top:0;left:0;right:0;z-index:50;height:64px;display:flex;align-items:center;
-  background:color-mix(in srgb,var(--paper) 78%,transparent);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
-  border-bottom:1px solid transparent;transition:border-color .3s}
-#bar.on{border-bottom-color:var(--hair)}
-#bar .wrap{display:flex;align-items:center;gap:26px;width:100%}
-#bar .brand{font-family:var(--serif);font-weight:800;font-size:1.12rem;color:var(--ink);text-decoration:none;display:flex;align-items:center;gap:9px}
-#bar .brand .dot{width:10px;height:10px;border-radius:50%;background:var(--clay)}
-#bar nav{display:flex;gap:4px;margin-left:auto}
-#bar nav a{font-size:14.5px;color:var(--ink2);text-decoration:none;padding:7px 12px;border-radius:9px;transition:.2s}
-#bar nav a:hover{background:var(--clay-soft);color:var(--clay-deep)}
-#bar .cta{margin-left:6px}
-#menu-btn{display:none;margin-left:auto;background:none;border:1.5px solid var(--hair);border-radius:9px;width:40px;height:36px;cursor:pointer;position:relative}
-#prog{position:fixed;top:0;left:0;height:2px;width:100%;z-index:60;background:var(--clay);transform-origin:0 50%;transform:scaleX(0)}
-/* ═══════════════ 按钮 ═══════════════ */
-.btn{display:inline-flex;align-items:center;gap:8px;border:none;cursor:pointer;text-decoration:none;
-  font:700 15.5px/1 var(--sans);padding:15px 26px;border-radius:var(--r-btn);transition:.22s;position:relative;overflow:hidden}
-.btn.primary{background:var(--clay);color:#fff;box-shadow:0 12px 26px -10px rgba(142,61,28,.5)}
-.btn.primary:hover{background:var(--clay-deep);transform:translateY(-2px)}
-.btn.ghost{background:transparent;color:var(--ink);border:1.5px solid var(--hair)}
-.btn.ghost:hover{border-color:var(--clay);color:var(--clay-deep)}
-.btn.big{font-size:17px;padding:18px 36px}
-.btn .shine{position:absolute;top:0;bottom:0;width:44%;left:0;transform:translateX(-160%) skewX(-18deg);
-  background:linear-gradient(90deg,transparent,rgba(255,255,255,.34),transparent);pointer-events:none}
-.btn:hover .shine{animation:sweep .7s ease}
-@keyframes sweep{to{transform:translateX(340%) skewX(-18deg)}}
-/* ═══════════════ Hero ═══════════════ */
-#hero{position:relative;padding:158px 0 96px;overflow:hidden}
-#hero::before{content:"";position:absolute;width:900px;height:900px;right:-220px;top:-260px;border-radius:50%;
-  background:radial-gradient(closest-side,rgba(180,83,42,.16),transparent 70%);pointer-events:none}
-#hero .grid{display:grid;grid-template-columns:6fr 5fr;gap:56px;align-items:center}
-#hero h1{font-size:clamp(2.6rem,6vw,4.6rem);line-height:1.08;font-weight:800;letter-spacing:-.03em;margin:0 0 22px}
-#hero h1 em{font-style:normal;color:var(--clay)}
-#hero .sub{color:var(--ink2);font-size:1.1rem;max-width:34em;margin-bottom:30px}
-#hero .acts{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:34px}
-.pills{display:flex;gap:10px;flex-wrap:wrap}
-.pill{background:var(--surface);border:1px solid var(--hair);border-radius:999px;padding:9px 16px;font-size:13.5px;color:var(--ink2);box-shadow:var(--shadow)}
-.pill b{color:var(--clay-deep);font-family:var(--mono);font-weight:800}
-/* 回放卡 */
-.stage{position:relative}
-.replay{background:var(--night);color:var(--night-ink);border-radius:var(--r-card);padding:18px 18px 14px;
-  font:13.5px/1.9 var(--mono);box-shadow:var(--shadow-hi);width:min(520px,100%)}
-.replay .tbar{display:flex;align-items:center;gap:6px;padding-bottom:10px;margin-bottom:8px;border-bottom:1px solid rgba(239,230,216,.1)}
-.replay .tbar i{width:10px;height:10px;border-radius:50%;background:#4A433A}
-.replay .tbar i:first-child{background:#B4532A}
-.replay .tbar span{margin-left:auto;font-size:11px;color:rgba(239,230,216,.45);letter-spacing:.08em}
-.replay .ln{white-space:pre-wrap;min-height:1.9em}
-.replay .ln .k{color:var(--amber);font-weight:700}
-.replay .ln .v{color:var(--night-ink)}
-.replay .ln .s{color:rgba(239,230,216,.5)}
-.replay .cur{display:inline-block;width:8px;height:15px;background:var(--amber);vertical-align:-2px;animation:blink 1s steps(1) infinite}
-@keyframes blink{50%{opacity:0}}
-.replay .cap{margin-top:10px;padding-top:8px;border-top:1px solid rgba(239,230,216,.1);font-size:11px;color:rgba(239,230,216,.4);font-family:var(--sans)}
-.hubshot{position:absolute;right:-14px;bottom:-64px;width:min(560px,92%);z-index:-1;
-  border-radius:var(--r-img);overflow:hidden;box-shadow:var(--shadow-hi);border:1px solid var(--hair)}
-/* 浏览器框 */
-.browser{background:#F1EADF;border-radius:var(--r-img);overflow:hidden;box-shadow:var(--shadow);border:1px solid var(--hair)}
-.browser .bbar{height:34px;display:flex;align-items:center;gap:7px;padding:0 14px;border-bottom:1px solid var(--hair)}
-.browser .bbar i{width:10px;height:10px;border-radius:50%;background:#D8CBB6}
-.browser .bbar em{font:12px var(--sans);font-style:normal;color:var(--muted);margin-left:8px}
-.browser img{display:block;width:100%;height:auto}
-/* ═══════════════ 痛点 ═══════════════ */
-#pain .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:44px}
-.pcard{background:var(--surface);border:1px solid var(--hair);border-radius:var(--r-card);padding:30px 28px;box-shadow:var(--shadow);transition:.25s}
-.pcard:hover{transform:translateY(-3px);box-shadow:var(--shadow-hi)}
-.pcard .q{font-family:var(--serif);font-size:2.6rem;line-height:1;color:var(--clay);opacity:.85}
-.pcard h3{margin:12px 0 8px}
-.pcard p{color:var(--ink2);font-size:15.5px}
-.close-line{margin-top:34px;text-align:center;color:var(--ink2);font-size:1.02rem}
-.close-line b{color:var(--clay-deep)}
-/* ═══════════════ 产品亮相 ═══════════════ */
-#product .shot{margin:44px 0 8px;position:relative}
-#product .pin{position:absolute;width:30px;height:30px;border-radius:50%;background:var(--clay);color:#fff;
-  display:flex;align-items:center;justify-content:center;font:800 13px var(--mono);box-shadow:0 0 0 6px rgba(180,83,42,.18);cursor:default;z-index:2}
-.converge{position:relative;height:330px;margin-top:54px}
-.converge svg{position:absolute;inset:0;width:100%;height:100%}
-.converge svg line{stroke:var(--clay);stroke-width:1.4;opacity:.5;vector-effect:non-scaling-stroke;stroke-dasharray:600;stroke-dashoffset:600;transition:stroke-dashoffset .9s ease}
-html.no-js .converge svg line,html.reduce .converge svg line{stroke-dashoffset:0}
-.converge.drawn svg line{stroke-dashoffset:0}
-.cap-pill{position:absolute;background:var(--surface);border:1px solid var(--hair);border-radius:999px;padding:9px 15px;
-  font-size:13.5px;font-weight:600;color:var(--ink2);box-shadow:var(--shadow);white-space:nowrap;transition:.3s;opacity:0;translate:0 8px}
-.cap-pill.on{opacity:1;translate:0 0}
-html.no-js .cap-pill{opacity:1;translate:0 0}
-.core-chip{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);background:var(--clay);color:#fff;
-  font-family:var(--serif);font-weight:800;font-size:1.3rem;padding:16px 30px;border-radius:16px;box-shadow:0 16px 36px -12px rgba(142,61,28,.55);white-space:nowrap}
-.core-chip small{display:block;font:600 11px var(--mono);letter-spacing:.14em;opacity:.75;text-transform:uppercase;margin-top:2px}
-/* ═══════════════ 记忆一生（sticky 叙事） ═══════════════ */
-#how .frame{display:grid;grid-template-columns:5fr 6fr;gap:56px;margin-top:46px}
-#how .steps{position:relative}
-#how .steps::before{content:"";position:absolute;left:9px;top:8px;bottom:8px;width:2px;background:var(--hair)}
-#how .rail{position:absolute;left:9px;top:8px;width:2px;background:var(--clay);height:0;transition:height .5s ease}
-.step{padding:0 0 74px 44px;position:relative}
-.step:last-child{padding-bottom:6px}
-.step .no{position:absolute;left:0;top:2px;width:20px;height:20px;border-radius:50%;background:var(--paper);border:2px solid var(--hair);transition:.3s}
-.step.cur .no{border-color:var(--clay);background:var(--clay);box-shadow:0 0 0 5px rgba(180,83,42,.15)}
-.step h3{font-size:1.14rem;margin-bottom:6px;color:var(--ink2);transition:.3s}
-.step p{font-size:15px;color:var(--muted);transition:.3s}
-.step.cur h3{color:var(--ink)}
-.step.cur p{color:var(--ink2)}
-#how .vis{position:sticky;top:96px;align-self:start;height:390px}
-#how .vis img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;clip-path:inset(2%);border-radius:var(--r-img);
-  border:1px solid var(--hair);box-shadow:var(--shadow);opacity:0;transition:opacity .45s ease}
-#how .vis img.on{opacity:1}
-#how .vis .tag{position:absolute;left:14px;bottom:14px;background:rgba(31,27,22,.72);color:#fff;font-size:12px;
-  padding:5px 12px;border-radius:999px;backdrop-filter:blur(4px)}
-/* ═══════════════ 暗色技术区 ═══════════════ */
-#tech{background:var(--night);color:var(--night-ink);position:relative;margin:40px 0}
-#tech::before,#tech::after{content:"";position:absolute;left:0;right:0;height:80px;pointer-events:none}
-#tech::before{top:-80px;background:linear-gradient(var(--paper),var(--night))}
-#tech::after{bottom:-80px;background:linear-gradient(var(--night),var(--paper))}
-#tech .inner{position:relative;z-index:1;background:
-  radial-gradient(700px 420px at 12% 6%,rgba(180,83,42,.18),transparent 65%),
-  radial-gradient(720px 460px at 88% 96%,rgba(227,161,59,.10),transparent 65%),var(--night)}
-#tech .eyebrow{color:var(--amber)}
-#tech h2{color:#FBF5EA}
-#tech .lede{color:rgba(239,230,216,.72)}
-.bento{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:46px}
-.bcard{background:var(--night2);border:1px solid rgba(239,230,216,.08);border-radius:var(--r-card);padding:26px 24px;position:relative;overflow:hidden;transition:.25s}
-.bcard::after{content:"";position:absolute;inset:0;opacity:0;transition:.3s;pointer-events:none;
-  background:radial-gradient(240px at var(--mx,50%) var(--my,50%),rgba(227,161,59,.10),transparent)}
-.bcard:hover::after{opacity:1}
-.bcard .big{font:800 clamp(2.1rem,3.4vw,2.9rem)/1.1 var(--mono);letter-spacing:-.02em;font-variant-numeric:tabular-nums;color:#FBF5EA}
-.bcard .big .from{color:rgba(239,230,216,.4);font-size:.6em;margin-right:.28em}
-.bcard .big .to{color:var(--amber)}
-.bcard h3{margin:12px 0 8px;color:#FBF5EA;font-size:1.08rem}
-.bcard p{font-size:14px;color:rgba(239,230,216,.66)}
-.bars{margin-top:14px;display:grid;gap:6px}
-.bar1{height:7px;border-radius:99px;background:rgba(239,230,216,.12);overflow:hidden;position:relative}
-.bar1 i{position:absolute;inset:0;border-radius:99px;background:rgba(239,230,216,.35);transform-origin:0 50%;transform:scaleX(0);transition:transform 1.2s cubic-bezier(.2,.7,.2,1)}
-.bar1.after i{background:var(--amber);transition-delay:.2s}
-.bcard.go .bar1 i{transform:scaleX(var(--v,1))}
-.grpo-card{grid-column:1/-1;background:var(--night2);border:1px solid rgba(239,230,216,.08);border-radius:var(--r-card);padding:30px;display:grid;grid-template-columns:5fr 7fr;gap:30px;align-items:center;position:relative;overflow:hidden}
-.grpo-card::after{content:"";position:absolute;inset:0;opacity:0;transition:.3s;pointer-events:none;
-  background:radial-gradient(340px at var(--mx,50%) var(--my,50%),rgba(227,161,59,.08),transparent)}
-.grpo-card:hover::after{opacity:1}
-.grpo-card h3{color:#FBF5EA;margin-bottom:10px}
-.grpo-card p{font-size:14.5px;color:rgba(239,230,216,.66)}
-.grpo-card .paper-in{background:var(--surface);border-radius:12px;padding:16px;box-shadow:0 10px 30px -10px rgba(0,0,0,.5)}
-.grpo-card .paper-in img{display:block;width:100%;clip-path:inset(0 100% 0 0);transition:clip-path 1.2s ease}
-.grpo-card.go .paper-in img{clip-path:inset(0 0 0 0)}
-html.no-js .grpo-card .paper-in img{clip-path:inset(0)}
-/* ═══════════════ 4090 条 ═══════════════ */
-#rack{padding:80px 0 24px}
-.vbar{margin-top:40px;height:56px;border-radius:14px;overflow:hidden;display:flex;box-shadow:var(--shadow);border:1px solid var(--hair)}
-.vbar div{height:100%;display:flex;align-items:center;justify-content:center;font:700 12.5px var(--mono);color:#fff;white-space:nowrap;overflow:hidden;transform-origin:0 50%;transform:scaleX(0);transition:transform .8s cubic-bezier(.2,.7,.2,1)}
-#rack.go .vbar div{transform:scaleX(1)}
-.v1{background:#8E3D1C;flex:0 0 40%}
-.v2{background:#B4532A;flex:0 0 19%}
-.v3{background:#C97B4A;flex:0 0 9%}
-.v4{background:#D9A05B;flex:0 0 5%}
-.vfree{background:#EFE8DB;flex:1;color:var(--muted)!important;font-weight:600}
-.vlegend{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:16px}
-.vlegend div{font-size:13px;color:var(--ink2)}
-.vlegend b{display:block;font-size:13.5px;color:var(--ink)}
-.vnote{margin-top:18px;font-size:13px;color:var(--muted)}
-/* ═══════════════ 收获 tabs ═══════════════ */
-#gains{padding-top:64px}
-.tabs{margin-top:40px;border-bottom:2px solid var(--hair);display:flex;gap:6px;position:relative;overflow-x:auto;scrollbar-width:none}
-.tab{border:none;background:none;cursor:pointer;font:700 15px var(--sans);color:var(--muted);padding:14px 20px;border-radius:10px 10px 0 0;transition:.2s;position:relative;z-index:2}
-.tab[aria-selected="true"]{color:var(--clay-deep);background:var(--clay-soft)}
-#tabslide{position:absolute;bottom:-2px;height:2px;background:var(--clay);transition:.3s cubic-bezier(.2,.7,.2,1);z-index:3}
-.panels{margin-top:34px}
-.tpanel{display:none;grid-template-columns:7fr 5fr;gap:44px;align-items:center}
-.tpanel.on{display:grid;animation:pin .4s ease}
-@keyframes pin{from{opacity:0;translate:0 8px}}
-.tpanel ul{list-style:none;display:grid;gap:13px}
-.tpanel li{padding-left:26px;position:relative;color:var(--ink2);font-size:15.5px}
-.tpanel li::before{content:"";position:absolute;left:2px;top:.62em;width:9px;height:9px;border-radius:3px;background:var(--clay);rotate:45deg;scale:.9}
-.tpanel .note{margin-top:16px;font-size:14px;color:var(--muted)}
-.tpanel img{border-radius:12px;border:1px solid var(--hair);box-shadow:var(--shadow);width:100%;aspect-ratio:16/10;object-fit:cover}
-/* ═══════════════ 面试价值 ═══════════════ */
-#iv .items{display:grid;gap:26px;margin-top:44px}
-.ivrow{display:grid;grid-template-columns:5fr 7fr;gap:30px;align-items:start}
-.bubble{background:var(--surface);border:1px solid var(--hair);border-radius:4px 18px 18px 18px;padding:18px 22px;box-shadow:var(--shadow);font-family:var(--serif);font-size:1.06rem}
-.ivans h3{margin-bottom:8px;color:var(--clay-deep)}
-.ivans p{color:var(--ink2);font-size:15.5px}
-/* ═══════════════ FAQ ═══════════════ */
-#faq .qa{margin-top:38px;display:grid;gap:12px;max-width:820px}
-details{background:var(--surface);border:1px solid var(--hair);border-radius:16px;box-shadow:var(--shadow);overflow:hidden}
-details summary{cursor:pointer;list-style:none;display:flex;align-items:center;gap:16px;padding:19px 24px;font-weight:700;font-size:1.02rem}
-details summary::-webkit-details-marker{display:none}
-details summary .plus{margin-left:auto;width:22px;height:22px;flex:0 0 22px;position:relative;transition:rotate .3s}
-details summary .plus::before,details summary .plus::after{content:"";position:absolute;background:var(--clay);left:50%;top:50%}
-details summary .plus::before{width:14px;height:2px;translate:-50% -50%}
-details summary .plus::after{width:2px;height:14px;translate:-50% -50%}
-details[open] summary .plus{rotate:45deg}
-details .a{padding:0 24px 20px;color:var(--ink2);font-size:15.5px}
-details .ain{overflow:hidden}
-/* ═══════════════ CTA ═══════════════ */
-#cta{margin-top:80px}
-#cta .block{background:linear-gradient(135deg,var(--clay-deep),var(--clay));border-radius:26px;padding:84px 40px;text-align:center;color:#fff;position:relative;overflow:hidden;box-shadow:0 30px 70px -24px rgba(142,61,28,.6)}
-#cta .block::before{content:"";position:absolute;width:640px;height:640px;border-radius:50%;right:-180px;top:-260px;background:radial-gradient(closest-side,rgba(255,255,255,.14),transparent 70%)}
-#cta h2{color:#fff;font-size:clamp(2rem,4.4vw,3.2rem);position:relative}
-#cta p{color:rgba(255,255,255,.82);font-size:1.08rem;margin:14px 0 34px;position:relative}
-#cta .btn{background:#fff;color:var(--clay-deep);position:relative}
-#cta .btn:hover{transform:translateY(-2px)}
-/* ═══════════════ 页脚 ═══════════════ */
-footer{padding:56px 0 72px;border-top:1px solid var(--hair);margin-top:10px}
-footer .fbrand{font-family:var(--serif);font-weight:800;font-size:1.05rem;margin-bottom:6px}
-footer .fsub{font-size:13.5px;color:var(--muted);margin-bottom:26px}
-footer details{box-shadow:none;background:transparent;border:none;padding:0}
-footer summary{padding:12px 0;font-size:15px;color:var(--ink2)}
-footer .a{padding:0 0 14px}
-.mgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px 20px}
-.mgrid a{font-size:14px;color:var(--ink2);text-decoration:none;padding:4px 0;display:inline-block}
-.mgrid a:hover{color:var(--clay-deep)}
-/* ═══════════════ 渐入 ═══════════════ */
-html.js .reveal{opacity:0;translate:0 16px;transition:opacity .6s cubic-bezier(.2,.7,.2,1),translate .6s cubic-bezier(.2,.7,.2,1);transition-delay:calc(var(--i,0)*80ms)}
-html.js .reveal.in{opacity:1;translate:0 0}
-/* ═══════════════ 响应式 ═══════════════ */
-@media (max-width:960px){
-  #hero .grid{grid-template-columns:1fr;gap:40px}
-  #hero{padding:130px 0 120px}
-  .stage{padding-bottom:56px}
-  .hubshot{position:relative;right:auto;bottom:auto;width:100%;margin-top:20px}
-  #pain .cards{grid-template-columns:1fr}
-  .bento{grid-template-columns:1fr 1fr}
-  .grpo-card{grid-template-columns:1fr}
-  #how .frame{grid-template-columns:1fr}
-  #how .vis{display:none}
-  #how .steps{display:none}
-  #how .track{display:grid;grid-auto-flow:column;grid-auto-columns:86%;overflow-x:auto;scroll-snap-type:x mandatory;gap:16px;padding-bottom:14px}
-  #how .track .cell{scroll-snap-align:center}
-  #how .track img{width:100%;aspect-ratio:16/9;object-fit:cover;clip-path:inset(2%);border-radius:var(--r-img);border:1px solid var(--hair)}
-  #how .track h3{font-size:1.02rem;margin:12px 0 4px}
-  #how .track p{font-size:14px;color:var(--ink2)}
-  #how .dots{display:flex;gap:8px;justify-content:center;margin-top:10px}
-  #how .dots i{width:8px;height:8px;border-radius:50%;background:var(--hair)}
-  #how .dots i.on{background:var(--clay)}
-  .ivrow,.tpanel{grid-template-columns:1fr}
-  .tabs{flex-wrap:nowrap}
-  .tab{white-space:nowrap;flex:0 0 auto;padding:14px 15px}
-  .mgrid{grid-template-columns:repeat(2,1fr)}
-  #bar nav{display:none}
-  #menu-btn{display:block}
-  #bar .cta{margin-left:8px}
-  .converge{height:auto;padding:26px 0}
-  .converge svg{display:none}
-  .cap-pill{position:static;display:inline-block;margin:5px}
-  .cap-pill.br{display:block;width:max-content}
-  .core-chip{position:static;transform:none;display:block;width:max-content;margin:18px auto 0}
-  .vbar{height:44px}
-  .vbar div{font-size:0}
-  .v1{flex-basis:44%}
-}
-@media (min-width:961px){#how .track,#how .dots{display:none}}
-#menu-btn::before,#menu-btn::after{content:"";position:absolute;left:11px;right:11px;height:2px;background:var(--ink)}
-#menu-btn::before{top:13px}#menu-btn::after{bottom:13px;box-shadow:0 6px 0 var(--ink),0 -6px 0 var(--ink)}
-#mnav{position:fixed;top:64px;left:0;right:0;background:var(--paper);border-bottom:1px solid var(--hair);display:none;padding:10px 22px 16px;z-index:49;box-shadow:0 18px 30px -18px rgba(142,61,28,.25)}
-#mnav.open{display:block}
-#mnav a{display:block;padding:11px 6px;font-size:16px;color:var(--ink2);text-decoration:none;border-bottom:1px solid var(--hair)}
-#mnav a:last-child{border:none}
 </style>
 </head>
 <body>
-<div id="prog" aria-hidden="true"></div>
-<header id="bar">
-  <div class="wrap">
-    <a class="brand" href="/"><span class="dot"></span>AgentAlpha</a>
-    <button id="menu-btn" aria-label="打开菜单" aria-expanded="false"></button>
-    <nav aria-label="页面导航">
-      <a href="#pain">痛点</a><a href="#product">产品</a><a href="#how">机制</a><a href="#tech">硬核数字</a><a href="#gains">收获</a><a href="#faq">FAQ</a>
-    </nav>
-    <a class="btn primary cta" href="/projects/m2-memory.html">开始学<span class="shine"></span></a>
-  </div>
-</header>
 
-<div id="mnav" aria-label="移动端导航">
-    <a href="#pain">痛点</a><a href="#product">产品</a><a href="#how">机制</a><a href="#tech">硬核数字</a><a href="#gains">收获</a><a href="#faq">FAQ</a>
-  </div>
-<main>
-<!-- ═════════ HERO ═════════ -->
-<section id="hero">
-  <div class="wrap grid">
+<div id="bar"><div class="wrap">
+  <a class="logo" href="#top">Agent<b>Alpha</b> · 项目</a>
+  <nav><a href="#intro">项目介绍</a><a href="#why">解决什么问题</a><a href="#feat">核心功能</a><a href="#arch">项目架构</a><a href="#flow">一次请求</a><a href="#loop">Agent Loop</a><a href="#gw">模型网关</a><a href="#code">Coding Agent</a><a href="#rsi">自进化</a><a href="#train">后训练</a><a href="#fw">数据飞轮</a><a href="#jd">JD 对照</a><a href="#hl">项目亮点</a><a href="#stack">技术栈</a><a href="#gain">学完收获</a><a href="#faq">FAQ</a></nav>
+  <a class="btn" href="#join">开始学习</a>
+</div></div>
+
+<!-- HERO -->
+<header class="hero" id="top"><div class="wrap">
+  <div class="top">
     <div>
-      <p class="eyebrow reveal">AgentAlpha 旗舰项目 · MemSync</p>
-      <h1 class="reveal" style="--i:1">让每个 AI<br>都<em>记住你</em></h1>
-      <p class="sub reveal" style="--i:2">你换个窗口、换台设备，AI 就把你忘得一干二净。MemSync 是一个跑在你自己电脑上的个人记忆中台：能记、能想起、能改、能忘，还能告诉你每句话出自哪条记忆。检索、记忆、Agent、强化学习、推理加速，全在这一个项目里打通。</p>
-      <div class="acts reveal" style="--i:3">
-        <a class="btn primary" href="/projects/m2-memory.html">开始做这个项目<span class="shine"></span></a>
-        <a class="btn ghost" href="#how">先看它怎么工作 ↓</a>
-      </div>
-      <div class="pills reveal" style="--i:4">
-        <span class="pill">记忆打开后，答对率 <b>21% → 56%</b></span>
-        <span class="pill">1.5B 模型 GRPO 训练，全对率 <b>58% → 94%</b></span>
-        <span class="pill">首字延迟 <b>−64%</b></span>
-      </div>
+      <span class="tag">旗舰项目 · 记忆 × 自进化 × 后训练 × CODING AGENT</span>
+      <h1>Ever<em>Self</em></h1>
+      <div class="slogan">会越用越像你的个人分身 Agent</div>
+      <p class="lead">记得住你说过的每件事，能写代码、比价、看股票、写论文、做研究；做错了自己归因、自己长技能；用老师轨迹做 SFT、用可验证奖励做 GRPO，再靠线上反馈转数据飞轮。一个项目，把 Agent 岗位 JD 里的记忆、Agent Loop、模型网关、Coding Agent、自进化、后训练全部打通。</p>
+      <div class="cta"><a class="btn" href="#intro">看项目介绍</a><a class="btn ghost" href="#jd">看 JD 对照</a></div>
+      <div class="chips"><span>学完直接对标：</span><span class="c">Agent 记忆系统工程师</span><span class="c">AI 应用开发-Agent</span><span class="c">Coding Agent</span><span class="c">后训练 / RL</span><span class="c">数据飞轮</span></div>
     </div>
-    <div class="stage reveal" style="--i:2">
-      <div class="replay" id="replay" aria-label="一次真实的记忆调用回放">
-        <div class="tbar"><i></i><i></i><i></i><span>MEMSYNC · TRACE</span></div>
-        <div id="rlines"></div>
-        <p class="cap">按控制台真实 API 返回重绘</p>
-      </div>
-      <figure class="hubshot">
-        <div class="browser">
-          <div class="bbar"><i></i><i></i><i></i><em>MemSync 控制台</em></div>
-          <img src="/projects/assets/img/m2/generated/hub-1.webp" width="2160" height="1703" alt="MemSync 控制台真实截图：五大职能操作台与一次真实的记忆调用" fetchpriority="high">
-        </div>
-      </figure>
-    </div>
+    <div class="fig"><img src="assets/img/everself/hero.webp" width="1280" height="720" alt="EverSelf：住在你电脑上的个人分身"></div>
   </div>
-</section>
-
-<!-- ═════════ 痛点 ═════════ -->
-<section id="pain" class="sec">
-  <div class="wrap">
-    <p class="eyebrow reveal">为什么需要它</p>
-    <h2 class="reveal" style="--i:1">你的 AI，是条金鱼</h2>
-    <div class="cards">
-      <div class="pcard reveal" style="--i:1"><div class="q">“</div><h3>上周刚说过，这周又问</h3><p>告诉过它你只喝低因咖啡，新开一个对话，它又给你推荐美式。</p></div>
-      <div class="pcard reveal" style="--i:2"><div class="q">“</div><h3>电脑上记得，手机上全忘</h3><p>每个 App、每台设备各记各的，你的偏好散落一地。</p></div>
-      <div class="pcard reveal" style="--i:3"><div class="q">“</div><h3>它记错了，你还删不掉</h3><p>旧信息和新信息打架，它也分不清该信哪条。</p></div>
-    </div>
-    <p class="close-line reveal">这三件事，就是 MemSync 要解决的问题，也是<b>面试官最爱问的 Agent 记忆题</b>。</p>
+  <div class="stats">
+    <div class="stat"><b>14</b><span>项 JD 能力维度</span></div>
+    <div class="stat"><b>5</b><span>层架构</span></div>
+    <div class="stat"><b>6</b><span>类真实场景</span></div>
+    <div class="stat"><b>12</b><span>张讲解图</span></div>
+    <div class="stat"><b>539</b><span>项自动化测试</span></div>
   </div>
-</section>
+</div></header>
 
-<!-- ═════════ 产品亮相 ═════════ -->
-<section id="product" class="sec" style="padding-top:20px">
-  <div class="wrap">
-    <p class="eyebrow reveal">它是什么</p>
-    <h2 class="reveal" style="--i:1">一个产品，装下大模型岗位的九块核心能力</h2>
-    <p class="lede reveal" style="--i:2">推理、记忆、向量索引、模型权重都在你自己的电脑上。你做出来的不是一个 demo 脚本，而是一个有控制台、有 API、有真实数据的产品。</p>
-    <figure class="shot reveal" style="--i:3" id="bigshot">
-      <div class="browser">
-        <div class="bbar"><i></i><i></i><i></i><em>MemSync 控制台</em></div>
-        <img src="/projects/assets/img/m2/generated/hub-1.webp" width="2160" height="1703" alt="MemSync 控制台完整截图：记忆中心、自进化引擎、科研工作台、在线评测、Agent 记忆服务" loading="lazy">
-      </div>
-      <span class="pin" style="left:12%;top:16%" title="五大职能">①</span>
-      <span class="pin" style="left:52%;top:44%" title="真实 API">②</span>
-      <span class="pin" style="left:84%;top:70%" title="召回带分数">③</span>
-      <figcaption class="figcap">图：MemSync 控制台真实截图（① 五大职能：记忆中心、自进化引擎、科研工作台、在线评测、Agent 记忆服务；② 每个按钮打的都是真 API；③ 每次召回带分数，每次写入留痕）</figcaption>
-    </figure>
-    <div class="converge" id="conv" aria-label="九大能力汇聚成一个 MemSync">
-      <svg viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
-        <line x1="8" y1="18" x2="50" y2="50"/><line x1="50" y1="4" x2="50" y2="50"/><line x1="92" y1="18" x2="50" y2="50"/>
-        <line x1="4" y1="50" x2="50" y2="50"/><line x1="96" y1="50" x2="50" y2="50"/>
-        <line x1="8" y1="84" x2="50" y2="50"/><line x1="43" y1="97" x2="50" y2="50"/><line x1="92" y1="84" x2="50" y2="50"/>
-        <line x1="26" y1="10" x2="50" y2="50"/>
-      </svg>
-      <span class="cap-pill" style="left:1%;top:10%">RAG 检索</span>
-      <span class="cap-pill" style="left:38%;top:0%">分层记忆</span>
-      <span class="cap-pill" style="right:1%;top:10%">Agent 工具调用</span>
-      <span class="cap-pill" style="left:0%;top:45%">多 Agent 协作</span>
-      <span class="cap-pill" style="right:0%;top:45%">深度研究</span>
-      <span class="cap-pill" style="left:1%;bottom:8%">推理服务</span>
-      <span class="cap-pill" style="left:38%;bottom:0%">代码 Agent</span>
-      <span class="cap-pill" style="right:1%;bottom:8%">自进化</span>
-      <span class="cap-pill br" style="left:20%;top:1%">强化学习训练</span>
-      <span class="core-chip">汇成一个 MemSync<small>Nine capabilities · One product</small></span>
-    </div>
+<!-- 01 -->
+<section class="sec" id="intro"><div class="wrap">
+  <span class="num">01 · 项目介绍</span>
+  <h2>大家好，今天带来一个新的 Agent 项目，叫《EverSelf》</h2>
+  <p class="lede">今年阿里、字节、腾讯的 Agent 岗位 JD，要的不再是“会调 API”，而是一整套：记忆系统、Agent Loop、模型网关、Coding Agent、自进化、后训练和数据飞轮。这些东西零散地学，很难串成一段能讲清楚的项目经历，所以我们把它们做成了一个项目。</p>
+  <p><b>简单来说，EverSelf 是一个住在你自己电脑上的个人分身。</b>你说过的话、让它做过的事，它都记着；下次干活直接用上；做错的事变成技能，下次不再犯；用得越多，它越像你。</p>
+  <div class="fig"><img src="assets/img/everself/scenes.webp" width="1280" height="720" alt="它能替你做的六件事"></div>
+  <div class="cap">图：EverSelf 能替你做的六件事</div>
+  <p>整个项目可以从四个维度来理解：</p>
+  <div class="g4">
+    <div class="card c" style="--cc:var(--blue)"><div class="big">记得住</div><p>记忆怎么写、怎么存、怎么想起来、什么时候该忘。</p></div>
+    <div class="card c" style="--cc:var(--green)"><div class="big">做得了</div><p>Agent Loop、工具调用、沙箱、长任务续跑、模型网关。</p></div>
+    <div class="card c" style="--cc:var(--violet)"><div class="big">学得会</div><p>自进化长技能；老师轨迹做 SFT，可验证奖励做 GRPO。</p></div>
+    <div class="card c" style="--cc:var(--rose)"><div class="big">验得出</div><p>证伪账本、固定评测集、三臂对比、置信区间。</p></div>
   </div>
-</section>
+</div></section>
 
-<!-- ═════════ 记忆的一生 ═════════ -->
-<section id="how" class="sec" style="padding-top:30px">
-  <div class="wrap">
-    <p class="eyebrow reveal">它怎么工作</p>
-    <h2 class="reveal" style="--i:1">一条记忆，从说出口到被遗忘</h2>
-    <p class="lede reveal" style="--i:2">往下滑，跟着「我以后都喝低因咖啡」这句话走完一生。</p>
-    <div class="track" aria-label="记忆生命周期八步">
-      <div class="cell"><img src="/projects/assets/img/m2/01-cover-memory.webp" width="1280" height="720" alt="记忆机制示意" loading="lazy"><h3>01 你说了一句话</h3><p>不是每句话都值得记。MemSync 先判断：这是偏好、事实，还是闲聊？</p></div>
-      <div class="cell"><img src="/projects/assets/img/m2/03-mem-admission.webp" width="1280" height="720" alt="写入闸门机制示意" loading="lazy"><h3>02 写入前先过闸</h3><p>一个专门训练过的小模型决定记不记。密码、证件号这类东西，拦在门外。</p></div>
-      <div class="cell"><img src="/projects/assets/img/m2/02-mem-tower.webp" width="1280" height="720" alt="四层记忆结构示意" loading="lazy"><h3>03 分层存放</h3><p>工作记忆、短期、中期、长期四层。晋升必须早于挤出，重要的不会被新消息冲掉。</p></div>
-      <div class="cell"><img src="/projects/assets/img/m2/04-mem-paths.webp" width="1280" height="720" alt="双路召回机制示意" loading="lazy"><h3>04 需要时被想起</h3><p>向量检索加关键词检索双路召回，再用重排模型挑出最相关的几条。</p></div>
-      <div class="cell"><img src="/projects/assets/img/m2/05-mem-decay.webp" width="1280" height="720" alt="记忆衰减机制示意" loading="lazy"><h3>05 慢慢变淡</h3><p>很久没用到的记忆权重逐步衰减，给新信息让路。</p></div>
-      <div class="cell"><img src="/projects/assets/img/m2/06-mem-forget.webp" width="1280" height="720" alt="改口与遗忘机制示意" loading="lazy"><h3>06 改口与遗忘</h3><p>你改主意了？旧版本留在版本链里，还查得到；你要删？打上墓碑，再也查不到。</p></div>
-      <div class="cell"><img src="/projects/assets/img/m2/07-mem-compress.webp" width="1280" height="720" alt="对话压缩机制示意" loading="lazy"><h3>07 对话太长就压缩</h3><p>旧对话压缩成摘要，摘要本身也记着出处，随时能追回原文。</p></div>
-      <div class="cell"><img src="/projects/assets/img/m2/08-mem-sandbox.webp" width="1280" height="720" alt="沙箱与技能学习机制示意" loading="lazy"><h3>08 让 Agent 安全地用</h3><p>代码智能体在沙箱里调用记忆、学习新技能，改动先过统计闸门再上线。</p></div>
-    </div>
-    <div class="frame">
-      <div class="steps" id="steps">
-        <div class="rail" id="rail"></div>
-        <div class="step" data-i="0"><span class="no"></span><h3>你说了一句话</h3><p>不是每句话都值得记。MemSync 先判断：这是偏好、事实，还是闲聊？</p></div>
-        <div class="step" data-i="1"><span class="no"></span><h3>写入前先过闸</h3><p>一个专门训练过的小模型决定记不记。密码、证件号这类东西，拦在门外。</p></div>
-        <div class="step" data-i="2"><span class="no"></span><h3>分层存放</h3><p>工作记忆、短期、中期、长期四层。晋升必须早于挤出，重要的不会被新消息冲掉。</p></div>
-        <div class="step" data-i="3"><span class="no"></span><h3>需要时被想起</h3><p>向量检索加关键词检索双路召回，再用重排模型挑出最相关的几条。</p></div>
-        <div class="step" data-i="4"><span class="no"></span><h3>慢慢变淡</h3><p>很久没用到的记忆权重逐步衰减，给新信息让路。</p></div>
-        <div class="step" data-i="5"><span class="no"></span><h3>改口与遗忘</h3><p>你改主意了？旧版本留在版本链里，还查得到；你要删？打上墓碑，再也查不到。</p></div>
-        <div class="step" data-i="6"><span class="no"></span><h3>对话太长就压缩</h3><p>旧对话压缩成摘要，摘要本身也记着出处，随时能追回原文。</p></div>
-        <div class="step" data-i="7"><span class="no"></span><h3>让 Agent 安全地用</h3><p>代码智能体在沙箱里调用记忆、学习新技能，改动先过统计闸门再上线。</p></div>
-      </div>
-      <div class="vis" id="vis" aria-hidden="true">
-        <img src="/projects/assets/img/m2/01-cover-memory.webp" width="1280" height="720" alt="" loading="lazy" class="on">
-        <img src="/projects/assets/img/m2/03-mem-admission.webp" width="1280" height="720" alt="" loading="lazy">
-        <img src="/projects/assets/img/m2/02-mem-tower.webp" width="1280" height="720" alt="" loading="lazy">
-        <img src="/projects/assets/img/m2/04-mem-paths.webp" width="1280" height="720" alt="" loading="lazy">
-        <img src="/projects/assets/img/m2/05-mem-decay.webp" width="1280" height="720" alt="" loading="lazy">
-        <img src="/projects/assets/img/m2/06-mem-forget.webp" width="1280" height="720" alt="" loading="lazy">
-        <img src="/projects/assets/img/m2/07-mem-compress.webp" width="1280" height="720" alt="" loading="lazy">
-        <img src="/projects/assets/img/m2/08-mem-sandbox.webp" width="1280" height="720" alt="" loading="lazy">
-        <span class="tag">机制示意图 · 非产品界面</span>
-      </div>
-    </div>
-    <div class="dots" id="dots" aria-hidden="true"><i class="on"></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+<!-- 02 -->
+<section class="sec alt" id="why"><div class="wrap">
+  <span class="num">02 · 解决什么问题</span>
+  <h2>这个项目解决什么场景问题？</h2>
+  <p class="lede">你今天在 A 工具里跟 AI 聊了半小时：做电商项目、用 Python、不喜欢过度封装。明天换到 B 工具，<b>一切从头讲</b>。后天让它帮你比价买键盘，它又忘了你说过预算 500、只要静音轴。</p>
+  <div class="fig"><img src="assets/img/everself/problem.webp" width="1280" height="720" alt="每个 AI 都不认识你"></div>
+  <div class="cap">图：每个 AI 都不认识你</div>
+  <p><b>直接把聊天记录全塞给大模型行不行？</b>可以，但有三个问题：记录一长找不到重点；半年前说“用 Vue”后来改成 React，它分不清哪句是最新的；它答了一句话，你不知道依据是哪条记忆。</p>
+  <p>再往后还有更难的：任务跑到一半进程被杀了怎么办？它做错的事怎么保证下次不再错？怎么证明它真的变好了而不是碰巧？这些问题，一个成熟的 Agent 产品都要回答。<b>EverSelf 就是把这些答案做成了代码。</b></p>
+</div></section>
+
+<!-- 03 -->
+<section class="sec" id="feat"><div class="wrap">
+  <span class="num">03 · 核心功能</span>
+  <h2>项目核心功能有哪些？</h2>
+  <div class="fig"><img src="assets/img/everself/features.webp" width="1280" height="720" alt="八大核心能力"></div>
+  <div class="cap">图：八大核心能力</div>
+  <ul class="feat">
+    <li><span class="n">1</span><div><b>记忆写入：</b>对话里的事实、偏好、事件，自动判断值不值得存，分类存好。</div></li>
+    <li><span class="n">2</span><div><b>记忆检索：</b>关键词和语义一起找，再重排，挑出最相关的几条。</div></li>
+    <li><span class="n">3</span><div><b>更新与遗忘：</b>新信息覆盖旧信息，长期不用的降权，过期的清掉。</div></li>
+    <li><span class="n">4</span><div><b>冲突处理：</b>前后说法对不上时标出来让你选，不偷偷覆盖。</div></li>
+    <li><span class="n">5</span><div><b>来源追溯：</b>回答里每句话、每个数字，都能点回原始记忆。</div></li>
+    <li><span class="n">6</span><div><b>多端同步：</b>多设备共用一份记忆；撤销某个应用的授权，它写的记忆一并撤回。</div></li>
+    <li><span class="n">7</span><div><b>技能进化：</b>失败的任务提炼成技能，通过证伪检验才能启用。</div></li>
+    <li><span class="n">8</span><div><b>安全沙箱：</b>执行代码时限制可读写目录和联网范围，防止被对话里的恶意指令带偏。</div></li>
+  </ul>
+</div></section>
+
+<!-- 04 -->
+<section class="sec alt" id="arch"><div class="wrap">
+  <span class="num">04 · 项目架构</span>
+  <h2>项目架构怎么设计的？</h2>
+  <p class="lede">整个系统分五层，口诀是：<b>先记住，再做事，错了就学，学完要验。</b></p>
+  <div class="fig"><img src="assets/img/everself/arch.webp" width="1280" height="720" alt="EverSelf 五层架构"></div>
+  <div class="cap">图：EverSelf 五层架构</div>
+  <div class="g2">
+    <div class="card c" style="--cc:var(--blue)"><h3>① 接入层</h3><p>桌面 App、飞书、MCP 接口。你从哪里跟它说话，它都认得你。</p></div>
+    <div class="card c" style="--cc:var(--violet)"><h3>② Agent 层</h3><p>先判断你要做什么，拆成几步，再分发给代码、比价、股票、论文、深度研究这几类场景 Agent。</p></div>
+    <div class="card c" style="--cc:var(--amber)"><h3>③ 记忆层</h3><p>写入、检索、遗忘、溯源、同步都在这一层，所有 Agent 共用同一份记忆。</p></div>
+    <div class="card c" style="--cc:var(--green)"><h3>④ 执行层</h3><p>模型网关、工具调用、技能库、沙箱、检查点。任务跑到一半被打断，能从上一步接着来。</p></div>
   </div>
-</section>
+  <div class="card c" style="--cc:var(--rose);margin-top:16px"><h3>⑤ 训练评测层</h3><p>收集执行轨迹，筛出做对的，让小模型学（SFT），再用可验证的奖励继续训练（GRPO）；线上反馈回流成数据飞轮；每一轮都用固定评测集和证伪账本验收。</p></div>
+</div></section>
 
-<!-- ═════════ 硬核数字（暗色） ═════════ -->
-<section id="tech">
-  <div class="inner sec">
-    <div class="wrap">
-      <p class="eyebrow reveal">真实测量</p>
-      <h2 class="reveal" style="--i:1">硬核数字，每一个都是跑出来的</h2>
-      <p class="lede reveal" style="--i:2">不是 PPT 上的箭头，是真实训练、真实评测的结果。</p>
-      <div class="bento">
-        <div class="bcard reveal" style="--i:1" data-num>
-          <div class="big"><span class="from">21%</span><span class="to">56%</span></div>
-          <h3>打开记忆，AI 终于记得住你的要求</h3>
-          <p>同一批 81 道题、同一个本地 7B 模型：关掉记忆只答对 17 道，打开记忆答对 45 道。统计检验 p=0.0001，不是运气。</p>
-          <div class="bars"><div class="bar1" style="--v:.21"><i></i></div><div class="bar1 after" style="--v:.556"><i></i></div></div>
-        </div>
-        <div class="bcard reveal" style="--i:2">
-          <div class="big"><span class="from">0.23</span><span class="to">0.56</span></div>
-          <h3>在超长对话里翻旧账</h3>
-          <p>LoCoMo 超长对话基准：只靠向量检索，前 5 条里找到正确记忆的比例是 23%；加上混合检索和重排，涨到 56%。中文 LongMemEval 上做到 95%。</p>
-          <div class="bars"><div class="bar1" style="--v:.23"><i></i></div><div class="bar1 after" style="--v:.56"><i></i></div></div>
-        </div>
-        <div class="bcard reveal" style="--i:3">
-          <div class="big"><span class="from">58%</span><span class="to">94%</span></div>
-          <h3>GRPO 把 1.5B 小模型练成尖子生</h3>
-          <p>同一个基座、同样的预算，SFT、DPO、GRPO 三种方法正面比。500 道测试题的全对率，GRPO 从 57.6% 拉到 94.0%，三者里最高。</p>
-          <div class="bars"><div class="bar1" style="--v:.576"><i></i></div><div class="bar1 after" style="--v:.94"><i></i></div></div>
-        </div>
-        <div class="bcard reveal" style="--i:1">
-          <div class="big"><span class="from">64%</span><span class="to">86%</span></div>
-          <h3>学会判断什么该记、什么不该记</h3>
-          <p>规则写死的门控只判对 64.3%，训练出的决策模型做到 86.1%。误把机密信息写进记忆的次数，从 18 次降到 7 次。</p>
-          <div class="bars"><div class="bar1" style="--v:.643"><i></i></div><div class="bar1 after" style="--v:.861"><i></i></div></div>
-        </div>
-        <div class="bcard reveal" style="--i:2">
-          <div class="big"><span class="to">−64%</span></div>
-          <h3>让第一个字更快出现</h3>
-          <p>600 多条真实提示词共享系统前缀，开启前缀缓存后，首字延迟中位数从 36.4ms 降到 13.0ms。另外 FP8 量化和 FP16 质量差别测不出来，AWQ 省下 31% 显存。</p>
-        </div>
-        <div class="bcard reveal" style="--i:3">
-          <div class="big"><span class="to">1.66×</span></div>
-          <h3>亲手写一个 Triton 算子</h3>
-          <p>把残差加和 RMSNorm 融合成一个内核，比 torch.compile 快 1.66 倍，输出逐元素一致，46 项测试全绿。</p>
-        </div>
-        <div class="grpo-card reveal" style="--i:2" id="grpocard">
-          <div>
-            <h3>400 步真实训练，曲线一条不少</h3>
-            <p>奖励、成功率、损失、步耗时四张子图。你会看懂每一个拐点为什么出现，还会做 7 组奖励设计对照，知道哪种奖励真正管用。</p>
-          </div>
-          <div class="paper-in"><img src="/projects/assets/img/m2/grpo-training.webp" width="1600" height="1276" alt="GRPO 400 步真实训练曲线：奖励、成功率、损失、步耗时" loading="lazy"></div>
-        </div>
-      </div>
-    </div>
+<!-- 05 -->
+<section class="sec" id="flow"><div class="wrap">
+  <span class="num">05 · 一次请求</span>
+  <h2>一次请求是怎么走完整个系统的？</h2>
+  <p class="lede">比如你说：“帮我给上次那个电商项目加个优惠券功能。”</p>
+  <div class="fig"><img src="assets/img/everself/flow.webp" width="1280" height="720" alt="一次请求的七步链路"></div>
+  <div class="cap">图：一次请求的七步链路</div>
+  <div class="steps">
+    <div><b>理解意图</b>判断是写代码任务，要项目背景</div>
+    <div><b>检索记忆</b>找到电商、Python、不喜欢过度封装</div>
+    <div><b>规划任务</b>拆成读、改、写测试、跑测试</div>
+    <div><b>沙箱执行</b>每一步存检查点</div>
+    <div><b>验证结果</b>测试没过带报错重试</div>
+    <div><b>带出处回答</b>告诉你用了哪几条记忆</div>
+    <div><b>写回记忆</b>新决定存下，失败的提炼技能</div>
   </div>
-</section>
+  <div class="hook">用户看到的是七步。工程上，这七步背后是三套机制：Agent Loop、模型网关、Coding Agent 双通道。下面三章逐个讲。</div>
+</div></section>
 
-<!-- ═════════ 一张 4090 ═════════ -->
-<section id="rack">
-  <div class="wrap">
-    <p class="eyebrow reveal">跑在什么上面</p>
-    <h2 class="reveal" style="--i:1">一张 RTX 4090，撑起整套系统</h2>
-    <div class="vbar reveal" style="--i:2" role="img" aria-label="显存占用示意：主模型约 8.6GB、决策模型 4.2GB、重排模型 1.9GB、向量模型与余量">
-      <div class="v1">主模型 7B-AWQ · 8.6GB</div>
-      <div class="v2">决策模型 · 4.2GB</div>
-      <div class="v3">重排 · 1.9GB</div>
-      <div class="v4">向量</div>
-      <div class="vfree">余量</div>
-    </div>
-    <div class="vlegend reveal" style="--i:3">
-      <div><b>主模型</b>Qwen2.5-7B-Instruct（AWQ · vLLM）</div>
-      <div><b>记忆决策</b>本地小模型</div>
-      <div><b>重排模型</b>bge-reranker-v2-m3</div>
-      <div><b>记忆向量</b>bge-small-zh</div>
-    </div>
-    <p class="vnote reveal" style="--i:4">所有延迟数字都是在这些服务同时运行时测的。</p>
+<!-- 06 Agent Loop -->
+<section class="sec alt" id="loop"><div class="wrap">
+  <span class="num">06 · Agent Loop</span>
+  <h2>Agent Loop：一次任务的工程骨架是什么样的？</h2>
+  <p class="lede">JD 里那串词：Agent Loop、任务分解、多轮工具调用、上下文构造、状态管理、失败恢复、结果验证、Tracing、实验评估。它们不是九个独立知识点，而是一个循环里的九个位置。</p>
+  <div class="fig"><img src="assets/img/everself/harness.webp" width="1280" height="720" alt="Agent Loop 工程骨架"></div>
+  <div class="cap">图：Agent Loop 工程骨架</div>
+  <div class="kv">
+    <div><b>任务分解</b>把“加优惠券”拆成有依赖顺序的子步骤，每步有明确的完成判据。</div>
+    <div><b>上下文构造</b>记忆、工具结果、对话历史拼成不超窗口的上下文；长对话用“固定块 + 摘要”，用户说过的数字和偏好逐字固定，摘要器碰不到。</div>
+    <div><b>多轮工具调用</b>模型输出结构化调用，系统执行后把结果喂回去，循环直到完成或触发上限。</div>
+    <div><b>状态管理</b>每一步的输入、输出、工作区快照都记在轨迹里，任何时刻可以回放到某一步。</div>
+    <div><b>失败恢复</b>进程被杀从最近检查点恢复；非幂等工具靠工作区快照重放，不靠部分撤销。</div>
+    <div><b>结果验证</b>代码跑测试、引用核原文、数字核来源，通不过不交付，而是带着报错重试。</div>
+    <div><b>Tracing</b>整次执行每一步完整记录，可回放、可对比两次运行的差异。</div>
+    <div><b>实验评估</b>固定评测集 + 回归基线 + 置信区间；改了 harness 之后，先看评测再合并。</div>
   </div>
-</section>
+</div></section>
 
-<!-- ═════════ 收获 tabs ═════════ -->
-<section id="gains" class="sec">
-  <div class="wrap">
-    <p class="eyebrow reveal">你能带走什么</p>
-    <h2 class="reveal" style="--i:1">做完 MemSync，你手里会多出这些</h2>
-    <div class="tabs reveal" style="--i:2" role="tablist" aria-label="收获分栏">
-      <button class="tab" role="tab" aria-selected="true" data-p="0">检索与记忆</button>
-      <button class="tab" role="tab" aria-selected="false" data-p="1">后训练</button>
-      <button class="tab" role="tab" aria-selected="false" data-p="2">推理加速</button>
-      <button class="tab" role="tab" aria-selected="false" data-p="3">Agent 与自进化</button>
-      <span id="tabslide" aria-hidden="true"></span>
-    </div>
-    <div class="panels">
-      <div class="tpanel on" role="tabpanel">
-        <ul>
-          <li>混合检索与 RRF 融合</li><li>重排模型接入</li><li>四层记忆结构</li>
-          <li>向量钟加来源优先级的多端冲突合并</li><li>版本链与墓碑两种遗忘</li><li>逐句溯源</li>
-        </ul>
-        <img src="/projects/assets/img/m2/04-mem-paths.webp" width="1280" height="720" alt="双路召回机制示意" loading="lazy">
-      </div>
-      <div class="tpanel" role="tabpanel" hidden>
-        <ul>
-          <li>从 Agent 轨迹构建训练数据</li><li>SFT / DPO / GRPO 三种方法同条件对照</li>
-          <li>奖励函数设计与消融</li><li>预注册评测：先定判据再看结果</li>
-        </ul>
-        <img src="/projects/assets/img/m2/grpo-training.webp" width="1600" height="1276" alt="GRPO 真实训练曲线" loading="lazy">
-      </div>
-      <div class="tpanel" role="tabpanel" hidden>
-        <ul>
-          <li>vLLM 部署</li><li>FP8 / AWQ / GPTQ 量化取舍</li><li>前缀缓存</li><li>投机解码</li><li>Triton 写融合算子</li>
-        </ul>
-        <img src="/projects/assets/img/results/g3_quantization.png" width="2977" height="1196" alt="量化实验图" loading="lazy">
-      </div>
-      <div class="tpanel" role="tabpanel" hidden>
-        <ul>
-          <li>代码智能体 harness</li><li>技能学习与统计闸门</li><li>自进化选择核：账本、预算、噪声地板</li>
-        </ul>
-        <img src="/projects/assets/img/m2/08-mem-sandbox.webp" width="1280" height="720" alt="沙箱机制示意" loading="lazy">
-      </div>
-    </div>
-    <p class="tpanel note" style="display:none"></p>
-    <p class="figcap" id="tabnote" style="margin-top:22px">每一块都能单独写成简历上的一行。</p>
+<!-- 07 Gateway -->
+<section class="sec" id="gw"><div class="wrap">
+  <span class="num">07 · 模型网关</span>
+  <h2>一次模型调用背后，工程上要管哪八件事？</h2>
+  <p class="lede">所有 Agent 不直接调模型 API，统一走一个网关。JD 里的“LLM 应用研发技术栈”，说的就是这个网关要做的事。</p>
+  <div class="fig"><img src="assets/img/everself/gateway.webp" width="1280" height="720" alt="模型网关八件事"></div>
+  <div class="cap">图：模型网关要管的八件事</div>
+  <table class="tbl">
+    <tr><th>机制</th><th>EverSelf 怎么做</th></tr>
+    <tr><td><b>模型路由</b></td><td>意图识别、记忆分类走小模型；规划、写代码走大模型；某个模型不可用自动降级</td></tr>
+    <tr><td><b>流式输出</b></td><td>边生成边显示；工具调用中途也能看到“正在读 orders.py”</td></tr>
+    <tr><td><b>工具调用</b></td><td>统一的工具协议，模型输出结构化调用，网关校验参数后执行</td></tr>
+    <tr><td><b>Prompt Caching</b></td><td>系统提示、技能说明这类固定前缀只算一次钱</td></tr>
+    <tr><td><b>Rate Limit</b></td><td>按应用、按用户限流，超限排队重试，不让一个任务吃光配额</td></tr>
+    <tr><td><b>上下文窗口</b></td><td>网关知道每个模型的窗口大小，超了先压缩再发</td></tr>
+    <tr><td><b>Token 计费</b></td><td>每个任务一笔账，看得到哪一步最贵；按用户出配额</td></tr>
+    <tr><td><b>结构化输出</b></td><td>要求模型按 schema 返回，格式不对自动重试</td></tr>
+  </table>
+</div></section>
+
+<!-- 08 Coding -->
+<section class="sec alt" id="code"><div class="wrap">
+  <span class="num">08 · Coding Agent</span>
+  <h2>高频补全和长任务，为什么要分开设计？</h2>
+  <p class="lede">JD 里常见一句：“针对低延迟高频请求和长任务 Agent 请求设计差异化的系统架构”。这两种请求的脾气完全不同，硬塞进一套架构里，两边都做不好。</p>
+  <div class="fig"><img src="assets/img/everself/coding.webp" width="1280" height="720" alt="Coding Agent 双通道"></div>
+  <div class="cap">图：Coding Agent 双通道</div>
+  <table class="tbl">
+    <tr><th></th><th>高频补全通道</th><th>长任务通道</th></tr>
+    <tr><td><b>你在等什么</b></td><td>敲一个字就要出结果，百毫秒级</td><td>可以等几分钟，但不能出错</td></tr>
+    <tr><td><b>用什么模型</b></td><td>小而快，走 Prompt Caching</td><td>大而强，带工具</td></tr>
+    <tr><td><b>要不要沙箱</b></td><td>不执行代码</td><td>必须：读代码、改代码、跑测试、出 PR</td></tr>
+    <tr><td><b>断了怎么办</b></td><td>重来一次就行</td><td>从检查点恢复，工作区快照重放</td></tr>
+    <tr><td><b>怎么验收</b></td><td>采纳率</td><td>测试通过、PR 能合并</td></tr>
+  </table>
+  <p style="margin-top:16px">长任务通道从读代码到出 PR 全流程走通，每次任务的轨迹（看了什么、改了什么、测试结果）都进训练评测层，这就是后面“老师示范”的数据来源。</p>
+</div></section>
+
+<!-- 09 RSI -->
+<section class="sec" id="rsi"><div class="wrap">
+  <span class="num">09 · 自进化</span>
+  <h2>Agent 怎么自己变强，又不自己骗自己？</h2>
+  <p class="lede">“自进化”听起来玄，拆开就是一个循环：跑任务 → 失败归因 → 提出改法 → 证伪检验 → 通过才启用。难的不是前三步，是后两步：<b>怎么防止它把“碰巧变好”当成“真的变好”</b>。</p>
+  <div class="fig"><img src="assets/img/everself/rsi.webp" width="1280" height="720" alt="自进化飞轮"></div>
+  <div class="cap">图：自进化飞轮与证伪账本</div>
+  <div class="kv">
+    <div><b>三种改法</b>长出新技能（失败案例提炼成 SKILL）、调记忆策略（该存什么、召回几条）、改 harness 本身（提示、工具协议、循环上限）。</div>
+    <div><b>证伪账本</b>每个候选改动先记一笔“它可能没用”的假设，用配对评测去推翻；推翻不了的才启用，推翻了的记下原因，防止同一个想法反复提。</div>
+    <div><b>退火预算</b>早期允许大胆试，越往后评测花费越收紧；总预算用完自动停，避免无限改下去。</div>
+    <div><b>泄漏预筛</b>候选改动如果只是把评测题答案塞进提示，预筛直接拒绝，不浪费评测额度。</div>
+    <div><b>噪声地板</b>先测同一版本跑两次的差异，低于这个差异的“提升”一律不算数。</div>
+    <div><b>结构新颖度</b>改动和现有版本太像的降权，鼓励真正不同的方向。</div>
   </div>
-</section>
+  <div class="hook">同一个内核同时管三件事：记忆策略自调优、技能准入、harness 改动。三处共用一套证伪规则，就不会出现“技能这边宽、记忆那边严”的双标。</div>
+</div></section>
 
-<!-- ═════════ 面试价值 ═════════ -->
-<section id="iv" class="sec" style="padding-top:30px">
-  <div class="wrap">
-    <p class="eyebrow reveal">面试桌上</p>
-    <h2 class="reveal" style="--i:1">面试官问到这些，你都有真东西讲</h2>
-    <div class="items">
-      <div class="ivrow reveal" style="--i:1">
-        <div class="bubble">「Agent 的记忆怎么设计？」</div>
-        <div class="ivans"><h3>别人背论文，你讲自己的架构</h3><p>四层结构、写入闸门、冲突合并，都是你自己做出来的。最后再补一句：打开记忆，答对率从 21% 到 56%，p=0.0001。</p></div>
-      </div>
-      <div class="ivrow reveal" style="--i:2">
-        <div class="bubble">「你用过强化学习吗？」</div>
-        <div class="ivans"><h3>三种范式正面比过</h3><p>同一个 1.5B 基座上 SFT、DPO、GRPO 的同条件对比，400 步曲线上每个拐点为什么出现，7 组奖励设计里哪组有效、哪组没用，你都亲手跑过。</p></div>
-      </div>
-      <div class="ivrow reveal" style="--i:3">
-        <div class="bubble">「你遇到过什么坑？」</div>
-        <div class="ivans"><h3>最加分的一题</h3><p>你在项目里亲手推翻过三次自己的结论：有一次 +12 个百分点的提升，扩大样本后只剩 +2。会说「我错过、我怎么发现的」，比只说「我成功了」更让人信服。</p></div>
-      </div>
-    </div>
+<!-- 10 Train -->
+<section class="sec alt" id="train"><div class="wrap">
+  <span class="num">10 · 后训练</span>
+  <h2>怎么让小模型学会“什么时候该记、该查、该调工具”？</h2>
+  <p class="lede">大模型很强，但它不知道你的记忆系统怎么用。靠提示词写规则很脆弱，更稳的办法是让小模型把这套行为学会。老师是大模型，教材是它跑出来的轨迹。</p>
+  <div class="fig"><img src="assets/img/everself/train.webp" width="1280" height="720" alt="后训练五步管线"></div>
+  <div class="cap">图：后训练五步管线</div>
+  <div class="kv">
+    <div><b>Teacher rollout</b>大模型带着记忆和工具跑六类任务，每步记录：看到什么、读写哪条记忆、调什么工具、结果如何。</div>
+    <div><b>拒绝采样</b>只留结果可验证为对的轨迹：测试通过、引用对得上原文、比价可复核。失败的进错题本，当对比样本。</div>
+    <div><b>SFT</b>小模型照着合格轨迹学“何时写记忆、何时检索、怎么调工具”。LoRA，单张 4090 可训。</div>
+    <div><b>在线策略蒸馏（OPD）</b>学生自己采样，老师逐步打分；多个老师意见分歧大的样本先放一边，不拿有争议的东西教学生。</div>
+    <div><b>过程奖励（PRM）</b>不只看最终对错，每一步也打分：规则能验的步骤直接验，验不了的用蒙特卡洛估计；奖励经校准再用，防止分数虚高。</div>
+    <div><b>GRPO</b>同一题答多次，按可验证奖励排序更新。奖励 = 任务成功 + 记忆命中 + 引用有效 − 成本 − 越权。</div>
+    <div><b>Reward hacking 告警</b>故意构造钻空子的答案喂给奖励函数，给了高分就报警，奖励函数先改再训。</div>
+    <div><b>三臂评测</b>原始 / SFT / SFT+GRPO 跑同一批记忆评测题，报告置信区间，不只报平均数。</div>
   </div>
-</section>
+</div></section>
 
-<!-- ═════════ FAQ ═════════ -->
-<section id="faq" class="sec" style="padding-top:30px">
-  <div class="wrap">
-    <p class="eyebrow reveal">你可能想问</p>
-    <h2 class="reveal" style="--i:1">常见问题</h2>
-    <div class="qa">
-      <details class="reveal" style="--i:1"><summary>我只会 Python，跟得上吗？<span class="plus"></span></summary><div class="ain"><p class="a">会 Python、了解 PyTorch 的基本用法就能开始。大模型相关的知识，项目里边做边补，每个模块开头都有热身说明。</p></div></details>
-      <details class="reveal" style="--i:2"><summary>必须有一张 4090 吗？<span class="plus"></span></summary><div class="ain"><p class="a">页面上的数字都是在单张 RTX 4090 上测的。没有卡也能学：检索、评测、数据处理这些模块不吃显存；训练部分可以租云 GPU 跑通同款流程。</p></div></details>
-      <details class="reveal" style="--i:3"><summary>以前的 RAG、多 Agent 那些项目还学吗？<span class="plus"></span></summary><div class="ain"><p class="a">都在 MemSync 里面：检索是它的记忆召回，多 Agent 和深度研究是它的科研工作台，强化学习是它的决策模型。按能力单独看的旧版模块页，放在页面底部的「全部项目」里。</p></div></details>
-      <details class="reveal" style="--i:4"><summary>简历上怎么写？<span class="plus"></span></summary><div class="ain"><p class="a">一个项目名，三到四行要点，每行带一个数字。上面四个分栏的每一块，都能拆出简历的一行；完整写法参考在项目详情页。</p></div></details>
-      <details class="reveal" style="--i:5"><summary>多久能做完？<span class="plus"></span></summary><div class="ain"><p class="a">按教程分模块推进：先跑通记忆链路，再逐块加深。每个能力块都能独立完成和停下，不设死线。</p></div></details>
-    </div>
+<!-- 11 Flywheel -->
+<section class="sec" id="fw"><div class="wrap">
+  <span class="num">11 · 数据飞轮</span>
+  <h2>上线之后，用户每一次“采纳 / 打回”怎么变成训练数据？</h2>
+  <p class="lede">训练不是一次性的。真正的数据来源是线上用户：采纳了什么、打回了什么、改了哪里。JD 里的“Online User Data Flywheel”和“Scaling Law”，说的就是这套循环怎么持续转。</p>
+  <div class="fig"><img src="assets/img/everself/flywheel.webp" width="1280" height="720" alt="线上数据飞轮"></div>
+  <div class="cap">图：线上数据飞轮与 Scaling Law 观察</div>
+  <div class="kv">
+    <div><b>三条回流通道</b>采纳 → 训练样本；修改 → 偏好对（改前 vs 改后）；打回 → 先归因再分流。</div>
+    <div><b>badcase 自动归因</b>打回的任务自动判断错在哪一层：检索没召回、推理错了、工具失败、还是奖励给错了。</div>
+    <div><b>动态评测集</b>新出现的失败模式自动进评测集，老的通过率稳定的题退场，评测集跟着真实分布走。</div>
+    <div><b>回归基线</b>每次再训练前后跑同一批题，任何一类题掉了都拦下，不让新模型“这边涨那边跌”。</div>
+    <div><b>Scaling Law 观察</b>按数据量分档训练，画效果随数据量变化的曲线，看收益在哪里开始变缓，决定下一步是攒数据还是换方法。</div>
+    <div><b>查询合成</b>线上数据不够时，用七类任务模板和五种变异合成新题，每条带溯源，和真实数据分开记账。</div>
   </div>
-</section>
+</div></section>
 
-<!-- ═════════ CTA ═════════ -->
-<section id="cta">
-  <div class="wrap">
-    <div class="block reveal">
-      <h2>别再做第 101 个 RAG demo</h2>
-      <p>做一个面试官没见过的、会记住你的 AI。</p>
-      <a class="btn big" href="/projects/m2-memory.html">现在开始做 MemSync<span class="shine"></span></a>
-    </div>
+<!-- 12 JD -->
+<section class="sec alt" id="jd"><div class="wrap">
+  <span class="num">12 · JD 对照</span>
+  <h2>三家大厂的 JD，<span class="hl">你在项目里亲手做什么？</span></h2>
+  <div class="jdq">
+    <div class="card" style="--cc:var(--blue)"><h3>字节跳动 · AI Agent 记忆系统工程师</h3><q>设计并优化记忆系统的写入、存储、索引、检索、更新、压缩与遗忘机制；召回排序、冲突消解、记忆生命周期管理。</q><a href="https://jobs.bytedance.com/experienced/position/7631535962104023349/detail" target="_blank" rel="noopener">查看岗位原文 →</a></div>
+    <div class="card" style="--cc:var(--clay)"><h3>阿里巴巴 · 推荐 Agent 算法</h3><q>认知记忆的分层架构及生命周期治理；Memory Self-Improvement：反馈驱动的记忆修正、冲突消解；涵盖 SFT、RL、Agent。</q><a href="https://campus-talent.alibaba.com/campus/position/199909300002" target="_blank" rel="noopener">查看岗位原文 →</a></div>
+    <div class="card" style="--cc:var(--green)"><h3>腾讯 PCG · AI 应用开发-Agent</h3><q>任务规划、长期记忆、多 Agent 协同、RAG；Durable Execution 长任务框架、沙箱、Skills 与 MCP；评测飞轮，微调与强化学习。</q><a href="https://careers.tencent.com/zh-cn/jobdesc.html?postId=2026845083588001792" target="_blank" rel="noopener">查看岗位原文 →</a></div>
   </div>
-</section>
-</main>
-
-<footer>
-  <div class="wrap">
-    <div class="fbrand">AgentAlpha · MemSync</div>
-    <p class="fsub">让每个 AI 都记住你。数字截至 2026-10-18 的实验产物。</p>
-    <details>
-      <summary>全部项目（按能力拆开的旧版模块页）<span class="plus" style="margin-left:12px"></span></summary>
-      <div class="a">
-        <div class="mgrid">
-          <a href="/projects/m1-rag.html">企业知识库问答</a>
-          <a href="/projects/m2-memory.html">跨端个人记忆中台</a>
-          <a href="/projects/m3-agent.html">投研速查助手</a>
-          <a href="/projects/m4-multiagent.html">研报工厂</a>
-          <a href="/projects/m5-deepsearch.html">深度研究报告</a>
-          <a href="/projects/m6-inference.html">推理服务优化</a>
-          <a href="/projects/m7-codeagent.html">代码 Agent</a>
-          <a href="/projects/m8-selfevolve.html">Agent 自进化</a>
-          <a href="/projects/m9-agentic-rl.html">Agentic RL 训练</a>
-          <a href="/projects/m10-capstone.html">综合考核</a>
-          <a href="/projects/m11-m12.html">判定引擎与长程接力</a>
-          <a href="/projects/results.html">实验证据总览</a>
-          <a href="/projects/all.html">旧版项目总览</a>
-        </div>
-      </div>
-    </details>
+  <p class="lede">十四项能力，每一项都对应一个你亲手写的模块：</p>
+  <div class="ab">
+    <div><i>1</i><div><b>记忆生命周期</b><small>写入、检索、更新、遗忘，内核 65 项测试</small><em>字节 · 阿里</em></div></div>
+    <div><i>2</i><div><b>来源追溯</b><small>每句回答点回记忆，撤销授权级联删除</small><em>字节</em></div></div>
+    <div><i>3</i><div><b>多端同步与 MCP 网关</b><small>多设备一份记忆，按应用撤销</small><em>字节</em></div></div>
+    <div><i>4</i><div><b>检索与上下文工程</b><small>混合检索、重排、固定块 + 摘要压缩</small><em>字节 · 腾讯</em></div></div>
+    <div><i>5</i><div><b>任务规划与多 Agent</b><small>规划器分发给五类场景 Agent</small><em>腾讯</em></div></div>
+    <div><i>6</i><div><b>工具、Skills、MCP</b><small>技能库，新技能证伪检验后启用</small><em>腾讯</em></div></div>
+    <div><i>7</i><div><b>Durable 长任务与沙箱</b><small>检查点续跑、Landlock、注入防护</small><em>腾讯</em></div></div>
+    <div><i>8</i><div><b>自进化（RSI）</b><small>证伪账本、退火预算、泄漏预筛、噪声地板，49 项测试</small><em>阿里 · 腾讯</em></div></div>
+    <div><i>9</i><div><b>后训练</b><small>Teacher rollout → 拒绝采样 → SFT → OPD → PRM → GRPO</small><em>阿里 · 腾讯</em></div></div>
+    <div><i>10</i><div><b>评测飞轮</b><small>固定评测集、三臂对比、置信区间、回归基线</small><em>三家</em></div></div>
+    <div><i>11</i><div><b>LLM 应用研发栈</b><small>路由、流式、缓存、限流、窗口、计费、结构化输出</small><em>行业高频</em></div></div>
+    <div><i>12</i><div><b>Agent Loop 工程机制</b><small>任务分解、状态管理、失败恢复、结果验证、Tracing</small><em>行业高频</em></div></div>
+    <div><i>13</i><div><b>Coding Agent 双通道</b><small>补全 vs 长任务分开设计，编码 Agent 100 项测试</small><em>行业高频</em></div></div>
+    <div><i>14</i><div><b>线上数据飞轮</b><small>采纳/打回回流、badcase 归因、Scaling Law 观察，294 项测试</small><em>行业高频</em></div></div>
   </div>
-</footer>
+</div></section>
 
-<script>
-(function(){
-  var doc=document.documentElement;doc.className=doc.className.replace('no-js','js');
-  var RM=matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if(RM)doc.classList.add('reduce');
-  var STATIC=location.search.indexOf('static=1')>=0;
-  if(STATIC){doc.style.scrollBehavior='auto';document.querySelectorAll('.reveal').forEach(function(e){e.classList.add('in')});
-    document.querySelectorAll('.bcard,.grpo-card').forEach(function(e){e.classList.add('go')});
-    var cv=document.getElementById('conv');if(cv){cv.classList.add('drawn');cv.querySelectorAll('.cap-pill').forEach(function(p){p.classList.add('on')})}
-    var rk=document.getElementById('rack');if(rk)rk.classList.add('go');}
-  else{setTimeout(function(){document.querySelectorAll('.reveal').forEach(function(el){
-    if(el.getBoundingClientRect().top<innerHeight*1.1)el.classList.add('in')});},60)}
-  // 阅读进度条 + 顶栏底线
-  var prog=document.getElementById('prog'),bar=document.getElementById('bar'),ticking=false;
-  addEventListener('scroll',function(){if(!ticking){requestAnimationFrame(function(){
-    var h=document.documentElement,p=h.scrollTop/(h.scrollHeight-h.clientHeight);
-    prog.style.transform='scaleX('+p+')';bar.classList.toggle('on',h.scrollTop>80);ticking=false;});ticking=true;}},{passive:true});
-  // 渐入
-  var io=('IntersectionObserver'in window)?new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}})},{threshold:.15}):null;
-  document.querySelectorAll('.reveal').forEach(function(el){io?io.observe(el):el.classList.add('in')});
-  // Hero 打字回放
-  var LINES=[
-    ['you   ','› 我以后都喝低因咖啡'],
-    ['recall','› coffee.caffeine#low   <span class="s">score 0.395</span>'],
-    ['write ','› coffee.caffeine#low'],
-    ['reply ','› 结合你的 1 条记忆作答…'],
-    ['policy','› recall-first']
-  ];
-  var box=document.getElementById('rlines');
-  function finish(){box.innerHTML=LINES.map(function(l){return '<div class="ln"><span class="k">'+l[0]+'</span> <span class="v">'+l[1]+'</span></div>'}).join('');}
-  if(RM||STATIC||!box){finish();return}
-  var li=0,ci=0,cur=document.createElement('span');cur.className='cur';
-  function line(i){var d=document.createElement('div');d.className='ln';
-    d.innerHTML='<span class="k">'+LINES[i][0]+'</span> <span class="v"></span>';box.appendChild(d);return d.querySelector('.v')}
-  var target=line(0);target.appendChild(cur);
-  setTimeout(function tick(){
-    if(li>=LINES.length){cur.remove();return}
-    var full=LINES[li][1],plain=full.replace(/<[^>]+>/g,'');
-    if(ci<plain.length){target.textContent=plain.slice(0,ci+1);target.appendChild(cur);ci++;setTimeout(tick,18)}
-    else{target.innerHTML=full;target.appendChild(cur);li++;ci=0;
-      if(li<LINES.length){target=line(li);target.appendChild(cur);setTimeout(tick,300)}else{cur.remove()}}
-  },400);
-  // 能力胶囊汇聚
-  var conv=document.getElementById('conv');
-  if(conv){var cio=('IntersectionObserver'in window)?new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){conv.classList.add('drawn');
-    conv.querySelectorAll('.cap-pill').forEach(function(p,i){setTimeout(function(){p.classList.add('on')},i*90)});cio.unobserve(conv);}})},{threshold:.3}):null;
-    cio?cio.observe(conv):conv.classList.add('drawn');conv.querySelectorAll('.cap-pill').forEach(function(p){p.classList.add('on')});}
-  // 记忆一生 sticky
-  var steps=[].slice.call(document.querySelectorAll('.step')),vis=document.getElementById('vis'),
-      imgs=vis?[].slice.call(vis.querySelectorAll('img')):[],dots=[].slice.call(document.querySelectorAll('#dots i')),rail=document.getElementById('rail');
-  function setCur(i){steps.forEach(function(s,j){s.classList.toggle('cur',j===i)});
-    imgs.forEach(function(im,j){im.classList.toggle('on',j===i)});
-    dots.forEach(function(d,j){d.classList.toggle('on',j===i)});
-    if(rail)rail.style.height=(i/(steps.length-1)*100)+'%';}
-  if(steps.length&&'IntersectionObserver'in window){
-    var sio=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting)setCur(+e.target.dataset.i)})},{rootMargin:'-45% 0px -45% 0px'});
-    steps.forEach(function(s){sio.observe(s)});setCur(0);
-  }
-  var track=document.querySelector('.track');
-  if(track&&'IntersectionObserver'in window){
-    var tio=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){
-      var i=[].indexOf.call(track.children,e.target);dots.forEach(function(d,j){d.classList.toggle('on',j===i)})}})},{root:track,threshold:.6});
-    [].forEach.call(track.children,function(c){tio.observe(c)});
-  }
-  // 暗色卡激活（数字条/曲线擦出）
-  document.querySelectorAll('.bcard,.grpo-card').forEach(function(c){
-    var bio=('IntersectionObserver'in window)?new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){c.classList.add('go');bio.unobserve(c)}})},{threshold:.3}):null;
-    bio?bio.observe(c):c.classList.add('go');
-    c.addEventListener('pointermove',function(ev){var r=c.getBoundingClientRect();c.style.setProperty('--mx',(ev.clientX-r.left)+'px');c.style.setProperty('--my',(ev.clientY-r.top)+'px')});
-  });
-  // 4090 条
-  var rack=document.getElementById('rack');
-  if(rack){var rio=('IntersectionObserver'in window)?new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){rack.classList.add('go');rio.unobserve(rack)}})},{threshold:.3}):null;
-    rio?rio.observe(rack):rack.classList.add('go');}
-  // Tabs
-  var tabs=[].slice.call(document.querySelectorAll('.tab')),panels=[].slice.call(document.querySelectorAll('.tpanel')),slide=document.getElementById('tabslide');
-  function moveSlide(t){if(!slide)return;slide.style.left=t.offsetLeft+'px';slide.style.width=t.offsetWidth+'px'}
-  function sel(i,focus){tabs.forEach(function(t,j){t.setAttribute('aria-selected',j===i?'true':'false');if(j===i)moveSlide(t)});
-    panels.forEach(function(p,j){p.classList.toggle('on',j===i);p.hidden=j!==i});
-    if(focus)tabs[i].focus()}
-  tabs.forEach(function(t,i){t.addEventListener('click',function(){sel(i)});t.addEventListener('keydown',function(e){
-    if(e.key==='ArrowRight')sel(Math.min(i+1,tabs.length-1),true);if(e.key==='ArrowLeft')sel(Math.max(i-1,0),true)})});
-  if(tabs[0]){moveSlide(tabs[0]);addEventListener('resize',function(){var s=tabs.filter(function(t){return t.getAttribute('aria-selected')==='true'})[0]||tabs[0];moveSlide(s)})}
-  var mb=document.getElementById('menu-btn'),mn=document.getElementById('mnav');
-  if(mb&&mn){mb.addEventListener('click',function(){var o=mn.classList.toggle('open');mb.setAttribute('aria-expanded',o)});
-    mn.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){mn.classList.remove('open');mb.setAttribute('aria-expanded',false)})});}
-})();
-</script>
+<!-- 13 -->
+<section class="sec" id="hl"><div class="wrap">
+  <span class="num">13 · 项目亮点</span>
+  <h2>项目亮点有哪些？面试会怎么问？</h2>
+  <div class="fig"><img src="assets/img/everself/highlights.webp" width="1280" height="720" alt="EverSelf 项目亮点"></div>
+  <div class="cap">图：十大项目亮点</div>
+  <div class="hl2">
+    <div class="card"><h3>为什么记忆不能只靠向量检索？</h3><p>新旧冲突、时间顺序、溯源，相似度解决不了。检索之外再加一层冲突与时效判断。</p><span class="t1">JD：记忆生命周期</span><span class="t2">考点：混合检索</span></div>
+    <div class="card"><h3>怎么证明“自进化”不是自己骗自己？</h3><p>证伪账本 + 噪声地板：先测同版本两次的差异，低于它的提升不算；新改动先试着推翻它。</p><span class="t1">JD：自进化</span><span class="t2">考点：统计显著性</span></div>
+    <div class="card"><h3>长任务进程被杀了怎么恢复？</h3><p>每步存检查点，非幂等工具用工作区快照重放；在随机时刻注入 kill，对比恢复后与不中断运行是否逐字节一致。</p><span class="t1">JD：Durable Execution</span><span class="t2">考点：检查点、幂等</span></div>
+    <div class="card"><h3>长对话里用户说过的数字怎么不丢？</h3><p>只靠摘要会静默丢数字。把用户说的数字、日期、偏好逐字固定成一个块，摘要器永远碰不到。</p><span class="t1">JD：上下文工程</span><span class="t2">考点：压缩与保真</span></div>
+    <div class="card"><h3>GRPO 的奖励怎么防作弊？</h3><p>可验证奖励 + 过程奖励校准 + reward hacking 告警：故意钻空子的样例给了高分就先改奖励。</p><span class="t1">JD：强化学习</span><span class="t2">考点：reward hacking</span></div>
+    <div class="card"><h3>补全和长任务为什么要分开架构？</h3><p>延迟、模型、沙箱、恢复、验收标准全都不同。</p><span class="t1">JD：Coding Agent</span><span class="t2">考点：系统设计</span></div>
+    <div class="card"><h3>Agent 被恶意指令带偏怎么办？</h3><p>注入检测加沙箱：即使被骗，也只能在受限目录里动，不能联网外传。</p><span class="t1">JD：沙箱安全</span><span class="t2">考点：Prompt Injection</span></div>
+    <div class="card"><h3>用户反馈怎么变成训练数据？</h3><p>采纳、修改、打回分三条通道；打回的先归因，再决定进训练集还是评测集。</p><span class="t1">JD：数据飞轮</span><span class="t2">考点：数据闭环</span></div>
+  </div>
+</div></section>
+
+<!-- 14 -->
+<section class="sec alt" id="stack"><div class="wrap">
+  <span class="num">14 · 技术栈</span>
+  <h2>使用什么语言和技术栈？</h2>
+  <table class="tbl">
+    <tr><th>层</th><th>技术</th></tr>
+    <tr><td><b>语言</b></td><td>Python（内核、Agent、训练）、TypeScript（前端）</td></tr>
+    <tr><td><b>前端</b></td><td>Next.js</td></tr>
+    <tr><td><b>记忆内核</b></td><td>分块、BM25 + 向量混合检索、重排、溯源、撤销、多端同步</td></tr>
+    <tr><td><b>Agent 与执行</b></td><td>Agent Loop、模型网关、工具协议、Landlock 沙箱、检查点续跑、MCP</td></tr>
+    <tr><td><b>自进化</b></td><td>证伪账本、退火预算、泄漏预筛、噪声地板、统计检验</td></tr>
+    <tr><td><b>训练</b></td><td>LoRA、SFT、在线策略蒸馏、过程奖励、GRPO、vLLM 推理</td></tr>
+    <tr><td><b>评测</b></td><td>固定评测集、动态评测集、三臂对比、回归基线、置信区间</td></tr>
+  </table>
+</div></section>
+
+<!-- 15 -->
+<section class="sec" id="gain"><div class="wrap">
+  <span class="num">15 · 学完收获</span>
+  <h2>学完这个项目，你能收获什么？</h2>
+  <div class="g2">
+    <div class="card c" style="--cc:var(--blue)"><h3>讲得清 Agent 记忆</h3><p>写入、检索、更新、遗忘、溯源、同步，每一步为什么这样设计。</p></div>
+    <div class="card c" style="--cc:var(--green)"><h3>讲得清 Agent 工程</h3><p>Agent Loop、模型网关八件事、Coding Agent 双通道、检查点、沙箱。</p></div>
+    <div class="card c" style="--cc:var(--violet)"><h3>画得出后训练管线</h3><p>Teacher rollout → 拒绝采样 → SFT → OPD → PRM → GRPO，说清每一步的取舍。</p></div>
+    <div class="card c" style="--cc:var(--rose)"><h3>答得上“结果怎么证明是真的”</h3><p>证伪账本、噪声地板、回归基线、可验证奖励、置信区间。</p></div>
+  </div>
+  <div class="hook">一份能和阿里、字节、腾讯 JD 逐条对上的项目经历，面试官追问到哪一层你都接得住。</div>
+</div></section>
+
+<!-- FAQ -->
+<section class="sec alt" id="faq"><div class="wrap">
+  <span class="num">16 · FAQ</span>
+  <h2>常见问题</h2>
+  <details open><summary>我是零基础，能学吗？</summary><p>能。每个术语第一次出现都有大白话解释。建议顺序：先跑通记忆内核，再看 Agent Loop 和网关，然后自进化，最后训练。</p></details>
+  <details><summary>自进化和后训练有什么区别？</summary><p>自进化改的是技能、策略和 harness，不动模型权重，几分钟一轮；后训练改的是模型权重，几小时一轮。两者共用一套评测和证伪规则。</p></details>
+  <details><summary>炒股会不会替我下单？</summary><p>不会。只做数据查询和分析，结论带出处，不接交易接口。</p></details>
+  <details><summary>购物比价能覆盖所有平台吗？</summary><p>项目给你一套可复现的比价流程：怎么采集、怎么对比、怎么给每个价格标来源。平台范围由你扩展。</p></details>
+  <details><summary>为什么要有证伪账本？</summary><p>自进化最容易自己骗自己：测几次碰巧变好就说有效。账本强制先试着证明“没用”，证明不了才算数。</p></details>
+  <details><summary>有多模态记忆吗？</summary><p>当前版本以文本记忆为主，多模态记忆是后续扩展方向。</p></details>
+</div></section>
+
+<section class="final" id="join"><div class="wrap">
+  <h2>记得住 → 做得了 → 学得会 → 验得出</h2>
+  <p style="margin-bottom:24px">一个项目，把 Agent 岗位 JD 里最硬的几块全部走一遍。</p>
+  <a class="btn" href="#top" style="border-color:#fff;box-shadow:3px 3px 0 #fff">回到顶部</a>
+</div></section>
+<footer>© AgentAlpha</footer>
 </body>
 </html>
