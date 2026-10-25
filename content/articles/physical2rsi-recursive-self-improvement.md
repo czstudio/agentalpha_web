@@ -1,13 +1,12 @@
 ---
 slug: "physical2rsi-recursive-self-improvement"
 title: "机器人越练越熟，就是在自我进化吗？93 页综述讲透 Physical AI 的递归自我改进"
-excerpt: "机器人越练越熟，就是在自我进化吗？93页综述讲透PhysicalAI的递归自我改进机器人越练越熟，就是在自我进化吗？93页综述讲透PhysicalAI的递归"
+excerpt: "一只机械臂反复抓不稳同一个物体，问题出在哪一层？我们的 93 页新综述给出 Physical AI 递归自我改进的分类法、四级主张阶梯与 R1/R2 检验，配套 379 条文献的开源地图。"
 date: "2026-10-24"
 category: "技术分享"
-tags: "Agent,面试,大模型"
+tags: "具身智能,世界模型,机器人学习,RSI"
 minutes: 16
 ---
-机器人越练越熟，就是在自我进化吗？93 页综述讲透 Physical AI 的递归自我改进
 
 # 机器人越练越熟，就是在自我进化吗？93 页综述讲透 Physical AI 的递归自我改进
 
